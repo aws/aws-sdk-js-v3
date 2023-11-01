@@ -1994,6 +1994,28 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               MonitoringJobDefinitionName: "STRING_VALUE",
  * //               MonitoringType: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
  * //             },
+ * //             BatchTransformInput: {
+ * //               DataCapturedDestinationS3Uri: "STRING_VALUE", // required
+ * //               DatasetFormat: {
+ * //                 Csv: {
+ * //                   Header: true || false,
+ * //                 },
+ * //                 Json: {
+ * //                   Line: true || false,
+ * //                 },
+ * //                 Parquet: {},
+ * //               },
+ * //               LocalPath: "STRING_VALUE", // required
+ * //               S3InputMode: "Pipe" || "File",
+ * //               S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ * //               FeaturesAttribute: "STRING_VALUE",
+ * //               InferenceAttribute: "STRING_VALUE",
+ * //               ProbabilityAttribute: "STRING_VALUE",
+ * //               ProbabilityThresholdAttribute: Number("double"),
+ * //               StartTimeOffset: "STRING_VALUE",
+ * //               EndTimeOffset: "STRING_VALUE",
+ * //               ExcludeFeaturesAttribute: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         ModelCard: { // ModelDashboardModelCard

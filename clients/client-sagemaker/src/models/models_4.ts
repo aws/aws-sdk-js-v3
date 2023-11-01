@@ -9,6 +9,7 @@ import {
   AppSpecification,
   BatchDataCaptureConfig,
   BatchStrategy,
+  BatchTransformInput,
   BooleanOperator,
   Channel,
   CheckpointConfig,
@@ -532,6 +533,12 @@ export interface ModelDashboardMonitoringSchedule {
    * <p>Summary of information about the last monitoring job to run.</p>
    */
   LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
+
+  /**
+   * @public
+   * <p>Input object for the batch transform job.</p>
+   */
+  BatchTransformInput?: BatchTransformInput;
 }
 
 /**

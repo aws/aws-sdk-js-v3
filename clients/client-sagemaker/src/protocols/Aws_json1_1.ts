@@ -26591,6 +26591,7 @@ const de_ModelDashboardMonitoringSchedule = (
   context: __SerdeContext
 ): ModelDashboardMonitoringSchedule => {
   return take(output, {
+    BatchTransformInput: (_: any) => de_BatchTransformInput(_, context),
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EndpointName: __expectString,
     FailureReason: __expectString,
