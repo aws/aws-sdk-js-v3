@@ -2984,6 +2984,7 @@ const de_UnsupportedOperationExceptionRes = async (
  */
 const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __SerdeContext): any => {
   return take(input, {
+    AnalyzeRuleGroup: [],
     Capacity: [],
     Description: [],
     DryRun: [],
@@ -3186,6 +3187,7 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
  */
 const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __SerdeContext): any => {
   return take(input, {
+    AnalyzeRuleGroup: [],
     Description: [],
     DryRun: [],
     EncryptionConfiguration: _json,
@@ -3212,6 +3214,10 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
 // de_Address omitted.
 
 // de_Addresses omitted.
+
+// de_AnalysisResult omitted.
+
+// de_AnalysisResultList omitted.
 
 // de_AssociateFirewallPolicyResponse omitted.
 
@@ -3488,6 +3494,7 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
  */
 const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupResponse => {
   return take(output, {
+    AnalysisResults: _json,
     Capacity: __expectInt32,
     ConsumedCapacity: __expectInt32,
     Description: __expectString,
@@ -3506,6 +3513,8 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
 };
 
 // de_RuleGroups omitted.
+
+// de_RuleIdList omitted.
 
 // de_RuleOption omitted.
 

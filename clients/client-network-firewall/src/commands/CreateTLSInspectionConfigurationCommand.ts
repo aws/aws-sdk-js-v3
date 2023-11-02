@@ -42,7 +42,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
 
 /**
  * @public
- * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains the Certificate Manager certificate associations that Network Firewall uses to decrypt and re-encrypt traffic traveling through your firewall.</p>
+ * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains Certificate Manager certificate associations between and the scope configurations that Network Firewall uses to decrypt and re-encrypt traffic traveling through your firewall.</p>
  *          <p>After you create a TLS inspection configuration, you can associate it with a new firewall policy.</p>
  *          <p>To update the settings for a TLS inspection configuration, use <a>UpdateTLSInspectionConfiguration</a>.</p>
  *          <p>To manage a TLS inspection configuration's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>

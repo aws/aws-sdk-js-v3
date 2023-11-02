@@ -48,6 +48,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  *   RuleGroupName: "STRING_VALUE",
  *   RuleGroupArn: "STRING_VALUE",
  *   Type: "STATELESS" || "STATEFUL",
+ *   AnalyzeRuleGroup: true || false,
  * };
  * const command = new DescribeRuleGroupCommand(input);
  * const response = await client.send(command);
@@ -203,6 +204,15 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * //     },
  * //     SnsTopic: "STRING_VALUE",
  * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     AnalysisResults: [ // AnalysisResultList
+ * //       { // AnalysisResult
+ * //         IdentifiedRuleIds: [ // RuleIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IdentifiedType: "STATELESS_RULE_FORWARDING_ASYMMETRICALLY" || "STATELESS_RULE_CONTAINS_TCP_FLAGS",
+ * //         AnalysisDetail: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

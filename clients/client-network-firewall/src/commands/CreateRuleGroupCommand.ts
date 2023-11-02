@@ -192,6 +192,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *     SourceArn: "STRING_VALUE",
  *     SourceUpdateToken: "STRING_VALUE",
  *   },
+ *   AnalyzeRuleGroup: true || false,
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
@@ -223,6 +224,15 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * //     },
  * //     SnsTopic: "STRING_VALUE",
  * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     AnalysisResults: [ // AnalysisResultList
+ * //       { // AnalysisResult
+ * //         IdentifiedRuleIds: [ // RuleIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IdentifiedType: "STATELESS_RULE_FORWARDING_ASYMMETRICALLY" || "STATELESS_RULE_CONTAINS_TCP_FLAGS",
+ * //         AnalysisDetail: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

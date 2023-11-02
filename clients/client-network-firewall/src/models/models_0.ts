@@ -84,6 +84,68 @@ export interface Address {
 
 /**
  * @public
+ * @enum
+ */
+export const IdentifiedType = {
+  STATELESS_RULE_CONTAINS_TCP_FLAGS: "STATELESS_RULE_CONTAINS_TCP_FLAGS",
+  STATELESS_RULE_FORWARDING_ASYMMETRICALLY: "STATELESS_RULE_FORWARDING_ASYMMETRICALLY",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentifiedType = (typeof IdentifiedType)[keyof typeof IdentifiedType];
+
+/**
+ * @public
+ * <p>The analysis result for Network Firewall's stateless rule group analyzer. Every time you call <a>CreateRuleGroup</a>, <a>UpdateRuleGroup</a>, or <a>DescribeRuleGroup</a> on a stateless rule group, Network Firewall analyzes the stateless rule groups in your account and identifies the rules that might adversely effect your firewall's functionality. For example, if Network Firewall detects a rule that's routing traffic asymmetrically, which impacts the service's ability to properly process traffic, the service includes the rule in a list of analysis results.</p>
+ */
+export interface AnalysisResult {
+  /**
+   * @public
+   * <p>The priority number of the stateless rules identified in the analysis.</p>
+   */
+  IdentifiedRuleIds?: string[];
+
+  /**
+   * @public
+   * <p>The types of rule configurations that Network Firewall analyzes your rule groups for. Network Firewall analyzes stateless rule groups for the following types of rule configurations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS_RULE_FORWARDING_ASYMMETRICALLY</code>
+   *                </p>
+   *                <p>Cause: One or more stateless rules with the action <code>pass</code> or <code>forward</code> are forwarding traffic asymmetrically. Specifically, the rule's set of source IP addresses  or their associated port numbers, don't match the set of destination IP addresses or their associated port numbers.</p>
+   *                <p>To mitigate: Make sure that there's an existing return path. For example, if the rule allows traffic from source 10.1.0.0/24 to destination 20.1.0.0/24, you should allow return traffic from source 20.1.0.0/24 to destination 10.1.0.0/24.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATELESS_RULE_CONTAINS_TCP_FLAGS</code>
+   *                </p>
+   *                <p>Cause: At least one stateless rule with the action <code>pass</code> or<code>forward</code> contains TCP flags that are inconsistent in the forward and return directions.</p>
+   *                <p>To mitigate: Prevent asymmetric routing issues caused by TCP flags by following these actions:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Remove unnecessary TCP flag inspections from the rules.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you need to inspect TCP flags, check that the rules correctly account for changes in TCP flags throughout the TCP connection cycle, for example <code>SYN</code> and <code>ACK</code> flags used in a 3-way TCP handshake.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  IdentifiedType?: IdentifiedType;
+
+  /**
+   * @public
+   * <p>Provides analysis details for the identified rule.</p>
+   */
+  AnalysisDetail?: string;
+}
+
+/**
+ * @public
  */
 export interface AssociateFirewallPolicyRequest {
   /**
@@ -581,11 +643,11 @@ export interface CheckCertificateRevocationStatusActions {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>DROP</b> - Network Firewall fails closed and drops all subsequent traffic.</p>
+   *                   <b>DROP</b> - Network Firewall closes the connection and drops subsequent packets for that connection.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>REJECT</b> - Network Firewall sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall then fails closed and drops all subsequent traffic. <code>REJECT</code> is available only for TCP traffic.</p>
+   *                   <b>REJECT</b> - Network Firewall sends a TCP reject packet back to your client. The service closes the connection and drops subsequent packets for that connection. <code>REJECT</code> is available only for TCP traffic.</p>
    *             </li>
    *          </ul>
    */
@@ -601,11 +663,11 @@ export interface CheckCertificateRevocationStatusActions {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>DROP</b> - Network Firewall fails closed and drops all subsequent traffic.</p>
+   *                   <b>DROP</b> - Network Firewall closes the connection and drops subsequent packets for that connection.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>REJECT</b> - Network Firewall sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall then fails closed and drops all subsequent traffic. <code>REJECT</code> is available only for TCP traffic. </p>
+   *                   <b>REJECT</b> - Network Firewall sends a TCP reject packet back to your client. The service closes the connection and drops subsequent packets for that connection. <code>REJECT</code> is available only for TCP traffic.</p>
    *             </li>
    *          </ul>
    */
@@ -1087,9 +1149,9 @@ export type StreamExceptionPolicy = (typeof StreamExceptionPolicy)[keyof typeof 
 export interface StatefulEngineOptions {
   /**
    * @public
-   * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>DEFAULT_ACTION_ORDER</code> is
-   *          the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
-   *          based on certain settings. For more information, see
+   * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>STRICT_ORDER</code> is
+   *          the default and recommended option. With <code>STRICT_ORDER</code>, provide your rules in the order that you want them to be evaluated. You can then choose one or more default actions for packets that don't match any rules. Choose <code>STRICT_ORDER</code> to have the stateful rules engine determine the evaluation order of your rules. The default action for this rule order is <code>PASS</code>, followed by <code>DROP</code>, <code>REJECT</code>, and <code>ALERT</code> actions. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
+   *          based on your settings. For more information, see
    *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
@@ -1785,8 +1847,7 @@ export interface StatefulRule {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>ALERT</b> - Permits the packets to go to the
-   *                intended destination and sends an alert log message, if alert logging is configured in the <a>Firewall</a>
+   *                   <b>ALERT</b> - Sends an alert log message, if alert logging is configured in the <a>Firewall</a>
    *                   <a>LoggingConfiguration</a>. </p>
    *                <p>You can use this action to test a rule that you intend to use to drop traffic. You
    *                can enable the rule with <code>ALERT</code> action, verify in the logs that the rule
@@ -2049,12 +2110,14 @@ export interface StatelessRulesAndCustomActions {
 export interface RulesSource {
   /**
    * @public
-   * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention
-   *          system (IPS) rules. Suricata is an open-source network IPS that includes a standard
+   * <p>Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard
    *          rule-based language for network traffic inspection.</p>
    *          <p>These rules contain the inspection criteria and the action to take for traffic that
    *          matches the criteria, so this type of rule group doesn't have a separate action
    *          setting.</p>
+   *          <note>
+   *             <p>You can't use the <code>priority</code> keyword if the <code>RuleOrder</code> option in <a>StatefulRuleOptions</a> is set to  <code>STRICT_ORDER</code>.</p>
+   *          </note>
    */
   RulesString?: string;
 
@@ -2160,7 +2223,7 @@ export interface RuleGroup {
   /**
    * @public
    * <p>Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful
-   *        rule group must have stateful rule options settings that are compatible with these settings.</p>
+   *        rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html">Strict evaluation order</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   StatefulRuleOptions?: StatefulRuleOptions;
 }
@@ -2315,6 +2378,12 @@ export interface CreateRuleGroupRequest {
    * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
    */
   SourceMetadata?: SourceMetadata;
+
+  /**
+   * @public
+   * <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis and then creates the rule group for you. To run the stateless rule group analyzer without creating the rule group, set <code>DryRun</code> to <code>TRUE</code>.</p>
+   */
+  AnalyzeRuleGroup?: boolean;
 }
 
 /**
@@ -2418,6 +2487,12 @@ export interface RuleGroupResponse {
    * <p>The last time that the rule group was changed.</p>
    */
   LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The list of analysis results for <code>AnalyzeRuleGroup</code>. If you set <code>AnalyzeRuleGroup</code> to <code>TRUE</code> in <a>CreateRuleGroup</a>, <a>UpdateRuleGroup</a>, or <a>DescribeRuleGroup</a>, Network Firewall analyzes the rule group and identifies the rules that might adversely effect your firewall's functionality. For example, if Network Firewall detects a rule that's routing traffic asymmetrically, which impacts the service's ability to properly process traffic, the service includes the rule in the list of analysis results.</p>
+   */
+  AnalysisResults?: AnalysisResult[];
 }
 
 /**
@@ -2493,7 +2568,7 @@ export interface ServerCertificate {
 
 /**
  * @public
- * <p>Configures the Certificate Manager certificates and scope that Network Firewall uses to decrypt and re-encrypt traffic using a <a>TLSInspectionConfiguration</a>. You can configure <code>ServerCertificates</code> for inbound SSL/TLS inspection, a <code>CertificateAuthorityArn</code> for outbound SSL/TLS inspection, or both. For information about working with certificates for TLS inspection, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html"> Requirements for using SSL/TLS server certficiates with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ * <p>Configures the Certificate Manager certificates and scope that Network Firewall uses to decrypt and re-encrypt traffic using a <a>TLSInspectionConfiguration</a>. You can configure <code>ServerCertificates</code> for inbound SSL/TLS inspection, a <code>CertificateAuthorityArn</code> for outbound SSL/TLS inspection, or both. For information about working with certificates for TLS inspection, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html"> Using SSL/TLS server certficiates with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
  *          <note>
  *             <p>If a server certificate that's associated with your <a>TLSInspectionConfiguration</a> is revoked, deleted, or expired it can result in client-side TLS errors.</p>
  *          </note>
@@ -2501,7 +2576,7 @@ export interface ServerCertificate {
 export interface ServerCertificateConfiguration {
   /**
    * @public
-   * <p>The list of a server certificate configuration's Certificate Manager certificates, used for inbound SSL/TLS inspection.</p>
+   * <p>The list of server certificates to use for inbound SSL/TLS inspection.</p>
    */
   ServerCertificates?: ServerCertificate[];
 
@@ -2513,7 +2588,7 @@ export interface ServerCertificateConfiguration {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate configured in Certificate Manager (ACM) to use for outbound SSL/TLS inspection.</p>
+   * <p>The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection.</p>
    *          <p>The following limitations apply:</p>
    *          <ul>
    *             <li>
@@ -2523,14 +2598,14 @@ export interface ServerCertificateConfiguration {
    *                <p>You can't use certificates issued by Private Certificate Authority.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about the certificate requirements for outbound inspection, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html">Requirements for using SSL/TLS certificates with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>. </p>
+   *          <p>For more information about configuring certificates for outbound inspection, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html">Using SSL/TLS certificates with certificates with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>. </p>
    *          <p>For information about working with certificates in ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates</a> in the <i>Certificate Manager User Guide</i>.</p>
    */
   CertificateAuthorityArn?: string;
 
   /**
    * @public
-   * <p>When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To use this option, you must specify a <code>CertificateAuthorityArn</code> in <a>ServerCertificateConfiguration</a>.</p>
+   * <p>When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a <code>CertificateAuthorityArn</code> in <a>ServerCertificateConfiguration</a>.</p>
    */
   CheckCertificateRevocationStatus?: CheckCertificateRevocationStatusActions;
 }
@@ -3153,6 +3228,12 @@ export interface DescribeRuleGroupRequest {
    *          </note>
    */
   Type?: RuleGroupType;
+
+  /**
+   * @public
+   * <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis.</p>
+   */
+  AnalyzeRuleGroup?: boolean;
 }
 
 /**
@@ -4326,6 +4407,12 @@ export interface UpdateRuleGroupRequest {
    * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
    */
   SourceMetadata?: SourceMetadata;
+
+  /**
+   * @public
+   * <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis and then updates the rule group for you. To run the stateless rule group analyzer without updating the rule group, set <code>DryRun</code> to <code>TRUE</code>. </p>
+   */
+  AnalyzeRuleGroup?: boolean;
 }
 
 /**
