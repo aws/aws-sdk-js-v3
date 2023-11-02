@@ -3,6 +3,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AnalysisDefaults,
+  AssetOptions,
   AxisBinding,
   AxisDisplayOptions,
   BarChartConfiguration,
@@ -59,9 +60,45 @@ import {
   VisualPalette,
   VisualPaletteFilterSensitiveLog,
   VisualSubtitleLabelOptions,
-  VisualTitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The text format for the title.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ */
+export interface ShortFormatText {
+  /**
+   * @public
+   * <p>Plain text format.</p>
+   */
+  PlainText?: string;
+
+  /**
+   * @public
+   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
+   */
+  RichText?: string;
+}
+
+/**
+ * @public
+ * <p>The title label options for a visual.</p>
+ */
+export interface VisualTitleLabelOptions {
+  /**
+   * @public
+   * <p>The visibility of the title label.</p>
+   */
+  Visibility?: Visibility;
+
+  /**
+   * @public
+   * <p>The short text format of the title label, such as plain text or rich text.</p>
+   */
+  FormatText?: ShortFormatText;
+}
 
 /**
  * @public
@@ -7590,6 +7627,12 @@ export interface AnalysisDefinition {
    * <p>The configuration for default analysis settings.</p>
    */
   AnalysisDefaults?: AnalysisDefaults;
+
+  /**
+   * @public
+   * <p>An array of option definitions for an analysis.</p>
+   */
+  Options?: AssetOptions;
 }
 
 /**
@@ -7870,36 +7913,6 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
    */
   QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
 }
-
-/**
- * @public
- * @enum
- */
-export const SnapshotFileFormatType = {
-  CSV: "CSV",
-  EXCEL: "EXCEL",
-  PDF: "PDF",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotFileFormatType = (typeof SnapshotFileFormatType)[keyof typeof SnapshotFileFormatType];
-
-/**
- * @public
- * @enum
- */
-export const SnapshotFileSheetSelectionScope = {
-  ALL_VISUALS: "ALL_VISUALS",
-  SELECTED_VISUALS: "SELECTED_VISUALS",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotFileSheetSelectionScope =
-  (typeof SnapshotFileSheetSelectionScope)[keyof typeof SnapshotFileSheetSelectionScope];
 
 /**
  * @internal

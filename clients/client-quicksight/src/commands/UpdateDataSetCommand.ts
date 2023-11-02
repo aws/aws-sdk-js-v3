@@ -63,6 +63,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *           { // InputColumn
  *             Name: "STRING_VALUE", // required
  *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             SubType: "FLOAT" || "FIXED",
  *           },
  *         ],
  *       },
@@ -74,6 +75,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *           {
  *             Name: "STRING_VALUE", // required
  *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             SubType: "FLOAT" || "FIXED",
  *           },
  *         ],
  *       },
@@ -90,6 +92,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *           {
  *             Name: "STRING_VALUE", // required
  *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             SubType: "FLOAT" || "FIXED",
  *           },
  *         ],
  *       },
@@ -124,6 +127,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *           CastColumnTypeOperation: { // CastColumnTypeOperation
  *             ColumnName: "STRING_VALUE", // required
  *             NewColumnType: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME", // required
+ *             SubType: "FLOAT" || "FIXED",
  *             Format: "STRING_VALUE",
  *           },
  *           TagColumnOperation: { // TagColumnOperation

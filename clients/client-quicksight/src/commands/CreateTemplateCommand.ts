@@ -4568,6 +4568,10 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *         SheetContentType: "PAGINATED" || "INTERACTIVE",
  *       },
  *     },
+ *     Options: { // AssetOptions
+ *       Timezone: "STRING_VALUE",
+ *       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *     },
  *   },
  *   ValidationStrategy: { // ValidationStrategy
  *     Mode: "STRICT" || "LENIENT", // required

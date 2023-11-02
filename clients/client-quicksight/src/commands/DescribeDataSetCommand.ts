@@ -72,6 +72,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //             { // InputColumn
  * //               Name: "STRING_VALUE", // required
  * //               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ * //               SubType: "FLOAT" || "FIXED",
  * //             },
  * //           ],
  * //         },
@@ -83,6 +84,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //             {
  * //               Name: "STRING_VALUE", // required
  * //               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ * //               SubType: "FLOAT" || "FIXED",
  * //             },
  * //           ],
  * //         },
@@ -99,6 +101,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //             {
  * //               Name: "STRING_VALUE", // required
  * //               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ * //               SubType: "FLOAT" || "FIXED",
  * //             },
  * //           ],
  * //         },
@@ -133,6 +136,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //             CastColumnTypeOperation: { // CastColumnTypeOperation
  * //               ColumnName: "STRING_VALUE", // required
  * //               NewColumnType: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME", // required
+ * //               SubType: "FLOAT" || "FIXED",
  * //               Format: "STRING_VALUE",
  * //             },
  * //             TagColumnOperation: { // TagColumnOperation
@@ -195,6 +199,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //         Name: "STRING_VALUE",
  * //         Description: "STRING_VALUE",
  * //         Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME",
+ * //         SubType: "FLOAT" || "FIXED",
  * //       },
  * //     ],
  * //     ImportMode: "SPICE" || "DIRECT_QUERY",

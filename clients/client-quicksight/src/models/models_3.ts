@@ -8,6 +8,7 @@ import {
   ActiveIAMPolicyAssignment,
   Analysis,
   AnalysisError,
+  AssetOptions,
   Entity,
   ResourceStatus,
   Sheet,
@@ -37,6 +38,7 @@ import {
   AssetBundleImportSourceDescription,
   AssignmentStatus,
   BookmarksConfigurations,
+  ColumnDataSubType,
   ColumnDataType,
   ColumnGroup,
   ColumnLevelPermissionRule,
@@ -75,11 +77,90 @@ import {
   ThemeConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
-  VPCConnectionAvailabilityStatus,
   VpcConnectionProperties,
-  VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const VPCConnectionAvailabilityStatus = {
+  AVAILABLE: "AVAILABLE",
+  PARTIALLY_AVAILABLE: "PARTIALLY_AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type VPCConnectionAvailabilityStatus =
+  (typeof VPCConnectionAvailabilityStatus)[keyof typeof VPCConnectionAvailabilityStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VPCConnectionResourceStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
+  DELETED: "DELETED",
+  DELETION_FAILED: "DELETION_FAILED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type VPCConnectionResourceStatus =
+  (typeof VPCConnectionResourceStatus)[keyof typeof VPCConnectionResourceStatus];
+
+/**
+ * @public
+ */
+export interface CreateVPCConnectionResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID for the VPC connection that
+   * 			you're creating. This ID is unique per Amazon Web Services Region for each Amazon Web Services
+   * 			account.</p>
+   */
+  VPCConnectionId?: string;
+
+  /**
+   * @public
+   * <p>The status of the creation of the VPC connection.</p>
+   */
+  CreationStatus?: VPCConnectionResourceStatus;
+
+  /**
+   * @public
+   * <p>The availability status of the VPC connection.</p>
+   */
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
 
 /**
  * @public
@@ -192,6 +273,12 @@ export interface DashboardVersion {
    * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
    */
   Sheets?: Sheet[];
+
+  /**
+   * @public
+   * <p>An array of analysis level configurations.</p>
+   */
+  Options?: AssetOptions;
 }
 
 /**
@@ -414,7 +501,7 @@ export interface DashboardVersionSummary {
 export interface OutputColumn {
   /**
    * @public
-   * <p>A display name for the dataset.</p>
+   * <p>The display name of the column..</p>
    */
   Name?: string;
 
@@ -426,9 +513,15 @@ export interface OutputColumn {
 
   /**
    * @public
-   * <p>The type.</p>
+   * <p>The data type of the column.</p>
    */
   Type?: ColumnDataType;
+
+  /**
+   * @public
+   * <p>The sub data type of the column.</p>
+   */
+  SubType?: ColumnDataSubType;
 }
 
 /**
@@ -4633,6 +4726,12 @@ export interface TemplateVersion {
    * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
    */
   Sheets?: Sheet[];
+
+  /**
+   * @public
+   * <p>An array of analysis level configurations.</p>
+   */
+  Options?: AssetOptions;
 }
 
 /**
@@ -9174,93 +9273,6 @@ export interface SearchDataSetsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface SearchDataSetsResponse {
-  /**
-   * @public
-   * <p>A <code>DataSetSummaries</code> object that returns a summary of a dataset.</p>
-   */
-  DataSetSummaries?: DataSetSummary[];
-
-  /**
-   * @public
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface SearchDataSourcesRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The filters to apply to the search.</p>
-   */
-  Filters: DataSourceSearchFilter[] | undefined;
-
-  /**
-   * @public
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface SearchDataSourcesResponse {
-  /**
-   * @public
-   * <p>A <code>DataSourceSummaries</code> object that returns a summary of a data source.</p>
-   */
-  DataSourceSummaries?: DataSourceSummary[];
-
-  /**
-   * @public
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
 }
 
 /**

@@ -452,6 +452,7 @@ import {
   Analysis,
   AnalysisDefaults,
   AnchorDateConfiguration,
+  AssetOptions,
   AttributeAggregationFunction,
   AxisDataOptions,
   AxisDisplayDataDrivenRange,
@@ -643,7 +644,6 @@ import {
   SheetElementRenderingRule,
   SheetTextBox,
   SheetVisualScopingConfiguration,
-  ShortFormatText,
   SliderControlDisplayOptions,
   SmallMultiplesAxisProperties,
   SmallMultiplesOptions,
@@ -668,7 +668,6 @@ import {
   VisualCustomActionOperation,
   VisualPalette,
   VisualSubtitleLabelOptions,
-  VisualTitleLabelOptions,
 } from "../models/models_0";
 import {
   AnalysisDefinition,
@@ -858,6 +857,7 @@ import {
   SeriesItem,
   ShapeConditionalFormat,
   SheetDefinition,
+  ShortFormatText,
   SimpleClusterMarker,
   SubtotalOptions,
   TableAggregatedFieldWells,
@@ -904,6 +904,7 @@ import {
   UnaggregatedField,
   UniqueValuesComputation,
   Visual,
+  VisualTitleLabelOptions,
   WaterfallChartAggregatedFieldWells,
   WaterfallChartConfiguration,
   WaterfallChartFieldWells,
@@ -19029,6 +19030,7 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
     ColumnConfigurations: _json,
     DataSetIdentifierDeclarations: _json,
     FilterGroups: (_) => se_FilterGroupList(_, context),
+    Options: _json,
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     Sheets: (_) => se_SheetDefinitionList(_, context),
   });
@@ -19220,6 +19222,8 @@ const se_AssetBundleImportSource = (input: AssetBundleImportSource, context: __S
 };
 
 // se_AssetBundleResourceArns omitted.
+
+// se_AssetOptions omitted.
 
 // se_AthenaParameters omitted.
 
@@ -19892,6 +19896,7 @@ const se_DashboardVersionDefinition = (input: DashboardVersionDefinition, contex
     ColumnConfigurations: _json,
     DataSetIdentifierDeclarations: _json,
     FilterGroups: (_) => se_FilterGroupList(_, context),
+    Options: _json,
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     Sheets: (_) => se_SheetDefinitionList(_, context),
   });
@@ -23012,6 +23017,7 @@ const se_TemplateVersionDefinition = (input: TemplateVersionDefinition, context:
     ColumnConfigurations: _json,
     DataSetConfigurations: _json,
     FilterGroups: (_) => se_FilterGroupList(_, context),
+    Options: _json,
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     Sheets: (_) => se_SheetDefinitionList(_, context),
   });
@@ -23724,6 +23730,7 @@ const de_Analysis = (output: any, context: __SerdeContext): Analysis => {
     Errors: _json,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    Options: _json,
     Sheets: _json,
     Status: __expectString,
     ThemeArn: __expectString,
@@ -23742,6 +23749,7 @@ const de_AnalysisDefinition = (output: any, context: __SerdeContext): AnalysisDe
     ColumnConfigurations: _json,
     DataSetIdentifierDeclarations: _json,
     FilterGroups: (_: any) => de_FilterGroupList(_, context),
+    Options: _json,
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
   }) as any;
@@ -24001,6 +24009,8 @@ const de_AssetBundleImportJobSummaryList = (output: any, context: __SerdeContext
 // de_AssetBundleImportSourceDescription omitted.
 
 // de_AssetBundleResourceArns omitted.
+
+// de_AssetOptions omitted.
 
 // de_AthenaParameters omitted.
 
@@ -24711,6 +24721,7 @@ const de_DashboardVersion = (output: any, context: __SerdeContext): DashboardVer
     DataSetArns: _json,
     Description: __expectString,
     Errors: _json,
+    Options: _json,
     Sheets: _json,
     SourceEntityArn: __expectString,
     Status: __expectString,
@@ -24729,6 +24740,7 @@ const de_DashboardVersionDefinition = (output: any, context: __SerdeContext): Da
     ColumnConfigurations: _json,
     DataSetIdentifierDeclarations: _json,
     FilterGroups: (_: any) => de_FilterGroupList(_, context),
+    Options: _json,
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
   }) as any;
@@ -28183,6 +28195,7 @@ const de_TemplateVersion = (output: any, context: __SerdeContext): TemplateVersi
     DataSetConfigurations: _json,
     Description: __expectString,
     Errors: _json,
+    Options: _json,
     Sheets: _json,
     SourceEntityArn: __expectString,
     Status: __expectString,
@@ -28201,6 +28214,7 @@ const de_TemplateVersionDefinition = (output: any, context: __SerdeContext): Tem
     ColumnConfigurations: _json,
     DataSetConfigurations: _json,
     FilterGroups: (_: any) => de_FilterGroupList(_, context),
+    Options: _json,
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
   }) as any;

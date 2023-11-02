@@ -85,6 +85,10 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * //           Name: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       Options: { // AssetOptions
+ * //         Timezone: "STRING_VALUE",
+ * //         WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ * //       },
  * //     },
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     LastPublishedTime: new Date("TIMESTAMP"),

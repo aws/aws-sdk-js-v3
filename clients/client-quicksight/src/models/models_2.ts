@@ -7,6 +7,7 @@ import {
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
   AnalysisDefaults,
+  AssetOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ColumnConfiguration,
@@ -21,15 +22,38 @@ import {
   ResourceStatus,
   TimeGranularity,
 } from "./models_0";
-import {
-  AnalysisDefinition,
-  AnalysisSourceEntity,
-  DataSetReference,
-  SheetDefinition,
-  SnapshotFileFormatType,
-  SnapshotFileSheetSelectionScope,
-} from "./models_1";
+import { AnalysisDefinition, AnalysisSourceEntity, DataSetReference, SheetDefinition } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotFileFormatType = {
+  CSV: "CSV",
+  EXCEL: "EXCEL",
+  PDF: "PDF",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotFileFormatType = (typeof SnapshotFileFormatType)[keyof typeof SnapshotFileFormatType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotFileSheetSelectionScope = {
+  ALL_VISUALS: "ALL_VISUALS",
+  SELECTED_VISUALS: "SELECTED_VISUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotFileSheetSelectionScope =
+  (typeof SnapshotFileSheetSelectionScope)[keyof typeof SnapshotFileSheetSelectionScope];
 
 /**
  * @public
@@ -2921,6 +2945,20 @@ export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType
 
 /**
  * @public
+ * @enum
+ */
+export const ColumnDataSubType = {
+  FIXED: "FIXED",
+  FLOAT: "FLOAT",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataSubType = (typeof ColumnDataSubType)[keyof typeof ColumnDataSubType];
+
+/**
+ * @public
  * <p>A transform operation that casts a column to a different type.</p>
  */
 export interface CastColumnTypeOperation {
@@ -2935,6 +2973,12 @@ export interface CastColumnTypeOperation {
    * <p>New column data type.</p>
    */
   NewColumnType: ColumnDataType | undefined;
+
+  /**
+   * @public
+   * <p>The sub data type of the new column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
+   */
+  SubType?: ColumnDataSubType;
 
   /**
    * @public
@@ -4324,6 +4368,12 @@ export interface DashboardVersionDefinition {
    * <p>The configuration for default analysis settings.</p>
    */
   AnalysisDefaults?: AnalysisDefaults;
+
+  /**
+   * @public
+   * <p>An array of option definitions for a dashboard.</p>
+   */
+  Options?: AssetOptions;
 }
 
 /**
@@ -5286,6 +5336,12 @@ export interface InputColumn {
    * <p>The data type of the column.</p>
    */
   Type: InputColumnDataType | undefined;
+
+  /**
+   * @public
+   * <p>The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
+   */
+  SubType?: ColumnDataSubType;
 }
 
 /**
@@ -7019,6 +7075,12 @@ export interface TemplateVersionDefinition {
    * <p>The configuration for default analysis settings.</p>
    */
   AnalysisDefaults?: AnalysisDefaults;
+
+  /**
+   * @public
+   * <p>An array of option definitions for a template.</p>
+   */
+  Options?: AssetOptions;
 }
 
 /**
@@ -9095,87 +9157,6 @@ export interface CreateVPCConnectionRequest {
    * 			connection.</p>
    */
   Tags?: Tag[];
-}
-
-/**
- * @public
- * @enum
- */
-export const VPCConnectionAvailabilityStatus = {
-  AVAILABLE: "AVAILABLE",
-  PARTIALLY_AVAILABLE: "PARTIALLY_AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type VPCConnectionAvailabilityStatus =
-  (typeof VPCConnectionAvailabilityStatus)[keyof typeof VPCConnectionAvailabilityStatus];
-
-/**
- * @public
- * @enum
- */
-export const VPCConnectionResourceStatus = {
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
-  DELETED: "DELETED",
-  DELETION_FAILED: "DELETION_FAILED",
-  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type VPCConnectionResourceStatus =
-  (typeof VPCConnectionResourceStatus)[keyof typeof VPCConnectionResourceStatus];
-
-/**
- * @public
- */
-export interface CreateVPCConnectionResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID for the VPC connection that
-   * 			you're creating. This ID is unique per Amazon Web Services Region for each Amazon Web Services
-   * 			account.</p>
-   */
-  VPCConnectionId?: string;
-
-  /**
-   * @public
-   * <p>The status of the creation of the VPC connection.</p>
-   */
-  CreationStatus?: VPCConnectionResourceStatus;
-
-  /**
-   * @public
-   * <p>The availability status of the VPC connection.</p>
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
 }
 
 /**

@@ -43,11 +43,12 @@ import {
   TopicDetails,
   TopicRefreshSchedule,
   ValidationStrategy,
-  VPCConnectionAvailabilityStatus,
   VpcConnectionProperties,
-  VPCConnectionResourceStatus,
 } from "./models_2";
 import {
+  DataSetSummary,
+  DataSourceSearchFilter,
+  DataSourceSummary,
   FolderSearchFilter,
   FolderSummary,
   GroupSearchFilter,
@@ -57,7 +58,96 @@ import {
   SnapshotConfiguration,
   User,
   UserRole,
+  VPCConnectionAvailabilityStatus,
+  VPCConnectionResourceStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface SearchDataSetsResponse {
+  /**
+   * @public
+   * <p>A <code>DataSetSummaries</code> object that returns a summary of a dataset.</p>
+   */
+  DataSetSummaries?: DataSetSummary[];
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchDataSourcesRequest {
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The filters to apply to the search.</p>
+   */
+  Filters: DataSourceSearchFilter[] | undefined;
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface SearchDataSourcesResponse {
+  /**
+   * @public
+   * <p>A <code>DataSourceSummaries</code> object that returns a summary of a data source.</p>
+   */
+  DataSourceSummaries?: DataSourceSummary[];
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
 
 /**
  * @public

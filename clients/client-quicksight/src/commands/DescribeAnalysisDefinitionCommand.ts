@@ -4540,6 +4540,10 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //         SheetContentType: "PAGINATED" || "INTERACTIVE",
  * //       },
  * //     },
+ * //     Options: { // AssetOptions
+ * //       Timezone: "STRING_VALUE",
+ * //       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ * //     },
  * //   },
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",

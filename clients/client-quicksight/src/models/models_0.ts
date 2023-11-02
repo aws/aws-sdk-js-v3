@@ -604,6 +604,43 @@ export interface AnalysisError {
 
 /**
  * @public
+ * @enum
+ */
+export const DayOfTheWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfTheWeek = (typeof DayOfTheWeek)[keyof typeof DayOfTheWeek];
+
+/**
+ * @public
+ * <p>An array of analysis level configurations.</p>
+ */
+export interface AssetOptions {
+  /**
+   * @public
+   * <p>Determines the timezone for the analysis.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * @public
+   * <p>Determines the week start day for an analysis.</p>
+   */
+  WeekStart?: DayOfTheWeek;
+}
+
+/**
+ * @public
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
  *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
  *             contains at least one sheet. Each sheet contains at least one visualization widget, for
@@ -708,6 +745,12 @@ export interface Analysis {
    * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
    */
   Sheets?: Sheet[];
+
+  /**
+   * @public
+   * <p>An array of analysis level configurations.</p>
+   */
+  Options?: AssetOptions;
 }
 
 /**
@@ -7501,43 +7544,6 @@ export interface VisualSubtitleLabelOptions {
    * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
    */
   FormatText?: LongFormatText;
-}
-
-/**
- * @public
- * <p>The text format for the title.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- */
-export interface ShortFormatText {
-  /**
-   * @public
-   * <p>Plain text format.</p>
-   */
-  PlainText?: string;
-
-  /**
-   * @public
-   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
-   */
-  RichText?: string;
-}
-
-/**
- * @public
- * <p>The title label options for a visual.</p>
- */
-export interface VisualTitleLabelOptions {
-  /**
-   * @public
-   * <p>The visibility of the title label.</p>
-   */
-  Visibility?: Visibility;
-
-  /**
-   * @public
-   * <p>The short text format of the title label, such as plain text or rich text.</p>
-   */
-  FormatText?: ShortFormatText;
 }
 
 /**
