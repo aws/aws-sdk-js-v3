@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.442.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.441.0...v3.442.0) (2023-11-02)
+
+
+### Features
+
+* **client-network-firewall:** This release introduces the stateless rule analyzer, which enables you to analyze your stateless rules for asymmetric routing. ([8f6dca1](https://github.com/aws/aws-sdk-js-v3/commit/8f6dca1938d7202738f3c16eff3c89d02c1c8fa8))
+
+
+
+
+
 # [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

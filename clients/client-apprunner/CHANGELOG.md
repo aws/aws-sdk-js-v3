@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.442.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.441.0...v3.442.0) (2023-11-02)
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner now supports using dual-stack address type for the public endpoint of your incoming traffic. ([f77c1c9](https://github.com/aws/aws-sdk-js-v3/commit/f77c1c94481f1c8b19f3c08ae69281778de2e444))
+
+
+
+
+
 # [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
 
 **Note:** Version bump only for package @aws-sdk/client-apprunner

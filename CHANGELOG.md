@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.442.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.441.0...v3.442.0) (2023-11-02)
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner now supports using dual-stack address type for the public endpoint of your incoming traffic. ([f77c1c9](https://github.com/aws/aws-sdk-js-v3/commit/f77c1c94481f1c8b19f3c08ae69281778de2e444))
+* **client-connect:** GetMetricDataV2 API: Update to include new metrics PERCENT_NON_TALK_TIME, PERCENT_TALK_TIME, PERCENT_TALK_TIME_AGENT, PERCENT_TALK_TIME_CUSTOMER ([55d62b8](https://github.com/aws/aws-sdk-js-v3/commit/55d62b8ef63d315e221aededd90699279cbd76cf))
+* **client-gamelift:** Amazon GameLift adds support for shared credentials, which allows applications that are deployed on managed EC2 fleets to interact with other AWS resources. ([2c85ed8](https://github.com/aws/aws-sdk-js-v3/commit/2c85ed80b699977d00c64abd00e6bf21cd59b867))
+* **client-glue:** This release introduces Google BigQuery Source and Target in AWS Glue CodeGenConfigurationNode. ([08d5b25](https://github.com/aws/aws-sdk-js-v3/commit/08d5b256779a884a6adedf20c1e8b3ec14b44533))
+* **client-network-firewall:** This release introduces the stateless rule analyzer, which enables you to analyze your stateless rules for asymmetric routing. ([8f6dca1](https://github.com/aws/aws-sdk-js-v3/commit/8f6dca1938d7202738f3c16eff3c89d02c1c8fa8))
+* **client-quicksight:** Got confirmed from qmeixua@ about custom week features, and tested locally with aws cli and java sdk that the subtypes are showing up. ([cf31194](https://github.com/aws/aws-sdk-js-v3/commit/cf311940ca8d402bc8f5d99668a3d1668bd82f1f))
+* **clients:** update client endpoints as of 2023-11-02 ([334a371](https://github.com/aws/aws-sdk-js-v3/commit/334a3716e7512f4a3868f2ea8c34971c1ae85794))
+
+
+
+
+
 # [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
 
 
