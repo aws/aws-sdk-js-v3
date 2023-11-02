@@ -142,6 +142,7 @@ export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __Met
  * //       IngressConfiguration: { // IngressConfiguration
  * //         IsPubliclyAccessible: true || false,
  * //       },
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
  * //     },
  * //     ObservabilityConfiguration: { // ServiceObservabilityConfiguration
  * //       ObservabilityEnabled: true || false, // required

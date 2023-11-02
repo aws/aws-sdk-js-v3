@@ -122,6 +122,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *     IngressConfiguration: { // IngressConfiguration
  *       IsPubliclyAccessible: true || false,
  *     },
+ *     IpAddressType: "IPV4" || "DUAL_STACK",
  *   },
  *   ObservabilityConfiguration: { // ServiceObservabilityConfiguration
  *     ObservabilityEnabled: true || false, // required
@@ -217,6 +218,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //       IngressConfiguration: { // IngressConfiguration
  * //         IsPubliclyAccessible: true || false,
  * //       },
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
  * //     },
  * //     ObservabilityConfiguration: { // ServiceObservabilityConfiguration
  * //       ObservabilityEnabled: true || false, // required

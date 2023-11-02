@@ -139,6 +139,7 @@ export interface PauseServiceCommandOutput extends PauseServiceResponse, __Metad
  * //       IngressConfiguration: { // IngressConfiguration
  * //         IsPubliclyAccessible: true || false,
  * //       },
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
  * //     },
  * //     ObservabilityConfiguration: { // ServiceObservabilityConfiguration
  * //       ObservabilityEnabled: true || false, // required
