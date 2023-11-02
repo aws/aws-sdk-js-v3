@@ -15,7 +15,12 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StartGameSessionPlacementInput, StartGameSessionPlacementOutput } from "../models/models_0";
+import {
+  StartGameSessionPlacementInput,
+  StartGameSessionPlacementInputFilterSensitiveLog,
+  StartGameSessionPlacementOutput,
+  StartGameSessionPlacementOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_StartGameSessionPlacementCommand, se_StartGameSessionPlacementCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -224,8 +229,8 @@ export class StartGameSessionPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: StartGameSessionPlacementInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartGameSessionPlacementOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "StartGameSessionPlacement",

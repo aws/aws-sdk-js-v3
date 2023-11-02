@@ -15,7 +15,12 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StartMatchmakingInput, StartMatchmakingOutput } from "../models/models_0";
+import {
+  StartMatchmakingInput,
+  StartMatchmakingInputFilterSensitiveLog,
+  StartMatchmakingOutput,
+  StartMatchmakingOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_StartMatchmakingCommand, se_StartMatchmakingCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -221,8 +226,8 @@ export class StartMatchmakingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: StartMatchmakingInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMatchmakingOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "StartMatchmaking",

@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StopGameSessionPlacementInput, StopGameSessionPlacementOutput } from "../models/models_0";
+import {
+  StopGameSessionPlacementInput,
+  StopGameSessionPlacementOutput,
+  StopGameSessionPlacementOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_StopGameSessionPlacementCommand, se_StopGameSessionPlacementCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -165,7 +169,7 @@ export class StopGameSessionPlacementCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: StopGameSessionPlacementOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "StopGameSessionPlacement",

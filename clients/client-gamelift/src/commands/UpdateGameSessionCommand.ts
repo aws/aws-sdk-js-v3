@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateGameSessionInput, UpdateGameSessionOutput } from "../models/models_1";
+import {
+  UpdateGameSessionInput,
+  UpdateGameSessionOutput,
+  UpdateGameSessionOutputFilterSensitiveLog,
+} from "../models/models_1";
 import { de_UpdateGameSessionCommand, se_UpdateGameSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -174,7 +178,7 @@ export class UpdateGameSessionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: UpdateGameSessionOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "UpdateGameSession",

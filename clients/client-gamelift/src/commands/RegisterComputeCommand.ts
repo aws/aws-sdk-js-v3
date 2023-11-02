@@ -15,7 +15,12 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { RegisterComputeInput, RegisterComputeOutput } from "../models/models_0";
+import {
+  RegisterComputeInput,
+  RegisterComputeInputFilterSensitiveLog,
+  RegisterComputeOutput,
+  RegisterComputeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_RegisterComputeCommand, se_RegisterComputeCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -124,6 +129,10 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
  *             values before retrying.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
@@ -179,8 +188,8 @@ export class RegisterComputeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: RegisterComputeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterComputeOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "RegisterCompute",

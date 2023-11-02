@@ -10,10 +10,12 @@ import {
   GameServerProtectionPolicy,
   GameServerUtilizationStatus,
   GameSession,
+  GameSessionFilterSensitiveLog,
   GameSessionQueue,
   GameSessionQueueDestination,
   InstanceDefinition,
   IpPermission,
+  IpPermissionFilterSensitiveLog,
   MatchmakingConfiguration,
   PlayerLatencyPolicy,
   PlayerSessionCreationPolicy,
@@ -23,6 +25,48 @@ import {
   S3Location,
   Script,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateFleetCapacityInput {
+  /**
+   * @public
+   * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
+   *             value.</p>
+   */
+  FleetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
+   *             This value must fall between the minimum and maximum size limits. Changes in desired
+   *             instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
+   *             settings.</p>
+   */
+  DesiredInstances?: number;
+
+  /**
+   * @public
+   * <p>The minimum number of instances that are allowed in the specified fleet location. If
+   *             this parameter is not set, the default is 0.</p>
+   */
+  MinSize?: number;
+
+  /**
+   * @public
+   * <p>The maximum number of instances that are allowed in the specified fleet location. If
+   *             this parameter is not set, the default is 1.</p>
+   */
+  MaxSize?: number;
+
+  /**
+   * @public
+   * <p>The name of a remote location to update fleet capacity settings for, in the form of an
+   *             Amazon Web Services Region code such as <code>us-west-2</code>.</p>
+   */
+  Location?: string;
+}
 
 /**
  * @public
@@ -627,3 +671,26 @@ export interface ValidateMatchmakingRuleSetOutput {
    */
   Valid?: boolean;
 }
+
+/**
+ * @internal
+ */
+export const UpdateFleetPortSettingsInputFilterSensitiveLog = (obj: UpdateFleetPortSettingsInput): any => ({
+  ...obj,
+  ...(obj.InboundPermissionAuthorizations && {
+    InboundPermissionAuthorizations: obj.InboundPermissionAuthorizations.map((item) =>
+      IpPermissionFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.InboundPermissionRevocations && {
+    InboundPermissionRevocations: obj.InboundPermissionRevocations.map((item) => IpPermissionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameSessionOutputFilterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
+  ...obj,
+  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
+});

@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetCapacityInput } from "../models/models_0";
-import { UpdateFleetCapacityOutput } from "../models/models_1";
+import { UpdateFleetCapacityInput, UpdateFleetCapacityOutput } from "../models/models_1";
 import { de_UpdateFleetCapacityCommand, se_UpdateFleetCapacityCommand } from "../protocols/Aws_json1_1";
 
 /**

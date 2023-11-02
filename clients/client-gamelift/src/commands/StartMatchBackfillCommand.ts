@@ -15,7 +15,12 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StartMatchBackfillInput, StartMatchBackfillOutput } from "../models/models_0";
+import {
+  StartMatchBackfillInput,
+  StartMatchBackfillInputFilterSensitiveLog,
+  StartMatchBackfillOutput,
+  StartMatchBackfillOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_StartMatchBackfillCommand, se_StartMatchBackfillCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -230,8 +235,8 @@ export class StartMatchBackfillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: StartMatchBackfillInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMatchBackfillOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "StartMatchBackfill",

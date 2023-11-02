@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/models_1";
+import {
+  UpdateFleetPortSettingsInput,
+  UpdateFleetPortSettingsInputFilterSensitiveLog,
+  UpdateFleetPortSettingsOutput,
+} from "../models/models_1";
 import { de_UpdateFleetPortSettingsCommand, se_UpdateFleetPortSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -176,7 +180,7 @@ export class UpdateFleetPortSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateFleetPortSettingsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",

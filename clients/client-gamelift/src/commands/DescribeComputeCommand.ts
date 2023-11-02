@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeComputeInput, DescribeComputeOutput } from "../models/models_0";
+import {
+  DescribeComputeInput,
+  DescribeComputeOutput,
+  DescribeComputeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeComputeCommand, se_DescribeComputeCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -147,7 +151,7 @@ export class DescribeComputeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeComputeOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "DescribeCompute",

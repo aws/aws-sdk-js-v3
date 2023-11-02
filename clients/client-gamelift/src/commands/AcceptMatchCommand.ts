@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { AcceptMatchInput, AcceptMatchOutput } from "../models/models_0";
+import { AcceptMatchInput, AcceptMatchInputFilterSensitiveLog, AcceptMatchOutput } from "../models/models_0";
 import { de_AcceptMatchCommand, se_AcceptMatchCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -80,7 +80,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * const client = new GameLiftClient(config);
  * const input = { // AcceptMatchInput
  *   TicketId: "STRING_VALUE", // required
- *   PlayerIds: [ // StringList // required
+ *   PlayerIds: [ // PlayerIdsForAcceptMatch // required
  *     "STRING_VALUE",
  *   ],
  *   AcceptanceType: "ACCEPT" || "REJECT", // required
@@ -161,7 +161,7 @@ export class AcceptMatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: AcceptMatchInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",

@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeInstancesInput, DescribeInstancesOutput } from "../models/models_0";
+import {
+  DescribeInstancesInput,
+  DescribeInstancesOutput,
+  DescribeInstancesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -189,7 +193,7 @@ export class DescribeInstancesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeInstancesOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "DescribeInstances",

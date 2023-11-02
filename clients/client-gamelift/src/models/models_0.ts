@@ -1463,6 +1463,20 @@ export type FleetType = (typeof FleetType)[keyof typeof FleetType];
 
 /**
  * @public
+ * @enum
+ */
+export const InstanceRoleCredentialsProvider = {
+  SHARED_CREDENTIAL_FILE: "SHARED_CREDENTIAL_FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceRoleCredentialsProvider =
+  (typeof InstanceRoleCredentialsProvider)[keyof typeof InstanceRoleCredentialsProvider];
+
+/**
+ * @public
  * <p>A remote location where a multi-location fleet can deploy game servers for game
  *             hosting. </p>
  */
@@ -1624,7 +1638,7 @@ export interface CreateFleetInput {
    * @public
    * <p>The unique identifier for a custom game server build to be deployed on fleet
    *             instances. You can use either the build ID or ARN. The build must be uploaded to Amazon GameLift
-   *             and in <code>READY</code> status. This fleet property cannot be changed later.</p>
+   *             and in <code>READY</code> status. This fleet property can't be changed after the fleet is created.</p>
    */
   BuildId?: string;
 
@@ -1632,7 +1646,7 @@ export interface CreateFleetInput {
    * @public
    * <p>The unique identifier for a Realtime configuration script to be deployed on fleet
    *             instances. You can use either the script ID or ARN. Scripts must be uploaded to Amazon GameLift
-   *             prior to creating the fleet. This fleet property cannot be changed later.</p>
+   *             prior to creating the fleet. This fleet property can't be changed after the fleet is created.</p>
    */
   ScriptId?: string;
 
@@ -1755,20 +1769,18 @@ export interface CreateFleetInput {
   /**
    * @public
    * <p>Indicates whether to use On-Demand or Spot instances for this fleet. By default, this
-   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
-   *             fleet is created.</p>
+   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This fleet property can't be changed after the fleet is created.</p>
    */
   FleetType?: FleetType;
 
   /**
    * @public
-   * <p>A unique identifier for an IAM role that manages access to your Amazon Web Services services.
-   *         With an instance role ARN set, any application that runs on an instance in this fleet can assume the role,
-   *         including install scripts, server processes, and daemons (background processes). Create a role or look up a role's
-   *         ARN by using the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the Amazon Web Services Management Console.
-   *         Learn more about using on-box credentials for your game servers at
+   * <p>A unique identifier for an IAM role with access permissions to other Amazon Web Services services.
+   *         Any application that runs on an instance in the fleet--including install scripts, server processes, and other
+   *         processes--can use these permissions to interact with Amazon Web Services resources that you own or have access to.
+   *         For more information about using the role with your game server builds, see
    *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-   *         Access external resources from a game server</a>. This property cannot be changed after the fleet is created.</p>
+   *         Communicate with other Amazon Web Services resources from your fleets</a>. This fleet property can't be changed after the fleet is created.</p>
    */
   InstanceRoleArn?: string;
 
@@ -1826,6 +1838,18 @@ export interface CreateFleetInput {
    * <p>Amazon GameLift Anywhere configuration options.</p>
    */
   AnywhereConfiguration?: AnywhereConfiguration;
+
+  /**
+   * @public
+   * <p>Prompts Amazon GameLift to generate a shared credentials file for the IAM role
+   *             defined in <code>InstanceRoleArn</code>. The shared credentials file is stored on each
+   *             fleet instance and refreshed as needed. Use shared credentials for applications that are
+   *             deployed along with the game server executable, if the game server is integrated with
+   *             server SDK version 5.x. For more information about using shared
+   *             credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html"> Communicate
+   *                 with other Amazon Web Services resources from your fleets</a>.</p>
+   */
+  InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider;
 }
 
 /**
@@ -1887,8 +1911,7 @@ export interface FleetAttributes {
   /**
    * @public
    * <p>Indicates whether to use On-Demand or Spot instances for this fleet. By default, this
-   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
-   *             fleet is created.</p>
+   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This fleet property can't be changed after the fleet is created.</p>
    */
   FleetType?: FleetType;
 
@@ -2075,13 +2098,12 @@ export interface FleetAttributes {
 
   /**
    * @public
-   * <p>A unique identifier for an IAM role that manages access to your Amazon Web Services services.
-   *         With an instance role ARN set, any application that runs on an instance in this fleet can assume the role,
-   *         including install scripts, server processes, and daemons (background processes). Create a role or look up a role's
-   *         ARN by using the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the Amazon Web Services Management Console.
-   *         Learn more about using on-box credentials for your game servers at
+   * <p>A unique identifier for an IAM role with access permissions to other Amazon Web Services services.
+   *         Any application that runs on an instance in the fleet--including install scripts, server processes, and other
+   *         processes--can use these permissions to interact with Amazon Web Services resources that you own or have access to.
+   *         For more information about using the role with your game server builds, see
    *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-   *         Access external resources from a game server</a>.</p>
+   *         Communicate with other Amazon Web Services resources from your fleets</a>.</p>
    */
   InstanceRoleArn?: string;
 
@@ -2107,6 +2129,17 @@ export interface FleetAttributes {
    * <p>Amazon GameLift Anywhere configuration options for your Anywhere fleets.</p>
    */
   AnywhereConfiguration?: AnywhereConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates that fleet instances maintain a shared credentials file for the IAM role
+   *                 defined in <code>InstanceRoleArn</code>. Shared credentials allow applications that are
+   *                 deployed with the game server executable to communicate with other Amazon Web Services resources. This property is used
+   *                 only when the game server is integrated with the
+   *                 server SDK version 5.x. For more information about using shared credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html"> Communicate
+   *                     with other Amazon Web Services resources from your fleets</a>.</p>
+   */
+  InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider;
 }
 
 /**
@@ -9464,46 +9497,12 @@ export interface UpdateFleetAttributesOutput {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateFleetCapacityInput {
-  /**
-   * @public
-   * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
-   *             value.</p>
-   */
-  FleetId: string | undefined;
-
-  /**
-   * @public
-   * <p>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
-   *             This value must fall between the minimum and maximum size limits. Changes in desired
-   *             instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
-   *             settings.</p>
-   */
-  DesiredInstances?: number;
-
-  /**
-   * @public
-   * <p>The minimum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 0.</p>
-   */
-  MinSize?: number;
-
-  /**
-   * @public
-   * <p>The maximum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 1.</p>
-   */
-  MaxSize?: number;
-
-  /**
-   * @public
-   * <p>The name of a remote location to update fleet capacity settings for, in the form of an
-   *             Amazon Web Services Region code such as <code>us-west-2</code>.</p>
-   */
-  Location?: string;
-}
+export const AcceptMatchInputFilterSensitiveLog = (obj: AcceptMatchInput): any => ({
+  ...obj,
+  ...(obj.PlayerIds && { PlayerIds: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -9515,9 +9514,271 @@ export const AwsCredentialsFilterSensitiveLog = (obj: AwsCredentials): any => ({
 /**
  * @internal
  */
+export const ComputeFilterSensitiveLog = (obj: Compute): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateBuildOutputFilterSensitiveLog = (obj: CreateBuildOutput): any => ({
   ...obj,
   ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IpPermissionFilterSensitiveLog = (obj: IpPermission): any => ({
+  ...obj,
+  ...(obj.FromPort && { FromPort: SENSITIVE_STRING }),
+  ...(obj.ToPort && { ToPort: SENSITIVE_STRING }),
+  ...(obj.IpRange && { IpRange: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetInputFilterSensitiveLog = (obj: CreateFleetInput): any => ({
+  ...obj,
+  ...(obj.EC2InboundPermissions && {
+    EC2InboundPermissions: obj.EC2InboundPermissions.map((item) => IpPermissionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionFilterSensitiveLog = (obj: GameSession): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.Port && { Port: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGameSessionOutputFilterSensitiveLog = (obj: CreateGameSessionOutput): any => ({
+  ...obj,
+  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionInputFilterSensitiveLog = (obj: CreatePlayerSessionInput): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PlayerSessionFilterSensitiveLog = (obj: PlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.Port && { Port: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionOutputFilterSensitiveLog = (obj: CreatePlayerSessionOutput): any => ({
+  ...obj,
+  ...(obj.PlayerSession && { PlayerSession: PlayerSessionFilterSensitiveLog(obj.PlayerSession) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionsInputFilterSensitiveLog = (obj: CreatePlayerSessionsInput): any => ({
+  ...obj,
+  ...(obj.PlayerIds && { PlayerIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionsOutputFilterSensitiveLog = (obj: CreatePlayerSessionsOutput): any => ({
+  ...obj,
+  ...(obj.PlayerSessions && {
+    PlayerSessions: obj.PlayerSessions.map((item) => PlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeComputeOutputFilterSensitiveLog = (obj: DescribeComputeOutput): any => ({
+  ...obj,
+  ...(obj.Compute && { Compute: ComputeFilterSensitiveLog(obj.Compute) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetPortSettingsOutputFilterSensitiveLog = (obj: DescribeFleetPortSettingsOutput): any => ({
+  ...obj,
+  ...(obj.InboundPermissions && {
+    InboundPermissions: obj.InboundPermissions.map((item) => IpPermissionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionDetailFilterSensitiveLog = (obj: GameSessionDetail): any => ({
+  ...obj,
+  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionDetailsOutputFilterSensitiveLog = (obj: DescribeGameSessionDetailsOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionDetails && {
+    GameSessionDetails: obj.GameSessionDetails.map((item) => GameSessionDetailFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PlacedPlayerSessionFilterSensitiveLog = (obj: PlacedPlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PlayerLatencyFilterSensitiveLog = (obj: PlayerLatency): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionPlacementFilterSensitiveLog = (obj: GameSessionPlacement): any => ({
+  ...obj,
+  ...(obj.PlayerLatencies && {
+    PlayerLatencies: obj.PlayerLatencies.map((item) => PlayerLatencyFilterSensitiveLog(item)),
+  }),
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.Port && { Port: SENSITIVE_STRING }),
+  ...(obj.PlacedPlayerSessions && {
+    PlacedPlayerSessions: obj.PlacedPlayerSessions.map((item) => PlacedPlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionPlacementOutputFilterSensitiveLog = (obj: DescribeGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionsOutputFilterSensitiveLog = (obj: DescribeGameSessionsOutput): any => ({
+  ...obj,
+  ...(obj.GameSessions && { GameSessions: obj.GameSessions.map((item) => GameSessionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstancesOutputFilterSensitiveLog = (obj: DescribeInstancesOutput): any => ({
+  ...obj,
+  ...(obj.Instances && { Instances: obj.Instances.map((item) => InstanceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MatchedPlayerSessionFilterSensitiveLog = (obj: MatchedPlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionConnectionInfoFilterSensitiveLog = (obj: GameSessionConnectionInfo): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.MatchedPlayerSessions && {
+    MatchedPlayerSessions: obj.MatchedPlayerSessions.map((item) => MatchedPlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PlayerFilterSensitiveLog = (obj: Player): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MatchmakingTicketFilterSensitiveLog = (obj: MatchmakingTicket): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+  ...(obj.GameSessionConnectionInfo && {
+    GameSessionConnectionInfo: GameSessionConnectionInfoFilterSensitiveLog(obj.GameSessionConnectionInfo),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingOutputFilterSensitiveLog = (obj: DescribeMatchmakingOutput): any => ({
+  ...obj,
+  ...(obj.TicketList && { TicketList: obj.TicketList.map((item) => MatchmakingTicketFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribePlayerSessionsInputFilterSensitiveLog = (obj: DescribePlayerSessionsInput): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribePlayerSessionsOutputFilterSensitiveLog = (obj: DescribePlayerSessionsOutput): any => ({
+  ...obj,
+  ...(obj.PlayerSessions && {
+    PlayerSessions: obj.PlayerSessions.map((item) => PlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DesiredPlayerSessionFilterSensitiveLog = (obj: DesiredPlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
 });
 
 /**
@@ -9540,6 +9801,7 @@ export const InstanceCredentialsFilterSensitiveLog = (obj: InstanceCredentials):
  */
 export const InstanceAccessFilterSensitiveLog = (obj: InstanceAccess): any => ({
   ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
   ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
 });
 
@@ -9554,7 +9816,104 @@ export const GetInstanceAccessOutputFilterSensitiveLog = (obj: GetInstanceAccess
 /**
  * @internal
  */
+export const ListComputeOutputFilterSensitiveLog = (obj: ListComputeOutput): any => ({
+  ...obj,
+  ...(obj.ComputeList && { ComputeList: obj.ComputeList.map((item) => ComputeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterComputeInputFilterSensitiveLog = (obj: RegisterComputeInput): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterComputeOutputFilterSensitiveLog = (obj: RegisterComputeOutput): any => ({
+  ...obj,
+  ...(obj.Compute && { Compute: ComputeFilterSensitiveLog(obj.Compute) }),
+});
+
+/**
+ * @internal
+ */
 export const RequestUploadCredentialsOutputFilterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
   ...obj,
   ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchGameSessionsOutputFilterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
+  ...obj,
+  ...(obj.GameSessions && { GameSessions: obj.GameSessions.map((item) => GameSessionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementInputFilterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
+  ...obj,
+  ...(obj.PlayerLatencies && {
+    PlayerLatencies: obj.PlayerLatencies.map((item) => PlayerLatencyFilterSensitiveLog(item)),
+  }),
+  ...(obj.DesiredPlayerSessions && {
+    DesiredPlayerSessions: obj.DesiredPlayerSessions.map((item) => DesiredPlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementOutputFilterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillInputFilterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillOutputFilterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
+  ...obj,
+  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingInputFilterSensitiveLog = (obj: StartMatchmakingInput): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingOutputFilterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
+  ...obj,
+  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
+});
+
+/**
+ * @internal
+ */
+export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
 });

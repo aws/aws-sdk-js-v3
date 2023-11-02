@@ -121,6 +121,7 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * //       AnywhereConfiguration: { // AnywhereConfiguration
  * //         Cost: "STRING_VALUE", // required
  * //       },
+ * //       InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

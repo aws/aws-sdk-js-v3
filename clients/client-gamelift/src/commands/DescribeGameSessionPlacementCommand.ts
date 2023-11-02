@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput } from "../models/models_0";
+import {
+  DescribeGameSessionPlacementInput,
+  DescribeGameSessionPlacementOutput,
+  DescribeGameSessionPlacementOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_DescribeGameSessionPlacementCommand,
   se_DescribeGameSessionPlacementCommand,
@@ -175,7 +179,7 @@ export class DescribeGameSessionPlacementCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeGameSessionPlacementOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "GameLift",
         operation: "DescribeGameSessionPlacement",
