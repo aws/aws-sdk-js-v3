@@ -3279,6 +3279,88 @@ export interface BasicCatalogTarget {
 
 /**
  * @public
+ * <p>Specifies a source generated with standard connection options.</p>
+ */
+export interface ConnectorDataSource {
+  /**
+   * @public
+   * <p>The name of this source node.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The <code>connectionType</code>, as provided to the underlying Glue library. This node type supports
+   * the following connection types: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bigquery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ConnectionType: string | undefined;
+
+  /**
+   * @public
+   * <p>A map specifying connection options for the node. You can find standard connection options for the
+   *     corresponding connection type in the
+   *     <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html">
+   *     Connection parameters</a> section of the Glue documentation.</p>
+   */
+  Data: Record<string, string> | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the data schema for this source.</p>
+   */
+  OutputSchemas?: GlueSchema[];
+}
+
+/**
+ * @public
+ * <p>Specifies a target generated with standard connection options.</p>
+ */
+export interface ConnectorDataTarget {
+  /**
+   * @public
+   * <p>The name of this target node.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The <code>connectionType</code>, as provided to the underlying Glue library. This node type supports
+   * the following connection types: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bigquery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ConnectionType: string | undefined;
+
+  /**
+   * @public
+   * <p>A map specifying connection options for the node. You can find standard connection options for the
+   *     corresponding connection type in the
+   *     <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html">
+   *     Connection parameters</a> section of the Glue documentation.</p>
+   */
+  Data: Record<string, string> | undefined;
+
+  /**
+   * @public
+   * <p>The nodes that are inputs to the data target.</p>
+   */
+  Inputs?: string[];
+}
+
+/**
+ * @public
  * <p>Specifies a transform that uses custom code you provide to perform the data transformation. The output is a collection of DynamicFrames.</p>
  */
 export interface CustomCode {
@@ -9147,270 +9229,4 @@ export interface CreateDataQualityRulesetResponse {
    * <p>A unique name for the data quality ruleset.</p>
    */
   Name?: string;
-}
-
-/**
- * @public
- */
-export interface CreateDevEndpointRequest {
-  /**
-   * @public
-   * <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * @public
-   * <p>The IAM role for the <code>DevEndpoint</code>.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * @public
-   * <p>Security group IDs for the security groups to be used by the new
-   *       <code>DevEndpoint</code>.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * @public
-   * <p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * @public
-   * <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This
-   *       attribute is provided for backward compatibility because the recommended attribute to use is
-   *       public keys.</p>
-   */
-  PublicKey?: string;
-
-  /**
-   * @public
-   * <p>A list of public keys to be used by the development endpoints for authentication. The use
-   *       of this attribute is preferred over a single public key because the public keys allow you to
-   *       have a different private key per client.</p>
-   *          <note>
-   *             <p>If you previously created an endpoint with a public key, you must remove that key to be able
-   *         to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public
-   *         key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the
-   *           <code>addPublicKeys</code> attribute.</p>
-   *          </note>
-   */
-  PublicKeys?: string[];
-
-  /**
-   * @public
-   * <p>The number of Glue Data Processing Units (DPUs) to allocate to this
-   *         <code>DevEndpoint</code>.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * @public
-   * <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
-   *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
-   */
-  WorkerType?: WorkerType;
-
-  /**
-   * @public
-   * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *          <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
-   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   */
-  GlueVersion?: string;
-
-  /**
-   * @public
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * @public
-   * <p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in
-   *       your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a
-   *       comma.</p>
-   *          <note>
-   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
-   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
-   *         analysis library, are not yet supported.</p>
-   *          </note>
-   */
-  ExtraPythonLibsS3Path?: string;
-
-  /**
-   * @public
-   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
-   *       in your <code>DevEndpoint</code>.</p>
-   */
-  ExtraJarsS3Path?: string;
-
-  /**
-   * @public
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *         <code>DevEndpoint</code>.</p>
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * @public
-   * <p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
-   */
-  Arguments?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreateDevEndpointResponse {
-  /**
-   * @public
-   * <p>The name assigned to the new <code>DevEndpoint</code>.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * @public
-   * <p>The current status of the new <code>DevEndpoint</code>.</p>
-   */
-  Status?: string;
-
-  /**
-   * @public
-   * <p>The security groups assigned to the new <code>DevEndpoint</code>.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * @public
-   * <p>The subnet ID assigned to the new <code>DevEndpoint</code>.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the role assigned to the new
-   *       <code>DevEndpoint</code>.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * @public
-   * <p>The address of the YARN endpoint used by this <code>DevEndpoint</code>.</p>
-   */
-  YarnEndpointAddress?: string;
-
-  /**
-   * @public
-   * <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
-   */
-  ZeppelinRemoteSparkInterpreterPort?: number;
-
-  /**
-   * @public
-   * <p>The number of Glue Data Processing Units (DPUs) allocated to this DevEndpoint.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * @public
-   * <p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>
-   */
-  WorkerType?: WorkerType;
-
-  /**
-   * @public
-   * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
-
-  /**
-   * @public
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Availability Zone where this <code>DevEndpoint</code> is located.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * @public
-   * <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * @public
-   * <p>The paths to one or more Python libraries in an S3 bucket that will be loaded in your
-   *         <code>DevEndpoint</code>.</p>
-   */
-  ExtraPythonLibsS3Path?: string;
-
-  /**
-   * @public
-   * <p>Path to one or more Java <code>.jar</code> files in an S3 bucket that will be loaded in
-   *       your <code>DevEndpoint</code>.</p>
-   */
-  ExtraJarsS3Path?: string;
-
-  /**
-   * @public
-   * <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The name of the <code>SecurityConfiguration</code> structure being used with this
-   *         <code>DevEndpoint</code>.</p>
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * @public
-   * <p>The point in time at which this <code>DevEndpoint</code> was created.</p>
-   */
-  CreatedTimestamp?: Date;
-
-  /**
-   * @public
-   * <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>
-   *          <p>Valid arguments are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"--enable-glue-datacatalog": ""</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   */
-  Arguments?: Record<string, string>;
 }

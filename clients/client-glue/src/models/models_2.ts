@@ -17,6 +17,8 @@ import {
   CatalogSource,
   ConnectionInput,
   ConnectionsList,
+  ConnectorDataSource,
+  ConnectorDataTarget,
   CrawlerTargets,
   CsvHeaderOption,
   CsvSerdeOption,
@@ -111,7 +113,6 @@ import {
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   JobBookmarkEntry,
-  PermissionType,
   PrincipalType,
   RegistryId,
   RegistryStatus,
@@ -130,6 +131,40 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetTriggersResponse {
+  /**
+   * @public
+   * <p>A list of triggers for the specified job.</p>
+   */
+  Triggers?: Trigger[];
+
+  /**
+   * @public
+   * <p>A continuation token, if not all the requested triggers
+   *       have yet been returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PermissionType = {
+  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION: "COLUMN_PERMISSION",
+  NESTED_CELL_PERMISSION: "NESTED_CELL_PERMISSION",
+  NESTED_PERMISSION: "NESTED_PERMISSION",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 /**
  * @public
@@ -5564,6 +5599,18 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies a target that writes to a Snowflake data source.</p>
    */
   SnowflakeTarget?: SnowflakeTarget;
+
+  /**
+   * @public
+   * <p>Specifies a source generated with standard connection options.</p>
+   */
+  ConnectorDataSource?: ConnectorDataSource;
+
+  /**
+   * @public
+   * <p>Specifies a target generated with standard connection options.</p>
+   */
+  ConnectorDataTarget?: ConnectorDataTarget;
 }
 
 /**

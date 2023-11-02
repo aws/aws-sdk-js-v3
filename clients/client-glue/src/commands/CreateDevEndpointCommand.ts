@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateDevEndpointRequest, CreateDevEndpointResponse } from "../models/models_0";
+import { CreateDevEndpointRequest, CreateDevEndpointResponse } from "../models/models_1";
 import { de_CreateDevEndpointCommand, se_CreateDevEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**

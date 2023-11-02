@@ -502,6 +502,8 @@ import {
   ConnectionInput,
   ConnectionPropertyKey,
   ConnectionsList,
+  ConnectorDataSource,
+  ConnectorDataTarget,
   Crawl,
   Crawler,
   CrawlerNodeDetails,
@@ -514,8 +516,6 @@ import {
   CreateCustomEntityTypeRequest,
   CreateDatabaseRequest,
   CreateDataQualityRulesetRequest,
-  CreateDevEndpointRequest,
-  CreateDevEndpointResponse,
   CreateGrokClassifierRequest,
   CreateJsonClassifierRequest,
   CreateXMLClassifierRequest,
@@ -684,6 +684,8 @@ import {
   ConnectionPasswordEncryption,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateDevEndpointRequest,
+  CreateDevEndpointResponse,
   CreateMLTransformRequest,
   CreatePartitionIndexRequest,
   CreatePartitionRequest,
@@ -844,7 +846,6 @@ import {
   MLUserDataEncryption,
   OpenTableFormatInput,
   PartitionIndex,
-  PermissionType,
   RegistryId,
   ResourceUri,
   S3Encryption,
@@ -945,6 +946,7 @@ import {
   MetadataKeyValuePair,
   MLTransformNotReadyException,
   NoScheduleException,
+  PermissionType,
   PermissionTypeMismatchException,
   PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
@@ -15831,6 +15833,8 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     CatalogKinesisSource: (_) => se_CatalogKinesisSource(_, context),
     CatalogSource: _json,
     CatalogTarget: _json,
+    ConnectorDataSource: _json,
+    ConnectorDataTarget: _json,
     CustomCode: _json,
     DirectJDBCSource: _json,
     DirectKafkaSource: (_) => se_DirectKafkaSource(_, context),
@@ -15961,6 +15965,12 @@ const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeCo
 // se_ConnectionProperties omitted.
 
 // se_ConnectionsList omitted.
+
+// se_ConnectorDataSource omitted.
+
+// se_ConnectorDataTarget omitted.
+
+// se_ConnectorOptions omitted.
 
 // se_ContextWords omitted.
 
@@ -17871,6 +17881,8 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     CatalogKinesisSource: (_: any) => de_CatalogKinesisSource(_, context),
     CatalogSource: _json,
     CatalogTarget: _json,
+    ConnectorDataSource: _json,
+    ConnectorDataTarget: _json,
     CustomCode: _json,
     DirectJDBCSource: _json,
     DirectKafkaSource: (_: any) => de_DirectKafkaSource(_, context),
@@ -18102,6 +18114,12 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
 // de_ConnectionProperties omitted.
 
 // de_ConnectionsList omitted.
+
+// de_ConnectorDataSource omitted.
+
+// de_ConnectorDataTarget omitted.
+
+// de_ConnectorOptions omitted.
 
 // de_ContextWords omitted.
 

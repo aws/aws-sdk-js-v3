@@ -1097,6 +1097,22 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //             },
  * //             Inputs: "<OneInput>",
  * //           },
+ * //           ConnectorDataSource: { // ConnectorDataSource
+ * //             Name: "STRING_VALUE", // required
+ * //             ConnectionType: "STRING_VALUE", // required
+ * //             Data: { // ConnectorOptions // required
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             OutputSchemas: "<GlueSchemas>",
+ * //           },
+ * //           ConnectorDataTarget: { // ConnectorDataTarget
+ * //             Name: "STRING_VALUE", // required
+ * //             ConnectionType: "STRING_VALUE", // required
+ * //             Data: { // required
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             Inputs: "<OneInput>",
+ * //           },
  * //         },
  * //       },
  * //       ExecutionClass: "FLEX" || "STANDARD",
