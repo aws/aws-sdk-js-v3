@@ -31,7 +31,6 @@ import {
 import {
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
-  ParticipantTimerType,
   PromptSearchFilter,
   QueueSearchFilter,
   QuickConnectSearchFilter,
@@ -41,9 +40,37 @@ import {
   SignInConfig,
   StringCondition,
   TelephonyConfig,
-  TimerEligibleParticipantRoles,
   UserSearchFilter,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const TimerEligibleParticipantRoles = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+} as const;
+
+/**
+ * @public
+ */
+export type TimerEligibleParticipantRoles =
+  (typeof TimerEligibleParticipantRoles)[keyof typeof TimerEligibleParticipantRoles];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantTimerType = {
+  DISCONNECT_NONCUSTOMER: "DISCONNECT_NONCUSTOMER",
+  IDLE: "IDLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantTimerType = (typeof ParticipantTimerType)[keyof typeof ParticipantTimerType];
 
 /**
  * @public
@@ -1140,20 +1167,22 @@ export interface UpdateUserSecurityProfilesRequest {
 export interface UpdateViewContentRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
    */
   ViewId: string | undefined;
 
   /**
    * @public
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *    <code>PUBLISHED</code> status will initiate validation on the content.</p>
+   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
   Status: ViewStatus | undefined;
 
@@ -1183,13 +1212,15 @@ export interface UpdateViewContentResponse {
 export interface UpdateViewMetadataRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
    */
   ViewId: string | undefined;
 

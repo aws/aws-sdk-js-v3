@@ -16,11 +16,13 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
-  CreateViewVersionRequest,
-  CreateViewVersionResponse,
-  CreateViewVersionResponseFilterSensitiveLog,
+  CreatePersistentContactAssociationRequest,
+  CreatePersistentContactAssociationResponse,
 } from "../models/models_0";
-import { de_CreateViewVersionCommand, se_CreateViewVersionCommand } from "../protocols/Aws_restJson1";
+import {
+  de_CreatePersistentContactAssociationCommand,
+  se_CreatePersistentContactAssociationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,69 +31,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateViewVersionCommand}.
+ * The input for {@link CreatePersistentContactAssociationCommand}.
  */
-export interface CreateViewVersionCommandInput extends CreateViewVersionRequest {}
+export interface CreatePersistentContactAssociationCommandInput extends CreatePersistentContactAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link CreateViewVersionCommand}.
+ * The output of {@link CreatePersistentContactAssociationCommand}.
  */
-export interface CreateViewVersionCommandOutput extends CreateViewVersionResponse, __MetadataBearer {}
+export interface CreatePersistentContactAssociationCommandOutput
+  extends CreatePersistentContactAssociationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Publishes a new version of the view identifier.</p>
- *          <p>Versions are immutable and monotonically increasing.</p>
- *          <p>It returns the highest version if there is no change in content compared to that version. An
- *    error is displayed if the supplied ViewContentSha256 is different from the ViewContentSha256 of
- *    the <code>$LATEST</code> alias.</p>
+ * <p>Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a> in the
+ *    <i>Amazon Connect Administrator Guide</i>.
+ *   </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateViewVersionCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateViewVersionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreatePersistentContactAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CreatePersistentContactAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // CreateViewVersionRequest
+ * const input = { // CreatePersistentContactAssociationRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ViewId: "STRING_VALUE", // required
- *   VersionDescription: "STRING_VALUE",
- *   ViewContentSha256: "STRING_VALUE",
+ *   InitialContactId: "STRING_VALUE", // required
+ *   RehydrationType: "ENTIRE_PAST_SESSION" || "FROM_SEGMENT", // required
+ *   SourceContactId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
- * const command = new CreateViewVersionCommand(input);
+ * const command = new CreatePersistentContactAssociationCommand(input);
  * const response = await client.send(command);
- * // { // CreateViewVersionResponse
- * //   View: { // View
- * //     Id: "STRING_VALUE",
- * //     Arn: "STRING_VALUE",
- * //     Name: "STRING_VALUE",
- * //     Status: "PUBLISHED" || "SAVED",
- * //     Type: "CUSTOMER_MANAGED" || "AWS_MANAGED",
- * //     Description: "STRING_VALUE",
- * //     Version: Number("int"),
- * //     VersionDescription: "STRING_VALUE",
- * //     Content: { // ViewContent
- * //       InputSchema: "STRING_VALUE",
- * //       Template: "STRING_VALUE",
- * //       Actions: [ // ViewActions
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //     Tags: { // TagMap
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     CreatedTime: new Date("TIMESTAMP"),
- * //     LastModifiedTime: new Date("TIMESTAMP"),
- * //     ViewContentSha256: "STRING_VALUE",
- * //   },
+ * // { // CreatePersistentContactAssociationResponse
+ * //   ContinuedFromContactId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateViewVersionCommandInput - {@link CreateViewVersionCommandInput}
- * @returns {@link CreateViewVersionCommandOutput}
- * @see {@link CreateViewVersionCommandInput} for command's `input` shape.
- * @see {@link CreateViewVersionCommandOutput} for command's `response` shape.
+ * @param CreatePersistentContactAssociationCommandInput - {@link CreatePersistentContactAssociationCommandInput}
+ * @returns {@link CreatePersistentContactAssociationCommandOutput}
+ * @see {@link CreatePersistentContactAssociationCommandInput} for command's `input` shape.
+ * @see {@link CreatePersistentContactAssociationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -106,25 +88,19 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
- * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use. Please try another.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
- *
- * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Displayed when rate-related API limits are exceeded.</p>
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
  *
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class CreateViewVersionCommand extends $Command<
-  CreateViewVersionCommandInput,
-  CreateViewVersionCommandOutput,
+export class CreatePersistentContactAssociationCommand extends $Command<
+  CreatePersistentContactAssociationCommandInput,
+  CreatePersistentContactAssociationCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -142,7 +118,7 @@ export class CreateViewVersionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateViewVersionCommandInput) {
+  constructor(readonly input: CreatePersistentContactAssociationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -155,26 +131,26 @@ export class CreateViewVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateViewVersionCommandInput, CreateViewVersionCommandOutput> {
+  ): Handler<CreatePersistentContactAssociationCommandInput, CreatePersistentContactAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateViewVersionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreatePersistentContactAssociationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "CreateViewVersionCommand";
+    const commandName = "CreatePersistentContactAssociationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: CreateViewVersionResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "CreateViewVersion",
+        operation: "CreatePersistentContactAssociation",
       },
     };
     const { requestHandler } = configuration;
@@ -188,15 +164,21 @@ export class CreateViewVersionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateViewVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateViewVersionCommand(input, context);
+  private serialize(
+    input: CreatePersistentContactAssociationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_CreatePersistentContactAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateViewVersionCommandOutput> {
-    return de_CreateViewVersionCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreatePersistentContactAssociationCommandOutput> {
+    return de_CreatePersistentContactAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

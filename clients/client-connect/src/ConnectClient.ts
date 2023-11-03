@@ -117,6 +117,10 @@ import {
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
 import { CreateParticipantCommandInput, CreateParticipantCommandOutput } from "./commands/CreateParticipantCommand";
+import {
+  CreatePersistentContactAssociationCommandInput,
+  CreatePersistentContactAssociationCommandOutput,
+} from "./commands/CreatePersistentContactAssociationCommand";
 import { CreatePromptCommandInput, CreatePromptCommandOutput } from "./commands/CreatePromptCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "./commands/CreateQuickConnectCommand";
@@ -671,6 +675,7 @@ export type ServiceInputTypes =
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
   | CreateParticipantCommandInput
+  | CreatePersistentContactAssociationCommandInput
   | CreatePromptCommandInput
   | CreateQueueCommandInput
   | CreateQuickConnectCommandInput
@@ -888,6 +893,7 @@ export type ServiceOutputTypes =
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
   | CreateParticipantCommandOutput
+  | CreatePersistentContactAssociationCommandOutput
   | CreatePromptCommandOutput
   | CreateQueueCommandOutput
   | CreateQuickConnectCommandOutput

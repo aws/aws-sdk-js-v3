@@ -95,6 +95,10 @@ import {
   CreateIntegrationAssociationCommandOutput,
 } from "../commands/CreateIntegrationAssociationCommand";
 import { CreateParticipantCommandInput, CreateParticipantCommandOutput } from "../commands/CreateParticipantCommand";
+import {
+  CreatePersistentContactAssociationCommandInput,
+  CreatePersistentContactAssociationCommandOutput,
+} from "../commands/CreatePersistentContactAssociationCommand";
 import { CreatePromptCommandInput, CreatePromptCommandOutput } from "../commands/CreatePromptCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "../commands/CreateQuickConnectCommand";
@@ -650,7 +654,6 @@ import {
   EventBridgeActionDefinition,
   HierarchyGroup,
   HierarchyGroupSummary,
-  HierarchyLevel,
   HierarchyPath,
   HoursOfOperation,
   HoursOfOperationConfig,
@@ -740,6 +743,7 @@ import {
   FilterV2,
   Grouping,
   HierarchyGroupCondition,
+  HierarchyLevel,
   HierarchyStructure,
   HistoricalMetric,
   HistoricalMetricData,
@@ -1561,6 +1565,48 @@ export const se_CreateParticipantCommand = async (
       ContactId: [],
       InstanceId: [],
       ParticipantDetails: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreatePersistentContactAssociationCommand
+ */
+export const se_CreatePersistentContactAssociationCommand = async (
+  input: CreatePersistentContactAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact/persistent-contact-association/{InstanceId}/{InitialContactId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "InitialContactId",
+    () => input.InitialContactId!,
+    "{InitialContactId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      RehydrationType: [],
+      SourceContactId: [],
     })
   );
   return new __HttpRequest({
@@ -9265,6 +9311,68 @@ const de_CreateParticipantCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreatePersistentContactAssociationCommand
+ */
+export const de_CreatePersistentContactAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePersistentContactAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePersistentContactAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContinuedFromContactId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePersistentContactAssociationCommandError
+ */
+const de_CreatePersistentContactAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePersistentContactAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);

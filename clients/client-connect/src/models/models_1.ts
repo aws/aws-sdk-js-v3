@@ -25,8 +25,8 @@ import {
   EvaluationScore,
   EvaluationStatus,
   EventSourceName,
+  HierarchyGroup,
   HierarchyGroupSummary,
-  HierarchyLevel,
   HoursOfOperation,
   HoursOfOperationConfig,
   InstanceAttributeType,
@@ -46,6 +46,7 @@ import {
   QuickConnectType,
   Reference,
   ReferenceType,
+  RehydrationType,
   RoutingProfile,
   RoutingProfileQueueReference,
   RulePublishStatus,
@@ -64,6 +65,64 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DescribeUserHierarchyGroupResponse {
+  /**
+   * @public
+   * <p>Information about the hierarchy group.</p>
+   */
+  HierarchyGroup?: HierarchyGroup;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserHierarchyStructureRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about a hierarchy level.</p>
+ */
+export interface HierarchyLevel {
+  /**
+   * @public
+   * <p>The identifier of the hierarchy level.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the hierarchy level.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the hierarchy level.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
+}
 
 /**
  * @public
@@ -118,7 +177,8 @@ export interface DescribeUserHierarchyStructureResponse {
 export interface DescribeViewRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1720,10 +1780,10 @@ export interface IntervalDetails {
    * @public
    * <p>
    *             <code>IntervalPeriod</code>: An aggregated grouping applied to request metrics. Valid
-   *    <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> |
-   *    <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
+   *     <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> |
+   *     <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
    *          <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>,
-   *    <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect
+   *     <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect
    *    returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By
    *    default Amazon Connect aggregates results based on the <code>TOTAL</code> interval period. </p>
    *          <p>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code>
@@ -1732,12 +1792,12 @@ export interface IntervalDetails {
    *             <li>
    *                <p>
    *                   <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and
-   *      <code>EndTime</code> must be less than 3 days.</p>
+   *       <code>EndTime</code> must be less than 3 days.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>THIRTY_MIN</code>: The difference between <code>StartTime</code> and
-   *      <code>EndTime</code> must be less than 3 days.</p>
+   *       <code>EndTime</code> must be less than 3 days.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2384,7 +2444,7 @@ export interface MetricInterval {
    * @public
    * <p>The timestamp, in UNIX Epoch time format. End time is based on the interval period selected.
    *    For example, If <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>,
-   *    <code>StartTime</code> and <code>EndTime</code> in the API request differs by 1 day, then 48
+   *     <code>StartTime</code> and <code>EndTime</code> in the API request differs by 1 day, then 48
    *    results are returned in the response. Each result is aggregated by the 30 minutes period, with
    *    each <code>StartTime</code> and <code>EndTime</code> differing by 30 minutes. </p>
    */
@@ -4305,9 +4365,9 @@ export interface ListPhoneNumbersV2Request {
    * @public
    * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
    *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
-   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not provided, this API lists numbers
-   *    claimed to all the Amazon Connect instances belonging to your account in the same AWS Region as
-   *    the request.</p>
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not
+   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your
+   *    account in the same AWS Region as the request.</p>
    */
   InstanceId?: string;
 
@@ -5804,7 +5864,8 @@ export interface ListUsersResponse {
 export interface ListViewsRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5816,8 +5877,8 @@ export interface ListViewsRequest {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -5860,7 +5921,7 @@ export interface ViewSummary {
   /**
    * @public
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *    <code>PUBLISHED</code> status will initiate validation on the content.</p>
+   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
   Status?: ViewStatus;
 
@@ -5883,8 +5944,8 @@ export interface ListViewsResponse {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -5895,20 +5956,22 @@ export interface ListViewsResponse {
 export interface ListViewVersionsRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
    */
   ViewId: string | undefined;
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -5979,8 +6042,8 @@ export interface ListViewVersionsResponse {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -7145,20 +7208,6 @@ export interface ParticipantDetails {
    */
   DisplayName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RehydrationType = {
-  ENTIRE_PAST_SESSION: "ENTIRE_PAST_SESSION",
-  FROM_SEGMENT: "FROM_SEGMENT",
-} as const;
-
-/**
- * @public
- */
-export type RehydrationType = (typeof RehydrationType)[keyof typeof RehydrationType];
 
 /**
  * @public
@@ -8564,35 +8613,6 @@ export interface UpdateInstanceStorageConfigRequest {
    */
   StorageConfig: InstanceStorageConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimerEligibleParticipantRoles = {
-  AGENT: "AGENT",
-  CUSTOMER: "CUSTOMER",
-} as const;
-
-/**
- * @public
- */
-export type TimerEligibleParticipantRoles =
-  (typeof TimerEligibleParticipantRoles)[keyof typeof TimerEligibleParticipantRoles];
-
-/**
- * @public
- * @enum
- */
-export const ParticipantTimerType = {
-  DISCONNECT_NONCUSTOMER: "DISCONNECT_NONCUSTOMER",
-  IDLE: "IDLE",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantTimerType = (typeof ParticipantTimerType)[keyof typeof ParticipantTimerType];
 
 /**
  * @internal

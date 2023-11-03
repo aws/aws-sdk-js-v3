@@ -39,9 +39,9 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * @public
  * <p>When a contact is being recorded, this API suspends recording whatever is selected in the
  *    flow configuration: call, screen, or both. If only call recording or only screen recording is
- *    enabled, then it would be suspended. For example, you might suspend the screen
- *    recording while collecting sensitive information, such as a credit card number. Then use
- *    ResumeContactRecording to restart recording the screen.</p>
+ *    enabled, then it would be suspended. For example, you might suspend the screen recording while
+ *    collecting sensitive information, such as a credit card number. Then use ResumeContactRecording
+ *    to restart recording the screen.</p>
  *          <p>The period of time that the recording is suspended is filled with silence in the final
  *    recording.</p>
  *          <p>Voice and screen recordings are supported.</p>

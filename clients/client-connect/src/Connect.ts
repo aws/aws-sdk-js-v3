@@ -113,6 +113,11 @@ import {
   CreateParticipantCommandOutput,
 } from "./commands/CreateParticipantCommand";
 import {
+  CreatePersistentContactAssociationCommand,
+  CreatePersistentContactAssociationCommandInput,
+  CreatePersistentContactAssociationCommandOutput,
+} from "./commands/CreatePersistentContactAssociationCommand";
+import {
   CreatePromptCommand,
   CreatePromptCommandInput,
   CreatePromptCommandOutput,
@@ -1011,6 +1016,7 @@ const commands = {
   CreateInstanceCommand,
   CreateIntegrationAssociationCommand,
   CreateParticipantCommand,
+  CreatePersistentContactAssociationCommand,
   CreatePromptCommand,
   CreateQueueCommand,
   CreateQuickConnectCommand,
@@ -1564,6 +1570,23 @@ export interface Connect {
     args: CreateParticipantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateParticipantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePersistentContactAssociationCommand}
+   */
+  createPersistentContactAssociation(
+    args: CreatePersistentContactAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePersistentContactAssociationCommandOutput>;
+  createPersistentContactAssociation(
+    args: CreatePersistentContactAssociationCommandInput,
+    cb: (err: any, data?: CreatePersistentContactAssociationCommandOutput) => void
+  ): void;
+  createPersistentContactAssociation(
+    args: CreatePersistentContactAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePersistentContactAssociationCommandOutput) => void
   ): void;
 
   /**

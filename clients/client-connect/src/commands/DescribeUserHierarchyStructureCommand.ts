@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeUserHierarchyStructureRequest } from "../models/models_0";
-import { DescribeUserHierarchyStructureResponse } from "../models/models_1";
+import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/models_1";
 import {
   de_DescribeUserHierarchyStructureCommand,
   se_DescribeUserHierarchyStructureCommand,

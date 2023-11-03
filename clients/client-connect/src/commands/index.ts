@@ -21,6 +21,7 @@ export * from "./CreateHoursOfOperationCommand";
 export * from "./CreateInstanceCommand";
 export * from "./CreateIntegrationAssociationCommand";
 export * from "./CreateParticipantCommand";
+export * from "./CreatePersistentContactAssociationCommand";
 export * from "./CreatePromptCommand";
 export * from "./CreateQueueCommand";
 export * from "./CreateQuickConnectCommand";

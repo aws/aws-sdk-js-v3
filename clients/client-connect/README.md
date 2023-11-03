@@ -391,6 +391,14 @@ CreateParticipant
 </details>
 <details>
 <summary>
+CreatePersistentContactAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/createpersistentcontactassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createpersistentcontactassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createpersistentcontactassociationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreatePrompt
 </summary>
 
