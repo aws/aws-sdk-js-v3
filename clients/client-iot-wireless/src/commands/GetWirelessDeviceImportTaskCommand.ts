@@ -42,8 +42,8 @@ export interface GetWirelessDeviceImportTaskCommandOutput
 
 /**
  * @public
- * <p>Get information about an import task and count of device onboarding summary information for the
- *          import task.</p>
+ * <p>Get information about an import task and count of device onboarding summary
+ *             information for the import task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

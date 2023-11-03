@@ -62,6 +62,7 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  *     OtaaV1_0_x: { // OtaaV1_0_x
  *       AppKey: "STRING_VALUE",
  *       AppEui: "STRING_VALUE",
+ *       JoinEui: "STRING_VALUE",
  *       GenAppKey: "STRING_VALUE",
  *     },
  *     AbpV1_1: { // AbpV1_1

@@ -42,7 +42,8 @@ export interface StartWirelessDeviceImportTaskCommandOutput
 
 /**
  * @public
- * <p>Start import task for provisioning Sidewalk devices in bulk using an S3 CSV file.</p>
+ * <p>Start import task for provisioning Sidewalk devices in bulk using an S3 CSV
+ *             file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

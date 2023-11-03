@@ -71,6 +71,7 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  * //     OtaaV1_0_x: { // OtaaV1_0_x
  * //       AppKey: "STRING_VALUE",
  * //       AppEui: "STRING_VALUE",
+ * //       JoinEui: "STRING_VALUE",
  * //       GenAppKey: "STRING_VALUE",
  * //     },
  * //     AbpV1_1: { // AbpV1_1

@@ -769,7 +769,8 @@ export interface StartMulticastGroupSessionResponse {}
 export interface SidewalkSingleStartImportInfo {
   /**
    * @public
-   * <p>The Sidewalk manufacturing serial number (SMSN) of the device added to the import task.</p>
+   * <p>The Sidewalk manufacturing serial number (SMSN) of the device added to the import
+   *             task.</p>
    */
   SidewalkManufacturingSn?: string;
 }
@@ -780,8 +781,8 @@ export interface SidewalkSingleStartImportInfo {
 export interface StartSingleWirelessDeviceImportTaskRequest {
   /**
    * @public
-   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages from the device in the import
-   *          task that will be onboarded to AWS IoT Wireless.</p>
+   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages
+   *             from the device in the import task that will be onboarded to AWS IoT Wireless.</p>
    */
   DestinationName: string | undefined;
 
@@ -838,13 +839,15 @@ export interface StartSingleWirelessDeviceImportTaskResponse {
 export interface SidewalkStartImportInfo {
   /**
    * @public
-   * <p>The CSV file contained in an S3 bucket that's used for adding devices to an import task.</p>
+   * <p>The CSV file contained in an S3 bucket that's used for adding devices to an import
+   *             task.</p>
    */
   DeviceCreationFile?: string;
 
   /**
    * @public
-   * <p>The IAM role that allows AWS IoT Wireless to access the CSV file in the S3 bucket.</p>
+   * <p>The IAM role that allows AWS IoT Wireless to access the CSV file in the S3
+   *             bucket.</p>
    */
   Role?: string;
 }
@@ -855,8 +858,8 @@ export interface SidewalkStartImportInfo {
 export interface StartWirelessDeviceImportTaskRequest {
   /**
    * @public
-   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages from the devices in the import
-   *          task that are onboarded to AWS IoT Wireless.</p>
+   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages
+   *             from the devices in the import task that are onboarded to AWS IoT Wireless.</p>
    */
   DestinationName: string | undefined;
 
@@ -878,7 +881,8 @@ export interface StartWirelessDeviceImportTaskRequest {
 
   /**
    * @public
-   * <p>The Sidewalk-related parameters for importing wireless devices that need to be provisioned in bulk.</p>
+   * <p>The Sidewalk-related parameters for importing wireless devices that need to be
+   *             provisioned in bulk.</p>
    */
   Sidewalk: SidewalkStartImportInfo | undefined;
 }
@@ -1232,7 +1236,7 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
 
   /**
    * @public
-   * <p>Trace content for your wireless gateway and wireless device resources.</p>
+   * <p>Trace content for your wireless devices, gateways, and multicast groups.</p>
    */
   TraceContent?: TraceContent;
 
@@ -1280,7 +1284,7 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
   /**
    * @public
    * <p>Multicast group resources to remove from the network analyzer configuration. Provide the
-   *             <code>MulticastGroupId</code> of the resource to remove in the input array.</p>
+   *             <code>MulticastGroupId</code> of the resources to remove in the input array.</p>
    */
   MulticastGroupsToRemove?: string[];
 }
@@ -1424,22 +1428,24 @@ export interface UpdateResourceEventConfigurationResponse {}
 export interface UpdateResourcePositionRequest {
   /**
    * @public
-   * <p>The identifier of the resource for which position information is updated. It can be the
-   *             wireless device ID or the wireless gateway ID, depending on the resource type.</p>
+   * <p>The identifier of the resource for which position information is updated. It can be
+   *             the wireless device ID or the wireless gateway ID, depending on the resource
+   *             type.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
    * @public
-   * <p>The type of resource for which position information is updated, which can be a wireless device or a
-   *            wireless gateway.</p>
+   * <p>The type of resource for which position information is updated, which can be a
+   *             wireless device or a wireless gateway.</p>
    */
   ResourceType: PositionResourceType | undefined;
 
   /**
    * @public
-   * <p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format,
-   *            which a format that's used to encode geographic data structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
+   * <p>The position information of the resource, displayed as a JSON payload. The payload
+   *             uses the GeoJSON format, which a format that's used to encode geographic data
+   *             structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
    */
   GeoJsonPayload?: Uint8Array;
 }
@@ -1486,7 +1492,8 @@ export interface UpdateFPorts {
 
   /**
    * @public
-   * <p>LoRaWAN application, which can be used for geolocation by activating positioning.</p>
+   * <p>LoRaWAN application, which can be used for geolocation by activating
+   *             positioning.</p>
    */
   Applications?: ApplicationConfig[];
 }
@@ -1581,7 +1588,8 @@ export interface UpdateWirelessDeviceResponse {}
 export interface SidewalkUpdateImportInfo {
   /**
    * @public
-   * <p>The CSV file contained in an S3 bucket that's used for appending devices to an existing import task.</p>
+   * <p>The CSV file contained in an S3 bucket that's used for appending devices to an
+   *             existing import task.</p>
    */
   DeviceCreationFile?: string;
 }
