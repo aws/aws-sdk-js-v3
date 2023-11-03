@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.443.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.442.0...v3.443.0) (2023-11-03)
+
+
+### Features
+
+* **client-connect:** Amazon Connect Chat introduces Create Persistent Contact Association API, allowing customers to choose when to resume previous conversations from previous chats, eliminating the need to repeat themselves and allowing agents to provide personalized service with access to entire conversation history. ([0ca88f3](https://github.com/aws/aws-sdk-js-v3/commit/0ca88f35fca3a781f1445708fdd1e265273f9fcc))
+
+
+
+
+
 # [3.442.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.441.0...v3.442.0) (2023-11-02)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.443.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.442.0...v3.443.0) (2023-11-03)
+
+
+### Features
+
+* **client-config-service:** Updated ResourceType enum with new resource types onboarded by AWS Config in October 2023. ([360adba](https://github.com/aws/aws-sdk-js-v3/commit/360adbabb4d6b23db45bfb8da7fc1b6092803bce))
+
+
+
+
+
 # [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
 
 **Note:** Version bump only for package @aws-sdk/client-config-service

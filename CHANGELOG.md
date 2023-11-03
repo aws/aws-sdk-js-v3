@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.443.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.442.0...v3.443.0) (2023-11-03)
+
+
+### Features
+
+* **client-config-service:** Updated ResourceType enum with new resource types onboarded by AWS Config in October 2023. ([360adba](https://github.com/aws/aws-sdk-js-v3/commit/360adbabb4d6b23db45bfb8da7fc1b6092803bce))
+* **client-connect:** Amazon Connect Chat introduces Create Persistent Contact Association API, allowing customers to choose when to resume previous conversations from previous chats, eliminating the need to repeat themselves and allowing agents to provide personalized service with access to entire conversation history. ([0ca88f3](https://github.com/aws/aws-sdk-js-v3/commit/0ca88f35fca3a781f1445708fdd1e265273f9fcc))
+* **client-iot-wireless:** Added LoRaWAN version 1.0.4 support ([fff6dd0](https://github.com/aws/aws-sdk-js-v3/commit/fff6dd0e32f7401c492c798f8744cf5c9c97c367))
+* **client-launch-wizard:** AWS Launch Wizard is a service that helps reduce the time it takes to deploy applications to the cloud while providing a guided deployment experience. ([9dd8d0f](https://github.com/aws/aws-sdk-js-v3/commit/9dd8d0fbba9d3181590f158945ac43b1d7cc045d))
+
+
+
+
+
 # [3.442.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.441.0...v3.442.0) (2023-11-02)
 
 

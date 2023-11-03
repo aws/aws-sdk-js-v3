@@ -1,0 +1,11 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.443.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.442.0...v3.443.0) (2023-11-03)
+
+
+### Features
+
+* **client-launch-wizard:** AWS Launch Wizard is a service that helps reduce the time it takes to deploy applications to the cloud while providing a guided deployment experience. ([9dd8d0f](https://github.com/aws/aws-sdk-js-v3/commit/9dd8d0fbba9d3181590f158945ac43b1d7cc045d))
