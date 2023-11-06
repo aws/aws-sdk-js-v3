@@ -289,9 +289,9 @@ export interface CreateEnvironmentInput {
 
   /**
    * @public
-   * <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version. Valid values:
-   *             <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, and <code>2.5.1</code>.
+   * <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version.
    *             For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
+   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>.</p>
    */
   AirflowVersion?: string;
 
@@ -691,7 +691,8 @@ export interface Environment {
 
   /**
    * @public
-   * <p>The Apache Airflow version on your environment. Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, and <code>2.5.1</code>.</p>
+   * <p>The Apache Airflow version on your environment.</p>
+   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>.</p>
    */
   AirflowVersion?: string;
 
@@ -910,6 +911,8 @@ export interface ListTagsForResourceOutput {
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>
  *             <b>Internal only</b>. Represents the dimensions of a metric. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
  */
@@ -931,6 +934,8 @@ export interface Dimension {
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>
  *             <b>Internal only</b>. Represents a set of statistics that describe a specific metric. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
  */
@@ -1005,6 +1010,8 @@ export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>
  *             <b>Internal only</b>. Collects Apache Airflow metrics. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
  */
@@ -1025,6 +1032,8 @@ export interface MetricDatum {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>
    *             <b>Internal only</b>. The dimensions associated with the metric.</p>
    */
@@ -1046,6 +1055,8 @@ export interface MetricDatum {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>
    *             <b>Internal only</b>. The statistical values for the metric.</p>
    */
@@ -1065,6 +1076,8 @@ export interface PublishMetricsInput {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>
    *             <b>Internal only</b>. Publishes metrics to Amazon CloudWatch. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
    */
@@ -1153,7 +1166,7 @@ export interface UpdateEnvironmentInput {
    * <p>The Apache Airflow version for your environment. To upgrade your environment, specify a newer version of Apache Airflow supported by Amazon MWAA.</p>
    *          <p>Before you upgrade an environment, make sure your requirements, DAGs, plugins, and other resources used in your workflows are compatible with the new Apache Airflow version. For more information about updating
    *             your resources, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading an Amazon MWAA environment</a>.</p>
-   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, and <code>2.5.1</code>.</p>
+   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>.</p>
    */
   AirflowVersion?: string;
 

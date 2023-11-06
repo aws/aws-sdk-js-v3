@@ -69,22 +69,11 @@
  *                   </li>
  *                </ul>
  *             </li>
- *             <li>
- *                <p>
- *                   <code>ops.airflow.{region}.amazonaws.com</code> - This endpoint is used to push environment metrics that track environment health.</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_PublishMetrics.html ">PublishMetrics</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
  *          </ul>
  *          <p>
  *             <b>Regions</b>
  *          </p>
- *          <p>For a list of regions that Amazon MWAA supports, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa">Region availability</a> in the <i>Amazon MWAA User Guide</i>.</p>
+ *          <p>For a list of supported regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/mwaa.html">Amazon MWAA endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
  *
  * @packageDocumentation
  */
