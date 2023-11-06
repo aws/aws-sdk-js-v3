@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactScheduleRequest, UpdateContactScheduleResponse } from "../models/models_1";
+import { UpdateContactScheduleRequest, UpdateContactScheduleResponse } from "../models/models_2";
 import { de_UpdateContactScheduleCommand, se_UpdateContactScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**

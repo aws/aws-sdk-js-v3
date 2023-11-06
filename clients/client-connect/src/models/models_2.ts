@@ -5,10 +5,15 @@ import {
   AgentAvailabilityTimer,
   AgentConfig,
   Application,
+  ContactFlowModuleState,
   Evaluation,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
   EvaluationFormVersionStatus,
+  HoursOfOperationConfig,
+  InstanceAttributeType,
+  InstanceStorageConfig,
+  InstanceStorageResourceType,
   MediaConcurrency,
   OutboundCallerConfig,
   QueueStatus,
@@ -42,6 +47,228 @@ import {
   TelephonyConfig,
   UserSearchFilter,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowModuleMetadataRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the flow module.</p>
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the flow module.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the flow module.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The state of flow module.</p>
+   */
+  State?: ContactFlowModuleState;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowModuleMetadataResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowNameRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the flow.</p>
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the flow.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the flow.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowNameResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactScheduleRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
+   */
+  ScheduledTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactScheduleResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateEvaluationFormResponse {
+  /**
+   * @public
+   * <p>The unique identifier for the evaluation form.</p>
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the updated evaluation form resource.</p>
+   */
+  EvaluationFormVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHoursOfOperationRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the hours of operation.</p>
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the hours of operation.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the hours of operation.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The time zone of the hours of operation.</p>
+   */
+  TimeZone?: string;
+
+  /**
+   * @public
+   * <p>Configuration information of the hours of operation.</p>
+   */
+  Config?: HoursOfOperationConfig[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateInstanceAttributeRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of attribute.</p>
+   *          <note>
+   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
+   *     contact Amazon Web Services Support for allowlisting.</p>
+   *          </note>
+   */
+  AttributeType: InstanceAttributeType | undefined;
+
+  /**
+   * @public
+   * <p>The value for the attribute. Maximum character limit is 100. </p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInstanceStorageConfigRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * @public
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: InstanceStorageResourceType | undefined;
+
+  /**
+   * @public
+   * <p>The storage configuration for the instance.</p>
+   */
+  StorageConfig: InstanceStorageConfig | undefined;
+}
 
 /**
  * @public

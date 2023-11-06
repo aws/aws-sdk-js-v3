@@ -74,6 +74,7 @@ import {
   BatchGetFlowAssociationCommandInput,
   BatchGetFlowAssociationCommandOutput,
 } from "../commands/BatchGetFlowAssociationCommand";
+import { BatchPutContactCommandInput, BatchPutContactCommandOutput } from "../commands/BatchPutContactCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "../commands/ClaimPhoneNumberCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "../commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
@@ -627,14 +628,17 @@ import {
   AgentStatusSummary,
   Application,
   AssignContactCategoryActionDefinition,
+  Campaign,
   Channel,
   Contact,
+  ContactDataRequest,
   ContactFlowNotPublishedException,
   ContactState,
   CrossChannelBehavior,
   Distribution,
   DuplicateResourceException,
   EncryptionConfig,
+  Endpoint,
   Evaluation,
   EvaluationAnswerData,
   EvaluationAnswerOutput,
@@ -652,9 +656,6 @@ import {
   EvaluationNote,
   EvaluationScore,
   EventBridgeActionDefinition,
-  HierarchyGroup,
-  HierarchyGroupSummary,
-  HierarchyPath,
   HoursOfOperation,
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
@@ -715,7 +716,6 @@ import {
   TaskTemplateFieldIdentifier,
   ThrottlingException,
   TooManyRequestsException,
-  User,
   UserIdentityInfo,
   UserPhoneConfig,
   UserQuickConnectConfig,
@@ -735,6 +735,7 @@ import {
   CurrentMetricResult,
   CurrentMetricSortCriteria,
   DestinationNotAllowedException,
+  DisconnectReason,
   EvaluationAnswerInput,
   EvaluationFormSummary,
   EvaluationFormVersionSummary,
@@ -742,8 +743,11 @@ import {
   Filters,
   FilterV2,
   Grouping,
+  HierarchyGroup,
   HierarchyGroupCondition,
+  HierarchyGroupSummary,
   HierarchyLevel,
+  HierarchyPath,
   HierarchyStructure,
   HistoricalMetric,
   HistoricalMetricData,
@@ -783,6 +787,7 @@ import {
   TelephonyConfig,
   Threshold,
   ThresholdV2,
+  User,
   UserData,
   UserDataFilters,
   UserNotFoundException,
@@ -1259,6 +1264,38 @@ export const se_BatchGetFlowAssociationCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchPutContactCommand
+ */
+export const se_BatchPutContactCommand = async (
+  input: BatchPutContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/batch/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactDataRequestList: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -6113,6 +6150,7 @@ export const se_StopContactCommand = async (
   body = JSON.stringify(
     take(input, {
       ContactId: [],
+      DisconnectReason: (_) => _json(_),
       InstanceId: [],
     })
   );
@@ -8732,6 +8770,69 @@ const de_BatchGetFlowAssociationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchPutContactCommand
+ */
+export const de_BatchPutContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchPutContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchPutContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FailedRequestList: _json,
+    SuccessfulRequestList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchPutContactCommandError
+ */
+const de_BatchPutContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchPutContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await de_IdempotencyExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -21078,6 +21179,8 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_Attributes omitted.
 
+// se_Campaign omitted.
+
 // se_Channels omitted.
 
 // se_ChatMessage omitted.
@@ -21085,6 +21188,10 @@ const de_UserNotFoundExceptionRes = async (
 // se_ChatParticipantRoleConfig omitted.
 
 // se_ChatStreamingConfiguration omitted.
+
+// se_ContactDataRequest omitted.
+
+// se_ContactDataRequestList omitted.
 
 // se_ContactFilter omitted.
 
@@ -21104,11 +21211,15 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_CurrentMetricSortCriteriaMaxOne omitted.
 
+// se_DisconnectReason omitted.
+
 // se_Distribution omitted.
 
 // se_DistributionList omitted.
 
 // se_EncryptionConfig omitted.
+
+// se_Endpoint omitted.
 
 /**
  * serializeAws_restJson1EvaluationAnswerData
@@ -22215,6 +22326,10 @@ const de_EvaluationSummaryList = (output: any, context: __SerdeContext): Evaluat
 
 // de_EventBridgeActionDefinition omitted.
 
+// de_FailedRequest omitted.
+
+// de_FailedRequestList omitted.
+
 // de_FlowAssociationSummary omitted.
 
 // de_FlowAssociationSummaryList omitted.
@@ -23009,6 +23124,10 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
 // de_SingleSelectQuestionRuleCategoryAutomation omitted.
 
 // de_StringReference omitted.
+
+// de_SuccessfulRequest omitted.
+
+// de_SuccessfulRequestList omitted.
 
 // de_TagMap omitted.
 

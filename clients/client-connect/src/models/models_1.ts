@@ -25,11 +25,7 @@ import {
   EvaluationScore,
   EvaluationStatus,
   EventSourceName,
-  HierarchyGroup,
-  HierarchyGroupSummary,
   HoursOfOperation,
-  HoursOfOperationConfig,
-  InstanceAttributeType,
   InstanceStatus,
   InstanceStorageConfig,
   InstanceStorageResourceType,
@@ -57,6 +53,7 @@ import {
   TaskTemplateStatus,
   TrafficDistributionGroupStatus,
   UseCaseType,
+  UserIdentityInfo,
   UserPhoneConfig,
   View,
   ViewFilterSensitiveLog,
@@ -65,6 +62,363 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Information about a traffic distribution group.</p>
+ */
+export interface TrafficDistributionGroup {
+  /**
+   * @public
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the traffic distribution group.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the traffic distribution group.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  InstanceArn?: string;
+
+  /**
+   * @public
+   * <p>The status of the traffic distribution group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *      completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *      completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html">UpdateTrafficDistribution</a> operation is still in progress and has not yet
+   *      completed.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: TrafficDistributionGroupStatus;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Whether this is the default traffic distribution group created during instance
+   *    replication. The default traffic distribution group cannot be deleted by the
+   *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
+   *    part of the process for deleting a replica.</p>
+   *          <note>
+   *             <p>The <code>SignInConfig</code> distribution is available only on a
+   * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
+   * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
+   *  data type). If you call
+   *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
+   *     an <code>InvalidRequestException</code> is returned.</p>
+   *          </note>
+   */
+  IsDefault?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficDistributionGroupResponse {
+  /**
+   * @public
+   * <p>Information about the traffic distribution group.</p>
+   */
+  TrafficDistributionGroup?: TrafficDistributionGroup;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserRequest {
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about a user account for an Amazon Connect instance.</p>
+ */
+export interface User {
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the user account.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The user name assigned to the user account.</p>
+   */
+  Username?: string;
+
+  /**
+   * @public
+   * <p>Information about the user identity.</p>
+   */
+  IdentityInfo?: UserIdentityInfo;
+
+  /**
+   * @public
+   * <p>Information about the phone configuration for the user.</p>
+   */
+  PhoneConfig?: UserPhoneConfig;
+
+  /**
+   * @public
+   * <p>The identifier of the user account in the directory used for identity management.</p>
+   */
+  DirectoryUserId?: string;
+
+  /**
+   * @public
+   * <p>The identifiers of the security profiles for the user.</p>
+   */
+  SecurityProfileIds?: string[];
+
+  /**
+   * @public
+   * <p>The identifier of the routing profile for the user.</p>
+   */
+  RoutingProfileId?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the hierarchy group for the user.</p>
+   */
+  HierarchyGroupId?: string;
+
+  /**
+   * @public
+   * <p>The
+   *    tags.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserResponse {
+  /**
+   * @public
+   * <p>Information about the user account and configuration settings.</p>
+   */
+  User?: User;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserHierarchyGroupRequest {
+  /**
+   * @public
+   * <p>The identifier of the hierarchy group.</p>
+   */
+  HierarchyGroupId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains summary information about a hierarchy group.</p>
+ */
+export interface HierarchyGroupSummary {
+  /**
+   * @public
+   * <p>The identifier of the hierarchy group.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the hierarchy group.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the levels of a hierarchy group.</p>
+ */
+export interface HierarchyPath {
+  /**
+   * @public
+   * <p>Information about level one.</p>
+   */
+  LevelOne?: HierarchyGroupSummary;
+
+  /**
+   * @public
+   * <p>Information about level two.</p>
+   */
+  LevelTwo?: HierarchyGroupSummary;
+
+  /**
+   * @public
+   * <p>Information about level three.</p>
+   */
+  LevelThree?: HierarchyGroupSummary;
+
+  /**
+   * @public
+   * <p>Information about level four.</p>
+   */
+  LevelFour?: HierarchyGroupSummary;
+
+  /**
+   * @public
+   * <p>Information about level five.</p>
+   */
+  LevelFive?: HierarchyGroupSummary;
+}
+
+/**
+ * @public
+ * <p>Contains information about a hierarchy group.</p>
+ */
+export interface HierarchyGroup {
+  /**
+   * @public
+   * <p>The identifier of the hierarchy group.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the hierarchy group.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the level in the hierarchy group.</p>
+   */
+  LevelId?: string;
+
+  /**
+   * @public
+   * <p>Information about the levels in the hierarchy group.</p>
+   */
+  HierarchyPath?: HierarchyPath;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
+}
 
 /**
  * @public
@@ -7867,6 +8221,19 @@ export class ContactNotFoundException extends __BaseException {
 
 /**
  * @public
+ * <p>Contains details about why a contact was disconnected. Only Amazon Connect outbound
+ *    campaigns can provide this field.</p>
+ */
+export interface DisconnectReason {
+  /**
+   * @public
+   * <p>A code that indicates how the contact was terminated.</p>
+   */
+  Code?: string;
+}
+
+/**
+ * @public
  */
 export interface StopContactRequest {
   /**
@@ -7880,6 +8247,13 @@ export interface StopContactRequest {
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The reason a contact can be disconnected. Only Amazon Connect outbound campaigns can
+   *    provide this field.</p>
+   */
+  DisconnectReason?: DisconnectReason;
 }
 
 /**
@@ -8391,228 +8765,6 @@ export interface UpdateContactFlowModuleContentRequest {
  * @public
  */
 export interface UpdateContactFlowModuleContentResponse {}
-
-/**
- * @public
- */
-export interface UpdateContactFlowModuleMetadataRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the flow module.</p>
-   */
-  ContactFlowModuleId: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the flow module.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The description of the flow module.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The state of flow module.</p>
-   */
-  State?: ContactFlowModuleState;
-}
-
-/**
- * @public
- */
-export interface UpdateContactFlowModuleMetadataResponse {}
-
-/**
- * @public
- */
-export interface UpdateContactFlowNameRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the flow.</p>
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the flow.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The description of the flow.</p>
-   */
-  Description?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateContactFlowNameResponse {}
-
-/**
- * @public
- */
-export interface UpdateContactScheduleRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * @public
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
-   */
-  ScheduledTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContactScheduleResponse {}
-
-/**
- * @public
- */
-export interface UpdateEvaluationFormResponse {
-  /**
-   * @public
-   * <p>The unique identifier for the evaluation form.</p>
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The version of the updated evaluation form resource.</p>
-   */
-  EvaluationFormVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHoursOfOperationRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the hours of operation.</p>
-   */
-  HoursOfOperationId: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the hours of operation.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The description of the hours of operation.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The time zone of the hours of operation.</p>
-   */
-  TimeZone?: string;
-
-  /**
-   * @public
-   * <p>Configuration information of the hours of operation.</p>
-   */
-  Config?: HoursOfOperationConfig[];
-}
-
-/**
- * @public
- */
-export interface UpdateInstanceAttributeRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The type of attribute.</p>
-   *          <note>
-   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-   *     contact Amazon Web Services Support for allowlisting.</p>
-   *          </note>
-   */
-  AttributeType: InstanceAttributeType | undefined;
-
-  /**
-   * @public
-   * <p>The value for the attribute. Maximum character limit is 100. </p>
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInstanceStorageConfigRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * @public
-   * <p>A valid resource type.</p>
-   */
-  ResourceType: InstanceStorageResourceType | undefined;
-
-  /**
-   * @public
-   * <p>The storage configuration for the instance.</p>
-   */
-  StorageConfig: InstanceStorageConfig | undefined;
-}
 
 /**
  * @internal

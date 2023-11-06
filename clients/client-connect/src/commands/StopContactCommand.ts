@@ -61,6 +61,9 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * const input = { // StopContactRequest
  *   ContactId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
+ *   DisconnectReason: { // DisconnectReason
+ *     Code: "STRING_VALUE",
+ *   },
  * };
  * const command = new StopContactCommand(input);
  * const response = await client.send(command);

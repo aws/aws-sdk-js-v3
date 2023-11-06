@@ -1305,6 +1305,226 @@ export interface BatchGetFlowAssociationResponse {
 
 /**
  * @public
+ * <p>Information associated with a campaign.</p>
+ */
+export interface Campaign {
+  /**
+   * @public
+   * <p>A unique identifier for a campaign.</p>
+   */
+  CampaignId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointType = {
+  CONTACT_FLOW: "CONTACT_FLOW",
+  TELEPHONE_NUMBER: "TELEPHONE_NUMBER",
+  VOIP: "VOIP",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+/**
+ * @public
+ * <p>Information about the endpoint.</p>
+ */
+export interface Endpoint {
+  /**
+   * @public
+   * <p>Type of the endpoint.</p>
+   */
+  Type?: EndpointType;
+
+  /**
+   * @public
+   * <p>Address of the endpoint.</p>
+   */
+  Address?: string;
+}
+
+/**
+ * @public
+ * <p>Request object with information to create a contact.</p>
+ */
+export interface ContactDataRequest {
+  /**
+   * @public
+   * <p>Endpoint associated with the Amazon Connect instance from which outbound contact will be
+   *    initiated for the campaign.</p>
+   */
+  SystemEndpoint?: Endpoint;
+
+  /**
+   * @public
+   * <p>Endpoint of the customer for which contact will be initiated.</p>
+   */
+  CustomerEndpoint?: Endpoint;
+
+  /**
+   * @public
+   * <p>Identifier to uniquely identify individual requests in the batch.</p>
+   */
+  RequestIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the queue associated with the Amazon Connect instance in which
+   *    contacts that are created will be queued.</p>
+   */
+  QueueId?: string;
+
+  /**
+   * @public
+   * <p>List of attributes to be stored in a contact.</p>
+   */
+  Attributes?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Structure to store information associated with a campaign.</p>
+   */
+  Campaign?: Campaign;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutContactRequest {
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>List of individual contact requests.</p>
+   */
+  ContactDataRequestList: ContactDataRequest[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FailureReasonCode = {
+  IDEMPOTENCY_EXCEPTION: "IDEMPOTENCY_EXCEPTION",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ATTRIBUTE_KEY: "INVALID_ATTRIBUTE_KEY",
+  INVALID_CUSTOMER_ENDPOINT: "INVALID_CUSTOMER_ENDPOINT",
+  INVALID_QUEUE: "INVALID_QUEUE",
+  INVALID_SYSTEM_ENDPOINT: "INVALID_SYSTEM_ENDPOINT",
+  MISSING_CAMPAIGN: "MISSING_CAMPAIGN",
+  MISSING_CUSTOMER_ENDPOINT: "MISSING_CUSTOMER_ENDPOINT",
+  MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT: "MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT",
+  REQUEST_THROTTLED: "REQUEST_THROTTLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FailureReasonCode = (typeof FailureReasonCode)[keyof typeof FailureReasonCode];
+
+/**
+ * @public
+ * <p>Request for which contact failed to be generated.</p>
+ */
+export interface FailedRequest {
+  /**
+   * @public
+   * <p>Request identifier provided in the API call in the ContactDataRequest to create a
+   *    contact.</p>
+   */
+  RequestIdentifier?: string;
+
+  /**
+   * @public
+   * <p>Reason code for the failure.</p>
+   */
+  FailureReasonCode?: FailureReasonCode;
+
+  /**
+   * @public
+   * <p>Why the request to create a contact failed.</p>
+   */
+  FailureReasonMessage?: string;
+}
+
+/**
+ * @public
+ * <p>Request for which contact was successfully created.</p>
+ */
+export interface SuccessfulRequest {
+  /**
+   * @public
+   * <p>Request identifier provided in the API call in the ContactDataRequest to create a
+   *    contact.</p>
+   */
+  RequestIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The contactId of the contact that was created successfully.</p>
+   */
+  ContactId?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutContactResponse {
+  /**
+   * @public
+   * <p>List of requests for which contact was successfully created.</p>
+   */
+  SuccessfulRequestList?: SuccessfulRequest[];
+
+  /**
+   * @public
+   * <p>List of requests for which contact creation failed.</p>
+   */
+  FailedRequestList?: FailedRequest[];
+}
+
+/**
+ * @public
+ * <p>An entity with the same name already exists.</p>
+ */
+export class IdempotencyException extends __BaseException {
+  readonly name: "IdempotencyException" = "IdempotencyException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
+    super({
+      name: "IdempotencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  */
 export interface ClaimPhoneNumberRequest {
   /**
@@ -1367,28 +1587,6 @@ export interface ClaimPhoneNumberResponse {
    * <p>The Amazon Resource Name (ARN) of the phone number.</p>
    */
   PhoneNumberArn?: string;
-}
-
-/**
- * @public
- * <p>An entity with the same name already exists.</p>
- */
-export class IdempotencyException extends __BaseException {
-  readonly name: "IdempotencyException" = "IdempotencyException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
-    super({
-      name: "IdempotencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotencyException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2618,7 +2816,7 @@ export interface CreatePersistentContactAssociationRequest {
   /**
    * @public
    * <p>This is the contactId of the current contact that the
-   *     <code>CreatePersistentContactAssociation</code> API is being called from.</p>
+   *    <code>CreatePersistentContactAssociation</code> API is being called from.</p>
    */
   InitialContactId: string | undefined;
 
@@ -2630,14 +2828,14 @@ export interface CreatePersistentContactAssociationRequest {
    *                <p>
    *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat
    *      contact of the specified past ended chat session. To use this type, provide the
-   *       <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In
+   *      <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In
    *      this type, Amazon Connect determines what the most recent chat contact on the past ended
    *      chat session and uses it to start a persistent chat. </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the
-   *       <code>sourceContactId</code> field. </p>
+   *      <code>sourceContactId</code> field. </p>
    *             </li>
    *          </ul>
    *          <p>The actual contactId used for rehydration is provided in the response of this API.</p>
@@ -7311,363 +7509,6 @@ export const TrafficDistributionGroupStatus = {
  */
 export type TrafficDistributionGroupStatus =
   (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
-
-/**
- * @public
- * <p>Information about a traffic distribution group.</p>
- */
-export interface TrafficDistributionGroup {
-  /**
-   * @public
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The name of the traffic distribution group.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The description of the traffic distribution group.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN).</p>
-   */
-  InstanceArn?: string;
-
-  /**
-   * @public
-   * <p>The status of the traffic distribution group.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html">UpdateTrafficDistribution</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: TrafficDistributionGroupStatus;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Whether this is the default traffic distribution group created during instance
-   *    replication. The default traffic distribution group cannot be deleted by the
-   *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
-   *    part of the process for deleting a replica.</p>
-   *          <note>
-   *             <p>The <code>SignInConfig</code> distribution is available only on a
-   * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
-   * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
-   *  data type). If you call
-   *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
-   *     an <code>InvalidRequestException</code> is returned.</p>
-   *          </note>
-   */
-  IsDefault?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficDistributionGroupResponse {
-  /**
-   * @public
-   * <p>Information about the traffic distribution group.</p>
-   */
-  TrafficDistributionGroup?: TrafficDistributionGroup;
-}
-
-/**
- * @public
- */
-export interface DescribeUserRequest {
-  /**
-   * @public
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains information about a user account for an Amazon Connect instance.</p>
- */
-export interface User {
-  /**
-   * @public
-   * <p>The identifier of the user account.</p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the user account.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The user name assigned to the user account.</p>
-   */
-  Username?: string;
-
-  /**
-   * @public
-   * <p>Information about the user identity.</p>
-   */
-  IdentityInfo?: UserIdentityInfo;
-
-  /**
-   * @public
-   * <p>Information about the phone configuration for the user.</p>
-   */
-  PhoneConfig?: UserPhoneConfig;
-
-  /**
-   * @public
-   * <p>The identifier of the user account in the directory used for identity management.</p>
-   */
-  DirectoryUserId?: string;
-
-  /**
-   * @public
-   * <p>The identifiers of the security profiles for the user.</p>
-   */
-  SecurityProfileIds?: string[];
-
-  /**
-   * @public
-   * <p>The identifier of the routing profile for the user.</p>
-   */
-  RoutingProfileId?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the hierarchy group for the user.</p>
-   */
-  HierarchyGroupId?: string;
-
-  /**
-   * @public
-   * <p>The
-   *    tags.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeUserResponse {
-  /**
-   * @public
-   * <p>Information about the user account and configuration settings.</p>
-   */
-  User?: User;
-}
-
-/**
- * @public
- */
-export interface DescribeUserHierarchyGroupRequest {
-  /**
-   * @public
-   * <p>The identifier of the hierarchy group.</p>
-   */
-  HierarchyGroupId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains summary information about a hierarchy group.</p>
- */
-export interface HierarchyGroupSummary {
-  /**
-   * @public
-   * <p>The identifier of the hierarchy group.</p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The name of the hierarchy group.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-}
-
-/**
- * @public
- * <p>Contains information about the levels of a hierarchy group.</p>
- */
-export interface HierarchyPath {
-  /**
-   * @public
-   * <p>Information about level one.</p>
-   */
-  LevelOne?: HierarchyGroupSummary;
-
-  /**
-   * @public
-   * <p>Information about level two.</p>
-   */
-  LevelTwo?: HierarchyGroupSummary;
-
-  /**
-   * @public
-   * <p>Information about level three.</p>
-   */
-  LevelThree?: HierarchyGroupSummary;
-
-  /**
-   * @public
-   * <p>Information about level four.</p>
-   */
-  LevelFour?: HierarchyGroupSummary;
-
-  /**
-   * @public
-   * <p>Information about level five.</p>
-   */
-  LevelFive?: HierarchyGroupSummary;
-}
-
-/**
- * @public
- * <p>Contains information about a hierarchy group.</p>
- */
-export interface HierarchyGroup {
-  /**
-   * @public
-   * <p>The identifier of the hierarchy group.</p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The name of the hierarchy group.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the level in the hierarchy group.</p>
-   */
-  LevelId?: string;
-
-  /**
-   * @public
-   * <p>Information about the levels in the hierarchy group.</p>
-   */
-  HierarchyPath?: HierarchyPath;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-}
 
 /**
  * @internal

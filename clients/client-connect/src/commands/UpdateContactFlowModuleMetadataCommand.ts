@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowModuleMetadataRequest, UpdateContactFlowModuleMetadataResponse } from "../models/models_1";
+import { UpdateContactFlowModuleMetadataRequest, UpdateContactFlowModuleMetadataResponse } from "../models/models_2";
 import {
   de_UpdateContactFlowModuleMetadataCommand,
   se_UpdateContactFlowModuleMetadataCommand,

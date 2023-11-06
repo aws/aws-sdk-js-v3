@@ -319,6 +319,14 @@ BatchGetFlowAssociation
 </details>
 <details>
 <summary>
+BatchPutContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/batchputcontactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/batchputcontactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/batchputcontactcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ClaimPhoneNumber
 </summary>
 

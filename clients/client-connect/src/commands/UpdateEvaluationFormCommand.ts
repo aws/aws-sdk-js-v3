@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateEvaluationFormResponse } from "../models/models_1";
-import { UpdateEvaluationFormRequest } from "../models/models_2";
+import { UpdateEvaluationFormRequest, UpdateEvaluationFormResponse } from "../models/models_2";
 import { de_UpdateEvaluationFormCommand, se_UpdateEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -12,6 +12,7 @@ export * from "./AssociateRoutingProfileQueuesCommand";
 export * from "./AssociateSecurityKeyCommand";
 export * from "./AssociateTrafficDistributionGroupUserCommand";
 export * from "./BatchGetFlowAssociationCommand";
+export * from "./BatchPutContactCommand";
 export * from "./ClaimPhoneNumberCommand";
 export * from "./CreateAgentStatusCommand";
 export * from "./CreateContactFlowCommand";

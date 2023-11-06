@@ -68,6 +68,11 @@ import {
   BatchGetFlowAssociationCommandOutput,
 } from "./commands/BatchGetFlowAssociationCommand";
 import {
+  BatchPutContactCommand,
+  BatchPutContactCommandInput,
+  BatchPutContactCommandOutput,
+} from "./commands/BatchPutContactCommand";
+import {
   ClaimPhoneNumberCommand,
   ClaimPhoneNumberCommandInput,
   ClaimPhoneNumberCommandOutput,
@@ -1007,6 +1012,7 @@ const commands = {
   AssociateSecurityKeyCommand,
   AssociateTrafficDistributionGroupUserCommand,
   BatchGetFlowAssociationCommand,
+  BatchPutContactCommand,
   ClaimPhoneNumberCommand,
   CreateAgentStatusCommand,
   CreateContactFlowCommand,
@@ -1420,6 +1426,20 @@ export interface Connect {
     args: BatchGetFlowAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetFlowAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchPutContactCommand}
+   */
+  batchPutContact(
+    args: BatchPutContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutContactCommandOutput>;
+  batchPutContact(args: BatchPutContactCommandInput, cb: (err: any, data?: BatchPutContactCommandOutput) => void): void;
+  batchPutContact(
+    args: BatchPutContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutContactCommandOutput) => void
   ): void;
 
   /**

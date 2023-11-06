@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
+import { DescribeUserRequest, DescribeUserResponse } from "../models/models_1";
 import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeUserHierarchyGroupRequest } from "../models/models_0";
-import { DescribeUserHierarchyGroupResponse } from "../models/models_1";
+import { DescribeUserHierarchyGroupRequest, DescribeUserHierarchyGroupResponse } from "../models/models_1";
 import { de_DescribeUserHierarchyGroupCommand, se_DescribeUserHierarchyGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
