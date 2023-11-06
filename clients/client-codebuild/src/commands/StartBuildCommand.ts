@@ -125,9 +125,9 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *     context: "STRING_VALUE",
  *     targetUrl: "STRING_VALUE",
  *   },
- *   environmentTypeOverride: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER",
+ *   environmentTypeOverride: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER",
  *   imageOverride: "STRING_VALUE",
- *   computeTypeOverride: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE",
+ *   computeTypeOverride: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB",
  *   certificateOverride: "STRING_VALUE",
  *   cacheOverride: { // ProjectCache
  *     type: "NO_CACHE" || "S3" || "LOCAL", // required
@@ -267,9 +267,9 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       ],
  * //     },
  * //     environment: { // ProjectEnvironment
- * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER", // required
+ * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER", // required
  * //       image: "STRING_VALUE", // required
- * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE", // required
+ * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB", // required
  * //       environmentVariables: [ // EnvironmentVariables
  * //         { // EnvironmentVariable
  * //           name: "STRING_VALUE", // required

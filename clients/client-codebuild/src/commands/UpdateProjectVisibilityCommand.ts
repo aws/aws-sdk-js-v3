@@ -54,8 +54,7 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  *             are:</p>
  *                   <ul>
  *                      <li>
- *                         <p>Do not store sensitive values, especially Amazon Web Services access key IDs and secret access
- *                 keys, in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store
+ *                         <p>Do not store sensitive values in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store
  *                 or Secrets Manager to store sensitive values.</p>
  *                      </li>
  *                      <li>

@@ -655,6 +655,11 @@ export const ComputeType = {
   BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
   BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
   BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
+  BUILD_LAMBDA_10GB: "BUILD_LAMBDA_10GB",
+  BUILD_LAMBDA_1GB: "BUILD_LAMBDA_1GB",
+  BUILD_LAMBDA_2GB: "BUILD_LAMBDA_2GB",
+  BUILD_LAMBDA_4GB: "BUILD_LAMBDA_4GB",
+  BUILD_LAMBDA_8GB: "BUILD_LAMBDA_8GB",
 } as const;
 
 /**
@@ -693,7 +698,7 @@ export interface EnvironmentVariable {
    * <p>The value of the environment variable.</p>
    *          <important>
    *             <p>We strongly discourage the use of <code>PLAINTEXT</code> environment variables to
-   *                 store sensitive values, especially Amazon Web Services secret key IDs and secret access keys.
+   *                 store sensitive values, especially Amazon Web Services secret key IDs.
    *                     <code>PLAINTEXT</code> environment variables can be displayed in plain text
    *                 using the CodeBuild console and the CLI. For sensitive values, we recommend you use an
    *                 environment variable of type <code>PARAMETER_STORE</code> or
@@ -709,7 +714,9 @@ export interface EnvironmentVariable {
    *             <li>
    *                <p>
    *                   <code>PARAMETER_STORE</code>: An environment variable stored in Systems Manager
-   *                     Parameter Store. To learn how to specify a parameter store environment variable,
+   *                     Parameter Store. For environment variables of this type, specify the name of the parameter as the <code>value</code> of the
+   *                     EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter
+   *                     Store environment variables in the buildspec. To learn how to do so,
    *                     see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store">env/parameter-store</a> in the
    *                     <i>CodeBuild User Guide</i>.</p>
    *             </li>
@@ -720,7 +727,9 @@ export interface EnvironmentVariable {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SECRETS_MANAGER</code>: An environment variable stored in Secrets Manager. To learn how to specify a secrets manager environment variable, see
+   *                   <code>SECRETS_MANAGER</code>: An environment variable stored in Secrets Manager. For environment variables of this type,
+   *                     specify the name of the secret as the <code>value</code> of the EnvironmentVariable. The secret value will be substituted for the
+   *                     name at runtime. You can also define Secrets Manager environment variables in the buildspec. To learn how to do so, see
    *                         <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager">env/secrets-manager</a> in the
    *                     <i>CodeBuild User Guide</i>.</p>
    *             </li>
@@ -798,8 +807,10 @@ export interface RegistryCredential {
  */
 export const EnvironmentType = {
   ARM_CONTAINER: "ARM_CONTAINER",
+  ARM_LAMBDA_CONTAINER: "ARM_LAMBDA_CONTAINER",
   LINUX_CONTAINER: "LINUX_CONTAINER",
   LINUX_GPU_CONTAINER: "LINUX_GPU_CONTAINER",
+  LINUX_LAMBDA_CONTAINER: "LINUX_LAMBDA_CONTAINER",
   WINDOWS_CONTAINER: "WINDOWS_CONTAINER",
   WINDOWS_SERVER_2019_CONTAINER: "WINDOWS_SERVER_2019_CONTAINER",
 } as const;
@@ -840,6 +851,14 @@ export interface ProjectEnvironment {
    *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
    *                     Asia Pacific (Singapore), Asia Pacific (Sydney) , China (Beijing), and
    *                     China (Ningxia).</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>The environment types <code>ARM_LAMBDA_CONTAINER</code> and
+   *                     <code>LINUX_LAMBDA_CONTAINER</code> are available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Singapore),
+   *                     Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Frankfurt), EU (Ireland), and South America (São Paulo).</p>
    *             </li>
    *          </ul>
    *          <ul>
@@ -902,6 +921,46 @@ export interface ProjectEnvironment {
    *                   <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and
    *                     824 GB of SSD storage for builds. This compute type supports Docker images up to
    *                     100 GB uncompressed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_LAMBDA_1GB</code>: Use up to 1 GB memory for
+   *                     builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_LAMBDA_2GB</code>: Use up to 2 GB memory for
+   *                     builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_LAMBDA_4GB</code>: Use up to 4 GB memory for
+   *                     builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_LAMBDA_8GB</code>: Use up to 8 GB memory for
+   *                     builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_LAMBDA_10GB</code>: Use up to 10 GB memory for
+   *                     builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p>
+   *          <ul>
+   *             <li>
+   *                <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 3 GB
+   *                     memory and 2 vCPUs for builds. </p>
+   *             </li>
+   *             <li>
+   *                <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16
+   *                     GB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p>
+   *             </li>
+   *             <li>
+   *                <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GB
+   *                     memory and 2 vCPUs on ARM-based processors for builds.</p>
    *             </li>
    *          </ul>
    *          <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>
@@ -1916,7 +1975,7 @@ export interface BuildBatch {
    *                         <code>codepipeline/my-demo-pipeline</code>).</p>
    *             </li>
    *             <li>
-   *                <p>If an IAM user started the build, the user's name.</p>
+   *                <p>If a user started the build, the user's name.</p>
    *             </li>
    *             <li>
    *                <p>If the Jenkins plugin for CodeBuild started the build, the string
@@ -2082,7 +2141,7 @@ export interface LogsLocation {
 
   /**
    * @public
-   * <p>The URL to an individual build log in CloudWatch Logs.</p>
+   * <p>The URL to an individual build log in CloudWatch Logs. The log stream is created during the PROVISIONING phase of a build and the <code>deeplink</code> will not be valid until it is created.</p>
    */
   deepLink?: string;
 
@@ -2094,9 +2153,8 @@ export interface LogsLocation {
 
   /**
    * @public
-   * <p> The ARN of CloudWatch Logs for a build project. Its format is
-   *                 <code>arn:$\{Partition\}:logs:$\{Region\}:$\{Account\}:log-group:$\{LogGroupName\}:log-stream:$\{LogStreamName\}</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies">Resources Defined by CloudWatch Logs</a>. </p>
+   * <p>The ARN of the CloudWatch Logs stream for a build execution. Its format is <code>arn:$\{Partition\}:logs:$\{Region\}:$\{Account\}:log-group:$\{LogGroupName\}:log-stream:$\{LogStreamName\}</code>.
+   *             The CloudWatch Logs stream is created during the PROVISIONING phase of a build and the ARN will not be valid until it is created. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies">Resources Defined by CloudWatch Logs</a>.</p>
    */
   cloudWatchLogsArn?: string;
 
@@ -2501,7 +2559,7 @@ export interface Build {
    *                         <code>codepipeline/my-demo-pipeline</code>).</p>
    *             </li>
    *             <li>
-   *                <p>If an IAM user started the build, the user's name (for example,
+   *                <p>If a user started the build, the user's name (for example,
    *                         <code>MyUserName</code>).</p>
    *             </li>
    *             <li>
