@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.444.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.443.0...v3.444.0) (2023-11-06)
+
+
+### Features
+
+* **client-mwaa:** This release adds support for Apache Airflow version 2.7.2. This version release includes support for deferrable operators and triggers. ([e4e9fde](https://github.com/aws/aws-sdk-js-v3/commit/e4e9fde73dd321d503bad94b7fd1da6ef58f6fcd))
+
+
+
+
+
 # [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
 
 **Note:** Version bump only for package @aws-sdk/client-mwaa

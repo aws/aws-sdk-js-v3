@@ -9,11 +9,11 @@
 |@aws-sdk/client-cloudhsm-v2|3.438.0|370.9 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudwatch|3.438.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudwatch-logs|3.438.0|988.4 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-codebuild|3.438.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-codebuild|3.441.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codecommit|3.438.0|2.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codedeploy|3.438.0|1.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codepipeline|3.438.0|954.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-cognito-identity|3.438.0|520.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-cognito-identity|3.441.0|520.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-identity-provider|3.438.0|2.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-sync|3.438.0|450.5 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-dynamodb|3.438.0|1.7 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
@@ -22,7 +22,7 @@
 |@aws-sdk/client-eventbridge|3.438.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-firehose|3.438.0|535.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-glue|3.441.0|4.3 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-iam|3.438.0|3.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-iam|3.441.0|3.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-kinesis|3.438.0|760 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-kms|3.438.0|1.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-lambda|3.438.0|1.7 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
@@ -35,7 +35,7 @@
 |@aws-sdk/client-ssm|3.438.0|3.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-sts|3.438.0|397.6 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-xray|3.438.0|707.8 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/credential-provider-cognito-identity|3.438.0|36.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/credential-provider-cognito-identity|3.441.0|36.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/credential-provider-env|3.428.0|17.3 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-imds|3.370.0|14.8 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-ini|3.438.0|37.2 KB|N/A|N/A|N/A|
@@ -43,12 +43,12 @@
 |@aws-sdk/credential-provider-process|3.428.0|21.9 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-sso|3.438.0|30.8 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-web-identity|3.428.0|28.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/credential-providers|3.438.0|84.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/credential-providers|3.441.0|84.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/fetch-http-handler|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/lib-dynamodb|3.438.0|167.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/lib-dynamodb|3.441.0|167.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/lib-storage|3.440.0|53.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/node-http-handler|3.370.0|14.4 KB|N/A|N/A|N/A|
-|@aws-sdk/polly-request-presigner|3.438.0|23.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/polly-request-presigner|3.441.0|23.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/s3-presigned-post|3.440.0|26.9 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/s3-request-presigner|3.440.0|29.5 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/signature-v4|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

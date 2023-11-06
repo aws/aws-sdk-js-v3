@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.444.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.443.0...v3.444.0) (2023-11-06)
+
+
+### Features
+
+* **client-connect:** Added new API that allows Amazon Connect Outbound Campaigns to create contacts in Amazon Connect when ingesting your dial requests. ([a2827a0](https://github.com/aws/aws-sdk-js-v3/commit/a2827a00233ece8bf5bbdbf8dfe8b2d0eda39f0c))
+
+
+
+
+
 # [3.443.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.442.0...v3.443.0) (2023-11-03)
 
 

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.444.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.443.0...v3.444.0) (2023-11-06)
+
+
+### Bug Fixes
+
+* **codegen:** include NumberValue export in DocumentClient codegen ([#5456](https://github.com/aws/aws-sdk-js-v3/issues/5456)) ([1a03884](https://github.com/aws/aws-sdk-js-v3/commit/1a0388495b016669596bb5500a4ccdc8a3899d5d))
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports AWS Lambda compute. ([201f177](https://github.com/aws/aws-sdk-js-v3/commit/201f1776efda2686cc798ed8f00bc5f68164bd6f))
+* **client-connect:** Added new API that allows Amazon Connect Outbound Campaigns to create contacts in Amazon Connect when ingesting your dial requests. ([a2827a0](https://github.com/aws/aws-sdk-js-v3/commit/a2827a00233ece8bf5bbdbf8dfe8b2d0eda39f0c))
+* **client-cost-explorer:** This release extends the GetReservationPurchaseRecommendation API to support recommendations for Amazon MemoryDB reservations. ([fbbd361](https://github.com/aws/aws-sdk-js-v3/commit/fbbd3618f9585682c467d975031f1d100406b2e9))
+* **client-docdb:** Update the input of CreateDBInstance and ModifyDBInstance to support setting CA Certificates. Update the output of DescribeDBInstance and DescribeDBEngineVersions to show current and supported CA certificates. ([87e3d16](https://github.com/aws/aws-sdk-js-v3/commit/87e3d16c0d8886cbc3f8cfe6be99538f099b5bca))
+* **client-iam:** Add partitional endpoint for iso-e. ([05cd167](https://github.com/aws/aws-sdk-js-v3/commit/05cd167321e6a34ab8dd6e7e1bc015c8e1b9fea3))
+* **client-mwaa:** This release adds support for Apache Airflow version 2.7.2. This version release includes support for deferrable operators and triggers. ([e4e9fde](https://github.com/aws/aws-sdk-js-v3/commit/e4e9fde73dd321d503bad94b7fd1da6ef58f6fcd))
+* **client-polly:** Amazon Polly adds new US English voices - Danielle and Gregory. Danielle and Gregory are available as Neural voices only. ([f585e54](https://github.com/aws/aws-sdk-js-v3/commit/f585e5440f58b2849a532c7ee7a59e45c0525de4))
+* **client-route-53:** Add partitional endpoints for iso-e and iso-f. ([2ff8bce](https://github.com/aws/aws-sdk-js-v3/commit/2ff8bce6e51ee811eb3ae636e56a732e1e129b29))
+* **clients:** update client endpoints as of 2023-11-06 ([79800e0](https://github.com/aws/aws-sdk-js-v3/commit/79800e0e4c86d9b8d5d324f67908fec1f825efd3))
+
+
+
+
+
 # [3.443.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.442.0...v3.443.0) (2023-11-03)
 
 

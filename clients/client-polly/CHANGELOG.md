@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.444.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.443.0...v3.444.0) (2023-11-06)
+
+
+### Features
+
+* **client-polly:** Amazon Polly adds new US English voices - Danielle and Gregory. Danielle and Gregory are available as Neural voices only. ([f585e54](https://github.com/aws/aws-sdk-js-v3/commit/f585e5440f58b2849a532c7ee7a59e45c0525de4))
+
+
+
+
+
 # [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
 
 **Note:** Version bump only for package @aws-sdk/client-polly
