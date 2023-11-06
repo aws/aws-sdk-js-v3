@@ -8,6 +8,8 @@
 export * from "./LexRuntimeV2Client";
 export * from "./LexRuntimeV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { LexRuntimeV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

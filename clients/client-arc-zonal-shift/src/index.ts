@@ -22,6 +22,8 @@
 export * from "./ARCZonalShiftClient";
 export * from "./ARCZonalShift";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ARCZonalShiftExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

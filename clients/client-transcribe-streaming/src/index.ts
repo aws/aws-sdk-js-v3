@@ -30,6 +30,8 @@
 export * from "./TranscribeStreamingClient";
 export * from "./TranscribeStreaming";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { TranscribeStreamingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

@@ -8,6 +8,8 @@
 export * from "./ResourceGroupsTaggingAPIClient";
 export * from "./ResourceGroupsTaggingAPI";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ResourceGroupsTaggingAPIExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

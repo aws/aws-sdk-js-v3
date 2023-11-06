@@ -11,6 +11,8 @@
 export * from "./LexModelBuildingServiceClient";
 export * from "./LexModelBuildingService";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { LexModelBuildingServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

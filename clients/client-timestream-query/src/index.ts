@@ -10,6 +10,8 @@
 export * from "./TimestreamQueryClient";
 export * from "./TimestreamQuery";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { TimestreamQueryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -11,6 +11,8 @@
 export * from "./LaunchWizardClient";
 export * from "./LaunchWizard";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { LaunchWizardExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

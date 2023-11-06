@@ -7,6 +7,8 @@
  */
 export * from "./EC2ProtocolClient";
 export * from "./EC2Protocol";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { EC2ProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

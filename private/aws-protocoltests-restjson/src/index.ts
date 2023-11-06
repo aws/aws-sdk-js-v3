@@ -7,6 +7,8 @@
  */
 export * from "./RestJsonProtocolClient";
 export * from "./RestJsonProtocol";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { RestJsonProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

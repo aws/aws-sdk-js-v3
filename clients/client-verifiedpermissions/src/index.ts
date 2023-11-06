@@ -72,6 +72,8 @@
 export * from "./VerifiedPermissionsClient";
 export * from "./VerifiedPermissions";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { VerifiedPermissionsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

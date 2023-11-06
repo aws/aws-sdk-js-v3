@@ -14,6 +14,8 @@
 export * from "./DLMClient";
 export * from "./DLM";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { DLMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

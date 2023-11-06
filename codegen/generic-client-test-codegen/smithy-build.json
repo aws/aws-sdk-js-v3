@@ -13,7 +13,7 @@
       ],
       "plugins": {
         "typescript-codegen": {
-          "package": "@aws-sdk/weather",
+          "package": "@aws-sdk/weather-experimental-identity-and-auth",
           "packageVersion": "0.0.1",
           "packageJson": {
             "author": {

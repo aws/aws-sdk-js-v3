@@ -28,6 +28,8 @@
 export * from "./QLDBSessionClient";
 export * from "./QLDBSession";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { QLDBSessionExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

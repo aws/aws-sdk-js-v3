@@ -31,6 +31,8 @@
 export * from "./MigrationHubConfigClient";
 export * from "./MigrationHubConfig";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { MigrationHubConfigExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

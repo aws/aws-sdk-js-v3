@@ -27,6 +27,8 @@
 export * from "./SSOAdminClient";
 export * from "./SSOAdmin";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SSOAdminExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

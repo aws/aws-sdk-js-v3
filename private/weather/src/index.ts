@@ -2,6 +2,8 @@
 /* eslint-disable */
 export * from "./WeatherClient";
 export * from "./Weather";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { WeatherExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

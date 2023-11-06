@@ -11,6 +11,8 @@
 export * from "./SavingsplansClient";
 export * from "./Savingsplans";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SavingsplansExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

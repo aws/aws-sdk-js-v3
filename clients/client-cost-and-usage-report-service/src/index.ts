@@ -25,6 +25,8 @@
 export * from "./CostAndUsageReportServiceClient";
 export * from "./CostAndUsageReportService";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CostAndUsageReportServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
