@@ -23,6 +23,10 @@ const walk = require("../utils/walk");
     const srcPath = path.join(packages, folder, "src");
     const pkgJson = require(pkgJsonPath);
 
+    if (!pkgJson.dependencies.tslib) {
+      errors.push(`Missing tslib in ${pkgJson.name}`);
+    }
+
     for await (const file of walk(srcPath, ["node_modules"])) {
       const contents = fs.readFileSync(file);
 
