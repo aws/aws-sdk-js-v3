@@ -17,6 +17,8 @@
 export * from "./ElastiCacheClient";
 export * from "./ElastiCache";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ElastiCacheExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

@@ -8,6 +8,8 @@
 export * from "./ApiGatewayManagementApiClient";
 export * from "./ApiGatewayManagementApi";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ApiGatewayManagementApiExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

@@ -28,6 +28,8 @@
 export * from "./ResourceExplorer2Client";
 export * from "./ResourceExplorer2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ResourceExplorer2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

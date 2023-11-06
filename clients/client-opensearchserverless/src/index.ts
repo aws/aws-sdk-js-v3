@@ -17,6 +17,8 @@
 export * from "./OpenSearchServerlessClient";
 export * from "./OpenSearchServerless";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { OpenSearchServerlessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

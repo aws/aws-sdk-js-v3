@@ -8,6 +8,8 @@
 export * from "./SagemakerEdgeClient";
 export * from "./SagemakerEdge";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SagemakerEdgeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

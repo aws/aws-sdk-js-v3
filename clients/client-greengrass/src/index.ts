@@ -8,6 +8,8 @@
 export * from "./GreengrassClient";
 export * from "./Greengrass";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { GreengrassExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

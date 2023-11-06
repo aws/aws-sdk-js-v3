@@ -19,6 +19,8 @@
 export * from "./LexRuntimeServiceClient";
 export * from "./LexRuntimeService";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { LexRuntimeServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

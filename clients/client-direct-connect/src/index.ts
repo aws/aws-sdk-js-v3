@@ -13,6 +13,8 @@
 export * from "./DirectConnectClient";
 export * from "./DirectConnect";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { DirectConnectExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

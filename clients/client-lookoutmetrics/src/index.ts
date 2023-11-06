@@ -10,6 +10,8 @@
 export * from "./LookoutMetricsClient";
 export * from "./LookoutMetrics";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { LookoutMetricsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

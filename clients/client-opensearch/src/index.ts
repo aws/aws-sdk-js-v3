@@ -17,6 +17,8 @@
 export * from "./OpenSearchClient";
 export * from "./OpenSearch";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { OpenSearchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

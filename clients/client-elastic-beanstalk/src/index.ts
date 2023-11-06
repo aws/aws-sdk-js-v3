@@ -20,6 +20,8 @@
 export * from "./ElasticBeanstalkClient";
 export * from "./ElasticBeanstalk";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ElasticBeanstalkExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

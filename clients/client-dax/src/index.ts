@@ -13,6 +13,8 @@
 export * from "./DAXClient";
 export * from "./DAX";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { DAXExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

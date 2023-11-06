@@ -15,6 +15,8 @@
 export * from "./IdentitystoreClient";
 export * from "./Identitystore";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { IdentitystoreExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

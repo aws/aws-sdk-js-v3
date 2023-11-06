@@ -15,6 +15,8 @@
 export * from "./ElasticInferenceClient";
 export * from "./ElasticInference";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ElasticInferenceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

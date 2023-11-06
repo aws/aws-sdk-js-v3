@@ -10,6 +10,8 @@
 export * from "./KinesisVideoSignalingClient";
 export * from "./KinesisVideoSignaling";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { KinesisVideoSignalingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

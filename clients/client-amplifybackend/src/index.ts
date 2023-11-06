@@ -8,6 +8,8 @@
 export * from "./AmplifyBackendClient";
 export * from "./AmplifyBackend";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { AmplifyBackendExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

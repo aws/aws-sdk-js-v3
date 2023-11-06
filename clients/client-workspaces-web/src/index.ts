@@ -13,6 +13,8 @@
 export * from "./WorkSpacesWebClient";
 export * from "./WorkSpacesWeb";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { WorkSpacesWebExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -11,6 +11,8 @@
 export * from "./PrivateNetworksClient";
 export * from "./PrivateNetworks";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { PrivateNetworksExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

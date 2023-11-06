@@ -132,6 +132,8 @@
 export * from "./IVSRealTimeClient";
 export * from "./IVSRealTime";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { IVSRealTimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

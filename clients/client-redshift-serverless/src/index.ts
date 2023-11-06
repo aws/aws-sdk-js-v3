@@ -19,6 +19,8 @@
 export * from "./RedshiftServerlessClient";
 export * from "./RedshiftServerless";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { RedshiftServerlessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

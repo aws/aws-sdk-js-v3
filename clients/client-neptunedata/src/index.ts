@@ -13,6 +13,8 @@
 export * from "./NeptunedataClient";
 export * from "./Neptunedata";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { NeptunedataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

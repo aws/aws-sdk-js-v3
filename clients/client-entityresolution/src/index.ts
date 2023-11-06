@@ -18,6 +18,8 @@
 export * from "./EntityResolutionClient";
 export * from "./EntityResolution";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { EntityResolutionExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

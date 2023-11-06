@@ -55,6 +55,8 @@
 export * from "./GlobalAcceleratorClient";
 export * from "./GlobalAccelerator";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { GlobalAcceleratorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

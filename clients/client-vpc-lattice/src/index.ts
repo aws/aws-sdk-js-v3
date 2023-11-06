@@ -12,6 +12,8 @@
 export * from "./VPCLatticeClient";
 export * from "./VPCLattice";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { VPCLatticeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
