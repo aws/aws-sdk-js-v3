@@ -145,6 +145,10 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       EnabledCloudwatchLogsExports: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       CertificateDetails: { // CertificateDetails
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * // };

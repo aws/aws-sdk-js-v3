@@ -2002,6 +2002,40 @@ export interface CreateDBInstanceMessage {
    *             default KMS key for each Amazon Web Services region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>The CA certificate identifier to use for the DB instance's server certificate.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *             Certificates</a> and
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+   *                     Guide</i>.</p>
+   */
+  CACertificateIdentifier?: string;
+}
+
+/**
+ * @public
+ * <p>Returns the details of the DB instance’s server certificate.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+ *             Certificates</a> and
+ *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+ *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+ *                     Guide</i>.</p>
+ */
+export interface CertificateDetails {
+  /**
+   * @public
+   * <p>The CA identifier of the CA certificate used for the DB instance's server certificate.</p>
+   */
+  CAIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The expiration date of the DB instance’s server certificate.</p>
+   */
+  ValidTill?: Date;
 }
 
 /**
@@ -2440,6 +2474,12 @@ export interface DBInstance {
    * <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
    */
   EnabledCloudwatchLogsExports?: string[];
+
+  /**
+   * @public
+   * <p>The details of the DB instance's server certificate.</p>
+   */
+  CertificateDetails?: CertificateDetails;
 }
 
 /**
@@ -4055,6 +4095,24 @@ export interface DBEngineVersion {
    *             specified by <code>ExportableLogTypes</code> to CloudWatch Logs.</p>
    */
   SupportsLogExportsToCloudwatchLogs?: boolean;
+
+  /**
+   * @public
+   * <p>A list of the supported CA certificate identifiers.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *             Certificates</a> and
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+   *                     Guide</i>.</p>
+   */
+  SupportedCACertificateIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>Indicates whether the engine version supports rotating the server certificate without
+   *             rebooting the DB instance.</p>
+   */
+  SupportsCertificateRotationWithoutRestart?: boolean;
 }
 
 /**
@@ -5443,6 +5501,23 @@ export interface ModifyDBInstanceMessage {
    *             default KMS key for each Amazon Web Services region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether the DB instance is restarted when you rotate your
+   *             SSL/TLS certificate.</p>
+   *          <p>By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate
+   *             is not updated until the DB instance is restarted.</p>
+   *          <important>
+   *             <p>Set this parameter only if you are <i>not</i> using SSL/TLS to connect to the DB instance.</p>
+   *          </important>
+   *          <p>If you are using SSL/TLS to connect to the DB instance, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *             Certificates</a> and
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+   *                     Guide</i>.</p>
+   */
+  CertificateRotationRestart?: boolean;
 }
 
 /**

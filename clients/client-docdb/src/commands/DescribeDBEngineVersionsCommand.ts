@@ -86,6 +86,10 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //         "STRING_VALUE",
  * //       ],
  * //       SupportsLogExportsToCloudwatchLogs: true || false,
+ * //       SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportsCertificateRotationWithoutRestart: true || false,
  * //     },
  * //   ],
  * // };

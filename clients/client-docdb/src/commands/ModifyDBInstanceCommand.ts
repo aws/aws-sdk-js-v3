@@ -56,6 +56,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   PromotionTier: Number("int"),
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   CertificateRotationRestart: true || false,
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -143,6 +144,10 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //     EnabledCloudwatchLogsExports: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

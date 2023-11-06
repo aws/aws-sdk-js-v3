@@ -204,6 +204,7 @@ import {
   AuthorizationNotFoundFault,
   AvailabilityZone,
   Certificate,
+  CertificateDetails,
   CertificateMessage,
   CertificateNotFoundFault,
   CloudwatchLogsExportConfiguration,
@@ -5426,6 +5427,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input.PerformanceInsightsKMSKeyId != null) {
     entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
   }
+  if (input.CACertificateIdentifier != null) {
+    entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
+  }
   return entries;
 };
 
@@ -6425,6 +6429,9 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   if (input.PerformanceInsightsKMSKeyId != null) {
     entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
   }
+  if (input.CertificateRotationRestart != null) {
+    entries["CertificateRotationRestart"] = input.CertificateRotationRestart;
+  }
   return entries;
 };
 
@@ -6985,6 +6992,17 @@ const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] =>
 };
 
 /**
+ * deserializeAws_queryCACertificateIdentifiersList
+ */
+const de_CACertificateIdentifiersList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_queryCertificate
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
@@ -7006,6 +7024,20 @@ const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
   }
   if (output["CertificateArn"] !== undefined) {
     contents.CertificateArn = __expectString(output["CertificateArn"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCertificateDetails
+ */
+const de_CertificateDetails = (output: any, context: __SerdeContext): CertificateDetails => {
+  const contents: any = {};
+  if (output["CAIdentifier"] !== undefined) {
+    contents.CAIdentifier = __expectString(output["CAIdentifier"]);
+  }
+  if (output["ValidTill"] !== undefined) {
+    contents.ValidTill = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidTill"]));
   }
   return contents;
 };
@@ -7736,6 +7768,22 @@ const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersi
   if (output["SupportsLogExportsToCloudwatchLogs"] !== undefined) {
     contents.SupportsLogExportsToCloudwatchLogs = __parseBoolean(output["SupportsLogExportsToCloudwatchLogs"]);
   }
+  if (output.SupportedCACertificateIdentifiers === "") {
+    contents.SupportedCACertificateIdentifiers = [];
+  } else if (
+    output["SupportedCACertificateIdentifiers"] !== undefined &&
+    output["SupportedCACertificateIdentifiers"]["member"] !== undefined
+  ) {
+    contents.SupportedCACertificateIdentifiers = de_CACertificateIdentifiersList(
+      __getArrayIfSingleItem(output["SupportedCACertificateIdentifiers"]["member"]),
+      context
+    );
+  }
+  if (output["SupportsCertificateRotationWithoutRestart"] !== undefined) {
+    contents.SupportsCertificateRotationWithoutRestart = __parseBoolean(
+      output["SupportsCertificateRotationWithoutRestart"]
+    );
+  }
   return contents;
 };
 
@@ -7875,6 +7923,9 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
       __getArrayIfSingleItem(output["EnabledCloudwatchLogsExports"]["member"]),
       context
     );
+  }
+  if (output["CertificateDetails"] !== undefined) {
+    contents.CertificateDetails = de_CertificateDetails(output["CertificateDetails"], context);
   }
   return contents;
 };

@@ -140,6 +140,10 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //     EnabledCloudwatchLogsExports: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

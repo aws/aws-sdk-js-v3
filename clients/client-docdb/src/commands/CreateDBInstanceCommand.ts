@@ -62,6 +62,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   PromotionTier: Number("int"),
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   CACertificateIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -149,6 +150,10 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //     EnabledCloudwatchLogsExports: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

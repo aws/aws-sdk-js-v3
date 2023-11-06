@@ -133,6 +133,10 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     EnabledCloudwatchLogsExports: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *
