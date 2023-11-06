@@ -945,7 +945,7 @@
                 {
                   "Attributes": {
                     "LanguageCode": "en-US",
-                    "LastModified": 1478542980.117,
+                    "LastModified": 1.478542980117e9,
                     "Alphabet": "ipa",
                     "LexemesCount": 1,
                     "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
@@ -3477,6 +3477,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Zayd"
+          }
+        },
+        "Danielle": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Danielle"
+          }
+        },
+        "Gregory": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gregory"
           }
         }
       }
