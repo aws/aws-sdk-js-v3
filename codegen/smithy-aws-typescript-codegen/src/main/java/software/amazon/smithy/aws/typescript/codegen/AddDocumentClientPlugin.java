@@ -123,6 +123,7 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                 writer.write("export * from './pagination';");
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_FULL_NAME);
+                writer.write("export { NumberValueImpl as NumberValue } from \"@aws-sdk/util-dynamodb\";");
             });
         }
     }
