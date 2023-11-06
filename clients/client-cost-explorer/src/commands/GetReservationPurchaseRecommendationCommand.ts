@@ -214,6 +214,13 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * //               CurrentGeneration: true || false,
  * //               SizeFlexEligible: true || false,
  * //             },
+ * //             MemoryDBInstanceDetails: { // MemoryDBInstanceDetails
+ * //               Family: "STRING_VALUE",
+ * //               NodeType: "STRING_VALUE",
+ * //               Region: "STRING_VALUE",
+ * //               CurrentGeneration: true || false,
+ * //               SizeFlexEligible: true || false,
+ * //             },
  * //           },
  * //           RecommendedNumberOfInstancesToPurchase: "STRING_VALUE",
  * //           RecommendedNormalizedUnitsToPurchase: "STRING_VALUE",

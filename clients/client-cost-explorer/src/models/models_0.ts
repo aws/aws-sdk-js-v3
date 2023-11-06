@@ -2009,7 +2009,7 @@ export interface ReservationPurchaseRecommendationMetadata {
 
 /**
  * @public
- * <p>Details about the Amazon EC2 instances that Amazon Web Services recommends that you
+ * <p>Details about the Amazon EC2 reservations that Amazon Web Services recommends that you
  *             purchase.</p>
  */
 export interface EC2InstanceDetails {
@@ -2065,8 +2065,8 @@ export interface EC2InstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon ElastiCache instances that Amazon Web Services recommends that
- *             you purchase.</p>
+ * <p>Details about the Amazon ElastiCache reservations that Amazon Web Services recommends
+ *             that you purchase.</p>
  */
 export interface ElastiCacheInstanceDetails {
   /**
@@ -2108,8 +2108,8 @@ export interface ElastiCacheInstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon OpenSearch Service instances that Amazon Web Services recommends
- *             that you purchase.</p>
+ * <p>Details about the Amazon OpenSearch Service reservations that Amazon Web Services
+ *             recommends that you purchase.</p>
  */
 export interface ESInstanceDetails {
   /**
@@ -2145,7 +2145,44 @@ export interface ESInstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon RDS instances that Amazon Web Services recommends that you
+ * <p>Details about the MemoryDB reservations that Amazon Web Services recommends that you
+ *             purchase.</p>
+ */
+export interface MemoryDBInstanceDetails {
+  /**
+   * @public
+   * <p>The instance family of the recommended reservation.</p>
+   */
+  Family?: string;
+
+  /**
+   * @public
+   * <p>The node type of the recommended reservation.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region of the recommended reservation.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>Determines whether the recommendation is for a current generation instance.</p>
+   */
+  CurrentGeneration?: boolean;
+
+  /**
+   * @public
+   * <p>Determines whether the recommended reservation is size flexible.</p>
+   */
+  SizeFlexEligible?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details about the Amazon RDS reservations that Amazon Web Services recommends that you
  *             purchase.</p>
  */
 export interface RDSInstanceDetails {
@@ -2207,7 +2244,7 @@ export interface RDSInstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon Redshift instances that Amazon Web Services recommends that
+ * <p>Details about the Amazon Redshift reservations that Amazon Web Services recommends that
  *             you purchase.</p>
  */
 export interface RedshiftInstanceDetails {
@@ -2244,41 +2281,50 @@ export interface RedshiftInstanceDetails {
 
 /**
  * @public
- * <p>Details about the instances that Amazon Web Services recommends that you
+ * <p>Details about the reservations that Amazon Web Services recommends that you
  *             purchase.</p>
  */
 export interface InstanceDetails {
   /**
    * @public
-   * <p>The Amazon EC2 instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The Amazon EC2 reservations that Amazon Web Services recommends that you
+   *             purchase.</p>
    */
   EC2InstanceDetails?: EC2InstanceDetails;
 
   /**
    * @public
-   * <p>The Amazon RDS instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The Amazon RDS reservations that Amazon Web Services recommends that you
+   *             purchase.</p>
    */
   RDSInstanceDetails?: RDSInstanceDetails;
 
   /**
    * @public
-   * <p>The Amazon Redshift instances that Amazon Web Services recommends that you
+   * <p>The Amazon Redshift reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    */
   RedshiftInstanceDetails?: RedshiftInstanceDetails;
 
   /**
    * @public
-   * <p>The ElastiCache instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The ElastiCache reservations that Amazon Web Services recommends that you
+   *             purchase.</p>
    */
   ElastiCacheInstanceDetails?: ElastiCacheInstanceDetails;
 
   /**
    * @public
-   * <p>The Amazon OpenSearch Service instances that Amazon Web Services recommends that you
+   * <p>The Amazon OpenSearch Service reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    */
   ESInstanceDetails?: ESInstanceDetails;
+
+  /**
+   * @public
+   * <p>The MemoryDB reservations that Amazon Web Services recommends that you purchase.</p>
+   */
+  MemoryDBInstanceDetails?: MemoryDBInstanceDetails;
 }
 
 /**
@@ -2294,7 +2340,7 @@ export interface ReservationPurchaseRecommendationDetail {
 
   /**
    * @public
-   * <p>Details about the instances that Amazon Web Services recommends that you
+   * <p>Details about the reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    */
   InstanceDetails?: InstanceDetails;
