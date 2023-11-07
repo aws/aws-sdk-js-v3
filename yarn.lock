@@ -6051,6 +6051,11 @@ downlevel-dts@0.10.1:
     shelljs "^0.8.3"
     typescript next
 
+dprint@0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/dprint/-/dprint-0.14.0.tgz#5487150a1ff9cf34ae59382895dafa610714a03e"
+  integrity sha512-J4eeLDDXCEHWtxJZkcnWW+BAByhqwN/V91qoXJkl1MYFnbec4dA7M1D4HD1OlyI7iaFYRDFgINy3HIxcFrN7sQ==
+
 duplexer@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://dprint.dev/schemas/v0.json",
+  "projectType": "commercialDidNotSponsor",
+  "incremental": true,
+  "includes": ["{lib,packages,clients,private}/**/*.{ts,tsx,js,jsx,json}"],
+  "excludes": ["**/node_modules", "**/*-lock.json", "**/endpoint/ruleset.ts"],
+  "plugins": ["https://plugins.dprint.dev/typescript-0.88.3.wasm"],
+  "typescript": {
+    "arguments.trailingCommas": "never",
+    "parameters.trailingCommas": "never",
+    "operatorPosition": "sameLine",
+    "lineWidth": 120,
+    "quoteStyle": "preferDouble",
+    "quoteProps": "asNeeded",
+    "functionExpression.spaceAfterFunctionKeyword": true,
+    "binaryExpression.operatorPosition": "sameLine",
+    "conditionalExpression.operatorPosition": "nextLine",
+    "conditionalType.operatorPosition": "nextLine"
+  }
+}

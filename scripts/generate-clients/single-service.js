@@ -4,6 +4,8 @@ const { generateClient } = require("./code-gen");
 const { codeOrdering } = require("./code-ordering");
 const { copyToClients } = require("./copy-to-clients");
 const { spawnProcess } = require("../utils/spawn-process");
+const path = require("path");
+const fs = require("fs");
 
 const SDK_CLIENTS_DIR = normalize(join(__dirname, "..", "..", "clients"));
 
@@ -22,37 +24,26 @@ const { solo } = yargs(process.argv.slice(2))
     );
     await codeOrdering(join(SDK_CLIENTS_DIR, `client-${solo}`));
 
-    // post-generation transforms
-    const clientFolder = join(SDK_CLIENTS_DIR, `client-${solo}`);
-    const libFolder = join(SDK_CLIENTS_DIR, "..", "lib", `lib-${solo}`);
-
     // examples merging
     require("../api-examples/get-examples");
     require("../api-examples/merge-examples").merge(void 0, solo);
 
-    console.log("================ starting eslint ================", "\n", new Date().toString(), solo);
-    try {
-      await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${clientFolder}/src/**/*`]);
-    } catch (ignored) {}
-
-    if (solo === "dynamodb") {
-      try {
-        await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${libFolder}/src/**/*`]);
-      } catch (ignored) {}
-    }
-
-    console.log("================ starting prettier ================", "\n", new Date().toString(), solo);
-    await spawnProcess("npx", [
-      "prettier",
-      "--write",
-      "--loglevel",
-      "warn",
-      `${clientFolder}/src/**/*.{md,js,ts,json}`,
-    ]);
-    await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${clientFolder}/README.md`]);
-    if (solo === "dynamodb") {
-      await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${libFolder}/src/**/*.{md,js,ts,json}`]);
-    }
+    console.log("================ starting dprint ================", "\n", new Date().toString(), solo);
+    const dprintConfig = path.join(__dirname, "..", "..", "dprint.json");
+    const dprintJson = require(dprintConfig);
+    fs.writeFileSync(
+      dprintConfig,
+      JSON.stringify(
+        {
+          ...dprintJson,
+          includes: [`{lib,packages,clients,private}/{client-${solo},lib-${solo}}/**/*.{ts,tsx,js,jsx,json}`],
+        },
+        null,
+        2
+      )
+    );
+    await spawnProcess("npx", ["dprint", "fmt"]);
+    fs.writeFileSync(dprintConfig, JSON.stringify(dprintJson, null, 2));
 
     const compress = require("../endpoints-ruleset/compress");
     compress(solo);

@@ -30,8 +30,8 @@
     "generate:clients:generic": "node ./scripts/generate-clients/generic",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
     "lerna:version": "lerna version --exact --conventional-commits --no-push --no-git-tag-version --no-commit-hooks --loglevel silent --yes",
-    "lint:ci": "lerna exec --since origin/main --exclude-dependents --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
-    "lint:release": "lerna exec --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
+    "lint:ci": "echo 'lint:ci superceded by dprint'",
+    "lint:release": "echo 'lint:release superceded by dprint'",
     "lint:versions": "node scripts/runtime-dependency-version-check/runtime-dep-version-check.js",
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
@@ -81,6 +81,7 @@
     "concurrently": "7.0.0",
     "decomment": "0.9.5",
     "downlevel-dts": "0.10.1",
+    "dprint": "0.14.0",
     "esbuild": "0.18.17",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.5.0",
@@ -152,11 +153,7 @@
     }
   },
   "lint-staged": {
-    "{lib,packages}/**/src/**/*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "**/*.{ts,js,md,json}": "prettier --write"
+    "**/*.{ts,js,md,json}": "dprint fmt"
   },
   "packageManager": "yarn@1.22.17"
 }
