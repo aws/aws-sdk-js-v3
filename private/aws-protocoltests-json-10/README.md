@@ -1851,6 +1851,14 @@ GreetingWithErrors
 </details>
 <details>
 <summary>
+HttpEnumPayload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/classes/httpenumpayloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/interfaces/httpenumpayloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/interfaces/httpenumpayloadcommandoutput.html)
+
+</details>
+<details>
+<summary>
 HttpPayloadTraits
 </summary>
 
@@ -1959,6 +1967,14 @@ HttpResponseCode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/classes/httpresponsecodecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/interfaces/httpresponsecodecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/interfaces/httpresponsecodecommandoutput.html)
+
+</details>
+<details>
+<summary>
+HttpStringPayload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/classes/httpstringpayloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/interfaces/httpstringpayloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-json-rpc-10/interfaces/httpstringpayloadcommandoutput.html)
 
 </details>
 <details>

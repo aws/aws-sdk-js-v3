@@ -2192,7 +2192,7 @@ it("RestJsonHttpChecksumRequired:ServerRequest", async () => {
   });
 });
 
-it("EnumPayloadRequest:ServerRequest", async () => {
+it("RestJsonEnumPayloadRequest:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -2231,7 +2231,7 @@ it("EnumPayloadRequest:ServerRequest", async () => {
   });
 });
 
-it("EnumPayloadResponse:ServerResponse", async () => {
+it("RestJsonEnumPayloadResponse:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     HttpEnumPayload(input: any, ctx: {}): Promise<HttpEnumPayloadServerOutput> {
       const response = {
@@ -3653,7 +3653,7 @@ it("RestJsonHttpResponseCodeDefaultsToModeledCode:ServerResponse", async () => {
   expect(unequalParts).toBeUndefined();
 });
 
-it("StringPayloadRequest:ServerRequest", async () => {
+it("RestJsonStringPayloadRequest:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -3692,7 +3692,7 @@ it("StringPayloadRequest:ServerRequest", async () => {
   });
 });
 
-it("StringPayloadResponse:ServerResponse", async () => {
+it("RestJsonStringPayloadResponse:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     HttpStringPayload(input: any, ctx: {}): Promise<HttpStringPayloadServerOutput> {
       const response = {
