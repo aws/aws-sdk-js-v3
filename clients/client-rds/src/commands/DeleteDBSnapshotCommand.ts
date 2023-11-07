@@ -100,6 +100,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //     StorageThroughput: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

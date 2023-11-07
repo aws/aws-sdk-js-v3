@@ -158,6 +158,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //         StorageThroughput: Number("int"),
  * //         Engine: "STRING_VALUE",
  * //         DedicatedLogVolume: true || false,
+ * //         MultiTenant: true || false,
  * //       },
  * //       LatestRestorableTime: new Date("TIMESTAMP"),
  * //       MultiAZ: true || false,
@@ -285,6 +286,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       PercentProgress: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
  * //       IsStorageConfigUpgradeAvailable: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //   ],
  * // };

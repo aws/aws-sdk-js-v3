@@ -116,6 +116,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * //     StorageThroughput: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

@@ -162,6 +162,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -289,6 +290,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

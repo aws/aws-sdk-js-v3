@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
@@ -507,7 +507,7 @@ export interface EventSubscription {
 
   /**
    * @public
-   * <p>A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.</p>
+   * <p>Specifies whether the subscription is enabled. True indicates the subscription is enabled.</p>
    */
   Enabled?: boolean;
 
@@ -695,6 +695,26 @@ export class DBSnapshotNotFoundFault extends __BaseException {
 
 /**
  * @public
+ * <p>The specified snapshot tenant database wasn't found.</p>
+ */
+export class DBSnapshotTenantDatabaseNotFoundFault extends __BaseException {
+  readonly name: "DBSnapshotTenantDatabaseNotFoundFault" = "DBSnapshotTenantDatabaseNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSnapshotTenantDatabaseNotFoundFault, __BaseException>) {
+    super({
+      name: "DBSnapshotTenantDatabaseNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSnapshotTenantDatabaseNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>The specified integration could not be found.</p>
  */
 export class IntegrationNotFoundFault extends __BaseException {
@@ -710,6 +730,26 @@ export class IntegrationNotFoundFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified tenant database wasn't found in the DB instance.</p>
+ */
+export class TenantDatabaseNotFoundFault extends __BaseException {
+  readonly name: "TenantDatabaseNotFoundFault" = "TenantDatabaseNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TenantDatabaseNotFoundFault, __BaseException>) {
+    super({
+      name: "TenantDatabaseNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TenantDatabaseNotFoundFault.prototype);
   }
 }
 
@@ -2666,6 +2706,13 @@ export interface DBSnapshot {
    * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether the snapshot is of a DB instance using the multi-tenant
+   *             configuration (TRUE) or the single-tenant configuration (FALSE).</p>
+   */
+  MultiTenant?: boolean;
 }
 
 /**
@@ -7979,6 +8026,26 @@ export interface CreateDBInstanceMessage {
    * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether to use the multi-tenant configuration or the single-tenant
+   *             configuration (default). This parameter only applies to RDS for Oracle container
+   *             database (CDB) engines.</p>
+   *          <p>Note the following restrictions: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The DB engine that you specify in the request must support the multi-tenant
+   *                     configuration. If you attempt to enable the multi-tenant configuration on a DB
+   *                     engine that doesn't support it, the request fails.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify the multi-tenant configuration when you create your DB instance,
+   *                     you can't later modify this DB instance to use the single-tenant configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  MultiTenant?: boolean;
 }
 
 /**
@@ -8471,6 +8538,13 @@ export interface PendingModifiedValues {
    * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.></p>
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance will change to the multi-tenant configuration (TRUE)
+   *             or the single-tenant configuration (FALSE). </p>
+   */
+  MultiTenant?: boolean;
 }
 
 /**
@@ -8500,7 +8574,7 @@ export interface DBInstanceStatusInfo {
 
   /**
    * @public
-   * <p>A Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.</p>
+   * <p>Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).</p>
    */
   Normal?: boolean;
 
@@ -8571,7 +8645,7 @@ export interface DBInstance {
 
   /**
    * @public
-   * <p>Contains the initial database name that you provided (if required) when you created
+   * <p>The initial database name that you provided (if required) when you created
    *             the DB instance. This name is returned for the life of your DB instance. For an RDS for
    *             Oracle CDB instance, the name identifies the PDB rather than the CDB.</p>
    */
@@ -9169,6 +9243,13 @@ export interface DBInstance {
    *             information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.UpgradeFileSystem">Upgrading the storage file system for a DB instance</a>.</p>
    */
   IsStorageConfigUpgradeAvailable?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether the DB instance is in the multi-tenant configuration (TRUE) or the
+   *             single-tenant configuration (FALSE).</p>
+   */
+  MultiTenant?: boolean;
 }
 
 /**
@@ -9285,6 +9366,27 @@ export class StorageTypeNotSupportedFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, StorageTypeNotSupportedFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
+ *             account.</p>
+ */
+export class TenantDatabaseQuotaExceededFault extends __BaseException {
+  readonly name: "TenantDatabaseQuotaExceededFault" = "TenantDatabaseQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TenantDatabaseQuotaExceededFault, __BaseException>) {
+    super({
+      name: "TenantDatabaseQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TenantDatabaseQuotaExceededFault.prototype);
   }
 }
 
@@ -11422,12 +11524,15 @@ export interface FailoverState {
    *         starts.</p>
    *             </li>
    *             <li>
-   *                <p>failing-over  This status covers the range of Aurora internal operations that take place during the switchover or failover process, such
-   *         as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p>
+   *                <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p>
    *             </li>
    *             <li>
    *                <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary
    *         Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p>
+   *             </li>
+   *             <li>
+   *                <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such
+   *         as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p>
    *             </li>
    *          </ul>
    */
@@ -11976,6 +12081,223 @@ export interface CreateOptionGroupResult {
    * <p></p>
    */
   OptionGroup?: OptionGroup;
+}
+
+/**
+ * @public
+ */
+export interface CreateTenantDatabaseMessage {
+  /**
+   * @public
+   * <p>The user-supplied DB instance identifier. RDS creates your tenant database in this DB
+   *             instance. This parameter isn't case-sensitive.</p>
+   */
+  DBInstanceIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The user-supplied name of the tenant database that you want to create in your DB
+   *             instance. This parameter has the same constraints as <code>DBName</code> in
+   *                 <code>CreateDBInstance</code>.</p>
+   */
+  TenantDBName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name for the master user account in your tenant database. RDS creates this user
+   *             account in the tenant database and grants privileges to the master user. This parameter
+   *             is case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 16 letters, numbers, or underscores.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUsername: string | undefined;
+
+  /**
+   * @public
+   * <p>The password for the master user in your tenant database.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 8 to 30 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can include any printable ASCII character except forward slash
+   *                     (<code>/</code>), double quote (<code>"</code>), at symbol (<code>@</code>),
+   *                     ampersand (<code>&</code>), or single quote (<code>'</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUserPassword: string | undefined;
+
+  /**
+   * @public
+   * <p>The character set for your tenant database. If you don't specify a value, the
+   *             character set name defaults to <code>AL32UTF8</code>.</p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * @public
+   * <p>The <code>NCHAR</code> value for the tenant database.</p>
+   */
+  NcharCharacterSetName?: string;
+
+  /**
+   * @public
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>A response element in the <code>ModifyTenantDatabase</code> operation that describes
+ *             changes that will be applied. Specific changes are identified by subelements.</p>
+ */
+export interface TenantDatabasePendingModifiedValues {
+  /**
+   * @public
+   * <p>The master password for the tenant database.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
+   * @public
+   * <p>The name of the tenant database.</p>
+   */
+  TenantDBName?: string;
+}
+
+/**
+ * @public
+ * <p>A tenant database in the DB instance. This data type is an element in the response to
+ *             the <code>DescribeTenantDatabases</code> action.</p>
+ */
+export interface TenantDatabase {
+  /**
+   * @public
+   * <p>The creation time of the tenant database.</p>
+   */
+  TenantDatabaseCreateTime?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the DB instance that contains the tenant database.</p>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The database name of the tenant database.</p>
+   */
+  TenantDBName?: string;
+
+  /**
+   * @public
+   * <p>The status of the tenant database.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>The master username of the tenant database.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the DB instance.</p>
+   */
+  DbiResourceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the tenant database.</p>
+   */
+  TenantDatabaseResourceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the tenant database.</p>
+   */
+  TenantDatabaseARN?: string;
+
+  /**
+   * @public
+   * <p>The character set of the tenant database.</p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * @public
+   * <p>The <code>NCHAR</code> character set name of the tenant database.</p>
+   */
+  NcharCharacterSetName?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether deletion protection is enabled for the DB instance.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * @public
+   * <p>Information about pending changes for a tenant database.</p>
+   */
+  PendingModifiedValues?: TenantDatabasePendingModifiedValues;
+
+  /**
+   * @public
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  TagList?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateTenantDatabaseResult {
+  /**
+   * @public
+   * <p>A tenant database in the DB instance. This data type is an element in the response to
+   *             the <code>DescribeTenantDatabases</code> action.</p>
+   */
+  TenantDatabase?: TenantDatabase;
+}
+
+/**
+ * @public
+ * <p>You attempted to either create a tenant database that already exists or
+ *                 modify a tenant database to use the name of an existing tenant database.</p>
+ */
+export class TenantDatabaseAlreadyExistsFault extends __BaseException {
+  readonly name: "TenantDatabaseAlreadyExistsFault" = "TenantDatabaseAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TenantDatabaseAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "TenantDatabaseAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TenantDatabaseAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -12939,6 +13261,13 @@ export interface DBInstanceAutomatedBackup {
    * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether the automatic backup is for a DB instance in the multi-tenant
+   *             configuration (TRUE) or the single-tenant configuration (FALSE). </p>
+   */
+  MultiTenant?: boolean;
 }
 
 /**
@@ -13309,6 +13638,60 @@ export class InvalidOptionGroupStateFault extends __BaseException {
 
 /**
  * @public
+ */
+export interface DeleteTenantDatabaseMessage {
+  /**
+   * @public
+   * <p>The user-supplied identifier for the DB instance that contains the tenant database
+   *             that you want to delete.</p>
+   */
+  DBInstanceIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The user-supplied name of the tenant database that you want to remove from your DB
+   *             instance. Amazon RDS deletes the tenant database with this name. This parameter isn’t
+   *             case-sensitive.</p>
+   */
+  TenantDBName: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to skip the creation of a final DB snapshot before removing the
+   *             tenant database from your DB instance. If you enable this parameter, RDS doesn't create
+   *             a DB snapshot. If you don't enable this parameter, RDS creates a DB snapshot before it
+   *             deletes the tenant database. By default, RDS doesn't skip the final snapshot. If you
+   *             don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code>
+   *             parameter.</p>
+   */
+  SkipFinalSnapshot?: boolean;
+
+  /**
+   * @public
+   * <p>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when
+   *             the <code>SkipFinalSnapshot</code> parameter is disabled.</p>
+   *          <note>
+   *             <p>If you enable this parameter and also enable <code>SkipFinalShapshot</code>, the
+   *                 command results in an error.</p>
+   *          </note>
+   */
+  FinalDBSnapshotIdentifier?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTenantDatabaseResult {
+  /**
+   * @public
+   * <p>A tenant database in the DB instance. This data type is an element in the response to
+   *             the <code>DescribeTenantDatabases</code> action.</p>
+   */
+  TenantDatabase?: TenantDatabase;
+}
+
+/**
+ * @public
  * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
 export class DBProxyTargetNotFoundFault extends __BaseException {
@@ -13670,440 +14053,45 @@ export interface DBClusterAutomatedBackupMessage {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeDBClusterAutomatedBackupsMessage {
-  /**
-   * @public
-   * <p>The resource ID of the DB cluster that is the source of the automated backup. This parameter isn't case-sensitive.</p>
-   */
-  DbClusterResourceId?: string;
-
-  /**
-   * @public
-   * <p>(Optional) The user-supplied DB cluster identifier. If this parameter is specified, it must
-   *             match the identifier of an existing DB cluster. It returns information from the
-   *             specific DB cluster's automated backup. This parameter isn't case-sensitive.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies which resources to return based on status.</p>
-   *          <p>Supported filters are the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>status</code>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>retained</code> - Automated backups for deleted clusters and after backup replication is stopped.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and Amazon Resource Names (ARNs).
-   *                     The results list includes only information about the DB cluster automated backups identified by these ARNs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs).
-   *                     The results list includes only information about the DB cluster resources identified by these ARNs.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Returns all resources by default. The status for each resource is specified in the response.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code>
-   *             value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only
-   *             records beyond the marker, up to <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
+export const CreateTenantDatabaseMessageFilterSensitiveLog = (obj: CreateTenantDatabaseMessage): any => ({
+  ...obj,
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
 
 /**
- * @public
- * <p>Contains the result of a successful invocation of the <code>DescribeDBClusterBacktracks</code> action.</p>
+ * @internal
  */
-export interface DBClusterBacktrackMessage {
-  /**
-   * @public
-   * <p>A pagination token that can be used in a later <code>DescribeDBClusterBacktracks</code> request.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>Contains a list of backtracks for the user.</p>
-   */
-  DBClusterBacktracks?: DBClusterBacktrack[];
-}
+export const TenantDatabasePendingModifiedValuesFilterSensitiveLog = (
+  obj: TenantDatabasePendingModifiedValues
+): any => ({
+  ...obj,
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
 
 /**
- * @public
- * <p>
- *             <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack.</p>
+ * @internal
  */
-export class DBClusterBacktrackNotFoundFault extends __BaseException {
-  readonly name: "DBClusterBacktrackNotFoundFault" = "DBClusterBacktrackNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterBacktrackNotFoundFault, __BaseException>) {
-    super({
-      name: "DBClusterBacktrackNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterBacktrackNotFoundFault.prototype);
-  }
-}
+export const TenantDatabaseFilterSensitiveLog = (obj: TenantDatabase): any => ({
+  ...obj,
+  ...(obj.PendingModifiedValues && {
+    PendingModifiedValues: TenantDatabasePendingModifiedValuesFilterSensitiveLog(obj.PendingModifiedValues),
+  }),
+});
 
 /**
- * @public
- * <p></p>
+ * @internal
  */
-export interface DescribeDBClusterBacktracksMessage {
-  /**
-   * @public
-   * <p>The DB cluster identifier of the DB cluster to be described. This parameter is
-   *             stored as a lowercase string.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster1</code>
-   *          </p>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
-   * @public
-   * <p>If specified, this value is the backtrack identifier of the backtrack to be
-   *             described.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see
-   *                     <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally unique
-   *                         identifier</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>123e4567-e89b-12d3-a456-426655440000</code>
-   *          </p>
-   */
-  BacktrackIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies one or more DB clusters to describe. Supported filters
-   *             include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-backtrack-id</code> - Accepts backtrack identifiers. The
-   *                     results list includes information about only the backtracks identified by these
-   *                     identifiers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-backtrack-status</code> - Accepts any of the following backtrack status values:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>applying</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>completed</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>failed</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>pending</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>The results list includes information about only the backtracks identified
-   *                     by these values.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusterBacktracks</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
+export const CreateTenantDatabaseResultFilterSensitiveLog = (obj: CreateTenantDatabaseResult): any => ({
+  ...obj,
+  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DBClusterEndpointMessage {
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusterEndpoints</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>Contains the details of the endpoints associated with the cluster
-   *        and matching any filter conditions.</p>
-   */
-  DBClusterEndpoints?: DBClusterEndpoint[];
-}
-
-/**
- * @public
- */
-export interface DescribeDBClusterEndpointsMessage {
-  /**
-   * @public
-   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
-   *             stored as a lowercase string.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the endpoint to describe. This parameter is stored as a lowercase string.</p>
-   */
-  DBClusterEndpointIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A set of name-value pairs that define which endpoints to include in the output.
-   *        The filters are specified as name-value pairs, in the format
-   *        <code>Name=<i>endpoint_type</i>,Values=<i>endpoint_type1</i>,<i>endpoint_type2</i>,...</code>.
-   *        <code>Name</code> can be one of: <code>db-cluster-endpoint-type</code>, <code>db-cluster-endpoint-custom-type</code>, <code>db-cluster-endpoint-id</code>, <code>db-cluster-endpoint-status</code>.
-   *          <code>Values</code> for the <code> db-cluster-endpoint-type</code> filter can be one or more of: <code>reader</code>, <code>writer</code>, <code>custom</code>.
-   *        <code>Values</code> for the <code>db-cluster-endpoint-custom-type</code> filter can be one or more of: <code>reader</code>, <code>any</code>.
-   *        <code>Values</code> for the <code>db-cluster-endpoint-status</code> filter can be one or more of: <code>available</code>, <code>creating</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusterEndpoints</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DBClusterParameterGroupsMessage {
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusterParameterGroups</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>A list of DB cluster parameter groups.</p>
-   */
-  DBClusterParameterGroups?: DBClusterParameterGroup[];
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBClusterParameterGroupsMessage {
-  /**
-   * @public
-   * <p>The name of a specific DB cluster parameter group to return details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterParameterGroupName?: string;
-
-  /**
-   * @public
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *         <code>DescribeDBClusterParameterGroups</code> request.
-   *         If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ApplyMethod = {
-  immediate: "immediate",
-  pending_reboot: "pending-reboot",
-} as const;
-
-/**
- * @public
- */
-export type ApplyMethod = (typeof ApplyMethod)[keyof typeof ApplyMethod];
-
-/**
- * @public
- * <p>This data type is used as a request parameter in the
- *         <code>ModifyDBParameterGroup</code> and <code>ResetDBParameterGroup</code> actions.</p>
- *          <p>This data type is used as a response element in the
- *         <code>DescribeEngineDefaultParameters</code> and <code>DescribeDBParameters</code> actions.</p>
- */
-export interface Parameter {
-  /**
-   * @public
-   * <p>The name of the parameter.</p>
-   */
-  ParameterName?: string;
-
-  /**
-   * @public
-   * <p>The value of the parameter.</p>
-   */
-  ParameterValue?: string;
-
-  /**
-   * @public
-   * <p>Provides a description of the parameter.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The source of the parameter value.</p>
-   */
-  Source?: string;
-
-  /**
-   * @public
-   * <p>Specifies the engine specific parameters type.</p>
-   */
-  ApplyType?: string;
-
-  /**
-   * @public
-   * <p>Specifies the valid data type for the parameter.</p>
-   */
-  DataType?: string;
-
-  /**
-   * @public
-   * <p>Specifies the valid range of values for the parameter.</p>
-   */
-  AllowedValues?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be modified.
-   *         Some parameters have security or operational implications
-   *         that prevent them from being changed.</p>
-   */
-  IsModifiable?: boolean;
-
-  /**
-   * @public
-   * <p>The earliest engine version to which the parameter can apply.</p>
-   */
-  MinimumEngineVersion?: string;
-
-  /**
-   * @public
-   * <p>Indicates when to apply parameter updates.</p>
-   */
-  ApplyMethod?: ApplyMethod;
-
-  /**
-   * @public
-   * <p>The valid DB engine modes.</p>
-   */
-  SupportedEngineModes?: string[];
-}
+export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
+  ...obj,
+  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
+});

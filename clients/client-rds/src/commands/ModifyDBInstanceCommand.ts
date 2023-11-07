@@ -126,6 +126,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   Engine: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
+ *   MultiTenant: true || false,
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -223,6 +224,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -350,6 +352,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *
@@ -433,6 +436,10 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+ *
+ * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
+ *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
+ *             account.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

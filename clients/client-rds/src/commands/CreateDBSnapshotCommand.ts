@@ -104,6 +104,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * //     StorageThroughput: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

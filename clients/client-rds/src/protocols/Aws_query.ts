@@ -113,6 +113,10 @@ import {
 import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "../commands/CreateIntegrationCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "../commands/CreateOptionGroupCommand";
 import {
+  CreateTenantDatabaseCommandInput,
+  CreateTenantDatabaseCommandOutput,
+} from "../commands/CreateTenantDatabaseCommand";
+import {
   DeleteBlueGreenDeploymentCommandInput,
   DeleteBlueGreenDeploymentCommandOutput,
 } from "../commands/DeleteBlueGreenDeploymentCommand";
@@ -170,6 +174,10 @@ import {
 } from "../commands/DeleteGlobalClusterCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "../commands/DeleteOptionGroupCommand";
+import {
+  DeleteTenantDatabaseCommandInput,
+  DeleteTenantDatabaseCommandOutput,
+} from "../commands/DeleteTenantDatabaseCommand";
 import {
   DeregisterDBProxyTargetsCommandInput,
   DeregisterDBProxyTargetsCommandOutput,
@@ -262,6 +270,10 @@ import {
   DescribeDBSnapshotsCommandOutput,
 } from "../commands/DescribeDBSnapshotsCommand";
 import {
+  DescribeDBSnapshotTenantDatabasesCommandInput,
+  DescribeDBSnapshotTenantDatabasesCommandOutput,
+} from "../commands/DescribeDBSnapshotTenantDatabasesCommand";
+import {
   DescribeDBSubnetGroupsCommandInput,
   DescribeDBSubnetGroupsCommandOutput,
 } from "../commands/DescribeDBSubnetGroupsCommand";
@@ -322,6 +334,10 @@ import {
   DescribeSourceRegionsCommandInput,
   DescribeSourceRegionsCommandOutput,
 } from "../commands/DescribeSourceRegionsCommand";
+import {
+  DescribeTenantDatabasesCommandInput,
+  DescribeTenantDatabasesCommandOutput,
+} from "../commands/DescribeTenantDatabasesCommand";
 import {
   DescribeValidDBInstanceModificationsCommandInput,
   DescribeValidDBInstanceModificationsCommandOutput,
@@ -397,6 +413,10 @@ import {
   ModifyGlobalClusterCommandOutput,
 } from "../commands/ModifyGlobalClusterCommand";
 import { ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput } from "../commands/ModifyOptionGroupCommand";
+import {
+  ModifyTenantDatabaseCommandInput,
+  ModifyTenantDatabaseCommandOutput,
+} from "../commands/ModifyTenantDatabaseCommand";
 import { PromoteReadReplicaCommandInput, PromoteReadReplicaCommandOutput } from "../commands/PromoteReadReplicaCommand";
 import {
   PromoteReadReplicaDBClusterCommandInput,
@@ -571,6 +591,8 @@ import {
   CreateIntegrationMessage,
   CreateOptionGroupMessage,
   CreateOptionGroupResult,
+  CreateTenantDatabaseMessage,
+  CreateTenantDatabaseResult,
   CustomAvailabilityZoneNotFoundFault,
   CustomDBEngineVersionAlreadyExistsFault,
   CustomDBEngineVersionAMI,
@@ -583,11 +605,8 @@ import {
   DBClusterAutomatedBackupNotFoundFault,
   DBClusterAutomatedBackupQuotaExceededFault,
   DBClusterBacktrack,
-  DBClusterBacktrackMessage,
-  DBClusterBacktrackNotFoundFault,
   DBClusterEndpoint,
   DBClusterEndpointAlreadyExistsFault,
-  DBClusterEndpointMessage,
   DBClusterEndpointNotFoundFault,
   DBClusterEndpointQuotaExceededFault,
   DBClusterMember,
@@ -595,7 +614,6 @@ import {
   DBClusterOptionGroupStatus,
   DBClusterParameterGroup,
   DBClusterParameterGroupNotFoundFault,
-  DBClusterParameterGroupsMessage,
   DBClusterQuotaExceededFault,
   DBClusterRole,
   DBClusterRoleAlreadyExistsFault,
@@ -639,6 +657,7 @@ import {
   DBSnapshot,
   DBSnapshotAlreadyExistsFault,
   DBSnapshotNotFoundFault,
+  DBSnapshotTenantDatabaseNotFoundFault,
   DBSubnetGroup,
   DBSubnetGroupAlreadyExistsFault,
   DBSubnetGroupDoesNotCoverEnoughAZs,
@@ -676,16 +695,14 @@ import {
   DeleteGlobalClusterResult,
   DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
+  DeleteTenantDatabaseMessage,
+  DeleteTenantDatabaseResult,
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
   DescribeAccountAttributesMessage,
   DescribeBlueGreenDeploymentsRequest,
   DescribeBlueGreenDeploymentsResponse,
   DescribeCertificatesMessage,
-  DescribeDBClusterAutomatedBackupsMessage,
-  DescribeDBClusterBacktracksMessage,
-  DescribeDBClusterEndpointsMessage,
-  DescribeDBClusterParameterGroupsMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -746,7 +763,6 @@ import {
   OptionGroupQuotaExceededFault,
   OptionSetting,
   Outpost,
-  Parameter,
   PendingCloudwatchLogsExports,
   PendingMaintenanceAction,
   PendingModifiedValues,
@@ -775,6 +791,11 @@ import {
   SubscriptionNotFoundFault,
   SwitchoverDetail,
   Tag,
+  TenantDatabase,
+  TenantDatabaseAlreadyExistsFault,
+  TenantDatabaseNotFoundFault,
+  TenantDatabasePendingModifiedValues,
+  TenantDatabaseQuotaExceededFault,
   Timezone,
   UpgradeTarget,
   UserAuthConfig,
@@ -786,10 +807,14 @@ import {
   CloudwatchLogsExportConfiguration,
   ConnectionPoolConfiguration,
   ConnectionPoolConfigurationInfo,
+  DBClusterBacktrackMessage,
+  DBClusterBacktrackNotFoundFault,
   DBClusterCapacityInfo,
+  DBClusterEndpointMessage,
   DBClusterMessage,
   DBClusterParameterGroupDetails,
   DBClusterParameterGroupNameMessage,
+  DBClusterParameterGroupsMessage,
   DBClusterRoleNotFoundFault,
   DBClusterSnapshotAttribute,
   DBClusterSnapshotAttributesResult,
@@ -809,8 +834,14 @@ import {
   DBSnapshotAttribute,
   DBSnapshotAttributesResult,
   DBSnapshotMessage,
+  DBSnapshotTenantDatabase,
+  DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBClusterAutomatedBackupsMessage,
+  DescribeDBClusterBacktracksMessage,
+  DescribeDBClusterEndpointsMessage,
+  DescribeDBClusterParameterGroupsMessage,
   DescribeDBClusterParametersMessage,
   DescribeDBClustersMessage,
   DescribeDBClusterSnapshotAttributesMessage,
@@ -836,6 +867,7 @@ import {
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
+  DescribeDBSnapshotTenantDatabasesMessage,
   DescribeDBSubnetGroupsMessage,
   DescribeEngineDefaultClusterParametersMessage,
   DescribeEngineDefaultClusterParametersResult,
@@ -855,6 +887,7 @@ import {
   DescribeReservedDBInstancesMessage,
   DescribeReservedDBInstancesOfferingsMessage,
   DescribeSourceRegionsMessage,
+  DescribeTenantDatabasesMessage,
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult,
   DoubleRange,
@@ -917,6 +950,8 @@ import {
   ModifyGlobalClusterResult,
   ModifyOptionGroupMessage,
   ModifyOptionGroupResult,
+  ModifyTenantDatabaseMessage,
+  ModifyTenantDatabaseResult,
   OptionConfiguration,
   OptionGroupOption,
   OptionGroupOptionSetting,
@@ -925,6 +960,7 @@ import {
   OptionVersion,
   OrderableDBInstanceOption,
   OrderableDBInstanceOptionsMessage,
+  Parameter,
   PendingMaintenanceActionsMessage,
   PointInTimeRestoreNotEnabledFault,
   PromoteReadReplicaDBClusterMessage,
@@ -1002,6 +1038,7 @@ import {
   SwitchoverReadReplicaResult,
   TagListMessage,
   TargetHealth,
+  TenantDatabasesMessage,
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
 } from "../models/models_1";
@@ -1535,6 +1572,23 @@ export const se_CreateOptionGroupCommand = async (
 };
 
 /**
+ * serializeAws_queryCreateTenantDatabaseCommand
+ */
+export const se_CreateTenantDatabaseCommand = async (
+  input: CreateTenantDatabaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateTenantDatabaseMessage(input, context),
+    Action: "CreateTenantDatabase",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDeleteBlueGreenDeploymentCommand
  */
 export const se_DeleteBlueGreenDeploymentCommand = async (
@@ -1852,6 +1906,23 @@ export const se_DeleteOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteOptionGroupMessage(input, context),
     Action: "DeleteOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeleteTenantDatabaseCommand
+ */
+export const se_DeleteTenantDatabaseCommand = async (
+  input: DeleteTenantDatabaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteTenantDatabaseMessage(input, context),
+    Action: "DeleteTenantDatabase",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2283,6 +2354,23 @@ export const se_DescribeDBSnapshotsCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeDBSnapshotTenantDatabasesCommand
+ */
+export const se_DescribeDBSnapshotTenantDatabasesCommand = async (
+  input: DescribeDBSnapshotTenantDatabasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeDBSnapshotTenantDatabasesMessage(input, context),
+    Action: "DescribeDBSnapshotTenantDatabases",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeDBSubnetGroupsCommand
  */
 export const se_DescribeDBSubnetGroupsCommand = async (
@@ -2549,6 +2637,23 @@ export const se_DescribeSourceRegionsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeSourceRegionsMessage(input, context),
     Action: "DescribeSourceRegions",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeTenantDatabasesCommand
+ */
+export const se_DescribeTenantDatabasesCommand = async (
+  input: DescribeTenantDatabasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeTenantDatabasesMessage(input, context),
+    Action: "DescribeTenantDatabases",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2957,6 +3062,23 @@ export const se_ModifyOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyOptionGroupMessage(input, context),
     Action: "ModifyOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyTenantDatabaseCommand
+ */
+export const se_ModifyTenantDatabaseCommand = async (
+  input: ModifyTenantDatabaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyTenantDatabaseMessage(input, context),
+    Action: "ModifyTenantDatabase",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3707,9 +3829,15 @@ const de_AddTagsToResourceCommandError = async (
     case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "DBSnapshotTenantDatabaseNotFoundFault":
+    case "com.amazonaws.rds#DBSnapshotTenantDatabaseNotFoundFault":
+      throw await de_DBSnapshotTenantDatabaseNotFoundFaultRes(parsedOutput, context);
     case "IntegrationNotFoundFault":
     case "com.amazonaws.rds#IntegrationNotFoundFault":
       throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
+    case "TenantDatabaseNotFound":
+    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
+      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4698,6 +4826,9 @@ const de_CreateDBInstanceCommandError = async (
     case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
+    case "TenantDatabaseQuotaExceeded":
+    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
+      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4807,6 +4938,9 @@ const de_CreateDBInstanceReadReplicaCommandError = async (
     case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
+    case "TenantDatabaseQuotaExceeded":
+    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
+      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5360,6 +5494,61 @@ const de_CreateOptionGroupCommandError = async (
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
       throw await de_OptionGroupQuotaExceededFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryCreateTenantDatabaseCommand
+ */
+export const de_CreateTenantDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTenantDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateTenantDatabaseCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTenantDatabaseResult(data.CreateTenantDatabaseResult, context);
+  const response: CreateTenantDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateTenantDatabaseCommandError
+ */
+const de_CreateTenantDatabaseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTenantDatabaseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
+    case "TenantDatabaseAlreadyExists":
+    case "com.amazonaws.rds#TenantDatabaseAlreadyExistsFault":
+      throw await de_TenantDatabaseAlreadyExistsFaultRes(parsedOutput, context);
+    case "TenantDatabaseQuotaExceeded":
+    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
+      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6309,6 +6498,58 @@ const de_DeleteOptionGroupCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteTenantDatabaseCommand
+ */
+export const de_DeleteTenantDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTenantDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteTenantDatabaseCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTenantDatabaseResult(data.DeleteTenantDatabaseResult, context);
+  const response: DeleteTenantDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteTenantDatabaseCommandError
+ */
+const de_DeleteTenantDatabaseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTenantDatabaseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
+    case "TenantDatabaseNotFound":
+    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
+      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7488,6 +7729,52 @@ const de_DescribeDBSnapshotsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeDBSnapshotTenantDatabasesCommand
+ */
+export const de_DescribeDBSnapshotTenantDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDBSnapshotTenantDatabasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBSnapshotTenantDatabasesMessage(data.DescribeDBSnapshotTenantDatabasesResult, context);
+  const response: DescribeDBSnapshotTenantDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBSnapshotTenantDatabasesCommandError
+ */
+const de_DescribeDBSnapshotTenantDatabasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBSnapshotNotFound":
+    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
+      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDescribeDBSubnetGroupsCommand
  */
 export const de_DescribeDBSubnetGroupsCommand = async (
@@ -8185,6 +8472,52 @@ const de_DescribeSourceRegionsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeTenantDatabasesCommand
+ */
+export const de_DescribeTenantDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTenantDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeTenantDatabasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TenantDatabasesMessage(data.DescribeTenantDatabasesResult, context);
+  const response: DescribeTenantDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTenantDatabasesCommandError
+ */
+const de_DescribeTenantDatabasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTenantDatabasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDescribeValidDBInstanceModificationsCommand
  */
 export const de_DescribeValidDBInstanceModificationsCommand = async (
@@ -8440,9 +8773,15 @@ const de_ListTagsForResourceCommandError = async (
     case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "DBSnapshotTenantDatabaseNotFoundFault":
+    case "com.amazonaws.rds#DBSnapshotTenantDatabaseNotFoundFault":
+      throw await de_DBSnapshotTenantDatabaseNotFoundFaultRes(parsedOutput, context);
     case "IntegrationNotFoundFault":
     case "com.amazonaws.rds#IntegrationNotFoundFault":
       throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
+    case "TenantDatabaseNotFound":
+    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
+      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -8989,6 +9328,9 @@ const de_ModifyDBInstanceCommandError = async (
     case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
+    case "TenantDatabaseQuotaExceeded":
+    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
+      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9518,6 +9860,61 @@ const de_ModifyOptionGroupCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryModifyTenantDatabaseCommand
+ */
+export const de_ModifyTenantDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTenantDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyTenantDatabaseCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyTenantDatabaseResult(data.ModifyTenantDatabaseResult, context);
+  const response: ModifyTenantDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyTenantDatabaseCommandError
+ */
+const de_ModifyTenantDatabaseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTenantDatabaseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
+    case "TenantDatabaseAlreadyExists":
+    case "com.amazonaws.rds#TenantDatabaseAlreadyExistsFault":
+      throw await de_TenantDatabaseAlreadyExistsFaultRes(parsedOutput, context);
+    case "TenantDatabaseNotFound":
+    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
+      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10099,9 +10496,15 @@ const de_RemoveTagsFromResourceCommandError = async (
     case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "DBSnapshotTenantDatabaseNotFoundFault":
+    case "com.amazonaws.rds#DBSnapshotTenantDatabaseNotFoundFault":
+      throw await de_DBSnapshotTenantDatabaseNotFoundFaultRes(parsedOutput, context);
     case "IntegrationNotFoundFault":
     case "com.amazonaws.rds#IntegrationNotFoundFault":
       throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
+    case "TenantDatabaseNotFound":
+    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
+      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10597,6 +11000,9 @@ const de_RestoreDBInstanceFromDBSnapshotCommandError = async (
     case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
+    case "TenantDatabaseQuotaExceeded":
+    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
+      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10806,6 +11212,9 @@ const de_RestoreDBInstanceToPointInTimeCommandError = async (
     case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
+    case "TenantDatabaseQuotaExceeded":
+    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
+      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -12413,6 +12822,22 @@ const de_DBSnapshotNotFoundFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryDBSnapshotTenantDatabaseNotFoundFaultRes
+ */
+const de_DBSnapshotTenantDatabaseNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBSnapshotTenantDatabaseNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DBSnapshotTenantDatabaseNotFoundFault(body.Error, context);
+  const exception = new DBSnapshotTenantDatabaseNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryDBSubnetGroupAlreadyExistsFaultRes
  */
 const de_DBSubnetGroupAlreadyExistsFaultRes = async (
@@ -13694,6 +14119,54 @@ const de_SubscriptionNotFoundFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryTenantDatabaseAlreadyExistsFaultRes
+ */
+const de_TenantDatabaseAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TenantDatabaseAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TenantDatabaseAlreadyExistsFault(body.Error, context);
+  const exception = new TenantDatabaseAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryTenantDatabaseNotFoundFaultRes
+ */
+const de_TenantDatabaseNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TenantDatabaseNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TenantDatabaseNotFoundFault(body.Error, context);
+  const exception = new TenantDatabaseNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryTenantDatabaseQuotaExceededFaultRes
+ */
+const de_TenantDatabaseQuotaExceededFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TenantDatabaseQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TenantDatabaseQuotaExceededFault(body.Error, context);
+  const exception = new TenantDatabaseQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * serializeAws_queryAddRoleToDBClusterMessage
  */
 const se_AddRoleToDBClusterMessage = (input: AddRoleToDBClusterMessage, context: __SerdeContext): any => {
@@ -14716,6 +15189,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input.DedicatedLogVolume != null) {
     entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
   }
+  if (input.MultiTenant != null) {
+    entries["MultiTenant"] = input.MultiTenant;
+  }
   return entries;
 };
 
@@ -15266,6 +15742,42 @@ const se_CreateOptionGroupMessage = (input: CreateOptionGroupMessage, context: _
 };
 
 /**
+ * serializeAws_queryCreateTenantDatabaseMessage
+ */
+const se_CreateTenantDatabaseMessage = (input: CreateTenantDatabaseMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DBInstanceIdentifier != null) {
+    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  }
+  if (input.TenantDBName != null) {
+    entries["TenantDBName"] = input.TenantDBName;
+  }
+  if (input.MasterUsername != null) {
+    entries["MasterUsername"] = input.MasterUsername;
+  }
+  if (input.MasterUserPassword != null) {
+    entries["MasterUserPassword"] = input.MasterUserPassword;
+  }
+  if (input.CharacterSetName != null) {
+    entries["CharacterSetName"] = input.CharacterSetName;
+  }
+  if (input.NcharCharacterSetName != null) {
+    entries["NcharCharacterSetName"] = input.NcharCharacterSetName;
+  }
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDBSecurityGroupNameList
  */
 const se_DBSecurityGroupNameList = (input: string[], context: __SerdeContext): any => {
@@ -15525,6 +16037,26 @@ const se_DeleteOptionGroupMessage = (input: DeleteOptionGroupMessage, context: _
   const entries: any = {};
   if (input.OptionGroupName != null) {
     entries["OptionGroupName"] = input.OptionGroupName;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeleteTenantDatabaseMessage
+ */
+const se_DeleteTenantDatabaseMessage = (input: DeleteTenantDatabaseMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DBInstanceIdentifier != null) {
+    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  }
+  if (input.TenantDBName != null) {
+    entries["TenantDBName"] = input.TenantDBName;
+  }
+  if (input.SkipFinalSnapshot != null) {
+    entries["SkipFinalSnapshot"] = input.SkipFinalSnapshot;
+  }
+  if (input.FinalDBSnapshotIdentifier != null) {
+    entries["FinalDBSnapshotIdentifier"] = input.FinalDBSnapshotIdentifier;
   }
   return entries;
 };
@@ -16284,6 +16816,45 @@ const se_DescribeDBSnapshotsMessage = (input: DescribeDBSnapshotsMessage, contex
 };
 
 /**
+ * serializeAws_queryDescribeDBSnapshotTenantDatabasesMessage
+ */
+const se_DescribeDBSnapshotTenantDatabasesMessage = (
+  input: DescribeDBSnapshotTenantDatabasesMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBInstanceIdentifier != null) {
+    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  }
+  if (input.DBSnapshotIdentifier != null) {
+    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  }
+  if (input.SnapshotType != null) {
+    entries["SnapshotType"] = input.SnapshotType;
+  }
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.DbiResourceId != null) {
+    entries["DbiResourceId"] = input.DbiResourceId;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeDBSubnetGroupsMessage
  */
 const se_DescribeDBSubnetGroupsMessage = (input: DescribeDBSubnetGroupsMessage, context: __SerdeContext): any => {
@@ -16817,6 +17388,36 @@ const se_DescribeSourceRegionsMessage = (input: DescribeSourceRegionsMessage, co
       const loc = `Filters.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeTenantDatabasesMessage
+ */
+const se_DescribeTenantDatabasesMessage = (input: DescribeTenantDatabasesMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DBInstanceIdentifier != null) {
+    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  }
+  if (input.TenantDBName != null) {
+    entries["TenantDBName"] = input.TenantDBName;
+  }
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
 };
@@ -17585,6 +18186,9 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   if (input.DedicatedLogVolume != null) {
     entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
   }
+  if (input.MultiTenant != null) {
+    entries["MultiTenant"] = input.MultiTenant;
+  }
   return entries;
 };
 
@@ -17861,6 +18465,26 @@ const se_ModifyOptionGroupMessage = (input: ModifyOptionGroupMessage, context: _
   }
   if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyTenantDatabaseMessage
+ */
+const se_ModifyTenantDatabaseMessage = (input: ModifyTenantDatabaseMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DBInstanceIdentifier != null) {
+    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  }
+  if (input.TenantDBName != null) {
+    entries["TenantDBName"] = input.TenantDBName;
+  }
+  if (input.MasterUserPassword != null) {
+    entries["MasterUserPassword"] = input.MasterUserPassword;
+  }
+  if (input.NewTenantDBName != null) {
+    entries["NewTenantDBName"] = input.NewTenantDBName;
   }
   return entries;
 };
@@ -20493,6 +21117,17 @@ const de_CreateOptionGroupResult = (output: any, context: __SerdeContext): Creat
 };
 
 /**
+ * deserializeAws_queryCreateTenantDatabaseResult
+ */
+const de_CreateTenantDatabaseResult = (output: any, context: __SerdeContext): CreateTenantDatabaseResult => {
+  const contents: any = {};
+  if (output["TenantDatabase"] !== undefined) {
+    contents.TenantDatabase = de_TenantDatabase(output["TenantDatabase"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCustomAvailabilityZoneNotFoundFault
  */
 const de_CustomAvailabilityZoneNotFoundFault = (
@@ -22252,6 +22887,9 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output["IsStorageConfigUpgradeAvailable"] !== undefined) {
     contents.IsStorageConfigUpgradeAvailable = __parseBoolean(output["IsStorageConfigUpgradeAvailable"]);
   }
+  if (output["MultiTenant"] !== undefined) {
+    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
+  }
   return contents;
 };
 
@@ -22368,6 +23006,9 @@ const de_DBInstanceAutomatedBackup = (output: any, context: __SerdeContext): DBI
   }
   if (output["DedicatedLogVolume"] !== undefined) {
     contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  }
+  if (output["MultiTenant"] !== undefined) {
+    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
   }
   return contents;
 };
@@ -23328,6 +23969,9 @@ const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
   if (output["DedicatedLogVolume"] !== undefined) {
     contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
   }
+  if (output["MultiTenant"] !== undefined) {
+    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
+  }
   return contents;
 };
 
@@ -23428,6 +24072,107 @@ const de_DBSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBSna
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBSnapshotTenantDatabase
+ */
+const de_DBSnapshotTenantDatabase = (output: any, context: __SerdeContext): DBSnapshotTenantDatabase => {
+  const contents: any = {};
+  if (output["DBSnapshotIdentifier"] !== undefined) {
+    contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
+  }
+  if (output["DBInstanceIdentifier"] !== undefined) {
+    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  }
+  if (output["DbiResourceId"] !== undefined) {
+    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  }
+  if (output["EngineName"] !== undefined) {
+    contents.EngineName = __expectString(output["EngineName"]);
+  }
+  if (output["SnapshotType"] !== undefined) {
+    contents.SnapshotType = __expectString(output["SnapshotType"]);
+  }
+  if (output["TenantDatabaseCreateTime"] !== undefined) {
+    contents.TenantDatabaseCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["TenantDatabaseCreateTime"])
+    );
+  }
+  if (output["TenantDBName"] !== undefined) {
+    contents.TenantDBName = __expectString(output["TenantDBName"]);
+  }
+  if (output["MasterUsername"] !== undefined) {
+    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  }
+  if (output["TenantDatabaseResourceId"] !== undefined) {
+    contents.TenantDatabaseResourceId = __expectString(output["TenantDatabaseResourceId"]);
+  }
+  if (output["CharacterSetName"] !== undefined) {
+    contents.CharacterSetName = __expectString(output["CharacterSetName"]);
+  }
+  if (output["DBSnapshotTenantDatabaseARN"] !== undefined) {
+    contents.DBSnapshotTenantDatabaseARN = __expectString(output["DBSnapshotTenantDatabaseARN"]);
+  }
+  if (output["NcharCharacterSetName"] !== undefined) {
+    contents.NcharCharacterSetName = __expectString(output["NcharCharacterSetName"]);
+  }
+  if (output.TagList === "") {
+    contents.TagList = [];
+  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
+    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBSnapshotTenantDatabaseNotFoundFault
+ */
+const de_DBSnapshotTenantDatabaseNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBSnapshotTenantDatabaseNotFoundFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBSnapshotTenantDatabasesList
+ */
+const de_DBSnapshotTenantDatabasesList = (output: any, context: __SerdeContext): DBSnapshotTenantDatabase[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DBSnapshotTenantDatabase(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryDBSnapshotTenantDatabasesMessage
+ */
+const de_DBSnapshotTenantDatabasesMessage = (
+  output: any,
+  context: __SerdeContext
+): DBSnapshotTenantDatabasesMessage => {
+  const contents: any = {};
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.DBSnapshotTenantDatabases === "") {
+    contents.DBSnapshotTenantDatabases = [];
+  } else if (
+    output["DBSnapshotTenantDatabases"] !== undefined &&
+    output["DBSnapshotTenantDatabases"]["DBSnapshotTenantDatabase"] !== undefined
+  ) {
+    contents.DBSnapshotTenantDatabases = de_DBSnapshotTenantDatabasesList(
+      __getArrayIfSingleItem(output["DBSnapshotTenantDatabases"]["DBSnapshotTenantDatabase"]),
+      context
+    );
   }
   return contents;
 };
@@ -23704,6 +24449,17 @@ const de_DeleteGlobalClusterResult = (output: any, context: __SerdeContext): Del
   const contents: any = {};
   if (output["GlobalCluster"] !== undefined) {
     contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDeleteTenantDatabaseResult
+ */
+const de_DeleteTenantDatabaseResult = (output: any, context: __SerdeContext): DeleteTenantDatabaseResult => {
+  const contents: any = {};
+  if (output["TenantDatabase"] !== undefined) {
+    contents.TenantDatabase = de_TenantDatabase(output["TenantDatabase"], context);
   }
   return contents;
 };
@@ -25511,6 +26267,17 @@ const de_ModifyOptionGroupResult = (output: any, context: __SerdeContext): Modif
 };
 
 /**
+ * deserializeAws_queryModifyTenantDatabaseResult
+ */
+const de_ModifyTenantDatabaseResult = (output: any, context: __SerdeContext): ModifyTenantDatabaseResult => {
+  const contents: any = {};
+  if (output["TenantDatabase"] !== undefined) {
+    contents.TenantDatabase = de_TenantDatabase(output["TenantDatabase"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryNetworkTypeNotSupported
  */
 const de_NetworkTypeNotSupported = (output: any, context: __SerdeContext): NetworkTypeNotSupported => {
@@ -26413,6 +27180,9 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
   }
   if (output["DedicatedLogVolume"] !== undefined) {
     contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  }
+  if (output["MultiTenant"] !== undefined) {
+    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
   }
   return contents;
 };
@@ -27643,6 +28413,143 @@ const de_TargetList = (output: any, context: __SerdeContext): DBProxyTarget[] =>
     .map((entry: any) => {
       return de_DBProxyTarget(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryTenantDatabase
+ */
+const de_TenantDatabase = (output: any, context: __SerdeContext): TenantDatabase => {
+  const contents: any = {};
+  if (output["TenantDatabaseCreateTime"] !== undefined) {
+    contents.TenantDatabaseCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["TenantDatabaseCreateTime"])
+    );
+  }
+  if (output["DBInstanceIdentifier"] !== undefined) {
+    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  }
+  if (output["TenantDBName"] !== undefined) {
+    contents.TenantDBName = __expectString(output["TenantDBName"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["MasterUsername"] !== undefined) {
+    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  }
+  if (output["DbiResourceId"] !== undefined) {
+    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  }
+  if (output["TenantDatabaseResourceId"] !== undefined) {
+    contents.TenantDatabaseResourceId = __expectString(output["TenantDatabaseResourceId"]);
+  }
+  if (output["TenantDatabaseARN"] !== undefined) {
+    contents.TenantDatabaseARN = __expectString(output["TenantDatabaseARN"]);
+  }
+  if (output["CharacterSetName"] !== undefined) {
+    contents.CharacterSetName = __expectString(output["CharacterSetName"]);
+  }
+  if (output["NcharCharacterSetName"] !== undefined) {
+    contents.NcharCharacterSetName = __expectString(output["NcharCharacterSetName"]);
+  }
+  if (output["DeletionProtection"] !== undefined) {
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  }
+  if (output["PendingModifiedValues"] !== undefined) {
+    contents.PendingModifiedValues = de_TenantDatabasePendingModifiedValues(output["PendingModifiedValues"], context);
+  }
+  if (output.TagList === "") {
+    contents.TagList = [];
+  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
+    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTenantDatabaseAlreadyExistsFault
+ */
+const de_TenantDatabaseAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): TenantDatabaseAlreadyExistsFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTenantDatabaseNotFoundFault
+ */
+const de_TenantDatabaseNotFoundFault = (output: any, context: __SerdeContext): TenantDatabaseNotFoundFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTenantDatabasePendingModifiedValues
+ */
+const de_TenantDatabasePendingModifiedValues = (
+  output: any,
+  context: __SerdeContext
+): TenantDatabasePendingModifiedValues => {
+  const contents: any = {};
+  if (output["MasterUserPassword"] !== undefined) {
+    contents.MasterUserPassword = __expectString(output["MasterUserPassword"]);
+  }
+  if (output["TenantDBName"] !== undefined) {
+    contents.TenantDBName = __expectString(output["TenantDBName"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTenantDatabaseQuotaExceededFault
+ */
+const de_TenantDatabaseQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): TenantDatabaseQuotaExceededFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTenantDatabasesList
+ */
+const de_TenantDatabasesList = (output: any, context: __SerdeContext): TenantDatabase[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TenantDatabase(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryTenantDatabasesMessage
+ */
+const de_TenantDatabasesMessage = (output: any, context: __SerdeContext): TenantDatabasesMessage => {
+  const contents: any = {};
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.TenantDatabases === "") {
+    contents.TenantDatabases = [];
+  } else if (output["TenantDatabases"] !== undefined && output["TenantDatabases"]["TenantDatabase"] !== undefined) {
+    contents.TenantDatabases = de_TenantDatabasesList(
+      __getArrayIfSingleItem(output["TenantDatabases"]["TenantDatabase"]),
+      context
+    );
+  }
+  return contents;
 };
 
 /**

@@ -506,6 +506,14 @@ CreateOptionGroup
 </details>
 <details>
 <summary>
+CreateTenantDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/createtenantdatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/createtenantdatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/createtenantdatabasecommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteBlueGreenDeployment
 </summary>
 
@@ -654,6 +662,14 @@ DeleteOptionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/deleteoptiongroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/deleteoptiongroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/deleteoptiongroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTenantDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/deletetenantdatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/deletetenantdatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/deletetenantdatabasecommandoutput.html)
 
 </details>
 <details>
@@ -858,6 +874,14 @@ DescribeDBSnapshots
 </details>
 <details>
 <summary>
+DescribeDBSnapshotTenantDatabases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/describedbsnapshottenantdatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describedbsnapshottenantdatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describedbsnapshottenantdatabasescommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeDBSubnetGroups
 </summary>
 
@@ -982,6 +1006,14 @@ DescribeSourceRegions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/describesourceregionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describesourceregionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describesourceregionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTenantDatabases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/describetenantdatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describetenantdatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describetenantdatabasescommandoutput.html)
 
 </details>
 <details>
@@ -1174,6 +1206,14 @@ ModifyOptionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/modifyoptiongroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/modifyoptiongroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/modifyoptiongroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ModifyTenantDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/modifytenantdatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/modifytenantdatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/modifytenantdatabasecommandoutput.html)
 
 </details>
 <details>

@@ -168,6 +168,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -295,6 +296,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

@@ -88,8 +88,14 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link DBSnapshotTenantDatabaseNotFoundFault} (client fault)
+ *  <p>The specified snapshot tenant database wasn't found.</p>
+ *
  * @throws {@link IntegrationNotFoundFault} (client fault)
  *  <p>The specified integration could not be found.</p>
+ *
+ * @throws {@link TenantDatabaseNotFoundFault} (client fault)
+ *  <p>The specified tenant database wasn't found in the DB instance.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

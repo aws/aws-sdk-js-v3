@@ -139,6 +139,10 @@ import {
 import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "./commands/CreateOptionGroupCommand";
 import {
+  CreateTenantDatabaseCommandInput,
+  CreateTenantDatabaseCommandOutput,
+} from "./commands/CreateTenantDatabaseCommand";
+import {
   DeleteBlueGreenDeploymentCommandInput,
   DeleteBlueGreenDeploymentCommandOutput,
 } from "./commands/DeleteBlueGreenDeploymentCommand";
@@ -196,6 +200,10 @@ import {
 } from "./commands/DeleteGlobalClusterCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "./commands/DeleteOptionGroupCommand";
+import {
+  DeleteTenantDatabaseCommandInput,
+  DeleteTenantDatabaseCommandOutput,
+} from "./commands/DeleteTenantDatabaseCommand";
 import {
   DeregisterDBProxyTargetsCommandInput,
   DeregisterDBProxyTargetsCommandOutput,
@@ -288,6 +296,10 @@ import {
   DescribeDBSnapshotsCommandOutput,
 } from "./commands/DescribeDBSnapshotsCommand";
 import {
+  DescribeDBSnapshotTenantDatabasesCommandInput,
+  DescribeDBSnapshotTenantDatabasesCommandOutput,
+} from "./commands/DescribeDBSnapshotTenantDatabasesCommand";
+import {
   DescribeDBSubnetGroupsCommandInput,
   DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand";
@@ -348,6 +360,10 @@ import {
   DescribeSourceRegionsCommandInput,
   DescribeSourceRegionsCommandOutput,
 } from "./commands/DescribeSourceRegionsCommand";
+import {
+  DescribeTenantDatabasesCommandInput,
+  DescribeTenantDatabasesCommandOutput,
+} from "./commands/DescribeTenantDatabasesCommand";
 import {
   DescribeValidDBInstanceModificationsCommandInput,
   DescribeValidDBInstanceModificationsCommandOutput,
@@ -423,6 +439,10 @@ import {
   ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand";
 import { ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput } from "./commands/ModifyOptionGroupCommand";
+import {
+  ModifyTenantDatabaseCommandInput,
+  ModifyTenantDatabaseCommandOutput,
+} from "./commands/ModifyTenantDatabaseCommand";
 import { PromoteReadReplicaCommandInput, PromoteReadReplicaCommandOutput } from "./commands/PromoteReadReplicaCommand";
 import {
   PromoteReadReplicaDBClusterCommandInput,
@@ -570,6 +590,7 @@ export type ServiceInputTypes =
   | CreateGlobalClusterCommandInput
   | CreateIntegrationCommandInput
   | CreateOptionGroupCommandInput
+  | CreateTenantDatabaseCommandInput
   | DeleteBlueGreenDeploymentCommandInput
   | DeleteCustomDBEngineVersionCommandInput
   | DeleteDBClusterAutomatedBackupCommandInput
@@ -589,6 +610,7 @@ export type ServiceInputTypes =
   | DeleteGlobalClusterCommandInput
   | DeleteIntegrationCommandInput
   | DeleteOptionGroupCommandInput
+  | DeleteTenantDatabaseCommandInput
   | DeregisterDBProxyTargetsCommandInput
   | DescribeAccountAttributesCommandInput
   | DescribeBlueGreenDeploymentsCommandInput
@@ -613,6 +635,7 @@ export type ServiceInputTypes =
   | DescribeDBProxyTargetsCommandInput
   | DescribeDBSecurityGroupsCommandInput
   | DescribeDBSnapshotAttributesCommandInput
+  | DescribeDBSnapshotTenantDatabasesCommandInput
   | DescribeDBSnapshotsCommandInput
   | DescribeDBSubnetGroupsCommandInput
   | DescribeEngineDefaultClusterParametersCommandInput
@@ -630,6 +653,7 @@ export type ServiceInputTypes =
   | DescribeReservedDBInstancesCommandInput
   | DescribeReservedDBInstancesOfferingsCommandInput
   | DescribeSourceRegionsCommandInput
+  | DescribeTenantDatabasesCommandInput
   | DescribeValidDBInstanceModificationsCommandInput
   | DownloadDBLogFilePortionCommandInput
   | FailoverDBClusterCommandInput
@@ -654,6 +678,7 @@ export type ServiceInputTypes =
   | ModifyEventSubscriptionCommandInput
   | ModifyGlobalClusterCommandInput
   | ModifyOptionGroupCommandInput
+  | ModifyTenantDatabaseCommandInput
   | PromoteReadReplicaCommandInput
   | PromoteReadReplicaDBClusterCommandInput
   | PurchaseReservedDBInstancesOfferingCommandInput
@@ -722,6 +747,7 @@ export type ServiceOutputTypes =
   | CreateGlobalClusterCommandOutput
   | CreateIntegrationCommandOutput
   | CreateOptionGroupCommandOutput
+  | CreateTenantDatabaseCommandOutput
   | DeleteBlueGreenDeploymentCommandOutput
   | DeleteCustomDBEngineVersionCommandOutput
   | DeleteDBClusterAutomatedBackupCommandOutput
@@ -741,6 +767,7 @@ export type ServiceOutputTypes =
   | DeleteGlobalClusterCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteOptionGroupCommandOutput
+  | DeleteTenantDatabaseCommandOutput
   | DeregisterDBProxyTargetsCommandOutput
   | DescribeAccountAttributesCommandOutput
   | DescribeBlueGreenDeploymentsCommandOutput
@@ -765,6 +792,7 @@ export type ServiceOutputTypes =
   | DescribeDBProxyTargetsCommandOutput
   | DescribeDBSecurityGroupsCommandOutput
   | DescribeDBSnapshotAttributesCommandOutput
+  | DescribeDBSnapshotTenantDatabasesCommandOutput
   | DescribeDBSnapshotsCommandOutput
   | DescribeDBSubnetGroupsCommandOutput
   | DescribeEngineDefaultClusterParametersCommandOutput
@@ -782,6 +810,7 @@ export type ServiceOutputTypes =
   | DescribeReservedDBInstancesCommandOutput
   | DescribeReservedDBInstancesOfferingsCommandOutput
   | DescribeSourceRegionsCommandOutput
+  | DescribeTenantDatabasesCommandOutput
   | DescribeValidDBInstanceModificationsCommandOutput
   | DownloadDBLogFilePortionCommandOutput
   | FailoverDBClusterCommandOutput
@@ -806,6 +835,7 @@ export type ServiceOutputTypes =
   | ModifyEventSubscriptionCommandOutput
   | ModifyGlobalClusterCommandOutput
   | ModifyOptionGroupCommandOutput
+  | ModifyTenantDatabaseCommandOutput
   | PromoteReadReplicaCommandOutput
   | PromoteReadReplicaDBClusterCommandOutput
   | PurchaseReservedDBInstancesOfferingCommandOutput

@@ -14,7 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DBClusterAutomatedBackupMessage, DescribeDBClusterAutomatedBackupsMessage } from "../models/models_0";
+import { DBClusterAutomatedBackupMessage } from "../models/models_0";
+import { DescribeDBClusterAutomatedBackupsMessage } from "../models/models_1";
 import {
   de_DescribeDBClusterAutomatedBackupsCommand,
   se_DescribeDBClusterAutomatedBackupsCommand,

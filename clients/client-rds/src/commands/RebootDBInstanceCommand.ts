@@ -153,6 +153,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -280,6 +281,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

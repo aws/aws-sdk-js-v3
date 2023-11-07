@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DBClusterBacktrackMessage, DescribeDBClusterBacktracksMessage } from "../models/models_0";
+import { DBClusterBacktrackMessage, DescribeDBClusterBacktracksMessage } from "../models/models_1";
 import { de_DescribeDBClusterBacktracksCommand, se_DescribeDBClusterBacktracksCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 

@@ -103,6 +103,7 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * //     StorageThroughput: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

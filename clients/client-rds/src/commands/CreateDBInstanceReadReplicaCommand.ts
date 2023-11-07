@@ -215,6 +215,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -342,6 +343,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *
@@ -431,6 +433,10 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+ *
+ * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
+ *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
+ *             account.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

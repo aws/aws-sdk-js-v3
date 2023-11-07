@@ -158,6 +158,11 @@ import {
   CreateOptionGroupCommandOutput,
 } from "./commands/CreateOptionGroupCommand";
 import {
+  CreateTenantDatabaseCommand,
+  CreateTenantDatabaseCommandInput,
+  CreateTenantDatabaseCommandOutput,
+} from "./commands/CreateTenantDatabaseCommand";
+import {
   DeleteBlueGreenDeploymentCommand,
   DeleteBlueGreenDeploymentCommandInput,
   DeleteBlueGreenDeploymentCommandOutput,
@@ -252,6 +257,11 @@ import {
   DeleteOptionGroupCommandInput,
   DeleteOptionGroupCommandOutput,
 } from "./commands/DeleteOptionGroupCommand";
+import {
+  DeleteTenantDatabaseCommand,
+  DeleteTenantDatabaseCommandInput,
+  DeleteTenantDatabaseCommandOutput,
+} from "./commands/DeleteTenantDatabaseCommand";
 import {
   DeregisterDBProxyTargetsCommand,
   DeregisterDBProxyTargetsCommandInput,
@@ -378,6 +388,11 @@ import {
   DescribeDBSnapshotsCommandOutput,
 } from "./commands/DescribeDBSnapshotsCommand";
 import {
+  DescribeDBSnapshotTenantDatabasesCommand,
+  DescribeDBSnapshotTenantDatabasesCommandInput,
+  DescribeDBSnapshotTenantDatabasesCommandOutput,
+} from "./commands/DescribeDBSnapshotTenantDatabasesCommand";
+import {
   DescribeDBSubnetGroupsCommand,
   DescribeDBSubnetGroupsCommandInput,
   DescribeDBSubnetGroupsCommandOutput,
@@ -457,6 +472,11 @@ import {
   DescribeSourceRegionsCommandInput,
   DescribeSourceRegionsCommandOutput,
 } from "./commands/DescribeSourceRegionsCommand";
+import {
+  DescribeTenantDatabasesCommand,
+  DescribeTenantDatabasesCommandInput,
+  DescribeTenantDatabasesCommandOutput,
+} from "./commands/DescribeTenantDatabasesCommand";
 import {
   DescribeValidDBInstanceModificationsCommand,
   DescribeValidDBInstanceModificationsCommandInput,
@@ -577,6 +597,11 @@ import {
   ModifyOptionGroupCommandInput,
   ModifyOptionGroupCommandOutput,
 } from "./commands/ModifyOptionGroupCommand";
+import {
+  ModifyTenantDatabaseCommand,
+  ModifyTenantDatabaseCommandInput,
+  ModifyTenantDatabaseCommandOutput,
+} from "./commands/ModifyTenantDatabaseCommand";
 import {
   PromoteReadReplicaCommand,
   PromoteReadReplicaCommandInput,
@@ -771,6 +796,7 @@ const commands = {
   CreateGlobalClusterCommand,
   CreateIntegrationCommand,
   CreateOptionGroupCommand,
+  CreateTenantDatabaseCommand,
   DeleteBlueGreenDeploymentCommand,
   DeleteCustomDBEngineVersionCommand,
   DeleteDBClusterCommand,
@@ -790,6 +816,7 @@ const commands = {
   DeleteGlobalClusterCommand,
   DeleteIntegrationCommand,
   DeleteOptionGroupCommand,
+  DeleteTenantDatabaseCommand,
   DeregisterDBProxyTargetsCommand,
   DescribeAccountAttributesCommand,
   DescribeBlueGreenDeploymentsCommand,
@@ -815,6 +842,7 @@ const commands = {
   DescribeDBSecurityGroupsCommand,
   DescribeDBSnapshotAttributesCommand,
   DescribeDBSnapshotsCommand,
+  DescribeDBSnapshotTenantDatabasesCommand,
   DescribeDBSubnetGroupsCommand,
   DescribeEngineDefaultClusterParametersCommand,
   DescribeEngineDefaultParametersCommand,
@@ -831,6 +859,7 @@ const commands = {
   DescribeReservedDBInstancesCommand,
   DescribeReservedDBInstancesOfferingsCommand,
   DescribeSourceRegionsCommand,
+  DescribeTenantDatabasesCommand,
   DescribeValidDBInstanceModificationsCommand,
   DownloadDBLogFilePortionCommand,
   FailoverDBClusterCommand,
@@ -855,6 +884,7 @@ const commands = {
   ModifyEventSubscriptionCommand,
   ModifyGlobalClusterCommand,
   ModifyOptionGroupCommand,
+  ModifyTenantDatabaseCommand,
   PromoteReadReplicaCommand,
   PromoteReadReplicaDBClusterCommand,
   PurchaseReservedDBInstancesOfferingCommand,
@@ -1403,6 +1433,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link CreateTenantDatabaseCommand}
+   */
+  createTenantDatabase(
+    args: CreateTenantDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTenantDatabaseCommandOutput>;
+  createTenantDatabase(
+    args: CreateTenantDatabaseCommandInput,
+    cb: (err: any, data?: CreateTenantDatabaseCommandOutput) => void
+  ): void;
+  createTenantDatabase(
+    args: CreateTenantDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTenantDatabaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteBlueGreenDeploymentCommand}
    */
   deleteBlueGreenDeployment(
@@ -1714,6 +1761,23 @@ export interface RDS {
     args: DeleteOptionGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOptionGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTenantDatabaseCommand}
+   */
+  deleteTenantDatabase(
+    args: DeleteTenantDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTenantDatabaseCommandOutput>;
+  deleteTenantDatabase(
+    args: DeleteTenantDatabaseCommandInput,
+    cb: (err: any, data?: DeleteTenantDatabaseCommandOutput) => void
+  ): void;
+  deleteTenantDatabase(
+    args: DeleteTenantDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTenantDatabaseCommandOutput) => void
   ): void;
 
   /**
@@ -2142,6 +2206,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DescribeDBSnapshotTenantDatabasesCommand}
+   */
+  describeDBSnapshotTenantDatabases(
+    args: DescribeDBSnapshotTenantDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput>;
+  describeDBSnapshotTenantDatabases(
+    args: DescribeDBSnapshotTenantDatabasesCommandInput,
+    cb: (err: any, data?: DescribeDBSnapshotTenantDatabasesCommandOutput) => void
+  ): void;
+  describeDBSnapshotTenantDatabases(
+    args: DescribeDBSnapshotTenantDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBSnapshotTenantDatabasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDBSubnetGroupsCommand}
    */
   describeDBSubnetGroups(
@@ -2408,6 +2489,23 @@ export interface RDS {
     args: DescribeSourceRegionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSourceRegionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTenantDatabasesCommand}
+   */
+  describeTenantDatabases(
+    args: DescribeTenantDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTenantDatabasesCommandOutput>;
+  describeTenantDatabases(
+    args: DescribeTenantDatabasesCommandInput,
+    cb: (err: any, data?: DescribeTenantDatabasesCommandOutput) => void
+  ): void;
+  describeTenantDatabases(
+    args: DescribeTenantDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTenantDatabasesCommandOutput) => void
   ): void;
 
   /**
@@ -2807,6 +2905,23 @@ export interface RDS {
     args: ModifyOptionGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyOptionGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyTenantDatabaseCommand}
+   */
+  modifyTenantDatabase(
+    args: ModifyTenantDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyTenantDatabaseCommandOutput>;
+  modifyTenantDatabase(
+    args: ModifyTenantDatabaseCommandInput,
+    cb: (err: any, data?: ModifyTenantDatabaseCommandOutput) => void
+  ): void;
+  modifyTenantDatabase(
+    args: ModifyTenantDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyTenantDatabaseCommandOutput) => void
   ): void;
 
   /**

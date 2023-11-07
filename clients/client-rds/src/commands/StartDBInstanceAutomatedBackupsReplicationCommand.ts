@@ -105,6 +105,7 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * //     StorageThroughput: Number("int"),
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

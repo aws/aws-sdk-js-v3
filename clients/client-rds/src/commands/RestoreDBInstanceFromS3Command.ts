@@ -215,6 +215,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -342,6 +343,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *

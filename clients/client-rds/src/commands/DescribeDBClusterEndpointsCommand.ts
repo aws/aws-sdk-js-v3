@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DBClusterEndpointMessage, DescribeDBClusterEndpointsMessage } from "../models/models_0";
+import { DBClusterEndpointMessage, DescribeDBClusterEndpointsMessage } from "../models/models_1";
 import { de_DescribeDBClusterEndpointsCommand, se_DescribeDBClusterEndpointsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
