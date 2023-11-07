@@ -38,7 +38,7 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
 /**
  * @public
  * <p>Gets summary information about all or the specified data lifecycle policies.</p>
- *          <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
+ *          <p>To get complete information about a policy, use <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html">GetLifecyclePolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

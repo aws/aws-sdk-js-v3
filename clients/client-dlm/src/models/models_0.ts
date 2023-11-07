@@ -71,7 +71,7 @@ export interface CrossRegionCopyRetainRule {
  *             <b>[Event-based policies only]</b> Specifies a cross-Region copy action for event-based policies.</p>
  *          <note>
  *             <p>To specify a cross-Region copy rule for snapshot and AMI policies, use
- * 				<a>CrossRegionCopyRule</a>.</p>
+ * 				<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyRule.html">CrossRegionCopyRule</a>.</p>
  *          </note>
  */
 export interface CrossRegionCopyAction {
@@ -395,6 +395,157 @@ export type LocationValues = (typeof LocationValues)[keyof typeof LocationValues
 
 /**
  * @public
+ * @enum
+ */
+export const ExecutionHandlerServiceValues = {
+  AWS_SYSTEMS_MANAGER: "AWS_SYSTEMS_MANAGER",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionHandlerServiceValues =
+  (typeof ExecutionHandlerServiceValues)[keyof typeof ExecutionHandlerServiceValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const StageValues = {
+  POST: "POST",
+  PRE: "PRE",
+} as const;
+
+/**
+ * @public
+ */
+export type StageValues = (typeof StageValues)[keyof typeof StageValues];
+
+/**
+ * @public
+ * <p>
+ *             <b>[Snapshot policies that target instances only]</b> Information about pre and/or post scripts for a
+ * 			snapshot lifecycle policy that targets instances. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/automate-app-consistent-backups.html">
+ * 				Automating application-consistent snapshots with pre and post scripts</a>.</p>
+ */
+export interface Script {
+  /**
+   * @public
+   * <p>Indicate which scripts Amazon Data Lifecycle Manager should run on target instances. Pre scripts
+   * 			run before Amazon Data Lifecycle Manager initiates snapshot creation. Post scripts run after Amazon Data Lifecycle Manager
+   * 			initiates snapshot creation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To run a pre script only, specify <code>PRE</code>. In this case,
+   * 					Amazon Data Lifecycle Manager calls the SSM document with the <code>pre-script</code> parameter
+   * 					before initiating snapshot creation.</p>
+   *             </li>
+   *             <li>
+   *                <p>To run a post script only, specify <code>POST</code>. In this case,
+   * 					Amazon Data Lifecycle Manager calls the SSM document with the <code>post-script</code> parameter
+   * 					after initiating snapshot creation.</p>
+   *             </li>
+   *             <li>
+   *                <p>To run both pre and post scripts, specify both <code>PRE</code> and <code>POST</code>. In
+   * 					this case, Amazon Data Lifecycle Manager calls the SSM document with the <code>pre-script</code>
+   * 					parameter before initiating snapshot creation, and then it calls the SSM
+   * 					document again with the <code>post-script</code> parameter after initiating
+   * 					snapshot creation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you are automating VSS Backups, omit this parameter.</p>
+   *          <p>Default: PRE and POST</p>
+   */
+  Stages?: StageValues[];
+
+  /**
+   * @public
+   * <p>Indicates the service used to execute the pre and/or post scripts.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are using custom SSM documents, specify
+   * 					<code>AWS_SYSTEMS_MANAGER</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are automating VSS Backups, omit this parameter.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: AWS_SYSTEMS_MANAGER</p>
+   */
+  ExecutionHandlerService?: ExecutionHandlerServiceValues;
+
+  /**
+   * @public
+   * <p>The SSM document that includes the pre and/or post scripts to run.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are automating VSS backups, specify <code>AWS_VSS_BACKUP</code>.
+   * 					In this case, Amazon Data Lifecycle Manager automatically uses the <code>AWSEC2-CreateVssSnapshot</code>
+   * 					SSM document.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a custom SSM document that you own, specify either
+   * 					the name or ARN of the SSM document. If you are using a custom SSM
+   * 					document that is shared with you, specify the ARN of the SSM document.</p>
+   *             </li>
+   *          </ul>
+   */
+  ExecutionHandler: string | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the
+   * 			pre script fails.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To default to crash consistent snapshot if the pre script fails,
+   * 					specify <code>true</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To skip the instance for snapshot creation if the pre script fails,
+   * 					specify <code>false</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This parameter is supported only if you run a pre script. If you run a post
+   * 			script only, omit this parameter.</p>
+   *          <p>Default: true</p>
+   */
+  ExecuteOperationOnScriptFailure?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies a timeout period, in seconds, after which Amazon Data Lifecycle Manager fails the script
+   * 			run attempt if it has not completed. If a script does not complete within its
+   * 			timeout period, Amazon Data Lifecycle Manager fails the attempt. The timeout period applies to the pre
+   * 			and post scripts individually. </p>
+   *          <p>If you are automating VSS Backups, omit this parameter.</p>
+   *          <p>Default: 10</p>
+   */
+  ExecutionTimeout?: number;
+
+  /**
+   * @public
+   * <p>Specifies the number of times Amazon Data Lifecycle Manager should retry scripts that fail.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the pre script fails, Amazon Data Lifecycle Manager retries the entire snapshot creation
+   * 					process, including running the pre and post scripts.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the post script fails, Amazon Data Lifecycle Manager retries the post script only; in this
+   * 					case, the pre script will have completed and the snapshot might have
+   * 					been created.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you do not want Amazon Data Lifecycle Manager to retry failed scripts, specify <code>0</code>.</p>
+   *          <p>Default: 0</p>
+   */
+  MaximumRetryCount?: number;
+}
+
+/**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies when the policy should create snapshots or AMIs.</p>
  *          <note>
@@ -405,8 +556,9 @@ export type LocationValues = (typeof LocationValues)[keyof typeof LocationValues
  * 						and <b>Times</b>.</p>
  *                </li>
  *                <li>
- *                   <p>If you need to specify an <a>ArchiveRule</a> for the schedule, then you must
- * 						specify a creation frequency of at least 28 days.</p>
+ *                   <p>If you need to specify an <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a>
+ * 						for the schedule, then you must specify a creation frequency of at least
+ * 						28 days.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -453,6 +605,17 @@ export interface CreateRule {
    * 				expressions</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
    */
   CronExpression?: string;
+
+  /**
+   * @public
+   * <p>
+   *             <b>[Snapshot policies that target instances only]</b> Specifies pre and/or post scripts for a snapshot lifecycle policy
+   * 			that targets instances. This is useful for creating application-consistent snapshots, or for
+   * 			performing specific administrative tasks before or after Amazon Data Lifecycle Manager initiates snapshot creation.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/automate-app-consistent-backups.html">Automating
+   * 				application-consistent snapshots with pre and post scripts</a>.</p>
+   */
+  Scripts?: Script[];
 }
 
 /**
@@ -481,31 +644,38 @@ export interface CrossRegionCopyDeprecateRule {
 /**
  * @public
  * <p>
- *             <b>[Snapshot and AMI policies only]</b> Specifies a cross-Region copy rule for snapshot and AMI policies.</p>
+ *             <b>[Snapshot and AMI policies only]</b> Specifies a cross-Region copy rule for a snapshot and AMI policies.</p>
  *          <note>
  *             <p>To specify a cross-Region copy action for event-based polices, use
- * 				<a>CrossRegionCopyAction</a>.</p>
+ * 				<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyAction.html">CrossRegionCopyAction</a>.</p>
  *          </note>
  */
 export interface CrossRegionCopyRule {
   /**
    * @public
    * <note>
-   *             <p>Avoid using this parameter when creating new policies. Instead, use
-   * 				<b>Target</b> to specify a target Region or a target
-   * 				Outpost for snapshot copies.</p>
-   *             <p>For policies created before the <b>Target</b> parameter
-   * 				was introduced, this parameter indicates the target Region for snapshot copies.</p>
+   *             <p>Use this parameter for AMI policies only. For snapshot policies, use
+   * 				<b>Target</b> instead. For snapshot policies
+   * 				created before the <b>Target</b> parameter
+   * 				was introduced, this parameter indicates the target Region for snapshot
+   * 				copies.</p>
+   *             <p></p>
    *          </note>
+   *          <p>
+   *             <b>[AMI policies only]</b> The target Region or the Amazon Resource Name (ARN) of the target Outpost for the
+   * 			snapshot copies.</p>
    */
   TargetRegion?: string;
 
   /**
    * @public
-   * <p>The target Region or the Amazon Resource Name (ARN) of the target Outpost for the
+   * <note>
+   *             <p>Use this parameter for snapshot policies only. For AMI policies, use
+   * 				<b>TargetRegion</b> instead.</p>
+   *          </note>
+   *          <p>
+   *             <b>[Snapshot policies only]</b> The target Region or the Amazon Resource Name (ARN) of the target Outpost for the
    * 			snapshot copies.</p>
-   *          <p>Use this parameter instead of <b>TargetRegion</b>. Do not
-   * 			specify both.</p>
    */
   Target?: string;
 
@@ -619,7 +789,7 @@ export interface FastRestoreRule {
  *             <b>[Snapshot and AMI policies only]</b> Specifies a retention rule for snapshots created by snapshot policies, or for AMIs
  * 			created by AMI policies.</p>
  *          <note>
- *             <p>For snapshot policies that have an <a>ArchiveRule</a>, this retention rule
+ *             <p>For snapshot policies that have an <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a>, this retention rule
  * 				applies to standard tier retention. When the retention threshold is met, snapshots
  * 				are moved from the standard to the archive tier.</p>
  *             <p>For snapshot policies that do not have an <b>ArchiveRule</b>, snapshots
@@ -632,9 +802,10 @@ export interface FastRestoreRule {
  *                   <b>Count-based retention</b>
  *                </p>
  *                <p>You must specify <b>Count</b>.
- * 					If you specify an <a>ArchiveRule</a> for the schedule, then you can specify a retention count of
- * 					<code>0</code> to archive snapshots immediately after creation. If you specify a <a>FastRestoreRule</a>,
- * 					<a>ShareRule</a>, or a <a>CrossRegionCopyRule</a>, then you must specify a retention count
+ * 					If you specify an <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a> for the schedule, then you can specify a retention count of
+ * 					<code>0</code> to archive snapshots immediately after creation. If you specify a <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_FastRestoreRule.html">FastRestoreRule</a>,
+ * 					<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ShareRule.html">ShareRule</a>, or a
+ * 					<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyRule.html">CrossRegionCopyRule</a>, then you must specify a retention count
  * 					of <code>1</code> or more.</p>
  *             </li>
  *             <li>
@@ -642,10 +813,11 @@ export interface FastRestoreRule {
  *                   <b>Age-based retention</b>
  *                </p>
  *                <p>You must specify <b>Interval</b>
- * 					and <b>IntervalUnit</b>. If you specify an <a>ArchiveRule</a> for the
+ * 					and <b>IntervalUnit</b>. If you specify an <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a> for the
  * 					schedule, then you can specify a retention interval of <code>0</code> days to archive snapshots immediately
- * 					after creation. If you specify a <a>FastRestoreRule</a>, <a>ShareRule</a>, or a
- * 					<a>CrossRegionCopyRule</a>, then you must specify a retention interval of <code>1</code> day or
+ * 					after creation. If you specify a <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_FastRestoreRule.html">FastRestoreRule</a>, <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ShareRule.html">ShareRule</a>, or a
+ * 					<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyRule.html">CrossRegionCopyRule</a>,
+ * 					then you must specify a retention interval of <code>1</code> day or
  * 					more.</p>
  *             </li>
  *          </ul>
@@ -656,7 +828,7 @@ export interface RetainRule {
    * <p>The number of snapshots to retain for each volume, up to a maximum of 1000. For example if you want to
    * 			retain a maximum of three snapshots, specify <code>3</code>. When the fourth snapshot is created, the
    * 			oldest retained snapshot is deleted, or it is moved to the archive tier if you have specified an
-   * 			<a>ArchiveRule</a>.</p>
+   * 			<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a>.</p>
    */
   Count?: number;
 
@@ -672,7 +844,7 @@ export interface RetainRule {
    * <p>The unit of time for time-based retention. For example, to retain snapshots for 3 months, specify
    * 			<code>Interval=3</code> and <code>IntervalUnit=MONTHS</code>. Once the snapshot has been retained for
    * 			3 months, it is deleted, or it is moved to the archive tier if you have specified an
-   * 			<a>ArchiveRule</a>.</p>
+   * 			<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a>.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues;
 }

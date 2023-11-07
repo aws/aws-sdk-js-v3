@@ -96,6 +96,18 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * //               "STRING_VALUE",
  * //             ],
  * //             CronExpression: "STRING_VALUE",
+ * //             Scripts: [ // ScriptsList
+ * //               { // Script
+ * //                 Stages: [ // StagesList
+ * //                   "PRE" || "POST",
+ * //                 ],
+ * //                 ExecutionHandlerService: "AWS_SYSTEMS_MANAGER",
+ * //                 ExecutionHandler: "STRING_VALUE", // required
+ * //                 ExecuteOperationOnScriptFailure: true || false,
+ * //                 ExecutionTimeout: Number("int"),
+ * //                 MaximumRetryCount: Number("int"),
+ * //               },
+ * //             ],
  * //           },
  * //           RetainRule: { // RetainRule
  * //             Count: Number("int"),

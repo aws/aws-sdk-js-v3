@@ -70,7 +70,9 @@ import {
   RetainRule,
   RetentionArchiveTier,
   Schedule,
+  Script,
   ShareRule,
+  StageValues,
   Tag,
 } from "../models/models_0";
 
@@ -858,6 +860,10 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_ScheduleList omitted.
 
+// se_Script omitted.
+
+// se_ScriptsList omitted.
+
 // se_ShareRule omitted.
 
 // se_ShareRules omitted.
@@ -865,6 +871,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_ShareTargetAccountList omitted.
 
 // se_SnapshotOwnerList omitted.
+
+// se_StagesList omitted.
 
 // se_Tag omitted.
 
@@ -956,6 +964,10 @@ const de_LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePoli
 
 // de_ScheduleList omitted.
 
+// de_Script omitted.
+
+// de_ScriptsList omitted.
+
 // de_ShareRule omitted.
 
 // de_ShareRules omitted.
@@ -963,6 +975,8 @@ const de_LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePoli
 // de_ShareTargetAccountList omitted.
 
 // de_SnapshotOwnerList omitted.
+
+// de_StagesList omitted.
 
 // de_Tag omitted.
 
