@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** add tslib ([#5460](https://github.com/aws/aws-sdk-js-v3/issues/5460)) ([54cc5c4](https://github.com/aws/aws-sdk-js-v3/commit/54cc5c4b39209c21564f414e46a02e9f3c690138))
+* **core:** add tslib ([#5459](https://github.com/aws/aws-sdk-js-v3/issues/5459)) ([35a1aed](https://github.com/aws/aws-sdk-js-v3/commit/35a1aed1f0d2d6fb33c24232cb24268a1f8c1b05))
+
+
+### Features
+
+* **client-dataexchange:** Updated SendDataSetNotificationRequest Comment to be maximum length 4096. ([8292e07](https://github.com/aws/aws-sdk-js-v3/commit/8292e07d69575b2e6629ec61ebca85d5f4b56e73))
+* **client-dlm:** Added support for pre and post scripts in Amazon Data Lifecycle Manager EBS snapshot lifecycle policies. ([eafa417](https://github.com/aws/aws-sdk-js-v3/commit/eafa4171e1c691cb6c3eb749c3829df61559c55a))
+* **client-rds:** This Amazon RDS release adds support for the multi-tenant configuration. In this configuration, an RDS DB instance can contain multiple tenant databases. In RDS for Oracle, a tenant database is a pluggable database (PDB). ([c28ec75](https://github.com/aws/aws-sdk-js-v3/commit/c28ec75cf387d1c1b30558e19a50e74fb456bbd1))
+* **clients:** update client endpoints as of 2023-11-07 ([46616b4](https://github.com/aws/aws-sdk-js-v3/commit/46616b4f3807d7a50871d453d57770dc0b653990))
+
+
+
+
+
 # [3.444.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.443.0...v3.444.0) (2023-11-06)
 
 

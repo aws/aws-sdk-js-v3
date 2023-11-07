@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** add tslib ([#5460](https://github.com/aws/aws-sdk-js-v3/issues/5460)) ([54cc5c4](https://github.com/aws/aws-sdk-js-v3/commit/54cc5c4b39209c21564f414e46a02e9f3c690138))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 
