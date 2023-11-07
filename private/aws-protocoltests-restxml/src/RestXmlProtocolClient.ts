@@ -87,6 +87,7 @@ import {
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "./commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "./commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -134,6 +135,7 @@ import {
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "./commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "./commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -224,6 +226,7 @@ export type ServiceInputTypes =
   | FlattenedXmlMapWithXmlNamespaceCommandInput
   | FractionalSecondsCommandInput
   | GreetingWithErrorsCommandInput
+  | HttpEnumPayloadCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithMemberXmlNameCommandInput
@@ -238,6 +241,7 @@ export type ServiceInputTypes =
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
   | HttpResponseCodeCommandInput
+  | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InputAndOutputWithHeadersCommandInput
   | NestedXmlMapsCommandInput
@@ -288,6 +292,7 @@ export type ServiceOutputTypes =
   | FlattenedXmlMapWithXmlNamespaceCommandOutput
   | FractionalSecondsCommandOutput
   | GreetingWithErrorsCommandOutput
+  | HttpEnumPayloadCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithMemberXmlNameCommandOutput
@@ -302,6 +307,7 @@ export type ServiceOutputTypes =
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
   | HttpResponseCodeCommandOutput
+  | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InputAndOutputWithHeadersCommandOutput
   | NestedXmlMapsCommandOutput

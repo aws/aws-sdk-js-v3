@@ -73,6 +73,11 @@ import {
   GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  HttpEnumPayloadCommand,
+  HttpEnumPayloadCommandInput,
+  HttpEnumPayloadCommandOutput,
+} from "./commands/HttpEnumPayloadCommand";
+import {
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsCommandInput,
   HttpPayloadTraitsCommandOutput,
@@ -142,6 +147,11 @@ import {
   HttpResponseCodeCommandInput,
   HttpResponseCodeCommandOutput,
 } from "./commands/HttpResponseCodeCommand";
+import {
+  HttpStringPayloadCommand,
+  HttpStringPayloadCommandInput,
+  HttpStringPayloadCommandOutput,
+} from "./commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommand,
   IgnoreQueryParamsInResponseCommandInput,
@@ -290,6 +300,7 @@ const commands = {
   FlattenedXmlMapWithXmlNamespaceCommand,
   FractionalSecondsCommand,
   GreetingWithErrorsCommand,
+  HttpEnumPayloadCommand,
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsWithMediaTypeCommand,
   HttpPayloadWithMemberXmlNameCommand,
@@ -304,6 +315,7 @@ const commands = {
   HttpRequestWithLabelsCommand,
   HttpRequestWithLabelsAndTimestampFormatCommand,
   HttpResponseCodeCommand,
+  HttpStringPayloadCommand,
   IgnoreQueryParamsInResponseCommand,
   InputAndOutputWithHeadersCommand,
   NestedXmlMapsCommand,
@@ -568,6 +580,20 @@ export interface RestXmlProtocol {
   ): void;
 
   /**
+   * @see {@link HttpEnumPayloadCommand}
+   */
+  httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpEnumPayloadCommandOutput>;
+  httpEnumPayload(args: HttpEnumPayloadCommandInput, cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void): void;
+  httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link HttpPayloadTraitsCommand}
    */
   httpPayloadTraits(
@@ -803,6 +829,23 @@ export interface RestXmlProtocol {
     args: HttpResponseCodeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link HttpStringPayloadCommand}
+   */
+  httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpStringPayloadCommandOutput>;
+  httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
+  ): void;
+  httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
   ): void;
 
   /**

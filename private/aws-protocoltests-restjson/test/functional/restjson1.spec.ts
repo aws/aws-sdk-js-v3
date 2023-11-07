@@ -2159,7 +2159,7 @@ it("RestJsonHttpChecksumRequired:Request", async () => {
   }
 });
 
-it("EnumPayloadRequest:Request", async () => {
+it("RestJsonEnumPayloadRequest:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2189,7 +2189,7 @@ it("EnumPayloadRequest:Request", async () => {
   }
 });
 
-it("EnumPayloadResponse:Response", async () => {
+it("RestJsonEnumPayloadResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `enumvalue`),
@@ -3192,7 +3192,7 @@ it("RestJsonHttpResponseCodeWithNoPayload:Response", async () => {
   });
 });
 
-it("StringPayloadRequest:Request", async () => {
+it("RestJsonStringPayloadRequest:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -3222,7 +3222,7 @@ it("StringPayloadRequest:Request", async () => {
   }
 });
 
-it("StringPayloadResponse:Response", async () => {
+it("RestJsonStringPayloadResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `rawstring`),

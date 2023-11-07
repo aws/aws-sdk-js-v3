@@ -78,6 +78,7 @@ import {
 } from "../commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -125,6 +126,7 @@ import {
   HttpRequestWithLabelsCommandOutput,
 } from "../commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "../commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "../commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -693,6 +695,38 @@ export const se_GreetingWithErrorsCommand = async (
 };
 
 /**
+ * serializeAws_restXmlHttpEnumPayloadCommand
+ */
+export const se_HttpEnumPayloadCommand = async (
+  input: HttpEnumPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "text/plain",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EnumPayload";
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  let contents: any;
+  if (input.payload !== undefined) {
+    contents = input.payload;
+    body = contents;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlHttpPayloadTraitsCommand
  */
 export const se_HttpPayloadTraitsCommand = async (
@@ -1211,6 +1245,38 @@ export const se_HttpResponseCodeCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlHttpStringPayloadCommand
+ */
+export const se_HttpStringPayloadCommand = async (
+  input: HttpStringPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "text/plain",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringPayload";
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  let contents: any;
+  if (input.payload !== undefined) {
+    contents = input.payload;
+    body = contents;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -3139,6 +3205,44 @@ const de_GreetingWithErrorsCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlHttpEnumPayloadCommand
+ */
+export const de_HttpEnumPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEnumPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_HttpEnumPayloadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = await collectBodyString(output.body, context);
+  contents.payload = __expectString(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlHttpEnumPayloadCommandError
+ */
+const de_HttpEnumPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEnumPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlHttpPayloadTraitsCommand
  */
 export const de_HttpPayloadTraitsCommand = async (
@@ -3666,6 +3770,44 @@ const de_HttpResponseCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpResponseCodeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlHttpStringPayloadCommand
+ */
+export const de_HttpStringPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpStringPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_HttpStringPayloadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = await collectBodyString(output.body, context);
+  contents.payload = __expectString(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlHttpStringPayloadCommandError
+ */
+const de_HttpStringPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpStringPayloadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

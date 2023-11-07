@@ -154,6 +154,25 @@ export interface HostLabelInput {
 
 /**
  * @public
+ * @enum
+ */
+export const StringEnum = {
+  V: "enumvalue",
+} as const;
+/**
+ * @public
+ */
+export type StringEnum = (typeof StringEnum)[keyof typeof StringEnum];
+
+/**
+ * @public
+ */
+export interface EnumPayloadInput {
+  payload?: StringEnum;
+}
+
+/**
+ * @public
  */
 export interface FlattenedXmlMapInputOutput {
   myMap?: Record<string, FooEnum>;
@@ -387,6 +406,13 @@ export interface HttpRequestWithLabelsAndTimestampFormatInput {
  */
 export interface HttpResponseCodeOutput {
   Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface StringPayloadInput {
+  payload?: string;
 }
 
 /**
