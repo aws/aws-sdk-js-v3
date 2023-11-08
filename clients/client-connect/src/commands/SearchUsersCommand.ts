@@ -50,7 +50,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * // const { ConnectClient, SearchUsersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // SearchUsersRequest
- *   InstanceId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   SearchFilter: { // UserSearchFilter

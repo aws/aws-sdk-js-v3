@@ -2307,7 +2307,7 @@ export interface SearchUsersRequest {
    *             <p>InstanceID is a required field. The "Required: No" below is incorrect.</p>
    *          </note>
    */
-  InstanceId?: string;
+  InstanceId: string | undefined;
 
   /**
    * @public
