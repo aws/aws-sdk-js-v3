@@ -202,6 +202,9 @@ import {
   AddonDetails,
   AdminAccount,
   Administrator,
+  Anomaly,
+  AnomalyObject,
+  AnomalyUnusual,
   AwsApiCallAction,
   BadRequestException,
   BlockPublicAccess,
@@ -230,6 +233,7 @@ import {
   DefaultServerSideEncryption,
   Destination,
   DestinationProperties,
+  Detection,
   DetectorAdditionalConfiguration,
   DetectorAdditionalConfigurationResult,
   DetectorFeatureConfiguration,
@@ -257,6 +261,7 @@ import {
   HighestSeverityThreatDetails,
   HostPath,
   IamInstanceProfile,
+  ImpersonatedUser,
   InstanceDetails,
   InternalServerErrorException,
   Invitation,
@@ -267,6 +272,9 @@ import {
   KubernetesConfigurationResult,
   KubernetesDataSourceFreeTrial,
   KubernetesDetails,
+  KubernetesPermissionCheckedDetails,
+  KubernetesRoleBindingDetails,
+  KubernetesRoleDetails,
   KubernetesUserDetails,
   KubernetesWorkloadDetails,
   LambdaDetails,
@@ -284,6 +292,7 @@ import {
   MemberFeaturesConfigurationResult,
   NetworkConnectionAction,
   NetworkInterface,
+  Observations,
   Organization,
   OrganizationAdditionalConfigurationResult,
   OrganizationDataSourceConfigurationsResult,
@@ -6505,6 +6514,17 @@ const de_Action = (output: any, context: __SerdeContext): Action => {
     AwsApiCallAction: [, (_: any) => de_AwsApiCallAction(_, context), `awsApiCallAction`],
     DnsRequestAction: [, (_: any) => de_DnsRequestAction(_, context), `dnsRequestAction`],
     KubernetesApiCallAction: [, (_: any) => de_KubernetesApiCallAction(_, context), `kubernetesApiCallAction`],
+    KubernetesPermissionCheckedDetails: [
+      ,
+      (_: any) => de_KubernetesPermissionCheckedDetails(_, context),
+      `kubernetesPermissionCheckedDetails`,
+    ],
+    KubernetesRoleBindingDetails: [
+      ,
+      (_: any) => de_KubernetesRoleBindingDetails(_, context),
+      `kubernetesRoleBindingDetails`,
+    ],
+    KubernetesRoleDetails: [, (_: any) => de_KubernetesRoleDetails(_, context), `kubernetesRoleDetails`],
     NetworkConnectionAction: [, (_: any) => de_NetworkConnectionAction(_, context), `networkConnectionAction`],
     PortProbeAction: [, (_: any) => de_PortProbeAction(_, context), `portProbeAction`],
     RdsLoginAttemptAction: [, (_: any) => de_RdsLoginAttemptAction(_, context), `rdsLoginAttemptAction`],
@@ -6558,6 +6578,90 @@ const de_Administrator = (output: any, context: __SerdeContext): Administrator =
 // de_AffectedResources omitted.
 
 /**
+ * deserializeAws_restJson1Anomaly
+ */
+const de_Anomaly = (output: any, context: __SerdeContext): Anomaly => {
+  return take(output, {
+    Profiles: [, (_: any) => de_AnomalyProfiles(_, context), `profiles`],
+    Unusual: [, (_: any) => de_AnomalyUnusual(_, context), `unusual`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AnomalyObject
+ */
+const de_AnomalyObject = (output: any, context: __SerdeContext): AnomalyObject => {
+  return take(output, {
+    Observations: [, (_: any) => de_Observations(_, context), `observations`],
+    ProfileSubtype: [, __expectString, `profileSubtype`],
+    ProfileType: [, __expectString, `profileType`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AnomalyProfileFeatureObjects
+ */
+const de_AnomalyProfileFeatureObjects = (output: any, context: __SerdeContext): AnomalyObject[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnomalyObject(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AnomalyProfileFeatures
+ */
+const de_AnomalyProfileFeatures = (output: any, context: __SerdeContext): Record<string, AnomalyObject[]> => {
+  return Object.entries(output).reduce((acc: Record<string, AnomalyObject[]>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_AnomalyProfileFeatureObjects(value, context);
+    return acc;
+  }, {} as Record<string, AnomalyObject[]>);
+};
+
+/**
+ * deserializeAws_restJson1AnomalyProfiles
+ */
+const de_AnomalyProfiles = (output: any, context: __SerdeContext): Record<string, Record<string, AnomalyObject[]>> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, Record<string, AnomalyObject[]>>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key as string] = de_AnomalyProfileFeatures(value, context);
+      return acc;
+    },
+    {} as Record<string, Record<string, AnomalyObject[]>>
+  );
+};
+
+/**
+ * deserializeAws_restJson1AnomalyUnusual
+ */
+const de_AnomalyUnusual = (output: any, context: __SerdeContext): AnomalyUnusual => {
+  return take(output, {
+    Behavior: [, (_: any) => de_Behavior(_, context), `behavior`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AnomalyUnusualBehaviorFeature
+ */
+const de_AnomalyUnusualBehaviorFeature = (output: any, context: __SerdeContext): Record<string, AnomalyObject> => {
+  return Object.entries(output).reduce((acc: Record<string, AnomalyObject>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_AnomalyObject(value, context);
+    return acc;
+  }, {} as Record<string, AnomalyObject>);
+};
+
+/**
  * deserializeAws_restJson1AwsApiCallAction
  */
 const de_AwsApiCallAction = (output: any, context: __SerdeContext): AwsApiCallAction => {
@@ -6572,6 +6676,22 @@ const de_AwsApiCallAction = (output: any, context: __SerdeContext): AwsApiCallAc
     ServiceName: [, __expectString, `serviceName`],
     UserAgent: [, __expectString, `userAgent`],
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Behavior
+ */
+const de_Behavior = (output: any, context: __SerdeContext): Record<string, Record<string, AnomalyObject>> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, Record<string, AnomalyObject>>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key as string] = de_AnomalyUnusualBehaviorFeature(value, context);
+      return acc;
+    },
+    {} as Record<string, Record<string, AnomalyObject>>
+  );
 };
 
 /**
@@ -6839,6 +6959,15 @@ const de_Destinations = (output: any, context: __SerdeContext): Destination[] =>
       return de_Destination(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1Detection
+ */
+const de_Detection = (output: any, context: __SerdeContext): Detection => {
+  return take(output, {
+    Anomaly: [, (_: any) => de_Anomaly(_, context), `anomaly`],
+  }) as any;
 };
 
 /**
@@ -7183,6 +7312,16 @@ const de_IamInstanceProfile = (output: any, context: __SerdeContext): IamInstanc
 };
 
 /**
+ * deserializeAws_restJson1ImpersonatedUser
+ */
+const de_ImpersonatedUser = (output: any, context: __SerdeContext): ImpersonatedUser => {
+  return take(output, {
+    Groups: [, _json, `groups`],
+    Username: [, __expectString, `username`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1InstanceDetails
  */
 const de_InstanceDetails = (output: any, context: __SerdeContext): InstanceDetails => {
@@ -7236,11 +7375,15 @@ const de_Invitations = (output: any, context: __SerdeContext): Invitation[] => {
  */
 const de_KubernetesApiCallAction = (output: any, context: __SerdeContext): KubernetesApiCallAction => {
   return take(output, {
+    Namespace: [, __expectString, `namespace`],
     Parameters: [, __expectString, `parameters`],
     RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],
     RequestUri: [, __expectString, `requestUri`],
+    Resource: [, __expectString, `resource`],
+    ResourceName: [, __expectString, `resourceName`],
     SourceIps: [, _json, `sourceIps`],
     StatusCode: [, __expectInt32, `statusCode`],
+    Subresource: [, __expectString, `subresource`],
     UserAgent: [, __expectString, `userAgent`],
     Verb: [, __expectString, `verb`],
   }) as any;
@@ -7287,11 +7430,51 @@ const de_KubernetesDetails = (output: any, context: __SerdeContext): KubernetesD
 };
 
 /**
+ * deserializeAws_restJson1KubernetesPermissionCheckedDetails
+ */
+const de_KubernetesPermissionCheckedDetails = (
+  output: any,
+  context: __SerdeContext
+): KubernetesPermissionCheckedDetails => {
+  return take(output, {
+    Allowed: [, __expectBoolean, `allowed`],
+    Namespace: [, __expectString, `namespace`],
+    Resource: [, __expectString, `resource`],
+    Verb: [, __expectString, `verb`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KubernetesRoleBindingDetails
+ */
+const de_KubernetesRoleBindingDetails = (output: any, context: __SerdeContext): KubernetesRoleBindingDetails => {
+  return take(output, {
+    Kind: [, __expectString, `kind`],
+    Name: [, __expectString, `name`],
+    RoleRefKind: [, __expectString, `roleRefKind`],
+    RoleRefName: [, __expectString, `roleRefName`],
+    Uid: [, __expectString, `uid`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KubernetesRoleDetails
+ */
+const de_KubernetesRoleDetails = (output: any, context: __SerdeContext): KubernetesRoleDetails => {
+  return take(output, {
+    Kind: [, __expectString, `kind`],
+    Name: [, __expectString, `name`],
+    Uid: [, __expectString, `uid`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1KubernetesUserDetails
  */
 const de_KubernetesUserDetails = (output: any, context: __SerdeContext): KubernetesUserDetails => {
   return take(output, {
     Groups: [, _json, `groups`],
+    ImpersonatedUser: [, (_: any) => de_ImpersonatedUser(_, context), `impersonatedUser`],
     SessionName: [, _json, `sessionName`],
     Uid: [, __expectString, `uid`],
     Username: [, __expectString, `username`],
@@ -7304,9 +7487,12 @@ const de_KubernetesUserDetails = (output: any, context: __SerdeContext): Kuberne
 const de_KubernetesWorkloadDetails = (output: any, context: __SerdeContext): KubernetesWorkloadDetails => {
   return take(output, {
     Containers: [, (_: any) => de_Containers(_, context), `containers`],
+    HostIPC: [, __expectBoolean, `hostIPC`],
     HostNetwork: [, __expectBoolean, `hostNetwork`],
+    HostPID: [, __expectBoolean, `hostPID`],
     Name: [, __expectString, `name`],
     Namespace: [, __expectString, `namespace`],
+    ServiceAccountName: [, __expectString, `serviceAccountName`],
     Type: [, __expectString, `type`],
     Uid: [, __expectString, `uid`],
     Volumes: [, (_: any) => de_Volumes(_, context), `volumes`],
@@ -7619,6 +7805,17 @@ const de_NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInte
 };
 
 // de_NotEquals omitted.
+
+/**
+ * deserializeAws_restJson1Observations
+ */
+const de_Observations = (output: any, context: __SerdeContext): Observations => {
+  return take(output, {
+    Text: [, _json, `text`],
+  }) as any;
+};
+
+// de_ObservationTexts omitted.
 
 /**
  * deserializeAws_restJson1Organization
@@ -8258,6 +8455,7 @@ const de_ScanThreatNames = (output: any, context: __SerdeContext): ScanThreatNam
  */
 const de_SecurityContext = (output: any, context: __SerdeContext): SecurityContext => {
   return take(output, {
+    AllowPrivilegeEscalation: [, __expectBoolean, `allowPrivilegeEscalation`],
     Privileged: [, __expectBoolean, `privileged`],
   }) as any;
 };
@@ -8293,6 +8491,7 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
     AdditionalInfo: [, (_: any) => de_ServiceAdditionalInfo(_, context), `additionalInfo`],
     Archived: [, __expectBoolean, `archived`],
     Count: [, __expectInt32, `count`],
+    Detection: [, (_: any) => de_Detection(_, context), `detection`],
     DetectorId: [, __expectString, `detectorId`],
     EbsVolumeScanDetails: [, (_: any) => de_EbsVolumeScanDetails(_, context), `ebsVolumeScanDetails`],
     EventFirstSeen: [, __expectString, `eventFirstSeen`],

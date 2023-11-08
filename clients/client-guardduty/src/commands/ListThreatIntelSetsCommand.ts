@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListThreatIntelSetsRequest, ListThreatIntelSetsResponse } from "../models/models_0";
+import { ListThreatIntelSetsRequest, ListThreatIntelSetsResponse } from "../models/models_1";
 import { de_ListThreatIntelSetsCommand, se_ListThreatIntelSetsCommand } from "../protocols/Aws_restJson1";
 
 /**

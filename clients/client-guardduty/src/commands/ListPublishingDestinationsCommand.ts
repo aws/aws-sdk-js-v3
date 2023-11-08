@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListPublishingDestinationsRequest, ListPublishingDestinationsResponse } from "../models/models_0";
+import { ListPublishingDestinationsRequest, ListPublishingDestinationsResponse } from "../models/models_1";
 import { de_ListPublishingDestinationsCommand, se_ListPublishingDestinationsCommand } from "../protocols/Aws_restJson1";
 
 /**

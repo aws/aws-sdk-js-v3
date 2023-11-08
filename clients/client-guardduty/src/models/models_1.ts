@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import {
+  AdminAccount,
   AutoEnableMembers,
   DataSourceConfigurations,
+  Destination,
   DestinationProperties,
   DetectorFeatureConfiguration,
   EbsSnapshotPreservation,
@@ -10,12 +12,210 @@ import {
   FilterAction,
   FindingCriteria,
   FindingPublishingFrequency,
+  Member,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
   ScanResourceCriteria,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListMembersResponse {
+  /**
+   * @public
+   * <p>A list of members.</p>
+   *          <note>
+   *             <p>The values for <code>email</code> and <code>invitedAt</code> are available
+   *     only if the member accounts are added by invitation.</p>
+   *          </note>
+   */
+  Members?: Member[];
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *         <code>NextToken</code> value returned from the previous request to continue listing results
+   *       after the first page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * @public
+   * <p>A list of accounts configured as GuardDuty delegated administrators.</p>
+   */
+  AdminAccounts?: AdminAccount[];
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPublishingDestinationsRequest {
+  /**
+   * @public
+   * <p>The ID of the detector to retrieve publishing destinations for.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *         <code>NextToken</code> value returned from the previous request to continue listing results
+   *       after the first page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPublishingDestinationsResponse {
+  /**
+   * @public
+   * <p>A <code>Destinations</code> object that includes information about each publishing
+   *       destination returned.</p>
+   */
+  Destinations: Destination[] | undefined;
+
+  /**
+   * @public
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *         <code>NextToken</code> value returned from the previous request to continue listing results
+   *       after the first page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the given GuardDuty resource. </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>The tags associated with the resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListThreatIntelSetsRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter to paginate results in the response. Set the value of this
+   *       parameter to null on your first call to the list action. For subsequent calls to the action,
+   *       fill nextToken in the request with the value of NextToken from the previous response to
+   *       continue listing data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListThreatIntelSetsResponse {
+  /**
+   * @public
+   * <p>The IDs of the ThreatIntelSet resources.</p>
+   */
+  ThreatIntelSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartMalwareScanRequest {
+  /**
+   * @public
+   * <p>Amazon Resource Name (ARN) of the resource for which you invoked the API.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMalwareScanResponse {
+  /**
+   * @public
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
+   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   */
+  ScanId?: string;
+}
 
 /**
  * @public

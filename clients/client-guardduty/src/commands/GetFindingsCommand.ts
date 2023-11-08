@@ -200,6 +200,12 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             SessionName: [ // SessionNameList
  * //               "STRING_VALUE",
  * //             ],
+ * //             ImpersonatedUser: { // ImpersonatedUser
+ * //               Username: "STRING_VALUE",
+ * //               Groups: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
  * //           },
  * //           KubernetesWorkloadDetails: { // KubernetesWorkloadDetails
  * //             Name: "STRING_VALUE",
@@ -222,6 +228,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 ],
  * //                 SecurityContext: { // SecurityContext
  * //                   Privileged: true || false,
+ * //                   AllowPrivilegeEscalation: true || false,
  * //                 },
  * //               },
  * //             ],
@@ -233,6 +240,9 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 },
  * //               },
  * //             ],
+ * //             ServiceAccountName: "STRING_VALUE",
+ * //             HostIPC: true || false,
+ * //             HostPID: true || false,
  * //           },
  * //         },
  * //         ResourceType: "STRING_VALUE",
@@ -309,6 +319,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 ],
  * //                 SecurityContext: {
  * //                   Privileged: true || false,
+ * //                   AllowPrivilegeEscalation: true || false,
  * //                 },
  * //               },
  * //             ],
@@ -329,6 +340,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           ],
  * //           SecurityContext: {
  * //             Privileged: true || false,
+ * //             AllowPrivilegeEscalation: true || false,
  * //           },
  * //         },
  * //         RdsDbInstanceDetails: { // RdsDbInstanceDetails
@@ -515,6 +527,10 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             },
  * //             StatusCode: Number("int"),
  * //             Parameters: "STRING_VALUE",
+ * //             Resource: "STRING_VALUE",
+ * //             Subresource: "STRING_VALUE",
+ * //             Namespace: "STRING_VALUE",
+ * //             ResourceName: "STRING_VALUE",
  * //           },
  * //           RdsLoginAttemptAction: { // RdsLoginAttemptAction
  * //             RemoteIpDetails: {
@@ -545,6 +561,24 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 SuccessfulLoginAttempts: Number("int"),
  * //               },
  * //             ],
+ * //           },
+ * //           KubernetesPermissionCheckedDetails: { // KubernetesPermissionCheckedDetails
+ * //             Verb: "STRING_VALUE",
+ * //             Resource: "STRING_VALUE",
+ * //             Namespace: "STRING_VALUE",
+ * //             Allowed: true || false,
+ * //           },
+ * //           KubernetesRoleBindingDetails: { // KubernetesRoleBindingDetails
+ * //             Kind: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //             Uid: "STRING_VALUE",
+ * //             RoleRefName: "STRING_VALUE",
+ * //             RoleRefKind: "STRING_VALUE",
+ * //           },
+ * //           KubernetesRoleDetails: { // KubernetesRoleDetails
+ * //             Kind: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //             Uid: "STRING_VALUE",
  * //           },
  * //         },
  * //         Evidence: { // Evidence
@@ -720,6 +754,40 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             MemoryRegions: [ // MemoryRegionsList
  * //               "STRING_VALUE",
  * //             ],
+ * //           },
+ * //         },
+ * //         Detection: { // Detection
+ * //           Anomaly: { // Anomaly
+ * //             Profiles: { // AnomalyProfiles
+ * //               "<keys>": { // AnomalyProfileFeatures
+ * //                 "<keys>": [ // AnomalyProfileFeatureObjects
+ * //                   { // AnomalyObject
+ * //                     ProfileType: "FREQUENCY",
+ * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE",
+ * //                     Observations: { // Observations
+ * //                       Text: [ // ObservationTexts
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //             Unusual: { // AnomalyUnusual
+ * //               Behavior: { // Behavior
+ * //                 "<keys>": { // AnomalyUnusualBehaviorFeature
+ * //                   "<keys>": {
+ * //                     ProfileType: "FREQUENCY",
+ * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE",
+ * //                     Observations: {
+ * //                       Text: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
  * //           },
  * //         },
  * //       },

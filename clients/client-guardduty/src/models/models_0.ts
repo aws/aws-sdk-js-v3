@@ -710,6 +710,123 @@ export interface KubernetesApiCallAction {
    * <p>Parameters related to the Kubernetes API call action.</p>
    */
   Parameters?: string;
+
+  /**
+   * @public
+   * <p>The resource component in the Kubernetes API call action.</p>
+   */
+  Resource?: string;
+
+  /**
+   * @public
+   * <p>The name of the sub-resource in the Kubernetes API call action.</p>
+   */
+  Subresource?: string;
+
+  /**
+   * @public
+   * <p>The name of the namespace where the Kubernetes API call action takes place.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The name of the resource in the Kubernetes API call action.</p>
+   */
+  ResourceName?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the Kubernetes API for which you check if you have permission to call.</p>
+ */
+export interface KubernetesPermissionCheckedDetails {
+  /**
+   * @public
+   * <p>The verb component of the Kubernetes API call. For example, when you check whether or not you have the permission
+   *     to call the <code>CreatePod</code> API, the verb component will be <code>Create</code>.</p>
+   */
+  Verb?: string;
+
+  /**
+   * @public
+   * <p>The Kubernetes resource with which your Kubernetes API call will interact.</p>
+   */
+  Resource?: string;
+
+  /**
+   * @public
+   * <p>The namespace where the Kubernetes API action will take place.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>Information whether the user has the permission to call the Kubernetes API.</p>
+   */
+  Allowed?: boolean;
+}
+
+/**
+ * @public
+ * <p>Contains information about the role binding that grants the permission defined in a Kubernetes role.</p>
+ */
+export interface KubernetesRoleBindingDetails {
+  /**
+   * @public
+   * <p>The kind of the role. For role binding, this value will be <code>RoleBinding</code>.</p>
+   */
+  Kind?: string;
+
+  /**
+   * @public
+   * <p>The name of the <code>RoleBinding</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the role binding.</p>
+   */
+  Uid?: string;
+
+  /**
+   * @public
+   * <p>The name of the role being referenced. This must match the name of the <code>Role</code>
+   *     or <code>ClusterRole</code> that you want to bind to.</p>
+   */
+  RoleRefName?: string;
+
+  /**
+   * @public
+   * <p>The type of the role being referenced. This could be either <code>Role</code> or
+   *     <code>ClusterRole</code>.</p>
+   */
+  RoleRefKind?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the Kubernetes role name and role type.</p>
+ */
+export interface KubernetesRoleDetails {
+  /**
+   * @public
+   * <p>The kind of role. For this API, the value of <code>kind</code> will be <code>Role</code>.</p>
+   */
+  Kind?: string;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes role.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the Kubernetes role name.</p>
+   */
+  Uid?: string;
 }
 
 /**
@@ -947,6 +1064,24 @@ export interface Action {
    * <p>Information about <code>RDS_LOGIN_ATTEMPT</code> action described in this finding.</p>
    */
   RdsLoginAttemptAction?: RdsLoginAttemptAction;
+
+  /**
+   * @public
+   * <p>Information whether the user has the permission to use a specific Kubernetes API.</p>
+   */
+  KubernetesPermissionCheckedDetails?: KubernetesPermissionCheckedDetails;
+
+  /**
+   * @public
+   * <p>Information about the role binding that grants the permission defined in a Kubernetes role.</p>
+   */
+  KubernetesRoleBindingDetails?: KubernetesRoleBindingDetails;
+
+  /**
+   * @public
+   * <p>Information about the Kubernetes role name and role type.</p>
+   */
+  KubernetesRoleDetails?: KubernetesRoleDetails;
 }
 
 /**
@@ -1029,6 +1164,102 @@ export interface Administrator {
    * <p>The timestamp when the invitation was sent.</p>
    */
   InvitedAt?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the observed behavior.</p>
+ */
+export interface Observations {
+  /**
+   * @public
+   * <p>The text that was unusual.</p>
+   */
+  Text?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileSubtype = {
+  FREQUENT: "FREQUENT",
+  INFREQUENT: "INFREQUENT",
+  RARE: "RARE",
+  UNSEEN: "UNSEEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfileSubtype = (typeof ProfileSubtype)[keyof typeof ProfileSubtype];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileType = {
+  FREQUENCY: "FREQUENCY",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
+
+/**
+ * @public
+ * <p>Contains information about the unusual anomalies.</p>
+ */
+export interface AnomalyObject {
+  /**
+   * @public
+   * <p>The type of behavior of the profile.</p>
+   */
+  ProfileType?: ProfileType;
+
+  /**
+   * @public
+   * <p>The frequency of the anomaly.</p>
+   */
+  ProfileSubtype?: ProfileSubtype;
+
+  /**
+   * @public
+   * <p>The recorded value.</p>
+   */
+  Observations?: Observations;
+}
+
+/**
+ * @public
+ * <p>Contains information about the behavior of the anomaly that is new to GuardDuty.</p>
+ */
+export interface AnomalyUnusual {
+  /**
+   * @public
+   * <p>The behavior of the anomalous activity that caused GuardDuty to
+   *       generate the finding.</p>
+   */
+  Behavior?: Record<string, Record<string, AnomalyObject>>;
+}
+
+/**
+ * @public
+ * <p>Contains information about the anomalies.</p>
+ */
+export interface Anomaly {
+  /**
+   * @public
+   * <p>Information about the types of profiles.</p>
+   */
+  Profiles?: Record<string, Record<string, AnomalyObject[]>>;
+
+  /**
+   * @public
+   * <p>Information about the behavior of the anomalies.</p>
+   */
+  Unusual?: AnomalyUnusual;
 }
 
 /**
@@ -1287,6 +1518,12 @@ export interface SecurityContext {
    * <p>Whether the container is privileged.</p>
    */
   Privileged?: boolean;
+
+  /**
+   * @public
+   * <p>Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process.</p>
+   */
+  AllowPrivilegeEscalation?: boolean;
 }
 
 /**
@@ -2207,6 +2444,9 @@ export interface CreateFilterRequest {
    *                <p>service.action.dnsRequestAction.domain</p>
    *             </li>
    *             <li>
+   *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
+   *             </li>
+   *             <li>
    *                <p>service.action.networkConnectionAction.blocked</p>
    *             </li>
    *             <li>
@@ -2243,7 +2483,16 @@ export interface CreateFilterRequest {
    *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p>
    *             </li>
    *             <li>
+   *                <p>service.action.kubernetesApiCallAction.namespace</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p>
+   *             </li>
+   *             <li>
    *                <p>service.action.kubernetesApiCallAction.requestUri</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.kubernetesApiCallAction.statusCode</p>
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p>
@@ -3845,6 +4094,19 @@ export interface Destination {
 
 /**
  * @public
+ * <p>Contains information about the detected behavior.</p>
+ */
+export interface Detection {
+  /**
+   * @public
+   * <p>The details about the anomalous activity that caused GuardDuty to
+   *       generate the finding.</p>
+   */
+  Anomaly?: Anomaly;
+}
+
+/**
+ * @public
  * <p>Information about the additional configuration.</p>
  */
 export interface DetectorAdditionalConfigurationResult {
@@ -4777,6 +5039,24 @@ export interface InstanceDetails {
 
 /**
  * @public
+ * <p>Contains information about the impersonated user.</p>
+ */
+export interface ImpersonatedUser {
+  /**
+   * @public
+   * <p>Information about the <code>username</code> that was being impersonated.</p>
+   */
+  Username?: string;
+
+  /**
+   * @public
+   * <p>The <code>group</code> to which the user name belongs.</p>
+   */
+  Groups?: string[];
+}
+
+/**
+ * @public
  * <p>Details about the Kubernetes user involved in a Kubernetes finding.</p>
  */
 export interface KubernetesUserDetails {
@@ -4804,6 +5084,12 @@ export interface KubernetesUserDetails {
    *       when Kubernetes RBAC permissions are assigned to that role.</p>
    */
   SessionName?: string[];
+
+  /**
+   * @public
+   * <p>Information about the impersonated user.</p>
+   */
+  ImpersonatedUser?: ImpersonatedUser;
 }
 
 /**
@@ -4852,6 +5138,24 @@ export interface KubernetesWorkloadDetails {
    * <p>Volumes used by the Kubernetes workload.</p>
    */
   Volumes?: Volume[];
+
+  /**
+   * @public
+   * <p>The service account name that is associated with a Kubernetes workload.</p>
+   */
+  ServiceAccountName?: string;
+
+  /**
+   * @public
+   * <p>Whether the host IPC flag is enabled for the pods in the workload.</p>
+   */
+  HostIPC?: boolean;
+
+  /**
+   * @public
+   * <p>Whether the host PID flag is enabled for the pods in the workload. </p>
+   */
+  HostPID?: boolean;
 }
 
 /**
@@ -5637,6 +5941,12 @@ export interface Service {
    *       finding</p>
    */
   RuntimeDetails?: RuntimeDetails;
+
+  /**
+   * @public
+   * <p>Contains information about the detected unusual behavior.</p>
+   */
+  Detection?: Detection;
 }
 
 /**
@@ -7377,197 +7687,4 @@ export interface ListMembersRequest {
    *             </a>. </p>
    */
   OnlyAssociated?: string;
-}
-
-/**
- * @public
- */
-export interface ListMembersResponse {
-  /**
-   * @public
-   * <p>A list of members.</p>
-   */
-  Members?: Member[];
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListOrganizationAdminAccountsRequest {
-  /**
-   * @public
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *         <code>NextToken</code> value returned from the previous request to continue listing results
-   *       after the first page.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListOrganizationAdminAccountsResponse {
-  /**
-   * @public
-   * <p>A list of accounts configured as GuardDuty delegated administrators.</p>
-   */
-  AdminAccounts?: AdminAccount[];
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPublishingDestinationsRequest {
-  /**
-   * @public
-   * <p>The ID of the detector to retrieve publishing destinations for.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *         <code>NextToken</code> value returned from the previous request to continue listing results
-   *       after the first page.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPublishingDestinationsResponse {
-  /**
-   * @public
-   * <p>A <code>Destinations</code> object that includes information about each publishing
-   *       destination returned.</p>
-   */
-  Destinations: Destination[] | undefined;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *         <code>NextToken</code> value returned from the previous request to continue listing results
-   *       after the first page.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the given GuardDuty resource. </p>
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * @public
-   * <p>The tags associated with the resource.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface ListThreatIntelSetsRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter to paginate results in the response. Set the value of this
-   *       parameter to null on your first call to the list action. For subsequent calls to the action,
-   *       fill nextToken in the request with the value of NextToken from the previous response to
-   *       continue listing data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListThreatIntelSetsResponse {
-  /**
-   * @public
-   * <p>The IDs of the ThreatIntelSet resources.</p>
-   */
-  ThreatIntelSetIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface StartMalwareScanRequest {
-  /**
-   * @public
-   * <p>Amazon Resource Name (ARN) of the resource for which you invoked the API.</p>
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMalwareScanResponse {
-  /**
-   * @public
-   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
-   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
-   */
-  ScanId?: string;
 }
