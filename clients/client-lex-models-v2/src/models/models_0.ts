@@ -2477,6 +2477,12 @@ export interface AudioLogSetting {
    *          is enabled for a bot.</p>
    */
   destination: AudioLogDestination | undefined;
+
+  /**
+   * @public
+   * <p>The option to enable selective conversation log capture for audio.</p>
+   */
+  selectiveLoggingEnabled?: boolean;
 }
 
 /**
@@ -4739,6 +4745,12 @@ export interface TextLogSetting {
    *          conversation text logs.</p>
    */
   destination: TextLogDestination | undefined;
+
+  /**
+   * @public
+   * <p>The option to enable selective conversation log capture for text.</p>
+   */
+  selectiveLoggingEnabled?: boolean;
 }
 
 /**

@@ -70,6 +70,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  *             logPrefix: "STRING_VALUE", // required
  *           },
  *         },
+ *         selectiveLoggingEnabled: true || false,
  *       },
  *     ],
  *     audioLogSettings: [ // AudioLogSettingsList
@@ -82,6 +83,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  *             logPrefix: "STRING_VALUE", // required
  *           },
  *         },
+ *         selectiveLoggingEnabled: true || false,
  *       },
  *     ],
  *   },
@@ -118,6 +120,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * //             logPrefix: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         selectiveLoggingEnabled: true || false,
  * //       },
  * //     ],
  * //     audioLogSettings: [ // AudioLogSettingsList
@@ -130,6 +133,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * //             logPrefix: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         selectiveLoggingEnabled: true || false,
  * //       },
  * //     ],
  * //   },

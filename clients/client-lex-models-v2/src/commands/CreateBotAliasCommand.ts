@@ -73,6 +73,7 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *             logPrefix: "STRING_VALUE", // required
  *           },
  *         },
+ *         selectiveLoggingEnabled: true || false,
  *       },
  *     ],
  *     audioLogSettings: [ // AudioLogSettingsList
@@ -85,6 +86,7 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *             logPrefix: "STRING_VALUE", // required
  *           },
  *         },
+ *         selectiveLoggingEnabled: true || false,
  *       },
  *     ],
  *   },
@@ -124,6 +126,7 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  * //             logPrefix: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         selectiveLoggingEnabled: true || false,
  * //       },
  * //     ],
  * //     audioLogSettings: [ // AudioLogSettingsList
@@ -136,6 +139,7 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  * //             logPrefix: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         selectiveLoggingEnabled: true || false,
  * //       },
  * //     ],
  * //   },

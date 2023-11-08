@@ -76,6 +76,7 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  * //             logPrefix: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         selectiveLoggingEnabled: true || false,
  * //       },
  * //     ],
  * //     audioLogSettings: [ // AudioLogSettingsList
@@ -88,6 +89,7 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  * //             logPrefix: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         selectiveLoggingEnabled: true || false,
  * //       },
  * //     ],
  * //   },
