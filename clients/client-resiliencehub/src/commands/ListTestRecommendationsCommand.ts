@@ -77,6 +77,7 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //       dependsOnAlarms: [ // AlarmReferenceIdList
  * //         "STRING_VALUE",
  * //       ],
+ * //       recommendationStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

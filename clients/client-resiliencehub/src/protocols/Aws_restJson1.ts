@@ -228,8 +228,10 @@ import {
   RenderRecommendationType,
   ResiliencyPolicy,
   ResiliencyScore,
+  ResiliencyScoreType,
   ResourceMapping,
   ResourceNotFoundException,
+  ScoringComponentResiliencyScore,
   ServiceQuotaExceededException,
   TerraformSource,
   ThrottlingException,
@@ -5931,6 +5933,7 @@ const de_ResiliencyPolicy = (output: any, context: __SerdeContext): ResiliencyPo
  */
 const de_ResiliencyScore = (output: any, context: __SerdeContext): ResiliencyScore => {
   return take(output, {
+    componentScore: (_: any) => de_ScoringComponentResiliencyScores(_, context),
     disruptionScore: (_: any) => de_DisruptionResiliencyScore(_, context),
     score: __limitedParseDouble,
   }) as any;
@@ -5947,6 +5950,37 @@ const de_ResiliencyScore = (output: any, context: __SerdeContext): ResiliencySco
 // de_ResourceMappingList omitted.
 
 // de_S3Location omitted.
+
+/**
+ * deserializeAws_restJson1ScoringComponentResiliencyScore
+ */
+const de_ScoringComponentResiliencyScore = (output: any, context: __SerdeContext): ScoringComponentResiliencyScore => {
+  return take(output, {
+    excludedCount: __expectLong,
+    outstandingCount: __expectLong,
+    possibleScore: __limitedParseDouble,
+    score: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ScoringComponentResiliencyScores
+ */
+const de_ScoringComponentResiliencyScores = (
+  output: any,
+  context: __SerdeContext
+): Partial<Record<ResiliencyScoreType, ScoringComponentResiliencyScore>> => {
+  return Object.entries(output).reduce(
+    (acc: Partial<Record<ResiliencyScoreType, ScoringComponentResiliencyScore>>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key as ResiliencyScoreType] = de_ScoringComponentResiliencyScore(value, context);
+      return acc;
+    },
+    {} as Partial<Record<ResiliencyScoreType, ScoringComponentResiliencyScore>>
+  );
+};
 
 // de_SopRecommendation omitted.
 

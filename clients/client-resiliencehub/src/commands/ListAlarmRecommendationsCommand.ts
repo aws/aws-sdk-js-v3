@@ -74,6 +74,7 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * //       appComponentNames: [ // AppComponentNameList
  * //         "STRING_VALUE",
  * //       ],
+ * //       recommendationStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -73,6 +73,7 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * //       ],
  * //       referenceId: "STRING_VALUE", // required
  * //       prerequisite: "STRING_VALUE",
+ * //       recommendationStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

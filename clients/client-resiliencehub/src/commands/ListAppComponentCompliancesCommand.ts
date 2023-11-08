@@ -86,6 +86,14 @@ export interface ListAppComponentCompliancesCommandOutput
  * //         disruptionScore: { // DisruptionResiliencyScore // required
  * //           "<keys>": Number("double"),
  * //         },
+ * //         componentScore: { // ScoringComponentResiliencyScores
+ * //           "<keys>": { // ScoringComponentResiliencyScore
+ * //             score: Number("double"),
+ * //             possibleScore: Number("double"),
+ * //             outstandingCount: Number("long"),
+ * //             excludedCount: Number("long"),
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //   ],

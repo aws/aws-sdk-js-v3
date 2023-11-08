@@ -75,6 +75,14 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * //       disruptionScore: { // DisruptionResiliencyScore // required
  * //         "<keys>": Number("double"),
  * //       },
+ * //       componentScore: { // ScoringComponentResiliencyScores
+ * //         "<keys>": { // ScoringComponentResiliencyScore
+ * //           score: Number("double"),
+ * //           possibleScore: Number("double"),
+ * //           outstandingCount: Number("long"),
+ * //           excludedCount: Number("long"),
+ * //         },
+ * //       },
  * //     },
  * //     compliance: { // AssessmentCompliance
  * //       "<keys>": { // DisruptionCompliance
