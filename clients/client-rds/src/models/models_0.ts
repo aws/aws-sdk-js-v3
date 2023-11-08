@@ -3731,13 +3731,18 @@ export interface CreateCustomDBEngineVersionMessage {
 
   /**
    * @public
-   * <p>Reserved for future use.</p>
+   * <p>The ARN of a CEV to use as a source for creating a new CEV. You can specify a different
+   *             Amazon Machine Imagine (AMI) by using either <code>Source</code> or
+   *                 <code>UseAwsProvidedLatestImage</code>. You can't specify a different JSON manifest
+   *             when you specify <code>SourceCustomDbEngineVersionIdentifier</code>.</p>
    */
   SourceCustomDbEngineVersionIdentifier?: string;
 
   /**
    * @public
-   * <p>Reserved for future use.</p>
+   * <p>Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for
+   *             the CEV. If you specify <code>UseAwsProvidedLatestImage</code>, you can't also specify
+   *                 <code>ImageId</code>.</p>
    */
   UseAwsProvidedLatestImage?: boolean;
 }
