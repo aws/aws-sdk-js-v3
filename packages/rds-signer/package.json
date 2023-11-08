@@ -58,10 +58,12 @@
     "dist-*/**"
   ],
   "browser": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
+    "./dist-cjs/runtimeConfig": "./dist-cjs/runtimeConfig.browser"
   },
   "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native",
+    "./dist-cjs/runtimeConfig": "./dist-cjs/runtimeConfig.native"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/rds-signer",
   "repository": {

@@ -15,7 +15,8 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "browser": {
-    "./dist-es/streams/create-read-stream-on-buffer": "./dist-es/streams/create-read-stream-on-buffer.browser"
+    "./dist-es/streams/create-read-stream-on-buffer": "./dist-es/streams/create-read-stream-on-buffer.browser",
+    "./dist-cjs/streams/create-read-stream-on-buffer": "./dist-cjs/streams/create-read-stream-on-buffer.browser"
   },
   "types": "./dist-types/index.d.ts",
   "author": {
@@ -62,5 +63,9 @@
   },
   "typedoc": {
     "entryPoint": "src/index.ts"
+  },
+  "react-native": {
+    "./dist-es/streams/create-read-stream-on-buffer": "./dist-es/streams/create-read-stream-on-buffer.browser",
+    "./dist-cjs/streams/create-read-stream-on-buffer": "./dist-cjs/streams/create-read-stream-on-buffer.browser"
   }
 }

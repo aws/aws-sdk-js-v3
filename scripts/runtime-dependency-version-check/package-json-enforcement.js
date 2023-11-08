@@ -1,11 +1,15 @@
 const fs = require("fs");
 
 /**
+ * This enforcement is not here to prevent adoption of newer
+ * package standards such as "exports". It is to ensure consistency in the
+ * monorepo until the time comes for those changes.
+ * ----
  *
- * Will enforce several things on a package json object:
+ * The script will enforce several things on a package json object:
  *
  * - main and module must be defined.
- *   Note: in the future this may change. Browser is perhaps more standard than module.
+ *   In the future this may change. Browser is perhaps more standard than module.
  *
  * - if react-native entry exists, browser and react native entries must have
  *   an identical set of keys for replacement directives
@@ -45,10 +49,17 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
 
   if (typeof pkgJson.browser !== typeof pkgJson["react-native"]) {
     errors.push(`browser and react-native fields are different in ${pkgJson.name}`);
+    if (overwrite) {
+      if (typeof pkgJson.browser === "object") {
+        pkgJson["react-native"] = pkgJson.browser;
+      } else if (typeof pkgJson["react-native"] === "object") {
+        pkgJson.browser = pkgJson["react-native"];
+      }
+    }
   }
 
   if (typeof pkgJson.browser === "object" && typeof pkgJson["react-native"] === "object") {
-    const browserEntrySet = [
+    const browserCanonical = [
       ...new Set([
         ...Object.entries(pkgJson.browser).map(([k, v]) => [
           k.replace("dist-cjs", "dist-es"),
@@ -59,13 +70,16 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
           typeof v === "string" ? v.replace("dist-es", "dist-cjs") : v,
         ]),
       ]),
-    ];
+    ].reduce((acc, [k, v]) => {
+      acc[k] = v;
+      return acc;
+    }, {});
 
-    if (Object.keys(browserEntrySet).length !== Object.keys(pkgJson.browser).length) {
+    if (Object.keys(browserCanonical).length !== Object.keys(pkgJson.browser).length) {
       errors.push(`${pkgJson.name} browser field is incomplete.`);
     }
 
-    const reactNativeEntrySet = [
+    const reactNativeCanonical = [
       ...new Set([
         ...Object.entries(pkgJson["react-native"]).map(([k, v]) => [
           k.replace("dist-cjs", "dist-es"),
@@ -76,26 +90,23 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
           typeof v === "string" ? v.replace("dist-es", "dist-cjs") : v,
         ]),
       ]),
-    ];
+    ].reduce((acc, [k, v]) => {
+      acc[k] = v;
+      return acc;
+    }, {});
 
-    if (Object.keys(reactNativeEntrySet).length !== Object.keys(pkgJson["react-native"]).length) {
+    if (Object.keys(reactNativeCanonical).length !== Object.keys(pkgJson["react-native"]).length) {
       errors.push(`${pkgJson.name} react-native field is incomplete.`);
     }
 
     if (overwrite) {
-      pkgJson.browser = browserEntrySet.reduce((acc, [k, v]) => {
-        acc[k] = v;
-        return acc;
-      }, {});
-      pkgJson["react-native"] = reactNativeEntrySet.reduce((acc, [k, v]) => {
-        acc[k] = v;
-        return acc;
-      }, {});
+      pkgJson.browser = browserCanonical;
+      pkgJson["react-native"] = reactNativeCanonical;
     }
   }
 
   if (overwrite) {
-    fs.writeFileSync(pkgJsonFilePath, JSON.stringify(pkgJson, null, 2));
+    fs.writeFileSync(pkgJsonFilePath, JSON.stringify(pkgJson, null, 2) + "\n");
   }
 
   return errors;

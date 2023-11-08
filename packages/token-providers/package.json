@@ -89,10 +89,12 @@
     "dist-*/**"
   ],
   "browser": {
-    "./dist-es/bundle/client-sso-oidc-node": "./dist-es/bundle/client-sso-oidc-browser"
+    "./dist-es/bundle/client-sso-oidc-node": "./dist-es/bundle/client-sso-oidc-browser",
+    "./dist-cjs/bundle/client-sso-oidc-node": "./dist-cjs/bundle/client-sso-oidc-browser"
   },
   "react-native": {
-    "./dist-es/bundle/client-sso-oidc-node": "./dist-es/bundle/client-sso-oidc-browser"
+    "./dist-es/bundle/client-sso-oidc-node": "./dist-es/bundle/client-sso-oidc-browser",
+    "./dist-cjs/bundle/client-sso-oidc-node": "./dist-cjs/bundle/client-sso-oidc-browser"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/token-providers",
   "repository": {
