@@ -6088,6 +6088,7 @@ export const de_GetRunCommand = async (
     roleArn: __expectString,
     runGroupId: __expectString,
     runId: __expectString,
+    runOutputUri: __expectString,
     startTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     startedBy: __expectString,
     status: __expectString,
@@ -6095,6 +6096,7 @@ export const de_GetRunCommand = async (
     stopTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     storageCapacity: __expectInt32,
     tags: _json,
+    uuid: __expectString,
     workflowId: __expectString,
     workflowType: __expectString,
   });
@@ -8358,8 +8360,10 @@ export const de_StartRunCommand = async (
   const doc = take(data, {
     arn: __expectString,
     id: __expectString,
+    runOutputUri: __expectString,
     status: __expectString,
     tags: _json,
+    uuid: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

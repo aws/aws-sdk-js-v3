@@ -75,6 +75,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   uuid: "STRING_VALUE",
+ * //   runOutputUri: "STRING_VALUE",
  * // };
  *
  * ```

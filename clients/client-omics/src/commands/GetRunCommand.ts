@@ -87,6 +87,8 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //     engineLogStream: "STRING_VALUE",
  * //     runLogStream: "STRING_VALUE",
  * //   },
+ * //   uuid: "STRING_VALUE",
+ * //   runOutputUri: "STRING_VALUE",
  * // };
  *
  * ```

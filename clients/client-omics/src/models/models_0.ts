@@ -4882,6 +4882,22 @@ export interface GetRunResponse {
    *     </p>
    */
   logLocation?: RunLogLocation;
+
+  /**
+   * @public
+   * <p>
+   *       The universally unique identifier for a run.
+   *     </p>
+   */
+  uuid?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The destination for workflow outputs.
+   *     </p>
+   */
+  runOutputUri?: string;
 }
 
 /**
@@ -7820,6 +7836,22 @@ export interface StartRunResponse {
    * <p>The run's tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>
+   *       The universally unique identifier for a run.
+   *     </p>
+   */
+  uuid?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The destination for workflow outputs.
+   *     </p>
+   */
+  runOutputUri?: string;
 }
 
 /**
