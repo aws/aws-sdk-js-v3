@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.446.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.445.0...v3.446.0) (2023-11-08)
+
+
+### Features
+
+* **client-connect:** This release clarifies in our public documentation that InstanceId is a requirement for SearchUsers API requests. ([0b2950b](https://github.com/aws/aws-sdk-js-v3/commit/0b2950bccf45c07f9f42d26d6c6c6f028af99a5b))
+
+
+
+
+
 # [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

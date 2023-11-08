@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.446.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.445.0...v3.446.0) (2023-11-08)
+
+
+### Features
+
+* **client-connectcases:** This release adds the ability to add/view comment authors through CreateRelatedItem and SearchRelatedItems API. For more information see https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html ([c0b4bb3](https://github.com/aws/aws-sdk-js-v3/commit/c0b4bb3855a8bd2346f03122cff0f7a3077282fe))
+* **client-connect:** This release clarifies in our public documentation that InstanceId is a requirement for SearchUsers API requests. ([0b2950b](https://github.com/aws/aws-sdk-js-v3/commit/0b2950bccf45c07f9f42d26d6c6c6f028af99a5b))
+* **client-datasync:** This change allows for 0 length access keys and secret keys for object storage locations. Users can now pass in empty string credentials. ([ecaad03](https://github.com/aws/aws-sdk-js-v3/commit/ecaad03d257db1d2d641affad38122af8193bf66))
+* **client-guardduty:** Added API support for new GuardDuty EKS Audit Log finding types. ([a53e2fa](https://github.com/aws/aws-sdk-js-v3/commit/a53e2fa65a904ee8ade8568c825d0ef3fd806fd0))
+* **client-lambda:** Add Node 20 (nodejs20.x) support to AWS Lambda. ([fa71b6b](https://github.com/aws/aws-sdk-js-v3/commit/fa71b6bdb812586b3ded6d9acda3cb187dffc491))
+* **client-lex-models-v2:** AWS Lex now supports selective log capture in conversation logs. When you enable this option within the conversation log settings, only the utterances that trigger intents and slots specified in session attributes will be logged. ([47a1c93](https://github.com/aws/aws-sdk-js-v3/commit/47a1c936dfa20bff0473d61abd73568560392e38))
+* **client-omics:** Adding Run UUID and Run Output URI: GetRun and StartRun API response has two new fields "uuid" and "runOutputUri". ([7bba47e](https://github.com/aws/aws-sdk-js-v3/commit/7bba47ee2f80bc297b3d2ead069f9e72c074e1cb))
+* **client-redshift-serverless:** Added a new parameter in the workgroup that helps you control your cost for compute resources. This feature provides a ceiling for RPUs that Amazon Redshift Serverless can scale up to. When automatic compute scaling is required, having a higher value for MaxRPU can enhance query throughput. ([3586ff0](https://github.com/aws/aws-sdk-js-v3/commit/3586ff0926520c468ff7ae7cd11ced883069b5b5))
+* **client-resiliencehub:** AWS Resilience Hub enhances Resiliency Score, providing actionable recommendations to improve application resilience. Amazon Elastic Kubernetes Service (EKS) operational recommendations have been added to help improve the resilience posture of your applications. ([a3e95ba](https://github.com/aws/aws-sdk-js-v3/commit/a3e95ba035cc502618c1bd6e5ac45aff48b996da))
+* **client-sqs:** This release enables customers to call SQS using AWS JSON-1.0 protocol. ([6426b55](https://github.com/aws/aws-sdk-js-v3/commit/6426b55d5f81ca27fd3edf30dc2ca65dc05c8a4a))
+* **clients:** update client endpoints as of 2023-11-08 ([fcf81cd](https://github.com/aws/aws-sdk-js-v3/commit/fcf81cd71342bfcfae32a3fb2429fae56ad1fd06))
+
+
+
+
+
 # [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
 
 

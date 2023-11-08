@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.446.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.445.0...v3.446.0) (2023-11-08)
+
+
+### Features
+
+* **client-guardduty:** Added API support for new GuardDuty EKS Audit Log finding types. ([a53e2fa](https://github.com/aws/aws-sdk-js-v3/commit/a53e2fa65a904ee8ade8568c825d0ef3fd806fd0))
+
+
+
+
+
 # [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty
