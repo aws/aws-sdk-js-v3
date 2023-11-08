@@ -88,6 +88,9 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       performedBy: { // UserUnion Union: only one key present
+ * //         userArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

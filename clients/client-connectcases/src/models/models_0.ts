@@ -555,6 +555,44 @@ export namespace RelatedItemInputContent {
 
 /**
  * @public
+ * <p>Represents the identity of the person who performed the action.</p>
+ */
+export type UserUnion = UserUnion.UserArnMember | UserUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UserUnion {
+  /**
+   * @public
+   * <p>Represents the Amazon Connect ARN of the user.</p>
+   */
+  export interface UserArnMember {
+    userArn: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    userArn?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    userArn: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UserUnion, visitor: Visitor<T>): T => {
+    if (value.userArn !== undefined) return visitor.userArn(value.userArn);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
  * @enum
  */
 export const RelatedItemType = {
@@ -594,6 +632,12 @@ export interface CreateRelatedItemRequest {
    * <p>The content of a related item to be created.</p>
    */
   content: RelatedItemInputContent | undefined;
+
+  /**
+   * @public
+   * <p>Represents the creator of the related item.</p>
+   */
+  performedBy?: UserUnion;
 }
 
 /**
@@ -863,6 +907,12 @@ export interface SearchRelatedItemsResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Represents the creator of the related item.</p>
+   */
+  performedBy?: UserUnion;
 }
 
 /**

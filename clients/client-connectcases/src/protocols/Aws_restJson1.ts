@@ -110,6 +110,7 @@ import {
   ServiceQuotaExceededException,
   Sort,
   ThrottlingException,
+  UserUnion,
   ValidationException,
 } from "../models/models_0";
 
@@ -324,6 +325,7 @@ export const se_CreateRelatedItemCommand = async (
   body = JSON.stringify(
     take(input, {
       content: (_) => _json(_),
+      performedBy: (_) => _json(_),
       type: [],
     })
   );
@@ -3133,6 +3135,8 @@ const se_Tags = (input: Record<string, string>, context: __SerdeContext): any =>
   }, {});
 };
 
+// se_UserUnion omitted.
+
 // de_BasicLayout omitted.
 
 // de_BatchGetFieldErrorList omitted.
@@ -3325,6 +3329,7 @@ const de_SearchRelatedItemsResponseItem = (output: any, context: __SerdeContext)
   return take(output, {
     associationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     content: (_: any) => de_RelatedItemContent(__expectUnion(_), context),
+    performedBy: (_: any) => _json(__expectUnion(_)),
     relatedItemId: __expectString,
     tags: (_: any) => de_Tags(_, context),
     type: __expectString,
@@ -3368,6 +3373,8 @@ const de_Tags = (output: any, context: __SerdeContext): Record<string, string> =
 // de_TemplateSummary omitted.
 
 // de_TemplateSummaryList omitted.
+
+// de_UserUnion omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
