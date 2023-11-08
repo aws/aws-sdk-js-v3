@@ -4213,6 +4213,7 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     customDomainName: __expectString,
     endpoint: _json,
     enhancedVpcRouting: __expectBoolean,
+    maxCapacity: __expectInt32,
     namespaceName: __expectString,
     patchVersion: __expectString,
     port: __expectInt32,

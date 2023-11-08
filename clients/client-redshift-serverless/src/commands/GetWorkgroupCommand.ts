@@ -100,6 +100,7 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  * //     customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
  * //     workgroupVersion: "STRING_VALUE",
  * //     patchVersion: "STRING_VALUE",
+ * //     maxCapacity: Number("int"),
  * //   },
  * // };
  *

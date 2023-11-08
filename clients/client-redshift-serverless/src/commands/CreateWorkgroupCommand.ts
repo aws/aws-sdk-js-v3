@@ -73,6 +73,7 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  *     },
  *   ],
  *   port: Number("int"),
+ *   maxCapacity: Number("int"),
  * };
  * const command = new CreateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -123,6 +124,7 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * //     customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
  * //     workgroupVersion: "STRING_VALUE",
  * //     patchVersion: "STRING_VALUE",
+ * //     maxCapacity: Number("int"),
  * //   },
  * // };
  *

@@ -100,6 +100,7 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //     customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
  * //     workgroupVersion: "STRING_VALUE",
  * //     patchVersion: "STRING_VALUE",
+ * //     maxCapacity: Number("int"),
  * //   },
  * // };
  *

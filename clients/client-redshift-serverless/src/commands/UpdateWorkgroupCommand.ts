@@ -67,6 +67,7 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  *     "STRING_VALUE",
  *   ],
  *   port: Number("int"),
+ *   maxCapacity: Number("int"),
  * };
  * const command = new UpdateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -117,6 +118,7 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * //     customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
  * //     workgroupVersion: "STRING_VALUE",
  * //     patchVersion: "STRING_VALUE",
+ * //     maxCapacity: Number("int"),
  * //   },
  * // };
  *
