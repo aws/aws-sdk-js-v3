@@ -1558,8 +1558,8 @@ export interface Environment {
 
 /**
  * @public
- * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any
- *       whole number between 512 and 10,240 MB.</p>
+ * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
+ *   number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
  */
 export interface EphemeralStorage {
   /**
@@ -1649,6 +1649,7 @@ export const Runtime = {
   nodejs14x: "nodejs14.x",
   nodejs16x: "nodejs16.x",
   nodejs18x: "nodejs18.x",
+  nodejs20x: "nodejs20.x",
   nodejs43: "nodejs4.3",
   nodejs43edge: "nodejs4.3-edge",
   nodejs610: "nodejs6.10",
@@ -1924,7 +1925,7 @@ export interface CreateFunctionRequest {
   /**
    * @public
    * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
-   *       number between 512 and 10,240 MB.</p>
+   *       number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
@@ -2455,8 +2456,8 @@ export interface FunctionConfiguration {
 
   /**
    * @public
-   * <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any
-   *       whole number between 512 and 10,240 MB.</p>
+   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
+   *   number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
@@ -6998,7 +6999,7 @@ export interface UpdateFunctionConfigurationRequest {
   /**
    * @public
    * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
-   *       number between 512 and 10,240 MB.</p>
+   *       number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
