@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
+
+
+### Features
+
+* **client-comprehend:** This release adds support for toxicity detection and prompt safety classification. ([e05684d](https://github.com/aws/aws-sdk-js-v3/commit/e05684db4aef0bdf9abaaf48a6951fa5aed4f0c1))
+
+
+
+
+
 # [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-comprehend

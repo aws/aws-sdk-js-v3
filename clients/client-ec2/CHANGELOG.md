@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
+
+
+### Features
+
+* **client-ec2:** AWS EBS now supports Block Public Access for EBS Snapshots. This release introduces the EnableSnapshotBlockPublicAccess, DisableSnapshotBlockPublicAccess and GetSnapshotBlockPublicAccessState APIs to manage account-level public access settings for EBS Snapshots in an AWS Region. ([dd46083](https://github.com/aws/aws-sdk-js-v3/commit/dd46083495489c001d1a125e0574179a20a17415))
+
+
+
+
+
 # [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

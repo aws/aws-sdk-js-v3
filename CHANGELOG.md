@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
+
+
+### Features
+
+* **client-cloudformation:** Added new ConcurrencyMode feature for AWS CloudFormation StackSets for faster deployments to target accounts. ([c1dde64](https://github.com/aws/aws-sdk-js-v3/commit/c1dde649582b34f8e2fdded4e3bee606e45fe16c))
+* **client-cloudtrail:** The Insights in Lake feature lets customers enable CloudTrail Insights on a source CloudTrail Lake event data store and create a destination event data store to collect Insights events based on unusual management event activity in the source event data store. ([90c4308](https://github.com/aws/aws-sdk-js-v3/commit/90c4308f102571dd250329e6b37843c09317a6b4))
+* **client-cloudwatch-logs:** Update to support new APIs for delivery of logs from AWS services. ([aab45b5](https://github.com/aws/aws-sdk-js-v3/commit/aab45b583fc72bbcf839085c4bcca57c5646be4c))
+* **client-comprehend:** This release adds support for toxicity detection and prompt safety classification. ([e05684d](https://github.com/aws/aws-sdk-js-v3/commit/e05684db4aef0bdf9abaaf48a6951fa5aed4f0c1))
+* **client-connect:** This release adds the ability to integrate customer lambda functions with Connect attachments for scanning and updates the ListIntegrationAssociations API to support filtering on IntegrationArn. ([9c2b0da](https://github.com/aws/aws-sdk-js-v3/commit/9c2b0dae6c8b20116519ed136208938d5f7ad06c))
+* **client-ec2:** AWS EBS now supports Block Public Access for EBS Snapshots. This release introduces the EnableSnapshotBlockPublicAccess, DisableSnapshotBlockPublicAccess and GetSnapshotBlockPublicAccessState APIs to manage account-level public access settings for EBS Snapshots in an AWS Region. ([dd46083](https://github.com/aws/aws-sdk-js-v3/commit/dd46083495489c001d1a125e0574179a20a17415))
+* **client-eks:** Adding EKS Anywhere subscription related operations. ([8630876](https://github.com/aws/aws-sdk-js-v3/commit/8630876411ee78526dd5e4f2b53c078709d809c8))
+* **client-lambda:** Add Custom runtime on Amazon Linux 2023 (provided.al2023) support to AWS Lambda. ([91754bf](https://github.com/aws/aws-sdk-js-v3/commit/91754bfed7082030d387195da0e41bd1a9b74157))
+* **client-omics:** Support UBAM filetype for Omics Storage and make referenceArn optional ([b7ab1da](https://github.com/aws/aws-sdk-js-v3/commit/b7ab1da5db07228f2e71cab15e8f362c6e99f46c))
+
+
+
+
+
 # [3.447.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.446.0...v3.447.0) (2023-11-09)
 
 

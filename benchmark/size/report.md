@@ -5,10 +5,10 @@
 |@aws-sdk/client-application-insights|3.441.0|675.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-athena|3.441.0|1.2 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-auto-scaling|3.441.0|1.8 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-cloudformation|3.441.0|2 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-cloudformation|3.445.0|2 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudhsm-v2|3.441.0|371.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudwatch|3.441.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-cloudwatch-logs|3.441.0|988.5 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-cloudwatch-logs|3.445.0|1.2 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codebuild|3.444.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codecommit|3.441.0|2.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codedeploy|3.441.0|1.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
@@ -17,7 +17,7 @@
 |@aws-sdk/client-cognito-identity-provider|3.441.0|2.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-sync|3.441.0|450.6 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-dynamodb|3.441.0|1.7 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-ec2|3.441.0|15.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-ec2|3.445.0|15.5 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-efs|3.441.0|788.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-eventbridge|3.441.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-firehose|3.441.0|535.4 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
@@ -25,7 +25,7 @@
 |@aws-sdk/client-iam|3.444.0|3.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-kinesis|3.441.0|760.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-kms|3.441.0|1.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-lambda|3.445.0|1.7 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-lambda|3.446.0|1.7 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-opsworks|3.441.0|1.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-pinpoint|3.441.0|3 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-resource-groups-tagging-api|3.441.0|273.9 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|

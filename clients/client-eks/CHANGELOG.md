@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
+
+
+### Features
+
+* **client-eks:** Adding EKS Anywhere subscription related operations. ([8630876](https://github.com/aws/aws-sdk-js-v3/commit/8630876411ee78526dd5e4f2b53c078709d809c8))
+
+
+
+
+
 # [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

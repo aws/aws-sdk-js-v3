@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
+
+
+### Features
+
+* **client-cloudtrail:** The Insights in Lake feature lets customers enable CloudTrail Insights on a source CloudTrail Lake event data store and create a destination event data store to collect Insights events based on unusual management event activity in the source event data store. ([90c4308](https://github.com/aws/aws-sdk-js-v3/commit/90c4308f102571dd250329e6b37843c09317a6b4))
+
+
+
+
+
 # [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

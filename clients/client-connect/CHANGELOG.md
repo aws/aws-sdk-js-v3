@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
+
+
+### Features
+
+* **client-connect:** This release adds the ability to integrate customer lambda functions with Connect attachments for scanning and updates the ListIntegrationAssociations API to support filtering on IntegrationArn. ([9c2b0da](https://github.com/aws/aws-sdk-js-v3/commit/9c2b0dae6c8b20116519ed136208938d5f7ad06c))
+
+
+
+
+
 # [3.446.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.445.0...v3.446.0) (2023-11-08)
 
 

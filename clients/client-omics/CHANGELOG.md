@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
+
+
+### Features
+
+* **client-omics:** Support UBAM filetype for Omics Storage and make referenceArn optional ([b7ab1da](https://github.com/aws/aws-sdk-js-v3/commit/b7ab1da5db07228f2e71cab15e8f362c6e99f46c))
+
+
+
+
+
 # [3.446.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.445.0...v3.446.0) (2023-11-08)
 
 
