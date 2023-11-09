@@ -1470,23 +1470,6 @@ export interface ListMessageMoveTasksRequest {
 
 /**
  * @public
- * @enum
- */
-export const TaskStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
-
-/**
- * @public
  * <p>Contains the details of a message movement task. </p>
  */
 export interface ListMessageMoveTasksResultEntry {
@@ -1503,7 +1486,7 @@ export interface ListMessageMoveTasksResultEntry {
    * <p>The status of the message movement task. Possible values are: RUNNING, COMPLETED,
    *             CANCELLING, CANCELLED, and FAILED.</p>
    */
-  Status?: TaskStatus;
+  Status?: string;
 
   /**
    * @public

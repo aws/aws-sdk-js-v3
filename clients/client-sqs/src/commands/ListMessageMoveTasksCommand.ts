@@ -72,7 +72,7 @@ export interface ListMessageMoveTasksCommandOutput extends ListMessageMoveTasksR
  * //   Results: [ // ListMessageMoveTasksResultEntryList
  * //     { // ListMessageMoveTasksResultEntry
  * //       TaskHandle: "STRING_VALUE",
- * //       Status: "RUNNING" || "FAILED" || "CANCELLING" || "CANCELLED" || "COMPLETED",
+ * //       Status: "STRING_VALUE",
  * //       SourceArn: "STRING_VALUE",
  * //       DestinationArn: "STRING_VALUE",
  * //       MaxNumberOfMessagesPerSecond: Number("int"),
