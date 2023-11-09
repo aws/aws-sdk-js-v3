@@ -39,11 +39,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @public
  * <p>Creates an Amazon EKS control plane. </p>
  *          <p>The Amazon EKS control plane consists of control plane instances that run the
- *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane
- *             runs in an account managed by Amazon Web Services, and the Kubernetes API is exposed by
- *             the Amazon EKS API server endpoint. Each Amazon EKS cluster control
- *             plane is single tenant and unique. It runs on its own set of Amazon EC2
- *             instances.</p>
+ *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane runs in
+ *             an account managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is
+ *             single tenant and unique. It runs on its own set of Amazon EC2 instances.</p>
  *          <p>The cluster control plane is provisioned across multiple Availability Zones and
  *             fronted by an Elastic Load Balancing
  *             Network Load Balancer. Amazon EKS also provisions elastic network interfaces in
@@ -51,13 +49,13 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *             (for example, to support <code>kubectl exec</code>, <code>logs</code>, and
  *                 <code>proxy</code> data flows).</p>
  *          <p>Amazon EKS nodes run in your Amazon Web Services account and connect to your
- *             cluster's control plane over the Kubernetes API server endpoint and a certificate file
- *             that is created for your cluster.</p>
+ *             cluster's control plane over the Kubernetes API server endpoint and a certificate file that
+ *             is created for your cluster.</p>
  *          <p>In most cases, it takes several minutes to create a cluster. After you create an
- *                 Amazon EKS cluster, you must configure your Kubernetes tooling to
- *             communicate with the API server and launch nodes into your cluster. For more
- *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching
- *                     Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *                 Amazon EKS cluster, you must configure your Kubernetes tooling to communicate
+ *             with the API server and launch nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
+ *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS nodes</a> in the
+ *             <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -220,8 +218,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API

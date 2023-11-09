@@ -7,15 +7,14 @@
 AWS SDK for JavaScript EKS Client for Node.js, Browser and React Native.
 
 <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
-for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain
-your own Kubernetes control plane. Kubernetes is an open-source system for automating
-the deployment, scaling, and management of containerized applications. </p>
-<p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so
-you can use all the existing plugins and tooling from the Kubernetes community.
-Applications running on Amazon EKS are fully compatible with applications
-running on any standard Kubernetes environment, whether running in on-premises data
-centers or public clouds. This means that you can easily migrate any standard Kubernetes
-application to Amazon EKS without any code modification required.</p>
+for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain your
+own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
+scaling, and management of containerized applications. </p>
+<p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you
+can use all the existing plugins and tooling from the Kubernetes community. Applications
+running on Amazon EKS are fully compatible with applications running on any
+standard Kubernetes environment, whether running in on-premises data centers or public
+clouds. This means that you can easily migrate any standard Kubernetes application to Amazon EKS without any code modification required.</p>
 
 ## Installing
 
@@ -246,6 +245,14 @@ CreateCluster
 </details>
 <details>
 <summary>
+CreateEksAnywhereSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/createeksanywheresubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/createeksanywheresubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/createeksanywheresubscriptioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateFargateProfile
 </summary>
 
@@ -274,6 +281,14 @@ DeleteCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/deleteclustercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/deleteclustercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/deleteclustercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteEksAnywhereSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/deleteeksanywheresubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/deleteeksanywheresubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/deleteeksanywheresubscriptioncommandoutput.html)
 
 </details>
 <details>
@@ -334,6 +349,14 @@ DescribeCluster
 </details>
 <details>
 <summary>
+DescribeEksAnywhereSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/describeeksanywheresubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/describeeksanywheresubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/describeeksanywheresubscriptioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeFargateProfile
 </summary>
 
@@ -386,6 +409,14 @@ ListClusters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/listclusterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/listclusterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/listclusterscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEksAnywhereSubscriptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/listeksanywheresubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/listeksanywheresubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/listeksanywheresubscriptionscommandoutput.html)
 
 </details>
 <details>
@@ -474,6 +505,14 @@ UpdateClusterVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/updateclusterversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/updateclusterversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/updateclusterversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateEksAnywhereSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/classes/updateeksanywheresubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/updateeksanywheresubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks/interfaces/updateeksanywheresubscriptioncommandoutput.html)
 
 </details>
 <details>

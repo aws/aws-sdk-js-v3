@@ -50,13 +50,12 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *             on Fargate.</p>
  *          <p>When you create a Fargate profile, you must specify a pod execution
  *             role to use with the pods that are scheduled with the profile. This role is added to the
- *             cluster's Kubernetes <a href="https://kubernetes.io/docs/admin/authorization/rbac/">Role Based Access Control</a> (RBAC) for authorization so that the
- *                 <code>kubelet</code> that is running on the Fargate infrastructure
- *             can register with your Amazon EKS cluster so that it can appear in your cluster
- *             as a node. The pod execution role also provides IAM permissions to the
- *                 Fargate infrastructure to allow read access to Amazon ECR
- *             image repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod
- *                 Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *             cluster's Kubernetes <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Role Based
+ *                 Access Control</a> (RBAC) for authorization so that the <code>kubelet</code>
+ *             that is running on the Fargate infrastructure can register with your
+ *                 Amazon EKS cluster so that it can appear in your cluster as a node. The pod
+ *             execution role also provides IAM permissions to the Fargate infrastructure to allow read access to Amazon ECR image repositories. For
+ *             more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>
  *          <p>Fargate profiles are immutable. However, you can create a new updated
  *             profile to replace an existing profile and then delete the original after the updated
  *             profile has finished creating.</p>
@@ -128,8 +127,8 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API

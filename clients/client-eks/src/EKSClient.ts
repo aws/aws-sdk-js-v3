@@ -61,12 +61,20 @@ import {
 import { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
+  CreateEksAnywhereSubscriptionCommandInput,
+  CreateEksAnywhereSubscriptionCommandOutput,
+} from "./commands/CreateEksAnywhereSubscriptionCommand";
+import {
   CreateFargateProfileCommandInput,
   CreateFargateProfileCommandOutput,
 } from "./commands/CreateFargateProfileCommand";
 import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "./commands/CreateNodegroupCommand";
 import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteEksAnywhereSubscriptionCommandInput,
+  DeleteEksAnywhereSubscriptionCommandOutput,
+} from "./commands/DeleteEksAnywhereSubscriptionCommand";
 import {
   DeleteFargateProfileCommandInput,
   DeleteFargateProfileCommandOutput,
@@ -84,6 +92,10 @@ import {
 } from "./commands/DescribeAddonVersionsCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
+  DescribeEksAnywhereSubscriptionCommandInput,
+  DescribeEksAnywhereSubscriptionCommandOutput,
+} from "./commands/DescribeEksAnywhereSubscriptionCommand";
+import {
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput,
 } from "./commands/DescribeFargateProfileCommand";
@@ -99,6 +111,10 @@ import {
 } from "./commands/DisassociateIdentityProviderConfigCommand";
 import { ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import {
+  ListEksAnywhereSubscriptionsCommandInput,
+  ListEksAnywhereSubscriptionsCommandOutput,
+} from "./commands/ListEksAnywhereSubscriptionsCommand";
 import {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
@@ -126,6 +142,10 @@ import {
   UpdateClusterVersionCommandOutput,
 } from "./commands/UpdateClusterVersionCommand";
 import {
+  UpdateEksAnywhereSubscriptionCommandInput,
+  UpdateEksAnywhereSubscriptionCommandOutput,
+} from "./commands/UpdateEksAnywhereSubscriptionCommand";
+import {
   UpdateNodegroupConfigCommandInput,
   UpdateNodegroupConfigCommandOutput,
 } from "./commands/UpdateNodegroupConfigCommand";
@@ -152,10 +172,12 @@ export type ServiceInputTypes =
   | AssociateIdentityProviderConfigCommandInput
   | CreateAddonCommandInput
   | CreateClusterCommandInput
+  | CreateEksAnywhereSubscriptionCommandInput
   | CreateFargateProfileCommandInput
   | CreateNodegroupCommandInput
   | DeleteAddonCommandInput
   | DeleteClusterCommandInput
+  | DeleteEksAnywhereSubscriptionCommandInput
   | DeleteFargateProfileCommandInput
   | DeleteNodegroupCommandInput
   | DeregisterClusterCommandInput
@@ -163,6 +185,7 @@ export type ServiceInputTypes =
   | DescribeAddonConfigurationCommandInput
   | DescribeAddonVersionsCommandInput
   | DescribeClusterCommandInput
+  | DescribeEksAnywhereSubscriptionCommandInput
   | DescribeFargateProfileCommandInput
   | DescribeIdentityProviderConfigCommandInput
   | DescribeNodegroupCommandInput
@@ -170,6 +193,7 @@ export type ServiceInputTypes =
   | DisassociateIdentityProviderConfigCommandInput
   | ListAddonsCommandInput
   | ListClustersCommandInput
+  | ListEksAnywhereSubscriptionsCommandInput
   | ListFargateProfilesCommandInput
   | ListIdentityProviderConfigsCommandInput
   | ListNodegroupsCommandInput
@@ -181,6 +205,7 @@ export type ServiceInputTypes =
   | UpdateAddonCommandInput
   | UpdateClusterConfigCommandInput
   | UpdateClusterVersionCommandInput
+  | UpdateEksAnywhereSubscriptionCommandInput
   | UpdateNodegroupConfigCommandInput
   | UpdateNodegroupVersionCommandInput;
 
@@ -192,10 +217,12 @@ export type ServiceOutputTypes =
   | AssociateIdentityProviderConfigCommandOutput
   | CreateAddonCommandOutput
   | CreateClusterCommandOutput
+  | CreateEksAnywhereSubscriptionCommandOutput
   | CreateFargateProfileCommandOutput
   | CreateNodegroupCommandOutput
   | DeleteAddonCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteEksAnywhereSubscriptionCommandOutput
   | DeleteFargateProfileCommandOutput
   | DeleteNodegroupCommandOutput
   | DeregisterClusterCommandOutput
@@ -203,6 +230,7 @@ export type ServiceOutputTypes =
   | DescribeAddonConfigurationCommandOutput
   | DescribeAddonVersionsCommandOutput
   | DescribeClusterCommandOutput
+  | DescribeEksAnywhereSubscriptionCommandOutput
   | DescribeFargateProfileCommandOutput
   | DescribeIdentityProviderConfigCommandOutput
   | DescribeNodegroupCommandOutput
@@ -210,6 +238,7 @@ export type ServiceOutputTypes =
   | DisassociateIdentityProviderConfigCommandOutput
   | ListAddonsCommandOutput
   | ListClustersCommandOutput
+  | ListEksAnywhereSubscriptionsCommandOutput
   | ListFargateProfilesCommandOutput
   | ListIdentityProviderConfigsCommandOutput
   | ListNodegroupsCommandOutput
@@ -221,6 +250,7 @@ export type ServiceOutputTypes =
   | UpdateAddonCommandOutput
   | UpdateClusterConfigCommandOutput
   | UpdateClusterVersionCommandOutput
+  | UpdateEksAnywhereSubscriptionCommandOutput
   | UpdateNodegroupConfigCommandOutput
   | UpdateNodegroupVersionCommandOutput;
 
@@ -397,15 +427,14 @@ export interface EKSClientResolvedConfig extends EKSClientResolvedConfigType {}
 /**
  * @public
  * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
- *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain
- *             your own Kubernetes control plane. Kubernetes is an open-source system for automating
- *             the deployment, scaling, and management of containerized applications. </p>
- *          <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so
- *             you can use all the existing plugins and tooling from the Kubernetes community.
- *             Applications running on Amazon EKS are fully compatible with applications
- *             running on any standard Kubernetes environment, whether running in on-premises data
- *             centers or public clouds. This means that you can easily migrate any standard Kubernetes
- *             application to Amazon EKS without any code modification required.</p>
+ *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain your
+ *             own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
+ *             scaling, and management of containerized applications. </p>
+ *          <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you
+ *             can use all the existing plugins and tooling from the Kubernetes community. Applications
+ *             running on Amazon EKS are fully compatible with applications running on any
+ *             standard Kubernetes environment, whether running in on-premises data centers or public
+ *             clouds. This means that you can easily migrate any standard Kubernetes application to Amazon EKS without any code modification required.</p>
  */
 export class EKSClient extends __Client<
   __HttpHandlerOptions,

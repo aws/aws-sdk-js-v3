@@ -39,8 +39,8 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * @public
  * <p>Updates an Amazon EKS managed node group configuration. Your node group
  *             continues to function during the update. The response output includes an update ID that
- *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. Currently you can update the Kubernetes
- *             labels for a node group or the scaling configuration.</p>
+ *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. Currently you can update the Kubernetes labels
+ *             for a node group or the scaling configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,8 +121,8 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API

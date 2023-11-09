@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -34,12 +35,20 @@ import {
 import { CreateAddonCommandInput, CreateAddonCommandOutput } from "../commands/CreateAddonCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
+  CreateEksAnywhereSubscriptionCommandInput,
+  CreateEksAnywhereSubscriptionCommandOutput,
+} from "../commands/CreateEksAnywhereSubscriptionCommand";
+import {
   CreateFargateProfileCommandInput,
   CreateFargateProfileCommandOutput,
 } from "../commands/CreateFargateProfileCommand";
 import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "../commands/CreateNodegroupCommand";
 import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "../commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
+import {
+  DeleteEksAnywhereSubscriptionCommandInput,
+  DeleteEksAnywhereSubscriptionCommandOutput,
+} from "../commands/DeleteEksAnywhereSubscriptionCommand";
 import {
   DeleteFargateProfileCommandInput,
   DeleteFargateProfileCommandOutput,
@@ -57,6 +66,10 @@ import {
 } from "../commands/DescribeAddonVersionsCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import {
+  DescribeEksAnywhereSubscriptionCommandInput,
+  DescribeEksAnywhereSubscriptionCommandOutput,
+} from "../commands/DescribeEksAnywhereSubscriptionCommand";
+import {
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput,
 } from "../commands/DescribeFargateProfileCommand";
@@ -72,6 +85,10 @@ import {
 } from "../commands/DisassociateIdentityProviderConfigCommand";
 import { ListAddonsCommandInput, ListAddonsCommandOutput } from "../commands/ListAddonsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
+import {
+  ListEksAnywhereSubscriptionsCommandInput,
+  ListEksAnywhereSubscriptionsCommandOutput,
+} from "../commands/ListEksAnywhereSubscriptionsCommand";
 import {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
@@ -99,6 +116,10 @@ import {
   UpdateClusterVersionCommandOutput,
 } from "../commands/UpdateClusterVersionCommand";
 import {
+  UpdateEksAnywhereSubscriptionCommandInput,
+  UpdateEksAnywhereSubscriptionCommandOutput,
+} from "../commands/UpdateEksAnywhereSubscriptionCommand";
+import {
   UpdateNodegroupConfigCommandInput,
   UpdateNodegroupConfigCommandOutput,
 } from "../commands/UpdateNodegroupConfigCommand";
@@ -116,6 +137,8 @@ import {
   ConnectorConfigRequest,
   ConnectorConfigResponse,
   ControlPlanePlacementRequest,
+  EksAnywhereSubscription,
+  EksAnywhereSubscriptionTerm,
   EncryptionConfig,
   FargateProfile,
   FargateProfileSelector,
@@ -292,6 +315,42 @@ export const se_CreateClusterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateEksAnywhereSubscriptionCommand
+ */
+export const se_CreateEksAnywhereSubscriptionCommand = async (
+  input: CreateEksAnywhereSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      autoRenew: [],
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      licenseQuantity: [],
+      licenseType: [],
+      name: [],
+      tags: (_) => _json(_),
+      term: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateFargateProfileCommand
  */
 export const se_CreateFargateProfileCommand = async (
@@ -415,6 +474,30 @@ export const se_DeleteClusterCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteEksAnywhereSubscriptionCommand
+ */
+export const se_DeleteEksAnywhereSubscriptionCommand = async (
+  input: DeleteEksAnywhereSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -615,6 +698,30 @@ export const se_DescribeClusterCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeEksAnywhereSubscriptionCommand
+ */
+export const se_DescribeEksAnywhereSubscriptionCommand = async (
+  input: DescribeEksAnywhereSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -831,6 +938,38 @@ export const se_ListClustersCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     include: [() => input.include !== void 0, () => (input.include! || []).map((_entry) => _entry as any)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListEksAnywhereSubscriptionsCommand
+ */
+export const se_ListEksAnywhereSubscriptionsCommand = async (
+  input: ListEksAnywhereSubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions";
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    includeStatus: [
+      () => input.includeStatus !== void 0,
+      () => (input.includeStatus! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1166,6 +1305,38 @@ export const se_UpdateClusterVersionCommand = async (
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       version: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateEksAnywhereSubscriptionCommand
+ */
+export const se_UpdateEksAnywhereSubscriptionCommand = async (
+  input: UpdateEksAnywhereSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      autoRenew: [],
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -1520,6 +1691,65 @@ const de_CreateClusterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateEksAnywhereSubscriptionCommand
+ */
+export const de_CreateEksAnywhereSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEksAnywhereSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateEksAnywhereSubscriptionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    subscription: (_) => de_EksAnywhereSubscription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateEksAnywhereSubscriptionCommandError
+ */
+const de_CreateEksAnywhereSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEksAnywhereSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.eks#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.eks#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateFargateProfileCommand
  */
 export const de_CreateFargateProfileCommand = async (
@@ -1754,6 +1984,62 @@ const de_DeleteClusterCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.eks#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteEksAnywhereSubscriptionCommand
+ */
+export const de_DeleteEksAnywhereSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEksAnywhereSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteEksAnywhereSubscriptionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    subscription: (_) => de_EksAnywhereSubscription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEksAnywhereSubscriptionCommandError
+ */
+const de_DeleteEksAnywhereSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEksAnywhereSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2169,6 +2455,62 @@ const de_DescribeClusterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeEksAnywhereSubscriptionCommand
+ */
+export const de_DescribeEksAnywhereSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEksAnywhereSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeEksAnywhereSubscriptionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    subscription: (_) => de_EksAnywhereSubscription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeEksAnywhereSubscriptionCommandError
+ */
+const de_DescribeEksAnywhereSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEksAnywhereSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.eks#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeFargateProfileCommand
  */
 export const de_DescribeFargateProfileCommand = async (
@@ -2549,6 +2891,63 @@ const de_ListClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.eks#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListEksAnywhereSubscriptionsCommand
+ */
+export const de_ListEksAnywhereSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEksAnywhereSubscriptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListEksAnywhereSubscriptionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    subscriptions: (_) => de_EksAnywhereSubscriptionList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEksAnywhereSubscriptionsCommandError
+ */
+const de_ListEksAnywhereSubscriptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEksAnywhereSubscriptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3208,6 +3607,65 @@ const de_UpdateClusterVersionCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateEksAnywhereSubscriptionCommand
+ */
+export const de_UpdateEksAnywhereSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEksAnywhereSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateEksAnywhereSubscriptionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    subscription: (_) => de_EksAnywhereSubscription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEksAnywhereSubscriptionCommandError
+ */
+const de_UpdateEksAnywhereSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEksAnywhereSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateNodegroupConfigCommand
  */
 export const de_UpdateNodegroupConfigCommand = async (
@@ -3380,6 +3838,7 @@ const de_ClientExceptionRes = async (parsedOutput: any, context: __SerdeContext)
     clusterName: __expectString,
     message: __expectString,
     nodegroupName: __expectString,
+    subscriptionId: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ClientException({
@@ -3404,6 +3863,7 @@ const de_InvalidParameterExceptionRes = async (
     fargateProfileName: __expectString,
     message: __expectString,
     nodegroupName: __expectString,
+    subscriptionId: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidParameterException({
@@ -3427,6 +3887,7 @@ const de_InvalidRequestExceptionRes = async (
     clusterName: __expectString,
     message: __expectString,
     nodegroupName: __expectString,
+    subscriptionId: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidRequestException({
@@ -3489,6 +3950,7 @@ const de_ResourceLimitExceededExceptionRes = async (
     clusterName: __expectString,
     message: __expectString,
     nodegroupName: __expectString,
+    subscriptionId: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
@@ -3513,6 +3975,7 @@ const de_ResourceNotFoundExceptionRes = async (
     fargateProfileName: __expectString,
     message: __expectString,
     nodegroupName: __expectString,
+    subscriptionId: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
@@ -3553,6 +4016,7 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
     clusterName: __expectString,
     message: __expectString,
     nodegroupName: __expectString,
+    subscriptionId: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ServerException({
@@ -3608,6 +4072,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 // se_ConnectorConfigRequest omitted.
 
 // se_ControlPlanePlacementRequest omitted.
+
+// se_EksAnywhereSubscriptionTerm omitted.
 
 // se_EncryptionConfig omitted.
 
@@ -3759,6 +4225,40 @@ const de_ConnectorConfigResponse = (output: any, context: __SerdeContext): Conne
 };
 
 // de_ControlPlanePlacementResponse omitted.
+
+/**
+ * deserializeAws_restJson1EksAnywhereSubscription
+ */
+const de_EksAnywhereSubscription = (output: any, context: __SerdeContext): EksAnywhereSubscription => {
+  return take(output, {
+    arn: __expectString,
+    autoRenew: __expectBoolean,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    effectiveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    expirationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    licenseArns: _json,
+    licenseQuantity: __expectInt32,
+    licenseType: __expectString,
+    status: __expectString,
+    tags: _json,
+    term: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EksAnywhereSubscriptionList
+ */
+const de_EksAnywhereSubscriptionList = (output: any, context: __SerdeContext): EksAnywhereSubscription[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EksAnywhereSubscription(entry, context);
+    });
+  return retVal;
+};
+
+// de_EksAnywhereSubscriptionTerm omitted.
 
 // de_EncryptionConfig omitted.
 

@@ -41,9 +41,9 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *             function during the update. The response output includes an update ID that you can use
  *             to track the status of your cluster update with the <a>DescribeUpdate</a> API
  *             operation.</p>
- *          <p>You can use this API operation to enable or disable exporting the Kubernetes control
- *             plane logs for your cluster to CloudWatch Logs. By default, cluster control plane
- *             logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane Logs</a> in the
+ *          <p>You can use this API operation to enable or disable exporting the Kubernetes control plane
+ *             logs for your cluster to CloudWatch Logs. By default, cluster control plane logs
+ *             aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane Logs</a> in the
  *                 <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>.</p>
@@ -134,8 +134,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API

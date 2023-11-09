@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { ListAddonsRequest, ListAddonsResponse } from "../models/models_0";
-import { de_ListAddonsCommand, se_ListAddonsCommand } from "../protocols/Aws_restJson1";
+import { DescribeEksAnywhereSubscriptionRequest, DescribeEksAnywhereSubscriptionResponse } from "../models/models_0";
+import {
+  de_DescribeEksAnywhereSubscriptionCommand,
+  se_DescribeEksAnywhereSubscriptionCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,59 +28,68 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListAddonsCommand}.
+ * The input for {@link DescribeEksAnywhereSubscriptionCommand}.
  */
-export interface ListAddonsCommandInput extends ListAddonsRequest {}
+export interface DescribeEksAnywhereSubscriptionCommandInput extends DescribeEksAnywhereSubscriptionRequest {}
 /**
  * @public
  *
- * The output of {@link ListAddonsCommand}.
+ * The output of {@link DescribeEksAnywhereSubscriptionCommand}.
  */
-export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataBearer {}
+export interface DescribeEksAnywhereSubscriptionCommandOutput
+  extends DescribeEksAnywhereSubscriptionResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the installed add-ons.</p>
+ * <p>Returns descriptive information about a subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, ListAddonsCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, ListAddonsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DescribeEksAnywhereSubscriptionCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DescribeEksAnywhereSubscriptionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = { // ListAddonsRequest
- *   clusterName: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // DescribeEksAnywhereSubscriptionRequest
+ *   id: "STRING_VALUE", // required
  * };
- * const command = new ListAddonsCommand(input);
+ * const command = new DescribeEksAnywhereSubscriptionCommand(input);
  * const response = await client.send(command);
- * // { // ListAddonsResponse
- * //   addons: [ // StringList
- * //     "STRING_VALUE",
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // DescribeEksAnywhereSubscriptionResponse
+ * //   subscription: { // EksAnywhereSubscription
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     effectiveDate: new Date("TIMESTAMP"),
+ * //     expirationDate: new Date("TIMESTAMP"),
+ * //     licenseQuantity: Number("int"),
+ * //     licenseType: "Cluster",
+ * //     term: { // EksAnywhereSubscriptionTerm
+ * //       duration: Number("int"),
+ * //       unit: "MONTHS",
+ * //     },
+ * //     status: "STRING_VALUE",
+ * //     autoRenew: true || false,
+ * //     licenseArns: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListAddonsCommandInput - {@link ListAddonsCommandInput}
- * @returns {@link ListAddonsCommandOutput}
- * @see {@link ListAddonsCommandInput} for command's `input` shape.
- * @see {@link ListAddonsCommandOutput} for command's `response` shape.
+ * @param DescribeEksAnywhereSubscriptionCommandInput - {@link DescribeEksAnywhereSubscriptionCommandInput}
+ * @returns {@link DescribeEksAnywhereSubscriptionCommandOutput}
+ * @see {@link DescribeEksAnywhereSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DescribeEksAnywhereSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
  *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
  *             the action or resource or specifying an identifier that is not valid.</p>
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
- *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
@@ -88,13 +100,16 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class ListAddonsCommand extends $Command<
-  ListAddonsCommandInput,
-  ListAddonsCommandOutput,
+export class DescribeEksAnywhereSubscriptionCommand extends $Command<
+  DescribeEksAnywhereSubscriptionCommandInput,
+  DescribeEksAnywhereSubscriptionCommandOutput,
   EKSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -112,7 +127,7 @@ export class ListAddonsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListAddonsCommandInput) {
+  constructor(readonly input: DescribeEksAnywhereSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -125,15 +140,17 @@ export class ListAddonsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAddonsCommandInput, ListAddonsCommandOutput> {
+  ): Handler<DescribeEksAnywhereSubscriptionCommandInput, DescribeEksAnywhereSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListAddonsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeEksAnywhereSubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EKSClient";
-    const commandName = "ListAddonsCommand";
+    const commandName = "DescribeEksAnywhereSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -142,7 +159,7 @@ export class ListAddonsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSWesleyFrontend",
-        operation: "ListAddons",
+        operation: "DescribeEksAnywhereSubscription",
       },
     };
     const { requestHandler } = configuration;
@@ -156,15 +173,21 @@ export class ListAddonsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListAddonsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAddonsCommand(input, context);
+  private serialize(
+    input: DescribeEksAnywhereSubscriptionCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_DescribeEksAnywhereSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAddonsCommandOutput> {
-    return de_ListAddonsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeEksAnywhereSubscriptionCommandOutput> {
+    return de_DescribeEksAnywhereSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

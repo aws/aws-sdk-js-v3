@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DescribeFargateProfileRequest, DescribeFargateProfileResponse } from "../models/models_0";
-import { de_DescribeFargateProfileCommand, se_DescribeFargateProfileCommand } from "../protocols/Aws_restJson1";
+import { CreateEksAnywhereSubscriptionRequest, CreateEksAnywhereSubscriptionResponse } from "../models/models_0";
+import {
+  de_CreateEksAnywhereSubscriptionCommand,
+  se_CreateEksAnywhereSubscriptionCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,50 +28,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeFargateProfileCommand}.
+ * The input for {@link CreateEksAnywhereSubscriptionCommand}.
  */
-export interface DescribeFargateProfileCommandInput extends DescribeFargateProfileRequest {}
+export interface CreateEksAnywhereSubscriptionCommandInput extends CreateEksAnywhereSubscriptionRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeFargateProfileCommand}.
+ * The output of {@link CreateEksAnywhereSubscriptionCommand}.
  */
-export interface DescribeFargateProfileCommandOutput extends DescribeFargateProfileResponse, __MetadataBearer {}
+export interface CreateEksAnywhereSubscriptionCommandOutput
+  extends CreateEksAnywhereSubscriptionResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns descriptive information about an Fargate profile.</p>
+ * <p>Creates an EKS Anywhere subscription. When a subscription is created, it is a contract
+ *             agreement for the length of the term specified in the request. Licenses that are used to
+ *             validate support are provisioned in Amazon Web Services License Manager and the caller account is
+ *             granted access to EKS Anywhere Curated Packages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DescribeFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DescribeFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, CreateEksAnywhereSubscriptionCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, CreateEksAnywhereSubscriptionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = { // DescribeFargateProfileRequest
- *   clusterName: "STRING_VALUE", // required
- *   fargateProfileName: "STRING_VALUE", // required
+ * const input = { // CreateEksAnywhereSubscriptionRequest
+ *   name: "STRING_VALUE", // required
+ *   term: { // EksAnywhereSubscriptionTerm
+ *     duration: Number("int"),
+ *     unit: "MONTHS",
+ *   },
+ *   licenseQuantity: Number("int"),
+ *   licenseType: "Cluster",
+ *   autoRenew: true || false,
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new DescribeFargateProfileCommand(input);
+ * const command = new CreateEksAnywhereSubscriptionCommand(input);
  * const response = await client.send(command);
- * // { // DescribeFargateProfileResponse
- * //   fargateProfile: { // FargateProfile
- * //     fargateProfileName: "STRING_VALUE",
- * //     fargateProfileArn: "STRING_VALUE",
- * //     clusterName: "STRING_VALUE",
+ * // { // CreateEksAnywhereSubscriptionResponse
+ * //   subscription: { // EksAnywhereSubscription
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
- * //     podExecutionRoleArn: "STRING_VALUE",
- * //     subnets: [ // StringList
+ * //     effectiveDate: new Date("TIMESTAMP"),
+ * //     expirationDate: new Date("TIMESTAMP"),
+ * //     licenseQuantity: Number("int"),
+ * //     licenseType: "Cluster",
+ * //     term: { // EksAnywhereSubscriptionTerm
+ * //       duration: Number("int"),
+ * //       unit: "MONTHS",
+ * //     },
+ * //     status: "STRING_VALUE",
+ * //     autoRenew: true || false,
+ * //     licenseArns: [ // StringList
  * //       "STRING_VALUE",
  * //     ],
- * //     selectors: [ // FargateProfileSelectors
- * //       { // FargateProfileSelector
- * //         namespace: "STRING_VALUE",
- * //         labels: { // FargateProfileLabel
- * //           "<keys>": "STRING_VALUE",
- * //         },
- * //       },
- * //     ],
- * //     status: "CREATING" || "ACTIVE" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -77,10 +94,10 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  *
  * ```
  *
- * @param DescribeFargateProfileCommandInput - {@link DescribeFargateProfileCommandInput}
- * @returns {@link DescribeFargateProfileCommandOutput}
- * @see {@link DescribeFargateProfileCommandInput} for command's `input` shape.
- * @see {@link DescribeFargateProfileCommandOutput} for command's `response` shape.
+ * @param CreateEksAnywhereSubscriptionCommandInput - {@link CreateEksAnywhereSubscriptionCommandInput}
+ * @returns {@link CreateEksAnywhereSubscriptionCommandOutput}
+ * @see {@link CreateEksAnywhereSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link CreateEksAnywhereSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
@@ -92,22 +109,22 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  *  <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>You have encountered a service limit on the specified resource.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class DescribeFargateProfileCommand extends $Command<
-  DescribeFargateProfileCommandInput,
-  DescribeFargateProfileCommandOutput,
+export class CreateEksAnywhereSubscriptionCommand extends $Command<
+  CreateEksAnywhereSubscriptionCommandInput,
+  CreateEksAnywhereSubscriptionCommandOutput,
   EKSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -125,7 +142,7 @@ export class DescribeFargateProfileCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeFargateProfileCommandInput) {
+  constructor(readonly input: CreateEksAnywhereSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -138,17 +155,17 @@ export class DescribeFargateProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeFargateProfileCommandInput, DescribeFargateProfileCommandOutput> {
+  ): Handler<CreateEksAnywhereSubscriptionCommandInput, CreateEksAnywhereSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeFargateProfileCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateEksAnywhereSubscriptionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EKSClient";
-    const commandName = "DescribeFargateProfileCommand";
+    const commandName = "CreateEksAnywhereSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -157,7 +174,7 @@ export class DescribeFargateProfileCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSWesleyFrontend",
-        operation: "DescribeFargateProfile",
+        operation: "CreateEksAnywhereSubscription",
       },
     };
     const { requestHandler } = configuration;
@@ -171,15 +188,18 @@ export class DescribeFargateProfileCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeFargateProfileCommand(input, context);
+  private serialize(input: CreateEksAnywhereSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateEksAnywhereSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFargateProfileCommandOutput> {
-    return de_DescribeFargateProfileCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreateEksAnywhereSubscriptionCommandOutput> {
+    return de_CreateEksAnywhereSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

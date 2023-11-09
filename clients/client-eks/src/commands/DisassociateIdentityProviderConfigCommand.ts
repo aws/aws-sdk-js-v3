@@ -47,8 +47,8 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  * @public
  * <p>Disassociates an identity provider configuration from a cluster. If you disassociate
  *             an identity provider from your cluster, users included in the provider can no longer
- *             access the cluster. However, you can still access the cluster with Amazon Web Services
- *             IAM users.</p>
+ *             access the cluster. However, you can still access the cluster with
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principals</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,8 +99,8 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API

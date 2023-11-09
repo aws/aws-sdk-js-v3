@@ -39,10 +39,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * @public
  * <p>Creates a managed node group for an Amazon EKS cluster. You can only create a
  *             node group for your cluster that is equal to the current Kubernetes version for the
- *             cluster. All node groups are created with the latest AMI release version for the
- *             respective minor Kubernetes version of the cluster, unless you deploy a custom AMI using
- *             a launch template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
- *                 template support</a>.</p>
+ *             cluster.</p>
  *          <p>An Amazon EKS managed node group is an Amazon EC2
  *             Auto Scaling group and associated Amazon EC2 instances that are managed by
  *                 Amazon Web Services for an Amazon EKS cluster. For more information, see
@@ -192,8 +189,8 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API

@@ -37,16 +37,16 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
 
 /**
  * @public
- * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your
- *             cluster continues to function during the update. The response output includes an update
- *             ID that you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
+ * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster
+ *             continues to function during the update. The response output includes an update ID that
+ *             you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
  *          <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
  *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
  *             eventually consistent). When the update is complete (either <code>Failed</code> or
  *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
- *          <p>If your cluster has managed node groups attached to it, all of your node groups’
- *             Kubernetes versions must match the cluster’s Kubernetes version in order to update the
- *             cluster to a new Kubernetes version.</p>
+ *          <p>If your cluster has managed node groups attached to it, all of your node groups’ Kubernetes
+ *             versions must match the cluster’s Kubernetes version in order to update the cluster to a new
+ *             Kubernetes version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,8 +94,8 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API

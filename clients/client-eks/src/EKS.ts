@@ -19,6 +19,11 @@ import {
   CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  CreateEksAnywhereSubscriptionCommand,
+  CreateEksAnywhereSubscriptionCommandInput,
+  CreateEksAnywhereSubscriptionCommandOutput,
+} from "./commands/CreateEksAnywhereSubscriptionCommand";
+import {
   CreateFargateProfileCommand,
   CreateFargateProfileCommandInput,
   CreateFargateProfileCommandOutput,
@@ -34,6 +39,11 @@ import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
+import {
+  DeleteEksAnywhereSubscriptionCommand,
+  DeleteEksAnywhereSubscriptionCommandInput,
+  DeleteEksAnywhereSubscriptionCommandOutput,
+} from "./commands/DeleteEksAnywhereSubscriptionCommand";
 import {
   DeleteFargateProfileCommand,
   DeleteFargateProfileCommandInput,
@@ -70,6 +80,11 @@ import {
   DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import {
+  DescribeEksAnywhereSubscriptionCommand,
+  DescribeEksAnywhereSubscriptionCommandInput,
+  DescribeEksAnywhereSubscriptionCommandOutput,
+} from "./commands/DescribeEksAnywhereSubscriptionCommand";
+import {
   DescribeFargateProfileCommand,
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput,
@@ -100,6 +115,11 @@ import {
   ListClustersCommandInput,
   ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
+import {
+  ListEksAnywhereSubscriptionsCommand,
+  ListEksAnywhereSubscriptionsCommandInput,
+  ListEksAnywhereSubscriptionsCommandOutput,
+} from "./commands/ListEksAnywhereSubscriptionsCommand";
 import {
   ListFargateProfilesCommand,
   ListFargateProfilesCommandInput,
@@ -144,6 +164,11 @@ import {
   UpdateClusterVersionCommandOutput,
 } from "./commands/UpdateClusterVersionCommand";
 import {
+  UpdateEksAnywhereSubscriptionCommand,
+  UpdateEksAnywhereSubscriptionCommandInput,
+  UpdateEksAnywhereSubscriptionCommandOutput,
+} from "./commands/UpdateEksAnywhereSubscriptionCommand";
+import {
   UpdateNodegroupConfigCommand,
   UpdateNodegroupConfigCommandInput,
   UpdateNodegroupConfigCommandOutput,
@@ -160,10 +185,12 @@ const commands = {
   AssociateIdentityProviderConfigCommand,
   CreateAddonCommand,
   CreateClusterCommand,
+  CreateEksAnywhereSubscriptionCommand,
   CreateFargateProfileCommand,
   CreateNodegroupCommand,
   DeleteAddonCommand,
   DeleteClusterCommand,
+  DeleteEksAnywhereSubscriptionCommand,
   DeleteFargateProfileCommand,
   DeleteNodegroupCommand,
   DeregisterClusterCommand,
@@ -171,6 +198,7 @@ const commands = {
   DescribeAddonConfigurationCommand,
   DescribeAddonVersionsCommand,
   DescribeClusterCommand,
+  DescribeEksAnywhereSubscriptionCommand,
   DescribeFargateProfileCommand,
   DescribeIdentityProviderConfigCommand,
   DescribeNodegroupCommand,
@@ -178,6 +206,7 @@ const commands = {
   DisassociateIdentityProviderConfigCommand,
   ListAddonsCommand,
   ListClustersCommand,
+  ListEksAnywhereSubscriptionsCommand,
   ListFargateProfilesCommand,
   ListIdentityProviderConfigsCommand,
   ListNodegroupsCommand,
@@ -189,6 +218,7 @@ const commands = {
   UpdateAddonCommand,
   UpdateClusterConfigCommand,
   UpdateClusterVersionCommand,
+  UpdateEksAnywhereSubscriptionCommand,
   UpdateNodegroupConfigCommand,
   UpdateNodegroupVersionCommand,
 };
@@ -251,6 +281,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link CreateEksAnywhereSubscriptionCommand}
+   */
+  createEksAnywhereSubscription(
+    args: CreateEksAnywhereSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEksAnywhereSubscriptionCommandOutput>;
+  createEksAnywhereSubscription(
+    args: CreateEksAnywhereSubscriptionCommandInput,
+    cb: (err: any, data?: CreateEksAnywhereSubscriptionCommandOutput) => void
+  ): void;
+  createEksAnywhereSubscription(
+    args: CreateEksAnywhereSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEksAnywhereSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFargateProfileCommand}
    */
   createFargateProfile(
@@ -301,6 +348,23 @@ export interface EKS {
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEksAnywhereSubscriptionCommand}
+   */
+  deleteEksAnywhereSubscription(
+    args: DeleteEksAnywhereSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEksAnywhereSubscriptionCommandOutput>;
+  deleteEksAnywhereSubscription(
+    args: DeleteEksAnywhereSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteEksAnywhereSubscriptionCommandOutput) => void
+  ): void;
+  deleteEksAnywhereSubscription(
+    args: DeleteEksAnywhereSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEksAnywhereSubscriptionCommandOutput) => void
   ): void;
 
   /**
@@ -411,6 +475,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link DescribeEksAnywhereSubscriptionCommand}
+   */
+  describeEksAnywhereSubscription(
+    args: DescribeEksAnywhereSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEksAnywhereSubscriptionCommandOutput>;
+  describeEksAnywhereSubscription(
+    args: DescribeEksAnywhereSubscriptionCommandInput,
+    cb: (err: any, data?: DescribeEksAnywhereSubscriptionCommandOutput) => void
+  ): void;
+  describeEksAnywhereSubscription(
+    args: DescribeEksAnywhereSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEksAnywhereSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFargateProfileCommand}
    */
   describeFargateProfile(
@@ -512,6 +593,23 @@ export interface EKS {
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEksAnywhereSubscriptionsCommand}
+   */
+  listEksAnywhereSubscriptions(
+    args: ListEksAnywhereSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEksAnywhereSubscriptionsCommandOutput>;
+  listEksAnywhereSubscriptions(
+    args: ListEksAnywhereSubscriptionsCommandInput,
+    cb: (err: any, data?: ListEksAnywhereSubscriptionsCommandOutput) => void
+  ): void;
+  listEksAnywhereSubscriptions(
+    args: ListEksAnywhereSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEksAnywhereSubscriptionsCommandOutput) => void
   ): void;
 
   /**
@@ -672,6 +770,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link UpdateEksAnywhereSubscriptionCommand}
+   */
+  updateEksAnywhereSubscription(
+    args: UpdateEksAnywhereSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEksAnywhereSubscriptionCommandOutput>;
+  updateEksAnywhereSubscription(
+    args: UpdateEksAnywhereSubscriptionCommandInput,
+    cb: (err: any, data?: UpdateEksAnywhereSubscriptionCommandOutput) => void
+  ): void;
+  updateEksAnywhereSubscription(
+    args: UpdateEksAnywhereSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEksAnywhereSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateNodegroupConfigCommand}
    */
   updateNodegroupConfig(
@@ -709,15 +824,14 @@ export interface EKS {
 /**
  * @public
  * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
- *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain
- *             your own Kubernetes control plane. Kubernetes is an open-source system for automating
- *             the deployment, scaling, and management of containerized applications. </p>
- *          <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so
- *             you can use all the existing plugins and tooling from the Kubernetes community.
- *             Applications running on Amazon EKS are fully compatible with applications
- *             running on any standard Kubernetes environment, whether running in on-premises data
- *             centers or public clouds. This means that you can easily migrate any standard Kubernetes
- *             application to Amazon EKS without any code modification required.</p>
+ *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain your
+ *             own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
+ *             scaling, and management of containerized applications. </p>
+ *          <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you
+ *             can use all the existing plugins and tooling from the Kubernetes community. Applications
+ *             running on Amazon EKS are fully compatible with applications running on any
+ *             standard Kubernetes environment, whether running in on-premises data centers or public
+ *             clouds. This means that you can easily migrate any standard Kubernetes application to Amazon EKS without any code modification required.</p>
  */
 export class EKS extends EKSClient implements EKS {}
 createAggregatedClient(commands, EKS);
