@@ -1,3 +1,9 @@
+export * from "./DescribeDeliveriesPaginator";
+
+export * from "./DescribeDeliveryDestinationsPaginator";
+
+export * from "./DescribeDeliverySourcesPaginator";
+
 export * from "./DescribeDestinationsPaginator";
 
 export * from "./DescribeLogGroupsPaginator";

@@ -52,6 +52,7 @@ import {
 
 import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "./commands/AssociateKmsKeyCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
+import { CreateDeliveryCommandInput, CreateDeliveryCommandOutput } from "./commands/CreateDeliveryCommand";
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./commands/CreateExportTaskCommand";
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand";
@@ -63,6 +64,19 @@ import {
   DeleteDataProtectionPolicyCommandInput,
   DeleteDataProtectionPolicyCommandOutput,
 } from "./commands/DeleteDataProtectionPolicyCommand";
+import { DeleteDeliveryCommandInput, DeleteDeliveryCommandOutput } from "./commands/DeleteDeliveryCommand";
+import {
+  DeleteDeliveryDestinationCommandInput,
+  DeleteDeliveryDestinationCommandOutput,
+} from "./commands/DeleteDeliveryDestinationCommand";
+import {
+  DeleteDeliveryDestinationPolicyCommandInput,
+  DeleteDeliveryDestinationPolicyCommandOutput,
+} from "./commands/DeleteDeliveryDestinationPolicyCommand";
+import {
+  DeleteDeliverySourceCommandInput,
+  DeleteDeliverySourceCommandOutput,
+} from "./commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand";
 import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./commands/DeleteLogGroupCommand";
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand";
@@ -87,6 +101,15 @@ import {
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
 } from "./commands/DescribeAccountPoliciesCommand";
+import { DescribeDeliveriesCommandInput, DescribeDeliveriesCommandOutput } from "./commands/DescribeDeliveriesCommand";
+import {
+  DescribeDeliveryDestinationsCommandInput,
+  DescribeDeliveryDestinationsCommandOutput,
+} from "./commands/DescribeDeliveryDestinationsCommand";
+import {
+  DescribeDeliverySourcesCommandInput,
+  DescribeDeliverySourcesCommandOutput,
+} from "./commands/DescribeDeliverySourcesCommand";
 import {
   DescribeDestinationsCommandInput,
   DescribeDestinationsCommandOutput,
@@ -120,6 +143,16 @@ import {
   GetDataProtectionPolicyCommandInput,
   GetDataProtectionPolicyCommandOutput,
 } from "./commands/GetDataProtectionPolicyCommand";
+import { GetDeliveryCommandInput, GetDeliveryCommandOutput } from "./commands/GetDeliveryCommand";
+import {
+  GetDeliveryDestinationCommandInput,
+  GetDeliveryDestinationCommandOutput,
+} from "./commands/GetDeliveryDestinationCommand";
+import {
+  GetDeliveryDestinationPolicyCommandInput,
+  GetDeliveryDestinationPolicyCommandOutput,
+} from "./commands/GetDeliveryDestinationPolicyCommand";
+import { GetDeliverySourceCommandInput, GetDeliverySourceCommandOutput } from "./commands/GetDeliverySourceCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/GetLogEventsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
@@ -134,6 +167,15 @@ import {
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
 } from "./commands/PutDataProtectionPolicyCommand";
+import {
+  PutDeliveryDestinationCommandInput,
+  PutDeliveryDestinationCommandOutput,
+} from "./commands/PutDeliveryDestinationCommand";
+import {
+  PutDeliveryDestinationPolicyCommandInput,
+  PutDeliveryDestinationPolicyCommandOutput,
+} from "./commands/PutDeliveryDestinationPolicyCommand";
+import { PutDeliverySourceCommandInput, PutDeliverySourceCommandOutput } from "./commands/PutDeliverySourceCommand";
 import { PutDestinationCommandInput, PutDestinationCommandOutput } from "./commands/PutDestinationCommand";
 import {
   PutDestinationPolicyCommandInput,
@@ -172,11 +214,16 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateKmsKeyCommandInput
   | CancelExportTaskCommandInput
+  | CreateDeliveryCommandInput
   | CreateExportTaskCommandInput
   | CreateLogGroupCommandInput
   | CreateLogStreamCommandInput
   | DeleteAccountPolicyCommandInput
   | DeleteDataProtectionPolicyCommandInput
+  | DeleteDeliveryCommandInput
+  | DeleteDeliveryDestinationCommandInput
+  | DeleteDeliveryDestinationPolicyCommandInput
+  | DeleteDeliverySourceCommandInput
   | DeleteDestinationCommandInput
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
@@ -186,6 +233,9 @@ export type ServiceInputTypes =
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
   | DescribeAccountPoliciesCommandInput
+  | DescribeDeliveriesCommandInput
+  | DescribeDeliveryDestinationsCommandInput
+  | DescribeDeliverySourcesCommandInput
   | DescribeDestinationsCommandInput
   | DescribeExportTasksCommandInput
   | DescribeLogGroupsCommandInput
@@ -198,6 +248,10 @@ export type ServiceInputTypes =
   | DisassociateKmsKeyCommandInput
   | FilterLogEventsCommandInput
   | GetDataProtectionPolicyCommandInput
+  | GetDeliveryCommandInput
+  | GetDeliveryDestinationCommandInput
+  | GetDeliveryDestinationPolicyCommandInput
+  | GetDeliverySourceCommandInput
   | GetLogEventsCommandInput
   | GetLogGroupFieldsCommandInput
   | GetLogRecordCommandInput
@@ -206,6 +260,9 @@ export type ServiceInputTypes =
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
   | PutDataProtectionPolicyCommandInput
+  | PutDeliveryDestinationCommandInput
+  | PutDeliveryDestinationPolicyCommandInput
+  | PutDeliverySourceCommandInput
   | PutDestinationCommandInput
   | PutDestinationPolicyCommandInput
   | PutLogEventsCommandInput
@@ -228,11 +285,16 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateKmsKeyCommandOutput
   | CancelExportTaskCommandOutput
+  | CreateDeliveryCommandOutput
   | CreateExportTaskCommandOutput
   | CreateLogGroupCommandOutput
   | CreateLogStreamCommandOutput
   | DeleteAccountPolicyCommandOutput
   | DeleteDataProtectionPolicyCommandOutput
+  | DeleteDeliveryCommandOutput
+  | DeleteDeliveryDestinationCommandOutput
+  | DeleteDeliveryDestinationPolicyCommandOutput
+  | DeleteDeliverySourceCommandOutput
   | DeleteDestinationCommandOutput
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
@@ -242,6 +304,9 @@ export type ServiceOutputTypes =
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
   | DescribeAccountPoliciesCommandOutput
+  | DescribeDeliveriesCommandOutput
+  | DescribeDeliveryDestinationsCommandOutput
+  | DescribeDeliverySourcesCommandOutput
   | DescribeDestinationsCommandOutput
   | DescribeExportTasksCommandOutput
   | DescribeLogGroupsCommandOutput
@@ -254,6 +319,10 @@ export type ServiceOutputTypes =
   | DisassociateKmsKeyCommandOutput
   | FilterLogEventsCommandOutput
   | GetDataProtectionPolicyCommandOutput
+  | GetDeliveryCommandOutput
+  | GetDeliveryDestinationCommandOutput
+  | GetDeliveryDestinationPolicyCommandOutput
+  | GetDeliverySourceCommandOutput
   | GetLogEventsCommandOutput
   | GetLogGroupFieldsCommandOutput
   | GetLogRecordCommandOutput
@@ -262,6 +331,9 @@ export type ServiceOutputTypes =
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput
   | PutDataProtectionPolicyCommandOutput
+  | PutDeliveryDestinationCommandOutput
+  | PutDeliveryDestinationPolicyCommandOutput
+  | PutDeliverySourceCommandOutput
   | PutDestinationCommandOutput
   | PutDestinationPolicyCommandOutput
   | PutLogEventsCommandOutput

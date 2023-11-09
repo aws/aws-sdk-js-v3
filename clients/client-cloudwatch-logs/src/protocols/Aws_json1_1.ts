@@ -21,6 +21,7 @@ import { v4 as generateIdempotencyToken } from "uuid";
 
 import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "../commands/AssociateKmsKeyCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "../commands/CancelExportTaskCommand";
+import { CreateDeliveryCommandInput, CreateDeliveryCommandOutput } from "../commands/CreateDeliveryCommand";
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "../commands/CreateExportTaskCommand";
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "../commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "../commands/CreateLogStreamCommand";
@@ -32,6 +33,19 @@ import {
   DeleteDataProtectionPolicyCommandInput,
   DeleteDataProtectionPolicyCommandOutput,
 } from "../commands/DeleteDataProtectionPolicyCommand";
+import { DeleteDeliveryCommandInput, DeleteDeliveryCommandOutput } from "../commands/DeleteDeliveryCommand";
+import {
+  DeleteDeliveryDestinationCommandInput,
+  DeleteDeliveryDestinationCommandOutput,
+} from "../commands/DeleteDeliveryDestinationCommand";
+import {
+  DeleteDeliveryDestinationPolicyCommandInput,
+  DeleteDeliveryDestinationPolicyCommandOutput,
+} from "../commands/DeleteDeliveryDestinationPolicyCommand";
+import {
+  DeleteDeliverySourceCommandInput,
+  DeleteDeliverySourceCommandOutput,
+} from "../commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "../commands/DeleteDestinationCommand";
 import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "../commands/DeleteLogGroupCommand";
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "../commands/DeleteLogStreamCommand";
@@ -56,6 +70,15 @@ import {
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
 } from "../commands/DescribeAccountPoliciesCommand";
+import { DescribeDeliveriesCommandInput, DescribeDeliveriesCommandOutput } from "../commands/DescribeDeliveriesCommand";
+import {
+  DescribeDeliveryDestinationsCommandInput,
+  DescribeDeliveryDestinationsCommandOutput,
+} from "../commands/DescribeDeliveryDestinationsCommand";
+import {
+  DescribeDeliverySourcesCommandInput,
+  DescribeDeliverySourcesCommandOutput,
+} from "../commands/DescribeDeliverySourcesCommand";
 import {
   DescribeDestinationsCommandInput,
   DescribeDestinationsCommandOutput,
@@ -89,6 +112,16 @@ import {
   GetDataProtectionPolicyCommandInput,
   GetDataProtectionPolicyCommandOutput,
 } from "../commands/GetDataProtectionPolicyCommand";
+import { GetDeliveryCommandInput, GetDeliveryCommandOutput } from "../commands/GetDeliveryCommand";
+import {
+  GetDeliveryDestinationCommandInput,
+  GetDeliveryDestinationCommandOutput,
+} from "../commands/GetDeliveryDestinationCommand";
+import {
+  GetDeliveryDestinationPolicyCommandInput,
+  GetDeliveryDestinationPolicyCommandOutput,
+} from "../commands/GetDeliveryDestinationPolicyCommand";
+import { GetDeliverySourceCommandInput, GetDeliverySourceCommandOutput } from "../commands/GetDeliverySourceCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "../commands/GetLogEventsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "../commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "../commands/GetLogRecordCommand";
@@ -103,6 +136,15 @@ import {
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
 } from "../commands/PutDataProtectionPolicyCommand";
+import {
+  PutDeliveryDestinationCommandInput,
+  PutDeliveryDestinationCommandOutput,
+} from "../commands/PutDeliveryDestinationCommand";
+import {
+  PutDeliveryDestinationPolicyCommandInput,
+  PutDeliveryDestinationPolicyCommandOutput,
+} from "../commands/PutDeliveryDestinationPolicyCommand";
+import { PutDeliverySourceCommandInput, PutDeliverySourceCommandOutput } from "../commands/PutDeliverySourceCommand";
 import { PutDestinationCommandInput, PutDestinationCommandOutput } from "../commands/PutDestinationCommand";
 import {
   PutDestinationPolicyCommandInput,
@@ -126,14 +168,21 @@ import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "../comman
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { CloudWatchLogsServiceException as __BaseException } from "../models/CloudWatchLogsServiceException";
 import {
+  AccessDeniedException,
   AssociateKmsKeyRequest,
   CancelExportTaskRequest,
+  ConflictException,
+  CreateDeliveryRequest,
   CreateExportTaskRequest,
   CreateLogGroupRequest,
   CreateLogStreamRequest,
   DataAlreadyAcceptedException,
   DeleteAccountPolicyRequest,
   DeleteDataProtectionPolicyRequest,
+  DeleteDeliveryDestinationPolicyRequest,
+  DeleteDeliveryDestinationRequest,
+  DeleteDeliveryRequest,
+  DeleteDeliverySourceRequest,
   DeleteDestinationRequest,
   DeleteLogGroupRequest,
   DeleteLogStreamRequest,
@@ -142,7 +191,11 @@ import {
   DeleteResourcePolicyRequest,
   DeleteRetentionPolicyRequest,
   DeleteSubscriptionFilterRequest,
+  DeliveryDestinationConfiguration,
   DescribeAccountPoliciesRequest,
+  DescribeDeliveriesRequest,
+  DescribeDeliveryDestinationsRequest,
+  DescribeDeliverySourcesRequest,
   DescribeDestinationsRequest,
   DescribeExportTasksRequest,
   DescribeLogGroupsRequest,
@@ -156,6 +209,10 @@ import {
   DisassociateKmsKeyRequest,
   FilterLogEventsRequest,
   GetDataProtectionPolicyRequest,
+  GetDeliveryDestinationPolicyRequest,
+  GetDeliveryDestinationRequest,
+  GetDeliveryRequest,
+  GetDeliverySourceRequest,
   GetLogEventsRequest,
   GetLogGroupFieldsRequest,
   GetLogRecordRequest,
@@ -174,6 +231,9 @@ import {
   OperationAbortedException,
   PutAccountPolicyRequest,
   PutDataProtectionPolicyRequest,
+  PutDeliveryDestinationPolicyRequest,
+  PutDeliveryDestinationRequest,
+  PutDeliverySourceRequest,
   PutDestinationPolicyRequest,
   PutDestinationRequest,
   PutLogEventsRequest,
@@ -185,16 +245,19 @@ import {
   QueryStatistics,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  ServiceQuotaExceededException,
   ServiceUnavailableException,
   StartQueryRequest,
   StopQueryRequest,
   TagLogGroupRequest,
   TagResourceRequest,
   TestMetricFilterRequest,
+  ThrottlingException,
   TooManyTagsException,
   UnrecognizedClientException,
   UntagLogGroupRequest,
   UntagResourceRequest,
+  ValidationException,
 } from "../models/models_0";
 
 /**
@@ -218,6 +281,19 @@ export const se_CancelExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelExportTask");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateDeliveryCommand
+ */
+export const se_CreateDeliveryCommand = async (
+  input: CreateDeliveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateDelivery");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -283,6 +359,58 @@ export const se_DeleteDataProtectionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDataProtectionPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteDeliveryCommand
+ */
+export const se_DeleteDeliveryCommand = async (
+  input: DeleteDeliveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDelivery");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteDeliveryDestinationCommand
+ */
+export const se_DeleteDeliveryDestinationCommand = async (
+  input: DeleteDeliveryDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDeliveryDestination");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteDeliveryDestinationPolicyCommand
+ */
+export const se_DeleteDeliveryDestinationPolicyCommand = async (
+  input: DeleteDeliveryDestinationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDeliveryDestinationPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteDeliverySourceCommand
+ */
+export const se_DeleteDeliverySourceCommand = async (
+  input: DeleteDeliverySourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDeliverySource");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -400,6 +528,45 @@ export const se_DescribeAccountPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountPolicies");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeDeliveriesCommand
+ */
+export const se_DescribeDeliveriesCommand = async (
+  input: DescribeDeliveriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDeliveries");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeDeliveryDestinationsCommand
+ */
+export const se_DescribeDeliveryDestinationsCommand = async (
+  input: DescribeDeliveryDestinationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDeliveryDestinations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeDeliverySourcesCommand
+ */
+export const se_DescribeDeliverySourcesCommand = async (
+  input: DescribeDeliverySourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDeliverySources");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -562,6 +729,58 @@ export const se_GetDataProtectionPolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetDeliveryCommand
+ */
+export const se_GetDeliveryCommand = async (
+  input: GetDeliveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDelivery");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetDeliveryDestinationCommand
+ */
+export const se_GetDeliveryDestinationCommand = async (
+  input: GetDeliveryDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDeliveryDestination");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetDeliveryDestinationPolicyCommand
+ */
+export const se_GetDeliveryDestinationPolicyCommand = async (
+  input: GetDeliveryDestinationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDeliveryDestinationPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetDeliverySourceCommand
+ */
+export const se_GetDeliverySourceCommand = async (
+  input: GetDeliverySourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDeliverySource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetLogEventsCommand
  */
 export const se_GetLogEventsCommand = async (
@@ -660,6 +879,45 @@ export const se_PutDataProtectionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutDataProtectionPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutDeliveryDestinationCommand
+ */
+export const se_PutDeliveryDestinationCommand = async (
+  input: PutDeliveryDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutDeliveryDestination");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutDeliveryDestinationPolicyCommand
+ */
+export const se_PutDeliveryDestinationPolicyCommand = async (
+  input: PutDeliveryDestinationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutDeliveryDestinationPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutDeliverySourceCommand
+ */
+export const se_PutDeliverySourceCommand = async (
+  input: PutDeliverySourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutDeliverySource");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -965,6 +1223,70 @@ const de_CancelExportTaskCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateDeliveryCommand
+ */
+export const de_CreateDeliveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDeliveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateDeliveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDeliveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDeliveryCommandError
+ */
+const de_CreateDeliveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDeliveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cloudwatchlogs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1CreateExportTaskCommand
  */
 export const de_CreateExportTaskCommand = async (
@@ -1226,6 +1548,232 @@ const de_DeleteDataProtectionPolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliveryCommand
+ */
+export const de_DeleteDeliveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDeliveryCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDeliveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliveryCommandError
+ */
+const de_DeleteDeliveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliveryDestinationCommand
+ */
+export const de_DeleteDeliveryDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDeliveryDestinationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDeliveryDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliveryDestinationCommandError
+ */
+const de_DeleteDeliveryDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliveryDestinationPolicyCommand
+ */
+export const de_DeleteDeliveryDestinationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryDestinationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDeliveryDestinationPolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDeliveryDestinationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliveryDestinationPolicyCommandError
+ */
+const de_DeleteDeliveryDestinationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryDestinationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliverySourceCommand
+ */
+export const de_DeleteDeliverySourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliverySourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDeliverySourceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDeliverySourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeliverySourceCommandError
+ */
+const de_DeleteDeliverySourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliverySourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1694,6 +2242,171 @@ const de_DescribeAccountPoliciesCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeDeliveriesCommand
+ */
+export const de_DescribeDeliveriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDeliveriesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeDeliveriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDeliveriesCommandError
+ */
+const de_DescribeDeliveriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeDeliveryDestinationsCommand
+ */
+export const de_DescribeDeliveryDestinationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveryDestinationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDeliveryDestinationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeDeliveryDestinationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDeliveryDestinationsCommandError
+ */
+const de_DescribeDeliveryDestinationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveryDestinationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeDeliverySourcesCommand
+ */
+export const de_DescribeDeliverySourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliverySourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDeliverySourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeDeliverySourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDeliverySourcesCommandError
+ */
+const de_DescribeDeliverySourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliverySourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2317,6 +3030,232 @@ const de_GetDataProtectionPolicyCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetDeliveryCommand
+ */
+export const de_GetDeliveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetDeliveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDeliveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeliveryCommandError
+ */
+const de_GetDeliveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetDeliveryDestinationCommand
+ */
+export const de_GetDeliveryDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliveryDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetDeliveryDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDeliveryDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeliveryDestinationCommandError
+ */
+const de_GetDeliveryDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliveryDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetDeliveryDestinationPolicyCommand
+ */
+export const de_GetDeliveryDestinationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliveryDestinationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetDeliveryDestinationPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDeliveryDestinationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeliveryDestinationPolicyCommandError
+ */
+const de_GetDeliveryDestinationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliveryDestinationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetDeliverySourceCommand
+ */
+export const de_GetDeliverySourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliverySourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetDeliverySourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDeliverySourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeliverySourceCommandError
+ */
+const de_GetDeliverySourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeliverySourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetLogEventsCommand
  */
 export const de_GetLogEventsCommand = async (
@@ -2734,6 +3673,183 @@ const de_PutDataProtectionPolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutDeliveryDestinationCommand
+ */
+export const de_PutDeliveryDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliveryDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutDeliveryDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutDeliveryDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutDeliveryDestinationCommandError
+ */
+const de_PutDeliveryDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliveryDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutDeliveryDestinationPolicyCommand
+ */
+export const de_PutDeliveryDestinationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliveryDestinationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutDeliveryDestinationPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutDeliveryDestinationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutDeliveryDestinationPolicyCommandError
+ */
+const de_PutDeliveryDestinationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliveryDestinationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutDeliverySourceCommand
+ */
+export const de_PutDeliverySourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliverySourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutDeliverySourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutDeliverySourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutDeliverySourceCommandError
+ */
+const de_PutDeliverySourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliverySourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3525,6 +4641,35 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1DataAlreadyAcceptedExceptionRes
  */
 const de_DataAlreadyAcceptedExceptionRes = async (
@@ -3669,6 +4814,22 @@ const de_ResourceNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServiceUnavailableExceptionRes
  */
 const de_ServiceUnavailableExceptionRes = async (
@@ -3678,6 +4839,19 @@ const de_ServiceUnavailableExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3716,11 +4890,26 @@ const de_UnrecognizedClientExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 // se_AccountIds omitted.
 
 // se_AssociateKmsKeyRequest omitted.
 
 // se_CancelExportTaskRequest omitted.
+
+// se_CreateDeliveryRequest omitted.
 
 // se_CreateExportTaskRequest omitted.
 
@@ -3731,6 +4920,14 @@ const de_UnrecognizedClientExceptionRes = async (
 // se_DeleteAccountPolicyRequest omitted.
 
 // se_DeleteDataProtectionPolicyRequest omitted.
+
+// se_DeleteDeliveryDestinationPolicyRequest omitted.
+
+// se_DeleteDeliveryDestinationRequest omitted.
+
+// se_DeleteDeliveryRequest omitted.
+
+// se_DeleteDeliverySourceRequest omitted.
 
 // se_DeleteDestinationRequest omitted.
 
@@ -3748,7 +4945,15 @@ const de_UnrecognizedClientExceptionRes = async (
 
 // se_DeleteSubscriptionFilterRequest omitted.
 
+// se_DeliveryDestinationConfiguration omitted.
+
 // se_DescribeAccountPoliciesRequest omitted.
+
+// se_DescribeDeliveriesRequest omitted.
+
+// se_DescribeDeliveryDestinationsRequest omitted.
+
+// se_DescribeDeliverySourcesRequest omitted.
 
 // se_DescribeDestinationsRequest omitted.
 
@@ -3775,6 +4980,14 @@ const de_UnrecognizedClientExceptionRes = async (
 // se_FilterLogEventsRequest omitted.
 
 // se_GetDataProtectionPolicyRequest omitted.
+
+// se_GetDeliveryDestinationPolicyRequest omitted.
+
+// se_GetDeliveryDestinationRequest omitted.
+
+// se_GetDeliveryRequest omitted.
+
+// se_GetDeliverySourceRequest omitted.
 
 // se_GetLogEventsRequest omitted.
 
@@ -3826,6 +5039,12 @@ const se_MetricTransformations = (input: MetricTransformation[], context: __Serd
 // se_PutAccountPolicyRequest omitted.
 
 // se_PutDataProtectionPolicyRequest omitted.
+
+// se_PutDeliveryDestinationPolicyRequest omitted.
+
+// se_PutDeliveryDestinationRequest omitted.
+
+// se_PutDeliverySourceRequest omitted.
 
 // se_PutDestinationPolicyRequest omitted.
 
@@ -3886,9 +5105,15 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // se_UntagResourceRequest omitted.
 
+// de_AccessDeniedException omitted.
+
 // de_AccountPolicies omitted.
 
 // de_AccountPolicy omitted.
+
+// de_ConflictException omitted.
+
+// de_CreateDeliveryResponse omitted.
 
 // de_CreateExportTaskResponse omitted.
 
@@ -3896,7 +5121,27 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // de_DeleteQueryDefinitionResponse omitted.
 
+// de_Deliveries omitted.
+
+// de_Delivery omitted.
+
+// de_DeliveryDestination omitted.
+
+// de_DeliveryDestinationConfiguration omitted.
+
+// de_DeliveryDestinations omitted.
+
+// de_DeliverySource omitted.
+
+// de_DeliverySources omitted.
+
 // de_DescribeAccountPoliciesResponse omitted.
+
+// de_DescribeDeliveriesResponse omitted.
+
+// de_DescribeDeliveryDestinationsResponse omitted.
+
+// de_DescribeDeliverySourcesResponse omitted.
 
 // de_DescribeDestinationsResponse omitted.
 
@@ -3947,6 +5192,14 @@ const de_DescribeMetricFiltersResponse = (output: any, context: __SerdeContext):
 // de_FilterLogEventsResponse omitted.
 
 // de_GetDataProtectionPolicyResponse omitted.
+
+// de_GetDeliveryDestinationPolicyResponse omitted.
+
+// de_GetDeliveryDestinationResponse omitted.
+
+// de_GetDeliveryResponse omitted.
+
+// de_GetDeliverySourceResponse omitted.
 
 // de_GetLogEventsResponse omitted.
 
@@ -4059,9 +5312,17 @@ const de_MetricTransformations = (output: any, context: __SerdeContext): MetricT
 
 // de_OutputLogEvents omitted.
 
+// de_Policy omitted.
+
 // de_PutAccountPolicyResponse omitted.
 
 // de_PutDataProtectionPolicyResponse omitted.
+
+// de_PutDeliveryDestinationPolicyResponse omitted.
+
+// de_PutDeliveryDestinationResponse omitted.
+
+// de_PutDeliverySourceResponse omitted.
 
 // de_PutDestinationResponse omitted.
 
@@ -4100,6 +5361,8 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
 
 // de_ResourceAlreadyExistsException omitted.
 
+// de_ResourceArns omitted.
+
 // de_ResourceNotFoundException omitted.
 
 // de_ResourcePolicies omitted.
@@ -4113,6 +5376,8 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
 // de_SearchedLogStream omitted.
 
 // de_SearchedLogStreams omitted.
+
+// de_ServiceQuotaExceededException omitted.
 
 // de_ServiceUnavailableException omitted.
 
@@ -4128,9 +5393,13 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
 
 // de_TestMetricFilterResponse omitted.
 
+// de_ThrottlingException omitted.
+
 // de_TooManyTagsException omitted.
 
 // de_UnrecognizedClientException omitted.
+
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

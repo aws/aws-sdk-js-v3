@@ -5,6 +5,26 @@ import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchL
 
 /**
  * @public
+ * <p>You don't have sufficient permissions to perform this action.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const PolicyType = {
@@ -232,6 +252,184 @@ export class InvalidOperationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidOperationException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>This operation attempted to create a resource that already exists.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateDeliveryRequest {
+  /**
+   * @public
+   * <p>The name of the delivery source to use for this delivery.</p>
+   */
+  deliverySourceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the delivery destination to use for this delivery.</p>
+   */
+  deliveryDestinationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryDestinationType = {
+  CWL: "CWL",
+  FH: "FH",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryDestinationType = (typeof DeliveryDestinationType)[keyof typeof DeliveryDestinationType];
+
+/**
+ * @public
+ * <p>This structure contains information about one <i>delivery</i> in your account. </p>
+ *          <p>A delivery is a connection between a logical <i>delivery source</i> and a logical
+ *      <i>delivery destination</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ *          <p>You can't update an existing delivery. You can only create and delete deliveries.</p>
+ */
+export interface Delivery {
+  /**
+   * @public
+   * <p>The unique ID that identifies this delivery in your account.</p>
+   */
+  id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the delivery source that is associated with this delivery.</p>
+   */
+  deliverySourceName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the delivery destination that is associated with this delivery.</p>
+   */
+  deliveryDestinationArn?: string;
+
+  /**
+   * @public
+   * <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+   */
+  deliveryDestinationType?: DeliveryDestinationType;
+
+  /**
+   * @public
+   * <p>The tags that have been assigned to this delivery.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateDeliveryResponse {
+  /**
+   * @public
+   * <p>A structure that contains information about the delivery that you just created.</p>
+   */
+  delivery?: Delivery;
+}
+
+/**
+ * @public
+ * <p>This request exceeds a service quota.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was throttled because of quota limits.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>One of the parameters for the request is not valid.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -465,6 +663,53 @@ export interface DeleteDataProtectionPolicyRequest {
 /**
  * @public
  */
+export interface DeleteDeliveryRequest {
+  /**
+   * @public
+   * <p>The unique ID of the delivery to delete. You can find the ID of a delivery with the
+   *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation.</p>
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeliveryDestinationRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to delete. You can find a list of delivery destionation names
+   *         by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html">DescribeDeliveryDestinations</a>
+   *       operation.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeliveryDestinationPolicyRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to delete the policy for.</p>
+   */
+  deliveryDestinationName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeliverySourceRequest {
+  /**
+   * @public
+   * <p>The name of the delivery source that you want to delete.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteDestinationRequest {
   /**
    * @public
@@ -583,6 +828,182 @@ export interface DeleteSubscriptionFilterRequest {
 
 /**
  * @public
+ * <p>A structure that contains information about one logs delivery destination.</p>
+ */
+export interface DeliveryDestinationConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination
+   *        can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Kinesis Data Firehose.</p>
+   */
+  destinationResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  JSON: "json",
+  PARQUET: "parquet",
+  PLAIN: "plain",
+  RAW: "raw",
+  W3C: "w3c",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ * <p>This structure contains information about one <i>delivery destination</i> in your account.
+ *      A delivery destination is an Amazon Web Services resource that represents an
+ *      shared id="AWS"/> service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</p>
+ *          <p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Create a delivery source, which is a logical object that represents the resource that is actually
+ *          sending the logs. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery destination</i>, which is a logical object that represents the actual
+ *          delivery destination. </p>
+ *             </li>
+ *             <li>
+ *                <p>If you are delivering logs cross-account, you must use
+ *          <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a>
+ *          in the destination account to assign an IAM policy to the
+ *          destination. This policy allows delivery to that destination.
+ *        </p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You
+ *      can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ */
+export interface DeliveryDestination {
+  /**
+   * @public
+   * <p>The name of this delivery destination.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+   */
+  deliveryDestinationType?: DeliveryDestinationType;
+
+  /**
+   * @public
+   * <p>The format of the logs that are sent to this delivery destination. </p>
+   */
+  outputFormat?: OutputFormat;
+
+  /**
+   * @public
+   * <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
+   */
+  deliveryDestinationConfiguration?: DeliveryDestinationConfiguration;
+
+  /**
+   * @public
+   * <p>The tags that have been assigned to this delivery destination.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>This structure contains information about one <i>delivery source</i> in your account.
+ *        A delivery source is an Amazon Web Services resource that sends logs to an
+ *        Amazon Web Services destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+ *          <p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed
+ *        as <b>Supported [V2 Permissions]</b> in the table at
+ *        <a href="https://docs.aws.amazon.com/     AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions">Enabling
+ *          logging from Amazon Web Services services.</a>
+ *          </p>
+ *          <p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Create a delivery source, which is a logical object that represents the resource that is actually
+ *          sending the logs. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery destination</i>, which is a logical object that represents the actual
+ *          delivery destination.  For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you are delivering logs cross-account, you must use
+ *          <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a>
+ *          in the destination account to assign an IAM policy to the
+ *          destination. This policy allows delivery to that destination.
+ *        </p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You
+ *        can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ */
+export interface DeliverySource {
+  /**
+   * @public
+   * <p>The unique name of the delivery source.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery source.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>This array contains the ARN of the Amazon Web Services resource that sends logs and is represented by
+   *       this delivery source. Currently, only one ARN can be in the array.</p>
+   */
+  resourceArns?: string[];
+
+  /**
+   * @public
+   * <p>The Amazon Web Services service that is sending logs.</p>
+   */
+  service?: string;
+
+  /**
+   * @public
+   * <p>The type of log that the source is sending. For valid values for this parameter, see the documentation for
+   *        the source service.</p>
+   */
+  logType?: string;
+
+  /**
+   * @public
+   * <p>The tags that have been assigned to this delivery source.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
  */
 export interface DescribeAccountPoliciesRequest {
   /**
@@ -620,6 +1041,108 @@ export interface DescribeAccountPoliciesResponse {
    *     the specified filters.</p>
    */
   accountPolicies?: AccountPolicy[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveriesRequest {
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the maximum number of deliveries to return in the response.</p>
+   */
+  limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveriesResponse {
+  /**
+   * @public
+   * <p>An array of structures. Each structure contains information about one delivery in the account.</p>
+   */
+  deliveries?: Delivery[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveryDestinationsRequest {
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the maximum number of delivery destinations to return in the response.</p>
+   */
+  limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveryDestinationsResponse {
+  /**
+   * @public
+   * <p>An array of structures. Each structure contains information about one delivery destination in the account.</p>
+   */
+  deliveryDestinations?: DeliveryDestination[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliverySourcesRequest {
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the maximum number of delivery sources to return in the response.</p>
+   */
+  limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliverySourcesResponse {
+  /**
+   * @public
+   * <p>An array of structures. Each structure contains information about one delivery source in the account.</p>
+   */
+  deliverySources?: DeliverySource[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -2040,6 +2563,106 @@ export interface GetDataProtectionPolicyResponse {
 /**
  * @public
  */
+export interface GetDeliveryRequest {
+  /**
+   * @public
+   * <p>The ID of the delivery that you want to retrieve.</p>
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryResponse {
+  /**
+   * @public
+   * <p>A structure that contains information about the delivery.</p>
+   */
+  delivery?: Delivery;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to retrieve.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery destination.</p>
+   */
+  deliveryDestination?: DeliveryDestination;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationPolicyRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to retrieve the policy of.</p>
+   */
+  deliveryDestinationName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A structure that contains information about one delivery destination policy.</p>
+ */
+export interface Policy {
+  /**
+   * @public
+   * <p>The contents of the delivery destination policy.</p>
+   */
+  deliveryDestinationPolicy?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationPolicyResponse {
+  /**
+   * @public
+   * <p>The IAM policy for this delivery destination.</p>
+   */
+  policy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliverySourceRequest {
+  /**
+   * @public
+   * <p>The name of the delivery source that you want to retrieve.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliverySourceResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery source.</p>
+   */
+  deliverySource?: DeliverySource;
+}
+
+/**
+ * @public
+ */
 export interface GetLogEventsRequest {
   /**
    * @public
@@ -2629,6 +3252,123 @@ export interface PutDataProtectionPolicyResponse {
    * <p>The date and time that this policy was most recently updated.</p>
    */
   lastUpdatedTime?: number;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationRequest {
+  /**
+   * @public
+   * <p>A name for this delivery destination. This name must be unique for all delivery destinations in your account.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The format for the logs that this delivery destination will receive.</p>
+   */
+  outputFormat?: OutputFormat;
+
+  /**
+   * @public
+   * <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
+   */
+  deliveryDestinationConfiguration: DeliveryDestinationConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery destination that you just created or updated.</p>
+   */
+  deliveryDestination?: DeliveryDestination;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationPolicyRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination to assign this policy to.</p>
+   */
+  deliveryDestinationName: string | undefined;
+
+  /**
+   * @public
+   * <p>The contents of the policy.</p>
+   */
+  deliveryDestinationPolicy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationPolicyResponse {
+  /**
+   * @public
+   * <p>The contents of the policy that you just created.</p>
+   */
+  policy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliverySourceRequest {
+  /**
+   * @public
+   * <p>A name for this delivery source. This name must be unique for all delivery sources in your account.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the Amazon Web Services resource that is generating and sending logs.
+   *        For example, <code>arn:aws:workmail:us-east-1:123456789012:organization/m-1234EXAMPLEabcd1234abcd1234abcd1234</code>
+   *          </p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Defines the type of log that the source is sending. For valid values for this parameter, see the documentation for
+   *       the source service.</p>
+   */
+  logType: string | undefined;
+
+  /**
+   * @public
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliverySourceResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery source that was just created or updated.</p>
+   */
+  deliverySource?: DeliverySource;
 }
 
 /**

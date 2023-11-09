@@ -43,7 +43,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *       in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a>
  *       operation to get the full log record.</p>
  *          <p>
- *             <code>GetQueryResults</code> does not start running a query. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.</p>
+ *             <code>GetQueryResults</code> does not start running a query. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>. For more information about how long results of previous queries
+ *       are available, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html">CloudWatch Logs quotas</a>.</p>
  *          <p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation
  *       returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status,
  *       you can retry the operation later to see the final results. </p>

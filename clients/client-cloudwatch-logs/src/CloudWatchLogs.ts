@@ -14,6 +14,11 @@ import {
   CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
+  CreateDeliveryCommand,
+  CreateDeliveryCommandInput,
+  CreateDeliveryCommandOutput,
+} from "./commands/CreateDeliveryCommand";
+import {
   CreateExportTaskCommand,
   CreateExportTaskCommandInput,
   CreateExportTaskCommandOutput,
@@ -38,6 +43,26 @@ import {
   DeleteDataProtectionPolicyCommandInput,
   DeleteDataProtectionPolicyCommandOutput,
 } from "./commands/DeleteDataProtectionPolicyCommand";
+import {
+  DeleteDeliveryCommand,
+  DeleteDeliveryCommandInput,
+  DeleteDeliveryCommandOutput,
+} from "./commands/DeleteDeliveryCommand";
+import {
+  DeleteDeliveryDestinationCommand,
+  DeleteDeliveryDestinationCommandInput,
+  DeleteDeliveryDestinationCommandOutput,
+} from "./commands/DeleteDeliveryDestinationCommand";
+import {
+  DeleteDeliveryDestinationPolicyCommand,
+  DeleteDeliveryDestinationPolicyCommandInput,
+  DeleteDeliveryDestinationPolicyCommandOutput,
+} from "./commands/DeleteDeliveryDestinationPolicyCommand";
+import {
+  DeleteDeliverySourceCommand,
+  DeleteDeliverySourceCommandInput,
+  DeleteDeliverySourceCommandOutput,
+} from "./commands/DeleteDeliverySourceCommand";
 import {
   DeleteDestinationCommand,
   DeleteDestinationCommandInput,
@@ -83,6 +108,21 @@ import {
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
 } from "./commands/DescribeAccountPoliciesCommand";
+import {
+  DescribeDeliveriesCommand,
+  DescribeDeliveriesCommandInput,
+  DescribeDeliveriesCommandOutput,
+} from "./commands/DescribeDeliveriesCommand";
+import {
+  DescribeDeliveryDestinationsCommand,
+  DescribeDeliveryDestinationsCommandInput,
+  DescribeDeliveryDestinationsCommandOutput,
+} from "./commands/DescribeDeliveryDestinationsCommand";
+import {
+  DescribeDeliverySourcesCommand,
+  DescribeDeliverySourcesCommandInput,
+  DescribeDeliverySourcesCommandOutput,
+} from "./commands/DescribeDeliverySourcesCommand";
 import {
   DescribeDestinationsCommand,
   DescribeDestinationsCommandInput,
@@ -143,6 +183,22 @@ import {
   GetDataProtectionPolicyCommandInput,
   GetDataProtectionPolicyCommandOutput,
 } from "./commands/GetDataProtectionPolicyCommand";
+import { GetDeliveryCommand, GetDeliveryCommandInput, GetDeliveryCommandOutput } from "./commands/GetDeliveryCommand";
+import {
+  GetDeliveryDestinationCommand,
+  GetDeliveryDestinationCommandInput,
+  GetDeliveryDestinationCommandOutput,
+} from "./commands/GetDeliveryDestinationCommand";
+import {
+  GetDeliveryDestinationPolicyCommand,
+  GetDeliveryDestinationPolicyCommandInput,
+  GetDeliveryDestinationPolicyCommandOutput,
+} from "./commands/GetDeliveryDestinationPolicyCommand";
+import {
+  GetDeliverySourceCommand,
+  GetDeliverySourceCommandInput,
+  GetDeliverySourceCommandOutput,
+} from "./commands/GetDeliverySourceCommand";
 import {
   GetLogEventsCommand,
   GetLogEventsCommandInput,
@@ -183,6 +239,21 @@ import {
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
 } from "./commands/PutDataProtectionPolicyCommand";
+import {
+  PutDeliveryDestinationCommand,
+  PutDeliveryDestinationCommandInput,
+  PutDeliveryDestinationCommandOutput,
+} from "./commands/PutDeliveryDestinationCommand";
+import {
+  PutDeliveryDestinationPolicyCommand,
+  PutDeliveryDestinationPolicyCommandInput,
+  PutDeliveryDestinationPolicyCommandOutput,
+} from "./commands/PutDeliveryDestinationPolicyCommand";
+import {
+  PutDeliverySourceCommand,
+  PutDeliverySourceCommandInput,
+  PutDeliverySourceCommandOutput,
+} from "./commands/PutDeliverySourceCommand";
 import {
   PutDestinationCommand,
   PutDestinationCommandInput,
@@ -246,11 +317,16 @@ import {
 const commands = {
   AssociateKmsKeyCommand,
   CancelExportTaskCommand,
+  CreateDeliveryCommand,
   CreateExportTaskCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
   DeleteAccountPolicyCommand,
   DeleteDataProtectionPolicyCommand,
+  DeleteDeliveryCommand,
+  DeleteDeliveryDestinationCommand,
+  DeleteDeliveryDestinationPolicyCommand,
+  DeleteDeliverySourceCommand,
   DeleteDestinationCommand,
   DeleteLogGroupCommand,
   DeleteLogStreamCommand,
@@ -260,6 +336,9 @@ const commands = {
   DeleteRetentionPolicyCommand,
   DeleteSubscriptionFilterCommand,
   DescribeAccountPoliciesCommand,
+  DescribeDeliveriesCommand,
+  DescribeDeliveryDestinationsCommand,
+  DescribeDeliverySourcesCommand,
   DescribeDestinationsCommand,
   DescribeExportTasksCommand,
   DescribeLogGroupsCommand,
@@ -272,6 +351,10 @@ const commands = {
   DisassociateKmsKeyCommand,
   FilterLogEventsCommand,
   GetDataProtectionPolicyCommand,
+  GetDeliveryCommand,
+  GetDeliveryDestinationCommand,
+  GetDeliveryDestinationPolicyCommand,
+  GetDeliverySourceCommand,
   GetLogEventsCommand,
   GetLogGroupFieldsCommand,
   GetLogRecordCommand,
@@ -280,6 +363,9 @@ const commands = {
   ListTagsLogGroupCommand,
   PutAccountPolicyCommand,
   PutDataProtectionPolicyCommand,
+  PutDeliveryDestinationCommand,
+  PutDeliveryDestinationPolicyCommand,
+  PutDeliverySourceCommand,
   PutDestinationCommand,
   PutDestinationPolicyCommand,
   PutLogEventsCommand,
@@ -327,6 +413,20 @@ export interface CloudWatchLogs {
     args: CancelExportTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDeliveryCommand}
+   */
+  createDelivery(
+    args: CreateDeliveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeliveryCommandOutput>;
+  createDelivery(args: CreateDeliveryCommandInput, cb: (err: any, data?: CreateDeliveryCommandOutput) => void): void;
+  createDelivery(
+    args: CreateDeliveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeliveryCommandOutput) => void
   ): void;
 
   /**
@@ -406,6 +506,71 @@ export interface CloudWatchLogs {
     args: DeleteDataProtectionPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDataProtectionPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeliveryCommand}
+   */
+  deleteDelivery(
+    args: DeleteDeliveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeliveryCommandOutput>;
+  deleteDelivery(args: DeleteDeliveryCommandInput, cb: (err: any, data?: DeleteDeliveryCommandOutput) => void): void;
+  deleteDelivery(
+    args: DeleteDeliveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeliveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeliveryDestinationCommand}
+   */
+  deleteDeliveryDestination(
+    args: DeleteDeliveryDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeliveryDestinationCommandOutput>;
+  deleteDeliveryDestination(
+    args: DeleteDeliveryDestinationCommandInput,
+    cb: (err: any, data?: DeleteDeliveryDestinationCommandOutput) => void
+  ): void;
+  deleteDeliveryDestination(
+    args: DeleteDeliveryDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeliveryDestinationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeliveryDestinationPolicyCommand}
+   */
+  deleteDeliveryDestinationPolicy(
+    args: DeleteDeliveryDestinationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeliveryDestinationPolicyCommandOutput>;
+  deleteDeliveryDestinationPolicy(
+    args: DeleteDeliveryDestinationPolicyCommandInput,
+    cb: (err: any, data?: DeleteDeliveryDestinationPolicyCommandOutput) => void
+  ): void;
+  deleteDeliveryDestinationPolicy(
+    args: DeleteDeliveryDestinationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeliveryDestinationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeliverySourceCommand}
+   */
+  deleteDeliverySource(
+    args: DeleteDeliverySourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeliverySourceCommandOutput>;
+  deleteDeliverySource(
+    args: DeleteDeliverySourceCommandInput,
+    cb: (err: any, data?: DeleteDeliverySourceCommandOutput) => void
+  ): void;
+  deleteDeliverySource(
+    args: DeleteDeliverySourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeliverySourceCommandOutput) => void
   ): void;
 
   /**
@@ -553,6 +718,57 @@ export interface CloudWatchLogs {
     args: DescribeAccountPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDeliveriesCommand}
+   */
+  describeDeliveries(
+    args: DescribeDeliveriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDeliveriesCommandOutput>;
+  describeDeliveries(
+    args: DescribeDeliveriesCommandInput,
+    cb: (err: any, data?: DescribeDeliveriesCommandOutput) => void
+  ): void;
+  describeDeliveries(
+    args: DescribeDeliveriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDeliveriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDeliveryDestinationsCommand}
+   */
+  describeDeliveryDestinations(
+    args: DescribeDeliveryDestinationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDeliveryDestinationsCommandOutput>;
+  describeDeliveryDestinations(
+    args: DescribeDeliveryDestinationsCommandInput,
+    cb: (err: any, data?: DescribeDeliveryDestinationsCommandOutput) => void
+  ): void;
+  describeDeliveryDestinations(
+    args: DescribeDeliveryDestinationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDeliveryDestinationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDeliverySourcesCommand}
+   */
+  describeDeliverySources(
+    args: DescribeDeliverySourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDeliverySourcesCommandOutput>;
+  describeDeliverySources(
+    args: DescribeDeliverySourcesCommandInput,
+    cb: (err: any, data?: DescribeDeliverySourcesCommandOutput) => void
+  ): void;
+  describeDeliverySources(
+    args: DescribeDeliverySourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDeliverySourcesCommandOutput) => void
   ): void;
 
   /**
@@ -754,6 +970,68 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetDeliveryCommand}
+   */
+  getDelivery(args: GetDeliveryCommandInput, options?: __HttpHandlerOptions): Promise<GetDeliveryCommandOutput>;
+  getDelivery(args: GetDeliveryCommandInput, cb: (err: any, data?: GetDeliveryCommandOutput) => void): void;
+  getDelivery(
+    args: GetDeliveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeliveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeliveryDestinationCommand}
+   */
+  getDeliveryDestination(
+    args: GetDeliveryDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeliveryDestinationCommandOutput>;
+  getDeliveryDestination(
+    args: GetDeliveryDestinationCommandInput,
+    cb: (err: any, data?: GetDeliveryDestinationCommandOutput) => void
+  ): void;
+  getDeliveryDestination(
+    args: GetDeliveryDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeliveryDestinationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeliveryDestinationPolicyCommand}
+   */
+  getDeliveryDestinationPolicy(
+    args: GetDeliveryDestinationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeliveryDestinationPolicyCommandOutput>;
+  getDeliveryDestinationPolicy(
+    args: GetDeliveryDestinationPolicyCommandInput,
+    cb: (err: any, data?: GetDeliveryDestinationPolicyCommandOutput) => void
+  ): void;
+  getDeliveryDestinationPolicy(
+    args: GetDeliveryDestinationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeliveryDestinationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeliverySourceCommand}
+   */
+  getDeliverySource(
+    args: GetDeliverySourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeliverySourceCommandOutput>;
+  getDeliverySource(
+    args: GetDeliverySourceCommandInput,
+    cb: (err: any, data?: GetDeliverySourceCommandOutput) => void
+  ): void;
+  getDeliverySource(
+    args: GetDeliverySourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeliverySourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLogEventsCommand}
    */
   getLogEvents(args: GetLogEventsCommandInput, options?: __HttpHandlerOptions): Promise<GetLogEventsCommandOutput>;
@@ -872,6 +1150,57 @@ export interface CloudWatchLogs {
     args: PutDataProtectionPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDataProtectionPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDeliveryDestinationCommand}
+   */
+  putDeliveryDestination(
+    args: PutDeliveryDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDeliveryDestinationCommandOutput>;
+  putDeliveryDestination(
+    args: PutDeliveryDestinationCommandInput,
+    cb: (err: any, data?: PutDeliveryDestinationCommandOutput) => void
+  ): void;
+  putDeliveryDestination(
+    args: PutDeliveryDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDeliveryDestinationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDeliveryDestinationPolicyCommand}
+   */
+  putDeliveryDestinationPolicy(
+    args: PutDeliveryDestinationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDeliveryDestinationPolicyCommandOutput>;
+  putDeliveryDestinationPolicy(
+    args: PutDeliveryDestinationPolicyCommandInput,
+    cb: (err: any, data?: PutDeliveryDestinationPolicyCommandOutput) => void
+  ): void;
+  putDeliveryDestinationPolicy(
+    args: PutDeliveryDestinationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDeliveryDestinationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDeliverySourceCommand}
+   */
+  putDeliverySource(
+    args: PutDeliverySourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDeliverySourceCommandOutput>;
+  putDeliverySource(
+    args: PutDeliverySourceCommandInput,
+    cb: (err: any, data?: PutDeliverySourceCommandOutput) => void
+  ): void;
+  putDeliverySource(
+    args: PutDeliverySourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDeliverySourceCommandOutput) => void
   ): void;
 
   /**
