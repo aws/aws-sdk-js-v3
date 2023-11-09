@@ -40,6 +40,7 @@ export * from "./DetectPiiEntitiesCommand";
 export * from "./DetectSentimentCommand";
 export * from "./DetectSyntaxCommand";
 export * from "./DetectTargetedSentimentCommand";
+export * from "./DetectToxicContentCommand";
 export * from "./ImportModelCommand";
 export * from "./ListDatasetsCommand";
 export * from "./ListDocumentClassificationJobsCommand";

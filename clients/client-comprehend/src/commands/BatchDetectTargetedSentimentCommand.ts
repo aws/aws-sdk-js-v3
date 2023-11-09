@@ -49,7 +49,7 @@ export interface BatchDetectTargetedSentimentCommandOutput
  * @public
  * <p>Inspects a batch of documents and returns a sentiment analysis
  *       for each entity identified in the documents.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

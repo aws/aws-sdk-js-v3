@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/models_0";
+import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/models_1";
 import { de_StopEntitiesDetectionJobCommand, se_StopEntitiesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**

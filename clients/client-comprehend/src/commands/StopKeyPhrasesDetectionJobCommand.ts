@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/models_0";
+import { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/models_1";
 import { de_StopKeyPhrasesDetectionJobCommand, se_StopKeyPhrasesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**

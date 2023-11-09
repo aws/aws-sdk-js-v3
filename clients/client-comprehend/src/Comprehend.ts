@@ -207,6 +207,11 @@ import {
   DetectTargetedSentimentCommandInput,
   DetectTargetedSentimentCommandOutput,
 } from "./commands/DetectTargetedSentimentCommand";
+import {
+  DetectToxicContentCommand,
+  DetectToxicContentCommandInput,
+  DetectToxicContentCommandOutput,
+} from "./commands/DetectToxicContentCommand";
 import { ImportModelCommand, ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import {
   ListDatasetsCommand,
@@ -458,6 +463,7 @@ const commands = {
   DetectSentimentCommand,
   DetectSyntaxCommand,
   DetectTargetedSentimentCommand,
+  DetectToxicContentCommand,
   ImportModelCommand,
   ListDatasetsCommand,
   ListDocumentClassificationJobsCommand,
@@ -1166,6 +1172,23 @@ export interface Comprehend {
     args: DetectTargetedSentimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectTargetedSentimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetectToxicContentCommand}
+   */
+  detectToxicContent(
+    args: DetectToxicContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectToxicContentCommandOutput>;
+  detectToxicContent(
+    args: DetectToxicContentCommandInput,
+    cb: (err: any, data?: DetectToxicContentCommandOutput) => void
+  ): void;
+  detectToxicContent(
+    args: DetectToxicContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetectToxicContentCommandOutput) => void
   ): void;
 
   /**

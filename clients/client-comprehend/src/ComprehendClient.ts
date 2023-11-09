@@ -169,6 +169,7 @@ import {
   DetectTargetedSentimentCommandInput,
   DetectTargetedSentimentCommandOutput,
 } from "./commands/DetectTargetedSentimentCommand";
+import { DetectToxicContentCommandInput, DetectToxicContentCommandOutput } from "./commands/DetectToxicContentCommand";
 import { ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import {
@@ -370,6 +371,7 @@ export type ServiceInputTypes =
   | DetectSentimentCommandInput
   | DetectSyntaxCommandInput
   | DetectTargetedSentimentCommandInput
+  | DetectToxicContentCommandInput
   | ImportModelCommandInput
   | ListDatasetsCommandInput
   | ListDocumentClassificationJobsCommandInput
@@ -459,6 +461,7 @@ export type ServiceOutputTypes =
   | DetectSentimentCommandOutput
   | DetectSyntaxCommandOutput
   | DetectTargetedSentimentCommandOutput
+  | DetectToxicContentCommandOutput
   | ImportModelCommandOutput
   | ListDatasetsCommandOutput
   | ListDocumentClassificationJobsCommandOutput

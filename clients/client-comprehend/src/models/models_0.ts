@@ -1024,7 +1024,7 @@ export interface BatchDetectTargetedSentimentRequest {
 /**
  * @public
  * <p>Contains the sentiment and sentiment score for one mention of an entity.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  */
 export interface MentionSentiment {
   /**
@@ -1075,7 +1075,7 @@ export type TargetedSentimentEntityType =
  * @public
  * <p>Information about one mention of an entity. The mention information includes the location of the mention
  *       in the text and the sentiment of the mention.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  */
 export interface TargetedSentimentMention {
   /**
@@ -1124,7 +1124,7 @@ export interface TargetedSentimentMention {
 /**
  * @public
  * <p>Information about one of the entities found by targeted sentiment analysis.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  */
 export interface TargetedSentimentEntity {
   /**
@@ -1597,15 +1597,19 @@ export interface ClassifyDocumentRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+   * <p>The Amazon Resource Number (ARN) of the endpoint. </p>
+   *          <p>For prompt classification, Amazon Comprehend provides the endpoint ARN: <code>zzz</code>.</p>
+   *          <p>For custom classification, you create an endpoint for your custom model. For more information,
+   *       see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/using-endpoints.html">Using Amazon Comprehend endpoints</a>.</p>
    */
   EndpointArn: string | undefined;
 
   /**
    * @public
-   * <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.
-   *       You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
-   *       or <code>AnalyzeDocument</code> output file.</p>
+   * <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.</p>
+   *          <p>When you classify a document using a custom model, you can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
+   *         or <code>AnalyzeDocument</code> output file.</p>
+   *          <p>To classify a document using the prompt classifier, use the <code>Text</code> parameter for input.</p>
    *          <p>Provide the input document as a sequence of base64-encoded bytes.
    *       If your code uses an Amazon Web Services SDK to classify documents, the SDK may encode
    *       the document file bytes for you. </p>
@@ -1829,7 +1833,7 @@ export type PageBasedWarningCode = (typeof PageBasedWarningCode)[keyof typeof Pa
  * <p>The system identified one of the following warnings while processing the input document:</p>
  *          <ul>
  *             <li>
- *                <p>The document to classify is plain text, but the classifier is a native model.</p>
+ *                <p>The document to classify is plain text, but the classifier is a native document model.</p>
  *             </li>
  *             <li>
  *                <p>The document to classify is semi-structured, but the classifier is a plain-text model.</p>
@@ -1866,6 +1870,8 @@ export interface ClassifyDocumentResponse {
    *       models. Individual classes are mutually exclusive and each document is expected to have only a
    *       single class assigned to it. For example, an animal can be a dog or a cat, but not both at the
    *       same time. </p>
+   *          <p>For prompt classification, the response includes a single class (<code>UNDESIRED_PROMPT</code>), along with a confidence score.
+   *       A higher confidence score indicates that the input prompt is undesired in nature.</p>
    */
   Classes?: DocumentClass[];
 
@@ -2487,7 +2493,7 @@ export type DocumentClassifierDataFormat =
 
 /**
  * @public
- * <p>The location of the training documents. This parameter is required in a request to create a native classifier model.</p>
+ * <p>The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.</p>
  */
 export interface DocumentClassifierDocuments {
   /**
@@ -2566,9 +2572,8 @@ export interface DocumentClassifierInputDataConfig {
 
   /**
    * @public
-   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer
-   *       are located. The URI must be in the same Amazon Web Services Region as the API endpoint that you are
-   *       calling. </p>
+   * <p>This specifies the Amazon S3 location that contains the test annotations for the document classifier.
+   *       The URI must be in the same Amazon Web Services Region as the API endpoint that you are calling. </p>
    */
   TestS3Uri?: string;
 
@@ -2596,14 +2601,14 @@ export interface DocumentClassifierInputDataConfig {
   /**
    * @public
    * <p>The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and
-   *     provide semi-structured documents to create a native model.</p>
+   *     provide semi-structured documents to create a native document model.</p>
    */
   DocumentType?: DocumentClassifierDocumentTypeFormat;
 
   /**
    * @public
    * <p>The S3 location of the training documents.
-   *       This parameter is required in a request to create a native classifier model.</p>
+   *       This parameter is required in a request to create a native document model.</p>
    */
   Documents?: DocumentClassifierDocuments;
 
@@ -2654,7 +2659,7 @@ export type DocumentClassifierMode = (typeof DocumentClassifierMode)[keyof typeo
 /**
  * @public
  * <p>Provide the location for output data from a custom classifier job. This field is mandatory
- *     if you are training a native classifier model.</p>
+ *       if you are training a native document model.</p>
  */
 export interface DocumentClassifierOutputDataConfig {
   /**
@@ -2776,7 +2781,7 @@ export interface CreateDocumentClassifierRequest {
   /**
    * @public
    * <p>Specifies the location for the output files from a custom classifier job.
-   *     This parameter is required for a request that creates a native classifier model.</p>
+   *       This parameter is required for a request that creates a native document model.</p>
    */
   OutputDataConfig?: DocumentClassifierOutputDataConfig;
 
@@ -3350,7 +3355,7 @@ export type ModelType = (typeof ModelType)[keyof typeof ModelType];
 
 /**
  * @public
- * <p>Configuration required for a custom classification model.</p>
+ * <p>Configuration required for a document classification model.</p>
  */
 export interface DocumentClassificationConfig {
   /**
@@ -3380,7 +3385,7 @@ export interface EntityRecognitionConfig {
 
 /**
  * @public
- * <p>Configuration about the custom classifier associated with the flywheel.</p>
+ * <p>Configuration about the model associated with a flywheel.</p>
  */
 export interface TaskConfig {
   /**
@@ -3391,7 +3396,7 @@ export interface TaskConfig {
 
   /**
    * @public
-   * <p>Configuration required for a classification model.</p>
+   * <p>Configuration required for a document classification model.</p>
    */
   DocumentClassificationConfig?: DocumentClassificationConfig;
 
@@ -3414,7 +3419,8 @@ export interface CreateFlywheelRequest {
 
   /**
    * @public
-   * <p>To associate an existing model with the flywheel, specify the Amazon Resource Number (ARN) of the model version.</p>
+   * <p>To associate an existing model with the flywheel, specify the Amazon Resource Number (ARN) of the model version.
+   *       Do not set <code>TaskConfig</code> or <code>ModelType</code> if you specify an <code>ActiveModelArn</code>.</p>
    */
   ActiveModelArn?: string;
 
@@ -3427,13 +3433,14 @@ export interface CreateFlywheelRequest {
 
   /**
    * @public
-   * <p>Configuration about the custom classifier associated with the flywheel.</p>
+   * <p>Configuration about the model associated with the flywheel.
+   *       You need to set <code>TaskConfig</code> if you are creating a flywheel for a new model.</p>
    */
   TaskConfig?: TaskConfig;
 
   /**
    * @public
-   * <p>The model type.</p>
+   * <p>The model type. You need to set <code>ModelType</code> if you are creating a flywheel for a new model.</p>
    */
   ModelType?: ModelType;
 
@@ -3772,7 +3779,9 @@ export interface OutputDataConfig {
   /**
    * @public
    * <p>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the
-   *       output results from an analysis job. The KmsKeyId can be one of the following formats:</p>
+   *       output results from an analysis job. Specify the Key Id of a symmetric key, because you cannot use an asymmetric
+   *        key for uploading data to S3.</p>
+   *          <p>The KmsKeyId can be one of the following formats:</p>
    *          <ul>
    *             <li>
    *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
@@ -3903,7 +3912,7 @@ export interface DocumentClassificationJobProperties {
   /**
    * @public
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the
-   *       resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -4093,7 +4102,7 @@ export interface DocumentClassifierProperties {
   /**
    * @public
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the
-   *       resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -5025,7 +5034,7 @@ export interface FlywheelProperties {
 
   /**
    * @public
-   * <p>Configuration about the custom classifier associated with the flywheel.</p>
+   * <p>Configuration about the model associated with a flywheel.</p>
    */
   TaskConfig?: TaskConfig;
 
@@ -6354,6 +6363,108 @@ export interface DetectTargetedSentimentResponse {
    * <p>Targeted sentiment analysis for each of the entities identified in the input text.</p>
    */
   Entities?: TargetedSentimentEntity[];
+}
+
+/**
+ * @public
+ * <p>One of the of text strings. Each string has a size limit of 1KB.</p>
+ */
+export interface TextSegment {
+  /**
+   * @public
+   * <p>The text content.</p>
+   */
+  Text: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetectToxicContentRequest {
+  /**
+   * @public
+   * <p>A list of up to 10 text strings. The maximum size for the list is 10 KB.</p>
+   */
+  TextSegments: TextSegment[] | undefined;
+
+  /**
+   * @public
+   * <p>The language of the input text. Currently, English is the only supported language.</p>
+   */
+  LanguageCode: LanguageCode | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ToxicContentType = {
+  GRAPHIC: "GRAPHIC",
+  HARASSMENT_OR_ABUSE: "HARASSMENT_OR_ABUSE",
+  HATE_SPEECH: "HATE_SPEECH",
+  INSULT: "INSULT",
+  PROFANITY: "PROFANITY",
+  SEXUAL: "SEXUAL",
+  VIOLENCE_OR_THREAT: "VIOLENCE_OR_THREAT",
+} as const;
+
+/**
+ * @public
+ */
+export type ToxicContentType = (typeof ToxicContentType)[keyof typeof ToxicContentType];
+
+/**
+ * @public
+ * <p>Toxic content analysis result for one string. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>
+ *          </p>
+ */
+export interface ToxicContent {
+  /**
+   * @public
+   * <p>The name of the toxic content type.</p>
+   */
+  Name?: ToxicContentType;
+
+  /**
+   * @public
+   * <p>
+   *       Model confidence in the detected content type. Value range is zero to one, where one is highest confidence.</p>
+   */
+  Score?: number;
+}
+
+/**
+ * @public
+ * <p>Toxicity analysis result for one string. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>
+ *          </p>
+ */
+export interface ToxicLabels {
+  /**
+   * @public
+   * <p>Array of toxic content types identified in the string.</p>
+   */
+  Labels?: ToxicContent[];
+
+  /**
+   * @public
+   * <p>Overall toxicity score for the string.</p>
+   */
+  Toxicity?: number;
+}
+
+/**
+ * @public
+ */
+export interface DetectToxicContentResponse {
+  /**
+   * @public
+   * <p>Results of the content moderation analysis.
+   *       Each entry in the results list contains a list of toxic content types identified in
+   *       the text, along with a confidence score for each content type.
+   *       The results list also includes a toxicity score for each entry in the results list.
+   *     </p>
+   */
+  ResultList?: ToxicLabels[];
 }
 
 /**
@@ -8781,7 +8892,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that
-   *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">Role-based permissions</a>.</p>
+   *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions">Role-based permissions</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
@@ -9048,94 +9159,6 @@ export interface StopDominantLanguageDetectionJobResponse {
 }
 
 /**
- * @public
- */
-export interface StopEntitiesDetectionJobRequest {
-  /**
-   * @public
-   * <p>The identifier of the entities detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEntitiesDetectionJobResponse {
-  /**
-   * @public
-   * <p>The identifier of the entities detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * @public
-   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
-   *         <code>STOPPED</code> if the job was previously stopped with the
-   *         <code>StopEntitiesDetectionJob</code> operation.</p>
-   */
-  JobStatus?: JobStatus;
-}
-
-/**
- * @public
- */
-export interface StopEventsDetectionJobRequest {
-  /**
-   * @public
-   * <p>The identifier of the events detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEventsDetectionJobResponse {
-  /**
-   * @public
-   * <p>The identifier of the events detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * @public
-   * <p>The status of the events detection job.</p>
-   */
-  JobStatus?: JobStatus;
-}
-
-/**
- * @public
- */
-export interface StopKeyPhrasesDetectionJobRequest {
-  /**
-   * @public
-   * <p>The identifier of the key phrases detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopKeyPhrasesDetectionJobResponse {
-  /**
-   * @public
-   * <p>The identifier of the key phrases detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * @public
-   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
-   *         <code>STOPPED</code> if the job was previously stopped with the
-   *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
-   */
-  JobStatus?: JobStatus;
-}
-
-/**
  * @internal
  */
 export const BatchDetectDominantLanguageRequestFilterSensitiveLog = (obj: BatchDetectDominantLanguageRequest): any => ({
@@ -9384,6 +9407,22 @@ export const DetectTargetedSentimentRequestFilterSensitiveLog = (obj: DetectTarg
  */
 export const DetectTargetedSentimentResponseFilterSensitiveLog = (obj: DetectTargetedSentimentResponse): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextSegmentFilterSensitiveLog = (obj: TextSegment): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DetectToxicContentRequestFilterSensitiveLog = (obj: DetectToxicContentRequest): any => ({
+  ...obj,
+  ...(obj.TextSegments && { TextSegments: SENSITIVE_STRING }),
 });
 
 /**

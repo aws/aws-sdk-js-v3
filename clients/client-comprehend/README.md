@@ -536,6 +536,14 @@ DetectTargetedSentiment
 </details>
 <details>
 <summary>
+DetectToxicContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehend/classes/detecttoxiccontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehend/interfaces/detecttoxiccontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehend/interfaces/detecttoxiccontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ImportModel
 </summary>
 

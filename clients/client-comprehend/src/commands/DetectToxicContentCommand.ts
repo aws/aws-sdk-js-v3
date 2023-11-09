@@ -16,12 +16,11 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
-  DetectTargetedSentimentRequest,
-  DetectTargetedSentimentRequestFilterSensitiveLog,
-  DetectTargetedSentimentResponse,
-  DetectTargetedSentimentResponseFilterSensitiveLog,
+  DetectToxicContentRequest,
+  DetectToxicContentRequestFilterSensitiveLog,
+  DetectToxicContentResponse,
 } from "../models/models_0";
-import { de_DetectTargetedSentimentCommand, se_DetectTargetedSentimentCommand } from "../protocols/Aws_json1_1";
+import { de_DetectToxicContentCommand, se_DetectToxicContentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -30,67 +29,59 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DetectTargetedSentimentCommand}.
+ * The input for {@link DetectToxicContentCommand}.
  */
-export interface DetectTargetedSentimentCommandInput extends DetectTargetedSentimentRequest {}
+export interface DetectToxicContentCommandInput extends DetectToxicContentRequest {}
 /**
  * @public
  *
- * The output of {@link DetectTargetedSentimentCommand}.
+ * The output of {@link DetectToxicContentCommand}.
  */
-export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSentimentResponse, __MetadataBearer {}
+export interface DetectToxicContentCommandOutput extends DetectToxicContentResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ * <p>Performs toxicity analysis on the list of text strings that you provide as input.
+ *       The analysis uses the order of strings in the list to determine context when predicting toxicity.
+ *       The API response contains a results list that matches the size of the input list.
+ *       For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DetectTargetedSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DetectTargetedSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DetectToxicContentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DetectToxicContentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = { // DetectTargetedSentimentRequest
- *   Text: "STRING_VALUE", // required
+ * const input = { // DetectToxicContentRequest
+ *   TextSegments: [ // ListOfTextSegments // required
+ *     { // TextSegment
+ *       Text: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
  * };
- * const command = new DetectTargetedSentimentCommand(input);
+ * const command = new DetectToxicContentCommand(input);
  * const response = await client.send(command);
- * // { // DetectTargetedSentimentResponse
- * //   Entities: [ // ListOfTargetedSentimentEntities
- * //     { // TargetedSentimentEntity
- * //       DescriptiveMentionIndex: [ // ListOfDescriptiveMentionIndices
- * //         Number("int"),
- * //       ],
- * //       Mentions: [ // ListOfMentions
- * //         { // TargetedSentimentMention
+ * // { // DetectToxicContentResponse
+ * //   ResultList: [ // ListOfToxicLabels
+ * //     { // ToxicLabels
+ * //       Labels: [ // ListOfToxicContent
+ * //         { // ToxicContent
+ * //           Name: "GRAPHIC" || "HARASSMENT_OR_ABUSE" || "HATE_SPEECH" || "INSULT" || "PROFANITY" || "SEXUAL" || "VIOLENCE_OR_THREAT",
  * //           Score: Number("float"),
- * //           GroupScore: Number("float"),
- * //           Text: "STRING_VALUE",
- * //           Type: "PERSON" || "LOCATION" || "ORGANIZATION" || "FACILITY" || "BRAND" || "COMMERCIAL_ITEM" || "MOVIE" || "MUSIC" || "BOOK" || "SOFTWARE" || "GAME" || "PERSONAL_TITLE" || "EVENT" || "DATE" || "QUANTITY" || "ATTRIBUTE" || "OTHER",
- * //           MentionSentiment: { // MentionSentiment
- * //             Sentiment: "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
- * //             SentimentScore: { // SentimentScore
- * //               Positive: Number("float"),
- * //               Negative: Number("float"),
- * //               Neutral: Number("float"),
- * //               Mixed: Number("float"),
- * //             },
- * //           },
- * //           BeginOffset: Number("int"),
- * //           EndOffset: Number("int"),
  * //         },
  * //       ],
+ * //       Toxicity: Number("float"),
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param DetectTargetedSentimentCommandInput - {@link DetectTargetedSentimentCommandInput}
- * @returns {@link DetectTargetedSentimentCommandOutput}
- * @see {@link DetectTargetedSentimentCommandInput} for command's `input` shape.
- * @see {@link DetectTargetedSentimentCommandOutput} for command's `response` shape.
+ * @param DetectToxicContentCommandInput - {@link DetectToxicContentCommandInput}
+ * @returns {@link DetectToxicContentCommandOutput}
+ * @see {@link DetectToxicContentCommandInput} for command's `input` shape.
+ * @see {@link DetectToxicContentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -113,9 +104,9 @@ export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSent
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
-export class DetectTargetedSentimentCommand extends $Command<
-  DetectTargetedSentimentCommandInput,
-  DetectTargetedSentimentCommandOutput,
+export class DetectToxicContentCommand extends $Command<
+  DetectToxicContentCommandInput,
+  DetectToxicContentCommandOutput,
   ComprehendClientResolvedConfig
 > {
   // Start section: command_properties
@@ -133,7 +124,7 @@ export class DetectTargetedSentimentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DetectTargetedSentimentCommandInput) {
+  constructor(readonly input: DetectToxicContentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -146,26 +137,26 @@ export class DetectTargetedSentimentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DetectTargetedSentimentCommandInput, DetectTargetedSentimentCommandOutput> {
+  ): Handler<DetectToxicContentCommandInput, DetectToxicContentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DetectTargetedSentimentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DetectToxicContentCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ComprehendClient";
-    const commandName = "DetectTargetedSentimentCommand";
+    const commandName = "DetectToxicContentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectTargetedSentimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectTargetedSentimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DetectToxicContentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "Comprehend_20171127",
-        operation: "DetectTargetedSentiment",
+        operation: "DetectToxicContent",
       },
     };
     const { requestHandler } = configuration;
@@ -179,15 +170,15 @@ export class DetectTargetedSentimentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DetectTargetedSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DetectTargetedSentimentCommand(input, context);
+  private serialize(input: DetectToxicContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DetectToxicContentCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectTargetedSentimentCommandOutput> {
-    return de_DetectTargetedSentimentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectToxicContentCommandOutput> {
+    return de_DetectToxicContentCommand(output, context);
   }
 
   // Start section: command_body_extra
