@@ -4641,6 +4641,7 @@ export const se_ListIntegrationAssociationsCommand = async (
     integrationType: [, input.IntegrationType!],
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    integrationArn: [, input.IntegrationArn!],
   });
   let body: any;
   return new __HttpRequest({

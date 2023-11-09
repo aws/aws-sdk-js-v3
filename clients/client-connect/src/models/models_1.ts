@@ -4451,6 +4451,12 @@ export interface ListIntegrationAssociationsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   */
+  IntegrationArn?: string;
 }
 
 /**
