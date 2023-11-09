@@ -78,6 +78,7 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *     FailureTolerancePercentage: Number("int"),
  *     MaxConcurrentCount: Number("int"),
  *     MaxConcurrentPercentage: Number("int"),
+ *     ConcurrencyMode: "STRICT_FAILURE_TOLERANCE" || "SOFT_FAILURE_TOLERANCE",
  *   },
  *   AdministrationRoleARN: "STRING_VALUE",
  *   ExecutionRoleName: "STRING_VALUE",

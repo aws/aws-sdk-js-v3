@@ -36,16 +36,18 @@ export type AccountGateStatus = (typeof AccountGateStatus)[keyof typeof AccountG
 
 /**
  * @public
- * <p>Structure that contains the results of the account gate function which CloudFormation invokes, if present,
- *    before proceeding with a stack set operation in an account and Region.</p>
- *          <p>For each account and Region, CloudFormation lets you specify a Lambda function that encapsulates
- *    any requirements that must be met before CloudFormation can proceed with a stack set operation in that
- *    account and Region. CloudFormation invokes the function each time a stack set operation is requested for
- *    that account and Region; if the function returns <code>FAILED</code>, CloudFormation cancels the operation
- *    in that account and Region, and sets the stack set operation result status for that account and Region to
+ * <p>Structure that contains the results of the account gate function which CloudFormation
+ *    invokes, if present, before proceeding with a stack set operation in an account and
+ *    Region.</p>
+ *          <p>For each account and Region, CloudFormation lets you specify a Lambda
+ *    function that encapsulates any requirements that must be met before CloudFormation can
+ *    proceed with a stack set operation in that account and Region. CloudFormation invokes
+ *    the function each time a stack set operation is requested for that account and Region; if the
+ *    function returns <code>FAILED</code>, CloudFormation cancels the operation in that
+ *    account and Region, and sets the stack set operation result status for that account and Region to
  *     <code>FAILED</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-account-gating.html">Configuring a target account
- *    gate</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-account-gating.html">Configuring a target
+ *     account gate</a>.</p>
  */
 export interface AccountGateResult {
   /**
@@ -54,34 +56,32 @@ export interface AccountGateResult {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SUCCEEDED</code>: The account gate function has determined that the account and Region passes any
-   *      requirements for a stack set operation to occur. CloudFormation proceeds with the stack operation in that
-   *      account and Region.</p>
+   *                   <code>SUCCEEDED</code>: The account gate function has determined that the account and
+   *      Region passes any requirements for a stack set operation to occur. CloudFormation
+   *      proceeds with the stack operation in that account and Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>: The account gate function has determined that the account and Region doesn't meet the
-   *      requirements for a stack set operation to occur. CloudFormation cancels the stack set operation in that account
-   *      and Region, and sets the stack set operation result status for that account and Region to
-   *      <code>FAILED</code>.</p>
+   *                   <code>FAILED</code>: The account gate function has determined that the account and Region
+   *      doesn't meet the requirements for a stack set operation to occur. CloudFormation cancels
+   *      the stack set operation in that account and Region, and sets the stack set operation result
+   *      status for that account and Region to <code>FAILED</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SKIPPED</code>: CloudFormation has skipped calling the account gate function for this account and
-   *      Region, for one of the following reasons:</p>
+   *                   <code>SKIPPED</code>: CloudFormation has skipped calling the account gate function for
+   *      this account and Region, for one of the following reasons:</p>
    *                <ul>
    *                   <li>
-   *                      <p>An account gate function hasn't been specified for the account and Region. CloudFormation proceeds with
-   *        the stack set operation in this account and Region.</p>
+   *                      <p>An account gate function hasn't been specified for the account and Region. CloudFormation proceeds with the stack set operation in this account and Region.</p>
    *                   </li>
    *                   <li>
-   *                      <p>The <code>AWSCloudFormationStackSetExecutionRole</code> of the stack set administration account lacks
-   *        permissions to invoke the function. CloudFormation proceeds with the stack set operation in this account
-   *        and Region.</p>
+   *                      <p>The <code>AWSCloudFormationStackSetExecutionRole</code> of the stack set administration
+   *        account lacks permissions to invoke the function. CloudFormation proceeds with the
+   *        stack set operation in this account and Region.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Either no action is necessary, or no action is possible, on the stack. CloudFormation skips the stack
-   *        set operation in this account and Region.</p>
+   *                      <p>Either no action is necessary, or no action is possible, on the stack. CloudFormation skips the stack set operation in this account and Region.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -91,7 +91,8 @@ export interface AccountGateResult {
 
   /**
    * @public
-   * <p>The reason for the account gate status assigned to this account and Region for the stack set operation.</p>
+   * <p>The reason for the account gate status assigned to this account and Region for the stack set
+   *    operation.</p>
    */
   StatusReason?: string;
 }
@@ -417,24 +418,24 @@ export class AlreadyExistsException extends __BaseException {
 
 /**
  * @public
- * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations
- *    accounts that are added to a target organization or organizational unit (OU).</p>
+ * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations accounts that are added to a target organization or organizational unit
+ *    (OU).</p>
  */
 export interface AutoDeployment {
   /**
    * @public
-   * <p>If set to <code>true</code>, StackSets automatically deploys additional stack instances to Organizations
-   *    accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account
-   *    is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified
-   *    Regions.</p>
+   * <p>If set to <code>true</code>, StackSets automatically deploys additional stack instances to
+   *     Organizations accounts that are added to a target organization or organizational unit
+   *    (OU) in the specified Regions. If an account is removed from a target organization or OU,
+   *    StackSets deletes stack instances from the account in the specified Regions.</p>
    */
   Enabled?: boolean;
 
   /**
    * @public
-   * <p>If set to <code>true</code>, stack resources are retained when an account is removed from a target organization
-   *    or OU. If set to <code>false</code>, stack resources are deleted. Specify only if <code>Enabled</code> is set to
-   *     <code>True</code>.</p>
+   * <p>If set to <code>true</code>, stack resources are retained when an account is removed from a
+   *    target organization or OU. If set to <code>false</code>, stack resources are deleted. Specify
+   *    only if <code>Enabled</code> is set to <code>True</code>.</p>
    */
   RetainStacksOnAccountRemoval?: boolean;
 }
@@ -1810,6 +1811,9 @@ export interface CreateChangeSetInput {
    *      processing on templates</a>.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
+   *          </note>
    */
   Capabilities?: Capability[];
 
@@ -1822,6 +1826,9 @@ export interface CreateChangeSetInput {
    *    uses this parameter for condition keys in IAM policies for CloudFormation. For more information,
    *    see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling access
    *     with Identity and Access Management</a> in the CloudFormation User Guide.</p>
+   *          <note>
+   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
+   *          </note>
    */
   ResourceTypes?: string[];
 
@@ -2192,6 +2199,9 @@ export interface CreateStackInput {
    *      processing on templates</a>.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
+   *          </note>
    */
   Capabilities?: Capability[];
 
@@ -2209,6 +2219,9 @@ export interface CreateStackInput {
    *    default, CloudFormation grants permissions to all resource types. Identity and Access Management (IAM)
    *    uses this parameter for CloudFormation-specific condition keys in IAM policies. For more
    *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with Identity and Access Management</a>.</p>
+   *          <note>
+   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
+   *          </note>
    */
   ResourceTypes?: string[];
 
@@ -2310,15 +2323,19 @@ export interface CreateStackOutput {
 
 /**
  * @public
- * <p>[Service-managed permissions] The Organizations accounts to which StackSets deploys. StackSets doesn't
- *    deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization.</p>
- *          <p>For update operations, you can specify either <code>Accounts</code> or <code>OrganizationalUnitIds</code>. For
- *    create and delete operations, specify <code>OrganizationalUnitIds</code>.</p>
+ * <p>[Service-managed permissions] The Organizations accounts to which StackSets deploys.
+ *    StackSets doesn't deploy stack instances to the organization management account, even
+ *    if the organization management account is in your organization or in an OU in your
+ *    organization.</p>
+ *          <p>For update operations, you can specify either <code>Accounts</code> or
+ *     <code>OrganizationalUnitIds</code>. For create and delete operations, specify
+ *     <code>OrganizationalUnitIds</code>.</p>
  */
 export interface DeploymentTargets {
   /**
    * @public
-   * <p>The names of one or more Amazon Web Services accounts for which you want to deploy stack set updates.</p>
+   * <p>The names of one or more Amazon Web Services accounts for which you want to deploy stack set
+   *    updates.</p>
    */
   Accounts?: string[];
 
@@ -2336,34 +2353,52 @@ export interface DeploymentTargets {
 
   /**
    * @public
-   * <p>Limit deployment targets to individual accounts or include additional accounts with provided OUs.</p>
-   *          <p>The following is a list of possible values for the <code>AccountFilterType</code> operation.</p>
+   * <p>Limit deployment targets to individual accounts or include additional accounts with provided
+   *    OUs.</p>
+   *          <p>The following is a list of possible values for the <code>AccountFilterType</code>
+   *    operation.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INTERSECTION</code>: StackSets deploys to the accounts specified in <code>Accounts</code> parameter.
-   *     </p>
+   *                   <code>INTERSECTION</code>: StackSets deploys to the accounts specified in
+   *       <code>Accounts</code> parameter. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DIFFERENCE</code>: StackSets excludes the accounts specified in <code>Accounts</code> parameter. This
-   *      enables user to avoid certain accounts within an OU such as suspended accounts.</p>
+   *                   <code>DIFFERENCE</code>: StackSets excludes the accounts specified in
+   *       <code>Accounts</code> parameter. This enables user to avoid certain accounts within an OU such
+   *      as suspended accounts.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>UNION</code>: StackSets includes additional accounts deployment targets. </p>
-   *                <p>This is the default value if <code>AccountFilterType</code> is not provided. This enables user to update an
-   *      entire OU and individual accounts from a different OU in one request, which used to be two separate
-   *      requests.</p>
+   *                <p>This is the default value if <code>AccountFilterType</code> is not provided. This enables
+   *      user to update an entire OU and individual accounts from a different OU in one request, which
+   *      used to be two separate requests.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code>: Deploys to all the accounts in specified organizational units (OU).</p>
+   *                   <code>NONE</code>: Deploys to all the accounts in specified organizational units
+   *      (OU).</p>
    *             </li>
    *          </ul>
    */
   AccountFilterType?: AccountFilterType;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ConcurrencyMode = {
+  SOFT_FAILURE_TOLERANCE: "SOFT_FAILURE_TOLERANCE",
+  STRICT_FAILURE_TOLERANCE: "STRICT_FAILURE_TOLERANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConcurrencyMode = (typeof ConcurrencyMode)[keyof typeof ConcurrencyMode];
 
 /**
  * @public
@@ -2381,15 +2416,16 @@ export type RegionConcurrencyType = (typeof RegionConcurrencyType)[keyof typeof 
 
 /**
  * @public
- * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
- *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation
- *     options</a>.</p>
+ * <p>The user-specified preferences for how CloudFormation performs a stack set
+ *    operation.</p>
+ *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set
+ *     operation options</a>.</p>
  */
 export interface StackSetOperationPreferences {
   /**
    * @public
-   * <p>The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a
-   *    time.</p>
+   * <p>The concurrency type of deploying StackSets operations in Regions, could be in parallel or
+   *    one Region at a time.</p>
    */
   RegionConcurrencyType?: RegionConcurrencyType;
 
@@ -2401,9 +2437,8 @@ export interface StackSetOperationPreferences {
 
   /**
    * @public
-   * <p>The number of accounts, per Region, for which this operation can fail before CloudFormation stops the
-   *    operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation
-   *    in any subsequent Regions.</p>
+   * <p>The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region,
+   *     CloudFormation doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
    *     <code>FailureTolerancePercentage</code> (but not both).</p>
    *          <p>By default, <code>0</code> is specified.</p>
@@ -2412,11 +2447,10 @@ export interface StackSetOperationPreferences {
 
   /**
    * @public
-   * <p>The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops
-   *    the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the
-   *    operation in any subsequent Regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, CloudFormation rounds
-   *     <i>down</i> to the next whole number.</p>
+   * <p>The percentage of accounts, per Region, for which this stack operation can fail before
+   *     CloudFormation stops the operation in that Region. If the operation is stopped in a Region,
+   *     CloudFormation doesn't attempt the operation in any subsequent Regions.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, CloudFormation rounds <i>down</i> to the next whole number.</p>
    *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
    *     <code>FailureTolerancePercentage</code>, but not both.</p>
    *          <p>By default, <code>0</code> is specified.</p>
@@ -2425,14 +2459,15 @@ export interface StackSetOperationPreferences {
 
   /**
    * @public
-   * <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of
-   *     <code>FailureToleranceCount</code>.<code>MaxConcurrentCount</code> is at most one more than the
-   *     <code>FailureToleranceCount</code>.</p>
-   *          <p>Note that this setting lets you specify the <i>maximum</i> for operations. For large deployments,
-   *    under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service
-   *    throttling.</p>
-   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or <code>MaxConcurrentPercentage</code>,
-   *    but not both.</p>
+   * <p>The maximum number of accounts in which to perform this operation at one time. This can
+   *    depend on the value of <code>FailureToleranceCount</code> depending on your
+   *     <code>ConcurrencyMode</code>. <code>MaxConcurrentCount</code> is at most one more than the
+   *     <code>FailureToleranceCount</code> if you're using <code>STRICT_FAILURE_TOLERANCE</code>.</p>
+   *          <p>Note that this setting lets you specify the <i>maximum</i> for operations. For
+   *    large deployments, under certain circumstances the actual number of accounts acted upon
+   *    concurrently may be lower due to service throttling.</p>
+   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
+   *     <code>MaxConcurrentPercentage</code>, but not both.</p>
    *          <p>By default, <code>1</code> is specified.</p>
    */
   MaxConcurrentCount?: number;
@@ -2440,16 +2475,41 @@ export interface StackSetOperationPreferences {
   /**
    * @public
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, CloudFormation rounds down to
-   *    the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.</p>
-   *          <p>Note that this setting lets you specify the <i>maximum</i> for operations. For large deployments,
-   *    under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service
-   *    throttling.</p>
-   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or <code>MaxConcurrentPercentage</code>,
-   *    but not both.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, CloudFormation rounds down to the next whole number. This is true except in cases where rounding
+   *    down would result is zero. In this case, CloudFormation sets the number as one
+   *    instead.</p>
+   *          <p>Note that this setting lets you specify the <i>maximum</i> for operations. For
+   *    large deployments, under certain circumstances the actual number of accounts acted upon
+   *    concurrently may be lower due to service throttling.</p>
+   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
+   *     <code>MaxConcurrentPercentage</code>, but not both.</p>
    *          <p>By default, <code>1</code> is specified.</p>
    */
   MaxConcurrentPercentage?: number;
+
+  /**
+   * @public
+   * <p>Specifies how the concurrency level behaves during the operation execution.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRICT_FAILURE_TOLERANCE</code>: Dynamically lowers the concurrency level to ensure
+   *      the number of failed accounts never exceeds the <code>FailureToleranceCount</code> +1.
+   *      StackSets will set the actual concurrency of your deployment as the minimum value between the
+   *       <code>MaxConcurrentCount</code> and the <code>FailureToleranceCount</code> +1. This is the
+   *      default behavior.</p>
+   *                <p>If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior
+   *      is similar.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SOFT_FAILURE_TOLERANCE</code>: Always run at the concurrency level set by the user
+   *      in the <code>MaxConcurrentCount</code> or <code>MaxConcurrentPercentage</code>, regardless of
+   *      the number of failures.</p>
+   *             </li>
+   *          </ul>
+   */
+  ConcurrencyMode?: ConcurrencyMode;
 }
 
 /**
@@ -2677,21 +2737,23 @@ export class CreatedButModifiedException extends __BaseException {
 
 /**
  * @public
- * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting
- *    operations.</p>
+ * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
+ *    conflicting operations.</p>
  */
 export interface ManagedExecution {
   /**
    * @public
-   * <p>When <code>true</code>, StackSets performs non-conflicting operations concurrently and queues conflicting
-   *    operations. After conflicting operations finish, StackSets starts queued operations in request order.</p>
+   * <p>When <code>true</code>, StackSets performs non-conflicting operations concurrently and
+   *    queues conflicting operations. After conflicting operations finish, StackSets starts queued
+   *    operations in request order.</p>
    *          <note>
-   *             <p>If there are already running or queued operations, StackSets queues all incoming operations even if they are
-   *     non-conflicting.</p>
-   *             <p>You can't modify your stack set's execution configuration while there are running or queued operations for that
-   *     stack set.</p>
+   *             <p>If there are already running or queued operations, StackSets queues all incoming operations
+   *     even if they are non-conflicting.</p>
+   *             <p>You can't modify your stack set's execution configuration while there are running or queued
+   *     operations for that stack set.</p>
    *          </note>
-   *          <p>When <code>false</code> (default), StackSets performs one operation at a time in request order.</p>
+   *          <p>When <code>false</code> (default), StackSets performs one operation at a time in request
+   *    order.</p>
    */
   Active?: boolean;
 }
@@ -4169,39 +4231,43 @@ export interface StackInstanceComprehensiveStatus {
    * <ul>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code>: The operation in the specified account and Region has been canceled. This is either
-   *      because a user has stopped the stack set operation, or because the failure tolerance of the stack set operation has
-   *      been exceeded.</p>
+   *                   <code>CANCELLED</code>: The operation in the specified account and Region has been
+   *      canceled. This is either because a user has stopped the stack set operation, or because the
+   *      failure tolerance of the stack set operation has been exceeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>: The operation in the specified account and Region failed. If the stack set operation
-   *      fails in enough accounts within a Region, the failure tolerance for the stack set operation as a whole might be
-   *      exceeded.</p>
+   *                   <code>FAILED</code>: The operation in the specified account and Region failed. If the
+   *      stack set operation fails in enough accounts within a Region, the failure tolerance for the
+   *      stack set operation as a whole might be exceeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
-   *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
-   *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
+   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left
+   *      the stack in an unstable state. Stacks in this state are excluded from further
+   *       <code>UpdateStackSet</code> operations. You might need to perform a
+   *       <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
    *       <code>true</code>, to delete the stack instance, and then delete the stack manually.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code>: The operation in the specified account and Region has yet to start.</p>
+   *                   <code>PENDING</code>: The operation in the specified account and Region has yet to
+   *      start.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RUNNING</code>: The operation in the specified account and Region is currently in progress.</p>
+   *                   <code>RUNNING</code>: The operation in the specified account and Region is currently in
+   *      progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SKIPPED_SUSPENDED_ACCOUNT</code>: The operation in the specified account and Region has been skipped
-   *      because the account was suspended at the time of the operation.</p>
+   *                   <code>SKIPPED_SUSPENDED_ACCOUNT</code>: The operation in the specified account and Region
+   *      has been skipped because the account was suspended at the time of the operation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCEEDED</code>: The operation in the specified account and Region completed successfully.</p>
+   *                   <code>SUCCEEDED</code>: The operation in the specified account and Region completed
+   *      successfully.</p>
    *             </li>
    *          </ul>
    */
@@ -4225,11 +4291,12 @@ export type StackInstanceStatus = (typeof StackInstanceStatus)[keyof typeof Stac
 
 /**
  * @public
- * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack
- *    instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance
- *    can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is
- *    associated with only one stack set. Each stack instance contains the ID of its associated stack set, in addition to
- *    the ID of the actual stack and the stack status.</p>
+ * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set
+ *    operation. A stack instance is a reference to an attempted or actual stack in a given account
+ *    within a given Region. A stack instance can exist without a stack—for example, if the stack
+ *    couldn't be created for some reason. A stack instance is associated with only one stack set. Each
+ *    stack instance contains the ID of its associated stack set, in addition to the ID of the actual
+ *    stack and the stack status.</p>
  */
 export interface StackInstance {
   /**
@@ -4246,8 +4313,8 @@ export interface StackInstance {
 
   /**
    * @public
-   * <p>[Self-managed permissions] The name of the Amazon Web Services account that the stack instance is associated
-   *    with.</p>
+   * <p>[Self-managed permissions] The name of the Amazon Web Services account that the stack
+   *    instance is associated with.</p>
    */
   Account?: string;
 
@@ -4259,33 +4326,36 @@ export interface StackInstance {
 
   /**
    * @public
-   * <p>A list of parameters from the stack set template whose values have been overridden in this stack
-   *    instance.</p>
+   * <p>A list of parameters from the stack set template whose values have been overridden in this
+   *    stack instance.</p>
    */
   ParameterOverrides?: Parameter[];
 
   /**
    * @public
-   * <p>The status of the stack instance, in terms of its synchronization with its associated stack set.</p>
+   * <p>The status of the stack instance, in terms of its synchronization with its associated stack
+   *    set.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
-   *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
-   *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
+   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left
+   *      the stack in an unstable state. Stacks in this state are excluded from further
+   *       <code>UpdateStackSet</code> operations. You might need to perform a
+   *       <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
    *       <code>true</code>, to delete the stack instance, and then delete the stack manually.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set because:</p>
+   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set
+   *      because:</p>
    *                <ul>
    *                   <li>
-   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or <code>UpdateStackSet</code>
-   *        operation.</p>
+   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or
+   *         <code>UpdateStackSet</code> operation.</p>
    *                   </li>
    *                   <li>
-   *                      <p>The stack was part of a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation that failed or
-   *        was stopped before the stack was created or updated.</p>
+   *                      <p>The stack was part of a <code>CreateStackSet</code> or <code>UpdateStackSet</code>
+   *        operation that failed or was stopped before the stack was created or updated.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4311,31 +4381,31 @@ export interface StackInstance {
 
   /**
    * @public
-   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that
+   *    you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    */
   OrganizationalUnitId?: string;
 
   /**
    * @public
-   * <p>Status of the stack instance's actual configuration compared to the expected template and parameter
-   *    configuration of the stack set to which it belongs.</p>
+   * <p>Status of the stack instance's actual configuration compared to the expected template and
+   *    parameter configuration of the stack set to which it belongs.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter configuration of the stack
-   *      set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the
-   *      associated stack have drifted.</p>
+   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
+   *      configuration of the stack set to which it belongs. A stack instance is considered to have
+   *      drifted if one or more of the resources in the associated stack have drifted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the stack instance differs from its expected stack set
-   *      configuration.</p>
+   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the stack instance differs from its
+   *      expected stack set configuration.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its expected stack set
-   *      configuration.</p>
+   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its expected stack
+   *      set configuration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4347,8 +4417,9 @@ export interface StackInstance {
 
   /**
    * @public
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack instance. This
-   *    value will be <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the
+   *    stack instance. This value will be <code>NULL</code> for any stack instance on which drift
+   *    detection hasn't yet been performed.</p>
    */
   LastDriftCheckTimestamp?: Date;
 
@@ -5372,25 +5443,26 @@ export type StackSetDriftStatus = (typeof StackSetDriftStatus)[keyof typeof Stac
 /**
  * @public
  * <p>Detailed information about the drift status of the stack set.</p>
- *          <p>For stack sets, contains information about the last <i>completed</i> drift operation performed on
- *    the stack set. Information about drift operations in-progress isn't included.</p>
- *          <p>For stack set operations, includes information about drift operations currently being performed on the stack
- *    set.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting unmanaged changes in stack sets</a> in
- *    the <i>CloudFormation User Guide</i>.</p>
+ *          <p>For stack sets, contains information about the last <i>completed</i> drift
+ *    operation performed on the stack set. Information about drift operations in-progress isn't
+ *    included.</p>
+ *          <p>For stack set operations, includes information about drift operations currently being
+ *    performed on the stack set.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting unmanaged changes in
+ *     stack sets</a> in the <i>CloudFormation User Guide</i>.</p>
  */
 export interface StackSetDriftDetectionDetails {
   /**
    * @public
-   * <p>Status of the stack set's actual configuration compared to its expected template and parameter configuration. A
-   *    stack set is considered to have drifted if one or more of its stack instances have drifted from their expected
-   *    template and parameter configuration.</p>
+   * <p>Status of the stack set's actual configuration compared to its expected template and
+   *    parameter configuration. A stack set is considered to have drifted if one or more of its stack
+   *    instances have drifted from their expected template and parameter configuration.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack set stack differs from the
-   *      expected template and parameter configuration. A stack instance is considered to have drifted if one or more of the
-   *      resources in the associated stack have drifted.</p>
+   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack set stack
+   *      differs from the expected template and parameter configuration. A stack instance is considered
+   *      to have drifted if one or more of the resources in the associated stack have drifted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5398,8 +5470,8 @@ export interface StackSetDriftDetectionDetails {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack match from the expected
-   *      template and parameter configuration.</p>
+   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack match
+   *      from the expected template and parameter configuration.</p>
    *             </li>
    *          </ul>
    */
@@ -5411,20 +5483,23 @@ export interface StackSetDriftDetectionDetails {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>COMPLETED</code>: The drift detection operation completed without failing on any stack instances.</p>
+   *                   <code>COMPLETED</code>: The drift detection operation completed without failing on any
+   *      stack instances.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>: The drift detection operation exceeded the specified failure tolerance.</p>
+   *                   <code>FAILED</code>: The drift detection operation exceeded the specified failure
+   *      tolerance.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PARTIAL_SUCCESS</code>: The drift detection operation completed without exceeding the failure tolerance
-   *      for the operation.</p>
+   *                   <code>PARTIAL_SUCCESS</code>: The drift detection operation completed without exceeding
+   *      the failure tolerance for the operation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code>: The drift detection operation is currently being performed.</p>
+   *                   <code>IN_PROGRESS</code>: The drift detection operation is currently being
+   *      performed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5436,8 +5511,9 @@ export interface StackSetDriftDetectionDetails {
 
   /**
    * @public
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set. This value
-   *    will be <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the
+   *    stack set. This value will be <code>NULL</code> for any stack set on which drift detection hasn't
+   *    yet been performed.</p>
    */
   LastDriftCheckTimestamp?: Date;
 
@@ -5464,16 +5540,16 @@ export interface StackSetDriftDetectionDetails {
 
   /**
    * @public
-   * <p>The number of stack instances that have drifted from the expected template and parameter configuration of the
-   *    stack set. A stack instance is considered to have drifted if one or more of the resources in the associated stack
-   *    don't match their expected configuration.</p>
+   * <p>The number of stack instances that have drifted from the expected template and parameter
+   *    configuration of the stack set. A stack instance is considered to have drifted if one or more of
+   *    the resources in the associated stack don't match their expected configuration.</p>
    */
   DriftedStackInstancesCount?: number;
 
   /**
    * @public
-   * <p>The number of stack instances which match the expected template and parameter configuration of the stack
-   *    set.</p>
+   * <p>The number of stack instances which match the expected template and parameter configuration
+   *    of the stack set.</p>
    */
   InSyncStackInstancesCount?: number;
 
@@ -5506,9 +5582,9 @@ export type StackSetStatus = (typeof StackSetStatus)[keyof typeof StackSetStatus
 
 /**
  * @public
- * <p>A structure that contains information about a stack set. A stack set enables you to provision stacks into
- *     Amazon Web Services accounts and across Regions by using a single CloudFormation template. In the stack set,
- *    you specify the template to use, in addition to any parameters and capabilities that the template requires.</p>
+ * <p>A structure that contains information about a stack set. A stack set enables you to
+ *    provision stacks into Amazon Web Services accounts and across Regions by using a single CloudFormation template. In the stack set, you specify the template to use, in addition to any
+ *    parameters and capabilities that the template requires.</p>
  */
 export interface StackSet {
   /**
@@ -5525,7 +5601,8 @@ export interface StackSet {
 
   /**
    * @public
-   * <p>A description of the stack set that you specify when the stack set is created or updated.</p>
+   * <p>A description of the stack set that you specify when the stack set is created or
+   *    updated.</p>
    */
   Description?: string;
 
@@ -5537,7 +5614,8 @@ export interface StackSet {
 
   /**
    * @public
-   * <p>The structure that contains the body of the template that was used to create or update the stack set.</p>
+   * <p>The structure that contains the body of the template that was used to create or update the
+   *    stack set.</p>
    */
   TemplateBody?: string;
 
@@ -5549,17 +5627,18 @@ export interface StackSet {
 
   /**
    * @public
-   * <p>The capabilities that are allowed in the stack set. Some stack set templates might include resources that can
-   *    affect permissions in your Amazon Web Services account—for example, by creating new Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
-   *     Resources in CloudFormation Templates.</a>
+   * <p>The capabilities that are allowed in the stack set. Some stack set templates might include
+   *    resources that can affect permissions in your Amazon Web Services account—for example, by creating
+   *    new Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+   *      IAM Resources in CloudFormation Templates.</a>
    *          </p>
    */
   Capabilities?: Capability[];
 
   /**
    * @public
-   * <p>A list of tags that specify information about the stack set. A maximum number of 50 tags can be
-   *    specified.</p>
+   * <p>A list of tags that specify information about the stack set. A maximum number of 50 tags can
+   *    be specified.</p>
    */
   Tags?: Tag[];
 
@@ -5571,48 +5650,52 @@ export interface StackSet {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role used to create or update the stack set.</p>
-   *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
-   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set Operations</a>
-   *    in the <i>CloudFormation User Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to create or update the
+   *    stack set.</p>
+   *          <p>Use customized administrator roles to control which users or groups can manage specific
+   *    stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set Operations</a> in the
+   *     <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
 
   /**
    * @public
-   * <p>The name of the IAM execution role used to create or update the stack set.</p>
-   *          <p>Use customized execution roles to control which stack resources users and groups can include in their stack
-   *    sets.</p>
+   * <p>The name of the IAM execution role used to create or update the stack
+   *    set.</p>
+   *          <p>Use customized execution roles to control which stack resources users and groups can include
+   *    in their stack sets.</p>
    */
   ExecutionRoleName?: string;
 
   /**
    * @public
    * <p>Detailed information about the drift status of the stack set.</p>
-   *          <p>For stack sets, contains information about the last <i>completed</i> drift operation performed on
-   *    the stack set. Information about drift operations currently in progress isn't included.</p>
+   *          <p>For stack sets, contains information about the last <i>completed</i> drift
+   *    operation performed on the stack set. Information about drift operations currently in progress
+   *    isn't included.</p>
    */
   StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
 
   /**
    * @public
-   * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations
-   *    accounts that are added to a target organization or organizational unit (OU).</p>
+   * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations accounts that are added to a target organization or organizational unit
+   *    (OU).</p>
    */
   AutoDeployment?: AutoDeployment;
 
   /**
    * @public
-   * <p>Describes how the IAM roles required for stack set operations are created.</p>
+   * <p>Describes how the IAM roles required for stack set operations are
+   *    created.</p>
    *          <ul>
    *             <li>
-   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to
-   *      deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set
-   *       Permissions</a>.</p>
+   *                <p>With <code>self-managed</code> permissions, you must create the administrator and
+   *      execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+   *       Self-Managed Stack Set Permissions</a>.</p>
    *             </li>
    *             <li>
-   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles
-   *      required to deploy to accounts managed by Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by Organizations. For more
+   *      information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
    *       Service-Managed Stack Set Permissions</a>.</p>
    *             </li>
    *          </ul>
@@ -5621,21 +5704,22 @@ export interface StackSet {
 
   /**
    * @public
-   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that
+   *    you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    */
   OrganizationalUnitIds?: string[];
 
   /**
    * @public
-   * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting
-   *    operations.</p>
+   * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
+   *    conflicting operations.</p>
    */
   ManagedExecution?: ManagedExecution;
 
   /**
    * @public
-   * <p>Returns a list of all Amazon Web Services Regions the given StackSet has stack instances deployed in. The Amazon Web Services Regions list output is in no particular order.</p>
+   * <p>Returns a list of all Amazon Web Services Regions the given StackSet has stack instances
+   *    deployed in. The Amazon Web Services Regions list output is in no particular order.</p>
    */
   Regions?: string[];
 }
@@ -5752,10 +5836,10 @@ export interface StackSetOperation {
 
   /**
    * @public
-   * <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and
-   *    delete operations affect only the specified stack set instances that are associated with the specified stack set.
-   *    Update operations affect both the stack set itself, in addition to <i>all</i> associated stack set
-   *    instances.</p>
+   * <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or
+   *     <code>DELETE</code>. Create and delete operations affect only the specified stack set instances
+   *    that are associated with the specified stack set. Update operations affect both the stack set
+   *    itself, in addition to <i>all</i> associated stack set instances.</p>
    */
   Action?: StackSetOperationAction;
 
@@ -5765,16 +5849,19 @@ export interface StackSetOperation {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that
-   *      you've set for an operation is applied for each Region during stack create and update operations. If the number of
-   *      failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to
-   *       <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p>
+   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure
+   *      tolerance value that you've set for an operation is applied for each Region during stack create
+   *      and update operations. If the number of failed stacks within a Region exceeds the failure
+   *      tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in
+   *      turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation
+   *      cancels the operation in any remaining Regions.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of
-   *      operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status
-   *       codes</a> in the CloudFormation User Guide.</p>
+   *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require
+   *      a sequence of operations, the operation is queued to be performed. For more information, see
+   *      the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack
+   *       set operation status codes</a> in the CloudFormation User Guide.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5786,12 +5873,13 @@ export interface StackSetOperation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p>
+   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
+   *      request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without
-   *      exceeding the failure tolerance for the operation.</p>
+   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the specified
+   *      stacks without exceeding the failure tolerance for the operation.</p>
    *             </li>
    *          </ul>
    */
@@ -5805,60 +5893,64 @@ export interface StackSetOperation {
 
   /**
    * @public
-   * <p>For stack set operations of action type <code>DELETE</code>, specifies whether to remove the stack instances
-   *    from the specified stack set, but doesn't delete the stacks. You can't re-associate a retained stack, or add an
-   *    existing, saved stack to a new stack set.</p>
+   * <p>For stack set operations of action type <code>DELETE</code>, specifies whether to remove the
+   *    stack instances from the specified stack set, but doesn't delete the stacks. You can't
+   *    re-associate a retained stack, or add an existing, saved stack to a new stack set.</p>
    */
   RetainStacks?: boolean;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
-   *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
-   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set
+   *    operation.</p>
+   *          <p>Use customized administrator roles to control which users or groups can manage specific
+   *    stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define
+   *     Permissions for Multiple Administrators</a> in the
    *    <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
 
   /**
    * @public
-   * <p>The name of the IAM execution role used to create or update the stack set.</p>
-   *          <p>Use customized execution roles to control which stack resources users and groups can include in their stack
-   *    sets.</p>
+   * <p>The name of the IAM execution role used to create or update the stack
+   *    set.</p>
+   *          <p>Use customized execution roles to control which stack resources users and groups can include
+   *    in their stack sets.</p>
    */
   ExecutionRoleName?: string;
 
   /**
    * @public
-   * <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might
-   *    differ from the creation time of the individual stacks themselves. This is because CloudFormation needs to
-   *    perform preparatory work for the operation, such as dispatching the work to the requested Regions, before actually
-   *    creating the first stacks.</p>
+   * <p>The time at which the operation was initiated. Note that the creation times for the stack
+   *    set operation might differ from the creation time of the individual stacks themselves. This is
+   *    because CloudFormation needs to perform preparatory work for the operation, such as
+   *    dispatching the work to the requested Regions, before actually creating the first stacks.</p>
    */
   CreationTimestamp?: Date;
 
   /**
    * @public
-   * <p>The time at which the stack set operation ended, across all accounts and Regions specified. Note that this
-   *    doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or
-   *    Region.</p>
+   * <p>The time at which the stack set operation ended, across all accounts and Regions specified.
+   *    Note that this doesn't necessarily mean that the stack set operation was successful, or even
+   *    attempted, in each account or Region.</p>
    */
   EndTimestamp?: Date;
 
   /**
    * @public
-   * <p>[Service-managed permissions] The Organizations accounts affected by the stack operation.</p>
+   * <p>[Service-managed permissions] The Organizations accounts affected by the stack
+   *    operation.</p>
    */
   DeploymentTargets?: DeploymentTargets;
 
   /**
    * @public
-   * <p>Detailed information about the drift status of the stack set. This includes information about drift operations
-   *    currently being performed on the stack set.</p>
-   *          <p>This information will only be present for stack set operations whose <code>Action</code> type is
-   *     <code>DETECT_DRIFT</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in
-   *    the CloudFormation User Guide.</p>
+   * <p>Detailed information about the drift status of the stack set. This includes information
+   *    about drift operations currently being performed on the stack set.</p>
+   *          <p>This information will only be present for stack set operations whose <code>Action</code>
+   *    type is <code>DETECT_DRIFT</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in
+   *     Stack Sets</a> in the CloudFormation User Guide.</p>
    */
   StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
 
@@ -7328,25 +7420,25 @@ export interface StackInstanceResourceDriftsSummary {
 
   /**
    * @public
-   * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses
-   *    context key-value pairs in cases where a resource's logical and physical IDs aren't enough
-   *    to uniquely identify that resource. Each context key-value pair specifies a unique resource
-   *    that contains the targeted resource.</p>
+   * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses context
+   *    key-value pairs in cases where a resource's logical and physical IDs aren't enough to uniquely
+   *    identify that resource. Each context key-value pair specifies a unique resource that contains the
+   *    targeted resource.</p>
    */
   PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
 
   /**
    * @public
-   * <p>Type of resource. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a> in the CloudFormation User
-   *    Guide.</p>
+   * <p>Type of resource. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services
+   *     Resource Types Reference</a> in the CloudFormation User Guide.</p>
    */
   ResourceType: string | undefined;
 
   /**
    * @public
-   * <p>Status of the actual configuration of the resource compared to its expected
-   *    configuration. These will be present only for resources whose
-   *    <code>StackInstanceResourceDriftStatus</code> is <code>MODIFIED</code>. </p>
+   * <p>Status of the actual configuration of the resource compared to its expected configuration.
+   *    These will be present only for resources whose <code>StackInstanceResourceDriftStatus</code> is
+   *     <code>MODIFIED</code>. </p>
    */
   PropertyDifferences?: PropertyDifference[];
 
@@ -7356,18 +7448,18 @@ export interface StackInstanceResourceDriftsSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code>: The resource differs from its expected template
-   *      configuration in that the resource has been deleted.</p>
+   *                   <code>DELETED</code>: The resource differs from its expected template configuration in
+   *      that the resource has been deleted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MODIFIED</code>: One or more resource properties differ from their expected
-   *      template values.</p>
+   *                   <code>MODIFIED</code>: One or more resource properties differ from their expected template
+   *      values.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_SYNC</code>: The resource's actual configuration matches its expected
-   *      template configuration.</p>
+   *                   <code>IN_SYNC</code>: The resource's actual configuration matches its expected template
+   *      configuration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7523,8 +7615,8 @@ export interface StackInstanceSummary {
 
   /**
    * @public
-   * <p>[Self-managed permissions] The name of the Amazon Web Services account that the stack instance is associated
-   *    with.</p>
+   * <p>[Self-managed permissions] The name of the Amazon Web Services account that the stack
+   *    instance is associated with.</p>
    */
   Account?: string;
 
@@ -7536,26 +7628,29 @@ export interface StackInstanceSummary {
 
   /**
    * @public
-   * <p>The status of the stack instance, in terms of its synchronization with its associated stack set.</p>
+   * <p>The status of the stack instance, in terms of its synchronization with its associated stack
+   *    set.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
-   *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
-   *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
+   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left
+   *      the stack in an unstable state. Stacks in this state are excluded from further
+   *       <code>UpdateStackSet</code> operations. You might need to perform a
+   *       <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
    *       <code>true</code>, to delete the stack instance, and then delete the stack manually.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set because:</p>
+   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set
+   *      because:</p>
    *                <ul>
    *                   <li>
-   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or <code>UpdateStackSet</code>
-   *        operation.</p>
+   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or
+   *         <code>UpdateStackSet</code> operation.</p>
    *                   </li>
    *                   <li>
-   *                      <p>The stack was part of a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation that failed or
-   *        was stopped before the stack was created or updated.</p>
+   *                      <p>The stack was part of a <code>CreateStackSet</code> or <code>UpdateStackSet</code>
+   *        operation that failed or was stopped before the stack was created or updated.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -7581,31 +7676,31 @@ export interface StackInstanceSummary {
 
   /**
    * @public
-   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that
+   *    you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    */
   OrganizationalUnitId?: string;
 
   /**
    * @public
-   * <p>Status of the stack instance's actual configuration compared to the expected template and parameter
-   *    configuration of the stack set to which it belongs.</p>
+   * <p>Status of the stack instance's actual configuration compared to the expected template and
+   *    parameter configuration of the stack set to which it belongs.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter configuration of the stack
-   *      set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the
-   *      associated stack have drifted.</p>
+   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
+   *      configuration of the stack set to which it belongs. A stack instance is considered to have
+   *      drifted if one or more of the resources in the associated stack have drifted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the stack instance differs from its expected stack set
-   *      configuration.</p>
+   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the stack instance differs from its
+   *      expected stack set configuration.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its expected stack set
-   *      configuration.</p>
+   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its expected stack
+   *      set configuration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7617,8 +7712,9 @@ export interface StackInstanceSummary {
 
   /**
    * @public
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack instance. This
-   *    value will be <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the
+   *    stack instance. This value will be <code>NULL</code> for any stack instance on which drift
+   *    detection hasn't yet been performed.</p>
    */
   LastDriftCheckTimestamp?: Date;
 
@@ -8070,13 +8166,14 @@ export type StackSetOperationResultStatus =
 
 /**
  * @public
- * <p>The structure that contains information about a specified operation's results for a given account in a given
- *    Region.</p>
+ * <p>The structure that contains information about a specified operation's results for a given
+ *    account in a given Region.</p>
  */
 export interface StackSetOperationResultSummary {
   /**
    * @public
-   * <p>[Self-managed permissions] The name of the Amazon Web Services account for this operation result.</p>
+   * <p>[Self-managed permissions] The name of the Amazon Web Services account for this operation
+   *    result.</p>
    */
   Account?: string;
 
@@ -8088,31 +8185,35 @@ export interface StackSetOperationResultSummary {
 
   /**
    * @public
-   * <p>The result status of the stack set operation for the given account in the given Region.</p>
+   * <p>The result status of the stack set operation for the given account in the given
+   *    Region.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code>: The operation in the specified account and Region has been canceled. This is either
-   *      because a user has stopped the stack set operation, or because the failure tolerance of the stack set operation has
-   *      been exceeded.</p>
+   *                   <code>CANCELLED</code>: The operation in the specified account and Region has been
+   *      canceled. This is either because a user has stopped the stack set operation, or because the
+   *      failure tolerance of the stack set operation has been exceeded.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>FAILED</code>: The operation in the specified account and Region failed.</p>
-   *                <p>If the stack set operation fails in enough accounts within a Region, the failure tolerance for the stack set
-   *      operation as a whole might be exceeded.</p>
+   *                <p>If the stack set operation fails in enough accounts within a Region, the failure tolerance
+   *      for the stack set operation as a whole might be exceeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RUNNING</code>: The operation in the specified account and Region is currently in progress.</p>
+   *                   <code>RUNNING</code>: The operation in the specified account and Region is currently in
+   *      progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code>: The operation in the specified account and Region has yet to start.</p>
+   *                   <code>PENDING</code>: The operation in the specified account and Region has yet to
+   *      start.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCEEDED</code>: The operation in the specified account and Region completed successfully.</p>
+   *                   <code>SUCCEEDED</code>: The operation in the specified account and Region completed
+   *      successfully.</p>
    *             </li>
    *          </ul>
    */
@@ -8126,15 +8227,15 @@ export interface StackSetOperationResultSummary {
 
   /**
    * @public
-   * <p>The results of the account gate function CloudFormation invokes, if present, before proceeding with stack
-   *    set operations in an account.</p>
+   * <p>The results of the account gate function CloudFormation invokes, if present, before
+   *    proceeding with stack set operations in an account.</p>
    */
   AccountGateResult?: AccountGateResult;
 
   /**
    * @public
-   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that
+   *    you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    */
   OrganizationalUnitId?: string;
 }
@@ -8221,9 +8322,10 @@ export interface StackSetOperationSummary {
 
   /**
    * @public
-   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and delete
-   *    operations affect only the specified stack instances that are associated with the specified stack set. Update
-   *    operations affect both the stack set itself and <i>all</i> associated stack set instances.</p>
+   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>.
+   *    Create and delete operations affect only the specified stack instances that are associated with
+   *    the specified stack set. Update operations affect both the stack set itself and
+   *     <i>all</i> associated stack set instances.</p>
    */
   Action?: StackSetOperationAction;
 
@@ -8233,16 +8335,19 @@ export interface StackSetOperationSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that
-   *      you've set for an operation is applied for each Region during stack create and update operations. If the number of
-   *      failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to
-   *       <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p>
+   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure
+   *      tolerance value that you've set for an operation is applied for each Region during stack create
+   *      and update operations. If the number of failed stacks within a Region exceeds the failure
+   *      tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in
+   *      turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation
+   *      cancels the operation in any remaining Regions.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of
-   *      operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status
-   *       codes</a> in the CloudFormation User Guide.</p>
+   *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require
+   *      a sequence of operations, the operation is queued to be performed. For more information, see
+   *      the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack
+   *       set operation status codes</a> in the CloudFormation User Guide.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8254,12 +8359,13 @@ export interface StackSetOperationSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p>
+   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
+   *      request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without
-   *      exceeding the failure tolerance for the operation.</p>
+   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the specified
+   *      stacks without exceeding the failure tolerance for the operation.</p>
    *             </li>
    *          </ul>
    */
@@ -8267,18 +8373,18 @@ export interface StackSetOperationSummary {
 
   /**
    * @public
-   * <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might
-   *    differ from the creation time of the individual stacks themselves. This is because CloudFormation needs to
-   *    perform preparatory work for the operation, such as dispatching the work to the requested Regions, before actually
-   *    creating the first stacks.</p>
+   * <p>The time at which the operation was initiated. Note that the creation times for the stack
+   *    set operation might differ from the creation time of the individual stacks themselves. This is
+   *    because CloudFormation needs to perform preparatory work for the operation, such as
+   *    dispatching the work to the requested Regions, before actually creating the first stacks.</p>
    */
   CreationTimestamp?: Date;
 
   /**
    * @public
-   * <p>The time at which the stack set operation ended, across all accounts and Regions specified. Note that this
-   *    doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or
-   *    Region.</p>
+   * <p>The time at which the stack set operation ended, across all accounts and Regions specified.
+   *    Note that this doesn't necessarily mean that the stack set operation was successful, or even
+   *    attempted, in each account or Region.</p>
    */
   EndTimestamp?: Date;
 
@@ -8296,9 +8402,10 @@ export interface StackSetOperationSummary {
 
   /**
    * @public
-   * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
-   *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation
-   *     options</a>.</p>
+   * <p>The user-specified preferences for how CloudFormation performs a stack set
+   *    operation.</p>
+   *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set
+   *     operation options</a>.</p>
    */
   OperationPreferences?: StackSetOperationPreferences;
 }
@@ -8390,7 +8497,8 @@ export interface StackSetSummary {
 
   /**
    * @public
-   * <p>A description of the stack set that you specify when the stack set is created or updated.</p>
+   * <p>A description of the stack set that you specify when the stack set is created or
+   *    updated.</p>
    */
   Description?: string;
 
@@ -8402,23 +8510,23 @@ export interface StackSetSummary {
 
   /**
    * @public
-   * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations
-   *    accounts that are added to a target organizational unit (OU).</p>
+   * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations accounts that are added to a target organizational unit (OU).</p>
    */
   AutoDeployment?: AutoDeployment;
 
   /**
    * @public
-   * <p>Describes how the IAM roles required for stack set operations are created.</p>
+   * <p>Describes how the IAM roles required for stack set operations are
+   *    created.</p>
    *          <ul>
    *             <li>
-   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to
-   *      deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set
-   *       Permissions</a>.</p>
+   *                <p>With <code>self-managed</code> permissions, you must create the administrator and
+   *      execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+   *       Self-Managed Stack Set Permissions</a>.</p>
    *             </li>
    *             <li>
-   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles
-   *      required to deploy to accounts managed by Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by Organizations. For more
+   *      information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
    *       Service-Managed Stack Set Permissions</a>.</p>
    *             </li>
    *          </ul>
@@ -8427,15 +8535,15 @@ export interface StackSetSummary {
 
   /**
    * @public
-   * <p>Status of the stack set's actual configuration compared to its expected template and parameter configuration. A
-   *    stack set is considered to have drifted if one or more of its stack instances have drifted from their expected
-   *    template and parameter configuration.</p>
+   * <p>Status of the stack set's actual configuration compared to its expected template and
+   *    parameter configuration. A stack set is considered to have drifted if one or more of its stack
+   *    instances have drifted from their expected template and parameter configuration.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack set stack differs from the
-   *      expected template and parameter configuration. A stack instance is considered to have drifted if one or more of the
-   *      resources in the associated stack have drifted.</p>
+   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack set stack
+   *      differs from the expected template and parameter configuration. A stack instance is considered
+   *      to have drifted if one or more of the resources in the associated stack have drifted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8443,8 +8551,8 @@ export interface StackSetSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_SYNC</code>: All the stack instances belonging to the stack set stack match from the expected
-   *      template and parameter configuration.</p>
+   *                   <code>IN_SYNC</code>: All the stack instances belonging to the stack set stack match from
+   *      the expected template and parameter configuration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8456,15 +8564,16 @@ export interface StackSetSummary {
 
   /**
    * @public
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set. This value
-   *    will be <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the
+   *    stack set. This value will be <code>NULL</code> for any stack set on which drift detection hasn't
+   *    yet been performed.</p>
    */
   LastDriftCheckTimestamp?: Date;
 
   /**
    * @public
-   * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting
-   *    operations.</p>
+   * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
+   *    conflicting operations.</p>
    */
   ManagedExecution?: ManagedExecution;
 }
@@ -9347,7 +9456,7 @@ export interface RegisterTypeInput {
    * <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when
    *    invoking the extension.</p>
    *          <p>For CloudFormation to assume the specified execution role, the role must contain a trust relationship
-   *    with the CloudFormation service principle (<code>resources.cloudformation.amazonaws.com</code>). For more
+   *    with the CloudFormation service principal (<code>resources.cloudformation.amazonaws.com</code>). For more
    *    information about adding trust relationships, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying a
    *     role trust policy</a> in the <i>Identity and Access Management User Guide</i>.</p>
    *          <p>If your extension calls Amazon Web Services APIs in any of its handlers, you must create an <i>
@@ -9622,18 +9731,23 @@ export interface StopStackSetOperationInput {
 
   /**
    * @public
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *     management account or as a delegated administrator in a member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
-   *    permissions.</p>
+   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
+   *    in the organization's management account or as a delegated administrator in a member
+   *    account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+   *    self-managed permissions.</p>
    *          <ul>
    *             <li>
-   *                <p>If you are signed in to the management account, specify <code>SELF</code>.</p>
+   *                <p>If you are signed in to the management account, specify
+   *      <code>SELF</code>.</p>
    *             </li>
    *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *                <p>If you are signed in to a delegated administrator account, specify
+   *       <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the
+   *       management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
+   *       delegated administrator</a> in the <i>CloudFormation User
+   *      Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -9880,6 +9994,9 @@ export interface UpdateStackInput {
    *      Processing on Templates</a>.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
+   *          </note>
    */
   Capabilities?: Capability[];
 
@@ -9891,6 +10008,9 @@ export interface UpdateStackInput {
    *    default, CloudFormation grants permissions to all resource types. Identity and Access Management (IAM)
    *    uses this parameter for CloudFormation-specific condition keys in IAM policies. For more
    *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with Identity and Access Management</a>.</p>
+   *          <note>
+   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
+   *          </note>
    */
   ResourceTypes?: string[];
 

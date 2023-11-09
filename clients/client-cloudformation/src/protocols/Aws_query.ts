@@ -7323,6 +7323,9 @@ const se_StackSetOperationPreferences = (input: StackSetOperationPreferences, co
   if (input.MaxConcurrentPercentage != null) {
     entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
   }
+  if (input.ConcurrencyMode != null) {
+    entries["ConcurrencyMode"] = input.ConcurrencyMode;
+  }
   return entries;
 };
 
@@ -10695,6 +10698,9 @@ const de_StackSetOperationPreferences = (output: any, context: __SerdeContext): 
   }
   if (output["MaxConcurrentPercentage"] !== undefined) {
     contents.MaxConcurrentPercentage = __strictParseInt32(output["MaxConcurrentPercentage"]) as number;
+  }
+  if (output["ConcurrencyMode"] !== undefined) {
+    contents.ConcurrencyMode = __expectString(output["ConcurrencyMode"]);
   }
   return contents;
 };

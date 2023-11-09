@@ -71,6 +71,7 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  *     FailureTolerancePercentage: Number("int"),
  *     MaxConcurrentCount: Number("int"),
  *     MaxConcurrentPercentage: Number("int"),
+ *     ConcurrencyMode: "STRICT_FAILURE_TOLERANCE" || "SOFT_FAILURE_TOLERANCE",
  *   },
  *   RetainStacks: true || false, // required
  *   OperationId: "STRING_VALUE",

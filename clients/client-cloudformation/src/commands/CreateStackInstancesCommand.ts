@@ -82,6 +82,7 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  *     FailureTolerancePercentage: Number("int"),
  *     MaxConcurrentCount: Number("int"),
  *     MaxConcurrentPercentage: Number("int"),
+ *     ConcurrencyMode: "STRICT_FAILURE_TOLERANCE" || "SOFT_FAILURE_TOLERANCE",
  *   },
  *   OperationId: "STRING_VALUE",
  *   CallAs: "SELF" || "DELEGATED_ADMIN",

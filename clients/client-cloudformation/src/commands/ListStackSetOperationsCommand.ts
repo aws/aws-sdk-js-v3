@@ -73,6 +73,7 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * //         FailureTolerancePercentage: Number("int"),
  * //         MaxConcurrentCount: Number("int"),
  * //         MaxConcurrentPercentage: Number("int"),
+ * //         ConcurrencyMode: "STRICT_FAILURE_TOLERANCE" || "SOFT_FAILURE_TOLERANCE",
  * //       },
  * //     },
  * //   ],
