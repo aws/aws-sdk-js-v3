@@ -1656,6 +1656,7 @@ export const Runtime = {
   nodejs810: "nodejs8.10",
   provided: "provided",
   providedal2: "provided.al2",
+  providedal2023: "provided.al2023",
   python27: "python2.7",
   python310: "python3.10",
   python311: "python3.11",
