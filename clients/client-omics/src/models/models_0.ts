@@ -2524,6 +2524,7 @@ export const FileType = {
   BAM: "BAM",
   CRAM: "CRAM",
   FASTQ: "FASTQ",
+  UBAM: "UBAM",
 } as const;
 
 /**
@@ -2589,7 +2590,7 @@ export interface CreateMultipartReadSetUploadRequest {
    *       The ARN of the reference.
    *     </p>
    */
-  referenceArn: string | undefined;
+  referenceArn?: string;
 
   /**
    * @public
@@ -8027,7 +8028,7 @@ export interface StartReadSetImportJobSourceItem {
    * @public
    * <p>The source's reference ARN.</p>
    */
-  referenceArn: string | undefined;
+  referenceArn?: string;
 
   /**
    * @public

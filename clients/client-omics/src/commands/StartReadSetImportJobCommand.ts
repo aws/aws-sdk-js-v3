@@ -58,7 +58,7 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  *       subjectId: "STRING_VALUE", // required
  *       sampleId: "STRING_VALUE", // required
  *       generatedFrom: "STRING_VALUE",
- *       referenceArn: "STRING_VALUE", // required
+ *       referenceArn: "STRING_VALUE",
  *       name: "STRING_VALUE",
  *       description: "STRING_VALUE",
  *       tags: { // TagMap

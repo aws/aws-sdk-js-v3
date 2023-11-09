@@ -58,7 +58,7 @@ export interface CreateMultipartReadSetUploadCommandOutput
  *   subjectId: "STRING_VALUE", // required
  *   sampleId: "STRING_VALUE", // required
  *   generatedFrom: "STRING_VALUE",
- *   referenceArn: "STRING_VALUE", // required
+ *   referenceArn: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   tags: { // TagMap
