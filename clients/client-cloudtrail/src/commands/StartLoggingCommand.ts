@@ -63,12 +63,9 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
- *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
- *          The following is the format of a trail ARN.</p>
- *          <p>
- *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
+ *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
- *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>

@@ -220,12 +220,9 @@ export class ChannelNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
- *          The following is the format of a trail ARN.</p>
- *          <p>
- *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ * <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
+ *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
- *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
@@ -654,8 +651,9 @@ export interface AdvancedFieldSelector {
    *                   <b>
    *                      <code>eventSource</code>
    *                   </b> - For filtering
-   *                management events only. This can be set only to <code>NotEquals</code>
-   *                   <code>kms.amazonaws.com</code>.</p>
+   *                management events only. This can be set to <code>NotEquals</code>
+   *                   <code>kms.amazonaws.com</code> or <code>NotEquals</code>
+   *                   <code>rdsdata.amazonaws.com</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -678,6 +676,12 @@ export interface AdvancedFieldSelector {
    *                      <p>
    *                      For CloudTrail event records, the value
    *                      must be <code>Management</code> or <code>Data</code>.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                      For CloudTrail Insights event records, the value
+   *                      must be <code>Insight</code>.
    *                   </p>
    *                   </li>
    *                   <li>
@@ -729,6 +733,11 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::CodeWhisperer::Customization</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::CodeWhisperer::Profile</code>
    *                      </p>
    *                   </li>
@@ -774,6 +783,11 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::KinesisVideo::Stream</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::ManagedBlockchain::Network</code>
    *                      </p>
    *                   </li>
@@ -789,12 +803,32 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::PCAConnectorAD::Connector</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SageMaker::Endpoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::SageMaker::ExperimentTrialComponent</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>AWS::SageMaker::FeatureGroup</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SNS::PlatformEndpoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SNS::Topic</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -815,6 +849,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::SSMMessages::ControlChannel</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Timestream::Database</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Timestream::Table</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -879,6 +923,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:cloudtrail:<region>:<account_ID>:channel/<channel_UUID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::CodeWhisperer::Customization</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:codewhisperer:<region>:<account_ID>:customization/<customization_ID></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -972,6 +1026,16 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::KinesisVideo::Stream</code>, and the
+   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
+   *                the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name/<creation_time></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Network</code>,
    *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
    *                must be in the following format:</p>
@@ -1002,6 +1066,25 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::PCAConnectorAD::Connector</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::Endpoint</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::ExperimentTrialComponent</code>, and the operator is set to
    *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
    *                <ul>
@@ -1017,6 +1100,26 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::PlatformEndpoint</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sns:<region>:<account_ID>:endpoint/<endpoint_type>/<endpoint_name>/<endpoint_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::Topic</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sns:<region>:<account_ID>:<topic_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1065,6 +1168,26 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Database</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Table</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name>/table/<table_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -2294,6 +2417,9 @@ export interface CreateTrailRequest {
    *          represents the log group to which CloudTrail logs will be delivered. You must use a
    *          log group that exists in your account.</p>
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
+   *          <note>
+   *             <p>Only the management account can configure a CloudWatch Logs log group for an organization trail. </p>
+   *          </note>
    */
   CloudWatchLogsLogGroupArn?: string;
 
@@ -3780,6 +3906,11 @@ export interface DataResource {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>AWS::CodeWhisperer::Customization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>AWS::CodeWhisperer::Profile</code>
    *                </p>
    *             </li>
@@ -3825,6 +3956,11 @@ export interface DataResource {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>AWS::KinesisVideo::Stream</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>AWS::ManagedBlockchain::Network</code>
    *                </p>
    *             </li>
@@ -3840,12 +3976,32 @@ export interface DataResource {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>AWS::PCAConnectorAD::Connector</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::SageMaker::Endpoint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>AWS::SageMaker::ExperimentTrialComponent</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>AWS::SageMaker::FeatureGroup</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::SNS::PlatformEndpoint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::SNS::Topic</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3866,6 +4022,16 @@ export interface DataResource {
    *             <li>
    *                <p>
    *                   <code>AWS::SSMMessages::ControlChannel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::Timestream::Database</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::Timestream::Table</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4251,8 +4417,19 @@ export interface GetInsightSelectorsRequest {
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
+   *          <p>You cannot use this parameter with the <code>EventDataStore</code> parameter.</p>
    */
-  TrailName: string | undefined;
+  TrailName?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies the ARN (or ID suffix of the ARN) of the event data store for which you want to get Insights
+   *          selectors.
+   *       </p>
+   *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+   */
+  EventDataStore?: string;
 }
 
 /**
@@ -4271,12 +4448,12 @@ export type InsightType = (typeof InsightType)[keyof typeof InsightType];
 
 /**
  * @public
- * <p>A JSON string that contains a list of Insights types that are logged on a trail.</p>
+ * <p>A JSON string that contains a list of Insights types that are logged on a trail or event data store.</p>
  */
 export interface InsightSelector {
   /**
    * @public
-   * <p>The type of Insights events to log on a trail. <code>ApiCallRateInsight</code> and
+   * <p>The type of Insights events to log on a trail or event data store. <code>ApiCallRateInsight</code> and
    *             <code>ApiErrorRateInsight</code> are valid Insight types.</p>
    *          <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only
    *          management API calls that are aggregated per minute against a baseline API call volume.</p>
@@ -4300,16 +4477,31 @@ export interface GetInsightSelectorsResponse {
 
   /**
    * @public
-   * <p>A JSON string that contains the insight types you want to log on a trail. In this
-   *          release, <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code> are supported
-   *          as insight types.</p>
+   * <p>A JSON string that contains the Insight types you want to log on a trail or event data store. <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code> are supported
+   *          as Insights types.</p>
    */
   InsightSelectors?: InsightSelector[];
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the source event data store that enabled Insights events.
+   *       </p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the destination event data store that logs Insights events.
+   *       </p>
+   */
+  InsightsDestination?: string;
 }
 
 /**
  * @public
- * <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights
+ * <p>If you run <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights
  *          events enabled, the operation throws the exception
  *          <code>InsightNotEnabledException</code>.</p>
  */
@@ -5787,10 +5979,15 @@ export interface PutEventSelectorsResponse {
 
 /**
  * @public
- * <p>The formatting or syntax of the <code>InsightSelectors</code> JSON statement in your
- *             <code>PutInsightSelectors</code> or <code>GetInsightSelectors</code> request is not
- *          valid, or the specified insight type in the <code>InsightSelectors</code> statement is not
- *          a valid insight type.</p>
+ * <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not
+ *          valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not
+ *          valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the
+ *          <code>InsightsDestination</code> parameter must log Insights events and the source event data
+ *          store specified by the <code>EventDataStore</code> parameter must log management events.</p>
+ *          <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated
+ *          advanced event selectors are not compatible with the configured <code>InsightSelectors</code>.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
  */
 export class InvalidInsightSelectorsException extends __BaseException {
   readonly name: "InvalidInsightSelectorsException" = "InvalidInsightSelectorsException";
@@ -5822,12 +6019,13 @@ export interface PutInsightSelectorsRequest {
    * @public
    * <p>The name of the CloudTrail trail for which you want to change or add Insights
    *          selectors.</p>
+   *          <p>You cannot use this parameter with the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>
    */
-  TrailName: string | undefined;
+  TrailName?: string;
 
   /**
    * @public
-   * <p>A JSON string that contains the insight types you want to log on a trail.
+   * <p>A JSON string that contains the Insights types you want to log on a trail or event data store.
    *             <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid Insight
    *          types.</p>
    *          <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only
@@ -5837,6 +6035,25 @@ export interface PutInsightSelectorsRequest {
    *          unsuccessful.</p>
    */
   InsightSelectors: InsightSelector[] | undefined;
+
+  /**
+   * @public
+   * <p>The ARN (or ID suffix of the ARN) of the source event data store for which you want to change or add Insights
+   *          selectors. To enable Insights on an event data store, you must provide both the
+   *          <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>
+   *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+   */
+  EventDataStore?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN (or ID suffix of the ARN) of the destination event data store that logs Insights events. To enable Insights on an event data store, you must provide both the
+   *          <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.
+   *       </p>
+   *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+   */
+  InsightsDestination?: string;
 }
 
 /**
@@ -5852,11 +6069,26 @@ export interface PutInsightSelectorsResponse {
 
   /**
    * @public
-   * <p>A JSON string that contains the Insights event types that you want to log on a trail.
-   *          The valid Insights types in this release are <code>ApiErrorRateInsight</code> and
+   * <p>A JSON string that contains the Insights event types that you want to log on a trail or event data store.
+   *          The valid Insights types are <code>ApiErrorRateInsight</code> and
    *             <code>ApiCallRateInsight</code>.</p>
    */
   InsightSelectors?: InsightSelector[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source event data store for which you want to change or add Insights
+   *          selectors.</p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the destination event data store that logs Insights events.
+   *       </p>
+   */
+  InsightsDestination?: string;
 }
 
 /**
@@ -6640,6 +6872,10 @@ export interface UpdateEventDataStoreRequest {
    * @public
    * <p>Specifies whether an event data store collects events logged for an organization in
    *             Organizations.</p>
+   *          <note>
+   *             <p>Only the management account for the organization can convert an organization event data store to a non-organization event data store, or convert a non-organization event data store to
+   *          an organization event data store.</p>
+   *          </note>
    */
   OrganizationEnabled?: boolean;
 
@@ -6882,6 +7118,9 @@ export interface UpdateTrailRequest {
    *          represents the log group to which CloudTrail logs are delivered. You must use a log
    *          group that exists in your account.</p>
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
+   *          <note>
+   *             <p>Only the management account can configure a CloudWatch Logs log group for an organization trail. </p>
+   *          </note>
    */
   CloudWatchLogsLogGroupArn?: string;
 
@@ -6921,11 +7160,15 @@ export interface UpdateTrailRequest {
    * @public
    * <p>Specifies whether the trail is applied to all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false,
    *          and cannot be true unless the call is made on behalf of an Amazon Web Services account that
-   *          is the management account or delegated administrator account for an organization in Organizations. If the trail is not an organization trail and this is set to
+   *          is the management account for an organization in Organizations. If the trail is not an organization trail and this is set to
    *             <code>true</code>, the trail will be created in all Amazon Web Services accounts that
    *          belong to the organization. If the trail is an organization trail and this is set to
    *             <code>false</code>, the trail will remain in the current Amazon Web Services account but
    *          be deleted from all member accounts in the organization.</p>
+   *          <note>
+   *             <p>Only the management account for the organization can convert an organization trail to a non-organization trail, or convert a non-organization trail to
+   *             an organization trail.</p>
+   *          </note>
    */
   IsOrganizationTrail?: boolean;
 }

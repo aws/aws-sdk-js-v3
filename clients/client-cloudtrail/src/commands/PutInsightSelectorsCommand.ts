@@ -38,15 +38,21 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
 /**
  * @public
  * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
- *          want to enable on an existing trail. You also use <code>PutInsightSelectors</code> to turn
- *          off Insights event logging, by passing an empty list of insight types. The valid Insights
- *          event types in this release are <code>ApiErrorRateInsight</code> and
+ *          want to enable on an existing trail or event data store. You also use <code>PutInsightSelectors</code> to turn
+ *          off Insights event logging, by passing an empty list of Insights types. The valid Insights
+ *          event types are <code>ApiErrorRateInsight</code> and
  *             <code>ApiCallRateInsight</code>.</p>
- *          <p>To log CloudTrail Insights events on API call volume, the trail
+ *          <p>To enable Insights on an event data store, you must specify the ARNs (or ID suffix of the ARNs) for the source event data store (<code>EventDataStore</code>) and the destination event data store (<code>InsightsDestination</code>). The source event data store logs management events and enables Insights.
+ *          The destination event data store logs Insights events based upon the management event activity of the source event data store. The source and destination event data stores must belong to the same Amazon Web Services account.</p>
+ *          <p>To log Insights events for a trail, you must specify the name (<code>TrailName</code>) of the CloudTrail trail for which you want to change or add Insights
+ *          selectors.</p>
+ *          <p>To log CloudTrail Insights events on API call volume, the trail or event data store
  *          must log <code>write</code> management events. To log CloudTrail
- *          Insights events on API error rate, the trail must log <code>read</code> or
+ *          Insights events on API error rate, the trail or event data store must log <code>read</code> or
  *             <code>write</code> management events. You can call <code>GetEventSelectors</code> on a trail
- *          to check whether the trail logs management events.</p>
+ *          to check whether the trail logs management events. You can call <code>GetEventDataStore</code> on an
+ *       event data store to check whether the event data store logs management events.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,12 +60,14 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * // const { CloudTrailClient, PutInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // PutInsightSelectorsRequest
- *   TrailName: "STRING_VALUE", // required
+ *   TrailName: "STRING_VALUE",
  *   InsightSelectors: [ // InsightSelectors // required
  *     { // InsightSelector
  *       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
  *     },
  *   ],
+ *   EventDataStore: "STRING_VALUE",
+ *   InsightsDestination: "STRING_VALUE",
  * };
  * const command = new PutInsightSelectorsCommand(input);
  * const response = await client.send(command);
@@ -70,6 +78,8 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * //       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
  * //     },
  * //   ],
+ * //   EventDataStoreArn: "STRING_VALUE",
+ * //   InsightsDestination: "STRING_VALUE",
  * // };
  *
  * ```
@@ -81,12 +91,9 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
- *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
- *          The following is the format of a trail ARN.</p>
- *          <p>
- *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
+ *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
- *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
@@ -106,10 +113,22 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *          the Region in which the trail was created.</p>
  *
  * @throws {@link InvalidInsightSelectorsException} (client fault)
- *  <p>The formatting or syntax of the <code>InsightSelectors</code> JSON statement in your
- *             <code>PutInsightSelectors</code> or <code>GetInsightSelectors</code> request is not
- *          valid, or the specified insight type in the <code>InsightSelectors</code> statement is not
- *          a valid insight type.</p>
+ *  <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not
+ *          valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not
+ *          valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the
+ *          <code>InsightsDestination</code> parameter must log Insights events and the source event data
+ *          store specified by the <code>EventDataStore</code> parameter must log management events.</p>
+ *          <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated
+ *          advanced event selectors are not compatible with the configured <code>InsightSelectors</code>.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>This exception is thrown when the combination of parameters provided is not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
  *
  * @throws {@link InvalidTrailNameException} (client fault)
  *  <p>This exception is thrown when the provided trail name is not valid. Trail names must

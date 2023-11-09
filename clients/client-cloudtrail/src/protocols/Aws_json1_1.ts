@@ -2084,6 +2084,12 @@ const de_GetInsightSelectorsCommandError = async (
     case "InsightNotEnabledException":
     case "com.amazonaws.cloudtrail#InsightNotEnabledException":
       throw await de_InsightNotEnabledExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
@@ -3035,6 +3041,12 @@ const de_PutInsightSelectorsCommandError = async (
     case "InvalidInsightSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
       throw await de_InvalidInsightSelectorsExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
@@ -4032,6 +4044,9 @@ const de_UpdateEventDataStoreCommandError = async (
     case "InvalidEventSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
       throw await de_InvalidEventSelectorsExceptionRes(parsedOutput, context);
+    case "InvalidInsightSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
+      throw await de_InvalidInsightSelectorsExceptionRes(parsedOutput, context);
     case "InvalidKmsKeyIdException":
     case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
       throw await de_InvalidKmsKeyIdExceptionRes(parsedOutput, context);

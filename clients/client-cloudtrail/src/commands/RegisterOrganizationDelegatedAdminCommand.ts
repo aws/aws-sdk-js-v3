@@ -45,8 +45,7 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
 
 /**
  * @public
- * <p>Registers an organization’s member account as the CloudTrail delegated
- *          administrator.</p>
+ * <p>Registers an organization’s member account as the CloudTrail <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-delegated-administrator.html">delegated administrator</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

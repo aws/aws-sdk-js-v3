@@ -43,9 +43,8 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *             <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and
  *          2557. By default, <code>TerminationProtection</code> is enabled.</p>
  *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
- *          includes or excludes management and data events in your event data store. For more
- *          information about <code>AdvancedEventSelectors</code>, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.</p>
+ *          includes or excludes management, data, or Insights events in your event data store. For more
+ *          information about <code>AdvancedEventSelectors</code>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.</p>
  *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
  *             <code>AdvancedEventSelectors</code> includes events of that type in your event data store.</p>
  * @example
@@ -196,6 +195,17 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *                valid.</p>
  *             </li>
  *          </ul>
+ *
+ * @throws {@link InvalidInsightSelectorsException} (client fault)
+ *  <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not
+ *          valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not
+ *          valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the
+ *          <code>InsightsDestination</code> parameter must log Insights events and the source event data
+ *          store specified by the <code>EventDataStore</code> parameter must log management events.</p>
+ *          <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated
+ *          advanced event selectors are not compatible with the configured <code>InsightSelectors</code>.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
  *
  * @throws {@link InvalidKmsKeyIdException} (client fault)
  *  <p>This exception is thrown when the KMS key ARN is not valid.</p>

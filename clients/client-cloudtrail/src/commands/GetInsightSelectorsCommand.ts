@@ -38,12 +38,14 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
 /**
  * @public
  * <p>Describes the settings for the Insights event selectors that you configured for your
- *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
- *          is enabled on the trail, and if it is, which insight types are enabled. If you run
- *             <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled,
+ *          trail or event data store. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
+ *          is enabled on the trail or event data store, and if it is, which Insights types are enabled. If you run
+ *             <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights events enabled,
  *          the operation throws the exception <code>InsightNotEnabledException</code>
  *          </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails </a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>Specify either the <code>EventDataStore</code> parameter to get Insights event selectors for an event data store,
+ *          or the <code>TrailName</code> parameter to the get Insights event selectors for a trail. You cannot specify these parameters together.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +53,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * // const { CloudTrailClient, GetInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // GetInsightSelectorsRequest
- *   TrailName: "STRING_VALUE", // required
+ *   TrailName: "STRING_VALUE",
+ *   EventDataStore: "STRING_VALUE",
  * };
  * const command = new GetInsightSelectorsCommand(input);
  * const response = await client.send(command);
@@ -62,6 +65,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * //       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
  * //     },
  * //   ],
+ * //   EventDataStoreArn: "STRING_VALUE",
+ * //   InsightsDestination: "STRING_VALUE",
  * // };
  *
  * ```
@@ -73,12 +78,9 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
- *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
- *          The following is the format of a trail ARN.</p>
- *          <p>
- *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
+ *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
- *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
@@ -87,9 +89,16 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  *          </p>
  *
  * @throws {@link InsightNotEnabledException} (client fault)
- *  <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights
+ *  <p>If you run <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights
  *          events enabled, the operation throws the exception
  *          <code>InsightNotEnabledException</code>.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>This exception is thrown when the combination of parameters provided is not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
  *
  * @throws {@link InvalidTrailNameException} (client fault)
  *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
