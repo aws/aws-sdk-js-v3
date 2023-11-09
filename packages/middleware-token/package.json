@@ -58,8 +58,7 @@
     "dist-*/**"
   ],
   "browser": {
-    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser",
-    "./dist-cjs/tokenDefaultProvider": "./dist-cjs/tokenDefaultProvider.browser"
+    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"
   },
   "react-native": {
     "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser",

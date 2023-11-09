@@ -56,8 +56,7 @@
     "entryPoint": "src/index.ts"
   },
   "browser": {
-    "./dist-es/blob/runtime-blob-types.node": "./dist-es/blob/runtime-blob-types.browser",
-    "./dist-cjs/blob/runtime-blob-types.node": "./dist-cjs/blob/runtime-blob-types.browser"
+    "./dist-es/blob/runtime-blob-types.node": "./dist-es/blob/runtime-blob-types.browser"
   },
   "react-native": {
     "./dist-es/blob/runtime-blob-types.node": "./dist-es/blob/runtime-blob-types.browser",

@@ -1,3 +1,4 @@
+const { error } = require("console");
 const fs = require("fs");
 
 /**
@@ -49,34 +50,21 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
 
   if (typeof pkgJson.browser !== typeof pkgJson["react-native"]) {
     errors.push(`browser and react-native fields are different in ${pkgJson.name}`);
-    if (overwrite) {
-      if (typeof pkgJson.browser === "object") {
-        pkgJson["react-native"] = pkgJson.browser;
-      } else if (typeof pkgJson["react-native"] === "object") {
-        pkgJson.browser = pkgJson["react-native"];
-      }
-    }
   }
 
   if (typeof pkgJson.browser === "object" && typeof pkgJson["react-native"] === "object") {
-    const browserCanonical = [
-      ...new Set([
-        ...Object.entries(pkgJson.browser).map(([k, v]) => [
-          k.replace("dist-cjs", "dist-es"),
-          typeof v === "string" ? v.replace("dist-cjs", "dist-es") : v,
-        ]),
-        ...Object.entries(pkgJson.browser).map(([k, v]) => [
-          k.replace("dist-es", "dist-cjs"),
-          typeof v === "string" ? v.replace("dist-es", "dist-cjs") : v,
-        ]),
-      ]),
-    ].reduce((acc, [k, v]) => {
-      acc[k] = v;
+    const browserCanonical = Object.entries(pkgJson.browser).reduce((acc, [k, v]) => {
+      if (!k.includes("dist-cjs/")) {
+        acc[k] = v;
+      }
       return acc;
     }, {});
 
     if (Object.keys(browserCanonical).length !== Object.keys(pkgJson.browser).length) {
       errors.push(`${pkgJson.name} browser field is incomplete.`);
+      if (overwrite) {
+        pkgJson.browser = browserCanonical;
+      }
     }
 
     const reactNativeCanonical = [
@@ -91,21 +79,24 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
         ]),
       ]),
     ].reduce((acc, [k, v]) => {
-      acc[k] = v;
+      const automatic = typeof v === "string" ? v.match(/\.native(\.js)?$/) && k === v.replace(".native", "") : false;
+      if (!automatic) {
+        acc[k] = v;
+      } else {
+        errors.push(`${k} -> ${v} is unnecessary in ${pkgJson.name} (automatic in React-Native bundler)`);
+      }
       return acc;
     }, {});
 
     if (Object.keys(reactNativeCanonical).length !== Object.keys(pkgJson["react-native"]).length) {
       errors.push(`${pkgJson.name} react-native field is incomplete.`);
-    }
-
-    if (overwrite) {
-      pkgJson.browser = browserCanonical;
-      pkgJson["react-native"] = reactNativeCanonical;
+      if (overwrite) {
+        pkgJson["react-native"] = reactNativeCanonical;
+      }
     }
   }
 
-  if (overwrite) {
+  if (overwrite && errors.length) {
     fs.writeFileSync(pkgJsonFilePath, JSON.stringify(pkgJson, null, 2) + "\n");
   }
 
