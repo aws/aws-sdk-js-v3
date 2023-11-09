@@ -3452,6 +3452,46 @@ export interface DisableSerialConsoleAccessResult {
 /**
  * @public
  */
+export interface DisableSnapshotBlockPublicAccessRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotBlockPublicAccessState = {
+  block_all_sharing: "block-all-sharing",
+  block_new_sharing: "block-new-sharing",
+  unblocked: "unblocked",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotBlockPublicAccessState =
+  (typeof SnapshotBlockPublicAccessState)[keyof typeof SnapshotBlockPublicAccessState];
+
+/**
+ * @public
+ */
+export interface DisableSnapshotBlockPublicAccessResult {
+  /**
+   * @public
+   * <p>Returns <code>unblocked</code> if the request succeeds.</p>
+   */
+  State?: SnapshotBlockPublicAccessState;
+}
+
+/**
+ * @public
+ */
 export interface DisableTransitGatewayRouteTablePropagationRequest {
   /**
    * @public
@@ -4765,6 +4805,62 @@ export interface EnableSerialConsoleAccessResult {
    * 			is disabled for your account.</p>
    */
   SerialConsoleAccessEnabled?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface EnableSnapshotBlockPublicAccessRequest {
+  /**
+   * @public
+   * <p>The mode in which to enable block public access for snapshots for the Region.
+   *       Specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>block-all-sharing</code> - Prevents all public sharing of snapshots in
+   *           the Region. Users in the account will no longer be able to request new public
+   *           sharing. Additionally, snapshots that are already publicly shared are treated as
+   *           private and they are no longer publicly available.</p>
+   *                <note>
+   *                   <p>If you enable block public access for snapshots in <code>block-all-sharing</code>
+   *             mode, it does not change the permissions for snapshots that are already publicly shared.
+   *             Instead, it prevents these snapshots from be publicly visible and publicly accessible.
+   *             Therefore, the attributes for these snapshots still indicate that they are publicly
+   *             shared, even though they are not publicly available.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-new-sharing</code>  - Prevents only new public sharing of snapshots
+   *           in the Region. Users in the account will no longer be able to request new public
+   *           sharing. However, snapshots that are already publicly shared, remain publicly
+   *           available.</p>
+   *             </li>
+   *          </ul>
+   */
+  State: SnapshotBlockPublicAccessState | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface EnableSnapshotBlockPublicAccessResult {
+  /**
+   * @public
+   * <p>The state of block public access for snapshots for the account and Region. Returns
+   *       either <code>block-all-sharing</code> or <code>block-new-sharing</code> if the request
+   *       succeeds.</p>
+   */
+  State?: SnapshotBlockPublicAccessState;
 }
 
 /**
@@ -7847,6 +7943,49 @@ export interface GetSerialConsoleAccessStatusResult {
 
 /**
  * @public
+ */
+export interface GetSnapshotBlockPublicAccessStateRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetSnapshotBlockPublicAccessStateResult {
+  /**
+   * @public
+   * <p>The current state of block public access for snapshots. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in
+   *           the account can't request new public sharing. Additionally, snapshots that were already
+   *           publicly shared are treated as private and are not publicly available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-new-sharing</code>  - Only new public sharing of snapshots is blocked.
+   *           Users in the account can't request new public sharing. However, snapshots that were
+   *           already publicly shared, remain publicly available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unblocked</code>  - Public sharing is not blocked. Users can publicly share
+   *           snapshots.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: SnapshotBlockPublicAccessState;
+}
+
+/**
+ * @public
  * <p>The architecture type, virtualization type, and other attributes for the instance types.
  *          When you specify instance attributes, Amazon EC2 will identify instance types with those
  *          attributes.</p>
@@ -8268,200 +8407,6 @@ export interface TransitGatewayMulticastDomainAssociation {
    * <p>The subnet associated with the transit gateway multicast domain.</p>
    */
   Subnet?: SubnetAssociation;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * @public
-   * <p>Information about the multicast domain associations.</p>
-   */
-  MulticastDomainAssociations?: TransitGatewayMulticastDomainAssociation[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPolicyTableAssociationsRequest {
-  /**
-   * @public
-   * <p>The ID of the transit gateway policy table.</p>
-   */
-  TransitGatewayPolicyTableId: string | undefined;
-
-  /**
-   * @public
-   * <p>The filters associated with the transit gateway policy table.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPolicyTableAssociationsResult {
-  /**
-   * @public
-   * <p>Returns details about the transit gateway policy table association.</p>
-   */
-  Associations?: TransitGatewayPolicyTableAssociation[];
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPolicyTableEntriesRequest {
-  /**
-   * @public
-   * <p>The ID of the transit gateway policy table.</p>
-   */
-  TransitGatewayPolicyTableId: string | undefined;
-
-  /**
-   * @public
-   * <p>The filters associated with the transit gateway policy table.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
- */
-export interface TransitGatewayPolicyRuleMetaData {
-  /**
-   * @public
-   * <p>The key name for the transit gateway policy rule meta data tag.</p>
-   */
-  MetaDataKey?: string;
-
-  /**
-   * @public
-   * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
-   */
-  MetaDataValue?: string;
-}
-
-/**
- * @public
- * <p>Describes a rule associated with a transit gateway policy.</p>
- */
-export interface TransitGatewayPolicyRule {
-  /**
-   * @public
-   * <p>The source CIDR block for the transit gateway policy rule.</p>
-   */
-  SourceCidrBlock?: string;
-
-  /**
-   * @public
-   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
-   */
-  SourcePortRange?: string;
-
-  /**
-   * @public
-   * <p>The destination CIDR block for the transit gateway policy rule.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * @public
-   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
-   */
-  DestinationPortRange?: string;
-
-  /**
-   * @public
-   * <p>The protocol used by the transit gateway policy rule.</p>
-   */
-  Protocol?: string;
-
-  /**
-   * @public
-   * <p>The meta data tags used for the transit gateway policy rule.</p>
-   */
-  MetaData?: TransitGatewayPolicyRuleMetaData;
-}
-
-/**
- * @public
- * <p>Describes a transit gateway policy table entry</p>
- */
-export interface TransitGatewayPolicyTableEntry {
-  /**
-   * @public
-   * <p>The rule number for the transit gateway policy table entry.</p>
-   */
-  PolicyRuleNumber?: string;
-
-  /**
-   * @public
-   * <p>The policy rule associated with the transit gateway policy table.</p>
-   */
-  PolicyRule?: TransitGatewayPolicyRule;
-
-  /**
-   * @public
-   * <p>The ID of the target route table.</p>
-   */
-  TargetRouteTableId?: string;
 }
 
 /**

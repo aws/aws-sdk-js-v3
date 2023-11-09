@@ -1854,6 +1854,11 @@ import {
   DisableSerialConsoleAccessCommandOutput,
 } from "./commands/DisableSerialConsoleAccessCommand";
 import {
+  DisableSnapshotBlockPublicAccessCommand,
+  DisableSnapshotBlockPublicAccessCommandInput,
+  DisableSnapshotBlockPublicAccessCommandOutput,
+} from "./commands/DisableSnapshotBlockPublicAccessCommand";
+import {
   DisableTransitGatewayRouteTablePropagationCommand,
   DisableTransitGatewayRouteTablePropagationCommandInput,
   DisableTransitGatewayRouteTablePropagationCommandOutput,
@@ -1994,6 +1999,11 @@ import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
 } from "./commands/EnableSerialConsoleAccessCommand";
+import {
+  EnableSnapshotBlockPublicAccessCommand,
+  EnableSnapshotBlockPublicAccessCommandInput,
+  EnableSnapshotBlockPublicAccessCommandOutput,
+} from "./commands/EnableSnapshotBlockPublicAccessCommand";
 import {
   EnableTransitGatewayRouteTablePropagationCommand,
   EnableTransitGatewayRouteTablePropagationCommandInput,
@@ -2190,6 +2200,11 @@ import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
+import {
+  GetSnapshotBlockPublicAccessStateCommand,
+  GetSnapshotBlockPublicAccessStateCommandInput,
+  GetSnapshotBlockPublicAccessStateCommandOutput,
+} from "./commands/GetSnapshotBlockPublicAccessStateCommand";
 import {
   GetSpotPlacementScoresCommand,
   GetSpotPlacementScoresCommandInput,
@@ -3326,6 +3341,7 @@ const commands = {
   DisableImageDeprecationCommand,
   DisableIpamOrganizationAdminAccountCommand,
   DisableSerialConsoleAccessCommand,
+  DisableSnapshotBlockPublicAccessCommand,
   DisableTransitGatewayRouteTablePropagationCommand,
   DisableVgwRoutePropagationCommand,
   DisableVpcClassicLinkCommand,
@@ -3355,6 +3371,7 @@ const commands = {
   EnableIpamOrganizationAdminAccountCommand,
   EnableReachabilityAnalyzerOrganizationSharingCommand,
   EnableSerialConsoleAccessCommand,
+  EnableSnapshotBlockPublicAccessCommand,
   EnableTransitGatewayRouteTablePropagationCommand,
   EnableVgwRoutePropagationCommand,
   EnableVolumeIOCommand,
@@ -3395,6 +3412,7 @@ const commands = {
   GetReservedInstancesExchangeQuoteCommand,
   GetSecurityGroupsForVpcCommand,
   GetSerialConsoleAccessStatusCommand,
+  GetSnapshotBlockPublicAccessStateCommand,
   GetSpotPlacementScoresCommand,
   GetSubnetCidrReservationsCommand,
   GetTransitGatewayAttachmentPropagationsCommand,
@@ -9759,6 +9777,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableSnapshotBlockPublicAccessCommand}
+   */
+  disableSnapshotBlockPublicAccess(
+    args: DisableSnapshotBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableSnapshotBlockPublicAccessCommandOutput>;
+  disableSnapshotBlockPublicAccess(
+    args: DisableSnapshotBlockPublicAccessCommandInput,
+    cb: (err: any, data?: DisableSnapshotBlockPublicAccessCommandOutput) => void
+  ): void;
+  disableSnapshotBlockPublicAccess(
+    args: DisableSnapshotBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableSnapshotBlockPublicAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableTransitGatewayRouteTablePropagationCommand}
    */
   disableTransitGatewayRouteTablePropagation(
@@ -10243,6 +10278,23 @@ export interface EC2 {
     args: EnableSerialConsoleAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableSerialConsoleAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableSnapshotBlockPublicAccessCommand}
+   */
+  enableSnapshotBlockPublicAccess(
+    args: EnableSnapshotBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSnapshotBlockPublicAccessCommandOutput>;
+  enableSnapshotBlockPublicAccess(
+    args: EnableSnapshotBlockPublicAccessCommandInput,
+    cb: (err: any, data?: EnableSnapshotBlockPublicAccessCommandOutput) => void
+  ): void;
+  enableSnapshotBlockPublicAccess(
+    args: EnableSnapshotBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableSnapshotBlockPublicAccessCommandOutput) => void
   ): void;
 
   /**
@@ -10911,6 +10963,23 @@ export interface EC2 {
     args: GetSerialConsoleAccessStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSnapshotBlockPublicAccessStateCommand}
+   */
+  getSnapshotBlockPublicAccessState(
+    args: GetSnapshotBlockPublicAccessStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSnapshotBlockPublicAccessStateCommandOutput>;
+  getSnapshotBlockPublicAccessState(
+    args: GetSnapshotBlockPublicAccessStateCommandInput,
+    cb: (err: any, data?: GetSnapshotBlockPublicAccessStateCommandOutput) => void
+  ): void;
+  getSnapshotBlockPublicAccessState(
+    args: GetSnapshotBlockPublicAccessStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSnapshotBlockPublicAccessStateCommandOutput) => void
   ): void;
 
   /**

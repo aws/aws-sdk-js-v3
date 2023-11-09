@@ -32,6 +32,7 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
+  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VerifiedAccessInstance,
@@ -85,8 +86,6 @@ import {
   Phase2DHGroupNumbersRequestListValue,
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
-  SnapshotState,
-  SSEType,
   SubnetConfiguration,
   TrafficDirection,
   TrafficMirrorFilter,
@@ -157,12 +156,206 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
-  TransitGatewayPolicyTableEntry,
+  TransitGatewayMulticastDomainAssociation,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * @public
+   * <p>Information about the multicast domain associations.</p>
+   */
+  MulticastDomainAssociations?: TransitGatewayMulticastDomainAssociation[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableAssociationsRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * @public
+   * <p>The filters associated with the transit gateway policy table.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableAssociationsResult {
+  /**
+   * @public
+   * <p>Returns details about the transit gateway policy table association.</p>
+   */
+  Associations?: TransitGatewayPolicyTableAssociation[];
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableEntriesRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * @public
+   * <p>The filters associated with the transit gateway policy table.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
+ */
+export interface TransitGatewayPolicyRuleMetaData {
+  /**
+   * @public
+   * <p>The key name for the transit gateway policy rule meta data tag.</p>
+   */
+  MetaDataKey?: string;
+
+  /**
+   * @public
+   * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
+   */
+  MetaDataValue?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a rule associated with a transit gateway policy.</p>
+ */
+export interface TransitGatewayPolicyRule {
+  /**
+   * @public
+   * <p>The source CIDR block for the transit gateway policy rule.</p>
+   */
+  SourceCidrBlock?: string;
+
+  /**
+   * @public
+   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   */
+  SourcePortRange?: string;
+
+  /**
+   * @public
+   * <p>The destination CIDR block for the transit gateway policy rule.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * @public
+   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   */
+  DestinationPortRange?: string;
+
+  /**
+   * @public
+   * <p>The protocol used by the transit gateway policy rule.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * @public
+   * <p>The meta data tags used for the transit gateway policy rule.</p>
+   */
+  MetaData?: TransitGatewayPolicyRuleMetaData;
+}
+
+/**
+ * @public
+ * <p>Describes a transit gateway policy table entry</p>
+ */
+export interface TransitGatewayPolicyTableEntry {
+  /**
+   * @public
+   * <p>The rule number for the transit gateway policy table entry.</p>
+   */
+  PolicyRuleNumber?: string;
+
+  /**
+   * @public
+   * <p>The policy rule associated with the transit gateway policy table.</p>
+   */
+  PolicyRule?: TransitGatewayPolicyRule;
+
+  /**
+   * @public
+   * <p>The ID of the target route table.</p>
+   */
+  TargetRouteTableId?: string;
+}
 
 /**
  * @public
@@ -8994,207 +9187,6 @@ export interface RestoreAddressToClassicResult {
    * <p>The move status for the IP address.</p>
    */
   Status?: Status;
-}
-
-/**
- * @public
- */
-export interface RestoreImageFromRecycleBinRequest {
-  /**
-   * @public
-   * <p>The ID of the AMI to restore.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface RestoreImageFromRecycleBinResult {
-  /**
-   * @public
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-/**
- * @public
- */
-export interface RestoreManagedPrefixListVersionRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the prefix list.</p>
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * @public
-   * <p>The version to restore.</p>
-   */
-  PreviousVersion: number | undefined;
-
-  /**
-   * @public
-   * <p>The current version number for the prefix list.</p>
-   */
-  CurrentVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreManagedPrefixListVersionResult {
-  /**
-   * @public
-   * <p>Information about the prefix list.</p>
-   */
-  PrefixList?: ManagedPrefixList;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotFromRecycleBinRequest {
-  /**
-   * @public
-   * <p>The ID of the snapshot to restore.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotFromRecycleBinResult {
-  /**
-   * @public
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * @public
-   * <p>The description for the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * @public
-   * <p>The progress of the snapshot, as a percentage.</p>
-   */
-  Progress?: string;
-
-  /**
-   * @public
-   * <p>The time stamp when the snapshot was initiated.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * @public
-   * <p>The state of the snapshot.</p>
-   */
-  State?: SnapshotState;
-
-  /**
-   * @public
-   * <p>The ID of the volume that was used to create the snapshot.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * @public
-   * <p>The size of the volume, in GiB.</p>
-   */
-  VolumeSize?: number;
-
-  /**
-   * @public
-   * <p>Reserved for future use.</p>
-   */
-  SseType?: SSEType;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotTierRequest {
-  /**
-   * @public
-   * <p>The ID of the snapshot to restore.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * @public
-   * <p>Specifies the number of days for which to temporarily restore an archived snapshot.
-   *       Required for temporary restores only. The snapshot will be automatically re-archived
-   *       after this period.</p>
-   *          <p>To temporarily restore an archived snapshot, specify the number of days and omit
-   *       the <b>PermanentRestore</b> parameter or set it to
-   *       <code>false</code>.</p>
-   */
-  TemporaryRestoreDays?: number;
-
-  /**
-   * @public
-   * <p>Indicates whether to permanently restore an archived snapshot. To permanently restore
-   *       an archived snapshot, specify <code>true</code> and omit the
-   *       <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b> parameter.</p>
-   */
-  PermanentRestore?: boolean;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 /**

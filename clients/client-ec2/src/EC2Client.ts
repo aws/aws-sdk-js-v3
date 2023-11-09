@@ -1315,6 +1315,10 @@ import {
   DisableSerialConsoleAccessCommandOutput,
 } from "./commands/DisableSerialConsoleAccessCommand";
 import {
+  DisableSnapshotBlockPublicAccessCommandInput,
+  DisableSnapshotBlockPublicAccessCommandOutput,
+} from "./commands/DisableSnapshotBlockPublicAccessCommand";
+import {
   DisableTransitGatewayRouteTablePropagationCommandInput,
   DisableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/DisableTransitGatewayRouteTablePropagationCommand";
@@ -1424,6 +1428,10 @@ import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
 } from "./commands/EnableSerialConsoleAccessCommand";
+import {
+  EnableSnapshotBlockPublicAccessCommandInput,
+  EnableSnapshotBlockPublicAccessCommandOutput,
+} from "./commands/EnableSnapshotBlockPublicAccessCommand";
 import {
   EnableTransitGatewayRouteTablePropagationCommandInput,
   EnableTransitGatewayRouteTablePropagationCommandOutput,
@@ -1566,6 +1574,10 @@ import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
+import {
+  GetSnapshotBlockPublicAccessStateCommandInput,
+  GetSnapshotBlockPublicAccessStateCommandOutput,
+} from "./commands/GetSnapshotBlockPublicAccessStateCommand";
 import {
   GetSpotPlacementScoresCommandInput,
   GetSpotPlacementScoresCommandOutput,
@@ -2480,6 +2492,7 @@ export type ServiceInputTypes =
   | DisableImageDeprecationCommandInput
   | DisableIpamOrganizationAdminAccountCommandInput
   | DisableSerialConsoleAccessCommandInput
+  | DisableSnapshotBlockPublicAccessCommandInput
   | DisableTransitGatewayRouteTablePropagationCommandInput
   | DisableVgwRoutePropagationCommandInput
   | DisableVpcClassicLinkCommandInput
@@ -2509,6 +2522,7 @@ export type ServiceInputTypes =
   | EnableIpamOrganizationAdminAccountCommandInput
   | EnableReachabilityAnalyzerOrganizationSharingCommandInput
   | EnableSerialConsoleAccessCommandInput
+  | EnableSnapshotBlockPublicAccessCommandInput
   | EnableTransitGatewayRouteTablePropagationCommandInput
   | EnableVgwRoutePropagationCommandInput
   | EnableVolumeIOCommandInput
@@ -2549,6 +2563,7 @@ export type ServiceInputTypes =
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetSecurityGroupsForVpcCommandInput
   | GetSerialConsoleAccessStatusCommandInput
+  | GetSnapshotBlockPublicAccessStateCommandInput
   | GetSpotPlacementScoresCommandInput
   | GetSubnetCidrReservationsCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
@@ -3087,6 +3102,7 @@ export type ServiceOutputTypes =
   | DisableImageDeprecationCommandOutput
   | DisableIpamOrganizationAdminAccountCommandOutput
   | DisableSerialConsoleAccessCommandOutput
+  | DisableSnapshotBlockPublicAccessCommandOutput
   | DisableTransitGatewayRouteTablePropagationCommandOutput
   | DisableVgwRoutePropagationCommandOutput
   | DisableVpcClassicLinkCommandOutput
@@ -3116,6 +3132,7 @@ export type ServiceOutputTypes =
   | EnableIpamOrganizationAdminAccountCommandOutput
   | EnableReachabilityAnalyzerOrganizationSharingCommandOutput
   | EnableSerialConsoleAccessCommandOutput
+  | EnableSnapshotBlockPublicAccessCommandOutput
   | EnableTransitGatewayRouteTablePropagationCommandOutput
   | EnableVgwRoutePropagationCommandOutput
   | EnableVolumeIOCommandOutput
@@ -3156,6 +3173,7 @@ export type ServiceOutputTypes =
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetSecurityGroupsForVpcCommandOutput
   | GetSerialConsoleAccessStatusCommandOutput
+  | GetSnapshotBlockPublicAccessStateCommandOutput
   | GetSpotPlacementScoresCommandOutput
   | GetSubnetCidrReservationsCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput

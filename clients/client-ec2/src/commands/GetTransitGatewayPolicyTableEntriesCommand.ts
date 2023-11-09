@@ -15,8 +15,10 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetTransitGatewayPolicyTableEntriesRequest } from "../models/models_5";
-import { GetTransitGatewayPolicyTableEntriesResult } from "../models/models_6";
+import {
+  GetTransitGatewayPolicyTableEntriesRequest,
+  GetTransitGatewayPolicyTableEntriesResult,
+} from "../models/models_6";
 import {
   de_GetTransitGatewayPolicyTableEntriesCommand,
   se_GetTransitGatewayPolicyTableEntriesCommand,

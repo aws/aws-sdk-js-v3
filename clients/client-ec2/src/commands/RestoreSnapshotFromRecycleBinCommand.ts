@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RestoreSnapshotFromRecycleBinRequest, RestoreSnapshotFromRecycleBinResult } from "../models/models_6";
+import { RestoreSnapshotFromRecycleBinRequest, RestoreSnapshotFromRecycleBinResult } from "../models/models_7";
 import { de_RestoreSnapshotFromRecycleBinCommand, se_RestoreSnapshotFromRecycleBinCommand } from "../protocols/Aws_ec2";
 
 /**

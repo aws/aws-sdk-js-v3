@@ -3263,6 +3263,14 @@ DisableSerialConsoleAccess
 </details>
 <details>
 <summary>
+DisableSnapshotBlockPublicAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/disablesnapshotblockpublicaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/disablesnapshotblockpublicaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/disablesnapshotblockpublicaccesscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DisableTransitGatewayRouteTablePropagation
 </summary>
 
@@ -3491,6 +3499,14 @@ EnableSerialConsoleAccess
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/enableserialconsoleaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/enableserialconsoleaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/enableserialconsoleaccesscommandoutput.html)
+
+</details>
+<details>
+<summary>
+EnableSnapshotBlockPublicAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/enablesnapshotblockpublicaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/enablesnapshotblockpublicaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/enablesnapshotblockpublicaccesscommandoutput.html)
 
 </details>
 <details>
@@ -3811,6 +3827,14 @@ GetSerialConsoleAccessStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/getserialconsoleaccessstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getserialconsoleaccessstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getserialconsoleaccessstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSnapshotBlockPublicAccessState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/getsnapshotblockpublicaccessstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getsnapshotblockpublicaccessstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getsnapshotblockpublicaccessstatecommandoutput.html)
 
 </details>
 <details>

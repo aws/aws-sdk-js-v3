@@ -1289,6 +1289,10 @@ import {
   DisableSerialConsoleAccessCommandOutput,
 } from "../commands/DisableSerialConsoleAccessCommand";
 import {
+  DisableSnapshotBlockPublicAccessCommandInput,
+  DisableSnapshotBlockPublicAccessCommandOutput,
+} from "../commands/DisableSnapshotBlockPublicAccessCommand";
+import {
   DisableTransitGatewayRouteTablePropagationCommandInput,
   DisableTransitGatewayRouteTablePropagationCommandOutput,
 } from "../commands/DisableTransitGatewayRouteTablePropagationCommand";
@@ -1398,6 +1402,10 @@ import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
 } from "../commands/EnableSerialConsoleAccessCommand";
+import {
+  EnableSnapshotBlockPublicAccessCommandInput,
+  EnableSnapshotBlockPublicAccessCommandOutput,
+} from "../commands/EnableSnapshotBlockPublicAccessCommand";
 import {
   EnableTransitGatewayRouteTablePropagationCommandInput,
   EnableTransitGatewayRouteTablePropagationCommandOutput,
@@ -1540,6 +1548,10 @@ import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "../commands/GetSerialConsoleAccessStatusCommand";
+import {
+  GetSnapshotBlockPublicAccessStateCommandInput,
+  GetSnapshotBlockPublicAccessStateCommandOutput,
+} from "../commands/GetSnapshotBlockPublicAccessStateCommand";
 import {
   GetSpotPlacementScoresCommandInput,
   GetSpotPlacementScoresCommandOutput,
@@ -3394,6 +3406,8 @@ import {
   DisableIpamOrganizationAdminAccountResult,
   DisableSerialConsoleAccessRequest,
   DisableSerialConsoleAccessResult,
+  DisableSnapshotBlockPublicAccessRequest,
+  DisableSnapshotBlockPublicAccessResult,
   DisableTransitGatewayRouteTablePropagationRequest,
   DisableTransitGatewayRouteTablePropagationResult,
   DisableVgwRoutePropagationRequest,
@@ -3453,6 +3467,8 @@ import {
   EnableReachabilityAnalyzerOrganizationSharingResult,
   EnableSerialConsoleAccessRequest,
   EnableSerialConsoleAccessResult,
+  EnableSnapshotBlockPublicAccessRequest,
+  EnableSnapshotBlockPublicAccessResult,
   EnableTransitGatewayRouteTablePropagationRequest,
   EnableTransitGatewayRouteTablePropagationResult,
   EnableVgwRoutePropagationRequest,
@@ -3534,6 +3550,8 @@ import {
   GetSecurityGroupsForVpcResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
+  GetSnapshotBlockPublicAccessStateRequest,
+  GetSnapshotBlockPublicAccessStateResult,
   GetSpotPlacementScoresRequest,
   GetSpotPlacementScoresResult,
   GetSubnetCidrReservationsRequest,
@@ -3541,10 +3559,6 @@ import {
   GetTransitGatewayAttachmentPropagationsRequest,
   GetTransitGatewayAttachmentPropagationsResult,
   GetTransitGatewayMulticastDomainAssociationsRequest,
-  GetTransitGatewayMulticastDomainAssociationsResult,
-  GetTransitGatewayPolicyTableAssociationsRequest,
-  GetTransitGatewayPolicyTableAssociationsResult,
-  GetTransitGatewayPolicyTableEntriesRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3571,9 +3585,6 @@ import {
   TargetReservationValue,
   TransitGatewayAttachmentPropagation,
   TransitGatewayMulticastDomainAssociation,
-  TransitGatewayPolicyRule,
-  TransitGatewayPolicyRuleMetaData,
-  TransitGatewayPolicyTableEntry,
   TransitGatewayPropagation,
   VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessLogCloudWatchLogsDestination,
@@ -3601,6 +3612,10 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetTransitGatewayMulticastDomainAssociationsResult,
+  GetTransitGatewayPolicyTableAssociationsRequest,
+  GetTransitGatewayPolicyTableAssociationsResult,
+  GetTransitGatewayPolicyTableEntriesRequest,
   GetTransitGatewayPolicyTableEntriesResult,
   GetTransitGatewayPrefixListReferencesRequest,
   GetTransitGatewayPrefixListReferencesResult,
@@ -3854,13 +3869,6 @@ import {
   ResetSnapshotAttributeRequest,
   RestoreAddressToClassicRequest,
   RestoreAddressToClassicResult,
-  RestoreImageFromRecycleBinRequest,
-  RestoreImageFromRecycleBinResult,
-  RestoreManagedPrefixListVersionRequest,
-  RestoreManagedPrefixListVersionResult,
-  RestoreSnapshotFromRecycleBinRequest,
-  RestoreSnapshotFromRecycleBinResult,
-  RestoreSnapshotTierRequest,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3870,6 +3878,9 @@ import {
   TrafficMirrorSessionField,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
+  TransitGatewayPolicyRule,
+  TransitGatewayPolicyRuleMetaData,
+  TransitGatewayPolicyTableEntry,
   TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
   UnsuccessfulInstanceCreditSpecificationItem,
@@ -3895,6 +3906,13 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RestoreImageFromRecycleBinRequest,
+  RestoreImageFromRecycleBinResult,
+  RestoreManagedPrefixListVersionRequest,
+  RestoreManagedPrefixListVersionResult,
+  RestoreSnapshotFromRecycleBinRequest,
+  RestoreSnapshotFromRecycleBinResult,
+  RestoreSnapshotTierRequest,
   RestoreSnapshotTierResult,
   RevokeClientVpnIngressRequest,
   RevokeClientVpnIngressResult,
@@ -10398,6 +10416,23 @@ export const se_DisableSerialConsoleAccessCommand = async (
 };
 
 /**
+ * serializeAws_ec2DisableSnapshotBlockPublicAccessCommand
+ */
+export const se_DisableSnapshotBlockPublicAccessCommand = async (
+  input: DisableSnapshotBlockPublicAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableSnapshotBlockPublicAccessRequest(input, context),
+    Action: "DisableSnapshotBlockPublicAccess",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand
  */
 export const se_DisableTransitGatewayRouteTablePropagationCommand = async (
@@ -10885,6 +10920,23 @@ export const se_EnableSerialConsoleAccessCommand = async (
   body = buildFormUrlencodedString({
     ...se_EnableSerialConsoleAccessRequest(input, context),
     Action: "EnableSerialConsoleAccess",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2EnableSnapshotBlockPublicAccessCommand
+ */
+export const se_EnableSnapshotBlockPublicAccessCommand = async (
+  input: EnableSnapshotBlockPublicAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableSnapshotBlockPublicAccessRequest(input, context),
+    Action: "EnableSnapshotBlockPublicAccess",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11565,6 +11617,23 @@ export const se_GetSerialConsoleAccessStatusCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetSerialConsoleAccessStatusRequest(input, context),
     Action: "GetSerialConsoleAccessStatus",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetSnapshotBlockPublicAccessStateCommand
+ */
+export const se_GetSnapshotBlockPublicAccessStateCommand = async (
+  input: GetSnapshotBlockPublicAccessStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetSnapshotBlockPublicAccessStateRequest(input, context),
+    Action: "GetSnapshotBlockPublicAccessState",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -29259,6 +29328,46 @@ const de_DisableSerialConsoleAccessCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2DisableSnapshotBlockPublicAccessCommand
+ */
+export const de_DisableSnapshotBlockPublicAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableSnapshotBlockPublicAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisableSnapshotBlockPublicAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableSnapshotBlockPublicAccessResult(data, context);
+  const response: DisableSnapshotBlockPublicAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DisableSnapshotBlockPublicAccessCommandError
+ */
+const de_DisableSnapshotBlockPublicAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableSnapshotBlockPublicAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand
  */
 export const de_DisableTransitGatewayRouteTablePropagationCommand = async (
@@ -30396,6 +30505,46 @@ const de_EnableSerialConsoleAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableSerialConsoleAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2EnableSnapshotBlockPublicAccessCommand
+ */
+export const de_EnableSnapshotBlockPublicAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableSnapshotBlockPublicAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_EnableSnapshotBlockPublicAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableSnapshotBlockPublicAccessResult(data, context);
+  const response: EnableSnapshotBlockPublicAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2EnableSnapshotBlockPublicAccessCommandError
+ */
+const de_EnableSnapshotBlockPublicAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableSnapshotBlockPublicAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -31990,6 +32139,46 @@ const de_GetSerialConsoleAccessStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSerialConsoleAccessStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2GetSnapshotBlockPublicAccessStateCommand
+ */
+export const de_GetSnapshotBlockPublicAccessStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSnapshotBlockPublicAccessStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetSnapshotBlockPublicAccessStateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetSnapshotBlockPublicAccessStateResult(data, context);
+  const response: GetSnapshotBlockPublicAccessStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetSnapshotBlockPublicAccessStateCommandError
+ */
+const de_GetSnapshotBlockPublicAccessStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSnapshotBlockPublicAccessStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -51220,6 +51409,20 @@ const se_DisableSerialConsoleAccessRequest = (
 };
 
 /**
+ * serializeAws_ec2DisableSnapshotBlockPublicAccessRequest
+ */
+const se_DisableSnapshotBlockPublicAccessRequest = (
+  input: DisableSnapshotBlockPublicAccessRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DisableTransitGatewayRouteTablePropagationRequest
  */
 const se_DisableTransitGatewayRouteTablePropagationRequest = (
@@ -52051,6 +52254,23 @@ const se_EnableReachabilityAnalyzerOrganizationSharingRequest = (
  */
 const se_EnableSerialConsoleAccessRequest = (input: EnableSerialConsoleAccessRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2EnableSnapshotBlockPublicAccessRequest
+ */
+const se_EnableSnapshotBlockPublicAccessRequest = (
+  input: EnableSnapshotBlockPublicAccessRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.State != null) {
+    entries["State"] = input.State;
+  }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
@@ -53492,6 +53712,20 @@ const se_GetSecurityGroupsForVpcRequest = (input: GetSecurityGroupsForVpcRequest
  */
 const se_GetSerialConsoleAccessStatusRequest = (
   input: GetSerialConsoleAccessStatusRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetSnapshotBlockPublicAccessStateRequest
+ */
+const se_GetSnapshotBlockPublicAccessStateRequest = (
+  input: GetSnapshotBlockPublicAccessStateRequest,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -75365,6 +75599,20 @@ const de_DisableSerialConsoleAccessResult = (
 };
 
 /**
+ * deserializeAws_ec2DisableSnapshotBlockPublicAccessResult
+ */
+const de_DisableSnapshotBlockPublicAccessResult = (
+  output: any,
+  context: __SerdeContext
+): DisableSnapshotBlockPublicAccessResult => {
+  const contents: any = {};
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DisableTransitGatewayRouteTablePropagationResult
  */
 const de_DisableTransitGatewayRouteTablePropagationResult = (
@@ -76384,6 +76632,20 @@ const de_EnableSerialConsoleAccessResult = (output: any, context: __SerdeContext
   const contents: any = {};
   if (output["serialConsoleAccessEnabled"] !== undefined) {
     contents.SerialConsoleAccessEnabled = __parseBoolean(output["serialConsoleAccessEnabled"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2EnableSnapshotBlockPublicAccessResult
+ */
+const de_EnableSnapshotBlockPublicAccessResult = (
+  output: any,
+  context: __SerdeContext
+): EnableSnapshotBlockPublicAccessResult => {
+  const contents: any = {};
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
   }
   return contents;
 };
@@ -78251,6 +78513,20 @@ const de_GetSerialConsoleAccessStatusResult = (
   const contents: any = {};
   if (output["serialConsoleAccessEnabled"] !== undefined) {
     contents.SerialConsoleAccessEnabled = __parseBoolean(output["serialConsoleAccessEnabled"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetSnapshotBlockPublicAccessStateResult
+ */
+const de_GetSnapshotBlockPublicAccessStateResult = (
+  output: any,
+  context: __SerdeContext
+): GetSnapshotBlockPublicAccessStateResult => {
+  const contents: any = {};
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
   }
   return contents;
 };

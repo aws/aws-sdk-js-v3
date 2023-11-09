@@ -15,10 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetTransitGatewayMulticastDomainAssociationsRequest,
-  GetTransitGatewayMulticastDomainAssociationsResult,
-} from "../models/models_5";
+import { GetTransitGatewayMulticastDomainAssociationsRequest } from "../models/models_5";
+import { GetTransitGatewayMulticastDomainAssociationsResult } from "../models/models_6";
 import {
   de_GetTransitGatewayMulticastDomainAssociationsCommand,
   se_GetTransitGatewayMulticastDomainAssociationsCommand,
