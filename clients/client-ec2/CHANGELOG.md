@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
+
+
+### Features
+
+* **client-ec2:** EC2 adds API updates to enable ENA Express at instance launch time. ([b4b5fdd](https://github.com/aws/aws-sdk-js-v3/commit/b4b5fdd592628cf4ec167571570ae44b0bed4de6))
+
+
+
+
+
 # [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
 
 

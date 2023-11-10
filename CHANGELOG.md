@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
+
+
+### Features
+
+* **client-controltower:** AWS Control Tower supports tagging for enabled controls. This release introduces TagResource, UntagResource and ListTagsForResource APIs to manage tags in existing enabled controls. It updates EnabledControl API to tag resources at creation time. ([360b88a](https://github.com/aws/aws-sdk-js-v3/commit/360b88a25ffa62c4059ba5ec092ca562cd5867be))
+* **client-cost-and-usage-report-service:** This release adds support for tagging and customers can now tag report definitions. Additionally, ReportStatus is now added to report definition to show when the last delivered time stamp and if it succeeded or not. ([1f24b22](https://github.com/aws/aws-sdk-js-v3/commit/1f24b2224dad76545dea5dc35358f259fa47f26e))
+* **client-ec2:** EC2 adds API updates to enable ENA Express at instance launch time. ([b4b5fdd](https://github.com/aws/aws-sdk-js-v3/commit/b4b5fdd592628cf4ec167571570ae44b0bed4de6))
+* **client-marketplace-entitlement-service:** Add paginators to GetEntitlements. ([18d6d94](https://github.com/aws/aws-sdk-js-v3/commit/18d6d947185b0409812c0909ac54f07c92e70dc5))
+* **client-mediaconvert:** This release includes the ability to specify any input source as the primary input for corresponding follow modes, and allows users to specify fit and fill behaviors without resizing content. ([b8924ba](https://github.com/aws/aws-sdk-js-v3/commit/b8924baf7be3704dc771577f55b83d47121a8884))
+
+
+
+
+
 # [3.448.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.447.0...v3.448.0) (2023-11-09)
 
 
