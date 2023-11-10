@@ -10,12 +10,15 @@ const fs = require("fs");
  * The script will enforce several things on a package json object:
  *
  * - main and module must be defined.
- *   In the future this may change. Browser is perhaps more standard than module.
+ *   In the future this may change. Browser is more standard than module, and
+ *   exports may be used for ESM (.mjs) support.
  *
- * - if react-native entry exists, browser and react native entries must have
- *   an identical set of keys for replacement directives
- * - when browser and react-native have file replacement directives, they must include both
- *   CJS and ESM dists.
+ * - If a react-native entry exists, browser and react native entries must be of the
+ *   same type (object replacement directives or string entry point).
+ *   If either is not defined, both must not be defined.
+ *
+ * - when react-native has file replacement directives, it must include both
+ *   CJS and ESM dist replacements.
  *
  * - exports must not be defined unless the package name is core.
  */
