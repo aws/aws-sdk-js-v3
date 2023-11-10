@@ -68,6 +68,9 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //           { // AudioDescription
  * //             AudioChannelTaggingSettings: { // AudioChannelTaggingSettings
  * //               ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR" || "TBL" || "TBC" || "TBR" || "RSL" || "RSR" || "LW" || "RW" || "LFE2" || "LT" || "RT" || "HI" || "NAR" || "M",
+ * //               ChannelTags: [ // __listOfAudioChannelTag
+ * //                 "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR" || "TBL" || "TBC" || "TBR" || "RSL" || "RSR" || "LW" || "RW" || "LFE2" || "LT" || "RT" || "HI" || "NAR" || "M",
+ * //               ],
  * //             },
  * //             AudioNormalizationSettings: { // AudioNormalizationSettings
  * //               Algorithm: "ITU_BS_1770_1" || "ITU_BS_1770_2" || "ITU_BS_1770_3" || "ITU_BS_1770_4",
@@ -741,7 +744,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //             Y: Number("int"),
  * //           },
  * //           RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
- * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT",
+ * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  * //           Sharpness: Number("int"),
  * //           TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
  * //           VideoPreprocessors: { // VideoPreprocessor

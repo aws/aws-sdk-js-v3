@@ -205,7 +205,7 @@ export type F4vMoovPlacement = (typeof F4vMoovPlacement)[keyof typeof F4vMoovPla
 export interface F4vSettings {
   /**
    * @public
-   * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
+   * To place the MOOV atom at the beginning of your output, which is useful for progressive downloading: Leave blank or choose Progressive download. To place the MOOV at the end of your output: Choose Normal.
    */
   MoovPlacement?: F4vMoovPlacement;
 }
@@ -1179,7 +1179,7 @@ export interface Mp4Settings {
 
   /**
    * @public
-   * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
+   * To place the MOOV atom at the beginning of your output, which is useful for progressive downloading: Leave blank or choose Progressive download. To place the MOOV at the end of your output: Choose Normal.
    */
   MoovPlacement?: Mp4MoovPlacement;
 
@@ -5438,6 +5438,9 @@ export type RespondToAfd = (typeof RespondToAfd)[keyof typeof RespondToAfd];
  */
 export const ScalingBehavior = {
   DEFAULT: "DEFAULT",
+  FILL: "FILL",
+  FIT: "FIT",
+  FIT_NO_UPSCALE: "FIT_NO_UPSCALE",
   STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
 } as const;
 
@@ -6171,7 +6174,7 @@ export interface VideoDescription {
 
   /**
    * @public
-   * Specify how the service handles outputs that have a different aspect ratio from the input aspect ratio. Choose Stretch to output to have the service stretch your video image to fit. Keep the setting Default to have the service letterbox your video instead. This setting overrides any value that you specify for the setting Selection placement in this output.
+   * Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html
    */
   ScalingBehavior?: ScalingBehavior;
 
@@ -6375,6 +6378,12 @@ export interface JobSettings {
    * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
    */
   ExtendedDataServices?: ExtendedDataServices;
+
+  /**
+   * @public
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   */
+  FollowSource?: number;
 
   /**
    * @public
@@ -6721,6 +6730,12 @@ export interface JobTemplateSettings {
    * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
    */
   ExtendedDataServices?: ExtendedDataServices;
+
+  /**
+   * @public
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   */
+  FollowSource?: number;
 
   /**
    * @public

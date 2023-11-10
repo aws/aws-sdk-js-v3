@@ -71,6 +71,7 @@ import {
   AiffSettings,
   AllowedRenditionSize,
   AncillarySourceSettings,
+  AudioChannelTag,
   AudioChannelTaggingSettings,
   AudioCodecSettings,
   AudioDescription,
@@ -2908,6 +2909,8 @@ const se___listOfAllowedRenditionSize = (input: AllowedRenditionSize[], context:
     });
 };
 
+// se___listOfAudioChannelTag omitted.
+
 /**
  * serializeAws_restJson1__listOfAudioDescription
  */
@@ -3277,6 +3280,7 @@ const se_AncillarySourceSettings = (input: AncillarySourceSettings, context: __S
 const se_AudioChannelTaggingSettings = (input: AudioChannelTaggingSettings, context: __SerdeContext): any => {
   return take(input, {
     channelTag: [, , `ChannelTag`],
+    channelTags: [, _json, `ChannelTags`],
   });
 };
 
@@ -4556,6 +4560,7 @@ const se_JobSettings = (input: JobSettings, context: __SerdeContext): any => {
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
+    followSource: [, , `FollowSource`],
     inputs: [, (_) => se___listOfInput(_, context), `Inputs`],
     kantarWatermark: [, (_) => se_KantarWatermarkSettings(_, context), `KantarWatermark`],
     motionImageInserter: [, (_) => se_MotionImageInserter(_, context), `MotionImageInserter`],
@@ -4576,6 +4581,7 @@ const se_JobTemplateSettings = (input: JobTemplateSettings, context: __SerdeCont
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
+    followSource: [, , `FollowSource`],
     inputs: [, (_) => se___listOfInputTemplate(_, context), `Inputs`],
     kantarWatermark: [, (_) => se_KantarWatermarkSettings(_, context), `KantarWatermark`],
     motionImageInserter: [, (_) => se_MotionImageInserter(_, context), `MotionImageInserter`],
@@ -5675,6 +5681,8 @@ const de___listOfAllowedRenditionSize = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+// de___listOfAudioChannelTag omitted.
+
 /**
  * deserializeAws_restJson1__listOfAudioDescription
  */
@@ -6173,6 +6181,7 @@ const de_AncillarySourceSettings = (output: any, context: __SerdeContext): Ancil
 const de_AudioChannelTaggingSettings = (output: any, context: __SerdeContext): AudioChannelTaggingSettings => {
   return take(output, {
     ChannelTag: [, __expectString, `channelTag`],
+    ChannelTags: [, _json, `channelTags`],
   }) as any;
 };
 
@@ -7533,6 +7542,7 @@ const de_JobSettings = (output: any, context: __SerdeContext): JobSettings => {
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
+    FollowSource: [, __expectInt32, `followSource`],
     Inputs: [, (_: any) => de___listOfInput(_, context), `inputs`],
     KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
     MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],
@@ -7578,6 +7588,7 @@ const de_JobTemplateSettings = (output: any, context: __SerdeContext): JobTempla
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
+    FollowSource: [, __expectInt32, `followSource`],
     Inputs: [, (_: any) => de___listOfInputTemplate(_, context), `inputs`],
     KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
     MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],

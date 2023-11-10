@@ -79,14 +79,20 @@ export type AudioChannelTag = (typeof AudioChannelTag)[keyof typeof AudioChannel
 
 /**
  * @public
- * When you mimic a multi-channel audio layout with multiple mono-channel tracks, you can tag each channel layout manually. For example, you would tag the tracks that contain your left, right, and center audio with Left (L), Right (R), and Center (C), respectively. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use audio layout tagging, your output must be in a QuickTime (.mov) container; your audio codec must be AAC, WAV, or AIFF; and you must set up your audio track to have only one channel.
+ * Specify the QuickTime audio channel layout tags for the audio channels in this audio track. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use Audio layout tagging, your output must be in a QuickTime (MOV) container and your audio codec must be AAC, WAV, or AIFF.
  */
 export interface AudioChannelTaggingSettings {
   /**
    * @public
-   * You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout. For example, if this track is the left surround channel, choose Left surround (LS).
+   * Specify the QuickTime audio channel layout tags for the audio channels in this audio track. Enter channel layout tags in the same order as your output's audio channel order. For example, if your output audio track has a left and a right channel, enter Left (L) for the first channel and Right (R) for the second. If your output has multiple single-channel audio tracks, enter a single channel layout tag for each track.
    */
   ChannelTag?: AudioChannelTag;
+
+  /**
+   * @public
+   * Specify the QuickTime audio channel layout tags for the audio channels in this audio track. Enter channel layout tags in the same order as your output's audio channel order. For example, if your output audio track has a left and a right channel, enter Left (L) for the first channel and Right (R) for the second. If your output has multiple single-channel audio tracks, enter a single channel layout tag for each track.
+   */
+  ChannelTags?: AudioChannelTag[];
 }
 
 /**
@@ -580,7 +586,7 @@ export interface AiffSettings {
 
   /**
    * @public
-   * Sample rate in hz.
+   * Sample rate in Hz.
    */
   SampleRate?: number;
 }
@@ -1241,7 +1247,7 @@ export interface FlacSettings {
 
   /**
    * @public
-   * Sample rate in hz.
+   * Sample rate in Hz.
    */
   SampleRate?: number;
 }
@@ -1265,7 +1271,7 @@ export interface Mp2Settings {
 
   /**
    * @public
-   * Sample rate in hz.
+   * Sample rate in Hz.
    */
   SampleRate?: number;
 }
@@ -1309,7 +1315,7 @@ export interface Mp3Settings {
 
   /**
    * @public
-   * Sample rate in hz.
+   * Sample rate in Hz.
    */
   SampleRate?: number;
 
@@ -1339,7 +1345,7 @@ export interface OpusSettings {
 
   /**
    * @public
-   * Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000. The default value is 48000.
+   * Optional. Sample rate in Hz. Valid values are 16000, 24000, and 48000. The default value is 48000.
    */
   SampleRate?: number;
 }
@@ -1769,7 +1775,7 @@ export interface RemixSettings {
 export interface AudioDescription {
   /**
    * @public
-   * When you mimic a multi-channel audio layout with multiple mono-channel tracks, you can tag each channel layout manually. For example, you would tag the tracks that contain your left, right, and center audio with Left (L), Right (R), and Center (C), respectively. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use audio layout tagging, your output must be in a QuickTime (.mov) container; your audio codec must be AAC, WAV, or AIFF; and you must set up your audio track to have only one channel.
+   * Specify the QuickTime audio channel layout tags for the audio channels in this audio track. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use Audio layout tagging, your output must be in a QuickTime (MOV) container and your audio codec must be AAC, WAV, or AIFF.
    */
   AudioChannelTaggingSettings?: AudioChannelTaggingSettings;
 
@@ -4035,7 +4041,7 @@ export interface VideoOverlayInput {
 
   /**
    * @public
-   * Specify the starting timecode for your video overlay. To use the timecode present in your video overlay: Choose Embedded. To use a zerobased timecode: Choose Start at 0. To choose a timecode: Choose Specified start. When you do, enter the starting timecode in Start timecode. If you don't specify a value for Timecode source, MediaConvert uses Embedded by default.
+   * Specify the timecode source for your video overlay input clips. To use the timecode present in your video overlay: Choose Embedded. To use a zerobased timecode: Choose Start at 0. To choose a timecode: Choose Specified start. When you do, enter the starting timecode in Start timecode. If you don't specify a value for Timecode source, MediaConvert uses Embedded by default.
    */
   TimecodeSource?: InputTimecodeSource;
 
@@ -4048,7 +4054,7 @@ export interface VideoOverlayInput {
 
 /**
  * @public
- * Overlay one or more videos on top of your input video.
+ * Overlay one or more videos on top of your input video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-overlays.html
  */
 export interface VideoOverlay {
   /**
