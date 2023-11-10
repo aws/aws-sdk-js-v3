@@ -857,7 +857,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>GetEntitlements retrieves entitlement values for a given product. The results can be\n      filtered based on customer identifier or product dimensions.</p>"
+        "smithy.api#documentation": "<p>GetEntitlements retrieves entitlement values for a given product. The results can be\n      filtered based on customer identifier or product dimensions.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.marketplaceentitlementservice#GetEntitlementsRequest": {
@@ -883,7 +888,7 @@
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.marketplaceentitlementservice#Integer",
+          "target": "com.amazonaws.marketplaceentitlementservice#PageSizeInteger",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of items to retrieve from the GetEntitlements operation. For\n   pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>"
           }
@@ -946,6 +951,15 @@
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^\\S+$"
+      }
+    },
+    "com.amazonaws.marketplaceentitlementservice#PageSizeInteger": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 25
+        }
       }
     },
     "com.amazonaws.marketplaceentitlementservice#ProductCode": {
