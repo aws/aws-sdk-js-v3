@@ -15,7 +15,8 @@
     "test": "jest"
   },
   "browser": {
-    "./dist-es/fromTokenFile": false
+    "./dist-es/fromTokenFile": false,
+    "./dist-cjs/fromTokenFile": false
   },
   "react-native": {
     "./dist-es/fromTokenFile": false,

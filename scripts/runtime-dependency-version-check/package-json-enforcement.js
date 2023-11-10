@@ -54,7 +54,7 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
 
   if (typeof pkgJson.browser === "object" && typeof pkgJson["react-native"] === "object") {
     const browserCanonical = Object.entries(pkgJson.browser).reduce((acc, [k, v]) => {
-      if (!k.includes("dist-cjs/")) {
+      if (!k.includes("dist-cjs/") || typeof v === "boolean") {
         acc[k] = v;
       }
       return acc;
