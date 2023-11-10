@@ -50,8 +50,8 @@ export interface DisableControlInput {
   /**
    * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and
-   *         <b>Elective</b> controls are permitted, with the exception of the
-   *       <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   *          <b>Elective</b> controls are permitted, with the exception of the
+   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    */
   controlIdentifier: string | undefined;
 
@@ -69,7 +69,7 @@ export interface DisableControlOutput {
   /**
    * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *       available for 90 days.</p>
+   *          available for 90 days.</p>
    */
   operationIdentifier: string | undefined;
 }
@@ -206,8 +206,8 @@ export interface EnableControlInput {
   /**
    * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and
-   *         <b>Elective</b> controls are permitted, with the exception of the
-   *       <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   *          <b>Elective</b> controls are permitted, with the exception of the
+   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    */
   controlIdentifier: string | undefined;
 
@@ -216,6 +216,12 @@ export interface EnableControlInput {
    * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    */
   targetIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Tags to be applied to the <code>EnabledControl</code> resource.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -225,9 +231,15 @@ export interface EnableControlOutput {
   /**
    * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *       available for 90 days.</p>
+   *          available for 90 days.</p>
    */
   operationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the <code>EnabledControl</code> resource.</p>
+   */
+  arn?: string;
 }
 
 /**
@@ -237,7 +249,7 @@ export interface GetControlOperationInput {
   /**
    * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *       available for 90 days.</p>
+   *          available for 90 days.</p>
    */
   operationIdentifier: string | undefined;
 }
@@ -303,7 +315,7 @@ export interface ControlOperation {
   /**
    * @public
    * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining
-   *       why the operation failed.</p>
+   *          why the operation failed.</p>
    */
   statusMessage?: string;
 }
@@ -325,9 +337,7 @@ export interface GetControlOperationOutput {
 export interface GetEnabledControlInput {
   /**
    * @public
-   * <p>
-   *         The ARN of the enabled control.
-   *       </p>
+   * <p>The <code>controlIdentifier</code> of the enabled control.</p>
    */
   enabledControlIdentifier: string | undefined;
 }
@@ -352,8 +362,8 @@ export type DriftStatus = (typeof DriftStatus)[keyof typeof DriftStatus];
  * @public
  * <p> The drift summary of the enabled control.</p>
  *          <p>AWS Control Tower expects the enabled control
- *       configuration to include all supported and governed Regions. If the enabled control differs
- *       from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
+ *          configuration to include all supported and governed Regions. If the enabled control differs
+ *          from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
  */
 export interface DriftStatusSummary {
   /**
@@ -364,22 +374,22 @@ export interface DriftStatusSummary {
    *             <li>
    *                <p>
    *                   <code>DRIFTED</code>: The <code>enabledControl</code> deployed in this configuration
-   *           doesn’t match the configuration that AWS Control Tower expected. </p>
+   *                doesn’t match the configuration that AWS Control Tower expected. </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>IN_SYNC</code>: The <code>enabledControl</code> deployed in this configuration matches
-   *           the configuration that AWS Control Tower expected.</p>
+   *                the configuration that AWS Control Tower expected.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>NOT_CHECKING</code>: AWS Control Tower does not check drift for this enabled
-   *           control. Drift is not supported for the control type.</p>
+   *                control. Drift is not supported for the control type.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>UNKNOWN</code>: AWS Control Tower is not able to check the drift status for the
-   *           enabled control. </p>
+   *                enabled control. </p>
    *             </li>
    *          </ul>
    */
@@ -403,9 +413,7 @@ export type EnablementStatus = (typeof EnablementStatus)[keyof typeof Enablement
 
 /**
  * @public
- * <p>
- *         The deployment summary of the enabled control.
- *       </p>
+ * <p>The deployment summary of the enabled control.</p>
  */
 export interface EnablementStatusSummary {
   /**
@@ -431,9 +439,7 @@ export interface EnablementStatusSummary {
 
   /**
    * @public
-   * <p>
-   *         The last operation identifier for the enabled control.
-   *       </p>
+   * <p>The last operation identifier for the enabled control.</p>
    */
   lastOperationIdentifier?: string;
 }
@@ -442,71 +448,55 @@ export interface EnablementStatusSummary {
  * @public
  * <p>An AWS Region in which AWS Control Tower expects to find the control deployed. </p>
  *          <p>The expected Regions are based on the Regions that are governed by the landing zone. In
- *       certain cases, a control is not actually enabled in the Region as expected, such as during
- *       drift, or <a href="https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html#mixed-governance">mixed governance</a>.</p>
+ *          certain cases, a control is not actually enabled in the Region as expected, such as during
+ *          drift, or <a href="https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html#mixed-governance">mixed governance</a>.</p>
  */
 export interface Region {
   /**
    * @public
-   * <p>
-   *         The AWS Region name.
-   *       </p>
+   * <p>The AWS Region name.</p>
    */
   name?: string;
 }
 
 /**
  * @public
- * <p>
- *         Information about the enabled control.
- *       </p>
+ * <p>Information about the enabled control.</p>
  */
 export interface EnabledControlDetails {
   /**
    * @public
-   * <p>
-   *         The ARN of the enabled control.
-   *       </p>
+   * <p>The ARN of the enabled control.</p>
    */
   arn?: string;
 
   /**
    * @public
-   * <p>
-   *         The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.
-   *       </p>
+   * <p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    */
   controlIdentifier?: string;
 
   /**
    * @public
-   * <p>
-   *         The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.
-   *       </p>
+   * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    */
   targetIdentifier?: string;
 
   /**
    * @public
-   * <p>
-   *         Target AWS Regions for the enabled control.
-   *       </p>
+   * <p>Target AWS Regions for the enabled control.</p>
    */
   targetRegions?: Region[];
 
   /**
    * @public
-   * <p>
-   *         The deployment summary of the enabled control.
-   *       </p>
+   * <p>The deployment summary of the enabled control.</p>
    */
   statusSummary?: EnablementStatusSummary;
 
   /**
    * @public
-   * <p>
-   *         The drift status of the enabled control.
-   *       </p>
+   * <p>The drift status of the enabled control.</p>
    */
   driftStatusSummary?: DriftStatusSummary;
 }
@@ -517,9 +507,7 @@ export interface EnabledControlDetails {
 export interface GetEnabledControlOutput {
   /**
    * @public
-   * <p>
-   *         Information about the enabled control.
-   *       </p>
+   * <p>Information about the enabled control.</p>
    */
   enabledControlDetails: EnabledControlDetails | undefined;
 }
@@ -549,44 +537,38 @@ export interface ListEnabledControlsInput {
 
 /**
  * @public
- * <p>A summary of enabled controls.</p>
+ * <p>Returns a summary of information about an enabled control.</p>
  */
 export interface EnabledControlSummary {
   /**
    * @public
-   * <p>The ARN of the control. Only <b>Strongly recommended</b> and
-   *         <b>Elective</b> controls are permitted, with the exception of the
-   *       <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * <p>The <code>controlIdentifier</code> of the enabled control.</p>
    */
   controlIdentifier?: string;
 
   /**
    * @public
-   * <p>
-   *         The ARN of the enabled control.
-   *       </p>
+   * <p>The ARN of the enabled control.</p>
    */
   arn?: string;
 
   /**
    * @public
    * <p>
-   *         The ARN of the organizational unit.
+   *          The ARN of the organizational unit.
    *       </p>
    */
   targetIdentifier?: string;
 
   /**
    * @public
-   *
+   * <p>A short description of the status of the enabled control.</p>
    */
   statusSummary?: EnablementStatusSummary;
 
   /**
    * @public
-   * <p>
-   *         The drift status of the enabled control.
-   *       </p>
+   * <p>The drift status of the enabled control.</p>
    */
   driftStatusSummary?: DriftStatusSummary;
 }
@@ -598,14 +580,80 @@ export interface ListEnabledControlsOutput {
   /**
    * @public
    * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
-   *       the accounts it contains.</p>
+   *          the accounts it contains.</p>
    */
   enabledControls: EnabledControlSummary[] | undefined;
 
   /**
    * @public
    * <p>Retrieves the next page of results. If the string is empty, the current response is the
-   *       end of the results.</p>
+   *          end of the results.</p>
    */
   nextToken?: string;
 }
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * @public
+   * <p> The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * @public
+   * <p>A list of tags, as <code>key:value</code> strings.</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceInput {
+  /**
+   * @public
+   * <p>The ARN of the resource to be tagged.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Tags to be applied to the resource.</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceOutput {}
+
+/**
+ * @public
+ */
+export interface UntagResourceInput {
+  /**
+   * @public
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Tag keys to be removed from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceOutput {}

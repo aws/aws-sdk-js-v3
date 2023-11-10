@@ -38,11 +38,10 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
 /**
  * @public
  * <p>Returns the status of a particular <code>EnableControl</code> or
- *         <code>DisableControl</code> operation. Displays a message in case of error. Details for an
- *       operation are available for 90 days. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ *          <code>DisableControl</code> operation. Displays a message in case of error. Details for an
+ *          operation are available for 90 days. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
  *                <i>the AWS Control Tower User Guide</i>
- *             </a>
- *          </p>
+ *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

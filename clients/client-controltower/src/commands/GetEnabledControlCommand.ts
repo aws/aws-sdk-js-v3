@@ -37,24 +37,9 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
 
 /**
  * @public
- * <p>
- *         Provides details about the enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ * <p>Retrieves details about an enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
  *                <i>the AWS Control Tower User Guide</i>
  *             </a>.</p>
- *          <p class="title">
- *             <b>Returned values</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>TargetRegions: Shows target AWS Regions where the enabled control is available to be deployed.</p>
- *             </li>
- *             <li>
- *                <p>StatusSummary: Provides a detailed summary of the deployment status.</p>
- *             </li>
- *             <li>
- *                <p>DriftSummary: Provides a detailed summary of the drifted status.</p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

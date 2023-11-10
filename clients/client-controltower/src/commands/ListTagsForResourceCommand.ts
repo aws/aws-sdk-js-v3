@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { DisableControlInput, DisableControlOutput } from "../models/models_0";
-import { de_DisableControlCommand, se_DisableControlCommand } from "../protocols/Aws_restJson1";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,64 +25,51 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DisableControlCommand}.
+ * The input for {@link ListTagsForResourceCommand}.
  */
-export interface DisableControlCommandInput extends DisableControlInput {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
 /**
  * @public
  *
- * The output of {@link DisableControlCommand}.
+ * The output of {@link ListTagsForResourceCommand}.
  */
-export interface DisableControlCommandOutput extends DisableControlOutput, __MetadataBearer {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS
- *          resources on the specified organizational unit and the accounts it contains. The resources
- *          will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ * <p>Returns a list of tags associated with the resource. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
  *                <i>the AWS Control Tower User Guide</i>
  *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, DisableControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, DisableControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, ListTagsForResourceCommand } from "@aws-sdk/client-controltower"; // ES Modules import
+ * // const { ControlTowerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = { // DisableControlInput
- *   controlIdentifier: "STRING_VALUE", // required
- *   targetIdentifier: "STRING_VALUE", // required
+ * const input = { // ListTagsForResourceInput
+ *   resourceArn: "STRING_VALUE", // required
  * };
- * const command = new DisableControlCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * // { // DisableControlOutput
- * //   operationIdentifier: "STRING_VALUE", // required
+ * // { // ListTagsForResourceOutput
+ * //   tags: { // TagMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param DisableControlCommandInput - {@link DisableControlCommandInput}
- * @returns {@link DisableControlCommandOutput}
- * @see {@link DisableControlCommandInput} for command's `input` shape.
- * @see {@link DisableControlCommandOutput} for command's `response` shape.
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
- *
- * @throws {@link ThrottlingException} (client fault)
- *  <p> Request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
@@ -91,9 +78,9 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class DisableControlCommand extends $Command<
-  DisableControlCommandInput,
-  DisableControlCommandOutput,
+export class ListTagsForResourceCommand extends $Command<
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
   ControlTowerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +98,7 @@ export class DisableControlCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DisableControlCommandInput) {
+  constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +111,17 @@ export class DisableControlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ControlTowerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisableControlCommandInput, DisableControlCommandOutput> {
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisableControlCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ControlTowerClient";
-    const commandName = "DisableControlCommand";
+    const commandName = "ListTagsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -143,7 +130,7 @@ export class DisableControlCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSControlTowerApis",
-        operation: "DisableControl",
+        operation: "ListTagsForResource",
       },
     };
     const { requestHandler } = configuration;
@@ -157,15 +144,15 @@ export class DisableControlCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DisableControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DisableControlCommand(input, context);
+  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListTagsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableControlCommandOutput> {
-    return de_DisableControlCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
+    return de_ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -38,11 +38,10 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
 /**
  * @public
  * <p>This API call activates a control. It starts an asynchronous operation that creates AWS
- *       resources on the specified organizational unit and the accounts it contains. The resources
- *       created will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ *          resources on the specified organizational unit and the accounts it contains. The resources
+ *          created will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
  *                <i>the AWS Control Tower User Guide</i>
- *             </a>
- *          </p>
+ *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +51,15 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * const input = { // EnableControlInput
  *   controlIdentifier: "STRING_VALUE", // required
  *   targetIdentifier: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new EnableControlCommand(input);
  * const response = await client.send(command);
  * // { // EnableControlOutput
  * //   operationIdentifier: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE",
  * // };
  *
  * ```

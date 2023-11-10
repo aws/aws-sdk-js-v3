@@ -7,7 +7,7 @@
 AWS SDK for JavaScript ControlTower Client for Node.js, Browser and React Native.
 
 <p>These interfaces allow you to apply the AWS library of pre-defined
-<i>controls</i> to your organizational units, programmatically. In AWS Control Tower, the terms "control" and "guardrail" are synonyms.   .</p>
+<i>controls</i> to your organizational units, programmatically. In AWS Control Tower, the terms "control" and "guardrail" are synonyms.</p>
 <p>To call these APIs, you'll need to know:</p>
 <ul>
 <li>
@@ -15,6 +15,9 @@ AWS SDK for JavaScript ControlTower Client for Node.js, Browser and React Native
 </li>
 <li>
 <p>the ARN associated with the target organizational unit (OU), which we call the <code>targetIdentifier</code>.</p>
+</li>
+<li>
+<p>the ARN associated with a resource that you wish to tag or untag.</p>
 </li>
 </ul>
 <p>
@@ -28,7 +31,7 @@ find the <code>controlIdentifier</code> for each Region and control in the <a hr
 </p>
 <p>A quick-reference list of control identifers for the AWS Control Tower legacy <i>Strongly recommended</i> and
 <i>Elective</i> controls is given in <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html">Resource identifiers for
-APIs and guardrails</a> in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html">Controls reference guide section</a>
+APIs and controls</a> in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html">Controls reference guide section</a>
 of the <i>AWS Control Tower User Guide</i>. Remember that <i>Mandatory</i> controls
 cannot be added or removed.</p>
 <note>
@@ -343,5 +346,29 @@ ListEnabledControls
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/classes/listenabledcontrolscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/listenabledcontrolscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/listenabledcontrolscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-controltower/interfaces/untagresourcecommandoutput.html)
 
 </details>
