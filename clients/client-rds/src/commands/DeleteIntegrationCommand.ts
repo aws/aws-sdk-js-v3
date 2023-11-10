@@ -37,9 +37,7 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
 
 /**
  * @public
- * <p>Deletes a zero-ETL integration with Amazon Redshift. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.deleting.html">Deleting Amazon Aurora zero-ETL integrations with Amazon Redshift</a> in the
- *                 <i>Amazon Aurora User Guide</i>
- *          </p>
+ * <p>Deletes a zero-ETL integration with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3911,7 +3911,7 @@ export interface UpgradeTarget {
 
   /**
    * @public
-   * <p>Indicates whether the DB engine version supports Aurora zero-ETL integrations with
+   * <p>Indicates whether the DB engine version supports zero-ETL integrations with
    *             Amazon Redshift.</p>
    */
   SupportsIntegrations?: boolean;
@@ -4147,7 +4147,7 @@ export interface DBEngineVersion {
 
   /**
    * @public
-   * <p>Indicates whether the DB engine version supports Aurora zero-ETL integrations with
+   * <p>Indicates whether the DB engine version supports zero-ETL integrations with
    *             Amazon Redshift.</p>
    */
   SupportsIntegrations?: boolean;
@@ -11752,7 +11752,7 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
 export interface CreateIntegrationMessage {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for
+   * <p>The Amazon Resource Name (ARN) of the database to use as the source for
    *             replication.</p>
    */
   SourceArn: string | undefined;
@@ -11772,7 +11772,7 @@ export interface CreateIntegrationMessage {
   /**
    * @public
    * <p>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to
-   *             encrypt the integration. If you don't specify an encryption key, Aurora uses a default
+   *             encrypt the integration. If you don't specify an encryption key, RDS uses a default
    *             Amazon Web Services owned key. </p>
    */
   KMSKeyId?: string;
@@ -11835,14 +11835,12 @@ export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof Integrat
 
 /**
  * @public
- * <p>An Aurora zero-ETL integration with Amazon Redshift. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.html">Working
- *             with Amazon Aurora zero-ETL integrations with Amazon Redshift</a> in the
- *             <i>Amazon Aurora User Guide</i>.</p>
+ * <p>A zero-ETL integration with Amazon Redshift.</p>
  */
 export interface Integration {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Aurora DB cluster used as the source for
+   * <p>The Amazon Resource Name (ARN) of the database used as the source for
    *             replication.</p>
    */
   SourceArn?: string;
