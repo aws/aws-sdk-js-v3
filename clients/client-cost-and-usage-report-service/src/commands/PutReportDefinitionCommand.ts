@@ -55,7 +55,7 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  *     Format: "textORcsv" || "Parquet", // required
  *     Compression: "ZIP" || "GZIP" || "Parquet", // required
  *     AdditionalSchemaElements: [ // SchemaElementList // required
- *       "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA",
+ *       "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA" || "MANUAL_DISCOUNT_COMPATIBILITY",
  *     ],
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Prefix: "STRING_VALUE", // required
@@ -66,7 +66,17 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  *     RefreshClosedReports: true || false,
  *     ReportVersioning: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT",
  *     BillingViewArn: "STRING_VALUE",
+ *     ReportStatus: { // ReportStatus
+ *       lastDelivery: "STRING_VALUE",
+ *       lastStatus: "SUCCESS" || "ERROR_PERMISSIONS" || "ERROR_NO_BUCKET",
+ *     },
  *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new PutReportDefinitionCommand(input);
  * const response = await client.send(command);
@@ -89,8 +99,11 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link ReportLimitReachedException} (client fault)
  *  <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+ *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>

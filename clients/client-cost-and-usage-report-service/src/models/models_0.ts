@@ -27,7 +27,7 @@ export interface DeleteReportDefinitionRequest {
    * @public
    * <p>The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.</p>
    */
-  ReportName?: string;
+  ReportName: string | undefined;
 }
 
 /**
@@ -70,7 +70,7 @@ export class InternalErrorException extends __BaseException {
 
 /**
  * @public
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -96,12 +96,12 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
- * <p>Requests a list of AWS Cost and Usage reports owned by the account.</p>
+ * <p>Requests a Amazon Web Services Cost and Usage Report list owned by the account.</p>
  */
 export interface DescribeReportDefinitionsRequest {
   /**
    * @public
-   * <p>The maximum number of results that AWS returns for the operation.</p>
+   * <p>The maximum number of results that Amazon Web Services returns for the operation.</p>
    */
   MaxResults?: number;
 
@@ -117,6 +117,7 @@ export interface DescribeReportDefinitionsRequest {
  * @enum
  */
 export const SchemaElement = {
+  MANUAL_DISCOUNT_COMPATIBILITY: "MANUAL_DISCOUNT_COMPATIBILITY",
   RESOURCES: "RESOURCES",
   SPLIT_COST_ALLOCATION_DATA: "SPLIT_COST_ALLOCATION_DATA",
 } as const;
@@ -154,6 +155,41 @@ export const ReportFormat = {
  * @public
  */
 export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastStatus = {
+  ERROR_NO_BUCKET: "ERROR_NO_BUCKET",
+  ERROR_PERMISSIONS: "ERROR_PERMISSIONS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LastStatus = (typeof LastStatus)[keyof typeof LastStatus];
+
+/**
+ * @public
+ * <p>A two element dictionary with a <code>lastDelivery</code> and <code>lastStatus</code> key
+ *       whose values describe the date and status of the last delivered report for a particular report
+ *       definition.</p>
+ */
+export interface ReportStatus {
+  /**
+   * @public
+   * <p>A timestamp that gives the date of a report delivery.</p>
+   */
+  lastDelivery?: string;
+
+  /**
+   * @public
+   * <p>An enum that gives the status of a report delivery.</p>
+   */
+  lastStatus?: LastStatus;
+}
 
 /**
  * @public
@@ -226,7 +262,7 @@ export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
 
 /**
  * @public
- * <p>The definition of AWS Cost and Usage Report. You can specify the report name,
+ * <p>The definition of Amazon Web Services Cost and Usage Report. You can specify the report name,
  *          time unit, report format, compression format, S3 bucket, additional artifacts, and schema
  *          elements in the definition.
  *     </p>
@@ -247,13 +283,13 @@ export interface ReportDefinition {
 
   /**
    * @public
-   * <p>The format that AWS saves the report in.</p>
+   * <p>The format that Amazon Web Services saves the report in.</p>
    */
   Format: ReportFormat | undefined;
 
   /**
    * @public
-   * <p>The compression format that AWS uses for the report.</p>
+   * <p>The compression format that Amazon Web Services uses for the report.</p>
    */
   Compression: CompressionFormat | undefined;
 
@@ -265,20 +301,20 @@ export interface ReportDefinition {
 
   /**
    * @public
-   * <p>The S3 bucket where AWS delivers the report.</p>
+   * <p>The S3 bucket where Amazon Web Services delivers the report.</p>
    */
   S3Bucket: string | undefined;
 
   /**
    * @public
-   * <p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix
+   * <p>The prefix that Amazon Web Services adds to the report name when Amazon Web Services delivers the report. Your prefix
    *         can't include spaces.</p>
    */
   S3Prefix: string | undefined;
 
   /**
    * @public
-   * <p>The region of the S3 bucket that AWS delivers the report into.</p>
+   * <p>The region of the S3 bucket that Amazon Web Services delivers the report into.</p>
    */
   S3Region: AWSRegion | undefined;
 
@@ -305,10 +341,16 @@ export interface ReportDefinition {
   /**
    * @public
    * <p>
-   *       The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.
-   *     </p>
+   *       The Amazon resource name of the billing view. The <code>BillingViewArn</code> is needed to create Amazon Web Services Cost and Usage Report for each billing group maintained in the Amazon Web Services Billing Conductor service. The <code>BillingViewArn</code> for a billing group can be constructed as: <code>arn:aws:billing::payer-account-id:billingview/billing-group-primary-account-id</code>
+   *          </p>
    */
   BillingViewArn?: string;
+
+  /**
+   * @public
+   * <p>The status of the report.</p>
+   */
+  ReportStatus?: ReportStatus;
 }
 
 /**
@@ -318,7 +360,7 @@ export interface ReportDefinition {
 export interface DescribeReportDefinitionsResponse {
   /**
    * @public
-   * <p>A list of AWS Cost and Usage reports owned by the account.</p>
+   * <p>An Amazon Web Services Cost and Usage Report list owned by the account.</p>
    */
   ReportDefinitions?: ReportDefinition[];
 
@@ -327,6 +369,75 @@ export interface DescribeReportDefinitionsResponse {
    * <p>A generic string.</p>
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The report name of the report definition that tags are to be returned for.</p>
+   */
+  ReportName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a report
+ *       definition.</p>
+ */
+export interface Tag {
+  /**
+   * @public
+   * <p>The key of the tag. Tag keys are case sensitive. Each report definition can only have up
+   *       to one tag with the same key. If you try to add an existing tag with the same key, the
+   *       existing tag value will be updated to the new value.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the tag. Tag values are case-sensitive. This can be an empty string.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>The tags assigned to the report definition resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message to show the detail of the exception.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -342,7 +453,7 @@ export interface ModifyReportDefinitionRequest {
 
   /**
    * @public
-   * <p>The definition of AWS Cost and Usage Report. You can specify the report name,
+   * <p>The definition of Amazon Web Services Cost and Usage Report. You can specify the report name,
    *          time unit, report format, compression format, S3 bucket, additional artifacts, and schema
    *          elements in the definition.
    *     </p>
@@ -392,6 +503,12 @@ export interface PutReportDefinitionRequest {
    *       metadata and data file information. </p>
    */
   ReportDefinition: ReportDefinition | undefined;
+
+  /**
+   * @public
+   * <p>The tags to be assigned to the report definition resource.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -425,3 +542,48 @@ export class ReportLimitReachedException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * @public
+   * <p>The report name of the report definition that tags are to be associated with.</p>
+   */
+  ReportName: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags to be assigned to the report definition resource.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * @public
+   * <p>The report name of the report definition that tags are to be disassociated
+   *       from.</p>
+   */
+  ReportName: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags to be disassociated from the report definition resource.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}

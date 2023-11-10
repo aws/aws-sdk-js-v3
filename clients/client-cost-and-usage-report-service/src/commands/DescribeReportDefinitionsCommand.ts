@@ -41,7 +41,7 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
 
 /**
  * @public
- * <p>Lists the AWS Cost and Usage reports available to this account.</p>
+ * <p>Lists the Amazon Web Services Cost and Usage Report available to this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +62,7 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * //       Format: "textORcsv" || "Parquet", // required
  * //       Compression: "ZIP" || "GZIP" || "Parquet", // required
  * //       AdditionalSchemaElements: [ // SchemaElementList // required
- * //         "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA",
+ * //         "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA" || "MANUAL_DISCOUNT_COMPATIBILITY",
  * //       ],
  * //       S3Bucket: "STRING_VALUE", // required
  * //       S3Prefix: "STRING_VALUE", // required
@@ -73,6 +73,10 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * //       RefreshClosedReports: true || false,
  * //       ReportVersioning: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT",
  * //       BillingViewArn: "STRING_VALUE",
+ * //       ReportStatus: { // ReportStatus
+ * //         lastDelivery: "STRING_VALUE",
+ * //         lastStatus: "SUCCESS" || "ERROR_PERMISSIONS" || "ERROR_NO_BUCKET",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

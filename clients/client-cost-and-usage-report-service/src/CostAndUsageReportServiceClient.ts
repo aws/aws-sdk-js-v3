@@ -59,6 +59,10 @@ import {
   DescribeReportDefinitionsCommandOutput,
 } from "./commands/DescribeReportDefinitionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ModifyReportDefinitionCommandInput,
   ModifyReportDefinitionCommandOutput,
 } from "./commands/ModifyReportDefinitionCommand";
@@ -66,6 +70,8 @@ import {
   PutReportDefinitionCommandInput,
   PutReportDefinitionCommandOutput,
 } from "./commands/PutReportDefinitionCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -83,8 +89,11 @@ export { __Client };
 export type ServiceInputTypes =
   | DeleteReportDefinitionCommandInput
   | DescribeReportDefinitionsCommandInput
+  | ListTagsForResourceCommandInput
   | ModifyReportDefinitionCommandInput
-  | PutReportDefinitionCommandInput;
+  | PutReportDefinitionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 /**
  * @public
@@ -92,8 +101,11 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | DeleteReportDefinitionCommandOutput
   | DescribeReportDefinitionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ModifyReportDefinitionCommandOutput
-  | PutReportDefinitionCommandOutput;
+  | PutReportDefinitionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 /**
  * @public
@@ -268,19 +280,18 @@ export interface CostAndUsageReportServiceClientResolvedConfig
 
 /**
  * @public
- * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
- *         AWS Cost and Usage report definitions.</p>
- *          <p>AWS Cost and Usage reports track the monthly AWS costs and usage
- *    associated with your AWS account.
+ * <p>You can use the Amazon Web Services Cost and Usage Report API to programmatically create, query, and delete
+ *       Amazon Web Services Cost and Usage Report definitions.</p>
+ *          <p>Amazon Web Services Cost and Usage Report track the monthly Amazon Web Services costs and usage
+ *       associated with your Amazon Web Services account.
  *
- *         The report contains line items for each unique combination of AWS product,
- *         usage type, and operation that your AWS account uses.
+ *         The report contains line items for each unique combination of Amazon Web Services product,
+ *         usage type, and operation that your Amazon Web Services account uses.
  *
- *         You can configure the AWS Cost and Usage report to show only the data that you want, using the
- *         AWS Cost and Usage API.</p>
- *
+ *         You can configure the Amazon Web Services Cost and Usage Report to show only the data that you want, using the
+ *       Amazon Web Services Cost and Usage Report API.</p>
  *          <p>Service Endpoint</p>
- *          <p>The AWS Cost and Usage Report API provides the following endpoint:</p>
+ *          <p>The Amazon Web Services Cost and Usage Report API provides the following endpoint:</p>
  *          <ul>
  *             <li>
  *                <p>cur.us-east-1.amazonaws.com</p>

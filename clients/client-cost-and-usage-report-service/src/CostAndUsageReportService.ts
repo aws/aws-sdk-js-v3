@@ -13,6 +13,11 @@ import {
   DescribeReportDefinitionsCommandOutput,
 } from "./commands/DescribeReportDefinitionsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ModifyReportDefinitionCommand,
   ModifyReportDefinitionCommandInput,
   ModifyReportDefinitionCommandOutput,
@@ -22,6 +27,12 @@ import {
   PutReportDefinitionCommandInput,
   PutReportDefinitionCommandOutput,
 } from "./commands/PutReportDefinitionCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   CostAndUsageReportServiceClient,
   CostAndUsageReportServiceClientConfig,
@@ -30,8 +41,11 @@ import {
 const commands = {
   DeleteReportDefinitionCommand,
   DescribeReportDefinitionsCommand,
+  ListTagsForResourceCommand,
   ModifyReportDefinitionCommand,
   PutReportDefinitionCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
 };
 
 export interface CostAndUsageReportService {
@@ -70,6 +84,23 @@ export interface CostAndUsageReportService {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyReportDefinitionCommand}
    */
   modifyReportDefinition(
@@ -102,23 +133,44 @@ export interface CostAndUsageReportService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutReportDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
 }
 
 /**
  * @public
- * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
- *         AWS Cost and Usage report definitions.</p>
- *          <p>AWS Cost and Usage reports track the monthly AWS costs and usage
- *    associated with your AWS account.
+ * <p>You can use the Amazon Web Services Cost and Usage Report API to programmatically create, query, and delete
+ *       Amazon Web Services Cost and Usage Report definitions.</p>
+ *          <p>Amazon Web Services Cost and Usage Report track the monthly Amazon Web Services costs and usage
+ *       associated with your Amazon Web Services account.
  *
- *         The report contains line items for each unique combination of AWS product,
- *         usage type, and operation that your AWS account uses.
+ *         The report contains line items for each unique combination of Amazon Web Services product,
+ *         usage type, and operation that your Amazon Web Services account uses.
  *
- *         You can configure the AWS Cost and Usage report to show only the data that you want, using the
- *         AWS Cost and Usage API.</p>
- *
+ *         You can configure the Amazon Web Services Cost and Usage Report to show only the data that you want, using the
+ *       Amazon Web Services Cost and Usage Report API.</p>
  *          <p>Service Endpoint</p>
- *          <p>The AWS Cost and Usage Report API provides the following endpoint:</p>
+ *          <p>The Amazon Web Services Cost and Usage Report API provides the following endpoint:</p>
  *          <ul>
  *             <li>
  *                <p>cur.us-east-1.amazonaws.com</p>

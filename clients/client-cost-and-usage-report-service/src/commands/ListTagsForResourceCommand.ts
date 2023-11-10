@@ -19,8 +19,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/models_0";
-import { de_DeleteReportDefinitionCommand, se_DeleteReportDefinitionCommand } from "../protocols/Aws_json1_1";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -29,45 +29,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteReportDefinitionCommand}.
+ * The input for {@link ListTagsForResourceCommand}.
  */
-export interface DeleteReportDefinitionCommandInput extends DeleteReportDefinitionRequest {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteReportDefinitionCommand}.
+ * The output of {@link ListTagsForResourceCommand}.
  */
-export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResponse, __MetadataBearer {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the specified report. Any tags associated with the report are also
- *       deleted.</p>
+ * <p>Lists the tags associated with the specified report definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
- * // const { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * import { CostAndUsageReportServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
+ * // const { CostAndUsageReportServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
- * const input = { // DeleteReportDefinitionRequest
+ * const input = { // ListTagsForResourceRequest
  *   ReportName: "STRING_VALUE", // required
  * };
- * const command = new DeleteReportDefinitionCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * // { // DeleteReportDefinitionResponse
- * //   ResponseMessage: "STRING_VALUE",
+ * // { // ListTagsForResourceResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
- * @returns {@link DeleteReportDefinitionCommandOutput}
- * @see {@link DeleteReportDefinitionCommandInput} for command's `input` shape.
- * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
@@ -75,21 +82,10 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
- * @example To delete the AWS Cost and Usage report named ExampleReport.
- * ```javascript
- * // The following example deletes the AWS Cost and Usage report named ExampleReport.
- * const input = {
- *   "ReportName": "ExampleReport"
- * };
- * const command = new DeleteReportDefinitionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-report
- * ```
- *
  */
-export class DeleteReportDefinitionCommand extends $Command<
-  DeleteReportDefinitionCommandInput,
-  DeleteReportDefinitionCommandOutput,
+export class ListTagsForResourceCommand extends $Command<
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
   CostAndUsageReportServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -107,7 +103,7 @@ export class DeleteReportDefinitionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteReportDefinitionCommandInput) {
+  constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -120,17 +116,17 @@ export class DeleteReportDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostAndUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteReportDefinitionCommandInput, DeleteReportDefinitionCommandOutput> {
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteReportDefinitionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CostAndUsageReportServiceClient";
-    const commandName = "DeleteReportDefinitionCommand";
+    const commandName = "ListTagsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,7 +135,7 @@ export class DeleteReportDefinitionCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSOrigamiServiceGatewayService",
-        operation: "DeleteReportDefinition",
+        operation: "ListTagsForResource",
       },
     };
     const { requestHandler } = configuration;
@@ -153,15 +149,15 @@ export class DeleteReportDefinitionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteReportDefinitionCommand(input, context);
+  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListTagsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportDefinitionCommandOutput> {
-    return de_DeleteReportDefinitionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
+    return de_ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra
