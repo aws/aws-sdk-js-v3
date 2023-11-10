@@ -6551,6 +6551,41 @@ export interface LaunchTemplatesMonitoringRequest {
 
 /**
  * @public
+ * <p>Configures ENA Express for UDP network traffic from your launch template.</p>
+ */
+export interface EnaSrdUdpSpecificationRequest {
+  /**
+   * @public
+   * <p>Indicates whether UDP traffic uses ENA Express for your instance. To ensure that
+   * 			UDP traffic can use ENA Express when you launch an instance, you must also set
+   * 			<b>EnaSrdEnabled</b> in the <b>EnaSrdSpecificationRequest</b> to <code>true</code> in your
+   * 			launch template.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Launch instances with ENA Express settings configured
+ * 			from your launch template.</p>
+ */
+export interface EnaSrdSpecificationRequest {
+  /**
+   * @public
+   * <p>Specifies whether ENA Express is enabled for the network interface when you
+   * 			launch an instance from your launch template.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Contains ENA Express settings for UDP network traffic in your launch template.</p>
+   */
+  EnaSrdUdpSpecification?: EnaSrdUdpSpecificationRequest;
+}
+
+/**
+ * @public
  * <p>Describes the IPv4 prefix option for a network interface.</p>
  */
 export interface Ipv4PrefixSpecificationRequest {
@@ -6751,6 +6786,12 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
    * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    */
   PrimaryIpv6?: boolean;
+
+  /**
+   * @public
+   * <p>Configure ENA Express settings for your launch template.</p>
+   */
+  EnaSrdSpecification?: EnaSrdSpecificationRequest;
 }
 
 /**
@@ -6860,7 +6901,7 @@ export interface LaunchTemplateTagSpecificationRequest {
    *             you create a launch template, you can specify tags for the following resource types
    *             only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |
    *                 <code>network-interface</code> | <code>spot-instances-request</code>.
-   *             If the instance does include the resource type that you specify, the instance
+   *             If the instance does not include the resource type that you specify, the instance
    *             launch fails. For example, not all instance types include an Elastic GPU.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
@@ -7088,16 +7129,14 @@ export interface RequestLaunchTemplateData {
 
   /**
    * @public
-   * <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>. You cannot specify both a security group ID and
-   *             security name in the same request.</p>
+   * <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
    * @public
    * <p>One or more security group names. For a nondefault VPC, you must use security group
-   *             IDs instead. You cannot specify both a security group ID and security name in the same
-   *             request.</p>
+   *             IDs instead.</p>
    */
   SecurityGroups?: string[];
 
@@ -7890,6 +7929,48 @@ export interface LaunchTemplatesMonitoring {
 
 /**
  * @public
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ */
+export interface LaunchTemplateEnaSrdUdpSpecification {
+  /**
+   * @public
+   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
+   * 			you must first enable ENA Express.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ */
+export interface LaunchTemplateEnaSrdSpecification {
+  /**
+   * @public
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   */
+  EnaSrdUdpSpecification?: LaunchTemplateEnaSrdUdpSpecification;
+}
+
+/**
+ * @public
  * <p>Information about the IPv4 delegated prefixes assigned
  *             to a network interface.</p>
  */
@@ -8066,6 +8147,12 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    */
   PrimaryIpv6?: boolean;
+
+  /**
+   * @public
+   * <p>Contains the ENA Express settings for instances launched from your launch template.</p>
+   */
+  EnaSrdSpecification?: LaunchTemplateEnaSrdSpecification;
 }
 
 /**
@@ -10374,8 +10461,11 @@ export interface NetworkInterfaceAssociation {
 
 /**
  * @public
- * <p>Describes the ENA Express configuration for UDP traffic on the network interface that's attached to
- * 			the instance.</p>
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
  */
 export interface AttachmentEnaSrdUdpSpecification {
   /**
@@ -10388,19 +10478,25 @@ export interface AttachmentEnaSrdUdpSpecification {
 
 /**
  * @public
- * <p>Describes the ENA Express configuration for the network interface that's attached to the instance.</p>
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
  */
 export interface AttachmentEnaSrdSpecification {
   /**
    * @public
-   * <p>Indicates whether ENA Express is enabled for the network interface that's attached to the
-   * 			instance.</p>
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
    */
   EnaSrdEnabled?: boolean;
 
   /**
    * @public
-   * <p>ENA Express configuration for UDP network traffic.</p>
+   * <p>Configures ENA Express for UDP network traffic.</p>
    */
   EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification;
 }
@@ -10912,106 +11008,6 @@ export interface CreateNetworkInterfacePermissionResult {
    */
   InterfacePermission?: NetworkInterfacePermission;
 }
-
-/**
- * @public
- * @enum
- */
-export const SpreadLevel = {
-  host: "host",
-  rack: "rack",
-} as const;
-
-/**
- * @public
- */
-export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
-
-/**
- * @public
- * @enum
- */
-export const PlacementStrategy = {
-  cluster: "cluster",
-  partition: "partition",
-  spread: "spread",
-} as const;
-
-/**
- * @public
- */
-export type PlacementStrategy = (typeof PlacementStrategy)[keyof typeof PlacementStrategy];
-
-/**
- * @public
- */
-export interface CreatePlacementGroupRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>A name for the placement group. Must be unique within the scope of your account for
-   *             the Region.</p>
-   *          <p>Constraints: Up to 255 ASCII characters</p>
-   */
-  GroupName?: string;
-
-  /**
-   * @public
-   * <p>The placement strategy.</p>
-   */
-  Strategy?: PlacementStrategy;
-
-  /**
-   * @public
-   * <p>The number of partitions. Valid only when <b>Strategy</b> is
-   *             set to <code>partition</code>.</p>
-   */
-  PartitionCount?: number;
-
-  /**
-   * @public
-   * <p>The tags to apply to the new placement group.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * @public
-   * <p>Determines how placement groups spread instances. </p>
-   *          <ul>
-   *             <li>
-   *                <p>Host – You can use <code>host</code> only with Outpost placement
-   *                     groups.</p>
-   *             </li>
-   *             <li>
-   *                <p>Rack – No usage restrictions.</p>
-   *             </li>
-   *          </ul>
-   */
-  SpreadLevel?: SpreadLevel;
-}
-
-/**
- * @public
- * @enum
- */
-export const PlacementGroupState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type PlacementGroupState = (typeof PlacementGroupState)[keyof typeof PlacementGroupState];
 
 /**
  * @internal

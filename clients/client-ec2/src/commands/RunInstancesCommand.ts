@@ -199,6 +199,12 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *       ],
  *       Ipv6PrefixCount: Number("int"),
  *       PrimaryIpv6: true || false,
+ *       EnaSrdSpecification: { // EnaSrdSpecificationRequest
+ *         EnaSrdEnabled: true || false,
+ *         EnaSrdUdpSpecification: { // EnaSrdUdpSpecificationRequest
+ *           EnaSrdUdpEnabled: true || false,
+ *         },
+ *       },
  *     },
  *   ],
  *   PrivateIpAddress: "STRING_VALUE",
@@ -387,6 +393,12 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //             DeviceIndex: Number("int"),
  * //             Status: "attaching" || "attached" || "detaching" || "detached",
  * //             NetworkCardIndex: Number("int"),
+ * //             EnaSrdSpecification: { // InstanceAttachmentEnaSrdSpecification
+ * //               EnaSrdEnabled: true || false,
+ * //               EnaSrdUdpSpecification: { // InstanceAttachmentEnaSrdUdpSpecification
+ * //                 EnaSrdUdpEnabled: true || false,
+ * //               },
+ * //             },
  * //           },
  * //           Description: "STRING_VALUE",
  * //           Groups: [

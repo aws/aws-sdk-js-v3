@@ -127,6 +127,12 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *         ],
  *         Ipv6PrefixCount: Number("int"),
  *         PrimaryIpv6: true || false,
+ *         EnaSrdSpecification: { // EnaSrdSpecificationRequest
+ *           EnaSrdEnabled: true || false,
+ *           EnaSrdUdpSpecification: { // EnaSrdUdpSpecificationRequest
+ *             EnaSrdUdpEnabled: true || false,
+ *           },
+ *         },
  *       },
  *     ],
  *     ImageId: "STRING_VALUE",

@@ -27,7 +27,7 @@ import {
   SpotInstanceType,
 } from "./models_1";
 import { SnapshotState, SSEType, TransitGatewayRoute } from "./models_2";
-import { ClientVpnConnectionStatus, Filter } from "./models_3";
+import { ClientVpnConnectionStatus, Filter, InstanceAttributeName } from "./models_3";
 import {
   HttpTokensState,
   InstanceAutoRecoveryState,
@@ -39,8 +39,152 @@ import {
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
   RunInstancesMonitoringEnabled,
+  SnapshotAttributeName,
 } from "./models_4";
-import { CapacityReservationSpecification, InstanceMonitoring } from "./models_6";
+import { CapacityReservationSpecification, InstanceMonitoring, ResetImageAttributeName, Status } from "./models_6";
+
+/**
+ * @public
+ * <p>Contains the parameters for ResetImageAttribute.</p>
+ */
+export interface ResetImageAttributeRequest {
+  /**
+   * @public
+   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
+   */
+  Attribute: ResetImageAttributeName | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ResetInstanceAttributeRequest {
+  /**
+   * @public
+   * <p>The attribute to reset.</p>
+   *          <important>
+   *             <p>You can only reset the following attributes: <code>kernel</code> |
+   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>.</p>
+   *          </important>
+   */
+  Attribute: InstanceAttributeName | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
+ */
+export interface ResetNetworkInterfaceAttributeRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
+   */
+  SourceDestCheck?: string;
+}
+
+/**
+ * @public
+ */
+export interface ResetSnapshotAttributeRequest {
+  /**
+   * @public
+   * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
+   *       be reset.</p>
+   */
+  Attribute: SnapshotAttributeName | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RestoreAddressToClassicRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreAddressToClassicResult {
+  /**
+   * @public
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * @public
+   * <p>The move status for the IP address.</p>
+   */
+  Status?: Status;
+}
 
 /**
  * @public

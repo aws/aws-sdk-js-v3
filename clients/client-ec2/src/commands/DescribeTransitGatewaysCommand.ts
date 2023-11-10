@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTransitGatewaysRequest, DescribeTransitGatewaysResult } from "../models/models_4";
+import { DescribeTransitGatewaysRequest, DescribeTransitGatewaysResult } from "../models/models_5";
 import { de_DescribeTransitGatewaysCommand, se_DescribeTransitGatewaysCommand } from "../protocols/Aws_ec2";
 
 /**

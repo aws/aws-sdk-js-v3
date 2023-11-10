@@ -18,7 +18,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeInstanceEventNotificationAttributesCommand,
   se_DescribeInstanceEventNotificationAttributesCommand,

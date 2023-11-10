@@ -26,6 +26,7 @@ import {
   Ipv6SupportValue,
   PortRange,
   RouteTableAssociationState,
+  SubnetAssociation,
   Tag,
   TagSpecification,
   TransitGatewayAssociationState,
@@ -86,6 +87,7 @@ import {
   Phase2DHGroupNumbersRequestListValue,
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  SubnetCidrReservation,
   SubnetConfiguration,
   TrafficDirection,
   TrafficMirrorFilter,
@@ -156,12 +158,211 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
-  TransitGatewayMulticastDomainAssociation,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetSubnetCidrReservationsResult {
+  /**
+   * @public
+   * <p>Information about the IPv4 subnet CIDR reservations.</p>
+   */
+  SubnetIpv4CidrReservations?: SubnetCidrReservation[];
+
+  /**
+   * @public
+   * <p>Information about the IPv6 subnet CIDR reservations.</p>
+   */
+  SubnetIpv6CidrReservations?: SubnetCidrReservation[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentPropagationsRequest {
+  /**
+   * @public
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes a propagation route table.</p>
+ */
+export interface TransitGatewayAttachmentPropagation {
+  /**
+   * @public
+   * <p>The ID of the propagation route table.</p>
+   */
+  TransitGatewayRouteTableId?: string;
+
+  /**
+   * @public
+   * <p>The state of the propagation route table.</p>
+   */
+  State?: TransitGatewayPropagationState;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentPropagationsResult {
+  /**
+   * @public
+   * <p>Information about the propagation route tables.</p>
+   */
+  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the subnet association. Valid values are
+   *                         <code>associated</code> | <code>associating</code> |
+   *                         <code>disassociated</code> | <code>disassociating</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes the resources associated with the transit gateway multicast domain.</p>
+ */
+export interface TransitGatewayMulticastDomainAssociation {
+  /**
+   * @public
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The type of resource, for example a VPC attachment.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType;
+
+  /**
+   * @public
+   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * @public
+   * <p>The subnet associated with the transit gateway multicast domain.</p>
+   */
+  Subnet?: SubnetAssociation;
+}
 
 /**
  * @public
@@ -9045,149 +9246,6 @@ export const ResetImageAttributeName = {
  * @public
  */
 export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typeof ResetImageAttributeName];
-
-/**
- * @public
- * <p>Contains the parameters for ResetImageAttribute.</p>
- */
-export interface ResetImageAttributeRequest {
-  /**
-   * @public
-   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
-   */
-  Attribute: ResetImageAttributeName | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface ResetInstanceAttributeRequest {
-  /**
-   * @public
-   * <p>The attribute to reset.</p>
-   *          <important>
-   *             <p>You can only reset the following attributes: <code>kernel</code> |
-   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>.</p>
-   *          </important>
-   */
-  Attribute: InstanceAttributeName | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
- */
-export interface ResetNetworkInterfaceAttributeRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
-   */
-  SourceDestCheck?: string;
-}
-
-/**
- * @public
- */
-export interface ResetSnapshotAttributeRequest {
-  /**
-   * @public
-   * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
-   *       be reset.</p>
-   */
-  Attribute: SnapshotAttributeName | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface RestoreAddressToClassicRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The Elastic IP address.</p>
-   */
-  PublicIp: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreAddressToClassicResult {
-  /**
-   * @public
-   * <p>The Elastic IP address.</p>
-   */
-  PublicIp?: string;
-
-  /**
-   * @public
-   * <p>The move status for the IP address.</p>
-   */
-  Status?: Status;
-}
 
 /**
  * @internal

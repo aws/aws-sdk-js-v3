@@ -13,6 +13,7 @@ import {
   Explanation,
   IamInstanceProfile,
   IamInstanceProfileSpecification,
+  InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
   IpPermission,
   PathComponent,
@@ -25,7 +26,6 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
-  TransitGatewayVpcAttachment,
   UserIdGroupPair,
 } from "./models_0";
 import {
@@ -34,6 +34,7 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  EnaSrdSpecificationRequest,
   FleetLaunchTemplateSpecification,
   FleetType,
   GroupIdentifier,
@@ -85,12 +86,10 @@ import {
   TrafficMirrorFilter,
   TrafficMirrorSession,
   TrafficMirrorTarget,
-  TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
   TransitGatewayMulticastDomain,
   TransitGatewayPolicyTable,
-  TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
 } from "./models_2";
 import {
@@ -104,10 +103,145 @@ import {
   HypervisorType,
   IdFormat,
   InstanceBlockDeviceMapping,
+  InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeInstanceEventNotificationAttributesRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceEventNotificationAttributesResult {
+  /**
+   * @public
+   * <p>Information about the registered tag keys.</p>
+   */
+  InstanceTagAttribute?: InstanceTagNotificationAttribute;
+}
+
+/**
+ * @public
+ * <para>Describe instance event windows by InstanceEventWindow.</para>
+ */
+export interface DescribeInstanceEventWindowsRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The IDs of the event windows.</p>
+   */
+  InstanceEventWindowIds?: string[];
+
+  /**
+   * @public
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated-host-id</code> - The event windows associated with the specified
+   *             Dedicated Host ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event-window-name</code> - The event windows associated with the specified
+   *             names. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The event windows associated with the specified instance
+   *                ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-tag</code> - The event windows associated with the specified tag and
+   *                value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-tag-key</code> - The event windows associated with the specified tag
+   *                key, regardless of the value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-tag-value</code> - The event windows associated with the specified tag
+   *                value, regardless of the key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the
+   *                event window. Use the tag key in the filter name and the tag value as the filter
+   *                value. For example, to find all resources that have a tag with the key
+   *                   <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code>
+   *                for the filter name and <code>CMX</code> for the filter value. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the event window. Use this filter
+   *                to find all event windows that have a tag with a specific key, regardless of the tag
+   *                value. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-value</code> - The value of a tag assigned to the event window. Use this
+   *                filter to find all event windows that have a tag with a specific value, regardless of
+   *                the tag key. </p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *          results, make another call with the returned <code>NextToken</code> value. This value can
+   *          be between 20 and 500. You cannot specify this parameter and the event window IDs parameter
+   *          in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceEventWindowsResult {
+  /**
+   * @public
+   * <p>Information about the event windows.</p>
+   */
+  InstanceEventWindows?: InstanceEventWindow[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -258,8 +392,8 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or
-   *                     a Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</p>
+   *                   <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance, a Scheduled Instance, or
+   *                      a Capacity Block (<code>spot</code> | <code>scheduled</code> | <code>capacity-block</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1265,6 +1399,48 @@ export interface InstanceNetworkInterfaceAssociation {
 
 /**
  * @public
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ */
+export interface InstanceAttachmentEnaSrdUdpSpecification {
+  /**
+   * @public
+   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
+   * 			you must first enable ENA Express.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ */
+export interface InstanceAttachmentEnaSrdSpecification {
+  /**
+   * @public
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   */
+  EnaSrdUdpSpecification?: InstanceAttachmentEnaSrdUdpSpecification;
+}
+
+/**
+ * @public
  * <p>Describes a network interface attachment.</p>
  */
 export interface InstanceNetworkInterfaceAttachment {
@@ -1303,6 +1479,13 @@ export interface InstanceNetworkInterfaceAttachment {
    * <p>The index of the network card.</p>
    */
   NetworkCardIndex?: number;
+
+  /**
+   * @public
+   * <p>Contains the ENA Express settings for the network interface that's attached
+   * 			to the instance.</p>
+   */
+  EnaSrdSpecification?: InstanceAttachmentEnaSrdSpecification;
 }
 
 /**
@@ -9803,6 +9986,13 @@ export interface InstanceNetworkInterfaceSpecification {
    * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    */
   PrimaryIpv6?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies the ENA Express settings for the network interface that's attached to
+   * 			the instance.</p>
+   */
+  EnaSrdSpecification?: EnaSrdSpecificationRequest;
 }
 
 /**
@@ -12719,261 +12909,6 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
   /**
    * @public
    * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTablesRequest {
-  /**
-   * @public
-   * <p>The IDs of the transit gateway route tables.</p>
-   */
-  TransitGatewayRouteTableIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>default-association-route-table</code> - Indicates whether this is the default
-   *                 association route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>default-propagation-route-table</code> - Indicates whether this is the default
-   *                propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>pending</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTablesResult {
-  /**
-   * @public
-   * <p>Information about the transit gateway route tables.</p>
-   */
-  TransitGatewayRouteTables?: TransitGatewayRouteTable[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewaysRequest {
-  /**
-   * @public
-   * <p>The IDs of the transit gateways.</p>
-   */
-  TransitGatewayIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>options.propagation-default-route-table-id</code> - The ID of the default propagation route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.association-default-route-table-id</code> - The ID of the default association route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.auto-accept-shared-attachments</code> - Indicates whether there is automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.default-route-table-association</code> - Indicates whether resource attachments are automatically
-   *                associated with the default association route table (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.default-route-table-propagation</code> - Indicates whether resource attachments automatically propagate
-   *                routes to the default propagation route table (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol support is enabled  (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewaysResult {
-  /**
-   * @public
-   * <p>Information about the transit gateways.</p>
-   */
-  TransitGateways?: TransitGateway[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayVpcAttachmentsRequest {
-  /**
-   * @public
-   * <p>The IDs of the attachments.</p>
-   */
-  TransitGatewayAttachmentIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayVpcAttachmentsResult {
-  /**
-   * @public
-   * <p>Information about the VPC attachments.</p>
-   */
-  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 }

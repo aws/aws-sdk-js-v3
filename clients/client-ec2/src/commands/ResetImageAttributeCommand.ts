@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetImageAttributeRequest } from "../models/models_6";
+import { ResetImageAttributeRequest } from "../models/models_7";
 import { de_ResetImageAttributeCommand, se_ResetImageAttributeCommand } from "../protocols/Aws_ec2";
 
 /**

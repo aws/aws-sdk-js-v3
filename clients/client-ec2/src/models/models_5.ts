@@ -13,7 +13,6 @@ import {
   IpamPoolAllocation,
   IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
-  SubnetAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
@@ -22,6 +21,7 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
+  TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
@@ -53,7 +53,8 @@ import {
   ServiceTypeDetail,
   SSEType,
   State,
-  SubnetCidrReservation,
+  TransitGateway,
+  TransitGatewayRouteTable,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   Volume,
@@ -80,6 +81,261 @@ import {
   VirtualizationType,
 } from "./models_3";
 import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayRouteTablesRequest {
+  /**
+   * @public
+   * <p>The IDs of the transit gateway route tables.</p>
+   */
+  TransitGatewayRouteTableIds?: string[];
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default-association-route-table</code> - Indicates whether this is the default
+   *                 association route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-propagation-route-table</code> - Indicates whether this is the default
+   *                propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>pending</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayRouteTablesResult {
+  /**
+   * @public
+   * <p>Information about the transit gateway route tables.</p>
+   */
+  TransitGatewayRouteTables?: TransitGatewayRouteTable[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewaysRequest {
+  /**
+   * @public
+   * <p>The IDs of the transit gateways.</p>
+   */
+  TransitGatewayIds?: string[];
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>options.propagation-default-route-table-id</code> - The ID of the default propagation route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.association-default-route-table-id</code> - The ID of the default association route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.auto-accept-shared-attachments</code> - Indicates whether there is automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.default-route-table-association</code> - Indicates whether resource attachments are automatically
+   *                associated with the default association route table (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.default-route-table-propagation</code> - Indicates whether resource attachments automatically propagate
+   *                routes to the default propagation route table (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol support is enabled  (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewaysResult {
+  /**
+   * @public
+   * <p>Information about the transit gateways.</p>
+   */
+  TransitGateways?: TransitGateway[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayVpcAttachmentsRequest {
+  /**
+   * @public
+   * <p>The IDs of the attachments.</p>
+   */
+  TransitGatewayAttachmentIds?: string[];
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayVpcAttachmentsResult {
+  /**
+   * @public
+   * <p>Information about the VPC attachments.</p>
+   */
+  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -8207,206 +8463,6 @@ export interface GetSubnetCidrReservationsRequest {
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface GetSubnetCidrReservationsResult {
-  /**
-   * @public
-   * <p>Information about the IPv4 subnet CIDR reservations.</p>
-   */
-  SubnetIpv4CidrReservations?: SubnetCidrReservation[];
-
-  /**
-   * @public
-   * <p>Information about the IPv6 subnet CIDR reservations.</p>
-   */
-  SubnetIpv6CidrReservations?: SubnetCidrReservation[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayAttachmentPropagationsRequest {
-  /**
-   * @public
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Describes a propagation route table.</p>
- */
-export interface TransitGatewayAttachmentPropagation {
-  /**
-   * @public
-   * <p>The ID of the propagation route table.</p>
-   */
-  TransitGatewayRouteTableId?: string;
-
-  /**
-   * @public
-   * <p>The state of the propagation route table.</p>
-   */
-  State?: TransitGatewayPropagationState;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayAttachmentPropagationsResult {
-  /**
-   * @public
-   * <p>Information about the propagation route tables.</p>
-   */
-  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * @public
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the subnet association. Valid values are
-   *                         <code>associated</code> | <code>associating</code> |
-   *                         <code>disassociated</code> | <code>disassociating</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Describes the resources associated with the transit gateway multicast domain.</p>
- */
-export interface TransitGatewayMulticastDomainAssociation {
-  /**
-   * @public
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * @public
-   * <p>The type of resource, for example a VPC attachment.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType;
-
-  /**
-   * @public
-   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * @public
-   * <p>The subnet associated with the transit gateway multicast domain.</p>
-   */
-  Subnet?: SubnetAssociation;
 }
 
 /**

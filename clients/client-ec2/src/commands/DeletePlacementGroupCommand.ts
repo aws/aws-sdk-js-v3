@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeletePlacementGroupRequest } from "../models/models_2";
+import { DeletePlacementGroupRequest } from "../models/models_3";
 import { de_DeletePlacementGroupCommand, se_DeletePlacementGroupCommand } from "../protocols/Aws_ec2";
 
 /**

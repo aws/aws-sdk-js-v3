@@ -46,14 +46,111 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  PlacementGroupState,
-  PlacementStrategy,
-  SpreadLevel,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const SpreadLevel = {
+  host: "host",
+  rack: "rack",
+} as const;
+
+/**
+ * @public
+ */
+export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlacementStrategy = {
+  cluster: "cluster",
+  partition: "partition",
+  spread: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementStrategy = (typeof PlacementStrategy)[keyof typeof PlacementStrategy];
+
+/**
+ * @public
+ */
+export interface CreatePlacementGroupRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>A name for the placement group. Must be unique within the scope of your account for
+   *             the Region.</p>
+   *          <p>Constraints: Up to 255 ASCII characters</p>
+   */
+  GroupName?: string;
+
+  /**
+   * @public
+   * <p>The placement strategy.</p>
+   */
+  Strategy?: PlacementStrategy;
+
+  /**
+   * @public
+   * <p>The number of partitions. Valid only when <b>Strategy</b> is
+   *             set to <code>partition</code>.</p>
+   */
+  PartitionCount?: number;
+
+  /**
+   * @public
+   * <p>The tags to apply to the new placement group.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Determines how placement groups spread instances. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Host – You can use <code>host</code> only with Outpost placement
+   *                     groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>Rack – No usage restrictions.</p>
+   *             </li>
+   *          </ul>
+   */
+  SpreadLevel?: SpreadLevel;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PlacementGroupState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementGroupState = (typeof PlacementGroupState)[keyof typeof PlacementGroupState];
 
 /**
  * @public
@@ -8695,84 +8792,6 @@ export interface DeleteNetworkInsightsPathResult {
    * <p>The ID of the path.</p>
    */
   NetworkInsightsPathId?: string;
-}
-
-/**
- * @public
- * <p>Contains the parameters for DeleteNetworkInterface.</p>
- */
-export interface DeleteNetworkInterfaceRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
- */
-export interface DeleteNetworkInterfacePermissionRequest {
-  /**
-   * @public
-   * <p>The ID of the network interface permission.</p>
-   */
-  NetworkInterfacePermissionId: string | undefined;
-
-  /**
-   * @public
-   * <p>Specify <code>true</code> to remove the permission even if the network interface is
-   * 			attached to an instance.</p>
-   */
-  Force?: boolean;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
- */
-export interface DeleteNetworkInterfacePermissionResult {
-  /**
-   * @public
-   * <p>Returns <code>true</code> if the request succeeds, otherwise returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeletePlacementGroupRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The name of the placement group.</p>
-   */
-  GroupName: string | undefined;
 }
 
 /**

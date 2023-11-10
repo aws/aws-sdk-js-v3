@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_6";
+import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_7";
 import { de_RestoreAddressToClassicCommand, se_RestoreAddressToClassicCommand } from "../protocols/Aws_ec2";
 
 /**

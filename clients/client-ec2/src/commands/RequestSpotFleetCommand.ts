@@ -171,6 +171,12 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *             ],
  *             Ipv6PrefixCount: Number("int"),
  *             PrimaryIpv6: true || false,
+ *             EnaSrdSpecification: { // EnaSrdSpecificationRequest
+ *               EnaSrdEnabled: true || false,
+ *               EnaSrdUdpSpecification: { // EnaSrdUdpSpecificationRequest
+ *                 EnaSrdUdpEnabled: true || false,
+ *               },
+ *             },
  *           },
  *         ],
  *         Placement: { // SpotPlacement

@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInterfaceRequest } from "../models/models_2";
+import { DeleteNetworkInterfaceRequest } from "../models/models_3";
 import { de_DeleteNetworkInterfaceCommand, se_DeleteNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -181,6 +181,12 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //                 DeviceIndex: Number("int"),
  * //                 Status: "attaching" || "attached" || "detaching" || "detached",
  * //                 NetworkCardIndex: Number("int"),
+ * //                 EnaSrdSpecification: { // InstanceAttachmentEnaSrdSpecification
+ * //                   EnaSrdEnabled: true || false,
+ * //                   EnaSrdUdpSpecification: { // InstanceAttachmentEnaSrdUdpSpecification
+ * //                     EnaSrdUdpEnabled: true || false,
+ * //                   },
+ * //                 },
  * //               },
  * //               Description: "STRING_VALUE",
  * //               Groups: [

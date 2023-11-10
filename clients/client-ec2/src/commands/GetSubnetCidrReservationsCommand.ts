@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetSubnetCidrReservationsRequest, GetSubnetCidrReservationsResult } from "../models/models_5";
+import { GetSubnetCidrReservationsRequest } from "../models/models_5";
+import { GetSubnetCidrReservationsResult } from "../models/models_6";
 import { de_GetSubnetCidrReservationsCommand, se_GetSubnetCidrReservationsCommand } from "../protocols/Aws_ec2";
 
 /**

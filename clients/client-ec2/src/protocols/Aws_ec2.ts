@@ -2406,7 +2406,6 @@ import {
   CreateNetworkInterfacePermissionResult,
   CreateNetworkInterfaceRequest,
   CreateNetworkInterfaceResult,
-  CreatePlacementGroupRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2418,6 +2417,8 @@ import {
   EgressOnlyInternetGateway,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
+  EnaSrdSpecificationRequest,
+  EnaSrdUdpSpecificationRequest,
   ExportTask,
   ExportToS3Task,
   ExportToS3TaskSpecification,
@@ -2465,6 +2466,8 @@ import {
   LaunchTemplateEbsBlockDeviceRequest,
   LaunchTemplateElasticInferenceAccelerator,
   LaunchTemplateElasticInferenceAcceleratorResponse,
+  LaunchTemplateEnaSrdSpecification,
+  LaunchTemplateEnaSrdUdpSpecification,
   LaunchTemplateEnclaveOptions,
   LaunchTemplateEnclaveOptionsRequest,
   LaunchTemplateHibernationOptions,
@@ -2550,6 +2553,7 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreatePlacementGroupRequest,
   CreatePlacementGroupResult,
   CreatePublicIpv4PoolRequest,
   CreatePublicIpv4PoolResult,
@@ -2705,10 +2709,6 @@ import {
   DeleteNetworkInsightsAnalysisResult,
   DeleteNetworkInsightsPathRequest,
   DeleteNetworkInsightsPathResult,
-  DeleteNetworkInterfacePermissionRequest,
-  DeleteNetworkInterfacePermissionResult,
-  DeleteNetworkInterfaceRequest,
-  DeletePlacementGroupRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2815,6 +2815,10 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteNetworkInterfacePermissionRequest,
+  DeleteNetworkInterfacePermissionResult,
+  DeleteNetworkInterfaceRequest,
+  DeletePlacementGroupRequest,
   DeletePublicIpv4PoolRequest,
   DeletePublicIpv4PoolResult,
   DeleteQueuedReservedInstancesError,
@@ -2992,10 +2996,6 @@ import {
   DescribeInstanceConnectEndpointsResult,
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
-  DescribeInstanceEventNotificationAttributesRequest,
-  DescribeInstanceEventNotificationAttributesResult,
-  DescribeInstanceEventWindowsRequest,
-  DescribeInstanceEventWindowsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3067,6 +3067,10 @@ import {
   ClassicLoadBalancersConfig,
   CpuOptions,
   CreateVolumePermission,
+  DescribeInstanceEventNotificationAttributesRequest,
+  DescribeInstanceEventNotificationAttributesResult,
+  DescribeInstanceEventWindowsRequest,
+  DescribeInstanceEventWindowsResult,
   DescribeInstancesRequest,
   DescribeInstancesResult,
   DescribeInstanceStatusRequest,
@@ -3207,12 +3211,6 @@ import {
   DescribeTransitGatewayPolicyTablesResult,
   DescribeTransitGatewayRouteTableAnnouncementsRequest,
   DescribeTransitGatewayRouteTableAnnouncementsResult,
-  DescribeTransitGatewayRouteTablesRequest,
-  DescribeTransitGatewayRouteTablesResult,
-  DescribeTransitGatewaysRequest,
-  DescribeTransitGatewaysResult,
-  DescribeTransitGatewayVpcAttachmentsRequest,
-  DescribeTransitGatewayVpcAttachmentsResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3231,6 +3229,8 @@ import {
   InferenceDeviceInfo,
   InferenceDeviceMemoryInfo,
   Instance,
+  InstanceAttachmentEnaSrdSpecification,
+  InstanceAttachmentEnaSrdUdpSpecification,
   InstanceIpv4Prefix,
   InstanceIpv6Prefix,
   InstanceMaintenanceOptions,
@@ -3328,6 +3328,12 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeTransitGatewayRouteTablesRequest,
+  DescribeTransitGatewayRouteTablesResult,
+  DescribeTransitGatewaysRequest,
+  DescribeTransitGatewaysResult,
+  DescribeTransitGatewayVpcAttachmentsRequest,
+  DescribeTransitGatewayVpcAttachmentsResult,
   DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
   DescribeVerifiedAccessEndpointsRequest,
@@ -3555,10 +3561,6 @@ import {
   GetSpotPlacementScoresRequest,
   GetSpotPlacementScoresResult,
   GetSubnetCidrReservationsRequest,
-  GetSubnetCidrReservationsResult,
-  GetTransitGatewayAttachmentPropagationsRequest,
-  GetTransitGatewayAttachmentPropagationsResult,
-  GetTransitGatewayMulticastDomainAssociationsRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3583,8 +3585,6 @@ import {
   SpotPlacementScore,
   TargetConfiguration,
   TargetReservationValue,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
   TransitGatewayPropagation,
   VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessLogCloudWatchLogsDestination,
@@ -3612,6 +3612,10 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetSubnetCidrReservationsResult,
+  GetTransitGatewayAttachmentPropagationsRequest,
+  GetTransitGatewayAttachmentPropagationsResult,
+  GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
   GetTransitGatewayPolicyTableAssociationsRequest,
   GetTransitGatewayPolicyTableAssociationsResult,
@@ -3863,12 +3867,6 @@ import {
   ResetEbsDefaultKmsKeyIdResult,
   ResetFpgaImageAttributeRequest,
   ResetFpgaImageAttributeResult,
-  ResetImageAttributeRequest,
-  ResetInstanceAttributeRequest,
-  ResetNetworkInterfaceAttributeRequest,
-  ResetSnapshotAttributeRequest,
-  RestoreAddressToClassicRequest,
-  RestoreAddressToClassicResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3876,6 +3874,8 @@ import {
   SuccessfulInstanceCreditSpecificationItem,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
   TransitGatewayPolicyRule,
@@ -3906,6 +3906,12 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ResetImageAttributeRequest,
+  ResetInstanceAttributeRequest,
+  ResetNetworkInterfaceAttributeRequest,
+  ResetSnapshotAttributeRequest,
+  RestoreAddressToClassicRequest,
+  RestoreAddressToClassicResult,
   RestoreImageFromRecycleBinRequest,
   RestoreImageFromRecycleBinResult,
   RestoreManagedPrefixListVersionRequest,
@@ -52378,9 +52384,38 @@ const se_EnaSrdSpecification = (input: EnaSrdSpecification, context: __SerdeCont
 };
 
 /**
+ * serializeAws_ec2EnaSrdSpecificationRequest
+ */
+const se_EnaSrdSpecificationRequest = (input: EnaSrdSpecificationRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.EnaSrdEnabled != null) {
+    entries["EnaSrdEnabled"] = input.EnaSrdEnabled;
+  }
+  if (input.EnaSrdUdpSpecification != null) {
+    const memberEntries = se_EnaSrdUdpSpecificationRequest(input.EnaSrdUdpSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EnaSrdUdpSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2EnaSrdUdpSpecification
  */
 const se_EnaSrdUdpSpecification = (input: EnaSrdUdpSpecification, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.EnaSrdUdpEnabled != null) {
+    entries["EnaSrdUdpEnabled"] = input.EnaSrdUdpEnabled;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2EnaSrdUdpSpecificationRequest
+ */
+const se_EnaSrdUdpSpecificationRequest = (input: EnaSrdUdpSpecificationRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.EnaSrdUdpEnabled != null) {
     entries["EnaSrdUdpEnabled"] = input.EnaSrdUdpEnabled;
@@ -55286,6 +55321,13 @@ const se_InstanceNetworkInterfaceSpecification = (
   if (input.PrimaryIpv6 != null) {
     entries["PrimaryIpv6"] = input.PrimaryIpv6;
   }
+  if (input.EnaSrdSpecification != null) {
+    const memberEntries = se_EnaSrdSpecificationRequest(input.EnaSrdSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EnaSrdSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -56636,6 +56678,13 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
   }
   if (input.PrimaryIpv6 != null) {
     entries["PrimaryIpv6"] = input.PrimaryIpv6;
+  }
+  if (input.EnaSrdSpecification != null) {
+    const memberEntries = se_EnaSrdSpecificationRequest(input.EnaSrdSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EnaSrdSpecification.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -76690,6 +76739,31 @@ const de_EnableVpcClassicLinkResult = (output: any, context: __SerdeContext): En
 };
 
 /**
+ * deserializeAws_ec2EnaSrdSpecificationRequest
+ */
+const de_EnaSrdSpecificationRequest = (output: any, context: __SerdeContext): EnaSrdSpecificationRequest => {
+  const contents: any = {};
+  if (output["EnaSrdEnabled"] !== undefined) {
+    contents.EnaSrdEnabled = __parseBoolean(output["EnaSrdEnabled"]);
+  }
+  if (output["EnaSrdUdpSpecification"] !== undefined) {
+    contents.EnaSrdUdpSpecification = de_EnaSrdUdpSpecificationRequest(output["EnaSrdUdpSpecification"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2EnaSrdUdpSpecificationRequest
+ */
+const de_EnaSrdUdpSpecificationRequest = (output: any, context: __SerdeContext): EnaSrdUdpSpecificationRequest => {
+  const contents: any = {};
+  if (output["EnaSrdUdpEnabled"] !== undefined) {
+    contents.EnaSrdUdpEnabled = __parseBoolean(output["EnaSrdUdpEnabled"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2EnclaveOptions
  */
 const de_EnclaveOptions = (output: any, context: __SerdeContext): EnclaveOptions => {
@@ -80269,6 +80343,40 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
 };
 
 /**
+ * deserializeAws_ec2InstanceAttachmentEnaSrdSpecification
+ */
+const de_InstanceAttachmentEnaSrdSpecification = (
+  output: any,
+  context: __SerdeContext
+): InstanceAttachmentEnaSrdSpecification => {
+  const contents: any = {};
+  if (output["enaSrdEnabled"] !== undefined) {
+    contents.EnaSrdEnabled = __parseBoolean(output["enaSrdEnabled"]);
+  }
+  if (output["enaSrdUdpSpecification"] !== undefined) {
+    contents.EnaSrdUdpSpecification = de_InstanceAttachmentEnaSrdUdpSpecification(
+      output["enaSrdUdpSpecification"],
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2InstanceAttachmentEnaSrdUdpSpecification
+ */
+const de_InstanceAttachmentEnaSrdUdpSpecification = (
+  output: any,
+  context: __SerdeContext
+): InstanceAttachmentEnaSrdUdpSpecification => {
+  const contents: any = {};
+  if (output["enaSrdUdpEnabled"] !== undefined) {
+    contents.EnaSrdUdpEnabled = __parseBoolean(output["enaSrdUdpEnabled"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2InstanceAttribute
  */
 const de_InstanceAttribute = (output: any, context: __SerdeContext): InstanceAttribute => {
@@ -80910,6 +81018,9 @@ const de_InstanceNetworkInterfaceAttachment = (
   if (output["networkCardIndex"] !== undefined) {
     contents.NetworkCardIndex = __strictParseInt32(output["networkCardIndex"]) as number;
   }
+  if (output["enaSrdSpecification"] !== undefined) {
+    contents.EnaSrdSpecification = de_InstanceAttachmentEnaSrdSpecification(output["enaSrdSpecification"], context);
+  }
   return contents;
 };
 
@@ -81010,6 +81121,9 @@ const de_InstanceNetworkInterfaceSpecification = (
   }
   if (output["PrimaryIpv6"] !== undefined) {
     contents.PrimaryIpv6 = __parseBoolean(output["PrimaryIpv6"]);
+  }
+  if (output["EnaSrdSpecification"] !== undefined) {
+    contents.EnaSrdSpecification = de_EnaSrdSpecificationRequest(output["EnaSrdSpecification"], context);
   }
   return contents;
 };
@@ -83141,6 +83255,40 @@ const de_LaunchTemplateElasticInferenceAcceleratorResponseList = (
 };
 
 /**
+ * deserializeAws_ec2LaunchTemplateEnaSrdSpecification
+ */
+const de_LaunchTemplateEnaSrdSpecification = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateEnaSrdSpecification => {
+  const contents: any = {};
+  if (output["enaSrdEnabled"] !== undefined) {
+    contents.EnaSrdEnabled = __parseBoolean(output["enaSrdEnabled"]);
+  }
+  if (output["enaSrdUdpSpecification"] !== undefined) {
+    contents.EnaSrdUdpSpecification = de_LaunchTemplateEnaSrdUdpSpecification(
+      output["enaSrdUdpSpecification"],
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2LaunchTemplateEnaSrdUdpSpecification
+ */
+const de_LaunchTemplateEnaSrdUdpSpecification = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateEnaSrdUdpSpecification => {
+  const contents: any = {};
+  if (output["enaSrdUdpEnabled"] !== undefined) {
+    contents.EnaSrdUdpEnabled = __parseBoolean(output["enaSrdUdpEnabled"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2LaunchTemplateEnclaveOptions
  */
 const de_LaunchTemplateEnclaveOptions = (output: any, context: __SerdeContext): LaunchTemplateEnclaveOptions => {
@@ -83325,6 +83473,9 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   }
   if (output["primaryIpv6"] !== undefined) {
     contents.PrimaryIpv6 = __parseBoolean(output["primaryIpv6"]);
+  }
+  if (output["enaSrdSpecification"] !== undefined) {
+    contents.EnaSrdSpecification = de_LaunchTemplateEnaSrdSpecification(output["enaSrdSpecification"], context);
   }
   return contents;
 };

@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetSnapshotAttributeRequest } from "../models/models_6";
+import { ResetSnapshotAttributeRequest } from "../models/models_7";
 import { de_ResetSnapshotAttributeCommand, se_ResetSnapshotAttributeCommand } from "../protocols/Aws_ec2";
 
 /**

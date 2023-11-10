@@ -128,6 +128,12 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //         ],
  * //         Ipv6PrefixCount: Number("int"),
  * //         PrimaryIpv6: true || false,
+ * //         EnaSrdSpecification: { // LaunchTemplateEnaSrdSpecification
+ * //           EnaSrdEnabled: true || false,
+ * //           EnaSrdUdpSpecification: { // LaunchTemplateEnaSrdUdpSpecification
+ * //             EnaSrdUdpEnabled: true || false,
+ * //           },
+ * //         },
  * //       },
  * //     ],
  * //     ImageId: "STRING_VALUE",
