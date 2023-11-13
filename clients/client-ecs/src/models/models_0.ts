@@ -45,7 +45,7 @@ export type AgentUpdateStatus = (typeof AgentUpdateStatus)[keyof typeof AgentUpd
  * @public
  * <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  */
 export class ClientException extends __BaseException {
   readonly name: "ClientException" = "ClientException";
@@ -2219,7 +2219,7 @@ export interface CreateServiceRequest {
   /**
    * @public
    * <p>An identifier that you provide to ensure the idempotency of the request. It must be
-   * 			unique and is case sensitive. Up to 32 ASCII characters are allowed.</p>
+   * 			unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>
    */
   clientToken?: string;
 
@@ -3458,8 +3458,8 @@ export interface CreateTaskSetRequest {
 
   /**
    * @public
-   * <p>The identifier that you provide to ensure the idempotency of the request. It's case
-   * 			sensitive and must be unique. It can be up to 32 ASCII characters are allowed.</p>
+   * <p>An identifier that you provide to ensure the idempotency of the request. It must be
+   * 			unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>
    */
   clientToken?: string;
 
@@ -4722,7 +4722,10 @@ export interface PortMapping {
   /**
    * @public
    * <p>The protocol used for the port mapping. Valid values are <code>tcp</code> and
-   * 				<code>udp</code>. The default is <code>tcp</code>.</p>
+   * 			<code>udp</code>. The default is <code>tcp</code>. <code>protocol</code> is immutable in a
+   * 			Service Connect service. Updating this field requires a service deletion and
+   * 			redeployment.
+   * 		</p>
    */
   protocol?: TransportProtocol;
 
@@ -4746,6 +4749,9 @@ export interface PortMapping {
    * 			parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.</p>
    *          <p>If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't
    * 			add protocol-specific telemetry for TCP.</p>
+   *          <p>
+   *             <code>appProtocol</code> is immutable in a Service Connect service. Updating this field
+   * 			requires a service deletion and redeployment.</p>
    *          <p>Tasks that run in a namespace can use short names to connect
    * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
    * 	Tasks connect through a managed proxy container
@@ -10505,6 +10511,47 @@ export class BlockedException extends __BaseException {
 
 /**
  * @public
+ * <p>The <code>RunTask</code> request could not be processed due to conflicts. The provided
+ * 				<code>clientToken</code> is already in use with a different <code>RunTask</code>
+ * 			request. The <code>resourceIds</code> are the existing task ARNs which are already
+ * 			associated with the <code>clientToken</code>. </p>
+ *          <p>To fix this issue:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Run <code>RunTask</code> with a unique
+ * 				<code>clientToken</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Run <code>RunTask</code> with the <code>clientToken</code> and the original set of
+ * 					parameters</p>
+ *             </li>
+ *          </ul>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The existing task ARNs which are already associated with the <code>clientToken</code>.</p>
+   */
+  resourceIds?: string[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceIds = opts.resourceIds;
+  }
+}
+
+/**
+ * @public
  */
 export interface RunTaskRequest {
   /**
@@ -10650,12 +10697,12 @@ export interface RunTaskRequest {
 
   /**
    * @public
-   * <p>An optional tag specified when a task is started. For example, if you automatically
-   * 			trigger a task to run a batch process job, you could apply a unique identifier for that
-   * 			job to your task with the <code>startedBy</code> parameter. You can then identify which
-   * 			tasks belong to that job by filtering the results of a <a>ListTasks</a> call
-   * 			with the <code>startedBy</code> value. Up to 36 letters (uppercase and lowercase),
-   * 			numbers, hyphens (-), and underscores (_) are allowed.</p>
+   * <p>An optional tag specified when a task is started. For example, if you automatically trigger
+   * 			a task to run a batch process job, you could apply a unique identifier for that job to
+   * 			your task with the <code>startedBy</code> parameter. You can then identify which tasks
+   * 			belong to that job by filtering the results of a <a>ListTasks</a> call with
+   * 			the <code>startedBy</code> value. Up to 128 letters (uppercase and lowercase), numbers,
+   * 			hyphens (-), and underscores (_) are allowed.</p>
    *          <p>If a task is started by an Amazon ECS service, then the <code>startedBy</code> parameter
    * 			contains the deployment ID of the service that starts it.</p>
    */
@@ -10722,6 +10769,14 @@ export interface RunTaskRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-resources">Policy Resources for Amazon ECS</a> in the Amazon Elastic Container Service developer Guide.</p>
    */
   taskDefinition: string | undefined;
+
+  /**
+   * @public
+   * <p>An identifier that you provide to ensure the idempotency of the request. It must be unique
+   * 			and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html">Ensuring idempotency</a>.</p>
+   */
+  clientToken?: string;
 }
 
 /**
@@ -10732,6 +10787,7 @@ export interface RunTaskResponse {
    * @public
    * <p>A full description of the tasks that were run. The tasks that were successfully placed
    * 			on your cluster are described here.</p>
+   *          <p></p>
    */
   tasks?: Task[];
 

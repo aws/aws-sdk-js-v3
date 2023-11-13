@@ -166,6 +166,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *     },
  *   ],
  *   taskDefinition: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new RunTaskCommand(input);
  * const response = await client.send(command);
@@ -355,10 +356,27 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The <code>RunTask</code> request could not be processed due to conflicts. The provided
+ * 				<code>clientToken</code> is already in use with a different <code>RunTask</code>
+ * 			request. The <code>resourceIds</code> are the existing task ARNs which are already
+ * 			associated with the <code>clientToken</code>. </p>
+ *          <p>To fix this issue:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Run <code>RunTask</code> with a unique
+ * 				<code>clientToken</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Run <code>RunTask</code> with the <code>clientToken</code> and the original set of
+ * 					parameters</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API

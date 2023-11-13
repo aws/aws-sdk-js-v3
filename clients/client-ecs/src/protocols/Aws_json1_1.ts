@@ -22,6 +22,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   CreateCapacityProviderCommandInput,
@@ -188,6 +189,7 @@ import {
   ClusterServiceConnectDefaultsRequest,
   ClusterSetting,
   Compatibility,
+  ConflictException,
   Container,
   ContainerDefinition,
   ContainerDependency,
@@ -879,7 +881,7 @@ export const se_RunTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RunTask");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_RunTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3329,6 +3331,9 @@ const de_RunTaskCommandError = async (
     case "ClusterNotFoundException":
     case "com.amazonaws.ecs#ClusterNotFoundException":
       throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ecs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
@@ -4426,6 +4431,19 @@ const de_ClusterNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1InvalidParameterExceptionRes
  */
 const de_InvalidParameterExceptionRes = async (
@@ -4995,7 +5013,31 @@ const se_Resources = (input: Resource[], context: __SerdeContext): any => {
     });
 };
 
-// se_RunTaskRequest omitted.
+/**
+ * serializeAws_json1_1RunTaskRequest
+ */
+const se_RunTaskRequest = (input: RunTaskRequest, context: __SerdeContext): any => {
+  return take(input, {
+    capacityProviderStrategy: _json,
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    cluster: [],
+    count: [],
+    enableECSManagedTags: [],
+    enableExecuteCommand: [],
+    group: [],
+    launchType: [],
+    networkConfiguration: _json,
+    overrides: _json,
+    placementConstraints: _json,
+    placementStrategy: _json,
+    platformVersion: [],
+    propagateTags: [],
+    referenceId: [],
+    startedBy: [],
+    tags: _json,
+    taskDefinition: [],
+  });
+};
 
 // se_RuntimePlatform omitted.
 
@@ -5182,6 +5224,8 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 // de_ClusterSettings omitted.
 
 // de_CompatibilityList omitted.
+
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_1Container
@@ -5733,6 +5777,8 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
     type: __expectString,
   }) as any;
 };
+
+// de_ResourceIds omitted.
 
 // de_ResourceInUseException omitted.
 
