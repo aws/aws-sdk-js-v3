@@ -273,6 +273,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       Username: "STRING_VALUE",
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
+ * //       ExecuteTimeout: Number("int"),
  * //     },
  * //     OracleSettings: { // OracleSettings
  * //       AddSupplementalLogging: true || false,
@@ -360,6 +361,10 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       Username: "STRING_VALUE",
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
+ * //       LoadTimeout: Number("int"),
+ * //       WriteBufferSize: Number("int"),
+ * //       MaxFileSize: Number("int"),
+ * //       KeepCsvFiles: true || false,
  * //     },
  * //     DocDbSettings: { // DocDbSettings
  * //       Username: "STRING_VALUE",

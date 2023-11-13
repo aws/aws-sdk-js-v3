@@ -1146,8 +1146,8 @@ export interface CreateDataProviderMessage {
   /**
    * @public
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora_postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          and <code>"sqlserver"</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    */
   Engine: string | undefined;
 
@@ -1198,8 +1198,8 @@ export interface DataProvider {
   /**
    * @public
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora_postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          and <code>"sqlserver"</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    */
   Engine?: string;
 
@@ -1722,6 +1722,34 @@ export interface IBMDb2Settings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the Db2 LUW endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * @public
+   * <p>The amount of time (in milliseconds) before DMS times out operations performed by DMS on the Db2 target.
+   *          The default value is 1200 (20 minutes).</p>
+   */
+  LoadTimeout?: number;
+
+  /**
+   * @public
+   * <p>The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk
+   *          on the DMS replication instance. The default value is 1024 (1 MB).</p>
+   */
+  WriteBufferSize?: number;
+
+  /**
+   * @public
+   * <p>Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.</p>
+   */
+  MaxFileSize?: number;
+
+  /**
+   * @public
+   * <p>If true, DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these
+   *          files for analysis and troubleshooting.</p>
+   *          <p>The default value is false. </p>
+   */
+  KeepCsvFiles?: boolean;
 }
 
 /**
@@ -2521,6 +2549,12 @@ export interface MySQLSettings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the MySQL endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * @public
+   * <p>Sets the client statement timeout (in seconds) for a MySQL source endpoint.</p>
+   */
+  ExecuteTimeout?: number;
 }
 
 /**
@@ -4892,7 +4926,7 @@ export interface Endpoint {
    * <p>The database engine name. Valid values, depending on the EndpointType, include
    *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
    *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
-   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *          <code>"redshift"</code>, <code>"redshift-serverless"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
    *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
    *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
    *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
@@ -6929,7 +6963,7 @@ export interface CreateReplicationSubnetGroupMessage {
 
   /**
    * @public
-   * <p>One or more subnet IDs to be assigned to the subnet group.</p>
+   * <p>Two or more subnet IDs to be assigned to the subnet group.</p>
    */
   SubnetIds: string[] | undefined;
 
@@ -8263,6 +8297,7 @@ export interface DescribeDataProvidersMessage {
   /**
    * @public
    * <p>Filters applied to the data providers described in the form of key-value pairs.</p>
+   *          <p>Valid filter names: data-provider-identifier</p>
    */
   Filters?: Filter[];
 
@@ -11479,6 +11514,12 @@ export interface Replication {
    * <p>The timestamp when replication was last stopped.</p>
    */
   ReplicationLastStopTime?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp when DMS will deprovision the replication.</p>
+   */
+  ReplicationDeprovisionTime?: Date;
 }
 
 /**

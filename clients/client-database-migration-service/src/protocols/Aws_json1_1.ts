@@ -9354,6 +9354,7 @@ const de_Replication = (output: any, context: __SerdeContext): Replication => {
     ReplicationConfigArn: __expectString,
     ReplicationConfigIdentifier: __expectString,
     ReplicationCreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReplicationDeprovisionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ReplicationLastStopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ReplicationStats: (_: any) => de_ReplicationStats(_, context),
     ReplicationType: __expectString,
