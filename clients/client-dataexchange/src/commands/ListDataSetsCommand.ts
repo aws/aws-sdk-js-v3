@@ -62,7 +62,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * //       Name: "STRING_VALUE", // required
  * //       Origin: "STRING_VALUE", // required
  * //       OriginDetails: { // OriginDetails
- * //         ProductId: "STRING_VALUE", // required
+ * //         ProductId: "STRING_VALUE",
  * //       },
  * //       SourceId: "STRING_VALUE",
  * //       UpdatedAt: new Date("TIMESTAMP"), // required

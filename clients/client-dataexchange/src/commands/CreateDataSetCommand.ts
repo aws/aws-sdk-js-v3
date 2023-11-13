@@ -63,7 +63,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * //   Name: "STRING_VALUE",
  * //   Origin: "STRING_VALUE",
  * //   OriginDetails: { // OriginDetails
- * //     ProductId: "STRING_VALUE", // required
+ * //     ProductId: "STRING_VALUE",
  * //   },
  * //   SourceId: "STRING_VALUE",
  * //   Tags: { // MapOf__string

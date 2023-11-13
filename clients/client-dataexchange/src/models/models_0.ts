@@ -886,7 +886,7 @@ export interface OriginDetails {
    * @public
    * <p>The product ID of the origin of the data set.</p>
    */
-  ProductId: string | undefined;
+  ProductId?: string;
 }
 
 /**
