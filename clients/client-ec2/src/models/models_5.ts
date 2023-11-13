@@ -54,7 +54,9 @@ import {
   SSEType,
   State,
   TransitGateway,
+  TransitGatewayPolicyTable,
   TransitGatewayRouteTable,
+  TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   Volume,
@@ -81,6 +83,78 @@ import {
   VirtualizationType,
 } from "./models_3";
 import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayPolicyTablesResult {
+  /**
+   * @public
+   * <p>Describes the transit gateway policy tables.</p>
+   */
+  TransitGatewayPolicyTables?: TransitGatewayPolicyTable[];
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
+  /**
+   * @public
+   * <p>The IDs of the transit gateway route tables that are being advertised.</p>
+   */
+  TransitGatewayRouteTableAnnouncementIds?: string[];
+
+  /**
+   * @public
+   * <p>The filters associated with the transit gateway policy table.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
+  /**
+   * @public
+   * <p>Describes the transit gateway route table announcement.</p>
+   */
+  TransitGatewayRouteTableAnnouncements?: TransitGatewayRouteTableAnnouncement[];
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -458,7 +532,7 @@ export interface DescribeVerifiedAccessEndpointsRequest {
 export interface DescribeVerifiedAccessEndpointsResult {
   /**
    * @public
-   * <p>The ID of the Verified Access endpoint.</p>
+   * <p>Details about the Verified Access endpoints.</p>
    */
   VerifiedAccessEndpoints?: VerifiedAccessEndpoint[];
 
@@ -519,7 +593,7 @@ export interface DescribeVerifiedAccessGroupsRequest {
 export interface DescribeVerifiedAccessGroupsResult {
   /**
    * @public
-   * <p>The ID of the Verified Access group.</p>
+   * <p>Details about the Verified Access groups.</p>
    */
   VerifiedAccessGroups?: VerifiedAccessGroup[];
 
@@ -710,17 +784,13 @@ export interface VerifiedAccessLogs {
 
   /**
    * @public
-   * <p>
-   *          Describes current setting for the logging version.
-   *       </p>
+   * <p>The log version.</p>
    */
   LogVersion?: string;
 
   /**
    * @public
-   * <p>
-   * 		   Describes current setting for including trust data into the logs.
-   * 	   </p>
+   * <p>Indicates whether trust data is included in the logs.</p>
    */
   IncludeTrustContext?: boolean;
 }
@@ -749,7 +819,7 @@ export interface VerifiedAccessInstanceLoggingConfiguration {
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
   /**
    * @public
-   * <p>The current logging configuration for the Verified Access instances.</p>
+   * <p>The logging configuration for the Verified Access instances.</p>
    */
   LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[];
 
@@ -804,7 +874,7 @@ export interface DescribeVerifiedAccessInstancesRequest {
 export interface DescribeVerifiedAccessInstancesResult {
   /**
    * @public
-   * <p>The IDs of the Verified Access instances.</p>
+   * <p>Details about the Verified Access instances.</p>
    */
   VerifiedAccessInstances?: VerifiedAccessInstance[];
 
@@ -859,7 +929,7 @@ export interface DescribeVerifiedAccessTrustProvidersRequest {
 export interface DescribeVerifiedAccessTrustProvidersResult {
   /**
    * @public
-   * <p>The IDs of the Verified Access trust providers.</p>
+   * <p>Details about the Verified Access trust providers.</p>
    */
   VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[];
 
@@ -3102,13 +3172,13 @@ export interface DetachVerifiedAccessTrustProviderRequest {
 export interface DetachVerifiedAccessTrustProviderResult {
   /**
    * @public
-   * <p>The ID of the Verified Access trust provider.</p>
+   * <p>Details about the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
    * @public
-   * <p>The ID of the Verified Access instance.</p>
+   * <p>Details about the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -3290,13 +3360,13 @@ export interface DisableEbsEncryptionByDefaultResult {
 export interface DisableFastLaunchRequest {
   /**
    * @public
-   * <p>The ID of the image for which you’re turning off faster launching, and removing pre-provisioned snapshots.</p>
+   * <p>Specify the ID of the image for which to disable Windows fast launch.</p>
    */
   ImageId: string | undefined;
 
   /**
    * @public
-   * <p>Forces the image settings to turn off faster launching for your Windows AMI. This parameter overrides
+   * <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This parameter overrides
    * 			any errors that are encountered while cleaning up resources in your account.</p>
    */
   Force?: boolean;
@@ -3316,21 +3386,21 @@ export interface DisableFastLaunchRequest {
 export interface DisableFastLaunchResult {
   /**
    * @public
-   * <p>The ID of the image for which faster-launching has been turned off.</p>
+   * <p>The ID of the image for which Windows fast launch was disabled.</p>
    */
   ImageId?: string;
 
   /**
    * @public
-   * <p>The pre-provisioning resource type that must be cleaned after turning off faster launching
+   * <p>The pre-provisioning resource type that must be cleaned after turning off Windows fast launch
    * 			for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
    */
   ResourceType?: FastLaunchResourceType;
 
   /**
    * @public
-   * <p>Parameters that were used for faster launching for the Windows AMI before
-   * 			faster launching was turned off. This informs the clean-up process.</p>
+   * <p>Parameters that were used for Windows fast launch for the Windows AMI before
+   * 			Windows fast launch was disabled. This informs the clean-up process.</p>
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
 
@@ -3343,31 +3413,31 @@ export interface DisableFastLaunchResult {
   /**
    * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
-   * 			create pre-provisioned snapshots for Windows faster launching.</p>
+   * 			create pre-provisioned snapshots for Windows fast launch.</p>
    */
   MaxParallelLaunches?: number;
 
   /**
    * @public
-   * <p>The owner of the Windows AMI for which faster launching was turned off.</p>
+   * <p>The owner of the Windows AMI for which Windows fast launch was disabled.</p>
    */
   OwnerId?: string;
 
   /**
    * @public
-   * <p>The current state of faster launching for the specified Windows AMI.</p>
+   * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
    */
   State?: FastLaunchStateCode;
 
   /**
    * @public
-   * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
+   * <p>The reason that the state changed for Windows fast launch for the Windows AMI.</p>
    */
   StateTransitionReason?: string;
 
   /**
    * @public
-   * <p>The time that the state changed for faster launching for the Windows AMI.</p>
+   * <p>The time that the state changed for Windows fast launch for the Windows AMI.</p>
    */
   StateTransitionTime?: Date;
 }
@@ -4536,7 +4606,7 @@ export interface EnableEbsEncryptionByDefaultResult {
 
 /**
  * @public
- * <p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>
+ * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
  *          <note>
  *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
  * 				<code>LaunchTemplateId</code>, but not both.</p>
@@ -4545,31 +4615,33 @@ export interface EnableEbsEncryptionByDefaultResult {
 export interface FastLaunchLaunchTemplateSpecificationRequest {
   /**
    * @public
-   * <p>The ID of the launch template to use for faster launching for a Windows AMI.</p>
+   * <p>Specify the ID of the launch template that the AMI should use for Windows fast launch.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * @public
-   * <p>The name of the launch template to use for faster launching for a Windows AMI.</p>
+   * <p>Specify the name of the launch template that the AMI should use for Windows fast launch.</p>
    */
   LaunchTemplateName?: string;
 
   /**
    * @public
-   * <p>The version of the launch template to use for faster launching for a Windows AMI.</p>
+   * <p>Specify the version of the launch template that the AMI should use for Windows fast launch.</p>
    */
   Version: string | undefined;
 }
 
 /**
  * @public
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch
+ * 			enabled AMI.</p>
  */
 export interface FastLaunchSnapshotConfigurationRequest {
   /**
    * @public
-   * <p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.</p>
+   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch
+   * 			enabled AMI.</p>
    */
   TargetResourceCount?: number;
 }
@@ -4580,13 +4652,13 @@ export interface FastLaunchSnapshotConfigurationRequest {
 export interface EnableFastLaunchRequest {
   /**
    * @public
-   * <p>The ID of the image for which you’re enabling faster launching.</p>
+   * <p>Specify the ID of the image for which to enable Windows fast launch.</p>
    */
   ImageId: string | undefined;
 
   /**
    * @public
-   * <p>The type of resource to use for pre-provisioning the Windows AMI for faster launching.
+   * <p>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
    * 			Supported values include: <code>snapshot</code>, which is the default value.</p>
    */
   ResourceType?: string;
@@ -4594,7 +4666,7 @@ export interface EnableFastLaunchRequest {
   /**
    * @public
    * <p>Configuration settings for creating and managing the snapshots that are used for
-   * 			pre-provisioning the Windows AMI for faster launching. The associated <code>ResourceType</code>
+   * 			pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
    * 			must be <code>snapshot</code>.</p>
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest;
@@ -4610,7 +4682,7 @@ export interface EnableFastLaunchRequest {
   /**
    * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   * 			pre-provisioned snapshots for Windows faster launching. Value must be
+   * 			pre-provisioned snapshots for Windows fast launch. Value must be
    * 			<code>6</code> or greater.</p>
    */
   MaxParallelLaunches?: number;
@@ -4630,13 +4702,13 @@ export interface EnableFastLaunchRequest {
 export interface EnableFastLaunchResult {
   /**
    * @public
-   * <p>The image ID that identifies the Windows AMI for which faster launching was enabled.</p>
+   * <p>The image ID that identifies the AMI for which Windows fast launch was enabled.</p>
    */
   ImageId?: string;
 
   /**
    * @public
-   * <p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>
+   * <p>The type of resource that was defined for pre-provisioning the AMI for Windows fast launch.</p>
    */
   ResourceType?: FastLaunchResourceType;
 
@@ -4657,31 +4729,31 @@ export interface EnableFastLaunchResult {
   /**
    * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
-   * 			create pre-provisioned snapshots for Windows faster launching.</p>
+   * 			create pre-provisioned snapshots for Windows fast launch.</p>
    */
   MaxParallelLaunches?: number;
 
   /**
    * @public
-   * <p>The owner ID for the Windows AMI for which faster launching was enabled.</p>
+   * <p>The owner ID for the AMI for which Windows fast launch was enabled.</p>
    */
   OwnerId?: string;
 
   /**
    * @public
-   * <p>The current state of faster launching for the specified Windows AMI.</p>
+   * <p>The current state of Windows fast launch for the specified AMI.</p>
    */
   State?: FastLaunchStateCode;
 
   /**
    * @public
-   * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
+   * <p>The reason that the state changed for Windows fast launch for the AMI.</p>
    */
   StateTransitionReason?: string;
 
   /**
    * @public
-   * <p>The time that the state changed for faster launching for the Windows AMI.</p>
+   * <p>The time that the state changed for Windows fast launch for the AMI.</p>
    */
   StateTransitionTime?: Date;
 }
@@ -6115,6 +6187,12 @@ export interface GetCoipPoolUsageResult {
    * <p>The ID of the local gateway route table.</p>
    */
   LocalGatewayRouteTableId?: string;
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -8343,126 +8421,6 @@ export interface GetSpotPlacementScoresRequest {
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
- *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
- *          used and that all of the Availability Zones in the Region can be used.</p>
- */
-export interface SpotPlacementScore {
-  /**
-   * @public
-   * <p>The Region.</p>
-   */
-  Region?: string;
-
-  /**
-   * @public
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * @public
-   * <p>The placement score, on a scale from <code>1</code> to <code>10</code>. A score of
-   *             <code>10</code> indicates that your Spot request is highly likely to succeed in this
-   *          Region or Availability Zone. A score of <code>1</code> indicates that your Spot request is
-   *          not likely to succeed. </p>
-   */
-  Score?: number;
-}
-
-/**
- * @public
- */
-export interface GetSpotPlacementScoresResult {
-  /**
-   * @public
-   * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
-   *          from 1 to 10. Each score  reflects how likely it is that each Region or Availability Zone
-   *          will succeed at fulfilling the specified target capacity  <i>at the time of the Spot
-   *             placement score request</i>. A score of <code>10</code> means that your Spot
-   *          capacity request is highly likely to succeed in that Region or Availability Zone. </p>
-   *          <p>If you request a Spot placement score for Regions, a high score assumes that your fleet
-   *          request will be configured to use all Availability Zones and the
-   *             <code>capacity-optimized</code> allocation strategy. If you request a Spot placement
-   *          score for Availability Zones, a high score assumes that your fleet request will be
-   *          configured to use a single Availability Zone and the <code>capacity-optimized</code>
-   *          allocation strategy.</p>
-   *          <p>Different  Regions or Availability Zones might return the same score.</p>
-   *          <note>
-   *             <p>The Spot placement score serves as a recommendation only. No score guarantees that your
-   *             Spot request will be fully or partially fulfilled.</p>
-   *          </note>
-   */
-  SpotPlacementScores?: SpotPlacementScore[];
-
-  /**
-   * @public
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetSubnetCidrReservationsRequest {
-  /**
-   * @public
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>reservationType</code> - The type of reservation (<code>prefix</code> |
-   *                     <code>explicit</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
 }
 
 /**

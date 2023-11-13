@@ -1304,6 +1304,11 @@ import {
   DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand";
 import {
+  DescribeInstanceTopologyCommand,
+  DescribeInstanceTopologyCommandInput,
+  DescribeInstanceTopologyCommandOutput,
+} from "./commands/DescribeInstanceTopologyCommand";
+import {
   DescribeInstanceTypeOfferingsCommand,
   DescribeInstanceTypeOfferingsCommandInput,
   DescribeInstanceTypeOfferingsCommandOutput,
@@ -3231,6 +3236,7 @@ const commands = {
   DescribeInstanceEventWindowsCommand,
   DescribeInstancesCommand,
   DescribeInstanceStatusCommand,
+  DescribeInstanceTopologyCommand,
   DescribeInstanceTypeOfferingsCommand,
   DescribeInstanceTypesCommand,
   DescribeInternetGatewaysCommand,
@@ -7943,6 +7949,23 @@ export interface EC2 {
     args: DescribeInstanceStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInstanceStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceTopologyCommand}
+   */
+  describeInstanceTopology(
+    args: DescribeInstanceTopologyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceTopologyCommandOutput>;
+  describeInstanceTopology(
+    args: DescribeInstanceTopologyCommandInput,
+    cb: (err: any, data?: DescribeInstanceTopologyCommandOutput) => void
+  ): void;
+  describeInstanceTopology(
+    args: DescribeInstanceTopologyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceTopologyCommandOutput) => void
   ): void;
 
   /**

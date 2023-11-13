@@ -71,6 +71,7 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * //     },
  * //   ],
  * //   LocalGatewayRouteTableId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

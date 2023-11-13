@@ -4303,7 +4303,7 @@ export interface CreateVerifiedAccessEndpointRequest {
 
   /**
    * @public
-   * <p>The IDs of the security groups to associate with the Verified Access endpoint.</p>
+   * <p>The IDs of the security groups to associate with the Verified Access endpoint. Required if <code>AttachmentType</code> is set to <code>vpc</code>.</p>
    */
   SecurityGroupIds?: string[];
 
@@ -4356,9 +4356,7 @@ export interface CreateVerifiedAccessEndpointRequest {
 
   /**
    * @public
-   * <p>
-   *          Options for server side encryption.
-   *       </p>
+   * <p>The options for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -4575,9 +4573,7 @@ export interface VerifiedAccessEndpoint {
 
   /**
    * @public
-   * <p>
-   *          Describes the options in use for server side encryption.
-   *       </p>
+   * <p>The options in use for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
@@ -4588,7 +4584,7 @@ export interface VerifiedAccessEndpoint {
 export interface CreateVerifiedAccessEndpointResult {
   /**
    * @public
-   * <p>The ID of the Verified Access endpoint.</p>
+   * <p>Details about the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -4638,9 +4634,7 @@ export interface CreateVerifiedAccessGroupRequest {
 
   /**
    * @public
-   * <p>
-   *          Options for server side encryption.
-   *       </p>
+   * <p>The options for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -4706,9 +4700,7 @@ export interface VerifiedAccessGroup {
 
   /**
    * @public
-   * <p>
-   *          Describes the options in use for server side encryption.
-   *       </p>
+   * <p>The options in use for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
@@ -4719,7 +4711,7 @@ export interface VerifiedAccessGroup {
 export interface CreateVerifiedAccessGroupResult {
   /**
    * @public
-   * <p>The ID of the Verified Access group.</p>
+   * <p>Details about the Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -4768,7 +4760,7 @@ export interface CreateVerifiedAccessInstanceRequest {
 export interface CreateVerifiedAccessInstanceResult {
   /**
    * @public
-   * <p>The ID of the Verified Access instance.</p>
+   * <p>Details about the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -4908,9 +4900,7 @@ export interface CreateVerifiedAccessTrustProviderRequest {
 
   /**
    * @public
-   * <p>
-   *          Options for server side encryption.
-   *       </p>
+   * <p>The options for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -4921,7 +4911,7 @@ export interface CreateVerifiedAccessTrustProviderRequest {
 export interface CreateVerifiedAccessTrustProviderResult {
   /**
    * @public
-   * <p>The ID of the Verified Access trust provider.</p>
+   * <p>Details about the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -7239,7 +7229,7 @@ export interface VgwTelemetry {
 
   /**
    * @public
-   * <p>The date and time of the last change in status.</p>
+   * <p>The date and time of the last change in status. This field is updated when changes in IKE (Phase 1), IPSec (Phase 2), or BGP status are detected.</p>
    */
   LastStatusChange?: Date;
 

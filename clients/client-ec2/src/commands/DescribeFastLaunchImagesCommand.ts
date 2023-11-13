@@ -37,7 +37,7 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
 
 /**
  * @public
- * <p>Describe details for Windows AMIs that are configured for faster launching.</p>
+ * <p>Describe details for Windows AMIs that are configured for Windows fast launch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

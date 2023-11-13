@@ -2383,6 +2383,14 @@ DescribeInstanceStatus
 </details>
 <details>
 <summary>
+DescribeInstanceTopology
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/describeinstancetopologycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describeinstancetopologycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describeinstancetopologycommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeInstanceTypeOfferings
 </summary>
 

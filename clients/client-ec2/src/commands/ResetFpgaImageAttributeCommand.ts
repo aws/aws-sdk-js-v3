@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetFpgaImageAttributeRequest, ResetFpgaImageAttributeResult } from "../models/models_6";
+import { ResetFpgaImageAttributeRequest, ResetFpgaImageAttributeResult } from "../models/models_7";
 import { de_ResetFpgaImageAttributeCommand, se_ResetFpgaImageAttributeCommand } from "../protocols/Aws_ec2";
 
 /**

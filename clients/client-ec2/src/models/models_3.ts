@@ -989,7 +989,7 @@ export interface DeleteVerifiedAccessEndpointRequest {
 export interface DeleteVerifiedAccessEndpointResult {
   /**
    * @public
-   * <p>The ID of the Verified Access endpoint.</p>
+   * <p>Details about the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -1026,7 +1026,7 @@ export interface DeleteVerifiedAccessGroupRequest {
 export interface DeleteVerifiedAccessGroupResult {
   /**
    * @public
-   * <p>The ID of the Verified Access group.</p>
+   * <p>Details about the Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -1063,7 +1063,7 @@ export interface DeleteVerifiedAccessInstanceRequest {
 export interface DeleteVerifiedAccessInstanceResult {
   /**
    * @public
-   * <p>The ID of the Verified Access instance.</p>
+   * <p>Details about the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -1100,7 +1100,7 @@ export interface DeleteVerifiedAccessTrustProviderRequest {
 export interface DeleteVerifiedAccessTrustProviderResult {
   /**
    * @public
-   * <p>The ID of the Verified Access trust provider.</p>
+   * <p>Details about the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -5109,7 +5109,7 @@ export interface DescribeExportTasksResult {
 export interface DescribeFastLaunchImagesRequest {
   /**
    * @public
-   * <p>Details for one or more Windows AMI image IDs.</p>
+   * <p>Specify one or more Windows AMI image IDs for the request.</p>
    */
   ImageIds?: string[];
 
@@ -5120,10 +5120,6 @@ export interface DescribeFastLaunchImagesRequest {
    *             <li>
    *                <p>
    *                   <code>resource-type</code> - The resource type for pre-provisioning.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch-template</code> - The launch template that is associated with the pre-provisioned Windows AMI.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5162,24 +5158,24 @@ export interface DescribeFastLaunchImagesRequest {
 
 /**
  * @public
- * <p>Identifies the launch template to use for faster launching of the Windows AMI.</p>
+ * <p>Identifies the launch template that the AMI uses for Windows fast launch.</p>
  */
 export interface FastLaunchLaunchTemplateSpecificationResponse {
   /**
    * @public
-   * <p>The ID of the launch template for faster launching of the associated Windows AMI.</p>
+   * <p>The ID of the launch template that the AMI uses for Windows fast launch.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * @public
-   * <p>The name of the launch template for faster launching of the associated Windows AMI.</p>
+   * <p>The name of the launch template that the AMI uses for Windows fast launch.</p>
    */
   LaunchTemplateName?: string;
 
   /**
    * @public
-   * <p>The version of the launch template for faster launching of the associated Windows AMI.</p>
+   * <p>The version of the launch template that the AMI uses for Windows fast launch.</p>
    */
   Version?: string;
 }
@@ -5199,12 +5195,14 @@ export type FastLaunchResourceType = (typeof FastLaunchResourceType)[keyof typeo
 
 /**
  * @public
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch
+ * 			enabled Windows AMI.</p>
  */
 export interface FastLaunchSnapshotConfigurationResponse {
   /**
    * @public
-   * <p>The number of pre-provisioned snapshots requested to keep on hand for a fast-launch enabled Windows AMI.</p>
+   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast launch
+   * 			enabled AMI.</p>
    */
   TargetResourceCount?: number;
 }
@@ -5229,19 +5227,19 @@ export type FastLaunchStateCode = (typeof FastLaunchStateCode)[keyof typeof Fast
 
 /**
  * @public
- * <p>Describe details about a fast-launch enabled Windows image that meets the requested
+ * <p>Describe details about a Windows image with Windows fast launch enabled that meets the requested
  * 			criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>
  */
 export interface DescribeFastLaunchImagesSuccessItem {
   /**
    * @public
-   * <p>The image ID that identifies the fast-launch enabled Windows image.</p>
+   * <p>The image ID that identifies the Windows fast launch enabled image.</p>
    */
   ImageId?: string;
 
   /**
    * @public
-   * <p>The resource type that is used for pre-provisioning the Windows AMI. Supported values
+   * <p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values
    * 			include: <code>snapshot</code>.</p>
    */
   ResourceType?: FastLaunchResourceType;
@@ -5255,7 +5253,7 @@ export interface DescribeFastLaunchImagesSuccessItem {
 
   /**
    * @public
-   * <p>The launch template that the fast-launch enabled Windows AMI uses when it launches
+   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches
    * 			Windows instances from pre-provisioned snapshots.</p>
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
@@ -5263,31 +5261,31 @@ export interface DescribeFastLaunchImagesSuccessItem {
   /**
    * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   * 			pre-provisioned snapshots for Windows faster launching.</p>
+   * 			pre-provisioned snapshots for Windows fast launch.</p>
    */
   MaxParallelLaunches?: number;
 
   /**
    * @public
-   * <p>The owner ID for the fast-launch enabled Windows AMI.</p>
+   * <p>The owner ID for the Windows fast launch enabled AMI.</p>
    */
   OwnerId?: string;
 
   /**
    * @public
-   * <p>The current state of faster launching for the specified Windows AMI.</p>
+   * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
    */
   State?: FastLaunchStateCode;
 
   /**
    * @public
-   * <p>The reason that faster launching for the Windows AMI changed to the current state.</p>
+   * <p>The reason that Windows fast launch for the AMI changed to the current state.</p>
    */
   StateTransitionReason?: string;
 
   /**
    * @public
-   * <p>The time that faster launching for the Windows AMI changed to the current state.</p>
+   * <p>The time that Windows fast launch for the AMI changed to the current state.</p>
    */
   StateTransitionTime?: Date;
 }

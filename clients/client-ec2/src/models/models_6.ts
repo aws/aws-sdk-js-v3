@@ -166,6 +166,126 @@ import {
 
 /**
  * @public
+ * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
+ *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
+ *          used and that all of the Availability Zones in the Region can be used.</p>
+ */
+export interface SpotPlacementScore {
+  /**
+   * @public
+   * <p>The Region.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * @public
+   * <p>The placement score, on a scale from <code>1</code> to <code>10</code>. A score of
+   *             <code>10</code> indicates that your Spot request is highly likely to succeed in this
+   *          Region or Availability Zone. A score of <code>1</code> indicates that your Spot request is
+   *          not likely to succeed. </p>
+   */
+  Score?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetSpotPlacementScoresResult {
+  /**
+   * @public
+   * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
+   *          from 1 to 10. Each score  reflects how likely it is that each Region or Availability Zone
+   *          will succeed at fulfilling the specified target capacity  <i>at the time of the Spot
+   *             placement score request</i>. A score of <code>10</code> means that your Spot
+   *          capacity request is highly likely to succeed in that Region or Availability Zone. </p>
+   *          <p>If you request a Spot placement score for Regions, a high score assumes that your fleet
+   *          request will be configured to use all Availability Zones and the
+   *             <code>capacity-optimized</code> allocation strategy. If you request a Spot placement
+   *          score for Availability Zones, a high score assumes that your fleet request will be
+   *          configured to use a single Availability Zone and the <code>capacity-optimized</code>
+   *          allocation strategy.</p>
+   *          <p>Different  Regions or Availability Zones might return the same score.</p>
+   *          <note>
+   *             <p>The Spot placement score serves as a recommendation only. No score guarantees that your
+   *             Spot request will be fully or partially fulfilled.</p>
+   *          </note>
+   */
+  SpotPlacementScores?: SpotPlacementScore[];
+
+  /**
+   * @public
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSubnetCidrReservationsRequest {
+  /**
+   * @public
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>reservationType</code> - The type of reservation (<code>prefix</code> |
+   *                     <code>explicit</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
  */
 export interface GetSubnetCidrReservationsResult {
   /**
@@ -5524,7 +5644,7 @@ export interface ModifyVerifiedAccessEndpointRequest {
 export interface ModifyVerifiedAccessEndpointResult {
   /**
    * @public
-   * <p>The Verified Access endpoint details.</p>
+   * <p>Details about the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -5568,9 +5688,7 @@ export interface ModifyVerifiedAccessEndpointPolicyRequest {
 
   /**
    * @public
-   * <p>
-   *          Options for server side encryption.
-   *       </p>
+   * <p>The options for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -5593,9 +5711,7 @@ export interface ModifyVerifiedAccessEndpointPolicyResult {
 
   /**
    * @public
-   * <p>
-   *          Describes the options in use for server side encryption.
-   *       </p>
+   * <p>The options in use for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
@@ -5644,7 +5760,7 @@ export interface ModifyVerifiedAccessGroupRequest {
 export interface ModifyVerifiedAccessGroupResult {
   /**
    * @public
-   * <p>Details of Verified Access group.</p>
+   * <p>Details about the Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -5688,9 +5804,7 @@ export interface ModifyVerifiedAccessGroupPolicyRequest {
 
   /**
    * @public
-   * <p>
-   *          Options for server side encryption.
-   *       </p>
+   * <p>The options for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -5713,9 +5827,7 @@ export interface ModifyVerifiedAccessGroupPolicyResult {
 
   /**
    * @public
-   * <p>
-   *          Describes the options in use for server side encryption.
-   *       </p>
+   * <p>The options in use for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
@@ -5758,7 +5870,7 @@ export interface ModifyVerifiedAccessInstanceRequest {
 export interface ModifyVerifiedAccessInstanceResult {
   /**
    * @public
-   * <p>The ID of the Verified Access instance.</p>
+   * <p>Details about the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -5854,9 +5966,7 @@ export interface VerifiedAccessLogOptions {
 
   /**
    * @public
-   * <p>
-   * 		   The logging version to use.
-   * 	   </p>
+   * <p>The logging version.</p>
    *          <p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code>
    *          </p>
    */
@@ -5864,9 +5974,7 @@ export interface VerifiedAccessLogOptions {
 
   /**
    * @public
-   * <p>
-   * 		   Include trust data sent by trust providers into the logs.
-   * 	   </p>
+   * <p>Indicates whether to include trust data sent by trust providers in the logs.</p>
    */
   IncludeTrustContext?: boolean;
 }
@@ -6001,9 +6109,7 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
 
   /**
    * @public
-   * <p>
-   *          Options for server side encryption.
-   *       </p>
+   * <p>The options for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -6014,7 +6120,7 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
 export interface ModifyVerifiedAccessTrustProviderResult {
   /**
    * @public
-   * <p>The ID of the Verified Access trust provider.</p>
+   * <p>Details about the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -6928,9 +7034,9 @@ export interface ModifyVpnTunnelOptionsSpecification {
 
   /**
    * @public
-   * <p>The number of seconds after which a DPD timeout occurs.</p>
+   * <p>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive.</p>
    *          <p>Constraints: A value greater than or equal to 30.</p>
-   *          <p>Default: <code>30</code>
+   *          <p>Default: <code>40</code>
    *          </p>
    */
   DPDTimeoutSeconds?: number;
@@ -7076,7 +7182,7 @@ export interface ModifyVpnTunnelOptionsRequest {
 
   /**
    * @public
-   * <p>Choose whether or not to trigger immediate tunnel replacement.</p>
+   * <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p>
    *          <p>Valid values: <code>True</code> | <code>False</code>
    *          </p>
    */
@@ -9197,55 +9303,6 @@ export const ResetFpgaImageAttributeName = {
  */
 export type ResetFpgaImageAttributeName =
   (typeof ResetFpgaImageAttributeName)[keyof typeof ResetFpgaImageAttributeName];
-
-/**
- * @public
- */
-export interface ResetFpgaImageAttributeRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the AFI.</p>
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * @public
-   * <p>The attribute.</p>
-   */
-  Attribute?: ResetFpgaImageAttributeName;
-}
-
-/**
- * @public
- */
-export interface ResetFpgaImageAttributeResult {
-  /**
-   * @public
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   */
-  Return?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResetImageAttributeName = {
-  launchPermission: "launchPermission",
-} as const;
-
-/**
- * @public
- */
-export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typeof ResetImageAttributeName];
 
 /**
  * @internal

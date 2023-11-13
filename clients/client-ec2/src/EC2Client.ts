@@ -920,6 +920,10 @@ import {
   DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand";
 import {
+  DescribeInstanceTopologyCommandInput,
+  DescribeInstanceTopologyCommandOutput,
+} from "./commands/DescribeInstanceTopologyCommand";
+import {
   DescribeInstanceTypeOfferingsCommandInput,
   DescribeInstanceTypeOfferingsCommandOutput,
 } from "./commands/DescribeInstanceTypeOfferingsCommand";
@@ -2381,6 +2385,7 @@ export type ServiceInputTypes =
   | DescribeInstanceEventNotificationAttributesCommandInput
   | DescribeInstanceEventWindowsCommandInput
   | DescribeInstanceStatusCommandInput
+  | DescribeInstanceTopologyCommandInput
   | DescribeInstanceTypeOfferingsCommandInput
   | DescribeInstanceTypesCommandInput
   | DescribeInstancesCommandInput
@@ -2991,6 +2996,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceEventNotificationAttributesCommandOutput
   | DescribeInstanceEventWindowsCommandOutput
   | DescribeInstanceStatusCommandOutput
+  | DescribeInstanceTopologyCommandOutput
   | DescribeInstanceTypeOfferingsCommandOutput
   | DescribeInstanceTypesCommandOutput
   | DescribeInstancesCommandOutput

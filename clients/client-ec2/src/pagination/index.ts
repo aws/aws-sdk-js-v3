@@ -43,6 +43,7 @@ export * from "./DescribeInstanceConnectEndpointsPaginator";
 export * from "./DescribeInstanceCreditSpecificationsPaginator";
 export * from "./DescribeInstanceEventWindowsPaginator";
 export * from "./DescribeInstanceStatusPaginator";
+export * from "./DescribeInstanceTopologyPaginator";
 export * from "./DescribeInstanceTypeOfferingsPaginator";
 export * from "./DescribeInstanceTypesPaginator";
 export * from "./DescribeInstancesPaginator";

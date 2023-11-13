@@ -89,8 +89,6 @@ import {
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
   TransitGatewayMulticastDomain,
-  TransitGatewayPolicyTable,
-  TransitGatewayRouteTableAnnouncement,
 } from "./models_2";
 import {
   ArchitectureValues,
@@ -2542,6 +2540,141 @@ export interface DescribeInstanceStatusResult {
    * <p>Information about the status of the instances.</p>
    */
   InstanceStatuses?: InstanceStatus[];
+
+  /**
+   * @public
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTopologyRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You can't specify this parameter and the instance IDs parameter in the same request.</p>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The instance IDs.</p>
+   *          <p>Default: Describes all your instances.</p>
+   *          <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * @public
+   * <p>The name of the placement group that each instance is in.</p>
+   *          <p>Constraints: Maximum 100 explicitly specified placement group names.</p>
+   */
+  GroupNames?: string[];
+
+  /**
+   * @public
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The name of the Availability Zone (for
+   *                     example, <code>us-west-2a</code>) or Local Zone (for example,
+   *                         <code>us-west-2-lax-1b</code>) that the instance is in.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example,
+   *                         <code>p4d.24xlarge</code>) or instance family (for example,
+   *                         <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
+   *                     more characters, or the <code>?</code> wildcard to match zero or one
+   *                     character.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
+   *                         <code>usw2-az2</code>) or Local Zone (for example,
+   *                         <code>usw2-lax1-az1</code>) that the instance is in.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * @public
+ * <p>Information about the instance topology.</p>
+ */
+export interface InstanceTopology {
+  /**
+   * @public
+   * <p>The instance ID.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>The instance type.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * @public
+   * <p>The name of the placement group that the instance is in.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * @public
+   * <p>The network nodes. The nodes are hashed based on your account. Instances from
+   *             different accounts running under the same droplet will return a different hashed list of
+   *             strings.</p>
+   */
+  NetworkNodes?: string[];
+
+  /**
+   * @public
+   * <p>The name of the Availability Zone or Local Zone that the instance is in.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Availability Zone or Local Zone that the instance is in.</p>
+   */
+  ZoneId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTopologyResult {
+  /**
+   * @public
+   * <p>Information about the topology of each instance.</p>
+   */
+  Instances?: InstanceTopology[];
 
   /**
    * @public
@@ -12839,78 +12972,6 @@ export interface DescribeTransitGatewayPolicyTablesRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPolicyTablesResult {
-  /**
-   * @public
-   * <p>Describes the transit gateway policy tables.</p>
-   */
-  TransitGatewayPolicyTables?: TransitGatewayPolicyTable[];
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
-  /**
-   * @public
-   * <p>The IDs of the transit gateway route tables that are being advertised.</p>
-   */
-  TransitGatewayRouteTableAnnouncementIds?: string[];
-
-  /**
-   * @public
-   * <p>The filters associated with the transit gateway policy table.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
-  /**
-   * @public
-   * <p>Describes the transit gateway route table announcement.</p>
-   */
-  TransitGatewayRouteTableAnnouncements?: TransitGatewayRouteTableAnnouncement[];
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
 }
 
 /**

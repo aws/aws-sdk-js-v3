@@ -39,9 +39,9 @@ export interface DisableImageCommandOutput extends DisableImageResult, __Metadat
  * @public
  * <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the
  *       AMI. A disabled AMI can't be used for instance launches.</p>
- *          <p>A disabled AMI can't be shared. If a public or shared AMI was previously shared, it is
- *       made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational
- *       Unit, they lose access to the disabled AMI. </p>
+ *          <p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made
+ *       private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit,
+ *       they lose access to the disabled AMI. </p>
  *          <p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by
  *       default.</p>
  *          <p>Only the AMI owner can disable an AMI.</p>

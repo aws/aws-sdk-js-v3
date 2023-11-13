@@ -5709,7 +5709,7 @@ export interface VerifiedAccessInstance {
 
   /**
    * @public
-   * <p>Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>
+   * <p>Indicates whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>
    */
   FipsEnabled?: boolean;
 }
@@ -5777,16 +5777,12 @@ export interface OidcOptions {
 
 /**
  * @public
- * <p>
- *          Describes the options in use for server side encryption.
- *       </p>
+ * <p>The options in use for server side encryption.</p>
  */
 export interface VerifiedAccessSseSpecificationResponse {
   /**
    * @public
-   * <p>
-   *          Describes the use of customer managed KMS keys for server side encryption.
-   *       </p>
+   * <p>Indicates whether customer managed KMS keys are in use for server side encryption.</p>
    *          <p>Valid values: <code>True</code> | <code>False</code>
    *          </p>
    */
@@ -5794,9 +5790,7 @@ export interface VerifiedAccessSseSpecificationResponse {
 
   /**
    * @public
-   * <p>
-   *          Describes the ARN of the KMS key.
-   *       </p>
+   * <p>The ARN of the KMS key.</p>
    */
   KmsKeyArn?: string;
 }
@@ -5874,9 +5868,7 @@ export interface VerifiedAccessTrustProvider {
 
   /**
    * @public
-   * <p>
-   *          Describes the options in use for server side encryption.
-   *       </p>
+   * <p>The options in use for server side encryption.</p>
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
@@ -5887,13 +5879,13 @@ export interface VerifiedAccessTrustProvider {
 export interface AttachVerifiedAccessTrustProviderResult {
   /**
    * @public
-   * <p>The ID of the Verified Access trust provider.</p>
+   * <p>Details about the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
    * @public
-   * <p>The ID of the Verified Access instance.</p>
+   * <p>Details about the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }

@@ -144,10 +144,10 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                   Max: Number("int"),
  * //                 },
  * //                 AcceleratorManufacturers: [ // AcceleratorManufacturerSet
- * //                   "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ * //                   "amazon-web-services" || "amd" || "nvidia" || "xilinx",
  * //                 ],
  * //                 AcceleratorNames: [ // AcceleratorNameSet
- * //                   "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
+ * //                   "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100",
  * //                 ],
  * //                 AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiB
  * //                   Min: Number("int"),
@@ -278,10 +278,10 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                   Max: Number("int"),
  * //                 },
  * //                 AcceleratorManufacturers: [
- * //                   "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ * //                   "amazon-web-services" || "amd" || "nvidia" || "xilinx",
  * //                 ],
  * //                 AcceleratorNames: [
- * //                   "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
+ * //                   "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100",
  * //                 ],
  * //                 AcceleratorTotalMemoryMiB: {
  * //                   Min: Number("int"),
@@ -372,10 +372,10 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                   Max: Number("int"),
  * //                 },
  * //                 AcceleratorManufacturers: [
- * //                   "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ * //                   "amazon-web-services" || "amd" || "nvidia" || "xilinx",
  * //                 ],
  * //                 AcceleratorNames: [
- * //                   "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
+ * //                   "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100",
  * //                 ],
  * //                 AcceleratorTotalMemoryMiB: {
  * //                   Min: Number("int"),

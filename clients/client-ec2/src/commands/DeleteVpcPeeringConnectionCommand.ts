@@ -41,7 +41,7 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  *             of the accepter VPC can delete the VPC peering connection if it's in the
  *                 <code>active</code> state. The owner of the requester VPC can delete a VPC peering
  *             connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering
- *             connection that's in the <code>failed</code> state.</p>
+ *           connection that's in the <code>failed</code> or <code>rejected</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -41,7 +41,56 @@ import {
   RunInstancesMonitoringEnabled,
   SnapshotAttributeName,
 } from "./models_4";
-import { CapacityReservationSpecification, InstanceMonitoring, ResetImageAttributeName, Status } from "./models_6";
+import { CapacityReservationSpecification, InstanceMonitoring, ResetFpgaImageAttributeName, Status } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ResetFpgaImageAttributeRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the AFI.</p>
+   */
+  FpgaImageId: string | undefined;
+
+  /**
+   * @public
+   * <p>The attribute.</p>
+   */
+  Attribute?: ResetFpgaImageAttributeName;
+}
+
+/**
+ * @public
+ */
+export interface ResetFpgaImageAttributeResult {
+  /**
+   * @public
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResetImageAttributeName = {
+  launchPermission: "launchPermission",
+} as const;
+
+/**
+ * @public
+ */
+export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typeof ResetImageAttributeName];
 
 /**
  * @public

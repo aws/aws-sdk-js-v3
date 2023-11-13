@@ -894,6 +894,10 @@ import {
   DescribeInstanceStatusCommandOutput,
 } from "../commands/DescribeInstanceStatusCommand";
 import {
+  DescribeInstanceTopologyCommandInput,
+  DescribeInstanceTopologyCommandOutput,
+} from "../commands/DescribeInstanceTopologyCommand";
+import {
   DescribeInstanceTypeOfferingsCommandInput,
   DescribeInstanceTypeOfferingsCommandOutput,
 } from "../commands/DescribeInstanceTypeOfferingsCommand";
@@ -3075,6 +3079,8 @@ import {
   DescribeInstancesResult,
   DescribeInstanceStatusRequest,
   DescribeInstanceStatusResult,
+  DescribeInstanceTopologyRequest,
+  DescribeInstanceTopologyResult,
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
   DescribeInstanceTypesRequest,
@@ -3208,9 +3214,6 @@ import {
   DescribeTransitGatewayPeeringAttachmentsRequest,
   DescribeTransitGatewayPeeringAttachmentsResult,
   DescribeTransitGatewayPolicyTablesRequest,
-  DescribeTransitGatewayPolicyTablesResult,
-  DescribeTransitGatewayRouteTableAnnouncementsRequest,
-  DescribeTransitGatewayRouteTableAnnouncementsResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3246,6 +3249,7 @@ import {
   InstanceStatusEvent,
   InstanceStatusSummary,
   InstanceStorageInfo,
+  InstanceTopology,
   InstanceTypeInfo,
   InstanceTypeOffering,
   Ipv6Pool,
@@ -3328,6 +3332,9 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeTransitGatewayPolicyTablesResult,
+  DescribeTransitGatewayRouteTableAnnouncementsRequest,
+  DescribeTransitGatewayRouteTableAnnouncementsResult,
   DescribeTransitGatewayRouteTablesRequest,
   DescribeTransitGatewayRouteTablesResult,
   DescribeTransitGatewaysRequest,
@@ -3559,8 +3566,6 @@ import {
   GetSnapshotBlockPublicAccessStateRequest,
   GetSnapshotBlockPublicAccessStateResult,
   GetSpotPlacementScoresRequest,
-  GetSpotPlacementScoresResult,
-  GetSubnetCidrReservationsRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3582,7 +3587,6 @@ import {
   ReservedInstanceReservationValue,
   SecurityGroupForVpc,
   ServiceDetail,
-  SpotPlacementScore,
   TargetConfiguration,
   TargetReservationValue,
   TransitGatewayPropagation,
@@ -3612,6 +3616,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetSpotPlacementScoresResult,
+  GetSubnetCidrReservationsRequest,
   GetSubnetCidrReservationsResult,
   GetTransitGatewayAttachmentPropagationsRequest,
   GetTransitGatewayAttachmentPropagationsResult,
@@ -3865,12 +3871,11 @@ import {
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
   ResetEbsDefaultKmsKeyIdResult,
-  ResetFpgaImageAttributeRequest,
-  ResetFpgaImageAttributeResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
+  SpotPlacementScore,
   SuccessfulInstanceCreditSpecificationItem,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
@@ -3906,6 +3911,8 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ResetFpgaImageAttributeRequest,
+  ResetFpgaImageAttributeResult,
   ResetImageAttributeRequest,
   ResetInstanceAttributeRequest,
   ResetNetworkInterfaceAttributeRequest,
@@ -8546,6 +8553,23 @@ export const se_DescribeInstanceStatusCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeInstanceStatusRequest(input, context),
     Action: "DescribeInstanceStatus",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeInstanceTopologyCommand
+ */
+export const se_DescribeInstanceTopologyCommand = async (
+  input: DescribeInstanceTopologyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeInstanceTopologyRequest(input, context),
+    Action: "DescribeInstanceTopology",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -24929,6 +24953,46 @@ const de_DescribeInstanceStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstanceStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2DescribeInstanceTopologyCommand
+ */
+export const de_DescribeInstanceTopologyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceTopologyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeInstanceTopologyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstanceTopologyResult(data, context);
+  const response: DescribeInstanceTopologyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeInstanceTopologyCommandError
+ */
+const de_DescribeInstanceTopologyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceTopologyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -47545,6 +47609,85 @@ const se_DescribeInstanceStatusRequest = (input: DescribeInstanceStatusRequest, 
   }
   if (input.IncludeAllInstances != null) {
     entries["IncludeAllInstances"] = input.IncludeAllInstances;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeInstanceTopologyGroupNameSet
+ */
+const se_DescribeInstanceTopologyGroupNameSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeInstanceTopologyInstanceIdSet
+ */
+const se_DescribeInstanceTopologyInstanceIdSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeInstanceTopologyRequest
+ */
+const se_DescribeInstanceTopologyRequest = (input: DescribeInstanceTopologyRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.InstanceIds != null) {
+    const memberEntries = se_DescribeInstanceTopologyInstanceIdSet(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.GroupNames != null) {
+    const memberEntries = se_DescribeInstanceTopologyGroupNameSet(input.GroupNames, context);
+    if (input.GroupNames?.length === 0) {
+      entries.GroupName = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -73195,6 +73338,22 @@ const de_DescribeInstanceStatusResult = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_ec2DescribeInstanceTopologyResult
+ */
+const de_DescribeInstanceTopologyResult = (output: any, context: __SerdeContext): DescribeInstanceTopologyResult => {
+  const contents: any = {};
+  if (output.instanceSet === "") {
+    contents.Instances = [];
+  } else if (output["instanceSet"] !== undefined && output["instanceSet"]["item"] !== undefined) {
+    contents.Instances = de_InstanceSet(__getArrayIfSingleItem(output["instanceSet"]["item"]), context);
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeInstanceTypeOfferingsResult
  */
 const de_DescribeInstanceTypeOfferingsResult = (
@@ -78075,6 +78234,9 @@ const de_GetCoipPoolUsageResult = (output: any, context: __SerdeContext): GetCoi
   if (output["localGatewayRouteTableId"] !== undefined) {
     contents.LocalGatewayRouteTableId = __expectString(output["localGatewayRouteTableId"]);
   }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
   return contents;
 };
 
@@ -81301,6 +81463,17 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
 };
 
 /**
+ * deserializeAws_ec2InstanceSet
+ */
+const de_InstanceSet = (output: any, context: __SerdeContext): InstanceTopology[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InstanceTopology(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2InstanceState
  */
 const de_InstanceState = (output: any, context: __SerdeContext): InstanceState => {
@@ -81516,6 +81689,34 @@ const de_InstanceTagNotificationAttribute = (
   }
   if (output["includeAllTagsOfInstance"] !== undefined) {
     contents.IncludeAllTagsOfInstance = __parseBoolean(output["includeAllTagsOfInstance"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2InstanceTopology
+ */
+const de_InstanceTopology = (output: any, context: __SerdeContext): InstanceTopology => {
+  const contents: any = {};
+  if (output["instanceId"] !== undefined) {
+    contents.InstanceId = __expectString(output["instanceId"]);
+  }
+  if (output["instanceType"] !== undefined) {
+    contents.InstanceType = __expectString(output["instanceType"]);
+  }
+  if (output["groupName"] !== undefined) {
+    contents.GroupName = __expectString(output["groupName"]);
+  }
+  if (output.networkNodeSet === "") {
+    contents.NetworkNodes = [];
+  } else if (output["networkNodeSet"] !== undefined && output["networkNodeSet"]["item"] !== undefined) {
+    contents.NetworkNodes = de_NetworkNodesList(__getArrayIfSingleItem(output["networkNodeSet"]["item"]), context);
+  }
+  if (output["availabilityZone"] !== undefined) {
+    contents.AvailabilityZone = __expectString(output["availabilityZone"]);
+  }
+  if (output["zoneId"] !== undefined) {
+    contents.ZoneId = __expectString(output["zoneId"]);
   }
   return contents;
 };
@@ -86092,6 +86293,17 @@ const de_NetworkInterfacePrivateIpAddressList = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_NetworkInterfacePrivateIpAddress(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2NetworkNodesList
+ */
+const de_NetworkNodesList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 

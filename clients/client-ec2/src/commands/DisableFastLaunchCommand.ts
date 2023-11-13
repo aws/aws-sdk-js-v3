@@ -37,11 +37,11 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
 
 /**
  * @public
- * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
- * 			When you disable faster launching, the AMI uses the standard launch process for each
- * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
+ * <p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned snapshots.
+ * 			After you disable Windows fast launch, the AMI uses the standard launch process for each
+ * 			new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable Windows fast launch again.</p>
  *          <note>
- *             <p>To change these settings, you must own the AMI.</p>
+ *             <p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
