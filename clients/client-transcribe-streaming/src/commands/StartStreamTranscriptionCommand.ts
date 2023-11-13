@@ -55,7 +55,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>language-code</code> or <code>identify-language</code>
+ *                   <code>language-code</code> or <code>identify-language</code> or <code>identify-multiple-language</code>
  *                </p>
  *             </li>
  *             <li>
@@ -115,6 +115,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *   IdentifyLanguage: true || false,
  *   LanguageOptions: "STRING_VALUE",
  *   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ *   IdentifyMultipleLanguages: true || false,
  *   VocabularyNames: "STRING_VALUE",
  *   VocabularyFilterNames: "STRING_VALUE",
  * };
@@ -205,6 +206,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * //   IdentifyLanguage: true || false,
  * //   LanguageOptions: "STRING_VALUE",
  * //   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ * //   IdentifyMultipleLanguages: true || false,
  * //   VocabularyNames: "STRING_VALUE",
  * //   VocabularyFilterNames: "STRING_VALUE",
  * // };

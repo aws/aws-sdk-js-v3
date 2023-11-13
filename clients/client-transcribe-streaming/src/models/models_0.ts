@@ -2226,7 +2226,7 @@ export interface StartStreamTranscriptionRequest {
    *       enabled channel identification, automatic language identification identifies the dominant language on
    *       each audio channel.</p>
    *          <p>Note that you must include either <code>LanguageCode</code> or
-   *       <code>IdentifyLanguage</code> in your request. If you include both parameters, your request
+   *       <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job
    *       fails.</p>
    *          <p>Streaming language identification can't be combined with custom language models or
    *       redaction.</p>
@@ -2259,6 +2259,15 @@ export interface StartStreamTranscriptionRequest {
    *         <code>LanguageOptions</code> in your request.</p>
    */
   PreferredLanguage?: LanguageCode;
+
+  /**
+   * @public
+   * <p>Enables automatic multi-language identification in your transcription job request. Use this parameter if your stream contains more than one language. If your stream contains only one language, use IdentifyLanguage instead.</p>
+   *          <p>If you include <code>IdentifyMultipleLanguages</code>, you can optionally include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your stream. Including <code>LanguageOptions</code> restricts <code>IdentifyMultipleLanguages</code> to only the language options that you specify, which can improve transcription accuracy.</p>
+   *          <p>If you want to apply a custom vocabulary or a custom vocabulary filter to your automatic multiple language identification request, include <code>VocabularyNames</code> or <code>VocabularyFilterNames</code>.</p>
+   *          <p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>
+   */
+  IdentifyMultipleLanguages?: boolean;
 
   /**
    * @public
@@ -2607,6 +2616,12 @@ export interface StartStreamTranscriptionResponse {
    * <p>Provides the preferred language that you specified in your request.</p>
    */
   PreferredLanguage?: LanguageCode;
+
+  /**
+   * @public
+   * <p>Shows whether automatic multi-language identification was enabled for your transcription.</p>
+   */
+  IdentifyMultipleLanguages?: boolean;
 
   /**
    * @public

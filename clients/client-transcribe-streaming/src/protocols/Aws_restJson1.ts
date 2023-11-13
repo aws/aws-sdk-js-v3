@@ -211,6 +211,10 @@ export const se_StartStreamTranscriptionCommand = async (
     ],
     "x-amzn-transcribe-language-options": input.LanguageOptions!,
     "x-amzn-transcribe-preferred-language": input.PreferredLanguage!,
+    "x-amzn-transcribe-identify-multiple-languages": [
+      () => isSerializableHeaderValue(input.IdentifyMultipleLanguages),
+      () => input.IdentifyMultipleLanguages!.toString(),
+    ],
     "x-amzn-transcribe-vocabulary-names": input.VocabularyNames!,
     "x-amzn-transcribe-vocabulary-filter-names": input.VocabularyFilterNames!,
   });
@@ -436,6 +440,10 @@ export const de_StartStreamTranscriptionCommand = async (
     ],
     LanguageOptions: [, output.headers["x-amzn-transcribe-language-options"]],
     PreferredLanguage: [, output.headers["x-amzn-transcribe-preferred-language"]],
+    IdentifyMultipleLanguages: [
+      () => void 0 !== output.headers["x-amzn-transcribe-identify-multiple-languages"],
+      () => __parseBoolean(output.headers["x-amzn-transcribe-identify-multiple-languages"]),
+    ],
     VocabularyNames: [, output.headers["x-amzn-transcribe-vocabulary-names"]],
     VocabularyFilterNames: [, output.headers["x-amzn-transcribe-vocabulary-filter-names"]],
   });
