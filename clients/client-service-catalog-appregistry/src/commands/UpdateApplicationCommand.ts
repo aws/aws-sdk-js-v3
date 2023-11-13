@@ -66,6 +66,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     applicationTag: { // ApplicationTagDefinition
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

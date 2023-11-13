@@ -84,6 +84,9 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * //       resourceDetails: { // ResourceDetails
  * //         tagValue: "STRING_VALUE",
  * //       },
+ * //       options: [ // Options
+ * //         "APPLY_APPLICATION_TAG" || "SKIP_APPLICATION_TAG",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

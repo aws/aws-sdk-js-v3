@@ -88,6 +88,14 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //       arn: "STRING_VALUE",
  * //       errorMessage: "STRING_VALUE",
  * //     },
+ * //     applicationTagResourceGroup: {
+ * //       state: "CREATING" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ * //       arn: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   applicationTag: { // ApplicationTagDefinition
+ * //     "<keys>": "STRING_VALUE",
  * //   },
  * // };
  *

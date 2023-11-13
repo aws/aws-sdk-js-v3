@@ -69,6 +69,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     applicationTag: { // ApplicationTagDefinition
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

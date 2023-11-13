@@ -86,6 +86,7 @@ import {
   Application,
   ApplicationSummary,
   AppRegistryConfiguration,
+  AssociationOption,
   AttributeGroup,
   AttributeGroupSummary,
   ConflictException,
@@ -140,7 +141,9 @@ export const se_AssociateResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{application}/resources/{resourceType}/{resource}";
@@ -155,6 +158,11 @@ export const se_AssociateResourceCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "resource", () => input.resource!, "{resource}", false);
   let body: any;
+  body = JSON.stringify(
+    take(input, {
+      options: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -399,6 +407,14 @@ export const se_GetAssociatedResourceCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "resource", () => input.resource!, "{resource}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    resourceTagStatus: [
+      () => input.resourceTagStatus !== void 0,
+      () => (input.resourceTagStatus! || []).map((_entry) => _entry as any),
+    ],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -407,6 +423,7 @@ export const se_GetAssociatedResourceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -902,6 +919,7 @@ export const de_AssociateResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     applicationArn: __expectString,
+    options: _json,
     resourceArn: __expectString,
   });
   Object.assign(contents, doc);
@@ -1296,6 +1314,7 @@ export const de_GetApplicationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    applicationTag: _json,
     arn: __expectString,
     associatedResourceCount: __expectInt32,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -1360,6 +1379,8 @@ export const de_GetAssociatedResourceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    applicationTagResult: _json,
+    options: _json,
     resource: (_) => de_Resource(_, context),
   });
   Object.assign(contents, doc);
@@ -2264,6 +2285,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AppRegistryConfiguration omitted.
 
+// se_Options omitted.
+
 // se_TagQueryConfiguration omitted.
 
 // se_Tags omitted.
@@ -2273,6 +2296,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_Application = (output: any, context: __SerdeContext): Application => {
   return take(output, {
+    applicationTag: _json,
     arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
@@ -2308,6 +2332,10 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
     name: __expectString,
   }) as any;
 };
+
+// de_ApplicationTagDefinition omitted.
+
+// de_ApplicationTagResult omitted.
 
 // de_AppRegistryConfiguration omitted.
 
@@ -2361,6 +2389,8 @@ const de_AttributeGroupSummary = (output: any, context: __SerdeContext): Attribu
 
 // de_Integrations omitted.
 
+// de_Options omitted.
+
 /**
  * deserializeAws_restJson1Resource
  */
@@ -2382,6 +2412,10 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
 // de_ResourceIntegrations omitted.
 
 // de_Resources omitted.
+
+// de_ResourcesList omitted.
+
+// de_ResourcesListItem omitted.
 
 // de_TagQueryConfiguration omitted.
 

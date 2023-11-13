@@ -52,6 +52,11 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  *   application: "STRING_VALUE", // required
  *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
  *   resource: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   resourceTagStatus: [ // GetAssociatedResourceFilter
+ *     "SUCCESS" || "FAILED" || "IN_PROGRESS" || "SKIPPED",
+ *   ],
+ *   maxResults: Number("int"),
  * };
  * const command = new GetAssociatedResourceCommand(input);
  * const response = await client.send(command);
@@ -67,6 +72,22 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * //         errorMessage: "STRING_VALUE",
  * //       },
  * //     },
+ * //   },
+ * //   options: [ // Options
+ * //     "APPLY_APPLICATION_TAG" || "SKIP_APPLICATION_TAG",
+ * //   ],
+ * //   applicationTagResult: { // ApplicationTagResult
+ * //     applicationTagStatus: "IN_PROGRESS" || "SUCCESS" || "FAILURE",
+ * //     errorMessage: "STRING_VALUE",
+ * //     resources: [ // ResourcesList
+ * //       { // ResourcesListItem
+ * //         resourceArn: "STRING_VALUE",
+ * //         errorMessage: "STRING_VALUE",
+ * //         status: "STRING_VALUE",
+ * //         resourceType: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     nextToken: "STRING_VALUE",
  * //   },
  * // };
  *
