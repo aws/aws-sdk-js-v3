@@ -3785,7 +3785,7 @@ export interface GetClusterSessionCredentialsInput {
    *          runtime role ARN is a combination of account ID, role name, and role type using the
    *          following format: <code>arn:partition:service:region:account:resource</code>.</p>
    */
-  ExecutionRoleArn: string | undefined;
+  ExecutionRoleArn?: string;
 }
 
 /**

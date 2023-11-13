@@ -58,7 +58,7 @@ export interface GetClusterSessionCredentialsCommandOutput
  * const client = new EMRClient(config);
  * const input = { // GetClusterSessionCredentialsInput
  *   ClusterId: "STRING_VALUE", // required
- *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE",
  * };
  * const command = new GetClusterSessionCredentialsCommand(input);
  * const response = await client.send(command);
