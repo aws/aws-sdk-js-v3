@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
+
+
+### Features
+
+* **client-emr:** Updated GetClusterSessionCredentials API  to allow Amazon SageMaker Studio to connect to EMR on EC2 clusters to support IdentityCenter/PEZ integration. ([0b47053](https://github.com/aws/aws-sdk-js-v3/commit/0b4705347dbe0eb46a36a3121329a8e2e5a116b5))
+
+
+
+
+
 # [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

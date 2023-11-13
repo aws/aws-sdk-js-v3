@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
+
+
+### Features
+
+* **client-database-migration-service:** Added new Db2 LUW Target endpoint with related endpoint settings. New executeTimeout endpoint setting for mysql endpoint. New ReplicationDeprovisionTime field for serverless describe-replications. ([0f12860](https://github.com/aws/aws-sdk-js-v3/commit/0f12860e3999e38ba0e8acdf6ecda068eea69f0a))
+* **client-dataexchange:** Removed Required trait for DataSet.OriginDetails.ProductId. ([de1396a](https://github.com/aws/aws-sdk-js-v3/commit/de1396a7de2fc4e358f15217c0482e4a4904a99a))
+* **client-ec2:** Adds the new EC2 DescribeInstanceTopology API, which you can use to retrieve the network topology of your running instances on select platform types to determine their relative proximity to each other. ([ce5a2b0](https://github.com/aws/aws-sdk-js-v3/commit/ce5a2b07a6afc8d6b7140efe8010de1940c6285f))
+* **client-ecs:** Adds a Client Token parameter to the ECS RunTask API. The Client Token parameter allows for idempotent RunTask requests. ([2cbe655](https://github.com/aws/aws-sdk-js-v3/commit/2cbe655284419401f712822aad1bbbd7ee834940))
+* **client-emr:** Updated GetClusterSessionCredentials API  to allow Amazon SageMaker Studio to connect to EMR on EC2 clusters to support IdentityCenter/PEZ integration. ([0b47053](https://github.com/aws/aws-sdk-js-v3/commit/0b4705347dbe0eb46a36a3121329a8e2e5a116b5))
+* **client-service-catalog-appregistry:** When the customer associates a resource collection to their application with this new feature, then a new application tag will be applied to all supported resources that are part of that collection. This allows customers to more easily find the application that is associated with those resources. ([5364e1d](https://github.com/aws/aws-sdk-js-v3/commit/5364e1dc1ecb5bbae9736b70943c3b8d85c125cc))
+* **client-transcribe-streaming:** This release enables customers to call the AWS Transcribe streaming service with the capability of identifying multiple languages in the stream. ([09ffb2a](https://github.com/aws/aws-sdk-js-v3/commit/09ffb2ad8e1351796a63964710f37d6e0353e44f))
+* **clients:** update client endpoints as of 2023-11-13 ([74076a8](https://github.com/aws/aws-sdk-js-v3/commit/74076a84dc4ba6f02a5f7d38e6d7469abd7393dc))
+
+
+
+
+
 # [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
 
 

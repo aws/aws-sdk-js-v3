@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
+
+
+### Features
+
+* **client-ecs:** Adds a Client Token parameter to the ECS RunTask API. The Client Token parameter allows for idempotent RunTask requests. ([2cbe655](https://github.com/aws/aws-sdk-js-v3/commit/2cbe655284419401f712822aad1bbbd7ee834940))
+
+
+
+
+
 # [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
+
+
+### Features
+
+* **client-transcribe-streaming:** This release enables customers to call the AWS Transcribe streaming service with the capability of identifying multiple languages in the stream. ([09ffb2a](https://github.com/aws/aws-sdk-js-v3/commit/09ffb2ad8e1351796a63964710f37d6e0353e44f))
+
+
+
+
+
 # [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe-streaming
