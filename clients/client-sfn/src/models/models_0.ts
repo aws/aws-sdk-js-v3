@@ -833,7 +833,7 @@ export interface RoutingConfigurationListItem {
 
   /**
    * @public
-   * <p>The percentage of traffic you want to route to the second state machine
+   * <p>The percentage of traffic you want to route to a state machine
    *       version. The sum of the weights in the routing
    *       configuration must be equal to 100.</p>
    */
@@ -1076,9 +1076,25 @@ export interface CloudWatchEventsExecutionDataDetails {
  * @public
  * @enum
  */
+export const ExecutionRedriveStatus = {
+  NOT_REDRIVABLE: "NOT_REDRIVABLE",
+  REDRIVABLE: "REDRIVABLE",
+  REDRIVABLE_BY_MAP_RUN: "REDRIVABLE_BY_MAP_RUN",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionRedriveStatus = (typeof ExecutionRedriveStatus)[keyof typeof ExecutionRedriveStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionStatus = {
   ABORTED: "ABORTED",
   FAILED: "FAILED",
+  PENDING_REDRIVE: "PENDING_REDRIVE",
   RUNNING: "RUNNING",
   SUCCEEDED: "SUCCEEDED",
   TIMED_OUT: "TIMED_OUT",
@@ -1218,6 +1234,81 @@ export interface DescribeExecutionOutput {
    *       state machine version ARN, this field will be null.</p>
    */
   stateMachineAliasArn?: string;
+
+  /**
+   * @public
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   */
+  redriveCount?: number;
+
+  /**
+   * @public
+   * <p>The date the execution was last redriven. If you have not yet redriven an execution, the <code>redriveDate</code> is null.</p>
+   *          <p>The <code>redriveDate</code> is unavailable if you redrive a Map Run that starts child workflow executions of type <code>EXPRESS</code>.</p>
+   */
+  redriveDate?: Date;
+
+  /**
+   * @public
+   * <p>Indicates whether or not an execution can be redriven at a given point in time.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For executions of type <code>STANDARD</code>, <code>redriveStatus</code> is <code>NOT_REDRIVABLE</code> if calling the <a>RedriveExecution</a> API action would return the <code>ExecutionNotRedrivable</code> error.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a Distributed Map that includes child workflows of type <code>STANDARD</code>, <code>redriveStatus</code> indicates whether or not the Map Run can redrive child workflow executions.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a Distributed Map that includes child workflows of type <code>EXPRESS</code>, <code>redriveStatus</code> indicates whether or not the Map Run can redrive child workflow executions.</p>
+   *                <p>You can redrive failed or timed out <code>EXPRESS</code> workflows <i>only if</i> they're a part of a Map Run. When you <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html">redrive</a> the Map Run, these workflows are restarted using the <a>StartExecution</a> API action.</p>
+   *             </li>
+   *          </ul>
+   */
+  redriveStatus?: ExecutionRedriveStatus;
+
+  /**
+   * @public
+   * <p>When <code>redriveStatus</code> is <code>NOT_REDRIVABLE</code>, <code>redriveStatusReason</code> specifies the reason why an execution cannot be redriven.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For executions of type <code>STANDARD</code>, or for a Distributed Map that includes child workflows of type <code>STANDARD</code>, <code>redriveStatusReason</code> can include one of the following reasons:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>State machine is in DELETING status</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution is RUNNING and cannot be redriven</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution is SUCCEEDED and cannot be redriven</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution was started before the launch of RedriveExecution</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution history event limit exceeded</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution has exceeded the max execution time</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution redrivable period exceeded</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For a Distributed Map that includes child workflows of type <code>EXPRESS</code>, <code>redriveStatusReason</code> is only returned if the child workflows are not redrivable. This happens when the child workflow executions have completed successfully.</p>
+   *             </li>
+   *          </ul>
+   */
+  redriveStatusReason?: string;
 }
 
 /**
@@ -1303,6 +1394,18 @@ export interface MapRunExecutionCounts {
    * <p>Returns the count of child workflow executions whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
    */
   resultsWritten: number | undefined;
+
+  /**
+   * @public
+   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> child workflow executions that cannot be redriven because their execution status is terminal. For example, if your execution event history contains 25,000 entries, or the <code>toleratedFailureCount</code> or <code>toleratedFailurePercentage</code> for the Distributed Map has exceeded.</p>
+   */
+  failuresNotRedrivable?: number;
+
+  /**
+   * @public
+   * <p>The number of unsuccessful child workflow executions currently waiting to be redriven. The status of these child workflow executions could be <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> in the original execution attempt or a previous redrive attempt.</p>
+   */
+  pendingRedrive?: number;
 }
 
 /**
@@ -1357,6 +1460,18 @@ export interface MapRunItemCounts {
    * <p>Returns the count of items whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
    */
   resultsWritten: number | undefined;
+
+  /**
+   * @public
+   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> items in child workflow executions that cannot be redriven because the execution status of those child workflows is terminal. For example, if your execution event history contains 25,000 entries, or the <code>toleratedFailureCount</code> or <code>toleratedFailurePercentage</code> for the Distributed Map has exceeded.</p>
+   */
+  failuresNotRedrivable?: number;
+
+  /**
+   * @public
+   * <p>The number of unsuccessful items in child workflow executions currently waiting to be redriven.</p>
+   */
+  pendingRedrive?: number;
 }
 
 /**
@@ -1438,6 +1553,18 @@ export interface DescribeMapRunOutput {
    * <p>A JSON object that contains information about the total number of child workflow executions for the Map Run, and the count of child workflow executions for each status, such as <code>failed</code> and <code>succeeded</code>.</p>
    */
   executionCounts: MapRunExecutionCounts | undefined;
+
+  /**
+   * @public
+   * <p>The number of times you've redriven a Map Run. If you have not yet redriven a Map Run, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   */
+  redriveCount?: number;
+
+  /**
+   * @public
+   * <p>The date a Map Run was last redriven. If you have not yet redriven a Map Run, the <code>redriveDate</code> is null.</p>
+   */
+  redriveDate?: Date;
 }
 
 /**
@@ -1841,6 +1968,18 @@ export interface ExecutionFailedEventDetails {
 
 /**
  * @public
+ * <p>Contains details about a redriven execution.</p>
+ */
+export interface ExecutionRedrivenEventDetails {
+  /**
+   * @public
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   */
+  redriveCount?: number;
+}
+
+/**
+ * @public
  * <p>Contains details about the start of the execution.</p>
  */
 export interface ExecutionStartedEventDetails {
@@ -2085,6 +2224,24 @@ export interface MapRunFailedEventDetails {
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
+}
+
+/**
+ * @public
+ * <p>Contains details about a Map Run that was redriven.</p>
+ */
+export interface MapRunRedrivenEventDetails {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of a Map Run that was redriven.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * @public
+   * <p>The number of times the Map Run has been redriven at this point in the execution's history including this event. The redrive count for a redriven Map Run is always greater than 0.</p>
+   */
+  redriveCount?: number;
 }
 
 /**
@@ -2444,6 +2601,7 @@ export const HistoryEventType = {
   ChoiceStateExited: "ChoiceStateExited",
   ExecutionAborted: "ExecutionAborted",
   ExecutionFailed: "ExecutionFailed",
+  ExecutionRedriven: "ExecutionRedriven",
   ExecutionStarted: "ExecutionStarted",
   ExecutionSucceeded: "ExecutionSucceeded",
   ExecutionTimedOut: "ExecutionTimedOut",
@@ -2461,6 +2619,7 @@ export const HistoryEventType = {
   MapIterationSucceeded: "MapIterationSucceeded",
   MapRunAborted: "MapRunAborted",
   MapRunFailed: "MapRunFailed",
+  MapRunRedriven: "MapRunRedriven",
   MapRunStarted: "MapRunStarted",
   MapRunSucceeded: "MapRunSucceeded",
   MapStateAborted: "MapStateAborted",
@@ -2646,6 +2805,12 @@ export interface HistoryEvent {
 
   /**
    * @public
+   * <p>Contains details about the redrive attempt of an execution.</p>
+   */
+  executionRedrivenEventDetails?: ExecutionRedrivenEventDetails;
+
+  /**
+   * @public
    * <p>Contains details about Map state that was started.</p>
    */
   mapStateStartedEventDetails?: MapStateStartedEventDetails;
@@ -2735,6 +2900,12 @@ export interface HistoryEvent {
    * <p>Contains error and cause details about a Map Run that failed.</p>
    */
   mapRunFailedEventDetails?: MapRunFailedEventDetails;
+
+  /**
+   * @public
+   * <p>Contains details about the redrive attempt of a Map Run.</p>
+   */
+  mapRunRedrivenEventDetails?: MapRunRedrivenEventDetails;
 }
 
 /**
@@ -2815,6 +2986,20 @@ export interface ListActivitiesOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const ExecutionRedriveFilter = {
+  NOT_REDRIVEN: "NOT_REDRIVEN",
+  REDRIVEN: "REDRIVEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionRedriveFilter = (typeof ExecutionRedriveFilter)[keyof typeof ExecutionRedriveFilter];
+
+/**
+ * @public
  */
 export interface ListExecutionsInput {
   /**
@@ -2853,6 +3038,15 @@ export interface ListExecutionsInput {
    *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
    */
   mapRunArn?: string;
+
+  /**
+   * @public
+   * <p>Sets a filter to list executions based on whether or not they have been redriven.</p>
+   *          <p>For a Distributed Map, <code>redriveFilter</code> sets a filter to list child workflow executions based on whether or not they have been redriven.</p>
+   *          <p>If you do not provide a <code>redriveFilter</code>, Step Functions returns a list of both redriven and non-redriven executions.</p>
+   *          <p>If you provide a state machine ARN in <code>redriveFilter</code>, the API returns a validation exception.</p>
+   */
+  redriveFilter?: ExecutionRedriveFilter;
 }
 
 /**
@@ -2944,6 +3138,18 @@ export interface ExecutionListItem {
    *          <p>If the state machine execution was started with an unqualified ARN or a version ARN, it returns null.</p>
    */
   stateMachineAliasArn?: string;
+
+  /**
+   * @public
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   */
+  redriveCount?: number;
+
+  /**
+   * @public
+   * <p>The date the execution was last redriven.</p>
+   */
+  redriveDate?: Date;
 }
 
 /**
@@ -3327,6 +3533,75 @@ export interface PublishStateMachineVersionOutput {
 
 /**
  * @public
+ * <p>The maximum number of running executions has been reached. Running executions must end or
+ *       be stopped before a new execution can be started.</p>
+ */
+export class ExecutionLimitExceeded extends __BaseException {
+  readonly name: "ExecutionLimitExceeded" = "ExecutionLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecutionLimitExceeded, __BaseException>) {
+    super({
+      name: "ExecutionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecutionLimitExceeded.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The execution Amazon Resource Name (ARN) that you specified for <code>executionArn</code> cannot be redriven.</p>
+ */
+export class ExecutionNotRedrivable extends __BaseException {
+  readonly name: "ExecutionNotRedrivable" = "ExecutionNotRedrivable";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecutionNotRedrivable, __BaseException>) {
+    super({
+      name: "ExecutionNotRedrivable",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecutionNotRedrivable.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface RedriveExecutionInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the execution to be redriven.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don’t specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The API uses one of the last 10 client tokens provided.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface RedriveExecutionOutput {
+  /**
+   * @public
+   * <p>The date the execution was last redriven.</p>
+   */
+  redriveDate: Date | undefined;
+}
+
+/**
+ * @public
  */
 export interface SendTaskFailureInput {
   /**
@@ -3357,6 +3632,7 @@ export interface SendTaskFailureOutput {}
 
 /**
  * @public
+ * <p>The activity does not exist.</p>
  */
 export class TaskDoesNotExist extends __BaseException {
   readonly name: "TaskDoesNotExist" = "TaskDoesNotExist";
@@ -3376,6 +3652,7 @@ export class TaskDoesNotExist extends __BaseException {
 
 /**
  * @public
+ * <p>The task token has either expired or the task associated with the token has already been closed.</p>
  */
 export class TaskTimedOut extends __BaseException {
   readonly name: "TaskTimedOut" = "TaskTimedOut";
@@ -3482,27 +3759,6 @@ export class ExecutionAlreadyExists extends __BaseException {
 
 /**
  * @public
- * <p>The maximum number of running executions has been reached. Running executions must end or
- *       be stopped before a new execution can be started.</p>
- */
-export class ExecutionLimitExceeded extends __BaseException {
-  readonly name: "ExecutionLimitExceeded" = "ExecutionLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExecutionLimitExceeded, __BaseException>) {
-    super({
-      name: "ExecutionLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExecutionLimitExceeded.prototype);
-  }
-}
-
-/**
- * @public
  * <p>The provided JSON input data is not valid.</p>
  */
 export class InvalidExecutionInput extends __BaseException {
@@ -3566,6 +3822,7 @@ export interface StartExecutionInput {
    *       This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
    *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
+   *          <p>If you don't provide a name for the execution, Step Functions automatically generates a universally unique identifier (UUID) as the execution name.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
    *             <li>
@@ -4110,6 +4367,7 @@ export const DescribeExecutionOutputFilterSensitiveLog = (obj: DescribeExecution
   ...(obj.output && { output: SENSITIVE_STRING }),
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
+  ...(obj.redriveStatusReason && { redriveStatusReason: SENSITIVE_STRING }),
 });
 
 /**

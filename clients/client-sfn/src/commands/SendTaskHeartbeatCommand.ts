@@ -37,14 +37,14 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
 
 /**
  * @public
- * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
- *       pattern to report to Step Functions that the task represented by the specified
+ * <p>Used by activity workers and Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
+ *       pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> pattern to report to Step Functions that the task represented by the specified
  *         <code>taskToken</code> is still making progress. This action resets the
  *         <code>Heartbeat</code> clock. The <code>Heartbeat</code> threshold is specified in the state
  *       machine's Amazon States Language definition (<code>HeartbeatSeconds</code>). This action does not in itself
  *       create an event in the execution history. However, if the task times out, the execution
  *       history contains an <code>ActivityTimedOut</code> entry for activities, or a
- *         <code>TaskTimedOut</code> entry for for tasks using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> or
+ *         <code>TaskTimedOut</code> entry for tasks using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> or
  *         <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
  *       pattern.</p>
  *          <note>
@@ -77,8 +77,10 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *  <p>The provided token is not valid.</p>
  *
  * @throws {@link TaskDoesNotExist} (client fault)
+ *  <p>The activity does not exist.</p>
  *
  * @throws {@link TaskTimedOut} (client fault)
+ *  <p>The task token has either expired or the task associated with the token has already been closed.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>

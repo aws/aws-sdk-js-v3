@@ -37,7 +37,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
 
 /**
  * @public
- * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN.</p>
+ * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN. Using this API action, you can also list all <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html">redriven</a> executions.</p>
  *          <p>You can also provide a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> ARN or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a> ARN to list the executions associated with a specific alias or version.</p>
  *          <p>Results are
  *       sorted by time, with the most recent execution first.</p>
@@ -55,10 +55,11 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * const client = new SFNClient(config);
  * const input = { // ListExecutionsInput
  *   stateMachineArn: "STRING_VALUE",
- *   statusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED",
+ *   statusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED" || "PENDING_REDRIVE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   mapRunArn: "STRING_VALUE",
+ *   redriveFilter: "REDRIVEN" || "NOT_REDRIVEN",
  * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
@@ -68,13 +69,15 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * //       executionArn: "STRING_VALUE", // required
  * //       stateMachineArn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED", // required
+ * //       status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED" || "PENDING_REDRIVE", // required
  * //       startDate: new Date("TIMESTAMP"), // required
  * //       stopDate: new Date("TIMESTAMP"),
  * //       mapRunArn: "STRING_VALUE",
  * //       itemCount: Number("int"),
  * //       stateMachineVersionArn: "STRING_VALUE",
  * //       stateMachineAliasArn: "STRING_VALUE",
+ * //       redriveCount: Number("int"),
+ * //       redriveDate: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

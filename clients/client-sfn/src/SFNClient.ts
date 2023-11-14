@@ -106,6 +106,7 @@ import {
   PublishStateMachineVersionCommandInput,
   PublishStateMachineVersionCommandOutput,
 } from "./commands/PublishStateMachineVersionCommand";
+import { RedriveExecutionCommandInput, RedriveExecutionCommandOutput } from "./commands/RedriveExecutionCommand";
 import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "./commands/SendTaskFailureCommand";
 import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "./commands/SendTaskHeartbeatCommand";
 import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "./commands/SendTaskSuccessCommand";
@@ -158,6 +159,7 @@ export type ServiceInputTypes =
   | ListStateMachinesCommandInput
   | ListTagsForResourceCommandInput
   | PublishStateMachineVersionCommandInput
+  | RedriveExecutionCommandInput
   | SendTaskFailureCommandInput
   | SendTaskHeartbeatCommandInput
   | SendTaskSuccessCommandInput
@@ -197,6 +199,7 @@ export type ServiceOutputTypes =
   | ListStateMachinesCommandOutput
   | ListTagsForResourceCommandOutput
   | PublishStateMachineVersionCommandOutput
+  | RedriveExecutionCommandOutput
   | SendTaskFailureCommandOutput
   | SendTaskHeartbeatCommandOutput
   | SendTaskSuccessCommandOutput
@@ -397,6 +400,9 @@ export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
  *       For more information about Step Functions, see the <i>
  *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">Step Functions Developer Guide</a>
  *             </i>.</p>
+ *          <important>
+ *             <p>If you use the Step Functions API actions using Amazon Web Services SDK integrations, make sure the API actions are in camel case and parameter names are in Pascal case. For example, you could use Step Functions API action <code>startSyncExecution</code> and specify its parameter as <code>StateMachineArn</code>.</p>
+ *          </important>
  */
 export class SFNClient extends __Client<
   __HttpHandlerOptions,

@@ -37,7 +37,7 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
 
 /**
  * @public
- * <p>Provides information about a Map Run's configuration, progress, and results. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
+ * <p>Provides information about a Map Run's configuration, progress, and results. If you've <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html">redriven</a> a Map Run, this API action also returns information about the redrives of that Map Run. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +67,8 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * //     aborted: Number("long"), // required
  * //     total: Number("long"), // required
  * //     resultsWritten: Number("long"), // required
+ * //     failuresNotRedrivable: Number("long"),
+ * //     pendingRedrive: Number("long"),
  * //   },
  * //   executionCounts: { // MapRunExecutionCounts
  * //     pending: Number("long"), // required
@@ -77,7 +79,11 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * //     aborted: Number("long"), // required
  * //     total: Number("long"), // required
  * //     resultsWritten: Number("long"), // required
+ * //     failuresNotRedrivable: Number("long"),
+ * //     pendingRedrive: Number("long"),
  * //   },
+ * //   redriveCount: Number("int"),
+ * //   redriveDate: new Date("TIMESTAMP"),
  * // };
  *
  * ```

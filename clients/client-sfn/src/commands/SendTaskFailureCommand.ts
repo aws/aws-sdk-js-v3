@@ -41,8 +41,8 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
 
 /**
  * @public
- * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
- *       pattern to report that the task identified by the <code>taskToken</code> failed.</p>
+ * <p>Used by activity workers, Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
+ *       pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> pattern to report that the task identified by the <code>taskToken</code> failed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,10 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  *  <p>The provided token is not valid.</p>
  *
  * @throws {@link TaskDoesNotExist} (client fault)
+ *  <p>The activity does not exist.</p>
  *
  * @throws {@link TaskTimedOut} (client fault)
+ *  <p>The task token has either expired or the task associated with the token has already been closed.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>

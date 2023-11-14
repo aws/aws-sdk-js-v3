@@ -22,6 +22,7 @@ export * from "./ListStateMachineVersionsCommand";
 export * from "./ListStateMachinesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PublishStateMachineVersionCommand";
+export * from "./RedriveExecutionCommand";
 export * from "./SendTaskFailureCommand";
 export * from "./SendTaskHeartbeatCommand";
 export * from "./SendTaskSuccessCommand";

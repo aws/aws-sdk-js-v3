@@ -66,7 +66,7 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //   events: [ // HistoryEventList // required
  * //     { // HistoryEvent
  * //       timestamp: new Date("TIMESTAMP"), // required
- * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded", // required
+ * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded" || "ExecutionRedriven" || "MapRunRedriven", // required
  * //       id: Number("long"), // required
  * //       previousEventId: Number("long"),
  * //       activityFailedEventDetails: { // ActivityFailedEventDetails
@@ -179,6 +179,9 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //         error: "STRING_VALUE",
  * //         cause: "STRING_VALUE",
  * //       },
+ * //       executionRedrivenEventDetails: { // ExecutionRedrivenEventDetails
+ * //         redriveCount: Number("int"),
+ * //       },
  * //       mapStateStartedEventDetails: { // MapStateStartedEventDetails
  * //         length: Number("int"),
  * //       },
@@ -243,6 +246,10 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //       mapRunFailedEventDetails: { // MapRunFailedEventDetails
  * //         error: "STRING_VALUE",
  * //         cause: "STRING_VALUE",
+ * //       },
+ * //       mapRunRedrivenEventDetails: { // MapRunRedrivenEventDetails
+ * //         mapRunArn: "STRING_VALUE",
+ * //         redriveCount: Number("int"),
  * //       },
  * //     },
  * //   ],
