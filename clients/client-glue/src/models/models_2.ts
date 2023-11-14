@@ -15,6 +15,7 @@ import {
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSource,
+  Column,
   ConnectionInput,
   ConnectionsList,
   ConnectorDataSource,
@@ -24,8 +25,6 @@ import {
   CsvSerdeOption,
   CustomCode,
   CustomEntityType,
-  DatabaseInput,
-  DataQualityTargetTable,
   DataSource,
   DirectJDBCSource,
   DirectKafkaSource,
@@ -100,6 +99,11 @@ import {
   SparkSQL,
   Spigot,
   SplitFields,
+  StorageDescriptor,
+  TableOptimizer,
+  TableOptimizerConfiguration,
+  TableOptimizerRun,
+  TableOptimizerType,
   TaskStatusType,
   Trigger,
   Union,
@@ -110,8 +114,10 @@ import {
 import {
   ColumnStatistics,
   Compatibility,
+  DatabaseInput,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
+  DataQualityTargetTable,
   JobBookmarkEntry,
   PrincipalType,
   RegistryId,
@@ -124,13 +130,519 @@ import {
   Segment,
   Session,
   Statement,
-  Table,
+  TableIdentifier,
   TableInput,
   TransformFilterCriteria,
   TransformParameters,
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>A table that points to an entity outside the Glue Data Catalog.</p>
+ */
+export interface FederatedTable {
+  /**
+   * @public
+   * <p>A unique identifier for the federated table.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier for the federated database.</p>
+   */
+  DatabaseIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The name of the connection to the external metastore.</p>
+   */
+  ConnectionName?: string;
+}
+
+/**
+ * @public
+ * <p>Represents a collection of related data organized in columns and rows.</p>
+ */
+export interface Table {
+  /**
+   * @public
+   * <p>The table name. For Hive compatibility, this must be entirely
+   *       lowercase.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database where the table metadata resides.
+   *       For Hive compatibility, this must be all lowercase.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>A description of the table.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The owner of the table.</p>
+   */
+  Owner?: string;
+
+  /**
+   * @public
+   * <p>The time when the table definition was created in the Data Catalog.</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that the table was updated.</p>
+   */
+  UpdateTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that the table was accessed. This is usually taken from HDFS, and might not
+   *       be reliable.</p>
+   */
+  LastAccessTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that column statistics were computed for this table.</p>
+   */
+  LastAnalyzedTime?: Date;
+
+  /**
+   * @public
+   * <p>The retention time for this table.</p>
+   */
+  Retention?: number;
+
+  /**
+   * @public
+   * <p>A storage descriptor containing information about the physical storage
+   *       of this table.</p>
+   */
+  StorageDescriptor?: StorageDescriptor;
+
+  /**
+   * @public
+   * <p>A list of columns by which the table is partitioned. Only primitive
+   *       types are supported as partition keys.</p>
+   *          <p>When you create a table used by Amazon Athena, and you do not specify any
+   *         <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to
+   *       an empty list. For example:</p>
+   *          <p>
+   *             <code>"PartitionKeys": []</code>
+   *          </p>
+   */
+  PartitionKeys?: Column[];
+
+  /**
+   * @public
+   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.
+   *     If the table is a <code>VIRTUAL_VIEW</code>, certain Athena configuration encoded in base64.</p>
+   */
+  ViewOriginalText?: string;
+
+  /**
+   * @public
+   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.</p>
+   */
+  ViewExpandedText?: string;
+
+  /**
+   * @public
+   * <p>The type of this table.
+   *       Glue will create tables with the <code>EXTERNAL_TABLE</code> type.
+   *       Other services, such as Athena, may create tables with additional table types.
+   *     </p>
+   *          <p>Glue related table types:</p>
+   *          <dl>
+   *             <dt>EXTERNAL_TABLE</dt>
+   *             <dd>
+   *                <p>Hive compatible attribute - indicates a non-Hive managed table.</p>
+   *             </dd>
+   *             <dt>GOVERNED</dt>
+   *             <dd>
+   *                <p>Used by Lake Formation.
+   *             The Glue Data Catalog understands <code>GOVERNED</code>.</p>
+   *             </dd>
+   *          </dl>
+   */
+  TableType?: string;
+
+  /**
+   * @public
+   * <p>These key-value pairs define properties associated with the table.</p>
+   */
+  Parameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The person or entity who created the table.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the table has been registered with Lake Formation.</p>
+   */
+  IsRegisteredWithLakeFormation?: boolean;
+
+  /**
+   * @public
+   * <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
+   */
+  TargetTable?: TableIdentifier;
+
+  /**
+   * @public
+   * <p>The ID of the Data Catalog in which the table resides.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the table version.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * @public
+   * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedTable?: FederatedTable;
+}
+
+/**
+ * @public
+ */
+export interface GetTableResponse {
+  /**
+   * @public
+   * <p>The <code>Table</code> object that defines the specified table.</p>
+   */
+  Table?: Table;
+}
+
+/**
+ * @public
+ */
+export interface GetTableOptimizerRequest {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of table optimizer.</p>
+   */
+  Type: TableOptimizerType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableOptimizerResponse {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName?: string;
+
+  /**
+   * @public
+   * <p>The optimizer associated with the specified table.</p>
+   */
+  TableOptimizer?: TableOptimizer;
+}
+
+/**
+ * @public
+ */
+export interface GetTablesRequest {
+  /**
+   * @public
+   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The database in the catalog whose tables to list. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>A regular expression pattern. If present, only those tables
+   *       whose names match the pattern are returned.</p>
+   */
+  Expression?: string;
+
+  /**
+   * @public
+   * <p>A continuation token, included if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of tables to return in a single response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The transaction ID at which to read the table contents.</p>
+   */
+  TransactionId?: string;
+
+  /**
+   * @public
+   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
+   */
+  QueryAsOfTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetTablesResponse {
+  /**
+   * @public
+   * <p>A list of the requested <code>Table</code> objects.</p>
+   */
+  TableList?: Table[];
+
+  /**
+   * @public
+   * <p>A continuation token, present if the current list segment is
+   *       not the last.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTableVersionRequest {
+  /**
+   * @public
+   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The database in the catalog in which the table resides. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table. For Hive compatibility,
+   *       this name is entirely lowercase.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>
+   */
+  VersionId?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies a version of a table.</p>
+ */
+export interface TableVersion {
+  /**
+   * @public
+   * <p>The table in question.</p>
+   */
+  Table?: Table;
+
+  /**
+   * @public
+   * <p>The ID value that identifies this table version. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
+   */
+  VersionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTableVersionResponse {
+  /**
+   * @public
+   * <p>The requested table version.</p>
+   */
+  TableVersion?: TableVersion;
+}
+
+/**
+ * @public
+ */
+export interface GetTableVersionsRequest {
+  /**
+   * @public
+   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The database in the catalog in which the table resides. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>A continuation token, if this is not the first call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of table versions to return in one response.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetTableVersionsResponse {
+  /**
+   * @public
+   * <p>A list of strings identifying available versions of the
+   *       specified table.</p>
+   */
+  TableVersions?: TableVersion[];
+
+  /**
+   * @public
+   * <p>A continuation token, if the list of available versions does
+   *       not include the last one.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTagsRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTagsResponse {
+  /**
+   * @public
+   * <p>The requested tags.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetTriggerRequest {
+  /**
+   * @public
+   * <p>The name of the trigger to retrieve.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTriggerResponse {
+  /**
+   * @public
+   * <p>The requested trigger definition.</p>
+   */
+  Trigger?: Trigger;
+}
+
+/**
+ * @public
+ */
+export interface GetTriggersRequest {
+  /**
+   * @public
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The name of the job to retrieve triggers for. The trigger that can start this job is
+   *       returned, and if there is no such trigger, all triggers are returned.</p>
+   */
+  DependentJobName?: string;
+
+  /**
+   * @public
+   * <p>The maximum size of the response.</p>
+   */
+  MaxResults?: number;
+}
 
 /**
  * @public
@@ -2110,6 +2622,82 @@ export interface ListStatementsResponse {
    * <p>A continuation token, if not all statements have yet been returned.</p>
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTableOptimizerRunsRequest {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   */
+  Type: TableOptimizerType | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of optimizer runs to return on each call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTableOptimizerRunsResponse {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName?: string;
+
+  /**
+   * @public
+   * <p>A continuation token for paginating the returned list of optimizer runs, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>A list of the optimizer runs associated with a table.</p>
+   */
+  TableOptimizerRuns?: TableOptimizerRun[];
 }
 
 /**
@@ -4930,6 +5518,46 @@ export interface UpdateTableRequest {
  * @public
  */
 export interface UpdateTableResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateTableOptimizerRequest {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   */
+  Type: TableOptimizerType | undefined;
+
+  /**
+   * @public
+   * <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
+   */
+  TableOptimizerConfiguration: TableOptimizerConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTableOptimizerResponse {}
 
 /**
  * @public

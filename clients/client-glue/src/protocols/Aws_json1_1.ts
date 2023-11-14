@@ -57,6 +57,10 @@ import {
 } from "../commands/BatchGetDevEndpointsCommand";
 import { BatchGetJobsCommandInput, BatchGetJobsCommandOutput } from "../commands/BatchGetJobsCommand";
 import { BatchGetPartitionCommandInput, BatchGetPartitionCommandOutput } from "../commands/BatchGetPartitionCommand";
+import {
+  BatchGetTableOptimizerCommandInput,
+  BatchGetTableOptimizerCommandOutput,
+} from "../commands/BatchGetTableOptimizerCommand";
 import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "../commands/BatchGetTriggersCommand";
 import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "../commands/BatchGetWorkflowsCommand";
 import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "../commands/BatchStopJobRunCommand";
@@ -108,6 +112,10 @@ import {
 } from "../commands/CreateSecurityConfigurationCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "../commands/CreateSessionCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
+import {
+  CreateTableOptimizerCommandInput,
+  CreateTableOptimizerCommandOutput,
+} from "../commands/CreateTableOptimizerCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "../commands/CreateTriggerCommand";
 import {
   CreateUserDefinedFunctionCommandInput,
@@ -159,6 +167,10 @@ import {
 } from "../commands/DeleteSecurityConfigurationCommand";
 import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "../commands/DeleteSessionCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
+import {
+  DeleteTableOptimizerCommandInput,
+  DeleteTableOptimizerCommandOutput,
+} from "../commands/DeleteTableOptimizerCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "../commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "../commands/DeleteTriggerCommand";
 import {
@@ -261,6 +273,7 @@ import {
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
 import { GetStatementCommandInput, GetStatementCommandOutput } from "../commands/GetStatementCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "../commands/GetTableCommand";
+import { GetTableOptimizerCommandInput, GetTableOptimizerCommandOutput } from "../commands/GetTableOptimizerCommand";
 import { GetTablesCommandInput, GetTablesCommandOutput } from "../commands/GetTablesCommand";
 import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "../commands/GetTableVersionCommand";
 import { GetTableVersionsCommandInput, GetTableVersionsCommandOutput } from "../commands/GetTableVersionsCommand";
@@ -329,6 +342,10 @@ import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/L
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "../commands/ListSchemaVersionsCommand";
 import { ListSessionsCommandInput, ListSessionsCommandOutput } from "../commands/ListSessionsCommand";
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "../commands/ListStatementsCommand";
+import {
+  ListTableOptimizerRunsCommandInput,
+  ListTableOptimizerRunsCommandOutput,
+} from "../commands/ListTableOptimizerRunsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "../commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
@@ -439,6 +456,10 @@ import {
   UpdateSourceControlFromJobCommandOutput,
 } from "../commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
+import {
+  UpdateTableOptimizerCommandInput,
+  UpdateTableOptimizerCommandOutput,
+} from "../commands/UpdateTableOptimizerCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "../commands/UpdateTriggerCommand";
 import {
   UpdateUserDefinedFunctionCommandInput,
@@ -477,10 +498,14 @@ import {
   BatchGetJobsRequest,
   BatchGetPartitionRequest,
   BatchGetPartitionResponse,
+  BatchGetTableOptimizerEntry,
+  BatchGetTableOptimizerRequest,
+  BatchGetTableOptimizerResponse,
   BatchGetTriggersRequest,
   BatchGetWorkflowsRequest,
   BatchGetWorkflowsResponse,
   BatchStopJobRunRequest,
+  BatchTableOptimizer,
   BatchUpdatePartitionRequest,
   BatchUpdatePartitionRequestEntry,
   Blueprint,
@@ -514,18 +539,12 @@ import {
   CreateCrawlerRequest,
   CreateCsvClassifierRequest,
   CreateCustomEntityTypeRequest,
-  CreateDatabaseRequest,
-  CreateDataQualityRulesetRequest,
   CreateGrokClassifierRequest,
   CreateJsonClassifierRequest,
   CreateXMLClassifierRequest,
   CustomCode,
-  DatabaseIdentifier,
-  DatabaseInput,
-  DataLakePrincipal,
   DataQualityResult,
   DataQualityRuleResult,
-  DataQualityTargetTable,
   DataSource,
   Datatype,
   DeltaTarget,
@@ -547,8 +566,6 @@ import {
   EvaluateDataQualityMultiFrame,
   EventBatchingCondition,
   ExecutionProperty,
-  FederatedDatabase,
-  FederatedResourceAlreadyExistsException,
   FederationSourceException,
   FederationSourceRetryableException,
   FillMissingValues,
@@ -610,7 +627,6 @@ import {
   PostgreSQLCatalogSource,
   PostgreSQLCatalogTarget,
   Predicate,
-  PrincipalPermissions,
   Recipe,
   RecipeReference,
   RecrawlPolicy,
@@ -657,6 +673,9 @@ import {
   SqlAlias,
   StorageDescriptor,
   StreamingDataPreviewOptions,
+  TableOptimizer,
+  TableOptimizerConfiguration,
+  TableOptimizerRun,
   TransformConfigParameter,
   Union,
   UpsertRedshiftTargetOptions,
@@ -684,6 +703,8 @@ import {
   ConnectionPasswordEncryption,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateDatabaseRequest,
+  CreateDataQualityRulesetRequest,
   CreateDevEndpointRequest,
   CreateDevEndpointResponse,
   CreateMLTransformRequest,
@@ -696,14 +717,19 @@ import {
   CreateSecurityConfigurationResponse,
   CreateSessionRequest,
   CreateSessionResponse,
+  CreateTableOptimizerRequest,
   CreateTableRequest,
   CreateTriggerRequest,
   CreateUserDefinedFunctionRequest,
   CreateWorkflowRequest,
   CsvClassifier,
   Database,
+  DatabaseIdentifier,
+  DatabaseInput,
   DataCatalogEncryptionSettings,
+  DataLakePrincipal,
   DataQualityEvaluationRunAdditionalRunOptions,
+  DataQualityTargetTable,
   DateColumnStatisticsData,
   DecimalColumnStatisticsData,
   DecimalNumber,
@@ -727,6 +753,7 @@ import {
   DeleteSchemaVersionsInput,
   DeleteSecurityConfigurationRequest,
   DeleteSessionRequest,
+  DeleteTableOptimizerRequest,
   DeleteTableRequest,
   DeleteTableVersionRequest,
   DeleteTriggerRequest,
@@ -736,6 +763,8 @@ import {
   EncryptionAtRest,
   EncryptionConfiguration,
   EvaluationMetrics,
+  FederatedDatabase,
+  FederatedResourceAlreadyExistsException,
   FindMatchesMetrics,
   FindMatchesParameters,
   GetBlueprintRequest,
@@ -824,16 +853,6 @@ import {
   GetStatementRequest,
   GetStatementResponse,
   GetTableRequest,
-  GetTableResponse,
-  GetTablesRequest,
-  GetTablesResponse,
-  GetTableVersionRequest,
-  GetTableVersionResponse,
-  GetTableVersionsRequest,
-  GetTableVersionsResponse,
-  GetTagsRequest,
-  GetTriggerRequest,
-  GetTriggersRequest,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
@@ -846,6 +865,7 @@ import {
   MLUserDataEncryption,
   OpenTableFormatInput,
   PartitionIndex,
+  PrincipalPermissions,
   RegistryId,
   ResourceUri,
   S3Encryption,
@@ -858,10 +878,8 @@ import {
   SessionCommand,
   Statement,
   StringColumnStatisticsData,
-  Table,
   TableIdentifier,
   TableInput,
-  TableVersion,
   TaskRun,
   TaskRunFilterCriteria,
   TaskRunSortCriteria,
@@ -895,6 +913,18 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetTableOptimizerRequest,
+  GetTableOptimizerResponse,
+  GetTableResponse,
+  GetTablesRequest,
+  GetTablesResponse,
+  GetTableVersionRequest,
+  GetTableVersionResponse,
+  GetTableVersionsRequest,
+  GetTableVersionsResponse,
+  GetTagsRequest,
+  GetTriggerRequest,
+  GetTriggersRequest,
   GetUnfilteredPartitionMetadataRequest,
   GetUnfilteredPartitionMetadataResponse,
   GetUnfilteredPartitionsMetadataRequest,
@@ -940,6 +970,8 @@ import {
   ListSessionsResponse,
   ListStatementsRequest,
   ListStatementsResponse,
+  ListTableOptimizerRunsRequest,
+  ListTableOptimizerRunsResponse,
   ListTriggersRequest,
   ListWorkflowsRequest,
   Mapping,
@@ -981,6 +1013,8 @@ import {
   StopSessionRequest,
   StopTriggerRequest,
   StopWorkflowRunRequest,
+  Table,
+  TableVersion,
   TagResourceRequest,
   TriggerUpdate,
   UnfilteredPartition,
@@ -1007,6 +1041,7 @@ import {
   UpdateRegistryInput,
   UpdateSchemaInput,
   UpdateSourceControlFromJobRequest,
+  UpdateTableOptimizerRequest,
   UpdateTableRequest,
   UpdateTriggerRequest,
   UpdateUserDefinedFunctionRequest,
@@ -1167,6 +1202,19 @@ export const se_BatchGetPartitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetPartition");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1BatchGetTableOptimizerCommand
+ */
+export const se_BatchGetTableOptimizerCommand = async (
+  input: BatchGetTableOptimizerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetTableOptimizer");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1524,6 +1572,19 @@ export const se_CreateTableCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateTableOptimizerCommand
+ */
+export const se_CreateTableOptimizerCommand = async (
+  input: CreateTableOptimizerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateTableOptimizer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateTriggerCommand
  */
 export const se_CreateTriggerCommand = async (
@@ -1830,6 +1891,19 @@ export const se_DeleteTableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTable");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteTableOptimizerCommand
+ */
+export const se_DeleteTableOptimizerCommand = async (
+  input: DeleteTableOptimizerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteTableOptimizer");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2535,6 +2609,19 @@ export const se_GetTableCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetTableOptimizerCommand
+ */
+export const se_GetTableOptimizerCommand = async (
+  input: GetTableOptimizerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetTableOptimizer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetTablesCommand
  */
 export const se_GetTablesCommand = async (
@@ -2945,6 +3032,19 @@ export const se_ListStatementsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListStatements");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTableOptimizerRunsCommand
+ */
+export const se_ListTableOptimizerRunsCommand = async (
+  input: ListTableOptimizerRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTableOptimizerRuns");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3597,6 +3697,19 @@ export const se_UpdateTableCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
   body = JSON.stringify(se_UpdateTableRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateTableOptimizerCommand
+ */
+export const se_UpdateTableOptimizerCommand = async (
+  input: UpdateTableOptimizerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateTableOptimizer");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4292,6 +4405,52 @@ const de_BatchGetPartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue#OperationTimeoutException":
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1BatchGetTableOptimizerCommand
+ */
+export const de_BatchGetTableOptimizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetTableOptimizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_BatchGetTableOptimizerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetTableOptimizerResponse(data, context);
+  const response: BatchGetTableOptimizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetTableOptimizerCommandError
+ */
+const de_BatchGetTableOptimizerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetTableOptimizerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5902,6 +6061,64 @@ const de_CreateTableCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateTableOptimizerCommand
+ */
+export const de_CreateTableOptimizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTableOptimizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateTableOptimizerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateTableOptimizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateTableOptimizerCommandError
+ */
+const de_CreateTableOptimizerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTableOptimizerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1CreateTriggerCommand
  */
 export const de_CreateTriggerCommand = async (
@@ -7253,6 +7470,61 @@ const de_DeleteTableCommandError = async (
     case "ResourceNotReadyException":
     case "com.amazonaws.glue#ResourceNotReadyException":
       throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteTableOptimizerCommand
+ */
+export const de_DeleteTableOptimizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTableOptimizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteTableOptimizerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteTableOptimizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTableOptimizerCommandError
+ */
+const de_DeleteTableOptimizerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTableOptimizerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10240,6 +10512,61 @@ const de_GetTableCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetTableOptimizerCommand
+ */
+export const de_GetTableOptimizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableOptimizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetTableOptimizerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTableOptimizerResponse(data, context);
+  const response: GetTableOptimizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetTableOptimizerCommandError
+ */
+const de_GetTableOptimizerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableOptimizerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetTablesCommand
  */
 export const de_GetTablesCommand = async (
@@ -12016,6 +12343,61 @@ const de_ListStatementsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue#OperationTimeoutException":
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListTableOptimizerRunsCommand
+ */
+export const de_ListTableOptimizerRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTableOptimizerRunsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListTableOptimizerRunsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTableOptimizerRunsResponse(data, context);
+  const response: ListTableOptimizerRunsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTableOptimizerRunsCommandError
+ */
+const de_ListTableOptimizerRunsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTableOptimizerRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -14933,6 +15315,61 @@ const de_UpdateTableCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateTableOptimizerCommand
+ */
+export const de_UpdateTableOptimizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTableOptimizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateTableOptimizerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateTableOptimizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateTableOptimizerCommandError
+ */
+const de_UpdateTableOptimizerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTableOptimizerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateTriggerCommand
  */
 export const de_UpdateTriggerCommand = async (
@@ -15696,6 +16133,12 @@ const se_BatchCreatePartitionRequest = (input: BatchCreatePartitionRequest, cont
 
 // se_BatchGetPartitionValueList omitted.
 
+// se_BatchGetTableOptimizerEntries omitted.
+
+// se_BatchGetTableOptimizerEntry omitted.
+
+// se_BatchGetTableOptimizerRequest omitted.
+
 // se_BatchGetTriggersRequest omitted.
 
 // se_BatchGetWorkflowsRequest omitted.
@@ -16135,6 +16578,8 @@ const se_CreateSessionRequest = (input: CreateSessionRequest, context: __SerdeCo
   });
 };
 
+// se_CreateTableOptimizerRequest omitted.
+
 /**
  * serializeAws_json1_1CreateTableRequest
  */
@@ -16320,6 +16765,8 @@ const se_DecimalNumber = (input: DecimalNumber, context: __SerdeContext): any =>
 // se_DeleteSecurityConfigurationRequest omitted.
 
 // se_DeleteSessionRequest omitted.
+
+// se_DeleteTableOptimizerRequest omitted.
 
 // se_DeleteTableRequest omitted.
 
@@ -16605,6 +17052,8 @@ const se_GetPartitionsRequest = (input: GetPartitionsRequest, context: __SerdeCo
 // se_GetSessionRequest omitted.
 
 // se_GetStatementRequest omitted.
+
+// se_GetTableOptimizerRequest omitted.
 
 /**
  * serializeAws_json1_1GetTableRequest
@@ -16897,6 +17346,8 @@ const se_ListMLTransformsRequest = (input: ListMLTransformsRequest, context: __S
 // se_ListSessionsRequest omitted.
 
 // se_ListStatementsRequest omitted.
+
+// se_ListTableOptimizerRunsRequest omitted.
 
 // se_ListTriggersRequest omitted.
 
@@ -17308,6 +17759,8 @@ const se_TableInput = (input: TableInput, context: __SerdeContext): any => {
   });
 };
 
+// se_TableOptimizerConfiguration omitted.
+
 // se_TagKeysList omitted.
 
 // se_TagResourceRequest omitted.
@@ -17509,6 +17962,8 @@ const se_UpdatePartitionRequest = (input: UpdatePartitionRequest, context: __Ser
 
 // se_UpdateSourceControlFromJobRequest omitted.
 
+// se_UpdateTableOptimizerRequest omitted.
+
 /**
  * serializeAws_json1_1UpdateTableRequest
  */
@@ -17665,6 +18120,20 @@ const de_BatchGetPartitionResponse = (output: any, context: __SerdeContext): Bat
 
 // de_BatchGetPartitionValueList omitted.
 
+// de_BatchGetTableOptimizerError omitted.
+
+// de_BatchGetTableOptimizerErrors omitted.
+
+/**
+ * deserializeAws_json1_1BatchGetTableOptimizerResponse
+ */
+const de_BatchGetTableOptimizerResponse = (output: any, context: __SerdeContext): BatchGetTableOptimizerResponse => {
+  return take(output, {
+    Failures: _json,
+    TableOptimizers: (_: any) => de_BatchTableOptimizers(_, context),
+  }) as any;
+};
+
 // de_BatchGetTriggersResponse omitted.
 
 /**
@@ -17686,6 +18155,30 @@ const de_BatchGetWorkflowsResponse = (output: any, context: __SerdeContext): Bat
 // de_BatchStopJobRunSuccessfulSubmission omitted.
 
 // de_BatchStopJobRunSuccessfulSubmissionList omitted.
+
+/**
+ * deserializeAws_json1_1BatchTableOptimizer
+ */
+const de_BatchTableOptimizer = (output: any, context: __SerdeContext): BatchTableOptimizer => {
+  return take(output, {
+    catalogId: __expectString,
+    databaseName: __expectString,
+    tableName: __expectString,
+    tableOptimizer: (_: any) => de_TableOptimizer(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1BatchTableOptimizers
+ */
+const de_BatchTableOptimizers = (output: any, context: __SerdeContext): BatchTableOptimizer[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BatchTableOptimizer(entry, context);
+    });
+  return retVal;
+};
 
 // de_BatchUpdatePartitionFailureEntry omitted.
 
@@ -18357,6 +18850,8 @@ const de_CreateSessionResponse = (output: any, context: __SerdeContext): CreateS
   }) as any;
 };
 
+// de_CreateTableOptimizerResponse omitted.
+
 // de_CreateTableResponse omitted.
 
 // de_CreateTriggerResponse omitted.
@@ -18692,6 +19187,8 @@ const de_DecimalNumber = (output: any, context: __SerdeContext): DecimalNumber =
 // de_DeleteSecurityConfigurationResponse omitted.
 
 // de_DeleteSessionResponse omitted.
+
+// de_DeleteTableOptimizerResponse omitted.
 
 // de_DeleteTableResponse omitted.
 
@@ -19422,6 +19919,18 @@ const de_GetStatementResponse = (output: any, context: __SerdeContext): GetState
 };
 
 /**
+ * deserializeAws_json1_1GetTableOptimizerResponse
+ */
+const de_GetTableOptimizerResponse = (output: any, context: __SerdeContext): GetTableOptimizerResponse => {
+  return take(output, {
+    CatalogId: __expectString,
+    DatabaseName: __expectString,
+    TableName: __expectString,
+    TableOptimizer: (_: any) => de_TableOptimizer(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetTableResponse
  */
 const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
@@ -19970,6 +20479,19 @@ const de_ListStatementsResponse = (output: any, context: __SerdeContext): ListSt
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1ListTableOptimizerRunsResponse
+ */
+const de_ListTableOptimizerRunsResponse = (output: any, context: __SerdeContext): ListTableOptimizerRunsResponse => {
+  return take(output, {
+    CatalogId: __expectString,
+    DatabaseName: __expectString,
+    NextToken: __expectString,
+    TableName: __expectString,
+    TableOptimizerRuns: (_: any) => de_TableOptimizerRuns(_, context),
+  }) as any;
+};
+
 // de_ListTriggersResponse omitted.
 
 // de_ListWorkflowsResponse omitted.
@@ -20255,6 +20777,8 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 // de_ResumeWorkflowRunResponse omitted.
 
 // de_RulesetNames omitted.
+
+// de_RunMetrics omitted.
 
 // de_RunStatementResponse omitted.
 
@@ -20580,6 +21104,44 @@ const de_TableList = (output: any, context: __SerdeContext): Table[] => {
 };
 
 /**
+ * deserializeAws_json1_1TableOptimizer
+ */
+const de_TableOptimizer = (output: any, context: __SerdeContext): TableOptimizer => {
+  return take(output, {
+    configuration: _json,
+    lastRun: (_: any) => de_TableOptimizerRun(_, context),
+    type: __expectString,
+  }) as any;
+};
+
+// de_TableOptimizerConfiguration omitted.
+
+/**
+ * deserializeAws_json1_1TableOptimizerRun
+ */
+const de_TableOptimizerRun = (output: any, context: __SerdeContext): TableOptimizerRun => {
+  return take(output, {
+    endTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    error: __expectString,
+    eventType: __expectString,
+    metrics: _json,
+    startTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TableOptimizerRuns
+ */
+const de_TableOptimizerRuns = (output: any, context: __SerdeContext): TableOptimizerRun[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TableOptimizerRun(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1TableVersion
  */
 const de_TableVersion = (output: any, context: __SerdeContext): TableVersion => {
@@ -20751,6 +21313,8 @@ const de_UpdateColumnStatisticsForTableResponse = (
 // de_UpdateSchemaResponse omitted.
 
 // de_UpdateSourceControlFromJobResponse omitted.
+
+// de_UpdateTableOptimizerResponse omitted.
 
 // de_UpdateTableResponse omitted.
 

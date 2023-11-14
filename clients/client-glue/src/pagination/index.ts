@@ -44,6 +44,7 @@ export * from "./ListRegistriesPaginator";
 export * from "./ListSchemaVersionsPaginator";
 export * from "./ListSchemasPaginator";
 export * from "./ListSessionsPaginator";
+export * from "./ListTableOptimizerRunsPaginator";
 export * from "./ListTriggersPaginator";
 export * from "./ListWorkflowsPaginator";
 export * from "./SearchTablesPaginator";

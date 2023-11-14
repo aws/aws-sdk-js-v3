@@ -83,6 +83,10 @@ import {
 } from "./commands/BatchGetDevEndpointsCommand";
 import { BatchGetJobsCommandInput, BatchGetJobsCommandOutput } from "./commands/BatchGetJobsCommand";
 import { BatchGetPartitionCommandInput, BatchGetPartitionCommandOutput } from "./commands/BatchGetPartitionCommand";
+import {
+  BatchGetTableOptimizerCommandInput,
+  BatchGetTableOptimizerCommandOutput,
+} from "./commands/BatchGetTableOptimizerCommand";
 import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "./commands/BatchGetTriggersCommand";
 import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "./commands/BatchGetWorkflowsCommand";
 import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "./commands/BatchStopJobRunCommand";
@@ -134,6 +138,10 @@ import {
 } from "./commands/CreateSecurityConfigurationCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import {
+  CreateTableOptimizerCommandInput,
+  CreateTableOptimizerCommandOutput,
+} from "./commands/CreateTableOptimizerCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
 import {
   CreateUserDefinedFunctionCommandInput,
@@ -185,6 +193,10 @@ import {
 } from "./commands/DeleteSecurityConfigurationCommand";
 import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import {
+  DeleteTableOptimizerCommandInput,
+  DeleteTableOptimizerCommandOutput,
+} from "./commands/DeleteTableOptimizerCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "./commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
 import {
@@ -287,6 +299,7 @@ import {
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { GetTableOptimizerCommandInput, GetTableOptimizerCommandOutput } from "./commands/GetTableOptimizerCommand";
 import { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "./commands/GetTableVersionCommand";
 import { GetTableVersionsCommandInput, GetTableVersionsCommandOutput } from "./commands/GetTableVersionsCommand";
@@ -355,6 +368,10 @@ import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/Li
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
 import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
+import {
+  ListTableOptimizerRunsCommandInput,
+  ListTableOptimizerRunsCommandOutput,
+} from "./commands/ListTableOptimizerRunsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
@@ -465,6 +482,10 @@ import {
   UpdateSourceControlFromJobCommandOutput,
 } from "./commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
+import {
+  UpdateTableOptimizerCommandInput,
+  UpdateTableOptimizerCommandOutput,
+} from "./commands/UpdateTableOptimizerCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
 import {
   UpdateUserDefinedFunctionCommandInput,
@@ -498,6 +519,7 @@ export type ServiceInputTypes =
   | BatchGetDevEndpointsCommandInput
   | BatchGetJobsCommandInput
   | BatchGetPartitionCommandInput
+  | BatchGetTableOptimizerCommandInput
   | BatchGetTriggersCommandInput
   | BatchGetWorkflowsCommandInput
   | BatchStopJobRunCommandInput
@@ -525,6 +547,7 @@ export type ServiceInputTypes =
   | CreateSecurityConfigurationCommandInput
   | CreateSessionCommandInput
   | CreateTableCommandInput
+  | CreateTableOptimizerCommandInput
   | CreateTriggerCommandInput
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
@@ -549,6 +572,7 @@ export type ServiceInputTypes =
   | DeleteSecurityConfigurationCommandInput
   | DeleteSessionCommandInput
   | DeleteTableCommandInput
+  | DeleteTableOptimizerCommandInput
   | DeleteTableVersionCommandInput
   | DeleteTriggerCommandInput
   | DeleteUserDefinedFunctionCommandInput
@@ -603,6 +627,7 @@ export type ServiceInputTypes =
   | GetSessionCommandInput
   | GetStatementCommandInput
   | GetTableCommandInput
+  | GetTableOptimizerCommandInput
   | GetTableVersionCommandInput
   | GetTableVersionsCommandInput
   | GetTablesCommandInput
@@ -635,6 +660,7 @@ export type ServiceInputTypes =
   | ListSchemasCommandInput
   | ListSessionsCommandInput
   | ListStatementsCommandInput
+  | ListTableOptimizerRunsCommandInput
   | ListTriggersCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
@@ -685,6 +711,7 @@ export type ServiceInputTypes =
   | UpdateSchemaCommandInput
   | UpdateSourceControlFromJobCommandInput
   | UpdateTableCommandInput
+  | UpdateTableOptimizerCommandInput
   | UpdateTriggerCommandInput
   | UpdateUserDefinedFunctionCommandInput
   | UpdateWorkflowCommandInput;
@@ -705,6 +732,7 @@ export type ServiceOutputTypes =
   | BatchGetDevEndpointsCommandOutput
   | BatchGetJobsCommandOutput
   | BatchGetPartitionCommandOutput
+  | BatchGetTableOptimizerCommandOutput
   | BatchGetTriggersCommandOutput
   | BatchGetWorkflowsCommandOutput
   | BatchStopJobRunCommandOutput
@@ -732,6 +760,7 @@ export type ServiceOutputTypes =
   | CreateSecurityConfigurationCommandOutput
   | CreateSessionCommandOutput
   | CreateTableCommandOutput
+  | CreateTableOptimizerCommandOutput
   | CreateTriggerCommandOutput
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
@@ -756,6 +785,7 @@ export type ServiceOutputTypes =
   | DeleteSecurityConfigurationCommandOutput
   | DeleteSessionCommandOutput
   | DeleteTableCommandOutput
+  | DeleteTableOptimizerCommandOutput
   | DeleteTableVersionCommandOutput
   | DeleteTriggerCommandOutput
   | DeleteUserDefinedFunctionCommandOutput
@@ -810,6 +840,7 @@ export type ServiceOutputTypes =
   | GetSessionCommandOutput
   | GetStatementCommandOutput
   | GetTableCommandOutput
+  | GetTableOptimizerCommandOutput
   | GetTableVersionCommandOutput
   | GetTableVersionsCommandOutput
   | GetTablesCommandOutput
@@ -842,6 +873,7 @@ export type ServiceOutputTypes =
   | ListSchemasCommandOutput
   | ListSessionsCommandOutput
   | ListStatementsCommandOutput
+  | ListTableOptimizerRunsCommandOutput
   | ListTriggersCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
@@ -892,6 +924,7 @@ export type ServiceOutputTypes =
   | UpdateSchemaCommandOutput
   | UpdateSourceControlFromJobCommandOutput
   | UpdateTableCommandOutput
+  | UpdateTableOptimizerCommandOutput
   | UpdateTriggerCommandOutput
   | UpdateUserDefinedFunctionCommandOutput
   | UpdateWorkflowCommandOutput;

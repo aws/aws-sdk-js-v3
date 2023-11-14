@@ -303,6 +303,14 @@ BatchGetPartition
 </details>
 <details>
 <summary>
+BatchGetTableOptimizer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/batchgettableoptimizercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/batchgettableoptimizercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/batchgettableoptimizercommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchGetTriggers
 </summary>
 
@@ -519,6 +527,14 @@ CreateTable
 </details>
 <details>
 <summary>
+CreateTableOptimizer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/createtableoptimizercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/createtableoptimizercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/createtableoptimizercommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateTrigger
 </summary>
 
@@ -707,6 +723,14 @@ DeleteTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/deletetablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/deletetablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/deletetablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTableOptimizer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/deletetableoptimizercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/deletetableoptimizercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/deletetableoptimizercommandoutput.html)
 
 </details>
 <details>
@@ -1143,6 +1167,14 @@ GetTable
 </details>
 <details>
 <summary>
+GetTableOptimizer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/gettableoptimizercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/gettableoptimizercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/gettableoptimizercommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetTables
 </summary>
 
@@ -1395,6 +1427,14 @@ ListStatements
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/liststatementscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/liststatementscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/liststatementscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTableOptimizerRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/listtableoptimizerrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/listtableoptimizerrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/listtableoptimizerrunscommandoutput.html)
 
 </details>
 <details>
@@ -1795,6 +1835,14 @@ UpdateTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/updatetablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/updatetablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/updatetablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateTableOptimizer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/updatetableoptimizercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/updatetableoptimizercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/updatetableoptimizercommandoutput.html)
 
 </details>
 <details>

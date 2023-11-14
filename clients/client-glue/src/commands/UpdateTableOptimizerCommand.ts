@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTagsRequest, GetTagsResponse } from "../models/models_2";
-import { de_GetTagsCommand, se_GetTagsCommand } from "../protocols/Aws_json1_1";
+import { UpdateTableOptimizerRequest, UpdateTableOptimizerResponse } from "../models/models_2";
+import { de_UpdateTableOptimizerCommand, se_UpdateTableOptimizerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -25,43 +25,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetTagsCommand}.
+ * The input for {@link UpdateTableOptimizerCommand}.
  */
-export interface GetTagsCommandInput extends GetTagsRequest {}
+export interface UpdateTableOptimizerCommandInput extends UpdateTableOptimizerRequest {}
 /**
  * @public
  *
- * The output of {@link GetTagsCommand}.
+ * The output of {@link UpdateTableOptimizerCommand}.
  */
-export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
+export interface UpdateTableOptimizerCommandOutput extends UpdateTableOptimizerResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves a list of tags associated with a resource.</p>
+ * <p>Updates the configuration for an existing table optimizer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetTagsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetTagsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateTableOptimizerCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, UpdateTableOptimizerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = { // GetTagsRequest
- *   ResourceArn: "STRING_VALUE", // required
+ * const input = { // UpdateTableOptimizerRequest
+ *   CatalogId: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   Type: "compaction", // required
+ *   TableOptimizerConfiguration: { // TableOptimizerConfiguration
+ *     roleArn: "STRING_VALUE",
+ *     enabled: true || false,
+ *   },
  * };
- * const command = new GetTagsCommand(input);
+ * const command = new UpdateTableOptimizerCommand(input);
  * const response = await client.send(command);
- * // { // GetTagsResponse
- * //   Tags: { // TagsMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetTagsCommandInput - {@link GetTagsCommandInput}
- * @returns {@link GetTagsCommandOutput}
- * @see {@link GetTagsCommandInput} for command's `input` shape.
- * @see {@link GetTagsCommandOutput} for command's `response` shape.
+ * @param UpdateTableOptimizerCommandInput - {@link UpdateTableOptimizerCommandInput}
+ * @returns {@link UpdateTableOptimizerCommandOutput}
+ * @see {@link UpdateTableOptimizerCommandInput} for command's `input` shape.
+ * @see {@link UpdateTableOptimizerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
@@ -72,14 +78,15 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
- * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
- *
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
-export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommandOutput, GlueClientResolvedConfig> {
+export class UpdateTableOptimizerCommand extends $Command<
+  UpdateTableOptimizerCommandInput,
+  UpdateTableOptimizerCommandOutput,
+  GlueClientResolvedConfig
+> {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,7 +99,7 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
   /**
    * @public
    */
-  constructor(readonly input: GetTagsCommandInput) {
+  constructor(readonly input: UpdateTableOptimizerCommandInput) {
     super();
   }
 
@@ -103,15 +110,17 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetTagsCommandInput, GetTagsCommandOutput> {
+  ): Handler<UpdateTableOptimizerCommandInput, UpdateTableOptimizerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetTagsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateTableOptimizerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GlueClient";
-    const commandName = "GetTagsCommand";
+    const commandName = "UpdateTableOptimizerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -120,7 +129,7 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSGlue",
-        operation: "GetTags",
+        operation: "UpdateTableOptimizer",
       },
     };
     const { requestHandler } = configuration;
@@ -134,14 +143,14 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
   /**
    * @internal
    */
-  private serialize(input: GetTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetTagsCommand(input, context);
+  private serialize(input: UpdateTableOptimizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateTableOptimizerCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
-    return de_GetTagsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableOptimizerCommandOutput> {
+    return de_UpdateTableOptimizerCommand(output, context);
   }
 }

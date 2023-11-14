@@ -6906,6 +6906,267 @@ export class InvalidStateException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const TableOptimizerType = {
+  COMPACTION: "compaction",
+} as const;
+
+/**
+ * @public
+ */
+export type TableOptimizerType = (typeof TableOptimizerType)[keyof typeof TableOptimizerType];
+
+/**
+ * @public
+ * <p>Represents a table optimizer to retrieve in the <code>BatchGetTableOptimizer</code> operation.</p>
+ */
+export interface BatchGetTableOptimizerEntry {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  catalogId?: string;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  databaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  tableName?: string;
+
+  /**
+   * @public
+   * <p>The type of table optimizer.</p>
+   */
+  type?: TableOptimizerType;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetTableOptimizerRequest {
+  /**
+   * @public
+   * <p>A list of <code>BatchGetTableOptimizerEntry</code> objects specifying the table optimizers to retrieve.</p>
+   */
+  Entries: BatchGetTableOptimizerEntry[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains details on one of the errors in the error list returned by the <code>BatchGetTableOptimizer</code> operation.</p>
+ */
+export interface BatchGetTableOptimizerError {
+  /**
+   * @public
+   * <p>An <code>ErrorDetail</code> object containing code and message details about the error.</p>
+   */
+  error?: ErrorDetail;
+
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  catalogId?: string;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  databaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  tableName?: string;
+
+  /**
+   * @public
+   * <p>The type of table optimizer.</p>
+   */
+  type?: TableOptimizerType;
+}
+
+/**
+ * @public
+ * <p>Contains details on the configuration of a table optimizer. You pass this configuration when creating or updating a table optimizer.</p>
+ */
+export interface TableOptimizerConfiguration {
+  /**
+   * @public
+   * <p>A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>Whether table optimization is enabled. </p>
+   */
+  enabled?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TableOptimizerEventType = {
+  COMPLETED: "completed",
+  FAILED: "failed",
+  IN_PROGRESS: "in_progress",
+  STARTING: "starting",
+} as const;
+
+/**
+ * @public
+ */
+export type TableOptimizerEventType = (typeof TableOptimizerEventType)[keyof typeof TableOptimizerEventType];
+
+/**
+ * @public
+ * <p>Metrics for the optimizer run.</p>
+ */
+export interface RunMetrics {
+  /**
+   * @public
+   * <p>The number of bytes removed by the compaction job run.</p>
+   */
+  NumberOfBytesCompacted?: string;
+
+  /**
+   * @public
+   * <p>The number of files removed by the compaction job run.</p>
+   */
+  NumberOfFilesCompacted?: string;
+
+  /**
+   * @public
+   * <p>The number of DPU hours consumed by the job.</p>
+   */
+  NumberOfDpus?: string;
+
+  /**
+   * @public
+   * <p>The duration of the job in hours.</p>
+   */
+  JobDurationInHour?: string;
+}
+
+/**
+ * @public
+ * <p>Contains details for a table optimizer run.</p>
+ */
+export interface TableOptimizerRun {
+  /**
+   * @public
+   * <p>An event type representing the status of the table optimizer run.</p>
+   */
+  eventType?: TableOptimizerEventType;
+
+  /**
+   * @public
+   * <p>Represents the epoch timestamp at which the compaction job was started within Lake Formation.</p>
+   */
+  startTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>Represents the epoch timestamp at which the compaction job ended.</p>
+   */
+  endTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>A <code>RunMetrics</code> object containing metrics for the optimizer run.</p>
+   */
+  metrics?: RunMetrics;
+
+  /**
+   * @public
+   * <p>An error that occured during the optimizer run.</p>
+   */
+  error?: string;
+}
+
+/**
+ * @public
+ * <p>Contains details about an optimizer associated with a table.</p>
+ */
+export interface TableOptimizer {
+  /**
+   * @public
+   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   */
+  type?: TableOptimizerType;
+
+  /**
+   * @public
+   * <p>A <code>TableOptimizerConfiguration</code> object that was specified when creating or updating a table optimizer.</p>
+   */
+  configuration?: TableOptimizerConfiguration;
+
+  /**
+   * @public
+   * <p>A <code>TableOptimizerRun</code> object representing the last run of the table optimizer.</p>
+   */
+  lastRun?: TableOptimizerRun;
+}
+
+/**
+ * @public
+ * <p>Contains details for one of the table optimizers returned by the <code>BatchGetTableOptimizer</code> operation.</p>
+ */
+export interface BatchTableOptimizer {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  catalogId?: string;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  databaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  tableName?: string;
+
+  /**
+   * @public
+   * <p>A <code>TableOptimizer</code> object that contains details on the configuration and last run of a table optimzer.</p>
+   */
+  tableOptimizer?: TableOptimizer;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetTableOptimizerResponse {
+  /**
+   * @public
+   * <p>A list of <code>BatchTableOptimizer</code> objects.</p>
+   */
+  TableOptimizers?: BatchTableOptimizer[];
+
+  /**
+   * @public
+   * <p>A list of errors from the operation.</p>
+   */
+  Failures?: BatchGetTableOptimizerError[];
+}
+
+/**
+ * @public
  */
 export interface BatchGetTriggersRequest {
   /**
@@ -8969,264 +9230,3 @@ export const Permission = {
  * @public
  */
 export type Permission = (typeof Permission)[keyof typeof Permission];
-
-/**
- * @public
- * <p>The Lake Formation principal.</p>
- */
-export interface DataLakePrincipal {
-  /**
-   * @public
-   * <p>An identifier for the Lake Formation principal.</p>
-   */
-  DataLakePrincipalIdentifier?: string;
-}
-
-/**
- * @public
- * <p>Permissions granted to a principal.</p>
- */
-export interface PrincipalPermissions {
-  /**
-   * @public
-   * <p>The principal who is granted permissions.</p>
-   */
-  Principal?: DataLakePrincipal;
-
-  /**
-   * @public
-   * <p>The permissions that are granted to the principal.</p>
-   */
-  Permissions?: Permission[];
-}
-
-/**
- * @public
- * <p>A database that points to an entity outside the Glue Data Catalog.</p>
- */
-export interface FederatedDatabase {
-  /**
-   * @public
-   * <p>A unique identifier for the federated database.</p>
-   */
-  Identifier?: string;
-
-  /**
-   * @public
-   * <p>The name of the connection to the external metastore.</p>
-   */
-  ConnectionName?: string;
-}
-
-/**
- * @public
- * <p>A structure that describes a target database for resource linking.</p>
- */
-export interface DatabaseIdentifier {
-  /**
-   * @public
-   * <p>The ID of the Data Catalog in which the database resides.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The name of the catalog database.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * @public
-   * <p>Region of the target database.</p>
-   */
-  Region?: string;
-}
-
-/**
- * @public
- * <p>The structure used to create or update a database.</p>
- */
-export interface DatabaseInput {
-  /**
-   * @public
-   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
-   *       stored.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>A description of the database.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The location of the database (for example, an HDFS path). </p>
-   */
-  LocationUri?: string;
-
-  /**
-   * @public
-   * <p>These key-value pairs define parameters and properties
-   *       of the database.</p>
-   *          <p>These key-value pairs define parameters and properties of the database.</p>
-   */
-  Parameters?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
-   */
-  CreateTableDefaultPermissions?: PrincipalPermissions[];
-
-  /**
-   * @public
-   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
-   */
-  TargetDatabase?: DatabaseIdentifier;
-
-  /**
-   * @public
-   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
-   */
-  FederatedDatabase?: FederatedDatabase;
-}
-
-/**
- * @public
- */
-export interface CreateDatabaseRequest {
-  /**
-   * @public
-   * <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The metadata for the database.</p>
-   */
-  DatabaseInput: DatabaseInput | undefined;
-
-  /**
-   * @public
-   * <p>The tags you assign to the database.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreateDatabaseResponse {}
-
-/**
- * @public
- * <p>A federated resource already exists.</p>
- */
-export class FederatedResourceAlreadyExistsException extends __BaseException {
-  readonly name: "FederatedResourceAlreadyExistsException" = "FederatedResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>The message describing the problem.</p>
-   */
-  Message?: string;
-
-  /**
-   * @public
-   * <p>The associated Glue resource already exists.</p>
-   */
-  AssociatedGlueResource?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FederatedResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "FederatedResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FederatedResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-    this.AssociatedGlueResource = opts.AssociatedGlueResource;
-  }
-}
-
-/**
- * @public
- * <p>An object representing an Glue table.</p>
- */
-export interface DataQualityTargetTable {
-  /**
-   * @public
-   * <p>The name of the Glue table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the database where the Glue table exists.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * @public
-   * <p>The catalog id where the Glue table exists.</p>
-   */
-  CatalogId?: string;
-}
-
-/**
- * @public
- */
-export interface CreateDataQualityRulesetRequest {
-  /**
-   * @public
-   * <p>A unique name for the data quality ruleset.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>A description of the data quality ruleset.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
-   */
-  Ruleset: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of tags applied to the data quality ruleset.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>A target table associated with the data quality ruleset.</p>
-   */
-  TargetTable?: DataQualityTargetTable;
-
-  /**
-   * @public
-   * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- */
-export interface CreateDataQualityRulesetResponse {
-  /**
-   * @public
-   * <p>A unique name for the data quality ruleset.</p>
-   */
-  Name?: string;
-}

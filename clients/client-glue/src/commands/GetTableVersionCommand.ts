@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTableVersionRequest, GetTableVersionResponse } from "../models/models_1";
+import { GetTableVersionRequest, GetTableVersionResponse } from "../models/models_2";
 import { de_GetTableVersionCommand, se_GetTableVersionCommand } from "../protocols/Aws_json1_1";
 
 /**

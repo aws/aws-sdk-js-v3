@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateDataQualityRulesetRequest, CreateDataQualityRulesetResponse } from "../models/models_0";
+import { CreateDataQualityRulesetRequest, CreateDataQualityRulesetResponse } from "../models/models_1";
 import { de_CreateDataQualityRulesetCommand, se_CreateDataQualityRulesetCommand } from "../protocols/Aws_json1_1";
 
 /**

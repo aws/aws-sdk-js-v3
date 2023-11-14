@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTriggersRequest } from "../models/models_1";
-import { GetTriggersResponse } from "../models/models_2";
+import { GetTriggersRequest, GetTriggersResponse } from "../models/models_2";
 import { de_GetTriggersCommand, se_GetTriggersCommand } from "../protocols/Aws_json1_1";
 
 /**
