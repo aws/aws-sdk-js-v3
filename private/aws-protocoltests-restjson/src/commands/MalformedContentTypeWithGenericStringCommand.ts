@@ -70,16 +70,11 @@ export class MalformedContentTypeWithGenericStringCommand extends $Command<
   MalformedContentTypeWithGenericStringCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: MalformedContentTypeWithGenericStringCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -135,7 +130,4 @@ export class MalformedContentTypeWithGenericStringCommand extends $Command<
   ): Promise<MalformedContentTypeWithGenericStringCommandOutput> {
     return de_MalformedContentTypeWithGenericStringCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

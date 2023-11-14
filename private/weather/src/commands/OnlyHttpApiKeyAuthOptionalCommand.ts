@@ -62,16 +62,11 @@ export class OnlyHttpApiKeyAuthOptionalCommand extends $Command<
   OnlyHttpApiKeyAuthOptionalCommandOutput,
   WeatherClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: OnlyHttpApiKeyAuthOptionalCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -124,7 +119,4 @@ export class OnlyHttpApiKeyAuthOptionalCommand extends $Command<
   ): Promise<OnlyHttpApiKeyAuthOptionalCommandOutput> {
     throw new Error("No supported protocol was found");
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

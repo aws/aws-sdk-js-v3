@@ -70,16 +70,11 @@ export class MalformedTimestampBodyDefaultCommand extends $Command<
   MalformedTimestampBodyDefaultCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: MalformedTimestampBodyDefaultCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -132,7 +127,4 @@ export class MalformedTimestampBodyDefaultCommand extends $Command<
   ): Promise<MalformedTimestampBodyDefaultCommandOutput> {
     return de_MalformedTimestampBodyDefaultCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

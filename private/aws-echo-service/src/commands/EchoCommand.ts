@@ -67,16 +67,11 @@ export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
  *
  */
 export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, EchoServiceClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: EchoCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -126,7 +121,4 @@ export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, E
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EchoCommandOutput> {
     return de_EchoCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

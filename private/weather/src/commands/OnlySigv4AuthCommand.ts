@@ -63,16 +63,11 @@ export class OnlySigv4AuthCommand extends $Command<
   OnlySigv4AuthCommandOutput,
   WeatherClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: OnlySigv4AuthCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -123,7 +118,4 @@ export class OnlySigv4AuthCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OnlySigv4AuthCommandOutput> {
     throw new Error("No supported protocol was found");
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

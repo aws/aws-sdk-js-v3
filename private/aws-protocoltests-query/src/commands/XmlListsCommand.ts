@@ -122,16 +122,11 @@ export class XmlListsCommand extends $Command<
   XmlListsCommandOutput,
   QueryProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: XmlListsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class XmlListsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
     return de_XmlListsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

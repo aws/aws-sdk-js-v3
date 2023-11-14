@@ -75,16 +75,11 @@ export class NestedStructuresCommand extends $Command<
   NestedStructuresCommandOutput,
   EC2ProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: NestedStructuresCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -134,7 +129,4 @@ export class NestedStructuresCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NestedStructuresCommandOutput> {
     return de_NestedStructuresCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

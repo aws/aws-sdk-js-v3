@@ -73,16 +73,11 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
   ConstantAndVariableQueryStringCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: ConstantAndVariableQueryStringCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -138,7 +133,4 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
   ): Promise<ConstantAndVariableQueryStringCommandOutput> {
     return de_ConstantAndVariableQueryStringCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -73,16 +73,11 @@ export class XmlMapWithXmlNamespaceCommand extends $Command<
   XmlMapWithXmlNamespaceCommandOutput,
   RestXmlProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: XmlMapWithXmlNamespaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -132,7 +127,4 @@ export class XmlMapWithXmlNamespaceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlMapWithXmlNamespaceCommandOutput> {
     return de_XmlMapWithXmlNamespaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

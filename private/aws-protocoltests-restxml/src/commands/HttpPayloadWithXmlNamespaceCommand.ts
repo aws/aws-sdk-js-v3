@@ -75,16 +75,11 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
   HttpPayloadWithXmlNamespaceCommandOutput,
   RestXmlProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: HttpPayloadWithXmlNamespaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -137,7 +132,4 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
   ): Promise<HttpPayloadWithXmlNamespaceCommandOutput> {
     return de_HttpPayloadWithXmlNamespaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

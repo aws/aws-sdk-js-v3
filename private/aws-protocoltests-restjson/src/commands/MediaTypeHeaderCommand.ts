@@ -69,16 +69,11 @@ export class MediaTypeHeaderCommand extends $Command<
   MediaTypeHeaderCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: MediaTypeHeaderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -128,7 +123,4 @@ export class MediaTypeHeaderCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MediaTypeHeaderCommandOutput> {
     return de_MediaTypeHeaderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

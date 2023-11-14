@@ -69,16 +69,11 @@ export class HttpStringPayloadCommand extends $Command<
   HttpStringPayloadCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: HttpStringPayloadCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -128,7 +123,4 @@ export class HttpStringPayloadCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpStringPayloadCommandOutput> {
     return de_HttpStringPayloadCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

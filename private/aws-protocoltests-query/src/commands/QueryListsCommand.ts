@@ -88,16 +88,11 @@ export class QueryListsCommand extends $Command<
   QueryListsCommandOutput,
   QueryProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: QueryListsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -147,7 +142,4 @@ export class QueryListsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryListsCommandOutput> {
     return de_QueryListsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }
