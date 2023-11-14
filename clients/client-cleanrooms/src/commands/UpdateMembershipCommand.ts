@@ -86,6 +86,11 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * //       },
  * //       roleArn: "STRING_VALUE",
  * //     },
+ * //     paymentConfiguration: { // MembershipPaymentConfiguration
+ * //       queryCompute: { // MembershipQueryComputePaymentConfig
+ * //         isResponsible: true || false, // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *

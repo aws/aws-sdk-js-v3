@@ -65,6 +65,11 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       membershipId: "STRING_VALUE",
  * //       membershipArn: "STRING_VALUE",
+ * //       paymentConfiguration: { // PaymentConfiguration
+ * //         queryCompute: { // QueryComputePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

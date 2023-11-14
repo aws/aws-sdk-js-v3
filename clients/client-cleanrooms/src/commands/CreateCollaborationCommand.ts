@@ -52,6 +52,11 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *         "STRING_VALUE",
  *       ],
  *       displayName: "STRING_VALUE", // required
+ *       paymentConfiguration: { // PaymentConfiguration
+ *         queryCompute: { // QueryComputePaymentConfig
+ *           isResponsible: true || false, // required
+ *         },
+ *       },
  *     },
  *   ],
  *   name: "STRING_VALUE", // required
@@ -69,6 +74,11 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *   queryLogStatus: "STRING_VALUE", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   creatorPaymentConfiguration: {
+ *     queryCompute: {
+ *       isResponsible: true || false, // required
+ *     },
  *   },
  * };
  * const command = new CreateCollaborationCommand(input);

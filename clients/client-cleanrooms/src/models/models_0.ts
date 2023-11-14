@@ -1501,35 +1501,83 @@ export type MemberAbility = (typeof MemberAbility)[keyof typeof MemberAbility];
 
 /**
  * @public
+ * <p>An object
+ *          representing the collaboration member's payment responsibilities set by the collaboration
+ *          creator for query compute costs.</p>
+ */
+export interface QueryComputePaymentConfig {
+  /**
+   * @public
+   * <p>Indicates whether
+   *          the collaboration creator has configured the collaboration member to pay for query compute
+   *          costs (<code>TRUE</code>) or has not configured the collaboration member to pay for query
+   *          compute costs (<code>FALSE</code>).</p>
+   *          <p>Exactly one member can be configured to pay for query compute costs. An error is
+   *          returned if the collaboration creator sets a <code>TRUE</code> value for more than one
+   *          member in the collaboration. </p>
+   *          <p>If the collaboration creator hasn't specified anyone as the member paying for query
+   *          compute costs, then the member who can query is the default payer. An error is returned if
+   *          the collaboration creator sets a <code>FALSE</code> value for the member who can
+   *          query.</p>
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>An object
+ *          representing the collaboration member's payment responsibilities set by the collaboration
+ *          creator.</p>
+ */
+export interface PaymentConfiguration {
+  /**
+   * @public
+   * <p>The collaboration
+   *          member's payment responsibilities set by the collaboration creator for query compute
+   *          costs.</p>
+   */
+  queryCompute: QueryComputePaymentConfig | undefined;
+}
+
+/**
+ * @public
  * <p>The settings for client-side encryption for cryptographic computing.</p>
  */
 export interface DataEncryptionMetadata {
   /**
    * @public
-   * <p>Indicates whether encrypted tables can contain cleartext data (true) or are to
-   *          cryptographically process every column (false).</p>
+   * <p>Indicates whether encrypted tables can contain cleartext data
+   *             (<code>TRUE</code>)
+   *          or are to cryptographically process every column
+   *             (<code>FALSE</code>).</p>
    */
   allowCleartext: boolean | undefined;
 
   /**
    * @public
-   * <p>Indicates whether Fingerprint columns can contain duplicate entries (true) or are to
-   *          contain only non-repeated values (false).</p>
+   * <p>Indicates whether Fingerprint columns can contain duplicate entries
+   *             (<code>TRUE</code>)
+   *          or are to contain only non-repeated values
+   *             (<code>FALSE</code>).</p>
    */
   allowDuplicates: boolean | undefined;
 
   /**
    * @public
    * <p>Indicates whether Fingerprint columns can be joined on any other Fingerprint column with
-   *          a different name (true) or can only be joined on Fingerprint columns of the same name
-   *          (false).</p>
+   *          a different name
+   *             (<code>TRUE</code>)
+   *          or can only be joined on Fingerprint columns of the same name
+   *             (<code>FALSE</code>).</p>
    */
   allowJoinsOnColumnsWithDifferentNames: boolean | undefined;
 
   /**
    * @public
-   * <p>Indicates whether NULL values are to be copied as NULL to encrypted tables (true) or
-   *          cryptographically processed (false).</p>
+   * <p>Indicates whether NULL values are to be copied as NULL to encrypted tables
+   *             (<code>TRUE</code>)
+   *          or cryptographically processed
+   *             (<code>FALSE</code>).</p>
    */
   preserveNulls: boolean | undefined;
 }
@@ -1557,6 +1605,16 @@ export interface MemberSpecification {
    * <p>The member's display name.</p>
    */
   displayName: string | undefined;
+
+  /**
+   * @public
+   * <p>The collaboration
+   *          member's payment responsibilities set by the collaboration creator.
+   *          </p>
+   *          <p>If the collaboration creator hasn't speciﬁed anyone as the member paying for query
+   *          compute costs, then the member who can query is the default payer.</p>
+   */
+  paymentConfiguration?: PaymentConfiguration;
 }
 
 /**
@@ -1630,6 +1688,15 @@ export interface CreateCollaborationInput {
    *          to this resource.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The collaboration
+   *          creator's payment responsibilities set by the collaboration creator. </p>
+   *          <p>If the collaboration creator hasn't specified anyone as the member paying for query
+   *          compute costs, then the member who can query is the default payer.</p>
+   */
+  creatorPaymentConfiguration?: PaymentConfiguration;
 }
 
 /**
@@ -2173,8 +2240,8 @@ export interface MemberSummary {
 
   /**
    * @public
-   * <p>The status of the member. Valid values are `INVITED`, `ACTIVE`, `LEFT`, and
-   *          `REMOVED`.</p>
+   * <p>The status of the member.
+   *          </p>
    */
   status: MemberStatus | undefined;
 
@@ -2213,6 +2280,14 @@ export interface MemberSummary {
    * <p>The unique ARN for the member's associated membership, if present.</p>
    */
   membershipArn?: string;
+
+  /**
+   * @public
+   * <p>The collaboration
+   *          member's payment responsibilities set by the collaboration creator.
+   *          </p>
+   */
+  paymentConfiguration: PaymentConfiguration | undefined;
 }
 
 /**
@@ -3411,8 +3486,7 @@ export interface ProtectedQueryS3OutputConfiguration {
 
 /**
  * @public
- * <p>Contains
- *          configurations for protected query results.</p>
+ * <p>Contains configurations for protected query results.</p>
  */
 export type MembershipProtectedQueryOutputConfiguration =
   | MembershipProtectedQueryOutputConfiguration.S3Member
@@ -3452,24 +3526,67 @@ export namespace MembershipProtectedQueryOutputConfiguration {
 
 /**
  * @public
- * <p>Contains
- *          configurations for protected query results.</p>
+ * <p>Contains configurations for protected query results.</p>
  */
 export interface MembershipProtectedQueryResultConfiguration {
   /**
    * @public
-   * <p>Configuration for
-   *          protected query results.</p>
+   * <p>Configuration for protected query results.</p>
    */
   outputConfiguration: MembershipProtectedQueryOutputConfiguration | undefined;
 
   /**
    * @public
-   * <p>The unique ARN for
-   *          an IAM role that is used by Clean Rooms to write protected query results to the
-   *          result location, given by the member who can receive results.</p>
+   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected
+   *          query results to the result location, given by the member who can receive results.</p>
    */
   roleArn?: string;
+}
+
+/**
+ * @public
+ * <p>An object
+ *          representing the payment responsibilities accepted by the collaboration member for query
+ *          compute costs.</p>
+ */
+export interface MembershipQueryComputePaymentConfig {
+  /**
+   * @public
+   * <p>Indicates whether
+   *          the collaboration member has accepted to pay for query compute costs (<code>TRUE</code>) or
+   *          has not accepted to pay for query compute costs
+   *          (<code>FALSE</code>).</p>
+   *          <p>If the collaboration creator has not specified anyone to pay for query compute costs,
+   *          then the member who can query is the default payer. </p>
+   *          <p>An error message is returned for the following reasons: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you set the value to <code>FALSE</code> but you are responsible to pay for
+   *                query compute costs. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for
+   *                query compute costs. </p>
+   *             </li>
+   *          </ul>
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>An object
+ *          representing the payment responsibilities accepted by the collaboration
+ *          member.</p>
+ */
+export interface MembershipPaymentConfiguration {
+  /**
+   * @public
+   * <p>The payment
+   *          responsibilities accepted by the collaboration member for query compute
+   *          costs.</p>
+   */
+  queryCompute: MembershipQueryComputePaymentConfig | undefined;
 }
 
 /**
@@ -3499,7 +3616,7 @@ export interface CreateMembershipInput {
   /**
    * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
-   *          collaboration.</p>
+   *          membership.</p>
    */
   queryLogStatus: MembershipQueryLogStatus | undefined;
 
@@ -3519,6 +3636,16 @@ export interface CreateMembershipInput {
    *          results.</p>
    */
   defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
+
+  /**
+   * @public
+   * <p>The payment
+   *          responsibilities accepted by the collaboration member.</p>
+   *          <p>Not required if the collaboration member has the member ability to run queries. </p>
+   *          <p>Required if the collaboration member doesn't have the member ability to run queries but
+   *          is configured as a payer by the collaboration creator. </p>
+   */
+  paymentConfiguration?: MembershipPaymentConfiguration;
 }
 
 /**
@@ -3598,8 +3725,8 @@ export interface Membership {
 
   /**
    * @public
-   * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and
-   *          `COLLABORATION_DELETED`.</p>
+   * <p>The status of the
+   *          membership.</p>
    */
   status: MembershipStatus | undefined;
 
@@ -3612,17 +3739,23 @@ export interface Membership {
   /**
    * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
-   *          collaboration.</p>
+   *          membership.</p>
    */
   queryLogStatus: MembershipQueryLogStatus | undefined;
 
   /**
    * @public
-   * <p>The default
-   *          protected query result configuration as specified by the member who can receive
-   *          results.</p>
+   * <p>The default protected query result configuration as specified by the member who can
+   *          receive results.</p>
    */
   defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
+
+  /**
+   * @public
+   * <p>The payment
+   *          responsibilities accepted by the collaboration member.</p>
+   */
+  paymentConfiguration: MembershipPaymentConfiguration | undefined;
 }
 
 /**
@@ -3711,14 +3844,12 @@ export interface ProtectedQueryError {
 
 /**
  * @public
- * <p>Details about the
- *          member who received the query result.</p>
+ * <p>Details about the member who received the query result.</p>
  */
 export interface ProtectedQuerySingleMemberOutput {
   /**
    * @public
-   * <p>The Amazon Web Services account
-   *          ID of the member in the collaboration who can receive results for the
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the
    *          query.</p>
    */
   accountId: string | undefined;
@@ -3761,8 +3892,7 @@ export namespace ProtectedQueryOutput {
 
   /**
    * @public
-   * <p>The list of member
-   *          Amazon Web Services account(s) that received the results of the query. </p>
+   * <p>The list of member Amazon Web Services account(s) that received the results of the query. </p>
    */
   export interface MemberListMember {
     s3?: never;
@@ -4075,8 +4205,8 @@ export interface MembershipSummary {
 
   /**
    * @public
-   * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and
-   *          `COLLABORATION_DELETED`.</p>
+   * <p>The status of the
+   *          membership.</p>
    */
   status: MembershipStatus | undefined;
 
@@ -4085,6 +4215,13 @@ export interface MembershipSummary {
    * <p>The abilities granted to the collaboration member.</p>
    */
   memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * @public
+   * <p>The payment
+   *          responsibilities accepted by the collaboration member.</p>
+   */
+  paymentConfiguration: MembershipPaymentConfiguration | undefined;
 }
 
 /**
@@ -4259,15 +4396,14 @@ export interface UpdateMembershipInput {
   /**
    * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
-   *          collaboration.</p>
+   *          membership.</p>
    */
   queryLogStatus?: MembershipQueryLogStatus;
 
   /**
    * @public
-   * <p>The default
-   *          protected query result configuration as specified by the member who can receive
-   *          results.</p>
+   * <p>The default protected query result configuration as specified by the member who can
+   *          receive results.</p>
    */
   defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
 }

@@ -78,7 +78,7 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * //       description: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
- * //       type: "STRING_VALUE", // required
+ * //       type: "TABLE", // required
  * //     },
  * //   ],
  * //   errors: [ // BatchGetSchemaErrorList // required

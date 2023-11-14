@@ -186,17 +186,21 @@ import {
   JoinOperator,
   MemberAbility,
   Membership,
+  MembershipPaymentConfiguration,
   MembershipProtectedQueryOutputConfiguration,
   MembershipProtectedQueryResultConfiguration,
+  MembershipQueryComputePaymentConfig,
   MembershipSummary,
   MemberSpecification,
   MemberSummary,
+  PaymentConfiguration,
   ProtectedQuery,
   ProtectedQueryOutputConfiguration,
   ProtectedQueryResultConfiguration,
   ProtectedQueryS3OutputConfiguration,
   ProtectedQuerySQLParameters,
   ProtectedQuerySummary,
+  QueryComputePaymentConfig,
   ResourceNotFoundException,
   ScalarFunctions,
   Schema,
@@ -346,6 +350,7 @@ export const se_CreateCollaborationCommand = async (
     take(input, {
       creatorDisplayName: [],
       creatorMemberAbilities: (_) => _json(_),
+      creatorPaymentConfiguration: (_) => _json(_),
       dataEncryptionMetadata: (_) => _json(_),
       description: [],
       members: (_) => _json(_),
@@ -499,6 +504,7 @@ export const se_CreateMembershipCommand = async (
     take(input, {
       collaborationIdentifier: [],
       defaultResultConfiguration: (_) => _json(_),
+      paymentConfiguration: (_) => _json(_),
       queryLogStatus: [],
       tags: (_) => _json(_),
     })
@@ -4693,13 +4699,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_MemberList omitted.
 
+// se_MembershipPaymentConfiguration omitted.
+
 // se_MembershipProtectedQueryOutputConfiguration omitted.
 
 // se_MembershipProtectedQueryResultConfiguration omitted.
 
+// se_MembershipQueryComputePaymentConfig omitted.
+
 // se_MemberSpecification omitted.
 
 // se_ParameterMap omitted.
+
+// se_PaymentConfiguration omitted.
 
 // se_ProtectedQueryOutputConfiguration omitted.
 
@@ -4708,6 +4720,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ProtectedQueryS3OutputConfiguration omitted.
 
 // se_ProtectedQuerySQLParameters omitted.
+
+// se_QueryComputePaymentConfig omitted.
 
 // se_ScalarFunctionsList omitted.
 
@@ -5096,15 +5110,20 @@ const de_Membership = (output: any, context: __SerdeContext): Membership => {
     defaultResultConfiguration: _json,
     id: __expectString,
     memberAbilities: _json,
+    paymentConfiguration: _json,
     queryLogStatus: __expectString,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
+// de_MembershipPaymentConfiguration omitted.
+
 // de_MembershipProtectedQueryOutputConfiguration omitted.
 
 // de_MembershipProtectedQueryResultConfiguration omitted.
+
+// de_MembershipQueryComputePaymentConfig omitted.
 
 /**
  * deserializeAws_restJson1MembershipSummary
@@ -5120,6 +5139,7 @@ const de_MembershipSummary = (output: any, context: __SerdeContext): MembershipS
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     id: __expectString,
     memberAbilities: _json,
+    paymentConfiguration: _json,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -5148,6 +5168,7 @@ const de_MemberSummary = (output: any, context: __SerdeContext): MemberSummary =
     displayName: __expectString,
     membershipArn: __expectString,
     membershipId: __expectString,
+    paymentConfiguration: _json,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -5166,6 +5187,8 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
 };
 
 // de_ParameterMap omitted.
+
+// de_PaymentConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ProtectedQuery
@@ -5231,6 +5254,8 @@ const de_ProtectedQuerySummaryList = (output: any, context: __SerdeContext): Pro
     });
   return retVal;
 };
+
+// de_QueryComputePaymentConfig omitted.
 
 // de_QueryTables omitted.
 

@@ -75,6 +75,11 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * //       },
  * //       roleArn: "STRING_VALUE",
  * //     },
+ * //     paymentConfiguration: { // MembershipPaymentConfiguration
+ * //       queryCompute: { // MembershipQueryComputePaymentConfig
+ * //         isResponsible: true || false, // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *

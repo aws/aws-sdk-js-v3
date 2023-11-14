@@ -61,6 +61,11 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *     },
  *     roleArn: "STRING_VALUE",
  *   },
+ *   paymentConfiguration: { // MembershipPaymentConfiguration
+ *     queryCompute: { // MembershipQueryComputePaymentConfig
+ *       isResponsible: true || false, // required
+ *     },
+ *   },
  * };
  * const command = new CreateMembershipCommand(input);
  * const response = await client.send(command);
@@ -89,6 +94,11 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //         },
  * //       },
  * //       roleArn: "STRING_VALUE",
+ * //     },
+ * //     paymentConfiguration: { // MembershipPaymentConfiguration
+ * //       queryCompute: { // MembershipQueryComputePaymentConfig
+ * //         isResponsible: true || false, // required
+ * //       },
  * //     },
  * //   },
  * // };

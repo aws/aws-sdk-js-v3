@@ -68,6 +68,11 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * //       memberAbilities: [ // MemberAbilities // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       paymentConfiguration: { // MembershipPaymentConfiguration
+ * //         queryCompute: { // MembershipQueryComputePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };
