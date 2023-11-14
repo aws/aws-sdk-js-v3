@@ -105,9 +105,6 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
   CreateSourceRepositoryBranchCommandOutput,
   CodeCatalystClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateSourceRepositoryBranchCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
   ): Promise<CreateSourceRepositoryBranchCommandOutput> {
     return de_CreateSourceRepositoryBranchCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -98,9 +98,6 @@ export class ListAccessTokensCommand extends $Command<
   ListAccessTokensCommandOutput,
   CodeCatalystClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class ListAccessTokensCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAccessTokensCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ListAccessTokensCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessTokensCommandOutput> {
     return de_ListAccessTokensCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }
