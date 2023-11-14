@@ -37,9 +37,8 @@ export interface GetRevocationStatusCommandOutput extends GetRevocationStatusRes
 
 /**
  * @public
- * <p>Retrieves the
- * 			revocation status of one or more of the signing profile, signing job, and signing
- * 			certificate.</p>
+ * <p>Retrieves the revocation status of one or more of the signing profile, signing job,
+ * 			and signing certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

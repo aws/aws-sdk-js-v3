@@ -37,8 +37,7 @@ export interface SignPayloadCommandOutput extends SignPayloadResponse, __Metadat
 
 /**
  * @public
- * <p>Signs a binary
- * 			payload and returns a signature envelope.</p>
+ * <p>Signs a binary payload and returns a signature envelope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

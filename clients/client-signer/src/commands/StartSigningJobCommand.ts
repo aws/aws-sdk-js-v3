@@ -49,16 +49,15 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * 				           <p>Your S3 source bucket must be version enabled.</p>
  * 			         </li>
  *             <li>
- * 				           <p>You must create an S3 destination bucket. Code signing uses your S3 destination
- * 					bucket to write your signed code.</p>
+ * 				           <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to
+ * 					write your signed code.</p>
  * 			         </li>
  *             <li>
  * 				           <p>You specify the name of the source and destination buckets when calling the
  * 						<code>StartSigningJob</code> operation.</p>
  * 			         </li>
  *             <li>
- * 				           <p>You must also specify a request token that identifies your request to
- * 					code signing.</p>
+ * 				           <p>You must also specify a request token that identifies your request to Signer.</p>
  * 			         </li>
  *          </ul>
  * 		       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call

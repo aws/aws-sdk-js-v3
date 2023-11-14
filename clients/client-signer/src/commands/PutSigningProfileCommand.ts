@@ -37,7 +37,7 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
 
 /**
  * @public
- * <p>Creates a signing profile. A signing profile is a code signing template that can be used to
+ * <p>Creates a signing profile. A signing profile is a code-signing template that can be used to
  * 			carry out a pre-defined signing job.
  * 			</p>
  * @example
