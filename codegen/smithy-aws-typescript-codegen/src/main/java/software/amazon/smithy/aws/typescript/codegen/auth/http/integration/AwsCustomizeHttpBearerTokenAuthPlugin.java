@@ -51,8 +51,18 @@ public final class AwsCustomizeHttpBearerTokenAuthPlugin implements HttpAuthType
             .putDefaultIdentityProvider(LanguageTarget.NODE, w -> {
                 w.addDependency(AwsDependency.TOKEN_PROVIDERS);
                 w.addImport("nodeProvider", null, AwsDependency.TOKEN_PROVIDERS);
-                w.write("nodeProvider");
+                w.write("async (idProps) => await nodeProvider(idProps?.__config || {})(idProps)");
             })
+            // Add __config as an identityProperty for backward compatibility of the `nodeProvider` default provider
+            .propertiesExtractor(s -> w -> w.write("""
+                (__config, context) => ({
+                    /**
+                     * @internal
+                     */
+                    identityProperties: {
+                        __config,
+                    },
+                }),"""))
             .build();
         supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
     }
