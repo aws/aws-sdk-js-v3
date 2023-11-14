@@ -51,6 +51,11 @@ import {
 /**
  * @public
  */
+export interface UpdateContactFlowModuleContentResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateContactFlowModuleMetadataRequest {
   /**
    * @public

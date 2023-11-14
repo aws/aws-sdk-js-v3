@@ -2817,7 +2817,7 @@ export interface CreatePersistentContactAssociationRequest {
   /**
    * @public
    * <p>This is the contactId of the current contact that the
-   *    <code>CreatePersistentContactAssociation</code> API is being called from.</p>
+   *     <code>CreatePersistentContactAssociation</code> API is being called from.</p>
    */
   InitialContactId: string | undefined;
 
@@ -2827,16 +2827,17 @@ export interface CreatePersistentContactAssociationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat
-   *      contact of the specified past ended chat session. To use this type, provide the
-   *      <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In
-   *      this type, Amazon Connect determines what the most recent chat contact on the past ended
-   *      chat session and uses it to start a persistent chat. </p>
+   *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past
+   *      chat contact of the specified past ended chat session. To use this type, provide the
+   *       <code>initialContactId</code> of the past ended chat session in the
+   *       <code>sourceContactId</code> field. In this type, Amazon Connect determines what the most
+   *      recent chat contact on the past ended chat session and uses it to start a persistent chat.
+   *     </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the
-   *      <code>sourceContactId</code> field. </p>
+   *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided
+   *      in the <code>sourceContactId</code> field. </p>
    *             </li>
    *          </ul>
    *          <p>The actual contactId used for rehydration is provided in the response of this API.</p>

@@ -87,6 +87,11 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *     SourceContactId: "STRING_VALUE",
  *   },
  *   RelatedContactId: "STRING_VALUE",
+ *   SegmentAttributes: { // SegmentAttributes
+ *     "<keys>": { // SegmentAttributeValue
+ *       ValueString: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);

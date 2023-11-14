@@ -778,6 +778,7 @@ import {
   SecurityKey,
   SecurityProfilesSearchFilter,
   SecurityProfileSummary,
+  SegmentAttributeValue,
   SignInConfig,
   SignInDistribution,
   StringCondition,
@@ -5943,6 +5944,7 @@ export const se_StartChatContactCommand = async (
       ParticipantDetails: (_) => _json(_),
       PersistentChat: (_) => _json(_),
       RelatedContactId: [],
+      SegmentAttributes: (_) => _json(_),
       SupportedMessagingContentTypes: (_) => _json(_),
     })
   );
@@ -21653,6 +21655,10 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 };
 
 // se_SecurityProfilesSearchFilter omitted.
+
+// se_SegmentAttributes omitted.
+
+// se_SegmentAttributeValue omitted.
 
 // se_SendNotificationActionDefinition omitted.
 

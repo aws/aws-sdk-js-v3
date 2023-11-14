@@ -7608,6 +7608,19 @@ export interface PersistentChat {
 
 /**
  * @public
+ * <p>A value for a segment attribute. This is structured as a map where the key is
+ *     <code>valueString</code> and the value is a string.</p>
+ */
+export interface SegmentAttributeValue {
+  /**
+   * @public
+   * <p>The value of a segment attribute.</p>
+   */
+  ValueString?: string;
+}
+
+/**
+ * @public
  */
 export interface StartChatContactRequest {
   /**
@@ -7702,6 +7715,22 @@ export interface StartChatContactRequest {
    *          </note>
    */
   RelatedContactId?: string;
+
+  /**
+   * @public
+   * <p>A set of system defined key-value pairs stored on individual contact segments using an
+   *    attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in
+   *    flows.</p>
+   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
+   *          <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p>
+   *          <note>
+   *             <p>The types <code>application/vnd.amazonaws.connect.message.interactive</code> and
+   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code> must be present in the
+   *     SupportedMessagingContentTypes field of this API in order to set <code>SegmentAttributes</code> as \{<code>
+   *     "connect:Subtype": \{"valueString" : "connect:Guide" \}\}</code>.</p>
+   *          </note>
+   */
+  SegmentAttributes?: Record<string, SegmentAttributeValue>;
 }
 
 /**
@@ -8766,11 +8795,6 @@ export interface UpdateContactFlowModuleContentRequest {
    */
   Content: string | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateContactFlowModuleContentResponse {}
 
 /**
  * @internal
