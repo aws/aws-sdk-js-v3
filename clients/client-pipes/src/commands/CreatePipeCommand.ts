@@ -346,6 +346,24 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   LogConfiguration: { // PipeLogConfigurationParameters
+ *     S3LogDestination: { // S3LogDestinationParameters
+ *       BucketName: "STRING_VALUE", // required
+ *       BucketOwner: "STRING_VALUE", // required
+ *       OutputFormat: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     FirehoseLogDestination: { // FirehoseLogDestinationParameters
+ *       DeliveryStreamArn: "STRING_VALUE", // required
+ *     },
+ *     CloudwatchLogsLogDestination: { // CloudwatchLogsLogDestinationParameters
+ *       LogGroupArn: "STRING_VALUE", // required
+ *     },
+ *     Level: "STRING_VALUE", // required
+ *     IncludeExecutionData: [ // IncludeExecutionData
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreatePipeCommand(input);
  * const response = await client.send(command);

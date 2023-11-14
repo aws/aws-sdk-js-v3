@@ -45,6 +45,7 @@ import {
   BatchResourceRequirement,
   BatchRetryStrategy,
   CapacityProviderStrategyItem,
+  CloudwatchLogsLogDestinationParameters,
   ConflictException,
   DeadLetterConfig,
   EcsContainerOverride,
@@ -56,6 +57,8 @@ import {
   EcsTaskOverride,
   Filter,
   FilterCriteria,
+  FirehoseLogDestinationParameters,
+  IncludeExecutionDataOption,
   InternalException,
   MQBrokerAccessCredentials,
   MSKAccessCredentials,
@@ -64,6 +67,7 @@ import {
   Pipe,
   PipeEnrichmentHttpParameters,
   PipeEnrichmentParameters,
+  PipeLogConfigurationParameters,
   PipeSourceActiveMQBrokerParameters,
   PipeSourceDynamoDBStreamParameters,
   PipeSourceKinesisStreamParameters,
@@ -86,6 +90,7 @@ import {
   PipeTargetStateMachineParameters,
   PlacementConstraint,
   PlacementStrategy,
+  S3LogDestinationParameters,
   SageMakerPipelineParameter,
   SelfManagedKafkaAccessConfigurationCredentials,
   SelfManagedKafkaAccessConfigurationVpc,
@@ -124,6 +129,7 @@ export const se_CreatePipeCommand = async (
       DesiredState: [],
       Enrichment: [],
       EnrichmentParameters: (_) => _json(_),
+      LogConfiguration: (_) => _json(_),
       RoleArn: [],
       Source: [],
       SourceParameters: (_) => se_PipeSourceParameters(_, context),
@@ -370,6 +376,7 @@ export const se_UpdatePipeCommand = async (
       DesiredState: [],
       Enrichment: [],
       EnrichmentParameters: (_) => _json(_),
+      LogConfiguration: (_) => _json(_),
       RoleArn: [],
       SourceParameters: (_) => _json(_),
       Target: [],
@@ -541,6 +548,7 @@ export const de_DescribePipeCommand = async (
     Enrichment: __expectString,
     EnrichmentParameters: _json,
     LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogConfiguration: _json,
     Name: __expectString,
     RoleArn: __expectString,
     Source: __expectString,
@@ -1137,6 +1145,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CapacityProviderStrategyItem omitted.
 
+// se_CloudwatchLogsLogDestinationParameters omitted.
+
 // se_DeadLetterConfig omitted.
 
 // se_EcsContainerOverride omitted.
@@ -1171,7 +1181,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_FilterList omitted.
 
+// se_FirehoseLogDestinationParameters omitted.
+
 // se_HeaderParametersMap omitted.
+
+// se_IncludeExecutionData omitted.
 
 // se_KafkaBootstrapServers omitted.
 
@@ -1186,6 +1200,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_PipeEnrichmentHttpParameters omitted.
 
 // se_PipeEnrichmentParameters omitted.
+
+// se_PipeLogConfigurationParameters omitted.
 
 // se_PipeSourceActiveMQBrokerParameters omitted.
 
@@ -1269,6 +1285,8 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // se_QueryStringParametersMap omitted.
 
+// se_S3LogDestinationParameters omitted.
+
 // se_SageMakerPipelineParameter omitted.
 
 // se_SageMakerPipelineParameterList omitted.
@@ -1337,6 +1355,8 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // de_CapacityProviderStrategyItem omitted.
 
+// de_CloudwatchLogsLogDestination omitted.
+
 // de_DeadLetterConfig omitted.
 
 // de_EcsContainerOverride omitted.
@@ -1371,7 +1391,11 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // de_FilterList omitted.
 
+// de_FirehoseLogDestination omitted.
+
 // de_HeaderParametersMap omitted.
+
+// de_IncludeExecutionData omitted.
 
 // de_KafkaBootstrapServers omitted.
 
@@ -1416,6 +1440,8 @@ const de_PipeList = (output: any, context: __SerdeContext): Pipe[] => {
     });
   return retVal;
 };
+
+// de_PipeLogConfiguration omitted.
 
 // de_PipeSourceActiveMQBrokerParameters omitted.
 
@@ -1498,6 +1524,8 @@ const de_PipeSourceParameters = (output: any, context: __SerdeContext): PipeSour
 // de_PlacementStrategy omitted.
 
 // de_QueryStringParametersMap omitted.
+
+// de_S3LogDestination omitted.
 
 // de_SageMakerPipelineParameter omitted.
 

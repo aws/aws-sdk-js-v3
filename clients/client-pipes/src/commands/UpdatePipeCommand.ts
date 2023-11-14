@@ -37,10 +37,11 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
 
 /**
  * @public
- * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, only the fields that are included in the request are changed, the rest are unchanged.
+ * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the updates fields you have specified in the request; the rest remain unchanged.
  *          The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
- *          <code>TargetParameters</code> objects. The fields in these objects are updated atomically as one and override existing values. This is by design and means that
- *          if you don't specify an optional field in one of these Parameters objects, that field will be set to its system-default value after the update.</p>
+ *          <code>TargetParameters</code> objects. For example, <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>.
+ *          EventBridge updates the fields in these objects atomically as one and overrides existing values.
+ *          This is by design, and means that if you don't specify an optional field in one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default value during the update.</p>
  *          <p>For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">
  *          Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
@@ -332,6 +333,24 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
+ *   LogConfiguration: { // PipeLogConfigurationParameters
+ *     S3LogDestination: { // S3LogDestinationParameters
+ *       BucketName: "STRING_VALUE", // required
+ *       BucketOwner: "STRING_VALUE", // required
+ *       OutputFormat: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     FirehoseLogDestination: { // FirehoseLogDestinationParameters
+ *       DeliveryStreamArn: "STRING_VALUE", // required
+ *     },
+ *     CloudwatchLogsLogDestination: { // CloudwatchLogsLogDestinationParameters
+ *       LogGroupArn: "STRING_VALUE", // required
+ *     },
+ *     Level: "STRING_VALUE", // required
+ *     IncludeExecutionData: [ // IncludeExecutionData
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdatePipeCommand(input);
  * const response = await client.send(command);

@@ -356,6 +356,24 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LogConfiguration: { // PipeLogConfiguration
+ * //     S3LogDestination: { // S3LogDestination
+ * //       BucketName: "STRING_VALUE",
+ * //       Prefix: "STRING_VALUE",
+ * //       BucketOwner: "STRING_VALUE",
+ * //       OutputFormat: "STRING_VALUE",
+ * //     },
+ * //     FirehoseLogDestination: { // FirehoseLogDestination
+ * //       DeliveryStreamArn: "STRING_VALUE",
+ * //     },
+ * //     CloudwatchLogsLogDestination: { // CloudwatchLogsLogDestination
+ * //       LogGroupArn: "STRING_VALUE",
+ * //     },
+ * //     Level: "STRING_VALUE",
+ * //     IncludeExecutionData: [ // IncludeExecutionData
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```
