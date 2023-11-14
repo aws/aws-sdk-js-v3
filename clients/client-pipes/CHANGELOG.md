@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-pipes:** Added support (via new LogConfiguration field in CreatePipe and UpdatePipe APIs) for logging to Amazon CloudWatch Logs, Amazon Simple Storage Service (Amazon S3), and Amazon Kinesis Data Firehose ([08927cc](https://github.com/aws/aws-sdk-js-v3/commit/08927cc1fac0684efd1b33f954a91321807c6132))
+
+
+
+
+
 # [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-pipes

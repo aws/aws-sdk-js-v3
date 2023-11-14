@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-sagemaker:** This release makes Model Registry Inference Specification fields as not required. ([6c3fba8](https://github.com/aws/aws-sdk-js-v3/commit/6c3fba80da6034d1e96ac8beeb74184f6a723132))
+
+
+
+
+
 # [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

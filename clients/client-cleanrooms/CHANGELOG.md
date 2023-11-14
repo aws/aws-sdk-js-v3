@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-cleanrooms:** This feature provides the ability for the collaboration creator to configure either the member who can run queries or a different member in the collaboration to be billed for query compute costs. ([85cd599](https://github.com/aws/aws-sdk-js-v3/commit/85cd5994d4af59fceffe2a53859d5443835c097e))
+
+
+
+
+
 # [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

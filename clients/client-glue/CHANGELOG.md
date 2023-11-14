@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-glue:** Introduces new storage optimization APIs to support automatic compaction of Apache Iceberg tables. ([89bfc1a](https://github.com/aws/aws-sdk-js-v3/commit/89bfc1a0cbfef70f9feb41cac4acbfa83701711d))
+
+
+
+
+
 # [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

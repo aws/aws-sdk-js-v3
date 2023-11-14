@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-resource-explorer-2:** Resource Explorer supports multi-account search. You can now use Resource Explorer to search and discover resources across AWS accounts within your organization or organizational unit. ([806c94f](https://github.com/aws/aws-sdk-js-v3/commit/806c94fa6319e24d15dda14cea23207abde28d34))
+
+
+
+
+
 # [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-resource-explorer-2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **experimentalIdentityAndAuth:** release phase for `[@smithy](https://github.com/smithy).api#httpBearerAuth` ([#5271](https://github.com/aws/aws-sdk-js-v3/issues/5271)) ([2e1ac5b](https://github.com/aws/aws-sdk-js-v3/commit/2e1ac5bfe9be91291cdee27487b5bd99aa120fdd))
+
+
+
+
+
 # [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-codecatalyst

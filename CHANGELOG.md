@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-backup:** AWS Backup - Features: Provide Job Summary for your backup activity. ([5319e55](https://github.com/aws/aws-sdk-js-v3/commit/5319e55db5568cee7e16222eb83d9098874947e7))
+* **client-cleanrooms:** This feature provides the ability for the collaboration creator to configure either the member who can run queries or a different member in the collaboration to be billed for query compute costs. ([85cd599](https://github.com/aws/aws-sdk-js-v3/commit/85cd5994d4af59fceffe2a53859d5443835c097e))
+* **client-connect:** Introducing SegmentAttributes parameter for StartChatContact API ([839de51](https://github.com/aws/aws-sdk-js-v3/commit/839de5140ddb93fff47a0757125973ca57a3de11))
+* **client-glue:** Introduces new storage optimization APIs to support automatic compaction of Apache Iceberg tables. ([89bfc1a](https://github.com/aws/aws-sdk-js-v3/commit/89bfc1a0cbfef70f9feb41cac4acbfa83701711d))
+* **client-iot:** This release introduces new attributes in API CreateSecurityProfile, UpdateSecurityProfile and DescribeSecurityProfile to support management of Metrics Export for AWS IoT Device Defender Detect. ([faf048e](https://github.com/aws/aws-sdk-js-v3/commit/faf048e0e800aba82a9c75d8f5dead23250500bc))
+* **client-lambda:** Add Python 3.12 (python3.12) support to AWS Lambda ([b388fbe](https://github.com/aws/aws-sdk-js-v3/commit/b388fbe5462f314b2223342e02ccacf022684d68))
+* **client-mediatailor:** Removed unnecessary default values. ([a3f23ba](https://github.com/aws/aws-sdk-js-v3/commit/a3f23ba0af0b2f6a7652ed071289901820249334))
+* **client-pipes:** Added support (via new LogConfiguration field in CreatePipe and UpdatePipe APIs) for logging to Amazon CloudWatch Logs, Amazon Simple Storage Service (Amazon S3), and Amazon Kinesis Data Firehose ([08927cc](https://github.com/aws/aws-sdk-js-v3/commit/08927cc1fac0684efd1b33f954a91321807c6132))
+* **client-resource-explorer-2:** Resource Explorer supports multi-account search. You can now use Resource Explorer to search and discover resources across AWS accounts within your organization or organizational unit. ([806c94f](https://github.com/aws/aws-sdk-js-v3/commit/806c94fa6319e24d15dda14cea23207abde28d34))
+* **client-sagemaker:** This release makes Model Registry Inference Specification fields as not required. ([6c3fba8](https://github.com/aws/aws-sdk-js-v3/commit/6c3fba80da6034d1e96ac8beeb74184f6a723132))
+* **client-sfn:** This release adds support to redrive executions in AWS Step Functions with a new RedriveExecution operation. ([0627029](https://github.com/aws/aws-sdk-js-v3/commit/06270291193e2fff776a50cf65ba26498134d6a6))
+* **clients:** update client endpoints as of 2023-11-14 ([e8beb70](https://github.com/aws/aws-sdk-js-v3/commit/e8beb704a2e25397348ab7f6abc4609f01cb2b78))
+* **experimentalIdentityAndAuth:** release phase for `[@smithy](https://github.com/smithy).api#httpBearerAuth` ([#5271](https://github.com/aws/aws-sdk-js-v3/issues/5271)) ([2e1ac5b](https://github.com/aws/aws-sdk-js-v3/commit/2e1ac5bfe9be91291cdee27487b5bd99aa120fdd))
+
+
+
+
+
 # [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
 
 
