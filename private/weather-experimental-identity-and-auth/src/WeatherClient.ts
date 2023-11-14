@@ -2,7 +2,7 @@
 import {
   HttpAuthSchemeInputConfig,
   HttpAuthSchemeResolvedConfig,
-  WeatherHttpAuthSchemeProvider,
+  defaultWeatherHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { OnlyCustomAuthCommandInput, OnlyCustomAuthCommandOutput } from "./commands/OnlyCustomAuthCommand";
@@ -53,9 +53,12 @@ import {
 import {
   CustomEndpointsInputConfig,
   CustomEndpointsResolvedConfig,
+  RegionInputConfig,
+  RegionResolvedConfig,
   resolveCustomEndpointsConfig,
+  resolveRegionConfig,
 } from "@smithy/config-resolver";
-import { HttpAuthScheme, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/experimental-identity-and-auth";
+import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
 import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
@@ -194,6 +197,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
+   * The service name to use as the signing service for AWS Auth
+   * @internal
+   */
+  signingName?: string;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -219,18 +228,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
-
-  /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
-   * @internal
-   */
-  httpAuthSchemes?: HttpAuthScheme[];
-
-  /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
-   * @internal
-   */
-  httpAuthSchemeProvider?: WeatherHttpAuthSchemeProvider;
 }
 
 /**
@@ -238,6 +235,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
  */
 export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
+  RegionInputConfig &
   CustomEndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
@@ -256,6 +254,7 @@ export interface WeatherClientConfig extends WeatherClientConfigType {}
 export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
+  RegionResolvedConfig &
   CustomEndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
@@ -282,23 +281,42 @@ export class WeatherClient extends __Client<
    */
   readonly config: WeatherClientResolvedConfig;
 
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultWeatherHttpAuthSchemeParametersProvider;
+  }
+
+  private getIdentityProviderConfigProvider() {
+    return async (config: WeatherClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+        "smithy.api#httpApiKeyAuth": config.apiKey,
+        "smithy.api#httpBearerAuth": config.token,
+      });
+  }
+
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
-    let _config_1 = resolveCustomEndpointsConfig(_config_0);
-    let _config_2 = resolveRetryConfig(_config_1);
-    let _config_3 = resolveHostHeaderConfig(_config_2);
-    let _config_4 = resolveUserAgentConfig(_config_3);
-    let _config_5 = resolveHttpAuthSchemeConfig(_config_4);
-    let _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_1 = resolveRegionConfig(_config_0);
+    let _config_2 = resolveCustomEndpointsConfig(_config_1);
+    let _config_3 = resolveRetryConfig(_config_2);
+    let _config_4 = resolveHostHeaderConfig(_config_3);
+    let _config_5 = resolveUserAgentConfig(_config_4);
+    let _config_6 = resolveHttpAuthSchemeConfig(_config_5);
+    let _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
-    this.middlewareStack.use(getHttpAuthSchemePlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemePlugin(this.config, {
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+      })
+    );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 

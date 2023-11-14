@@ -3,11 +3,12 @@ import { WeatherHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 import {
   ApiKeyIdentity,
   ApiKeyIdentityProvider,
+  AwsCredentialIdentity,
+  AwsCredentialIdentityProvider,
   HttpAuthScheme,
   TokenIdentity,
   TokenIdentityProvider,
-} from "@smithy/experimental-identity-and-auth";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+} from "@smithy/types";
 
 /**
  * @internal
@@ -49,7 +50,12 @@ export const getHttpAuthExtensionConfiguration = (
   let _token = runtimeConfig.token;
   return {
     setHttpAuthScheme(httpAuthScheme: HttpAuthScheme): void {
-      _httpAuthSchemes.push(httpAuthScheme);
+      const index = _httpAuthSchemes.findIndex((scheme) => scheme.schemeId === httpAuthScheme.schemeId);
+      if (index === -1) {
+        _httpAuthSchemes.push(httpAuthScheme);
+      } else {
+        _httpAuthSchemes.splice(index, 1, httpAuthScheme);
+      }
     },
     httpAuthSchemes(): HttpAuthScheme[] {
       return _httpAuthSchemes;
