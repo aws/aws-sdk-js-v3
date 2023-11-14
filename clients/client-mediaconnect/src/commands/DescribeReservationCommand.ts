@@ -102,9 +102,6 @@ export class DescribeReservationCommand extends $Command<
   DescribeReservationCommandOutput,
   MediaConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class DescribeReservationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeReservationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class DescribeReservationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservationCommandOutput> {
     return de_DescribeReservationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

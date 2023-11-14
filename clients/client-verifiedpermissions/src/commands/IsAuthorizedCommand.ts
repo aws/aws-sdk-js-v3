@@ -245,9 +245,6 @@ export class IsAuthorizedCommand extends $Command<
   IsAuthorizedCommandOutput,
   VerifiedPermissionsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -261,9 +258,7 @@ export class IsAuthorizedCommand extends $Command<
    * @public
    */
   constructor(readonly input: IsAuthorizedCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -314,7 +309,4 @@ export class IsAuthorizedCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IsAuthorizedCommandOutput> {
     return de_IsAuthorizedCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -88,9 +88,6 @@ export class DeleteControlCommand extends $Command<
   DeleteControlCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DeleteControlCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteControlCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DeleteControlCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlCommandOutput> {
     return de_DeleteControlCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -104,9 +104,6 @@ export class GetDNSSECCommand extends $Command<
   GetDNSSECCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class GetDNSSECCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDNSSECCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class GetDNSSECCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDNSSECCommandOutput> {
     return de_GetDNSSECCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

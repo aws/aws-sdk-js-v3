@@ -100,9 +100,6 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
   UpdateCompanyNetworkConfigurationCommandOutput,
   WorkLinkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateCompanyNetworkConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
   ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> {
     return de_UpdateCompanyNetworkConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -233,9 +233,6 @@ export class GetLifecyclePolicyCommand extends $Command<
   GetLifecyclePolicyCommandOutput,
   DLMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -249,9 +246,7 @@ export class GetLifecyclePolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetLifecyclePolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -304,7 +299,4 @@ export class GetLifecyclePolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePolicyCommandOutput> {
     return de_GetLifecyclePolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

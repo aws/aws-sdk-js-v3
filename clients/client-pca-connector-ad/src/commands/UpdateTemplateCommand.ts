@@ -331,9 +331,6 @@ export class UpdateTemplateCommand extends $Command<
   UpdateTemplateCommandOutput,
   PcaConnectorAdClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -347,9 +344,7 @@ export class UpdateTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -402,7 +397,4 @@ export class UpdateTemplateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateCommandOutput> {
     return de_UpdateTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -73,9 +73,6 @@ export class UpdateCodeRepositoryCommand extends $Command<
   UpdateCodeRepositoryCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -89,9 +86,7 @@ export class UpdateCodeRepositoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateCodeRepositoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -144,7 +139,4 @@ export class UpdateCodeRepositoryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCodeRepositoryCommandOutput> {
     return de_UpdateCodeRepositoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

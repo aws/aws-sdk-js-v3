@@ -89,9 +89,6 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
   DeleteCustomDataIdentifierCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCustomDataIdentifierCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
   ): Promise<DeleteCustomDataIdentifierCommandOutput> {
     return de_DeleteCustomDataIdentifierCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

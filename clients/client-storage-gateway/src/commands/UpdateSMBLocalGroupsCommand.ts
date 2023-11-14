@@ -84,9 +84,6 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
   UpdateSMBLocalGroupsCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSMBLocalGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSMBLocalGroupsCommandOutput> {
     return de_UpdateSMBLocalGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

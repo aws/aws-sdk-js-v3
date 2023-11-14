@@ -93,9 +93,6 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
   DescribeDetectorModelAnalysisCommandOutput,
   IoTEventsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDetectorModelAnalysisCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
   ): Promise<DescribeDetectorModelAnalysisCommandOutput> {
     return de_DescribeDetectorModelAnalysisCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

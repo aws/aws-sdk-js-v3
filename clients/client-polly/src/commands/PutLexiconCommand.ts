@@ -113,9 +113,6 @@ export class PutLexiconCommand extends $Command<
   PutLexiconCommandOutput,
   PollyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class PutLexiconCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutLexiconCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class PutLexiconCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLexiconCommandOutput> {
     return de_PutLexiconCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

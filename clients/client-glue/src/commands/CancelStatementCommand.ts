@@ -88,9 +88,6 @@ export class CancelStatementCommand extends $Command<
   CancelStatementCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class CancelStatementCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelStatementCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class CancelStatementCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStatementCommandOutput> {
     return de_CancelStatementCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

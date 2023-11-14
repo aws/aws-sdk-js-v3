@@ -99,9 +99,6 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  *
  */
 export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsCommandOutput, KendraClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
    * @public
    */
   constructor(readonly input: ListFaqsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFaqsCommandOutput> {
     return de_ListFaqsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

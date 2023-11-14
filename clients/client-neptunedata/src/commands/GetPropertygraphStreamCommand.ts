@@ -168,9 +168,6 @@ export class GetPropertygraphStreamCommand extends $Command<
   GetPropertygraphStreamCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -184,9 +181,7 @@ export class GetPropertygraphStreamCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPropertygraphStreamCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -239,7 +234,4 @@ export class GetPropertygraphStreamCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPropertygraphStreamCommandOutput> {
     return de_GetPropertygraphStreamCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

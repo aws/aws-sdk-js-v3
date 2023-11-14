@@ -88,9 +88,6 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
   DeleteUserHierarchyGroupCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteUserHierarchyGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserHierarchyGroupCommandOutput> {
     return de_DeleteUserHierarchyGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -185,9 +185,6 @@ export class GetDomainDetailCommand extends $Command<
   GetDomainDetailCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -201,9 +198,7 @@ export class GetDomainDetailCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDomainDetailCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -256,7 +251,4 @@ export class GetDomainDetailCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainDetailCommandOutput> {
     return de_GetDomainDetailCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -122,9 +122,6 @@ export class GetServiceQuotaCommand extends $Command<
   GetServiceQuotaCommandOutput,
   ServiceQuotasClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class GetServiceQuotaCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetServiceQuotaCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class GetServiceQuotaCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceQuotaCommandOutput> {
     return de_GetServiceQuotaCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

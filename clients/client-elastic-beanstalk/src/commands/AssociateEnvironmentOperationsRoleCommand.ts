@@ -79,9 +79,6 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
   AssociateEnvironmentOperationsRoleCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateEnvironmentOperationsRoleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
   ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> {
     return de_AssociateEnvironmentOperationsRoleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

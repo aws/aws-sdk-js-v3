@@ -169,9 +169,6 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -185,9 +182,7 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetInstanceTypesFromInstanceRequirementsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -252,7 +247,4 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
   ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> {
     return de_GetInstanceTypesFromInstanceRequirementsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

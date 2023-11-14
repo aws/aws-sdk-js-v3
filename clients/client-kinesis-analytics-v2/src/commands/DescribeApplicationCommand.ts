@@ -320,9 +320,6 @@ export class DescribeApplicationCommand extends $Command<
   DescribeApplicationCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -336,9 +333,7 @@ export class DescribeApplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -391,7 +386,4 @@ export class DescribeApplicationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationCommandOutput> {
     return de_DescribeApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

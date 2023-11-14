@@ -162,9 +162,6 @@ export class EnableKeyRotationCommand extends $Command<
   EnableKeyRotationCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -178,9 +175,7 @@ export class EnableKeyRotationCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableKeyRotationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class EnableKeyRotationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableKeyRotationCommandOutput> {
     return de_EnableKeyRotationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

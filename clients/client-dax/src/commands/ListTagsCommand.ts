@@ -93,9 +93,6 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, DAXClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
    * @public
    */
   constructor(readonly input: ListTagsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
     return de_ListTagsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -238,9 +238,6 @@ export class DescribeCreateAccountStatusCommand extends $Command<
   DescribeCreateAccountStatusCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -254,9 +251,7 @@ export class DescribeCreateAccountStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCreateAccountStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -312,7 +307,4 @@ export class DescribeCreateAccountStatusCommand extends $Command<
   ): Promise<DescribeCreateAccountStatusCommandOutput> {
     return de_DescribeCreateAccountStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -115,9 +115,6 @@ export class UpdateKxClusterCodeConfigurationCommand extends $Command<
   UpdateKxClusterCodeConfigurationCommandOutput,
   FinspaceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class UpdateKxClusterCodeConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateKxClusterCodeConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class UpdateKxClusterCodeConfigurationCommand extends $Command<
   ): Promise<UpdateKxClusterCodeConfigurationCommandOutput> {
     return de_UpdateKxClusterCodeConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

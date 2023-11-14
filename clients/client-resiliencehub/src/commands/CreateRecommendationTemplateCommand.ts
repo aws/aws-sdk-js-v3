@@ -145,9 +145,6 @@ export class CreateRecommendationTemplateCommand extends $Command<
   CreateRecommendationTemplateCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -161,9 +158,7 @@ export class CreateRecommendationTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRecommendationTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -219,7 +214,4 @@ export class CreateRecommendationTemplateCommand extends $Command<
   ): Promise<CreateRecommendationTemplateCommandOutput> {
     return de_CreateRecommendationTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

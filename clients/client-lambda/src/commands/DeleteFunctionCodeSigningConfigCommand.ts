@@ -89,9 +89,6 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
   DeleteFunctionCodeSigningConfigCommandOutput,
   LambdaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFunctionCodeSigningConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
   ): Promise<DeleteFunctionCodeSigningConfigCommandOutput> {
     return de_DeleteFunctionCodeSigningConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -133,9 +133,6 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
   PutChannelMembershipPreferencesCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutChannelMembershipPreferencesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
   ): Promise<PutChannelMembershipPreferencesCommandOutput> {
     return de_PutChannelMembershipPreferencesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

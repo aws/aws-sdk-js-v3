@@ -102,9 +102,6 @@ export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandOutput,
   XRayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class PutResourcePolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutResourcePolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class PutResourcePolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
     return de_PutResourcePolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -103,9 +103,6 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
   DescribeSnapshotCopyGrantsCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSnapshotCopyGrantsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
   ): Promise<DescribeSnapshotCopyGrantsCommandOutput> {
     return de_DescribeSnapshotCopyGrantsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

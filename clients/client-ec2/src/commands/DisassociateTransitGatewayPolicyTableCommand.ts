@@ -87,9 +87,6 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
   DisassociateTransitGatewayPolicyTableCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateTransitGatewayPolicyTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
   ): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> {
     return de_DisassociateTransitGatewayPolicyTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

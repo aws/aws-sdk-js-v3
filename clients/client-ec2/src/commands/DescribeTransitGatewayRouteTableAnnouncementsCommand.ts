@@ -112,9 +112,6 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
   DescribeTransitGatewayRouteTableAnnouncementsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
    * @public
    */
   constructor(readonly input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
   ): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> {
     return de_DescribeTransitGatewayRouteTableAnnouncementsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

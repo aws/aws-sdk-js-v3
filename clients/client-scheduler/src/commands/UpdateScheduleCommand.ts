@@ -183,9 +183,6 @@ export class UpdateScheduleCommand extends $Command<
   UpdateScheduleCommandOutput,
   SchedulerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -199,9 +196,7 @@ export class UpdateScheduleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateScheduleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -254,7 +249,4 @@ export class UpdateScheduleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduleCommandOutput> {
     return de_UpdateScheduleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -98,9 +98,6 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
   GetTransitGatewayRouteTableAssociationsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTransitGatewayRouteTableAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
   ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> {
     return de_GetTransitGatewayRouteTableAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

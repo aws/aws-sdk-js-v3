@@ -110,9 +110,6 @@ export class UpdateDomainCommand extends $Command<
   UpdateDomainCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class UpdateDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class UpdateDomainCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainCommandOutput> {
     return de_UpdateDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

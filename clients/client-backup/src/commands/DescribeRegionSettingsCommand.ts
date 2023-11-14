@@ -80,9 +80,6 @@ export class DescribeRegionSettingsCommand extends $Command<
   DescribeRegionSettingsCommandOutput,
   BackupClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class DescribeRegionSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRegionSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DescribeRegionSettingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionSettingsCommandOutput> {
     return de_DescribeRegionSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

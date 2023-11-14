@@ -125,9 +125,6 @@ export class BatchUpdateRecommendationStatusCommand extends $Command<
   BatchUpdateRecommendationStatusCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class BatchUpdateRecommendationStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchUpdateRecommendationStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class BatchUpdateRecommendationStatusCommand extends $Command<
   ): Promise<BatchUpdateRecommendationStatusCommandOutput> {
     return de_BatchUpdateRecommendationStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

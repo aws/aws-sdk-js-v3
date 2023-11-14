@@ -221,9 +221,6 @@ export class GetReservationUtilizationCommand extends $Command<
   GetReservationUtilizationCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -237,9 +234,7 @@ export class GetReservationUtilizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetReservationUtilizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -295,7 +290,4 @@ export class GetReservationUtilizationCommand extends $Command<
   ): Promise<GetReservationUtilizationCommandOutput> {
     return de_GetReservationUtilizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

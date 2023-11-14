@@ -94,9 +94,6 @@ export class ListScansCommand extends $Command<
   ListScansCommandOutput,
   CodeGuruSecurityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class ListScansCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListScansCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class ListScansCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScansCommandOutput> {
     return de_ListScansCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

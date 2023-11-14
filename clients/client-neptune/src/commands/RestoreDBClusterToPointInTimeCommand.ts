@@ -267,9 +267,6 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandOutput,
   NeptuneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -283,9 +280,7 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreDBClusterToPointInTimeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -341,7 +336,4 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> {
     return de_RestoreDBClusterToPointInTimeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

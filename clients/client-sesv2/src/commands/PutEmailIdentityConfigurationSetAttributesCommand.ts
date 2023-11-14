@@ -87,9 +87,6 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
   PutEmailIdentityConfigurationSetAttributesCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutEmailIdentityConfigurationSetAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
   ): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> {
     return de_PutEmailIdentityConfigurationSetAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

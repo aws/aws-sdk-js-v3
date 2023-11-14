@@ -112,9 +112,6 @@ export class ListRulesCommand extends $Command<
   ListRulesCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class ListRulesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRulesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class ListRulesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
     return de_ListRulesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

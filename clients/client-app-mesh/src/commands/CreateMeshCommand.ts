@@ -141,9 +141,6 @@ export class CreateMeshCommand extends $Command<
   CreateMeshCommandOutput,
   AppMeshClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -157,9 +154,7 @@ export class CreateMeshCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateMeshCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class CreateMeshCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeshCommandOutput> {
     return de_CreateMeshCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

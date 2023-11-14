@@ -124,9 +124,6 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
   RecordActivityTaskHeartbeatCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
    * @public
    */
   constructor(readonly input: RecordActivityTaskHeartbeatCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
   ): Promise<RecordActivityTaskHeartbeatCommandOutput> {
     return de_RecordActivityTaskHeartbeatCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

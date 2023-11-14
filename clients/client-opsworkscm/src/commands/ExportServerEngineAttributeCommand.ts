@@ -111,9 +111,6 @@ export class ExportServerEngineAttributeCommand extends $Command<
   ExportServerEngineAttributeCommandOutput,
   OpsWorksCMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class ExportServerEngineAttributeCommand extends $Command<
    * @public
    */
   constructor(readonly input: ExportServerEngineAttributeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class ExportServerEngineAttributeCommand extends $Command<
   ): Promise<ExportServerEngineAttributeCommandOutput> {
     return de_ExportServerEngineAttributeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

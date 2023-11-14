@@ -163,9 +163,6 @@ export class DeleteLaunchProfileCommand extends $Command<
   DeleteLaunchProfileCommandOutput,
   NimbleClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -179,9 +176,7 @@ export class DeleteLaunchProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLaunchProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -234,7 +229,4 @@ export class DeleteLaunchProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLaunchProfileCommandOutput> {
     return de_DeleteLaunchProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

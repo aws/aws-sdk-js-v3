@@ -143,9 +143,6 @@ export class GetResponsePlanCommand extends $Command<
   GetResponsePlanCommandOutput,
   SSMIncidentsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -159,9 +156,7 @@ export class GetResponsePlanCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetResponsePlanCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class GetResponsePlanCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResponsePlanCommandOutput> {
     return de_GetResponsePlanCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

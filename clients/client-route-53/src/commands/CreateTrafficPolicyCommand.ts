@@ -101,9 +101,6 @@ export class CreateTrafficPolicyCommand extends $Command<
   CreateTrafficPolicyCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class CreateTrafficPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateTrafficPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class CreateTrafficPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrafficPolicyCommandOutput> {
     return de_CreateTrafficPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

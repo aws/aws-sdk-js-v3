@@ -123,9 +123,6 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
   CreateContainerServiceRegistryLoginCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateContainerServiceRegistryLoginCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
   ): Promise<CreateContainerServiceRegistryLoginCommandOutput> {
     return de_CreateContainerServiceRegistryLoginCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

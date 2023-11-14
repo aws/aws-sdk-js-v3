@@ -83,9 +83,6 @@ export class DeleteUserSettingsCommand extends $Command<
   DeleteUserSettingsCommandOutput,
   WorkSpacesWebClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DeleteUserSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteUserSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class DeleteUserSettingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserSettingsCommandOutput> {
     return de_DeleteUserSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

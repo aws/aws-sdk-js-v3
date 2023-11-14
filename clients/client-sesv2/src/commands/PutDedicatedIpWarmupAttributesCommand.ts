@@ -83,9 +83,6 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
   PutDedicatedIpWarmupAttributesCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutDedicatedIpWarmupAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
     return de_PutDedicatedIpWarmupAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

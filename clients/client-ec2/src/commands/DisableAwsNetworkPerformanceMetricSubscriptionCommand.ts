@@ -83,9 +83,6 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
   DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
    * @public
    */
   constructor(readonly input: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
   ): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput> {
     return de_DisableAwsNetworkPerformanceMetricSubscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

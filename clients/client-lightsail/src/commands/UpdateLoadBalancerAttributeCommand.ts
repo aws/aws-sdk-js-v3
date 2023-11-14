@@ -124,9 +124,6 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
   UpdateLoadBalancerAttributeCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateLoadBalancerAttributeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
   ): Promise<UpdateLoadBalancerAttributeCommandOutput> {
     return de_UpdateLoadBalancerAttributeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

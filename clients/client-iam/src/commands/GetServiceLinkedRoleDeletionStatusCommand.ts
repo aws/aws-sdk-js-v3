@@ -105,9 +105,6 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
   GetServiceLinkedRoleDeletionStatusCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetServiceLinkedRoleDeletionStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> {
     return de_GetServiceLinkedRoleDeletionStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

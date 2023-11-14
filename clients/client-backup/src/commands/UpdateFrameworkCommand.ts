@@ -121,9 +121,6 @@ export class UpdateFrameworkCommand extends $Command<
   UpdateFrameworkCommandOutput,
   BackupClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class UpdateFrameworkCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateFrameworkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class UpdateFrameworkCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFrameworkCommandOutput> {
     return de_UpdateFrameworkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

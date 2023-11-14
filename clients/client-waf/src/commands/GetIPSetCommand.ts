@@ -117,9 +117,6 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  *
  */
 export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetCommandOutput, WAFClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
    * @public
    */
   constructor(readonly input: GetIPSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIPSetCommandOutput> {
     return de_GetIPSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

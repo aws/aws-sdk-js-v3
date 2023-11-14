@@ -161,9 +161,6 @@ export class CreateRouteTableCommand extends $Command<
   CreateRouteTableCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -177,9 +174,7 @@ export class CreateRouteTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRouteTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -232,7 +227,4 @@ export class CreateRouteTableCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteTableCommandOutput> {
     return de_CreateRouteTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

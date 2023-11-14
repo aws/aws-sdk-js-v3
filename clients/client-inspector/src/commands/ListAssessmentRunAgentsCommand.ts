@@ -284,9 +284,6 @@ export class ListAssessmentRunAgentsCommand extends $Command<
   ListAssessmentRunAgentsCommandOutput,
   InspectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -300,9 +297,7 @@ export class ListAssessmentRunAgentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAssessmentRunAgentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -355,7 +350,4 @@ export class ListAssessmentRunAgentsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentRunAgentsCommandOutput> {
     return de_ListAssessmentRunAgentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

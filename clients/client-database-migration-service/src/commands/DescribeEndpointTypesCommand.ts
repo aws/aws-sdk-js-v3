@@ -119,9 +119,6 @@ export class DescribeEndpointTypesCommand extends $Command<
   DescribeEndpointTypesCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class DescribeEndpointTypesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeEndpointTypesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class DescribeEndpointTypesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointTypesCommandOutput> {
     return de_DescribeEndpointTypesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

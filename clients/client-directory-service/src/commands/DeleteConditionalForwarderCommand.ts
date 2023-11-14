@@ -88,9 +88,6 @@ export class DeleteConditionalForwarderCommand extends $Command<
   DeleteConditionalForwarderCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DeleteConditionalForwarderCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteConditionalForwarderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class DeleteConditionalForwarderCommand extends $Command<
   ): Promise<DeleteConditionalForwarderCommandOutput> {
     return de_DeleteConditionalForwarderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

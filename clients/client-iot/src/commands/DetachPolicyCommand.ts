@@ -92,9 +92,6 @@ export class DetachPolicyCommand extends $Command<
   DetachPolicyCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class DetachPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DetachPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DetachPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachPolicyCommandOutput> {
     return de_DetachPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

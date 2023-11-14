@@ -90,9 +90,6 @@ export class DescribeImageVersionCommand extends $Command<
   DescribeImageVersionCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DescribeImageVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeImageVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DescribeImageVersionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageVersionCommandOutput> {
     return de_DescribeImageVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

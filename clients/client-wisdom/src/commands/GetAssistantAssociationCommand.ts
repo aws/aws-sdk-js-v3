@@ -95,9 +95,6 @@ export class GetAssistantAssociationCommand extends $Command<
   GetAssistantAssociationCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class GetAssistantAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAssistantAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class GetAssistantAssociationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssistantAssociationCommandOutput> {
     return de_GetAssistantAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

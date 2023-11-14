@@ -106,9 +106,6 @@ export class ListRulesPackagesCommand extends $Command<
   ListRulesPackagesCommandOutput,
   InspectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class ListRulesPackagesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRulesPackagesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListRulesPackagesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesPackagesCommandOutput> {
     return de_ListRulesPackagesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

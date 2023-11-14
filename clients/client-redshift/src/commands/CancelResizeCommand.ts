@@ -104,9 +104,6 @@ export class CancelResizeCommand extends $Command<
   CancelResizeCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class CancelResizeCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelResizeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class CancelResizeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelResizeCommandOutput> {
     return de_CancelResizeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

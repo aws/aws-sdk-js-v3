@@ -128,9 +128,6 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
   GetOrganizationConformancePackDetailedStatusCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
    * @public
    */
   constructor(readonly input: GetOrganizationConformancePackDetailedStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> {
     return de_GetOrganizationConformancePackDetailedStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

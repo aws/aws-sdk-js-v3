@@ -101,9 +101,6 @@ export class RemoveTagsFromStreamCommand extends $Command<
   RemoveTagsFromStreamCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -119,9 +116,7 @@ export class RemoveTagsFromStreamCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveTagsFromStreamCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class RemoveTagsFromStreamCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromStreamCommandOutput> {
     return de_RemoveTagsFromStreamCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

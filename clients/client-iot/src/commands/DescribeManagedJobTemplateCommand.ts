@@ -100,9 +100,6 @@ export class DescribeManagedJobTemplateCommand extends $Command<
   DescribeManagedJobTemplateCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DescribeManagedJobTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeManagedJobTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class DescribeManagedJobTemplateCommand extends $Command<
   ): Promise<DescribeManagedJobTemplateCommandOutput> {
     return de_DescribeManagedJobTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

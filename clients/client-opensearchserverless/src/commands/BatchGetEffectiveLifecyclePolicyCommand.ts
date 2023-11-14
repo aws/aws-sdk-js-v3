@@ -108,9 +108,6 @@ export class BatchGetEffectiveLifecyclePolicyCommand extends $Command<
   BatchGetEffectiveLifecyclePolicyCommandOutput,
   OpenSearchServerlessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class BatchGetEffectiveLifecyclePolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetEffectiveLifecyclePolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class BatchGetEffectiveLifecyclePolicyCommand extends $Command<
   ): Promise<BatchGetEffectiveLifecyclePolicyCommandOutput> {
     return de_BatchGetEffectiveLifecyclePolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

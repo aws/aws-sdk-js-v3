@@ -732,9 +732,6 @@ export class CopyBackupCommand extends $Command<
   CopyBackupCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -748,9 +745,7 @@ export class CopyBackupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CopyBackupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -801,7 +796,4 @@ export class CopyBackupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyBackupCommandOutput> {
     return de_CopyBackupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

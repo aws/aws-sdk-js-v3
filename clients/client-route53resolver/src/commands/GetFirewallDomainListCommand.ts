@@ -93,9 +93,6 @@ export class GetFirewallDomainListCommand extends $Command<
   GetFirewallDomainListCommandOutput,
   Route53ResolverClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetFirewallDomainListCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetFirewallDomainListCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class GetFirewallDomainListCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFirewallDomainListCommandOutput> {
     return de_GetFirewallDomainListCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

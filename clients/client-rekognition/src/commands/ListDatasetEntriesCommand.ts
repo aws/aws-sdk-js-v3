@@ -155,9 +155,6 @@ export class ListDatasetEntriesCommand extends $Command<
   ListDatasetEntriesCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class ListDatasetEntriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDatasetEntriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -226,7 +221,4 @@ export class ListDatasetEntriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetEntriesCommandOutput> {
     return de_ListDatasetEntriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

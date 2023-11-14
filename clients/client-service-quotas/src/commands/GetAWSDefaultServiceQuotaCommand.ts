@@ -120,9 +120,6 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
   GetAWSDefaultServiceQuotaCommandOutput,
   ServiceQuotasClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAWSDefaultServiceQuotaCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
   ): Promise<GetAWSDefaultServiceQuotaCommandOutput> {
     return de_GetAWSDefaultServiceQuotaCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

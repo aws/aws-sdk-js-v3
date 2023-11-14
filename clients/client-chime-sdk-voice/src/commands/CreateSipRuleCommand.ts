@@ -123,9 +123,6 @@ export class CreateSipRuleCommand extends $Command<
   CreateSipRuleCommandOutput,
   ChimeSDKVoiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class CreateSipRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateSipRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class CreateSipRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSipRuleCommandOutput> {
     return de_CreateSipRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

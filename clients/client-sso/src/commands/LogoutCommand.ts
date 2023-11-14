@@ -89,9 +89,6 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  *
  */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
    * @public
    */
   constructor(readonly input: LogoutCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LogoutCommandOutput> {
     return de_LogoutCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

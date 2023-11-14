@@ -99,9 +99,6 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
   CancelDomainTransferToAnotherAwsAccountCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelDomainTransferToAnotherAwsAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
   ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> {
     return de_CancelDomainTransferToAnotherAwsAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

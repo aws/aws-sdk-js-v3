@@ -97,9 +97,6 @@ export class ListProfileSharesCommand extends $Command<
   ListProfileSharesCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class ListProfileSharesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListProfileSharesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ListProfileSharesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileSharesCommandOutput> {
     return de_ListProfileSharesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

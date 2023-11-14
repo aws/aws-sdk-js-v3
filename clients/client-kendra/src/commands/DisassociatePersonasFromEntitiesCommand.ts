@@ -108,9 +108,6 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
   DisassociatePersonasFromEntitiesCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociatePersonasFromEntitiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
   ): Promise<DisassociatePersonasFromEntitiesCommandOutput> {
     return de_DisassociatePersonasFromEntitiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

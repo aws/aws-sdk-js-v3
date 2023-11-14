@@ -99,9 +99,6 @@ export class UpdateArchiveRuleCommand extends $Command<
   UpdateArchiveRuleCommandOutput,
   AccessAnalyzerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class UpdateArchiveRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateArchiveRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class UpdateArchiveRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateArchiveRuleCommandOutput> {
     return de_UpdateArchiveRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

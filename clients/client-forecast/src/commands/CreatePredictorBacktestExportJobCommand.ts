@@ -125,9 +125,6 @@ export class CreatePredictorBacktestExportJobCommand extends $Command<
   CreatePredictorBacktestExportJobCommandOutput,
   ForecastClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class CreatePredictorBacktestExportJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreatePredictorBacktestExportJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class CreatePredictorBacktestExportJobCommand extends $Command<
   ): Promise<CreatePredictorBacktestExportJobCommandOutput> {
     return de_CreatePredictorBacktestExportJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

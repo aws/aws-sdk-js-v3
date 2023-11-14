@@ -153,9 +153,6 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
   DeleteSqlInjectionMatchSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSqlInjectionMatchSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -227,7 +222,4 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
   ): Promise<DeleteSqlInjectionMatchSetCommandOutput> {
     return de_DeleteSqlInjectionMatchSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

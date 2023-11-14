@@ -113,9 +113,6 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
   AssociateAwsAccountWithPartnerAccountCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateAwsAccountWithPartnerAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
   ): Promise<AssociateAwsAccountWithPartnerAccountCommandOutput> {
     return de_AssociateAwsAccountWithPartnerAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -192,9 +192,6 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
   CreateLaunchConfigurationTemplateCommandOutput,
   MgnClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -208,9 +205,7 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLaunchConfigurationTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -269,7 +264,4 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
   ): Promise<CreateLaunchConfigurationTemplateCommandOutput> {
     return de_CreateLaunchConfigurationTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

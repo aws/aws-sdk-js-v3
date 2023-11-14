@@ -82,9 +82,6 @@ export class DeleteLedgerCommand extends $Command<
   DeleteLedgerCommandOutput,
   QLDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class DeleteLedgerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLedgerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DeleteLedgerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLedgerCommandOutput> {
     return de_DeleteLedgerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

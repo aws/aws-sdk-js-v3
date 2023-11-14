@@ -73,9 +73,6 @@ export class DeleteReportCommand extends $Command<
   DeleteReportCommandOutput,
   CodeBuildClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -89,9 +86,7 @@ export class DeleteReportCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteReportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -142,7 +137,4 @@ export class DeleteReportCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportCommandOutput> {
     return de_DeleteReportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

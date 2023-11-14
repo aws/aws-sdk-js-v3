@@ -95,9 +95,6 @@ export class UpdateWorkloadCommand extends $Command<
   UpdateWorkloadCommandOutput,
   ApplicationInsightsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class UpdateWorkloadCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateWorkloadCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class UpdateWorkloadCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkloadCommandOutput> {
     return de_UpdateWorkloadCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

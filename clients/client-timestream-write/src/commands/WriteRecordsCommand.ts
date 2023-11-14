@@ -214,9 +214,6 @@ export class WriteRecordsCommand extends $Command<
   WriteRecordsCommandOutput,
   TimestreamWriteClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -230,9 +227,7 @@ export class WriteRecordsCommand extends $Command<
    * @public
    */
   constructor(readonly input: WriteRecordsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -286,7 +281,4 @@ export class WriteRecordsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteRecordsCommandOutput> {
     return de_WriteRecordsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

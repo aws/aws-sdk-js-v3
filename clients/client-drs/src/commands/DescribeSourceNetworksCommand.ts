@@ -115,9 +115,6 @@ export class DescribeSourceNetworksCommand extends $Command<
   DescribeSourceNetworksCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class DescribeSourceNetworksCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSourceNetworksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class DescribeSourceNetworksCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceNetworksCommandOutput> {
     return de_DescribeSourceNetworksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

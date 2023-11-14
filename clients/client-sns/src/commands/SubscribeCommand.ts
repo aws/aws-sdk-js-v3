@@ -106,9 +106,6 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *
  */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
    * @public
    */
   constructor(readonly input: SubscribeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeCommandOutput> {
     return de_SubscribeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

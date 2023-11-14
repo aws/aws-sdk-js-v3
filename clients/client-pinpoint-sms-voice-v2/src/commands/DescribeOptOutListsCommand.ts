@@ -108,9 +108,6 @@ export class DescribeOptOutListsCommand extends $Command<
   DescribeOptOutListsCommandOutput,
   PinpointSMSVoiceV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class DescribeOptOutListsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeOptOutListsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class DescribeOptOutListsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptOutListsCommandOutput> {
     return de_DescribeOptOutListsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -125,9 +125,6 @@ export class InvokeModelCommand extends $Command<
   InvokeModelCommandOutput,
   BedrockRuntimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class InvokeModelCommand extends $Command<
    * @public
    */
   constructor(readonly input: InvokeModelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class InvokeModelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeModelCommandOutput> {
     return de_InvokeModelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

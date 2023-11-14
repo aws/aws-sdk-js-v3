@@ -110,9 +110,6 @@ export class ListDataSetsCommand extends $Command<
   ListDataSetsCommandOutput,
   M2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class ListDataSetsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDataSetsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class ListDataSetsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetsCommandOutput> {
     return de_ListDataSetsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

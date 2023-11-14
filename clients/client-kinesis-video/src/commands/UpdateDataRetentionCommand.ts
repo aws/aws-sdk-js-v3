@@ -134,9 +134,6 @@ export class UpdateDataRetentionCommand extends $Command<
   UpdateDataRetentionCommandOutput,
   KinesisVideoClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class UpdateDataRetentionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDataRetentionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class UpdateDataRetentionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataRetentionCommandOutput> {
     return de_UpdateDataRetentionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

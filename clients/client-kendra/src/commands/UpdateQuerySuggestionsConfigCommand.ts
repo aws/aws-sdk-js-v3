@@ -120,9 +120,6 @@ export class UpdateQuerySuggestionsConfigCommand extends $Command<
   UpdateQuerySuggestionsConfigCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class UpdateQuerySuggestionsConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateQuerySuggestionsConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class UpdateQuerySuggestionsConfigCommand extends $Command<
   ): Promise<UpdateQuerySuggestionsConfigCommandOutput> {
     return de_UpdateQuerySuggestionsConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -110,9 +110,6 @@ export class DescribeOfferingCommand extends $Command<
   DescribeOfferingCommandOutput,
   MediaLiveClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class DescribeOfferingCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeOfferingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class DescribeOfferingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOfferingCommandOutput> {
     return de_DescribeOfferingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

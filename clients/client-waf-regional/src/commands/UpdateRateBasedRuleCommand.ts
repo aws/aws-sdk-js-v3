@@ -245,9 +245,6 @@ export class UpdateRateBasedRuleCommand extends $Command<
   UpdateRateBasedRuleCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -261,9 +258,7 @@ export class UpdateRateBasedRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateRateBasedRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -316,7 +311,4 @@ export class UpdateRateBasedRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRateBasedRuleCommandOutput> {
     return de_UpdateRateBasedRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

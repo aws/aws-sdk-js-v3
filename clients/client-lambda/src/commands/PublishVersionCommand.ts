@@ -199,9 +199,6 @@ export class PublishVersionCommand extends $Command<
   PublishVersionCommandOutput,
   LambdaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -215,9 +212,7 @@ export class PublishVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: PublishVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -270,7 +265,4 @@ export class PublishVersionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishVersionCommandOutput> {
     return de_PublishVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -171,9 +171,6 @@ export class ListDocumentClassifiersCommand extends $Command<
   ListDocumentClassifiersCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -187,9 +184,7 @@ export class ListDocumentClassifiersCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDocumentClassifiersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -242,7 +237,4 @@ export class ListDocumentClassifiersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentClassifiersCommandOutput> {
     return de_ListDocumentClassifiersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

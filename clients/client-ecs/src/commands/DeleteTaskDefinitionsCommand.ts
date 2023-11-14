@@ -371,9 +371,6 @@ export class DeleteTaskDefinitionsCommand extends $Command<
   DeleteTaskDefinitionsCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -387,9 +384,7 @@ export class DeleteTaskDefinitionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTaskDefinitionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -442,7 +437,4 @@ export class DeleteTaskDefinitionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskDefinitionsCommandOutput> {
     return de_DeleteTaskDefinitionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

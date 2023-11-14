@@ -100,9 +100,6 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
   DescribeDefaultEncryptionConfigurationCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDefaultEncryptionConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
   ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> {
     return de_DescribeDefaultEncryptionConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

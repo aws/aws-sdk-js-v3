@@ -199,9 +199,6 @@ export class ListIdentitySourcesCommand extends $Command<
   ListIdentitySourcesCommandOutput,
   VerifiedPermissionsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -215,9 +212,7 @@ export class ListIdentitySourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListIdentitySourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -270,7 +265,4 @@ export class ListIdentitySourcesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentitySourcesCommandOutput> {
     return de_ListIdentitySourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

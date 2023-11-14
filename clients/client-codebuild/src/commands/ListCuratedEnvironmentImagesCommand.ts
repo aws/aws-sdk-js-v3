@@ -91,9 +91,6 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
   ListCuratedEnvironmentImagesCommandOutput,
   CodeBuildClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListCuratedEnvironmentImagesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
   ): Promise<ListCuratedEnvironmentImagesCommandOutput> {
     return de_ListCuratedEnvironmentImagesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

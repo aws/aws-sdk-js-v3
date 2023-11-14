@@ -274,9 +274,6 @@ export class ModifyClusterMaintenanceCommand extends $Command<
   ModifyClusterMaintenanceCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -290,9 +287,7 @@ export class ModifyClusterMaintenanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyClusterMaintenanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -345,7 +340,4 @@ export class ModifyClusterMaintenanceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterMaintenanceCommandOutput> {
     return de_ModifyClusterMaintenanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

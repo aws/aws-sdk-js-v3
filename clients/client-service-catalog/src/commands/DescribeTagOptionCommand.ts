@@ -84,9 +84,6 @@ export class DescribeTagOptionCommand extends $Command<
   DescribeTagOptionCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DescribeTagOptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTagOptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class DescribeTagOptionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagOptionCommandOutput> {
     return de_DescribeTagOptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

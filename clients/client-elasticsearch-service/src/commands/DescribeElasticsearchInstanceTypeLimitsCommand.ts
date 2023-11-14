@@ -141,9 +141,6 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
   DescribeElasticsearchInstanceTypeLimitsCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -157,9 +154,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeElasticsearchInstanceTypeLimitsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
   ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> {
     return de_DescribeElasticsearchInstanceTypeLimitsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

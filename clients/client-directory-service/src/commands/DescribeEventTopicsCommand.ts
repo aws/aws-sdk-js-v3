@@ -96,9 +96,6 @@ export class DescribeEventTopicsCommand extends $Command<
   DescribeEventTopicsCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DescribeEventTopicsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeEventTopicsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DescribeEventTopicsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTopicsCommandOutput> {
     return de_DescribeEventTopicsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

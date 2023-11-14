@@ -98,9 +98,6 @@ export class DeleteCommentContentCommand extends $Command<
   DeleteCommentContentCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class DeleteCommentContentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCommentContentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class DeleteCommentContentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCommentContentCommandOutput> {
     return de_DeleteCommentContentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

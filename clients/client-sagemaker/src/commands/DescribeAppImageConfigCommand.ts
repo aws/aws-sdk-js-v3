@@ -89,9 +89,6 @@ export class DescribeAppImageConfigCommand extends $Command<
   DescribeAppImageConfigCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DescribeAppImageConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAppImageConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class DescribeAppImageConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppImageConfigCommandOutput> {
     return de_DescribeAppImageConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

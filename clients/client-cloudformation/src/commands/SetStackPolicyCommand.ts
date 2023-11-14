@@ -70,9 +70,6 @@ export class SetStackPolicyCommand extends $Command<
   SetStackPolicyCommandOutput,
   CloudFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -86,9 +83,7 @@ export class SetStackPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetStackPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -141,7 +136,4 @@ export class SetStackPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetStackPolicyCommandOutput> {
     return de_SetStackPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

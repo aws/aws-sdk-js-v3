@@ -82,9 +82,6 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
   CreateGroupCertificateAuthorityCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateGroupCertificateAuthorityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
   ): Promise<CreateGroupCertificateAuthorityCommandOutput> {
     return de_CreateGroupCertificateAuthorityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

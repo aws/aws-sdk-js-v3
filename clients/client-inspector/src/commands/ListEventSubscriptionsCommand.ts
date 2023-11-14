@@ -128,9 +128,6 @@ export class ListEventSubscriptionsCommand extends $Command<
   ListEventSubscriptionsCommandOutput,
   InspectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class ListEventSubscriptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEventSubscriptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class ListEventSubscriptionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventSubscriptionsCommandOutput> {
     return de_ListEventSubscriptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

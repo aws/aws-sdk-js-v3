@@ -87,9 +87,6 @@ export class UpdateDefaultMailDomainCommand extends $Command<
   UpdateDefaultMailDomainCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class UpdateDefaultMailDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDefaultMailDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class UpdateDefaultMailDomainCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDefaultMailDomainCommandOutput> {
     return de_UpdateDefaultMailDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

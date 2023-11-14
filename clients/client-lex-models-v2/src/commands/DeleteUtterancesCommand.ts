@@ -93,9 +93,6 @@ export class DeleteUtterancesCommand extends $Command<
   DeleteUtterancesCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DeleteUtterancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteUtterancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DeleteUtterancesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUtterancesCommandOutput> {
     return de_DeleteUtterancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

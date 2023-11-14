@@ -1156,9 +1156,6 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  *
  */
 export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommandOutput, GlueClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -1172,9 +1169,7 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
    * @public
    */
   constructor(readonly input: GetJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -1225,7 +1220,4 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobsCommandOutput> {
     return de_GetJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

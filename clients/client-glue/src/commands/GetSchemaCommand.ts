@@ -98,9 +98,6 @@ export class GetSchemaCommand extends $Command<
   GetSchemaCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class GetSchemaCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSchemaCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetSchemaCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaCommandOutput> {
     return de_GetSchemaCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

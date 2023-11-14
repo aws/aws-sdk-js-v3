@@ -119,9 +119,6 @@ export class DeleteDomainCommand extends $Command<
   DeleteDomainCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class DeleteDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class DeleteDomainCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
     return de_DeleteDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

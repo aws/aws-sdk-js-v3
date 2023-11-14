@@ -100,9 +100,6 @@ export class GetAuthorizersCommand extends $Command<
   GetAuthorizersCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class GetAuthorizersCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAuthorizersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class GetAuthorizersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizersCommandOutput> {
     return de_GetAuthorizersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

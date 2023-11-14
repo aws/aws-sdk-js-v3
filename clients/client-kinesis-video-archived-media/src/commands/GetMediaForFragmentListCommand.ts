@@ -145,9 +145,6 @@ export class GetMediaForFragmentListCommand extends $Command<
   GetMediaForFragmentListCommandOutput,
   KinesisVideoArchivedMediaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -161,9 +158,7 @@ export class GetMediaForFragmentListCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetMediaForFragmentListCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -219,7 +214,4 @@ export class GetMediaForFragmentListCommand extends $Command<
   ): Promise<GetMediaForFragmentListCommandOutput> {
     return de_GetMediaForFragmentListCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

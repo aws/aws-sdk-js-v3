@@ -96,9 +96,6 @@ export class ListPageReceiptsCommand extends $Command<
   ListPageReceiptsCommandOutput,
   SSMContactsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class ListPageReceiptsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPageReceiptsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class ListPageReceiptsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPageReceiptsCommandOutput> {
     return de_ListPageReceiptsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

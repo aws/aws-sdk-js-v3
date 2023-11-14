@@ -206,9 +206,6 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
   UpdateSourceServerReplicationTypeCommandOutput,
   MgnClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -222,9 +219,7 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSourceServerReplicationTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -283,7 +278,4 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
   ): Promise<UpdateSourceServerReplicationTypeCommandOutput> {
     return de_UpdateSourceServerReplicationTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

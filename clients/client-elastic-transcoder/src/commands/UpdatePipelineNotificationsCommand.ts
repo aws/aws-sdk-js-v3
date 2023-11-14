@@ -146,9 +146,6 @@ export class UpdatePipelineNotificationsCommand extends $Command<
   UpdatePipelineNotificationsCommandOutput,
   ElasticTranscoderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class UpdatePipelineNotificationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdatePipelineNotificationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class UpdatePipelineNotificationsCommand extends $Command<
   ): Promise<UpdatePipelineNotificationsCommandOutput> {
     return de_UpdatePipelineNotificationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

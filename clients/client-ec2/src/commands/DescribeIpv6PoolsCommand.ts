@@ -100,9 +100,6 @@ export class DescribeIpv6PoolsCommand extends $Command<
   DescribeIpv6PoolsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DescribeIpv6PoolsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeIpv6PoolsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class DescribeIpv6PoolsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpv6PoolsCommandOutput> {
     return de_DescribeIpv6PoolsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

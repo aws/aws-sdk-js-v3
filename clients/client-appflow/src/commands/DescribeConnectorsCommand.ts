@@ -273,9 +273,6 @@ export class DescribeConnectorsCommand extends $Command<
   DescribeConnectorsCommandOutput,
   AppflowClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -289,9 +286,7 @@ export class DescribeConnectorsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeConnectorsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -344,7 +339,4 @@ export class DescribeConnectorsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorsCommandOutput> {
     return de_DescribeConnectorsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

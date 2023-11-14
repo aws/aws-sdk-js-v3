@@ -312,9 +312,6 @@ export class DescribeRouteCommand extends $Command<
   DescribeRouteCommandOutput,
   AppMeshClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -328,9 +325,7 @@ export class DescribeRouteCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRouteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -381,7 +376,4 @@ export class DescribeRouteCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteCommandOutput> {
     return de_DescribeRouteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -130,9 +130,6 @@ export class UpdateEnvironmentProfileCommand extends $Command<
   UpdateEnvironmentProfileCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class UpdateEnvironmentProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateEnvironmentProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class UpdateEnvironmentProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentProfileCommandOutput> {
     return de_UpdateEnvironmentProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

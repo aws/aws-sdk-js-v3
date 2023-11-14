@@ -132,9 +132,6 @@ export class CreateEnvironmentEC2Command extends $Command<
   CreateEnvironmentEC2CommandOutput,
   Cloud9ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class CreateEnvironmentEC2Command extends $Command<
    * @public
    */
   constructor(readonly input: CreateEnvironmentEC2CommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class CreateEnvironmentEC2Command extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentEC2CommandOutput> {
     return de_CreateEnvironmentEC2Command(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

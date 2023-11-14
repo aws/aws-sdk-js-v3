@@ -116,9 +116,6 @@ export class SetResourceAccessForBucketCommand extends $Command<
   SetResourceAccessForBucketCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class SetResourceAccessForBucketCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetResourceAccessForBucketCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class SetResourceAccessForBucketCommand extends $Command<
   ): Promise<SetResourceAccessForBucketCommandOutput> {
     return de_SetResourceAccessForBucketCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

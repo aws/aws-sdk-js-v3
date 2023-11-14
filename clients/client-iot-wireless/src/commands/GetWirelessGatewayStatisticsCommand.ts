@@ -92,9 +92,6 @@ export class GetWirelessGatewayStatisticsCommand extends $Command<
   GetWirelessGatewayStatisticsCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class GetWirelessGatewayStatisticsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetWirelessGatewayStatisticsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class GetWirelessGatewayStatisticsCommand extends $Command<
   ): Promise<GetWirelessGatewayStatisticsCommandOutput> {
     return de_GetWirelessGatewayStatisticsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

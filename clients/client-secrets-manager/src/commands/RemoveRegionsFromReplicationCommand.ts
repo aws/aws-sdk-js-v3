@@ -121,9 +121,6 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
   RemoveRegionsFromReplicationCommandOutput,
   SecretsManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveRegionsFromReplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
   ): Promise<RemoveRegionsFromReplicationCommandOutput> {
     return de_RemoveRegionsFromReplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

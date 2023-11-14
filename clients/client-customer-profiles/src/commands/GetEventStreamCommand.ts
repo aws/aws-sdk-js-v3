@@ -99,9 +99,6 @@ export class GetEventStreamCommand extends $Command<
   GetEventStreamCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetEventStreamCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEventStreamCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetEventStreamCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventStreamCommandOutput> {
     return de_GetEventStreamCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

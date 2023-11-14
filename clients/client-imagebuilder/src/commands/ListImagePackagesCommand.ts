@@ -107,9 +107,6 @@ export class ListImagePackagesCommand extends $Command<
   ListImagePackagesCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class ListImagePackagesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListImagePackagesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class ListImagePackagesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagePackagesCommandOutput> {
     return de_ListImagePackagesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

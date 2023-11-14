@@ -103,9 +103,6 @@ export class PutFileSystemPolicyCommand extends $Command<
   PutFileSystemPolicyCommandOutput,
   EFSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class PutFileSystemPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutFileSystemPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class PutFileSystemPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFileSystemPolicyCommandOutput> {
     return de_PutFileSystemPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

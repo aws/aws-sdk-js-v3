@@ -99,9 +99,6 @@ export class AssociateLensesCommand extends $Command<
   AssociateLensesCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class AssociateLensesCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateLensesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class AssociateLensesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLensesCommandOutput> {
     return de_AssociateLensesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -76,9 +76,6 @@ export class ResetDeploymentsCommand extends $Command<
   ResetDeploymentsCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class ResetDeploymentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResetDeploymentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -147,7 +142,4 @@ export class ResetDeploymentsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDeploymentsCommandOutput> {
     return de_ResetDeploymentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

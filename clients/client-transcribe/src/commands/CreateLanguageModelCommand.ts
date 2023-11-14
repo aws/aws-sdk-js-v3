@@ -125,9 +125,6 @@ export class CreateLanguageModelCommand extends $Command<
   CreateLanguageModelCommandOutput,
   TranscribeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class CreateLanguageModelCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLanguageModelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class CreateLanguageModelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLanguageModelCommandOutput> {
     return de_CreateLanguageModelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

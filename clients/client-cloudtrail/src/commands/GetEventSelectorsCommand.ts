@@ -188,9 +188,6 @@ export class GetEventSelectorsCommand extends $Command<
   GetEventSelectorsCommandOutput,
   CloudTrailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -204,9 +201,7 @@ export class GetEventSelectorsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEventSelectorsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -259,7 +254,4 @@ export class GetEventSelectorsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventSelectorsCommandOutput> {
     return de_GetEventSelectorsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

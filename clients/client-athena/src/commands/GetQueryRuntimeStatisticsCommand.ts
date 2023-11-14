@@ -140,9 +140,6 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
   GetQueryRuntimeStatisticsCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -156,9 +153,7 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetQueryRuntimeStatisticsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
   ): Promise<GetQueryRuntimeStatisticsCommandOutput> {
     return de_GetQueryRuntimeStatisticsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

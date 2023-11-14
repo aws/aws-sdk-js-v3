@@ -68,9 +68,6 @@ export class DeleteSourceLocationCommand extends $Command<
   DeleteSourceLocationCommandOutput,
   MediaTailorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -84,9 +81,7 @@ export class DeleteSourceLocationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSourceLocationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -139,7 +134,4 @@ export class DeleteSourceLocationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSourceLocationCommandOutput> {
     return de_DeleteSourceLocationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

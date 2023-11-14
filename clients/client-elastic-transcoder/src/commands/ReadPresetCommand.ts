@@ -151,9 +151,6 @@ export class ReadPresetCommand extends $Command<
   ReadPresetCommandOutput,
   ElasticTranscoderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class ReadPresetCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReadPresetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class ReadPresetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadPresetCommandOutput> {
     return de_ReadPresetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

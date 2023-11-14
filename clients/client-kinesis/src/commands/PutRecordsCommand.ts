@@ -192,9 +192,6 @@ export class PutRecordsCommand extends $Command<
   PutRecordsCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `data` },
@@ -210,9 +207,7 @@ export class PutRecordsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutRecordsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -263,7 +258,4 @@ export class PutRecordsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordsCommandOutput> {
     return de_PutRecordsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

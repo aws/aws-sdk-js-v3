@@ -92,9 +92,6 @@ export class DeleteLexiconCommand extends $Command<
   DeleteLexiconCommandOutput,
   PollyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class DeleteLexiconCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLexiconCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteLexiconCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLexiconCommandOutput> {
     return de_DeleteLexiconCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -111,9 +111,6 @@ export class BatchDetectDominantLanguageCommand extends $Command<
   BatchDetectDominantLanguageCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class BatchDetectDominantLanguageCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDetectDominantLanguageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class BatchDetectDominantLanguageCommand extends $Command<
   ): Promise<BatchDetectDominantLanguageCommandOutput> {
     return de_BatchDetectDominantLanguageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

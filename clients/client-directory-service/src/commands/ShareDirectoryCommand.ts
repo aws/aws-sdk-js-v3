@@ -123,9 +123,6 @@ export class ShareDirectoryCommand extends $Command<
   ShareDirectoryCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class ShareDirectoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: ShareDirectoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class ShareDirectoryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShareDirectoryCommandOutput> {
     return de_ShareDirectoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

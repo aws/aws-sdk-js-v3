@@ -97,9 +97,6 @@ export class ResetClusterParameterGroupCommand extends $Command<
   ResetClusterParameterGroupCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class ResetClusterParameterGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResetClusterParameterGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class ResetClusterParameterGroupCommand extends $Command<
   ): Promise<ResetClusterParameterGroupCommandOutput> {
     return de_ResetClusterParameterGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

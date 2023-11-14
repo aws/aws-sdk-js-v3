@@ -105,9 +105,6 @@ export class GetSettingsCommand extends $Command<
   GetSettingsCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class GetSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class GetSettingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSettingsCommandOutput> {
     return de_GetSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

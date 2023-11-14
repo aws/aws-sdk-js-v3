@@ -172,9 +172,6 @@ export class GetSpotPlacementScoresCommand extends $Command<
   GetSpotPlacementScoresCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -188,9 +185,7 @@ export class GetSpotPlacementScoresCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSpotPlacementScoresCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -243,7 +238,4 @@ export class GetSpotPlacementScoresCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSpotPlacementScoresCommandOutput> {
     return de_GetSpotPlacementScoresCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

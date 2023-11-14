@@ -71,9 +71,6 @@ export class DeleteDeviceFleetCommand extends $Command<
   DeleteDeviceFleetCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -87,9 +84,7 @@ export class DeleteDeviceFleetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDeviceFleetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -142,7 +137,4 @@ export class DeleteDeviceFleetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceFleetCommandOutput> {
     return de_DeleteDeviceFleetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

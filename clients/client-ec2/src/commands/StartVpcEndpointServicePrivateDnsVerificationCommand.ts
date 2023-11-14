@@ -83,9 +83,6 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
    * @public
    */
   constructor(readonly input: StartVpcEndpointServicePrivateDnsVerificationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> {
     return de_StartVpcEndpointServicePrivateDnsVerificationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -86,9 +86,6 @@ export class DescribeEventConfigurationsCommand extends $Command<
   DescribeEventConfigurationsCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class DescribeEventConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeEventConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class DescribeEventConfigurationsCommand extends $Command<
   ): Promise<DescribeEventConfigurationsCommandOutput> {
     return de_DescribeEventConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -105,9 +105,6 @@ export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class DeleteSnapshotScheduleCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSnapshotScheduleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DeleteSnapshotScheduleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotScheduleCommandOutput> {
     return de_DeleteSnapshotScheduleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

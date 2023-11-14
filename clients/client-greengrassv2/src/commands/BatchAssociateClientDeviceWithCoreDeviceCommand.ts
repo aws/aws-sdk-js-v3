@@ -118,9 +118,6 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
   BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
   GreengrassV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchAssociateClientDeviceWithCoreDeviceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
   ): Promise<BatchAssociateClientDeviceWithCoreDeviceCommandOutput> {
     return de_BatchAssociateClientDeviceWithCoreDeviceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

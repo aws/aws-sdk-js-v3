@@ -224,9 +224,6 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
   StartMedicalStreamTranscriptionCommandOutput,
   TranscribeStreamingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -240,9 +237,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartMedicalStreamTranscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -303,7 +298,4 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
   ): Promise<StartMedicalStreamTranscriptionCommandOutput> {
     return de_StartMedicalStreamTranscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

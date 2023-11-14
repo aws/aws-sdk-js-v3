@@ -102,9 +102,6 @@ export class ReplaceRouteCommand extends $Command<
   ReplaceRouteCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class ReplaceRouteCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReplaceRouteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class ReplaceRouteCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceRouteCommandOutput> {
     return de_ReplaceRouteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

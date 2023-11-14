@@ -132,9 +132,6 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
   AttachLoadBalancerTlsCertificateCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: AttachLoadBalancerTlsCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
   ): Promise<AttachLoadBalancerTlsCertificateCommandOutput> {
     return de_AttachLoadBalancerTlsCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

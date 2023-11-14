@@ -102,9 +102,6 @@ export class GetAttributeGroupCommand extends $Command<
   GetAttributeGroupCommandOutput,
   ServiceCatalogAppRegistryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetAttributeGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAttributeGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class GetAttributeGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeGroupCommandOutput> {
     return de_GetAttributeGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -339,9 +339,6 @@ export class DeleteVirtualNodeCommand extends $Command<
   DeleteVirtualNodeCommandOutput,
   AppMeshClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -355,9 +352,7 @@ export class DeleteVirtualNodeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteVirtualNodeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -410,7 +405,4 @@ export class DeleteVirtualNodeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualNodeCommandOutput> {
     return de_DeleteVirtualNodeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

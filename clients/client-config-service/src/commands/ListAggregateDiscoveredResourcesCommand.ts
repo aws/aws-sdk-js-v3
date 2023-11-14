@@ -112,9 +112,6 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
   ListAggregateDiscoveredResourcesCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAggregateDiscoveredResourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput> {
     return de_ListAggregateDiscoveredResourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

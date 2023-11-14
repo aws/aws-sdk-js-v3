@@ -94,9 +94,6 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  *
  */
 export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
    * @public
    */
   constructor(readonly input: UntagRoleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagRoleCommandOutput> {
     return de_UntagRoleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

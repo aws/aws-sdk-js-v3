@@ -90,9 +90,6 @@ export class PutContactPolicyCommand extends $Command<
   PutContactPolicyCommandOutput,
   SSMContactsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class PutContactPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutContactPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class PutContactPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContactPolicyCommandOutput> {
     return de_PutContactPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

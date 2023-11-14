@@ -135,9 +135,6 @@ export class ListRoutingControlsCommand extends $Command<
   ListRoutingControlsCommandOutput,
   Route53RecoveryClusterClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class ListRoutingControlsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRoutingControlsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class ListRoutingControlsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingControlsCommandOutput> {
     return de_ListRoutingControlsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

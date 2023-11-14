@@ -78,9 +78,6 @@ export class DeregisterApplicationCommand extends $Command<
   DeregisterApplicationCommandOutput,
   SsmSapClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class DeregisterApplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeregisterApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class DeregisterApplicationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterApplicationCommandOutput> {
     return de_DeregisterApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

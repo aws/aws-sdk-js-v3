@@ -118,9 +118,6 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
   CreateInstanceAccessControlAttributeConfigurationCommandOutput,
   SSOAdminClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
    * @public
    */
   constructor(readonly input: CreateInstanceAccessControlAttributeConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
   ): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput> {
     return de_CreateInstanceAccessControlAttributeConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

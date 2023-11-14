@@ -114,9 +114,6 @@ export class ListUserTagsCommand extends $Command<
   ListUserTagsCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class ListUserTagsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListUserTagsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class ListUserTagsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserTagsCommandOutput> {
     return de_ListUserTagsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

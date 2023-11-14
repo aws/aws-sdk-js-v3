@@ -99,9 +99,6 @@ export class ListRecoveryGroupsCommand extends $Command<
   ListRecoveryGroupsCommandOutput,
   Route53RecoveryReadinessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ListRecoveryGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRecoveryGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class ListRecoveryGroupsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecoveryGroupsCommandOutput> {
     return de_ListRecoveryGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

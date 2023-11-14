@@ -114,9 +114,6 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
   GetTemporaryGluePartitionCredentialsCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTemporaryGluePartitionCredentialsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
   ): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> {
     return de_GetTemporaryGluePartitionCredentialsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

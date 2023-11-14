@@ -120,9 +120,6 @@ export class LookupPolicyCommand extends $Command<
   LookupPolicyCommandOutput,
   CloudDirectoryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class LookupPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: LookupPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class LookupPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupPolicyCommandOutput> {
     return de_LookupPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

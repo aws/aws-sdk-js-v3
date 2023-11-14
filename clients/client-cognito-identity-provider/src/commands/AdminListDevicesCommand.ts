@@ -138,9 +138,6 @@ export class AdminListDevicesCommand extends $Command<
   AdminListDevicesCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class AdminListDevicesCommand extends $Command<
    * @public
    */
   constructor(readonly input: AdminListDevicesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class AdminListDevicesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListDevicesCommandOutput> {
     return de_AdminListDevicesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

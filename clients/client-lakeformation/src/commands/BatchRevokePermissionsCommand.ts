@@ -219,9 +219,6 @@ export class BatchRevokePermissionsCommand extends $Command<
   BatchRevokePermissionsCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -235,9 +232,7 @@ export class BatchRevokePermissionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchRevokePermissionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -290,7 +285,4 @@ export class BatchRevokePermissionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchRevokePermissionsCommandOutput> {
     return de_BatchRevokePermissionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

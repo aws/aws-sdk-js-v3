@@ -138,9 +138,6 @@ export class GetQueryExecutionCommand extends $Command<
   GetQueryExecutionCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class GetQueryExecutionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetQueryExecutionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class GetQueryExecutionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryExecutionCommandOutput> {
     return de_GetQueryExecutionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -105,9 +105,6 @@ export class ListRecommendersCommand extends $Command<
   ListRecommendersCommandOutput,
   PersonalizeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class ListRecommendersCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRecommendersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class ListRecommendersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendersCommandOutput> {
     return de_ListRecommendersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

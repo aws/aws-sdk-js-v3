@@ -131,9 +131,6 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
   DescribeScalingPlanResourcesCommandOutput,
   AutoScalingPlansClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeScalingPlanResourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
   ): Promise<DescribeScalingPlanResourcesCommandOutput> {
     return de_DescribeScalingPlanResourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

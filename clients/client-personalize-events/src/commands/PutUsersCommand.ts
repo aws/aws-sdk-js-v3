@@ -88,9 +88,6 @@ export class PutUsersCommand extends $Command<
   PutUsersCommandOutput,
   PersonalizeEventsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class PutUsersCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutUsersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class PutUsersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUsersCommandOutput> {
     return de_PutUsersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

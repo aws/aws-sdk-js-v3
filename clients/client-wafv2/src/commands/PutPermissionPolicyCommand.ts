@@ -142,9 +142,6 @@ export class PutPermissionPolicyCommand extends $Command<
   PutPermissionPolicyCommandOutput,
   WAFV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -158,9 +155,7 @@ export class PutPermissionPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutPermissionPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -213,7 +208,4 @@ export class PutPermissionPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionPolicyCommandOutput> {
     return de_PutPermissionPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

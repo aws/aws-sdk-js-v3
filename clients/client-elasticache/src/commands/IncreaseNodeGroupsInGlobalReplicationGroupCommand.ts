@@ -131,9 +131,6 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
   IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
   ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> {
     return de_IncreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

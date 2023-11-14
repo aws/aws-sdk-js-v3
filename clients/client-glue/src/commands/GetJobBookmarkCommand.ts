@@ -112,9 +112,6 @@ export class GetJobBookmarkCommand extends $Command<
   GetJobBookmarkCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class GetJobBookmarkCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetJobBookmarkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class GetJobBookmarkCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobBookmarkCommandOutput> {
     return de_GetJobBookmarkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

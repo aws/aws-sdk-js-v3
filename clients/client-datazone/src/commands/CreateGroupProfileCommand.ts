@@ -97,9 +97,6 @@ export class CreateGroupProfileCommand extends $Command<
   CreateGroupProfileCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class CreateGroupProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateGroupProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class CreateGroupProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupProfileCommandOutput> {
     return de_CreateGroupProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

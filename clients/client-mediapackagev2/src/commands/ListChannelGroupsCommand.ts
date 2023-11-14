@@ -92,9 +92,6 @@ export class ListChannelGroupsCommand extends $Command<
   ListChannelGroupsCommandOutput,
   MediaPackageV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class ListChannelGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListChannelGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class ListChannelGroupsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelGroupsCommandOutput> {
     return de_ListChannelGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

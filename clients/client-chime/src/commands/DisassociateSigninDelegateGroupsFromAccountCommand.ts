@@ -101,9 +101,6 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
   DisassociateSigninDelegateGroupsFromAccountCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
    * @public
    */
   constructor(readonly input: DisassociateSigninDelegateGroupsFromAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
   ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> {
     return de_DisassociateSigninDelegateGroupsFromAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -88,9 +88,6 @@ export class ListGroundStationsCommand extends $Command<
   ListGroundStationsCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class ListGroundStationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListGroundStationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class ListGroundStationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroundStationsCommandOutput> {
     return de_ListGroundStationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

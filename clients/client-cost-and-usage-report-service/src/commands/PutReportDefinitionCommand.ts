@@ -140,9 +140,6 @@ export class PutReportDefinitionCommand extends $Command<
   PutReportDefinitionCommandOutput,
   CostAndUsageReportServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -156,9 +153,7 @@ export class PutReportDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutReportDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class PutReportDefinitionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutReportDefinitionCommandOutput> {
     return de_PutReportDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

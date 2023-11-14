@@ -100,9 +100,6 @@ export class DescribeHarvestJobCommand extends $Command<
   DescribeHarvestJobCommandOutput,
   MediaPackageClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DescribeHarvestJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeHarvestJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class DescribeHarvestJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHarvestJobCommandOutput> {
     return de_DescribeHarvestJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

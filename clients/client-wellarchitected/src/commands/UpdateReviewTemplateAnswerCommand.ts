@@ -154,9 +154,6 @@ export class UpdateReviewTemplateAnswerCommand extends $Command<
   UpdateReviewTemplateAnswerCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -170,9 +167,7 @@ export class UpdateReviewTemplateAnswerCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateReviewTemplateAnswerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -228,7 +223,4 @@ export class UpdateReviewTemplateAnswerCommand extends $Command<
   ): Promise<UpdateReviewTemplateAnswerCommandOutput> {
     return de_UpdateReviewTemplateAnswerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

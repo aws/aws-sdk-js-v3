@@ -87,9 +87,6 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
   ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
    * @public
    */
   constructor(readonly input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
   ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> {
     return de_ApplySecurityGroupsToClientVpnTargetNetworkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

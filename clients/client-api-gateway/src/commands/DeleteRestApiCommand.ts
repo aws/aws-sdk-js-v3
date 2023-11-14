@@ -83,9 +83,6 @@ export class DeleteRestApiCommand extends $Command<
   DeleteRestApiCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DeleteRestApiCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteRestApiCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -152,7 +147,4 @@ export class DeleteRestApiCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRestApiCommandOutput> {
     return de_DeleteRestApiCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

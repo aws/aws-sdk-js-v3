@@ -114,9 +114,6 @@ export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -134,9 +131,7 @@ export class CreateAccessPointCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAccessPointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class CreateAccessPointCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
     return de_CreateAccessPointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

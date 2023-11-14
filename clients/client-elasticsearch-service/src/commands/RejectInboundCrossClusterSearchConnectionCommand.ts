@@ -105,9 +105,6 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
   RejectInboundCrossClusterSearchConnectionCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: RejectInboundCrossClusterSearchConnectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
   ): Promise<RejectInboundCrossClusterSearchConnectionCommandOutput> {
     return de_RejectInboundCrossClusterSearchConnectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

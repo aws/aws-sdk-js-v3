@@ -105,9 +105,6 @@ export class ListReadSetImportJobsCommand extends $Command<
   ListReadSetImportJobsCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class ListReadSetImportJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListReadSetImportJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class ListReadSetImportJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReadSetImportJobsCommandOutput> {
     return de_ListReadSetImportJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

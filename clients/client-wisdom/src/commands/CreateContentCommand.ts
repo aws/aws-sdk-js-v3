@@ -124,9 +124,6 @@ export class CreateContentCommand extends $Command<
   CreateContentCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class CreateContentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateContentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class CreateContentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContentCommandOutput> {
     return de_CreateContentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -821,9 +821,6 @@ export class ChangeResourceRecordSetsCommand extends $Command<
   ChangeResourceRecordSetsCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -837,9 +834,7 @@ export class ChangeResourceRecordSetsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ChangeResourceRecordSetsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -894,7 +889,4 @@ export class ChangeResourceRecordSetsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeResourceRecordSetsCommandOutput> {
     return de_ChangeResourceRecordSetsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

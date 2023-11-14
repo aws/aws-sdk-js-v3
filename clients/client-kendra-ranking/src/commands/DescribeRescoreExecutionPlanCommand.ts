@@ -113,9 +113,6 @@ export class DescribeRescoreExecutionPlanCommand extends $Command<
   DescribeRescoreExecutionPlanCommandOutput,
   KendraRankingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class DescribeRescoreExecutionPlanCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRescoreExecutionPlanCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class DescribeRescoreExecutionPlanCommand extends $Command<
   ): Promise<DescribeRescoreExecutionPlanCommandOutput> {
     return de_DescribeRescoreExecutionPlanCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

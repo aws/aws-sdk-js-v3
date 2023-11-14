@@ -88,9 +88,6 @@ export class PutBackupVaultNotificationsCommand extends $Command<
   PutBackupVaultNotificationsCommandOutput,
   BackupClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class PutBackupVaultNotificationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBackupVaultNotificationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class PutBackupVaultNotificationsCommand extends $Command<
   ): Promise<PutBackupVaultNotificationsCommandOutput> {
     return de_PutBackupVaultNotificationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

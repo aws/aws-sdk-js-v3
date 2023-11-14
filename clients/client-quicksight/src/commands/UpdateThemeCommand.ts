@@ -160,9 +160,6 @@ export class UpdateThemeCommand extends $Command<
   UpdateThemeCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -176,9 +173,7 @@ export class UpdateThemeCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateThemeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -229,7 +224,4 @@ export class UpdateThemeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThemeCommandOutput> {
     return de_UpdateThemeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

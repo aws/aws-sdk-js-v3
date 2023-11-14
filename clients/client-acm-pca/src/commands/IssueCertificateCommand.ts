@@ -212,9 +212,6 @@ export class IssueCertificateCommand extends $Command<
   IssueCertificateCommandOutput,
   ACMPCAClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -228,9 +225,7 @@ export class IssueCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: IssueCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -283,7 +278,4 @@ export class IssueCertificateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IssueCertificateCommandOutput> {
     return de_IssueCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

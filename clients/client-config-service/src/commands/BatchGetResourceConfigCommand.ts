@@ -128,9 +128,6 @@ export class BatchGetResourceConfigCommand extends $Command<
   BatchGetResourceConfigCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class BatchGetResourceConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetResourceConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class BatchGetResourceConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetResourceConfigCommandOutput> {
     return de_BatchGetResourceConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

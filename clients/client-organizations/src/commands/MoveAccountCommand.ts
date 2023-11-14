@@ -229,9 +229,6 @@ export class MoveAccountCommand extends $Command<
   MoveAccountCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -245,9 +242,7 @@ export class MoveAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: MoveAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -298,7 +293,4 @@ export class MoveAccountCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MoveAccountCommandOutput> {
     return de_MoveAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

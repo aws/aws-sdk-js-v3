@@ -96,9 +96,6 @@ export class ListManagedJobTemplatesCommand extends $Command<
   ListManagedJobTemplatesCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class ListManagedJobTemplatesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListManagedJobTemplatesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class ListManagedJobTemplatesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedJobTemplatesCommandOutput> {
     return de_ListManagedJobTemplatesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

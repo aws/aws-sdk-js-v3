@@ -88,9 +88,6 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
   ListFunctionDefinitionVersionsCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListFunctionDefinitionVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
   ): Promise<ListFunctionDefinitionVersionsCommandOutput> {
     return de_ListFunctionDefinitionVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

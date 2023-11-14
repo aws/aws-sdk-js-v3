@@ -165,9 +165,6 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
   UpdateStorageVirtualMachineCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -181,9 +178,7 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateStorageVirtualMachineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -239,7 +234,4 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
   ): Promise<UpdateStorageVirtualMachineCommandOutput> {
     return de_UpdateStorageVirtualMachineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

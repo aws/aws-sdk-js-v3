@@ -110,9 +110,6 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
   ReportTaskRunnerHeartbeatCommandOutput,
   DataPipelineClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReportTaskRunnerHeartbeatCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
   ): Promise<ReportTaskRunnerHeartbeatCommandOutput> {
     return de_ReportTaskRunnerHeartbeatCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

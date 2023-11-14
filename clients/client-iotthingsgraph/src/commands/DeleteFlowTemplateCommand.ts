@@ -83,9 +83,6 @@ export class DeleteFlowTemplateCommand extends $Command<
   DeleteFlowTemplateCommandOutput,
   IoTThingsGraphClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DeleteFlowTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFlowTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class DeleteFlowTemplateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowTemplateCommandOutput> {
     return de_DeleteFlowTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

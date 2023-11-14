@@ -137,9 +137,6 @@ export class GetRecommendationsCommand extends $Command<
   GetRecommendationsCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class GetRecommendationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRecommendationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class GetRecommendationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
     return de_GetRecommendationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

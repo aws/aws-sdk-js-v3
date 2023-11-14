@@ -144,9 +144,6 @@ export class CreateEventDestinationCommand extends $Command<
   CreateEventDestinationCommandOutput,
   PinpointSMSVoiceV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class CreateEventDestinationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateEventDestinationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -215,7 +210,4 @@ export class CreateEventDestinationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventDestinationCommandOutput> {
     return de_CreateEventDestinationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

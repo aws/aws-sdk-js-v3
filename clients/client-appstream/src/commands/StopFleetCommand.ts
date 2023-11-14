@@ -74,9 +74,6 @@ export class StopFleetCommand extends $Command<
   StopFleetCommandOutput,
   AppStreamClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -90,9 +87,7 @@ export class StopFleetCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopFleetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -143,7 +138,4 @@ export class StopFleetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFleetCommandOutput> {
     return de_StopFleetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

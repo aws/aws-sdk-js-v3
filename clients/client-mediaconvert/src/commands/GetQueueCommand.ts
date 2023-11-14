@@ -107,9 +107,6 @@ export class GetQueueCommand extends $Command<
   GetQueueCommandOutput,
   MediaConvertClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class GetQueueCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetQueueCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class GetQueueCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueCommandOutput> {
     return de_GetQueueCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

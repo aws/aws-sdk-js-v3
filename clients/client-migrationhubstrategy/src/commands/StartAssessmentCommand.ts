@@ -99,9 +99,6 @@ export class StartAssessmentCommand extends $Command<
   StartAssessmentCommandOutput,
   MigrationHubStrategyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class StartAssessmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartAssessmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class StartAssessmentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentCommandOutput> {
     return de_StartAssessmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

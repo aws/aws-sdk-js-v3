@@ -95,9 +95,6 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
   DisassociateFromAdministratorAccountCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateFromAdministratorAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
   ): Promise<DisassociateFromAdministratorAccountCommandOutput> {
     return de_DisassociateFromAdministratorAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

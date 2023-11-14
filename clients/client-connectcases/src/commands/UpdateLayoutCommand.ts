@@ -136,9 +136,6 @@ export class UpdateLayoutCommand extends $Command<
   UpdateLayoutCommandOutput,
   ConnectCasesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class UpdateLayoutCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateLayoutCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class UpdateLayoutCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLayoutCommandOutput> {
     return de_UpdateLayoutCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

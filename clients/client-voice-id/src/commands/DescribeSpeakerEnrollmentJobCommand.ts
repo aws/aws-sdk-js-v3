@@ -133,9 +133,6 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
   DescribeSpeakerEnrollmentJobCommandOutput,
   VoiceIDClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSpeakerEnrollmentJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
   ): Promise<DescribeSpeakerEnrollmentJobCommandOutput> {
     return de_DescribeSpeakerEnrollmentJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

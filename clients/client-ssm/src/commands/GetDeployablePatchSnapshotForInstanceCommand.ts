@@ -156,9 +156,6 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
   GetDeployablePatchSnapshotForInstanceCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -172,9 +169,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDeployablePatchSnapshotForInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> {
     return de_GetDeployablePatchSnapshotForInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -190,9 +190,6 @@ export class ListCertificateAuthoritiesCommand extends $Command<
   ListCertificateAuthoritiesCommandOutput,
   ACMPCAClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -206,9 +203,7 @@ export class ListCertificateAuthoritiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListCertificateAuthoritiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -264,7 +259,4 @@ export class ListCertificateAuthoritiesCommand extends $Command<
   ): Promise<ListCertificateAuthoritiesCommandOutput> {
     return de_ListCertificateAuthoritiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

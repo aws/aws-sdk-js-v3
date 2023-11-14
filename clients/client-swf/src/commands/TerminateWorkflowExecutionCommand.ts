@@ -118,9 +118,6 @@ export class TerminateWorkflowExecutionCommand extends $Command<
   TerminateWorkflowExecutionCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class TerminateWorkflowExecutionCommand extends $Command<
    * @public
    */
   constructor(readonly input: TerminateWorkflowExecutionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class TerminateWorkflowExecutionCommand extends $Command<
   ): Promise<TerminateWorkflowExecutionCommandOutput> {
     return de_TerminateWorkflowExecutionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

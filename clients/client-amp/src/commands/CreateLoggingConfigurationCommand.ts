@@ -87,9 +87,6 @@ export class CreateLoggingConfigurationCommand extends $Command<
   CreateLoggingConfigurationCommandOutput,
   AmpClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class CreateLoggingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLoggingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class CreateLoggingConfigurationCommand extends $Command<
   ): Promise<CreateLoggingConfigurationCommandOutput> {
     return de_CreateLoggingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

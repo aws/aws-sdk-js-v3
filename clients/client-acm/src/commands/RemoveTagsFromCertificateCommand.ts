@@ -99,9 +99,6 @@ export class RemoveTagsFromCertificateCommand extends $Command<
   RemoveTagsFromCertificateCommandOutput,
   ACMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class RemoveTagsFromCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveTagsFromCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class RemoveTagsFromCertificateCommand extends $Command<
   ): Promise<RemoveTagsFromCertificateCommandOutput> {
     return de_RemoveTagsFromCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

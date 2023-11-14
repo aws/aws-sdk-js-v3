@@ -135,9 +135,6 @@ export class DescribeJobQueuesCommand extends $Command<
   DescribeJobQueuesCommandOutput,
   BatchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class DescribeJobQueuesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeJobQueuesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class DescribeJobQueuesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobQueuesCommandOutput> {
     return de_DescribeJobQueuesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

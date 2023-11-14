@@ -75,9 +75,6 @@ export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandOutput,
   CodeStarConnectionsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -91,9 +88,7 @@ export class DeleteConnectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteConnectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -146,7 +141,4 @@ export class DeleteConnectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
     return de_DeleteConnectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -133,9 +133,6 @@ export class BatchGetCollaborationAnalysisTemplateCommand extends $Command<
   BatchGetCollaborationAnalysisTemplateCommandOutput,
   CleanRoomsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class BatchGetCollaborationAnalysisTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetCollaborationAnalysisTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class BatchGetCollaborationAnalysisTemplateCommand extends $Command<
   ): Promise<BatchGetCollaborationAnalysisTemplateCommandOutput> {
     return de_BatchGetCollaborationAnalysisTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

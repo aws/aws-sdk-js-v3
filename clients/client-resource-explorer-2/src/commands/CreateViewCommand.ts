@@ -139,9 +139,6 @@ export class CreateViewCommand extends $Command<
   CreateViewCommandOutput,
   ResourceExplorer2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class CreateViewCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateViewCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class CreateViewCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateViewCommandOutput> {
     return de_CreateViewCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

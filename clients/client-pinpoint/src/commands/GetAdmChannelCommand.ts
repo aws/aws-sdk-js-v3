@@ -102,9 +102,6 @@ export class GetAdmChannelCommand extends $Command<
   GetAdmChannelCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetAdmChannelCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAdmChannelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class GetAdmChannelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdmChannelCommandOutput> {
     return de_GetAdmChannelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

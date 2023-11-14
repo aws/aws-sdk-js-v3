@@ -99,9 +99,6 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
   ReplaceRouteTableAssociationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReplaceRouteTableAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
   ): Promise<ReplaceRouteTableAssociationCommandOutput> {
     return de_ReplaceRouteTableAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

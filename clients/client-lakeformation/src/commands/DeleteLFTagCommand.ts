@@ -84,9 +84,6 @@ export class DeleteLFTagCommand extends $Command<
   DeleteLFTagCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeleteLFTagCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLFTagCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class DeleteLFTagCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLFTagCommandOutput> {
     return de_DeleteLFTagCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -96,9 +96,6 @@ export class MoveAddressToVpcCommand extends $Command<
   MoveAddressToVpcCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class MoveAddressToVpcCommand extends $Command<
    * @public
    */
   constructor(readonly input: MoveAddressToVpcCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class MoveAddressToVpcCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MoveAddressToVpcCommandOutput> {
     return de_MoveAddressToVpcCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

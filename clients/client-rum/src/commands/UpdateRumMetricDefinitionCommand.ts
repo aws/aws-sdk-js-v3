@@ -103,9 +103,6 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
   UpdateRumMetricDefinitionCommandOutput,
   RUMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateRumMetricDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
   ): Promise<UpdateRumMetricDefinitionCommandOutput> {
     return de_UpdateRumMetricDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

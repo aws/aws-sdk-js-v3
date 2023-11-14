@@ -149,9 +149,6 @@ export class DescribeReportDefinitionsCommand extends $Command<
   DescribeReportDefinitionsCommandOutput,
   CostAndUsageReportServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -165,9 +162,7 @@ export class DescribeReportDefinitionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeReportDefinitionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class DescribeReportDefinitionsCommand extends $Command<
   ): Promise<DescribeReportDefinitionsCommandOutput> {
     return de_DescribeReportDefinitionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

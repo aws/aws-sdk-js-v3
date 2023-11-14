@@ -123,9 +123,6 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
   GetIdentityNotificationAttributesCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetIdentityNotificationAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
   ): Promise<GetIdentityNotificationAttributesCommandOutput> {
     return de_GetIdentityNotificationAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -112,9 +112,6 @@ export class DeleteTimeSeriesCommand extends $Command<
   DeleteTimeSeriesCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class DeleteTimeSeriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTimeSeriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DeleteTimeSeriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTimeSeriesCommandOutput> {
     return de_DeleteTimeSeriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

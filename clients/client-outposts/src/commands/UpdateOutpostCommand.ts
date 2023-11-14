@@ -103,9 +103,6 @@ export class UpdateOutpostCommand extends $Command<
   UpdateOutpostCommandOutput,
   OutpostsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class UpdateOutpostCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateOutpostCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class UpdateOutpostCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOutpostCommandOutput> {
     return de_UpdateOutpostCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

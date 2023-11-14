@@ -121,9 +121,6 @@ export class StartPipelineCommand extends $Command<
   StartPipelineCommandOutput,
   OSISClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class StartPipelineCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartPipelineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class StartPipelineCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPipelineCommandOutput> {
     return de_StartPipelineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

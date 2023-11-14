@@ -169,9 +169,6 @@ export class DescribeLayersCommand extends $Command<
   DescribeLayersCommandOutput,
   OpsWorksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -185,9 +182,7 @@ export class DescribeLayersCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeLayersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -240,7 +235,4 @@ export class DescribeLayersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLayersCommandOutput> {
     return de_DescribeLayersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

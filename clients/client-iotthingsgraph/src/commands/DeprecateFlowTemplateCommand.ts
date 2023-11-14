@@ -82,9 +82,6 @@ export class DeprecateFlowTemplateCommand extends $Command<
   DeprecateFlowTemplateCommandOutput,
   IoTThingsGraphClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class DeprecateFlowTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeprecateFlowTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class DeprecateFlowTemplateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateFlowTemplateCommandOutput> {
     return de_DeprecateFlowTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

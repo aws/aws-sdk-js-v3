@@ -98,9 +98,6 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
   DescribeAlertManagerDefinitionCommandOutput,
   AmpClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAlertManagerDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
   ): Promise<DescribeAlertManagerDefinitionCommandOutput> {
     return de_DescribeAlertManagerDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

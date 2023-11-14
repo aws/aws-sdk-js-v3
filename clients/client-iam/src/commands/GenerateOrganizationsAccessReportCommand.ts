@@ -229,9 +229,6 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
   GenerateOrganizationsAccessReportCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -245,9 +242,7 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateOrganizationsAccessReportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -306,7 +301,4 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
   ): Promise<GenerateOrganizationsAccessReportCommandOutput> {
     return de_GenerateOrganizationsAccessReportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -98,9 +98,6 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
   GetHostReservationPurchasePreviewCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetHostReservationPurchasePreviewCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> {
     return de_GetHostReservationPurchasePreviewCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

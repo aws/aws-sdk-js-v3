@@ -87,9 +87,6 @@ export class StartOnDemandAppReplicationCommand extends $Command<
   StartOnDemandAppReplicationCommandOutput,
   SMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class StartOnDemandAppReplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartOnDemandAppReplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class StartOnDemandAppReplicationCommand extends $Command<
   ): Promise<StartOnDemandAppReplicationCommandOutput> {
     return de_StartOnDemandAppReplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

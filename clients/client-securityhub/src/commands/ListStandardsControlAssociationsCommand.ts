@@ -152,9 +152,6 @@ export class ListStandardsControlAssociationsCommand extends $Command<
   ListStandardsControlAssociationsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -168,9 +165,7 @@ export class ListStandardsControlAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListStandardsControlAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -229,7 +224,4 @@ export class ListStandardsControlAssociationsCommand extends $Command<
   ): Promise<ListStandardsControlAssociationsCommandOutput> {
     return de_ListStandardsControlAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

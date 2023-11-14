@@ -150,9 +150,6 @@ export class ListGraphqlApisCommand extends $Command<
   ListGraphqlApisCommandOutput,
   AppSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -166,9 +163,7 @@ export class ListGraphqlApisCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListGraphqlApisCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -221,7 +216,4 @@ export class ListGraphqlApisCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGraphqlApisCommandOutput> {
     return de_ListGraphqlApisCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

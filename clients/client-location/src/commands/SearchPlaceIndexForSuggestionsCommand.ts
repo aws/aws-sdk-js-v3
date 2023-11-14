@@ -152,9 +152,6 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
   SearchPlaceIndexForSuggestionsCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -168,9 +165,7 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: SearchPlaceIndexForSuggestionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -229,7 +224,4 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
   ): Promise<SearchPlaceIndexForSuggestionsCommandOutput> {
     return de_SearchPlaceIndexForSuggestionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

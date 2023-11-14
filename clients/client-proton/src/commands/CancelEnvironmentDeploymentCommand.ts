@@ -134,9 +134,6 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
   CancelEnvironmentDeploymentCommandOutput,
   ProtonClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelEnvironmentDeploymentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
   ): Promise<CancelEnvironmentDeploymentCommandOutput> {
     return de_CancelEnvironmentDeploymentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

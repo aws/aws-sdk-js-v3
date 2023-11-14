@@ -395,9 +395,6 @@ export class CreateFormCommand extends $Command<
   CreateFormCommandOutput,
   AmplifyUIBuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -411,9 +408,7 @@ export class CreateFormCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateFormCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -464,7 +459,4 @@ export class CreateFormCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFormCommandOutput> {
     return de_CreateFormCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

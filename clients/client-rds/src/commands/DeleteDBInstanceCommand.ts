@@ -361,9 +361,6 @@ export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -377,9 +374,7 @@ export class DeleteDBInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDBInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -432,7 +427,4 @@ export class DeleteDBInstanceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
     return de_DeleteDBInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

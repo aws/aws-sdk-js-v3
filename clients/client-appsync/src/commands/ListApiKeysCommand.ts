@@ -100,9 +100,6 @@ export class ListApiKeysCommand extends $Command<
   ListApiKeysCommandOutput,
   AppSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class ListApiKeysCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListApiKeysCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class ListApiKeysCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApiKeysCommandOutput> {
     return de_ListApiKeysCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

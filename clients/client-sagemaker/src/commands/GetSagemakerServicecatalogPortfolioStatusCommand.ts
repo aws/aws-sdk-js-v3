@@ -78,9 +78,6 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
   GetSagemakerServicecatalogPortfolioStatusCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSagemakerServicecatalogPortfolioStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
   ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> {
     return de_GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -101,9 +101,6 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
   DetachManagedPolicyFromPermissionSetCommandOutput,
   SSOAdminClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DetachManagedPolicyFromPermissionSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
   ): Promise<DetachManagedPolicyFromPermissionSetCommandOutput> {
     return de_DetachManagedPolicyFromPermissionSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

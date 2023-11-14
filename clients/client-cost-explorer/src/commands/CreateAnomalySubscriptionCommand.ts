@@ -167,9 +167,6 @@ export class CreateAnomalySubscriptionCommand extends $Command<
   CreateAnomalySubscriptionCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -183,9 +180,7 @@ export class CreateAnomalySubscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAnomalySubscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -241,7 +236,4 @@ export class CreateAnomalySubscriptionCommand extends $Command<
   ): Promise<CreateAnomalySubscriptionCommandOutput> {
     return de_CreateAnomalySubscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

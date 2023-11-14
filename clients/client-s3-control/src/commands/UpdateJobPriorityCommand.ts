@@ -110,9 +110,6 @@ export class UpdateJobPriorityCommand extends $Command<
   UpdateJobPriorityCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -129,9 +126,7 @@ export class UpdateJobPriorityCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateJobPriorityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class UpdateJobPriorityCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobPriorityCommandOutput> {
     return de_UpdateJobPriorityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

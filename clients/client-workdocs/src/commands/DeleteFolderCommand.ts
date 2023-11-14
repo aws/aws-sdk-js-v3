@@ -98,9 +98,6 @@ export class DeleteFolderCommand extends $Command<
   DeleteFolderCommandOutput,
   WorkDocsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class DeleteFolderCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFolderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DeleteFolderCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderCommandOutput> {
     return de_DeleteFolderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

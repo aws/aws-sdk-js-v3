@@ -210,9 +210,6 @@ export class UpdateCachePolicyCommand extends $Command<
   UpdateCachePolicyCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -226,9 +223,7 @@ export class UpdateCachePolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateCachePolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -281,7 +276,4 @@ export class UpdateCachePolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCachePolicyCommandOutput> {
     return de_UpdateCachePolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

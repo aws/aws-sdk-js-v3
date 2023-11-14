@@ -188,9 +188,6 @@ export class ListMediaAnalysisJobsCommand extends $Command<
   ListMediaAnalysisJobsCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -204,9 +201,7 @@ export class ListMediaAnalysisJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMediaAnalysisJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -259,7 +254,4 @@ export class ListMediaAnalysisJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMediaAnalysisJobsCommandOutput> {
     return de_ListMediaAnalysisJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

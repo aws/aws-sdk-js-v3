@@ -115,9 +115,6 @@ export class PutSolFunctionPackageContentCommand extends $Command<
   PutSolFunctionPackageContentCommandOutput,
   TnbClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class PutSolFunctionPackageContentCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutSolFunctionPackageContentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class PutSolFunctionPackageContentCommand extends $Command<
   ): Promise<PutSolFunctionPackageContentCommandOutput> {
     return de_PutSolFunctionPackageContentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

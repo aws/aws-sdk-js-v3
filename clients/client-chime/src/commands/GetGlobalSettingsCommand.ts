@@ -92,9 +92,6 @@ export class GetGlobalSettingsCommand extends $Command<
   GetGlobalSettingsCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class GetGlobalSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetGlobalSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class GetGlobalSettingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGlobalSettingsCommandOutput> {
     return de_GetGlobalSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

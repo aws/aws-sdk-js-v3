@@ -104,9 +104,6 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
   GetFieldLevelEncryptionProfileConfigCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetFieldLevelEncryptionProfileConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
     return de_GetFieldLevelEncryptionProfileConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -123,9 +123,6 @@ export class DescribeUsageLimitsCommand extends $Command<
   DescribeUsageLimitsCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class DescribeUsageLimitsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeUsageLimitsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class DescribeUsageLimitsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUsageLimitsCommandOutput> {
     return de_DescribeUsageLimitsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

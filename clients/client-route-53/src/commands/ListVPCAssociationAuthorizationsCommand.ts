@@ -99,9 +99,6 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
   ListVPCAssociationAuthorizationsCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListVPCAssociationAuthorizationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
   ): Promise<ListVPCAssociationAuthorizationsCommandOutput> {
     return de_ListVPCAssociationAuthorizationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

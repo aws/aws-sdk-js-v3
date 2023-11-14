@@ -89,9 +89,6 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  *
  */
 export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommandOutput, OAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
    * @public
    */
   constructor(readonly input: GetLinkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkCommandOutput> {
     return de_GetLinkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -293,9 +293,6 @@ export class DescribeAlgorithmCommand extends $Command<
   DescribeAlgorithmCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -309,9 +306,7 @@ export class DescribeAlgorithmCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAlgorithmCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -364,7 +359,4 @@ export class DescribeAlgorithmCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlgorithmCommandOutput> {
     return de_DescribeAlgorithmCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

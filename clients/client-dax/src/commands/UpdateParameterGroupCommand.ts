@@ -96,9 +96,6 @@ export class UpdateParameterGroupCommand extends $Command<
   UpdateParameterGroupCommandOutput,
   DAXClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class UpdateParameterGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateParameterGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class UpdateParameterGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateParameterGroupCommandOutput> {
     return de_UpdateParameterGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -82,9 +82,6 @@ export class GetResourceDefinitionCommand extends $Command<
   GetResourceDefinitionCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class GetResourceDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetResourceDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class GetResourceDefinitionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceDefinitionCommandOutput> {
     return de_GetResourceDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

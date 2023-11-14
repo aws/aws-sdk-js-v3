@@ -72,9 +72,6 @@ export class DeleteMonitoringScheduleCommand extends $Command<
   DeleteMonitoringScheduleCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -88,9 +85,7 @@ export class DeleteMonitoringScheduleCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMonitoringScheduleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -143,7 +138,4 @@ export class DeleteMonitoringScheduleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMonitoringScheduleCommandOutput> {
     return de_DeleteMonitoringScheduleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

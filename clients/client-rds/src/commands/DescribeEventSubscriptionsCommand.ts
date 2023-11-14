@@ -132,9 +132,6 @@ export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeEventSubscriptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class DescribeEventSubscriptionsCommand extends $Command<
   ): Promise<DescribeEventSubscriptionsCommandOutput> {
     return de_DescribeEventSubscriptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

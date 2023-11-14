@@ -250,9 +250,6 @@ export class UploadPartCommand extends $Command<
   UploadPartCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -272,9 +269,7 @@ export class UploadPartCommand extends $Command<
    * @public
    */
   constructor(readonly input: UploadPartCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -333,7 +328,4 @@ export class UploadPartCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCommandOutput> {
     return de_UploadPartCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

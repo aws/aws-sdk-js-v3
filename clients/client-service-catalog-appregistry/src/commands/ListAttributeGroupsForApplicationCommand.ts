@@ -101,9 +101,6 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
   ListAttributeGroupsForApplicationCommandOutput,
   ServiceCatalogAppRegistryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAttributeGroupsForApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
   ): Promise<ListAttributeGroupsForApplicationCommandOutput> {
     return de_ListAttributeGroupsForApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

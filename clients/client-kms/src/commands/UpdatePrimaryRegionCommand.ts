@@ -188,9 +188,6 @@ export class UpdatePrimaryRegionCommand extends $Command<
   UpdatePrimaryRegionCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -204,9 +201,7 @@ export class UpdatePrimaryRegionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdatePrimaryRegionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -259,7 +254,4 @@ export class UpdatePrimaryRegionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePrimaryRegionCommandOutput> {
     return de_UpdatePrimaryRegionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

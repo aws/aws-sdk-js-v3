@@ -129,9 +129,6 @@ export class GetSubscriptionCommand extends $Command<
   GetSubscriptionCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class GetSubscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSubscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class GetSubscriptionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubscriptionCommandOutput> {
     return de_GetSubscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

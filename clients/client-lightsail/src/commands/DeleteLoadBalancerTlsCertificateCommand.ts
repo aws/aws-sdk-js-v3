@@ -128,9 +128,6 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
   DeleteLoadBalancerTlsCertificateCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLoadBalancerTlsCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
   ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> {
     return de_DeleteLoadBalancerTlsCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

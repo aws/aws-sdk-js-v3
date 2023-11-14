@@ -127,9 +127,6 @@ export class CreateStreamingImageCommand extends $Command<
   CreateStreamingImageCommandOutput,
   NimbleClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class CreateStreamingImageCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateStreamingImageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class CreateStreamingImageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamingImageCommandOutput> {
     return de_CreateStreamingImageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -80,9 +80,6 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  *
  */
 export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommandOutput, GlueClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
    * @public
    */
   constructor(readonly input: GetTagsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
     return de_GetTagsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

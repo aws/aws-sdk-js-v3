@@ -114,9 +114,6 @@ export class CreateDataLakeOrganizationConfigurationCommand extends $Command<
   CreateDataLakeOrganizationConfigurationCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class CreateDataLakeOrganizationConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDataLakeOrganizationConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class CreateDataLakeOrganizationConfigurationCommand extends $Command<
   ): Promise<CreateDataLakeOrganizationConfigurationCommandOutput> {
     return de_CreateDataLakeOrganizationConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

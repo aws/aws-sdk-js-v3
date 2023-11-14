@@ -391,9 +391,6 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
   UpdateElasticsearchDomainConfigCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -407,9 +404,7 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateElasticsearchDomainConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -468,7 +463,4 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
   ): Promise<UpdateElasticsearchDomainConfigCommandOutput> {
     return de_UpdateElasticsearchDomainConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

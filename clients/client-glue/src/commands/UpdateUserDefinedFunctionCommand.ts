@@ -97,9 +97,6 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
   UpdateUserDefinedFunctionCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateUserDefinedFunctionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
   ): Promise<UpdateUserDefinedFunctionCommandOutput> {
     return de_UpdateUserDefinedFunctionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

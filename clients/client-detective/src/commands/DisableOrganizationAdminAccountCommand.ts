@@ -87,9 +87,6 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
   DisableOrganizationAdminAccountCommandOutput,
   DetectiveClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableOrganizationAdminAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
   ): Promise<DisableOrganizationAdminAccountCommandOutput> {
     return de_DisableOrganizationAdminAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

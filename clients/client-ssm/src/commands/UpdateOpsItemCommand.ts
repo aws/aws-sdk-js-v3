@@ -127,9 +127,6 @@ export class UpdateOpsItemCommand extends $Command<
   UpdateOpsItemCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class UpdateOpsItemCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateOpsItemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class UpdateOpsItemCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOpsItemCommandOutput> {
     return de_UpdateOpsItemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

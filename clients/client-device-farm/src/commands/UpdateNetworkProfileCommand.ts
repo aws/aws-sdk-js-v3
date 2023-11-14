@@ -106,9 +106,6 @@ export class UpdateNetworkProfileCommand extends $Command<
   UpdateNetworkProfileCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class UpdateNetworkProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateNetworkProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class UpdateNetworkProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkProfileCommandOutput> {
     return de_UpdateNetworkProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

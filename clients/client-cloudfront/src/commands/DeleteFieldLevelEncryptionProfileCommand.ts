@@ -88,9 +88,6 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
   DeleteFieldLevelEncryptionProfileCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFieldLevelEncryptionProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> {
     return de_DeleteFieldLevelEncryptionProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

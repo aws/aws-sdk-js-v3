@@ -107,9 +107,6 @@ export class RestoreBackupCommand extends $Command<
   RestoreBackupCommandOutput,
   CloudHSMV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class RestoreBackupCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreBackupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class RestoreBackupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreBackupCommandOutput> {
     return de_RestoreBackupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

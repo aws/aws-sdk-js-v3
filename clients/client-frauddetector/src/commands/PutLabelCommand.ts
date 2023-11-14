@@ -90,9 +90,6 @@ export class PutLabelCommand extends $Command<
   PutLabelCommandOutput,
   FraudDetectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class PutLabelCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutLabelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class PutLabelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLabelCommandOutput> {
     return de_PutLabelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

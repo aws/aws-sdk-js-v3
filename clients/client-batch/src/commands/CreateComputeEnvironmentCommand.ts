@@ -299,9 +299,6 @@ export class CreateComputeEnvironmentCommand extends $Command<
   CreateComputeEnvironmentCommandOutput,
   BatchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -315,9 +312,7 @@ export class CreateComputeEnvironmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateComputeEnvironmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -370,7 +365,4 @@ export class CreateComputeEnvironmentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComputeEnvironmentCommandOutput> {
     return de_CreateComputeEnvironmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

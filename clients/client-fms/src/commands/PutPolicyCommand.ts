@@ -232,9 +232,6 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *
  */
 export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyCommandOutput, FMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -248,9 +245,7 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
    * @public
    */
   constructor(readonly input: PutPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -301,7 +296,4 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPolicyCommandOutput> {
     return de_PutPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

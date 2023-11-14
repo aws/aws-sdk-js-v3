@@ -97,9 +97,6 @@ export class DescribeRdsDbInstancesCommand extends $Command<
   DescribeRdsDbInstancesCommandOutput,
   OpsWorksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class DescribeRdsDbInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRdsDbInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class DescribeRdsDbInstancesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRdsDbInstancesCommandOutput> {
     return de_DescribeRdsDbInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

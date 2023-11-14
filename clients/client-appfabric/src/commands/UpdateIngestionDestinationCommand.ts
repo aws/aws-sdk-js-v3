@@ -134,9 +134,6 @@ export class UpdateIngestionDestinationCommand extends $Command<
   UpdateIngestionDestinationCommandOutput,
   AppFabricClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class UpdateIngestionDestinationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateIngestionDestinationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class UpdateIngestionDestinationCommand extends $Command<
   ): Promise<UpdateIngestionDestinationCommandOutput> {
     return de_UpdateIngestionDestinationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -80,9 +80,6 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
   EnableIpamOrganizationAdminAccountCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableIpamOrganizationAdminAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
   ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> {
     return de_EnableIpamOrganizationAdminAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

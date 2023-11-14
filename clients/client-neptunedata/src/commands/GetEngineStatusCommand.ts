@@ -120,9 +120,6 @@ export class GetEngineStatusCommand extends $Command<
   GetEngineStatusCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class GetEngineStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEngineStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class GetEngineStatusCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEngineStatusCommandOutput> {
     return de_GetEngineStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

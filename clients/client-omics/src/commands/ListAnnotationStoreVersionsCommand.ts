@@ -112,9 +112,6 @@ export class ListAnnotationStoreVersionsCommand extends $Command<
   ListAnnotationStoreVersionsCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class ListAnnotationStoreVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAnnotationStoreVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class ListAnnotationStoreVersionsCommand extends $Command<
   ): Promise<ListAnnotationStoreVersionsCommandOutput> {
     return de_ListAnnotationStoreVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

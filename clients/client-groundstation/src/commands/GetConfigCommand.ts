@@ -151,9 +151,6 @@ export class GetConfigCommand extends $Command<
   GetConfigCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class GetConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class GetConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigCommandOutput> {
     return de_GetConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

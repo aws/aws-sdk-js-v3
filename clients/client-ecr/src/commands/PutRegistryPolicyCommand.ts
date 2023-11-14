@@ -83,9 +83,6 @@ export class PutRegistryPolicyCommand extends $Command<
   PutRegistryPolicyCommandOutput,
   ECRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class PutRegistryPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutRegistryPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class PutRegistryPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRegistryPolicyCommandOutput> {
     return de_PutRegistryPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

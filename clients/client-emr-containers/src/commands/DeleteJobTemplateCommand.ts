@@ -79,9 +79,6 @@ export class DeleteJobTemplateCommand extends $Command<
   DeleteJobTemplateCommandOutput,
   EMRContainersClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class DeleteJobTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteJobTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DeleteJobTemplateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTemplateCommandOutput> {
     return de_DeleteJobTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

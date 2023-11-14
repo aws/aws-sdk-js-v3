@@ -108,9 +108,6 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  */
 export class ListRulesCommand extends $Command<ListRulesCommandInput, ListRulesCommandOutput, WAFClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class ListRulesCommand extends $Command<ListRulesCommandInput, ListRulesC
    * @public
    */
   constructor(readonly input: ListRulesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListRulesCommand extends $Command<ListRulesCommandInput, ListRulesC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
     return de_ListRulesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

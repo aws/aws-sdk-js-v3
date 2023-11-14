@@ -81,9 +81,6 @@ export class DeleteCustomDomainAssociationCommand extends $Command<
   DeleteCustomDomainAssociationCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DeleteCustomDomainAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCustomDomainAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class DeleteCustomDomainAssociationCommand extends $Command<
   ): Promise<DeleteCustomDomainAssociationCommandOutput> {
     return de_DeleteCustomDomainAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -195,9 +195,6 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *
  */
 export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsCommandOutput, S3ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -217,9 +214,7 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
    * @public
    */
   constructor(readonly input: ListPartsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartsCommandOutput> {
     return de_ListPartsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -105,9 +105,6 @@ export class UndeprecateDomainCommand extends $Command<
   UndeprecateDomainCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class UndeprecateDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: UndeprecateDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class UndeprecateDomainCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateDomainCommandOutput> {
     return de_UndeprecateDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -140,9 +140,6 @@ export class CreateJobCommand extends $Command<
   CreateJobCommandOutput,
   BraketClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -156,9 +153,7 @@ export class CreateJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class CreateJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
     return de_CreateJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

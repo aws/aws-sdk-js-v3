@@ -105,9 +105,6 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDistributionsByResponseHeadersPolicyIdCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
   ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> {
     return de_ListDistributionsByResponseHeadersPolicyIdCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

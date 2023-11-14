@@ -105,9 +105,6 @@ export class DescribeCrossAccountAttachmentCommand extends $Command<
   DescribeCrossAccountAttachmentCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class DescribeCrossAccountAttachmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCrossAccountAttachmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class DescribeCrossAccountAttachmentCommand extends $Command<
   ): Promise<DescribeCrossAccountAttachmentCommandOutput> {
     return de_DescribeCrossAccountAttachmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

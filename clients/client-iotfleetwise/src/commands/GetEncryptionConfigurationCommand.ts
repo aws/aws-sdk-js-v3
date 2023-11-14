@@ -88,9 +88,6 @@ export class GetEncryptionConfigurationCommand extends $Command<
   GetEncryptionConfigurationCommandOutput,
   IoTFleetWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class GetEncryptionConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEncryptionConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class GetEncryptionConfigurationCommand extends $Command<
   ): Promise<GetEncryptionConfigurationCommandOutput> {
     return de_GetEncryptionConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

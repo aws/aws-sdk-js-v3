@@ -114,9 +114,6 @@ export class CreateDBSubnetGroupCommand extends $Command<
   CreateDBSubnetGroupCommandOutput,
   NeptuneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class CreateDBSubnetGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDBSubnetGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class CreateDBSubnetGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSubnetGroupCommandOutput> {
     return de_CreateDBSubnetGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

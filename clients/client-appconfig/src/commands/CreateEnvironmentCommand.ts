@@ -138,9 +138,6 @@ export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandOutput,
   AppConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class CreateEnvironmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateEnvironmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class CreateEnvironmentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
     return de_CreateEnvironmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

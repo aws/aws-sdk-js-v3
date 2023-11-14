@@ -168,9 +168,6 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
   PromoteReadReplicaDBClusterCommandOutput,
   NeptuneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -184,9 +181,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
    * @public
    */
   constructor(readonly input: PromoteReadReplicaDBClusterCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -242,7 +237,4 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
   ): Promise<PromoteReadReplicaDBClusterCommandOutput> {
     return de_PromoteReadReplicaDBClusterCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

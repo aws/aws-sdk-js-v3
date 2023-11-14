@@ -100,9 +100,6 @@ export class AddRoleToDBInstanceCommand extends $Command<
   AddRoleToDBInstanceCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class AddRoleToDBInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddRoleToDBInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class AddRoleToDBInstanceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBInstanceCommandOutput> {
     return de_AddRoleToDBInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

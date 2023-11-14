@@ -84,9 +84,6 @@ export class DeleteDeliveryDestinationPolicyCommand extends $Command<
   DeleteDeliveryDestinationPolicyCommandOutput,
   CloudWatchLogsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeleteDeliveryDestinationPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDeliveryDestinationPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteDeliveryDestinationPolicyCommand extends $Command<
   ): Promise<DeleteDeliveryDestinationPolicyCommandOutput> {
     return de_DeleteDeliveryDestinationPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

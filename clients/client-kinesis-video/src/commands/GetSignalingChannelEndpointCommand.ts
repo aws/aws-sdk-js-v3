@@ -130,9 +130,6 @@ export class GetSignalingChannelEndpointCommand extends $Command<
   GetSignalingChannelEndpointCommandOutput,
   KinesisVideoClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class GetSignalingChannelEndpointCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSignalingChannelEndpointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class GetSignalingChannelEndpointCommand extends $Command<
   ): Promise<GetSignalingChannelEndpointCommandOutput> {
     return de_GetSignalingChannelEndpointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -130,9 +130,6 @@ export class ListSafetyRulesCommand extends $Command<
   ListSafetyRulesCommandOutput,
   Route53RecoveryControlConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class ListSafetyRulesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListSafetyRulesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class ListSafetyRulesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSafetyRulesCommandOutput> {
     return de_ListSafetyRulesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -113,9 +113,6 @@ export class DeleteBucketPolicyCommand extends $Command<
   DeleteBucketPolicyCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -135,9 +132,7 @@ export class DeleteBucketPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteBucketPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class DeleteBucketPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketPolicyCommandOutput> {
     return de_DeleteBucketPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

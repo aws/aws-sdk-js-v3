@@ -159,9 +159,6 @@ export class RestoreTableCommand extends $Command<
   RestoreTableCommandOutput,
   KeyspacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -175,9 +172,7 @@ export class RestoreTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -228,7 +223,4 @@ export class RestoreTableCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableCommandOutput> {
     return de_RestoreTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

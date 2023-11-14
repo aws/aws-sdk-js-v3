@@ -324,9 +324,6 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, DynamoDBClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -340,9 +337,7 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
    * @public
    */
   constructor(readonly input: QueryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -393,7 +388,4 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
     return de_QueryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

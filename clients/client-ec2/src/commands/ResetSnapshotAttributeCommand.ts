@@ -84,9 +84,6 @@ export class ResetSnapshotAttributeCommand extends $Command<
   ResetSnapshotAttributeCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class ResetSnapshotAttributeCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResetSnapshotAttributeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class ResetSnapshotAttributeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetSnapshotAttributeCommandOutput> {
     return de_ResetSnapshotAttributeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

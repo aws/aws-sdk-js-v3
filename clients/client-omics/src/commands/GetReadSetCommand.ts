@@ -101,9 +101,6 @@ export class GetReadSetCommand extends $Command<
   GetReadSetCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetReadSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetReadSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class GetReadSetCommand extends $Command<
   ): Promise<GetReadSetCommandOutput> {
     return de_GetReadSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

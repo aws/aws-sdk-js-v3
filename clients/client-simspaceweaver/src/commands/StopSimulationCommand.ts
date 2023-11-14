@@ -87,9 +87,6 @@ export class StopSimulationCommand extends $Command<
   StopSimulationCommandOutput,
   SimSpaceWeaverClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class StopSimulationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopSimulationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class StopSimulationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSimulationCommandOutput> {
     return de_StopSimulationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

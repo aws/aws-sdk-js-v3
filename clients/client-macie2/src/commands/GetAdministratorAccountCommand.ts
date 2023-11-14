@@ -94,9 +94,6 @@ export class GetAdministratorAccountCommand extends $Command<
   GetAdministratorAccountCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class GetAdministratorAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAdministratorAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class GetAdministratorAccountCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
     return de_GetAdministratorAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

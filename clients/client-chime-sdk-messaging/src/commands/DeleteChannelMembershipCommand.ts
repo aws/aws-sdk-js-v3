@@ -102,9 +102,6 @@ export class DeleteChannelMembershipCommand extends $Command<
   DeleteChannelMembershipCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class DeleteChannelMembershipCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteChannelMembershipCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class DeleteChannelMembershipCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelMembershipCommandOutput> {
     return de_DeleteChannelMembershipCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

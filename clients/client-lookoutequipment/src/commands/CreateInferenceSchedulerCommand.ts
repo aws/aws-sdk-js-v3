@@ -132,9 +132,6 @@ export class CreateInferenceSchedulerCommand extends $Command<
   CreateInferenceSchedulerCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class CreateInferenceSchedulerCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateInferenceSchedulerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class CreateInferenceSchedulerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInferenceSchedulerCommandOutput> {
     return de_CreateInferenceSchedulerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

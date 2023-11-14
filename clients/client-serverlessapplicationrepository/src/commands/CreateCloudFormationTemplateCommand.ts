@@ -101,9 +101,6 @@ export class CreateCloudFormationTemplateCommand extends $Command<
   CreateCloudFormationTemplateCommandOutput,
   ServerlessApplicationRepositoryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class CreateCloudFormationTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCloudFormationTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class CreateCloudFormationTemplateCommand extends $Command<
   ): Promise<CreateCloudFormationTemplateCommandOutput> {
     return de_CreateCloudFormationTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

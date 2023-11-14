@@ -448,9 +448,6 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
   RemoveAccountFromOrganizationCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -464,9 +461,7 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveAccountFromOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -522,7 +517,4 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
   ): Promise<RemoveAccountFromOrganizationCommandOutput> {
     return de_RemoveAccountFromOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

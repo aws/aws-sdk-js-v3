@@ -104,9 +104,6 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
   PutAppInstanceRetentionSettingsCommandOutput,
   ChimeSDKIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutAppInstanceRetentionSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
   ): Promise<PutAppInstanceRetentionSettingsCommandOutput> {
     return de_PutAppInstanceRetentionSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

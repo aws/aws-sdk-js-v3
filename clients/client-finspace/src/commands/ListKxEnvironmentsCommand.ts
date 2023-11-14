@@ -125,9 +125,6 @@ export class ListKxEnvironmentsCommand extends $Command<
   ListKxEnvironmentsCommandOutput,
   FinspaceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class ListKxEnvironmentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListKxEnvironmentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class ListKxEnvironmentsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKxEnvironmentsCommandOutput> {
     return de_ListKxEnvironmentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

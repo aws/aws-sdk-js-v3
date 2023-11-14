@@ -80,9 +80,6 @@ export class StopQueryExecutionCommand extends $Command<
   StopQueryExecutionCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class StopQueryExecutionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopQueryExecutionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class StopQueryExecutionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopQueryExecutionCommandOutput> {
     return de_StopQueryExecutionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

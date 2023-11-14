@@ -290,9 +290,6 @@ export class DescribeDomainConfigCommand extends $Command<
   DescribeDomainConfigCommandOutput,
   OpenSearchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -306,9 +303,7 @@ export class DescribeDomainConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDomainConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -361,7 +356,4 @@ export class DescribeDomainConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainConfigCommandOutput> {
     return de_DescribeDomainConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -310,9 +310,6 @@ export class CreateModelPackageCommand extends $Command<
   CreateModelPackageCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -326,9 +323,7 @@ export class CreateModelPackageCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateModelPackageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -381,7 +376,4 @@ export class CreateModelPackageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelPackageCommandOutput> {
     return de_CreateModelPackageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

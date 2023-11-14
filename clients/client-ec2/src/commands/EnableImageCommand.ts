@@ -78,9 +78,6 @@ export class EnableImageCommand extends $Command<
   EnableImageCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class EnableImageCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableImageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -147,7 +142,4 @@ export class EnableImageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableImageCommandOutput> {
     return de_EnableImageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

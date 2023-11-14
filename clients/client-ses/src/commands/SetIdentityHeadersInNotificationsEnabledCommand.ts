@@ -97,9 +97,6 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   SetIdentityHeadersInNotificationsEnabledCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetIdentityHeadersInNotificationsEnabledCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> {
     return de_SetIdentityHeadersInNotificationsEnabledCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

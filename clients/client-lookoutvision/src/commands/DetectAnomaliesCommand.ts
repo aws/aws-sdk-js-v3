@@ -128,9 +128,6 @@ export class DetectAnomaliesCommand extends $Command<
   DetectAnomaliesCommandOutput,
   LookoutVisionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class DetectAnomaliesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DetectAnomaliesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class DetectAnomaliesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectAnomaliesCommandOutput> {
     return de_DetectAnomaliesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

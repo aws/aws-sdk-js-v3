@@ -86,9 +86,6 @@ export class RefreshTokenCommand extends $Command<
   RefreshTokenCommandOutput,
   AmplifyUIBuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class RefreshTokenCommand extends $Command<
    * @public
    */
   constructor(readonly input: RefreshTokenCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class RefreshTokenCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshTokenCommandOutput> {
     return de_RefreshTokenCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

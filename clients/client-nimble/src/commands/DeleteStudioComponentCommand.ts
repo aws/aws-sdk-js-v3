@@ -162,9 +162,6 @@ export class DeleteStudioComponentCommand extends $Command<
   DeleteStudioComponentCommandOutput,
   NimbleClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -178,9 +175,7 @@ export class DeleteStudioComponentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteStudioComponentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class DeleteStudioComponentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioComponentCommandOutput> {
     return de_DeleteStudioComponentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

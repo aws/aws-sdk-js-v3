@@ -121,9 +121,6 @@ export class GetKeyPairsCommand extends $Command<
   GetKeyPairsCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class GetKeyPairsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetKeyPairsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class GetKeyPairsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyPairsCommandOutput> {
     return de_GetKeyPairsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

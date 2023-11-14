@@ -134,9 +134,6 @@ export class UpdateResiliencyPolicyCommand extends $Command<
   UpdateResiliencyPolicyCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class UpdateResiliencyPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateResiliencyPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class UpdateResiliencyPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResiliencyPolicyCommandOutput> {
     return de_UpdateResiliencyPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

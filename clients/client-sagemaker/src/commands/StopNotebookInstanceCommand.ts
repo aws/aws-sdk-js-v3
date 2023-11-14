@@ -76,9 +76,6 @@ export class StopNotebookInstanceCommand extends $Command<
   StopNotebookInstanceCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class StopNotebookInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopNotebookInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -147,7 +142,4 @@ export class StopNotebookInstanceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookInstanceCommandOutput> {
     return de_StopNotebookInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

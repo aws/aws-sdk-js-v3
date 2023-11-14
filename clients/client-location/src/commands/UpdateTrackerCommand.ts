@@ -94,9 +94,6 @@ export class UpdateTrackerCommand extends $Command<
   UpdateTrackerCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class UpdateTrackerCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTrackerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class UpdateTrackerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrackerCommandOutput> {
     return de_UpdateTrackerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

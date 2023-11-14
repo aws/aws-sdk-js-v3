@@ -113,9 +113,6 @@ export class UpdateAppInstanceBotCommand extends $Command<
   UpdateAppInstanceBotCommandOutput,
   ChimeSDKIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class UpdateAppInstanceBotCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateAppInstanceBotCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class UpdateAppInstanceBotCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppInstanceBotCommandOutput> {
     return de_UpdateAppInstanceBotCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -383,9 +383,6 @@ export class CreateAutoScalingGroupCommand extends $Command<
   CreateAutoScalingGroupCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -399,9 +396,7 @@ export class CreateAutoScalingGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAutoScalingGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -454,7 +449,4 @@ export class CreateAutoScalingGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoScalingGroupCommandOutput> {
     return de_CreateAutoScalingGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

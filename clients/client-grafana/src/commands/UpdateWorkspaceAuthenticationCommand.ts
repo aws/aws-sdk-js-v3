@@ -170,9 +170,6 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
   UpdateWorkspaceAuthenticationCommandOutput,
   GrafanaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -186,9 +183,7 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateWorkspaceAuthenticationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -244,7 +239,4 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
   ): Promise<UpdateWorkspaceAuthenticationCommandOutput> {
     return de_UpdateWorkspaceAuthenticationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

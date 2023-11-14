@@ -172,9 +172,6 @@ export class UpdateReceiptRuleCommand extends $Command<
   UpdateReceiptRuleCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -188,9 +185,7 @@ export class UpdateReceiptRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateReceiptRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -243,7 +238,4 @@ export class UpdateReceiptRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReceiptRuleCommandOutput> {
     return de_UpdateReceiptRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -322,9 +322,6 @@ export class DescribeApplicationVersionCommand extends $Command<
   DescribeApplicationVersionCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -338,9 +335,7 @@ export class DescribeApplicationVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeApplicationVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -396,7 +391,4 @@ export class DescribeApplicationVersionCommand extends $Command<
   ): Promise<DescribeApplicationVersionCommandOutput> {
     return de_DescribeApplicationVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -90,9 +90,6 @@ export class DeleteProfileKeyCommand extends $Command<
   DeleteProfileKeyCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeleteProfileKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteProfileKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteProfileKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileKeyCommandOutput> {
     return de_DeleteProfileKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

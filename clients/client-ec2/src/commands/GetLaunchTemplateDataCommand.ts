@@ -389,9 +389,6 @@ export class GetLaunchTemplateDataCommand extends $Command<
   GetLaunchTemplateDataCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -405,9 +402,7 @@ export class GetLaunchTemplateDataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetLaunchTemplateDataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -460,7 +455,4 @@ export class GetLaunchTemplateDataCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchTemplateDataCommandOutput> {
     return de_GetLaunchTemplateDataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

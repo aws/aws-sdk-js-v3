@@ -132,9 +132,6 @@ export class ListInferenceExecutionsCommand extends $Command<
   ListInferenceExecutionsCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class ListInferenceExecutionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListInferenceExecutionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class ListInferenceExecutionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceExecutionsCommandOutput> {
     return de_ListInferenceExecutionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

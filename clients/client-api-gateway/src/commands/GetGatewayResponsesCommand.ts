@@ -97,9 +97,6 @@ export class GetGatewayResponsesCommand extends $Command<
   GetGatewayResponsesCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class GetGatewayResponsesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetGatewayResponsesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetGatewayResponsesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayResponsesCommandOutput> {
     return de_GetGatewayResponsesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

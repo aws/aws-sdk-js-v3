@@ -109,9 +109,6 @@ export class ListIdentityResolutionJobsCommand extends $Command<
   ListIdentityResolutionJobsCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class ListIdentityResolutionJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListIdentityResolutionJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class ListIdentityResolutionJobsCommand extends $Command<
   ): Promise<ListIdentityResolutionJobsCommandOutput> {
     return de_ListIdentityResolutionJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

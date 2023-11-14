@@ -113,9 +113,6 @@ export class ListReplacePermissionAssociationsWorkCommand extends $Command<
   ListReplacePermissionAssociationsWorkCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListReplacePermissionAssociationsWorkCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListReplacePermissionAssociationsWorkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class ListReplacePermissionAssociationsWorkCommand extends $Command<
   ): Promise<ListReplacePermissionAssociationsWorkCommandOutput> {
     return de_ListReplacePermissionAssociationsWorkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

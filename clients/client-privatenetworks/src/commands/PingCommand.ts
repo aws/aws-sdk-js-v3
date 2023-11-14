@@ -67,9 +67,6 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  *
  */
 export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, PrivateNetworksClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -83,9 +80,7 @@ export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, P
    * @public
    */
   constructor(readonly input: PingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -136,7 +131,4 @@ export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, P
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PingCommandOutput> {
     return de_PingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -125,9 +125,6 @@ export class GetSavingsPlanPurchaseRecommendationDetailsCommand extends $Command
   GetSavingsPlanPurchaseRecommendationDetailsCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class GetSavingsPlanPurchaseRecommendationDetailsCommand extends $Command
    * @public
    */
   constructor(readonly input: GetSavingsPlanPurchaseRecommendationDetailsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class GetSavingsPlanPurchaseRecommendationDetailsCommand extends $Command
   ): Promise<GetSavingsPlanPurchaseRecommendationDetailsCommandOutput> {
     return de_GetSavingsPlanPurchaseRecommendationDetailsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -154,9 +154,6 @@ export class StartImportCommand extends $Command<
   StartImportCommandOutput,
   CloudTrailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -170,9 +167,7 @@ export class StartImportCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartImportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class StartImportCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
     return de_StartImportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

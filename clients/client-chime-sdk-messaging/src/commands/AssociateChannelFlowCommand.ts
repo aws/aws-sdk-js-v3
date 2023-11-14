@@ -106,9 +106,6 @@ export class AssociateChannelFlowCommand extends $Command<
   AssociateChannelFlowCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class AssociateChannelFlowCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateChannelFlowCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class AssociateChannelFlowCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateChannelFlowCommandOutput> {
     return de_AssociateChannelFlowCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -100,9 +100,6 @@ export class GetDataLakeExceptionSubscriptionCommand extends $Command<
   GetDataLakeExceptionSubscriptionCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class GetDataLakeExceptionSubscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDataLakeExceptionSubscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class GetDataLakeExceptionSubscriptionCommand extends $Command<
   ): Promise<GetDataLakeExceptionSubscriptionCommandOutput> {
     return de_GetDataLakeExceptionSubscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

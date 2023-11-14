@@ -98,9 +98,6 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
   UpdateClusterKafkaVersionCommandOutput,
   KafkaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateClusterKafkaVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
   ): Promise<UpdateClusterKafkaVersionCommandOutput> {
     return de_UpdateClusterKafkaVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

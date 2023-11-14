@@ -99,9 +99,6 @@ export class DeleteTemplateGroupAccessControlEntryCommand extends $Command<
   DeleteTemplateGroupAccessControlEntryCommandOutput,
   PcaConnectorAdClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class DeleteTemplateGroupAccessControlEntryCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTemplateGroupAccessControlEntryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DeleteTemplateGroupAccessControlEntryCommand extends $Command<
   ): Promise<DeleteTemplateGroupAccessControlEntryCommandOutput> {
     return de_DeleteTemplateGroupAccessControlEntryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

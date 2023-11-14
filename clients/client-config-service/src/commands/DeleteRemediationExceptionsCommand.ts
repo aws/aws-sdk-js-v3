@@ -95,9 +95,6 @@ export class DeleteRemediationExceptionsCommand extends $Command<
   DeleteRemediationExceptionsCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class DeleteRemediationExceptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteRemediationExceptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class DeleteRemediationExceptionsCommand extends $Command<
   ): Promise<DeleteRemediationExceptionsCommandOutput> {
     return de_DeleteRemediationExceptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

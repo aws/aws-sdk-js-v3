@@ -86,9 +86,6 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  *
  */
 export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeCommandOutput, PipesClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
    * @public
    */
   constructor(readonly input: StopPipeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipeCommandOutput> {
     return de_StopPipeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

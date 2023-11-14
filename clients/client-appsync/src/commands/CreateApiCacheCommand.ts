@@ -100,9 +100,6 @@ export class CreateApiCacheCommand extends $Command<
   CreateApiCacheCommandOutput,
   AppSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class CreateApiCacheCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateApiCacheCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class CreateApiCacheCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiCacheCommandOutput> {
     return de_CreateApiCacheCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

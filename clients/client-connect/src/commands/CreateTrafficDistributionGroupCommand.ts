@@ -116,9 +116,6 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
   CreateTrafficDistributionGroupCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateTrafficDistributionGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
   ): Promise<CreateTrafficDistributionGroupCommandOutput> {
     return de_CreateTrafficDistributionGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

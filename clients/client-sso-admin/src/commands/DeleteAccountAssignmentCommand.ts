@@ -113,9 +113,6 @@ export class DeleteAccountAssignmentCommand extends $Command<
   DeleteAccountAssignmentCommandOutput,
   SSOAdminClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class DeleteAccountAssignmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAccountAssignmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class DeleteAccountAssignmentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAssignmentCommandOutput> {
     return de_DeleteAccountAssignmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

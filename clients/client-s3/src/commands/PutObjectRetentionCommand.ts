@@ -86,9 +86,6 @@ export class PutObjectRetentionCommand extends $Command<
   PutObjectRetentionCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -108,9 +105,7 @@ export class PutObjectRetentionCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutObjectRetentionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class PutObjectRetentionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectRetentionCommandOutput> {
     return de_PutObjectRetentionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

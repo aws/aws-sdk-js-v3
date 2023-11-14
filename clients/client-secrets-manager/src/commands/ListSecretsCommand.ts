@@ -193,9 +193,6 @@ export class ListSecretsCommand extends $Command<
   ListSecretsCommandOutput,
   SecretsManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -209,9 +206,7 @@ export class ListSecretsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListSecretsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -262,7 +257,4 @@ export class ListSecretsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecretsCommandOutput> {
     return de_ListSecretsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

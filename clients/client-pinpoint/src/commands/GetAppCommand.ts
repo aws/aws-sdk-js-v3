@@ -95,9 +95,6 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
  *
  */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, PinpointClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
    * @public
    */
   constructor(readonly input: GetAppCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> {
     return de_GetAppCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

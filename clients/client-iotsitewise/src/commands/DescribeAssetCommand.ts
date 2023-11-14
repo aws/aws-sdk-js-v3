@@ -148,9 +148,6 @@ export class DescribeAssetCommand extends $Command<
   DescribeAssetCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -164,9 +161,7 @@ export class DescribeAssetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAssetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -217,7 +212,4 @@ export class DescribeAssetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetCommandOutput> {
     return de_DescribeAssetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -103,9 +103,6 @@ export class GetClassificationExportConfigurationCommand extends $Command<
   GetClassificationExportConfigurationCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class GetClassificationExportConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetClassificationExportConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class GetClassificationExportConfigurationCommand extends $Command<
   ): Promise<GetClassificationExportConfigurationCommandOutput> {
     return de_GetClassificationExportConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

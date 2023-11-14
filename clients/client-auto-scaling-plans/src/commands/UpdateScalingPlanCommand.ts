@@ -151,9 +151,6 @@ export class UpdateScalingPlanCommand extends $Command<
   UpdateScalingPlanCommandOutput,
   AutoScalingPlansClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class UpdateScalingPlanCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateScalingPlanCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -222,7 +217,4 @@ export class UpdateScalingPlanCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScalingPlanCommandOutput> {
     return de_UpdateScalingPlanCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -91,9 +91,6 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
   CancelDetectMitigationActionsTaskCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelDetectMitigationActionsTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
   ): Promise<CancelDetectMitigationActionsTaskCommandOutput> {
     return de_CancelDetectMitigationActionsTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

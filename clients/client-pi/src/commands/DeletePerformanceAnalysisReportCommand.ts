@@ -84,9 +84,6 @@ export class DeletePerformanceAnalysisReportCommand extends $Command<
   DeletePerformanceAnalysisReportCommandOutput,
   PIClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeletePerformanceAnalysisReportCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeletePerformanceAnalysisReportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeletePerformanceAnalysisReportCommand extends $Command<
   ): Promise<DeletePerformanceAnalysisReportCommandOutput> {
     return de_DeletePerformanceAnalysisReportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -153,9 +153,6 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
   PutBucketIntelligentTieringConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -175,9 +172,7 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketIntelligentTieringConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -242,7 +237,4 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
   ): Promise<PutBucketIntelligentTieringConfigurationCommandOutput> {
     return de_PutBucketIntelligentTieringConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

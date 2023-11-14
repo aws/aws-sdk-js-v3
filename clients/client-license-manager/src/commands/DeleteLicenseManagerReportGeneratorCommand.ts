@@ -103,9 +103,6 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
   DeleteLicenseManagerReportGeneratorCommandOutput,
   LicenseManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLicenseManagerReportGeneratorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
   ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> {
     return de_DeleteLicenseManagerReportGeneratorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

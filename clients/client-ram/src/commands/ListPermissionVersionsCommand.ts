@@ -118,9 +118,6 @@ export class ListPermissionVersionsCommand extends $Command<
   ListPermissionVersionsCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class ListPermissionVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPermissionVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class ListPermissionVersionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionVersionsCommandOutput> {
     return de_ListPermissionVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

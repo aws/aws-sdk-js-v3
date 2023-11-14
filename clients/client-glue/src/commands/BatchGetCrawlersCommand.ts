@@ -206,9 +206,6 @@ export class BatchGetCrawlersCommand extends $Command<
   BatchGetCrawlersCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -222,9 +219,7 @@ export class BatchGetCrawlersCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetCrawlersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -277,7 +272,4 @@ export class BatchGetCrawlersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCrawlersCommandOutput> {
     return de_BatchGetCrawlersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

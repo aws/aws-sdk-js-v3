@@ -86,9 +86,6 @@ export class StopModelCustomizationJobCommand extends $Command<
   StopModelCustomizationJobCommandOutput,
   BedrockClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class StopModelCustomizationJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopModelCustomizationJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class StopModelCustomizationJobCommand extends $Command<
   ): Promise<StopModelCustomizationJobCommandOutput> {
     return de_StopModelCustomizationJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

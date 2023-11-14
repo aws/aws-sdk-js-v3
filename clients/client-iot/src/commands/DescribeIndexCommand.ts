@@ -91,9 +91,6 @@ export class DescribeIndexCommand extends $Command<
   DescribeIndexCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DescribeIndexCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeIndexCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class DescribeIndexCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIndexCommandOutput> {
     return de_DescribeIndexCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

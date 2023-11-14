@@ -149,9 +149,6 @@ export class CreateVirtualServiceCommand extends $Command<
   CreateVirtualServiceCommandOutput,
   AppMeshClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -165,9 +162,7 @@ export class CreateVirtualServiceCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateVirtualServiceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class CreateVirtualServiceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualServiceCommandOutput> {
     return de_CreateVirtualServiceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -73,9 +73,6 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
   ResetNetworkInterfaceAttributeCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -89,9 +86,7 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResetNetworkInterfaceAttributeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
   ): Promise<ResetNetworkInterfaceAttributeCommandOutput> {
     return de_ResetNetworkInterfaceAttributeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

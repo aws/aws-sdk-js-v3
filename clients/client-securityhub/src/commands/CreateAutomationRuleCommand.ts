@@ -336,9 +336,6 @@ export class CreateAutomationRuleCommand extends $Command<
   CreateAutomationRuleCommandOutput,
   SecurityHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -352,9 +349,7 @@ export class CreateAutomationRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAutomationRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -407,7 +402,4 @@ export class CreateAutomationRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutomationRuleCommandOutput> {
     return de_CreateAutomationRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

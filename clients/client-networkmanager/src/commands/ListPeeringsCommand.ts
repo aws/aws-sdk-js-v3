@@ -106,9 +106,6 @@ export class ListPeeringsCommand extends $Command<
   ListPeeringsCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class ListPeeringsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPeeringsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ListPeeringsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPeeringsCommandOutput> {
     return de_ListPeeringsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

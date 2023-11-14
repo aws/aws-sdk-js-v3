@@ -110,9 +110,6 @@ export class CreateCustomDataIdentifierCommand extends $Command<
   CreateCustomDataIdentifierCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class CreateCustomDataIdentifierCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCustomDataIdentifierCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class CreateCustomDataIdentifierCommand extends $Command<
   ): Promise<CreateCustomDataIdentifierCommandOutput> {
     return de_CreateCustomDataIdentifierCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

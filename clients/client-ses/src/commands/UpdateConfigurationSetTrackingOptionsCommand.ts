@@ -103,9 +103,6 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
   UpdateConfigurationSetTrackingOptionsCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateConfigurationSetTrackingOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
   ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> {
     return de_UpdateConfigurationSetTrackingOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

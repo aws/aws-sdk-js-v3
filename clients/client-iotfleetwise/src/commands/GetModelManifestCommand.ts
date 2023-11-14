@@ -91,9 +91,6 @@ export class GetModelManifestCommand extends $Command<
   GetModelManifestCommandOutput,
   IoTFleetWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class GetModelManifestCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetModelManifestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class GetModelManifestCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelManifestCommandOutput> {
     return de_GetModelManifestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

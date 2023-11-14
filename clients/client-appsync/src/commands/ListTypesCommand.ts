@@ -100,9 +100,6 @@ export class ListTypesCommand extends $Command<
   ListTypesCommandOutput,
   AppSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class ListTypesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTypesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class ListTypesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypesCommandOutput> {
     return de_ListTypesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

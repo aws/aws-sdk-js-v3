@@ -187,9 +187,6 @@ export class DescribeRecoveryInstancesCommand extends $Command<
   DescribeRecoveryInstancesCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -203,9 +200,7 @@ export class DescribeRecoveryInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRecoveryInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -261,7 +256,4 @@ export class DescribeRecoveryInstancesCommand extends $Command<
   ): Promise<DescribeRecoveryInstancesCommandOutput> {
     return de_DescribeRecoveryInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

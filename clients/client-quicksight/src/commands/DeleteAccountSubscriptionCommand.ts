@@ -95,9 +95,6 @@ export class DeleteAccountSubscriptionCommand extends $Command<
   DeleteAccountSubscriptionCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class DeleteAccountSubscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAccountSubscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class DeleteAccountSubscriptionCommand extends $Command<
   ): Promise<DeleteAccountSubscriptionCommandOutput> {
     return de_DeleteAccountSubscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

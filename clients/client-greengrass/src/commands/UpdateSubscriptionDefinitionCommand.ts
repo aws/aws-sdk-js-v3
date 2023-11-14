@@ -77,9 +77,6 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
   UpdateSubscriptionDefinitionCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSubscriptionDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
   ): Promise<UpdateSubscriptionDefinitionCommandOutput> {
     return de_UpdateSubscriptionDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

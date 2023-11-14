@@ -123,9 +123,6 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
   ListSNOMEDCTInferenceJobsCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListSNOMEDCTInferenceJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
   ): Promise<ListSNOMEDCTInferenceJobsCommandOutput> {
     return de_ListSNOMEDCTInferenceJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

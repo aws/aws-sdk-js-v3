@@ -96,9 +96,6 @@ export class GetAttributeValuesCommand extends $Command<
   GetAttributeValuesCommandOutput,
   PricingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetAttributeValuesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAttributeValuesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetAttributeValuesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeValuesCommandOutput> {
     return de_GetAttributeValuesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

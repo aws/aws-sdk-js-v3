@@ -130,9 +130,6 @@ export class UpdateTargetGroupCommand extends $Command<
   UpdateTargetGroupCommandOutput,
   VPCLatticeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class UpdateTargetGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTargetGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class UpdateTargetGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTargetGroupCommandOutput> {
     return de_UpdateTargetGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

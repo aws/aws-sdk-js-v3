@@ -94,9 +94,6 @@ export class DeleteEvaluationFormCommand extends $Command<
   DeleteEvaluationFormCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class DeleteEvaluationFormCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteEvaluationFormCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DeleteEvaluationFormCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEvaluationFormCommandOutput> {
     return de_DeleteEvaluationFormCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

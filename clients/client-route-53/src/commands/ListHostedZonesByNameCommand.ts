@@ -155,9 +155,6 @@ export class ListHostedZonesByNameCommand extends $Command<
   ListHostedZonesByNameCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class ListHostedZonesByNameCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListHostedZonesByNameCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -227,7 +222,4 @@ export class ListHostedZonesByNameCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostedZonesByNameCommandOutput> {
     return de_ListHostedZonesByNameCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

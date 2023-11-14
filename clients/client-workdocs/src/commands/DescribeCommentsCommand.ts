@@ -134,9 +134,6 @@ export class DescribeCommentsCommand extends $Command<
   DescribeCommentsCommandOutput,
   WorkDocsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class DescribeCommentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCommentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class DescribeCommentsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommentsCommandOutput> {
     return de_DescribeCommentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

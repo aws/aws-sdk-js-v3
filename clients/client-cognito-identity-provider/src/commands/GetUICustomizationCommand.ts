@@ -111,9 +111,6 @@ export class GetUICustomizationCommand extends $Command<
   GetUICustomizationCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class GetUICustomizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetUICustomizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class GetUICustomizationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUICustomizationCommandOutput> {
     return de_GetUICustomizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

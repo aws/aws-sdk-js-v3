@@ -150,9 +150,6 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
   DescribeDataRepositoryTasksCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -166,9 +163,7 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDataRepositoryTasksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
   ): Promise<DescribeDataRepositoryTasksCommandOutput> {
     return de_DescribeDataRepositoryTasksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

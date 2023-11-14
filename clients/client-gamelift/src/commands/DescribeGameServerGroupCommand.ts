@@ -120,9 +120,6 @@ export class DescribeGameServerGroupCommand extends $Command<
   DescribeGameServerGroupCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class DescribeGameServerGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeGameServerGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class DescribeGameServerGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGameServerGroupCommandOutput> {
     return de_DescribeGameServerGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

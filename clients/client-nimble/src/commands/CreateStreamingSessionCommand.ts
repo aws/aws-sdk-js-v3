@@ -138,9 +138,6 @@ export class CreateStreamingSessionCommand extends $Command<
   CreateStreamingSessionCommandOutput,
   NimbleClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class CreateStreamingSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateStreamingSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class CreateStreamingSessionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamingSessionCommandOutput> {
     return de_CreateStreamingSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

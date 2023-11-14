@@ -118,9 +118,6 @@ export class ListDecoderManifestSignalsCommand extends $Command<
   ListDecoderManifestSignalsCommandOutput,
   IoTFleetWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class ListDecoderManifestSignalsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDecoderManifestSignalsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class ListDecoderManifestSignalsCommand extends $Command<
   ): Promise<ListDecoderManifestSignalsCommandOutput> {
     return de_ListDecoderManifestSignalsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

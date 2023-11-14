@@ -99,9 +99,6 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  *
  */
 export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput, CognitoIdentityClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
    * @public
    */
   constructor(readonly input: GetIdCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdCommandOutput> {
     return de_GetIdCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

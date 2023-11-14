@@ -90,9 +90,6 @@ export class ModifySamlPropertiesCommand extends $Command<
   ModifySamlPropertiesCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ModifySamlPropertiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifySamlPropertiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class ModifySamlPropertiesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySamlPropertiesCommandOutput> {
     return de_ModifySamlPropertiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

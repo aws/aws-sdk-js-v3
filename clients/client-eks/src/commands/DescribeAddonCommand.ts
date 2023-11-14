@@ -123,9 +123,6 @@ export class DescribeAddonCommand extends $Command<
   DescribeAddonCommandOutput,
   EKSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class DescribeAddonCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAddonCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class DescribeAddonCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddonCommandOutput> {
     return de_DescribeAddonCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

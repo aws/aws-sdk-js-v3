@@ -158,9 +158,6 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
   GetThirdPartyJobDetailsCommandOutput,
   CodePipelineClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -174,9 +171,7 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetThirdPartyJobDetailsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -229,7 +224,4 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThirdPartyJobDetailsCommandOutput> {
     return de_GetThirdPartyJobDetailsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

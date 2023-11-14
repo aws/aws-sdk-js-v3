@@ -94,9 +94,6 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
   CreateTransitGatewayPrefixListReferenceCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateTransitGatewayPrefixListReferenceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
   ): Promise<CreateTransitGatewayPrefixListReferenceCommandOutput> {
     return de_CreateTransitGatewayPrefixListReferenceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

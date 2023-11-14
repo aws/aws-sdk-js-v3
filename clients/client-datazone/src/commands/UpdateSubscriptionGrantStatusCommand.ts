@@ -130,9 +130,6 @@ export class UpdateSubscriptionGrantStatusCommand extends $Command<
   UpdateSubscriptionGrantStatusCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class UpdateSubscriptionGrantStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSubscriptionGrantStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class UpdateSubscriptionGrantStatusCommand extends $Command<
   ): Promise<UpdateSubscriptionGrantStatusCommandOutput> {
     return de_UpdateSubscriptionGrantStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

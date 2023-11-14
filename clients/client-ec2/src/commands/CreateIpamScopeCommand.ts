@@ -102,9 +102,6 @@ export class CreateIpamScopeCommand extends $Command<
   CreateIpamScopeCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class CreateIpamScopeCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateIpamScopeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class CreateIpamScopeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpamScopeCommandOutput> {
     return de_CreateIpamScopeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

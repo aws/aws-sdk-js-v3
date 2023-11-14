@@ -110,9 +110,6 @@ export class SearchContentCommand extends $Command<
   SearchContentCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class SearchContentCommand extends $Command<
    * @public
    */
   constructor(readonly input: SearchContentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class SearchContentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContentCommandOutput> {
     return de_SearchContentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

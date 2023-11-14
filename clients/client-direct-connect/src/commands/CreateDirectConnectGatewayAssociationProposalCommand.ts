@@ -119,9 +119,6 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
   CreateDirectConnectGatewayAssociationProposalCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
    * @public
    */
   constructor(readonly input: CreateDirectConnectGatewayAssociationProposalCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
   ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> {
     return de_CreateDirectConnectGatewayAssociationProposalCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

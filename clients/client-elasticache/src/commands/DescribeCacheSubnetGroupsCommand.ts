@@ -153,9 +153,6 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
   DescribeCacheSubnetGroupsCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCacheSubnetGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -227,7 +222,4 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
   ): Promise<DescribeCacheSubnetGroupsCommandOutput> {
     return de_DescribeCacheSubnetGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

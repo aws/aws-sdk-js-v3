@@ -174,9 +174,6 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
   GetBucketLifecycleConfigurationCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -194,9 +191,7 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBucketLifecycleConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -256,7 +251,4 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
     return de_GetBucketLifecycleConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -189,9 +189,6 @@ export class GenerateRandomCommand extends $Command<
   GenerateRandomCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -205,9 +202,7 @@ export class GenerateRandomCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateRandomCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -260,7 +255,4 @@ export class GenerateRandomCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateRandomCommandOutput> {
     return de_GenerateRandomCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

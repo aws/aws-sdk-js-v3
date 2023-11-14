@@ -76,9 +76,6 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  *
  */
 export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcCommandOutput, EC2ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
    * @public
    */
   constructor(readonly input: DeleteVpcCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -145,7 +140,4 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcCommandOutput> {
     return de_DeleteVpcCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

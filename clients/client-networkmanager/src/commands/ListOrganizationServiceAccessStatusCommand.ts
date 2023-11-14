@@ -90,9 +90,6 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
   ListOrganizationServiceAccessStatusCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListOrganizationServiceAccessStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
   ): Promise<ListOrganizationServiceAccessStatusCommandOutput> {
     return de_ListOrganizationServiceAccessStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

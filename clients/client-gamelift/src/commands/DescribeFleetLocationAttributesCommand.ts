@@ -136,9 +136,6 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
   DescribeFleetLocationAttributesCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeFleetLocationAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -213,7 +208,4 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
   ): Promise<DescribeFleetLocationAttributesCommandOutput> {
     return de_DescribeFleetLocationAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

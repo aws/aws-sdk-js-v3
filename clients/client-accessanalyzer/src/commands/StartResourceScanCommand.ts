@@ -85,9 +85,6 @@ export class StartResourceScanCommand extends $Command<
   StartResourceScanCommandOutput,
   AccessAnalyzerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class StartResourceScanCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartResourceScanCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class StartResourceScanCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartResourceScanCommandOutput> {
     return de_StartResourceScanCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

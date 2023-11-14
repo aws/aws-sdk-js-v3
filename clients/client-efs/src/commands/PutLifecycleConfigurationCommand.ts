@@ -166,9 +166,6 @@ export class PutLifecycleConfigurationCommand extends $Command<
   PutLifecycleConfigurationCommandOutput,
   EFSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -182,9 +179,7 @@ export class PutLifecycleConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutLifecycleConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -240,7 +235,4 @@ export class PutLifecycleConfigurationCommand extends $Command<
   ): Promise<PutLifecycleConfigurationCommandOutput> {
     return de_PutLifecycleConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

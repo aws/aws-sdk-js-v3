@@ -137,9 +137,6 @@ export class DetectPHICommand extends $Command<
   DetectPHICommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class DetectPHICommand extends $Command<
    * @public
    */
   constructor(readonly input: DetectPHICommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class DetectPHICommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectPHICommandOutput> {
     return de_DetectPHICommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

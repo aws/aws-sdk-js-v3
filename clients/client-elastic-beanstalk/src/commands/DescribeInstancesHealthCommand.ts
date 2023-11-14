@@ -203,9 +203,6 @@ export class DescribeInstancesHealthCommand extends $Command<
   DescribeInstancesHealthCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -219,9 +216,7 @@ export class DescribeInstancesHealthCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeInstancesHealthCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -274,7 +269,4 @@ export class DescribeInstancesHealthCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesHealthCommandOutput> {
     return de_DescribeInstancesHealthCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

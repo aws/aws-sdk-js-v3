@@ -105,9 +105,6 @@ export class BatchCreateRoomMembershipCommand extends $Command<
   BatchCreateRoomMembershipCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class BatchCreateRoomMembershipCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchCreateRoomMembershipCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class BatchCreateRoomMembershipCommand extends $Command<
   ): Promise<BatchCreateRoomMembershipCommandOutput> {
     return de_BatchCreateRoomMembershipCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

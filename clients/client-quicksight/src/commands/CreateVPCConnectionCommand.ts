@@ -124,9 +124,6 @@ export class CreateVPCConnectionCommand extends $Command<
   CreateVPCConnectionCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class CreateVPCConnectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateVPCConnectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class CreateVPCConnectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVPCConnectionCommandOutput> {
     return de_CreateVPCConnectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

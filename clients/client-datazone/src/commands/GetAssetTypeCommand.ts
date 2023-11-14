@@ -107,9 +107,6 @@ export class GetAssetTypeCommand extends $Command<
   GetAssetTypeCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class GetAssetTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAssetTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class GetAssetTypeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssetTypeCommandOutput> {
     return de_GetAssetTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

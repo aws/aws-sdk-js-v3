@@ -201,9 +201,6 @@ export class ChangeServerLifeCycleStateCommand extends $Command<
   ChangeServerLifeCycleStateCommandOutput,
   MgnClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -217,9 +214,7 @@ export class ChangeServerLifeCycleStateCommand extends $Command<
    * @public
    */
   constructor(readonly input: ChangeServerLifeCycleStateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -275,7 +270,4 @@ export class ChangeServerLifeCycleStateCommand extends $Command<
   ): Promise<ChangeServerLifeCycleStateCommandOutput> {
     return de_ChangeServerLifeCycleStateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

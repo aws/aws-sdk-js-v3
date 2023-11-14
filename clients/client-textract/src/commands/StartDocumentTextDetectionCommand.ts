@@ -159,9 +159,6 @@ export class StartDocumentTextDetectionCommand extends $Command<
   StartDocumentTextDetectionCommandOutput,
   TextractClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -175,9 +172,7 @@ export class StartDocumentTextDetectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartDocumentTextDetectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class StartDocumentTextDetectionCommand extends $Command<
   ): Promise<StartDocumentTextDetectionCommandOutput> {
     return de_StartDocumentTextDetectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

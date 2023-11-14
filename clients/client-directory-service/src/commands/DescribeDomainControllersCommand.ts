@@ -107,9 +107,6 @@ export class DescribeDomainControllersCommand extends $Command<
   DescribeDomainControllersCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class DescribeDomainControllersCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDomainControllersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class DescribeDomainControllersCommand extends $Command<
   ): Promise<DescribeDomainControllersCommandOutput> {
     return de_DescribeDomainControllersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

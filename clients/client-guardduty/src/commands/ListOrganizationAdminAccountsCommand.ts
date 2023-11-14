@@ -90,9 +90,6 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
   ListOrganizationAdminAccountsCommandOutput,
   GuardDutyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListOrganizationAdminAccountsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
   ): Promise<ListOrganizationAdminAccountsCommandOutput> {
     return de_ListOrganizationAdminAccountsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

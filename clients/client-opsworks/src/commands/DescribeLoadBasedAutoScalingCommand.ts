@@ -118,9 +118,6 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
   DescribeLoadBasedAutoScalingCommandOutput,
   OpsWorksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeLoadBasedAutoScalingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
   ): Promise<DescribeLoadBasedAutoScalingCommandOutput> {
     return de_DescribeLoadBasedAutoScalingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

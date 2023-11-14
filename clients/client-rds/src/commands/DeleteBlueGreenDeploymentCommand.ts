@@ -252,9 +252,6 @@ export class DeleteBlueGreenDeploymentCommand extends $Command<
   DeleteBlueGreenDeploymentCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -268,9 +265,7 @@ export class DeleteBlueGreenDeploymentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteBlueGreenDeploymentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -326,7 +321,4 @@ export class DeleteBlueGreenDeploymentCommand extends $Command<
   ): Promise<DeleteBlueGreenDeploymentCommandOutput> {
     return de_DeleteBlueGreenDeploymentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

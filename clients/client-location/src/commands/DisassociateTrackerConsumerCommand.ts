@@ -94,9 +94,6 @@ export class DisassociateTrackerConsumerCommand extends $Command<
   DisassociateTrackerConsumerCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class DisassociateTrackerConsumerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateTrackerConsumerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class DisassociateTrackerConsumerCommand extends $Command<
   ): Promise<DisassociateTrackerConsumerCommandOutput> {
     return de_DisassociateTrackerConsumerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

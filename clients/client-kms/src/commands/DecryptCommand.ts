@@ -319,9 +319,6 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *
  */
 export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommandOutput, KMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -335,9 +332,7 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
    * @public
    */
   constructor(readonly input: DecryptCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -388,7 +383,4 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecryptCommandOutput> {
     return de_DecryptCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

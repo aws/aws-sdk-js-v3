@@ -121,9 +121,6 @@ export class DisassociateCreatedArtifactCommand extends $Command<
   DisassociateCreatedArtifactCommandOutput,
   MigrationHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class DisassociateCreatedArtifactCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateCreatedArtifactCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class DisassociateCreatedArtifactCommand extends $Command<
   ): Promise<DisassociateCreatedArtifactCommandOutput> {
     return de_DisassociateCreatedArtifactCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

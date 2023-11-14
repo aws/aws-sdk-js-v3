@@ -116,9 +116,6 @@ export class UpdateACLCommand extends $Command<
   UpdateACLCommandOutput,
   MemoryDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class UpdateACLCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateACLCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class UpdateACLCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateACLCommandOutput> {
     return de_UpdateACLCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

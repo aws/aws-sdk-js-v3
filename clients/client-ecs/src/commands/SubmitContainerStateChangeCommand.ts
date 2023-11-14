@@ -100,9 +100,6 @@ export class SubmitContainerStateChangeCommand extends $Command<
   SubmitContainerStateChangeCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class SubmitContainerStateChangeCommand extends $Command<
    * @public
    */
   constructor(readonly input: SubmitContainerStateChangeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class SubmitContainerStateChangeCommand extends $Command<
   ): Promise<SubmitContainerStateChangeCommandOutput> {
     return de_SubmitContainerStateChangeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -351,9 +351,6 @@ export class BatchGetItemCommand extends $Command<
   BatchGetItemCommandOutput,
   DynamoDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -367,9 +364,7 @@ export class BatchGetItemCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetItemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -420,7 +415,4 @@ export class BatchGetItemCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetItemCommandOutput> {
     return de_BatchGetItemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

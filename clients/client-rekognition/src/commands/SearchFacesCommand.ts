@@ -191,9 +191,6 @@ export class SearchFacesCommand extends $Command<
   SearchFacesCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -207,9 +204,7 @@ export class SearchFacesCommand extends $Command<
    * @public
    */
   constructor(readonly input: SearchFacesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -260,7 +255,4 @@ export class SearchFacesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFacesCommandOutput> {
     return de_SearchFacesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

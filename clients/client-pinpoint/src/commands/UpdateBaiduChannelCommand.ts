@@ -108,9 +108,6 @@ export class UpdateBaiduChannelCommand extends $Command<
   UpdateBaiduChannelCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class UpdateBaiduChannelCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateBaiduChannelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class UpdateBaiduChannelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBaiduChannelCommandOutput> {
     return de_UpdateBaiduChannelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

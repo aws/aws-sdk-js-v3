@@ -117,9 +117,6 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
   DisassociateApprovalRuleTemplateFromRepositoryCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
    * @public
    */
   constructor(readonly input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
   ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> {
     return de_DisassociateApprovalRuleTemplateFromRepositoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

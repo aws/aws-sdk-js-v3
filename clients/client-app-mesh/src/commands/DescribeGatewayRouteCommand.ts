@@ -270,9 +270,6 @@ export class DescribeGatewayRouteCommand extends $Command<
   DescribeGatewayRouteCommandOutput,
   AppMeshClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -286,9 +283,7 @@ export class DescribeGatewayRouteCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeGatewayRouteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -341,7 +336,4 @@ export class DescribeGatewayRouteCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGatewayRouteCommandOutput> {
     return de_DescribeGatewayRouteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

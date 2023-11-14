@@ -84,9 +84,6 @@ export class DeleteLoggingConfigurationCommand extends $Command<
   DeleteLoggingConfigurationCommandOutput,
   AmpClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeleteLoggingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLoggingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class DeleteLoggingConfigurationCommand extends $Command<
   ): Promise<DeleteLoggingConfigurationCommandOutput> {
     return de_DeleteLoggingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

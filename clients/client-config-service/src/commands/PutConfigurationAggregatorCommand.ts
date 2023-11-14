@@ -178,9 +178,6 @@ export class PutConfigurationAggregatorCommand extends $Command<
   PutConfigurationAggregatorCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -194,9 +191,7 @@ export class PutConfigurationAggregatorCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutConfigurationAggregatorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -252,7 +247,4 @@ export class PutConfigurationAggregatorCommand extends $Command<
   ): Promise<PutConfigurationAggregatorCommandOutput> {
     return de_PutConfigurationAggregatorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

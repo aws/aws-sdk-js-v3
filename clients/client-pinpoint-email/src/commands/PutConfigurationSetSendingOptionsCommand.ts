@@ -87,9 +87,6 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
   PutConfigurationSetSendingOptionsCommandOutput,
   PinpointEmailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutConfigurationSetSendingOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> {
     return de_PutConfigurationSetSendingOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

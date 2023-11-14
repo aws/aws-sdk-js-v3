@@ -129,9 +129,6 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
   ExportEBSVolumeRecommendationsCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ExportEBSVolumeRecommendationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
   ): Promise<ExportEBSVolumeRecommendationsCommandOutput> {
     return de_ExportEBSVolumeRecommendationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

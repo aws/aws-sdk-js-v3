@@ -111,9 +111,6 @@ export class GetDatasetCommand extends $Command<
   GetDatasetCommandOutput,
   FinspaceDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class GetDatasetCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDatasetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class GetDatasetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatasetCommandOutput> {
     return de_GetDatasetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

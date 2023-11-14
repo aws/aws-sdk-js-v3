@@ -93,9 +93,6 @@ export class ReleaseAddressCommand extends $Command<
   ReleaseAddressCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class ReleaseAddressCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReleaseAddressCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class ReleaseAddressCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseAddressCommandOutput> {
     return de_ReleaseAddressCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

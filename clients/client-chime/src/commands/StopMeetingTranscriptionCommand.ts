@@ -101,9 +101,6 @@ export class StopMeetingTranscriptionCommand extends $Command<
   StopMeetingTranscriptionCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class StopMeetingTranscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopMeetingTranscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class StopMeetingTranscriptionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMeetingTranscriptionCommandOutput> {
     return de_StopMeetingTranscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

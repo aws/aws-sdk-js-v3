@@ -149,9 +149,6 @@ export class DescribeAuditFindingCommand extends $Command<
   DescribeAuditFindingCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -165,9 +162,7 @@ export class DescribeAuditFindingCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAuditFindingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class DescribeAuditFindingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditFindingCommandOutput> {
     return de_DescribeAuditFindingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

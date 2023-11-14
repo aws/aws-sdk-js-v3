@@ -85,9 +85,6 @@ export class StartCrawlerScheduleCommand extends $Command<
   StartCrawlerScheduleCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class StartCrawlerScheduleCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartCrawlerScheduleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class StartCrawlerScheduleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCrawlerScheduleCommandOutput> {
     return de_StartCrawlerScheduleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

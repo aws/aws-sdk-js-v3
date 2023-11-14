@@ -181,9 +181,6 @@ export class CreateHITWithHITTypeCommand extends $Command<
   CreateHITWithHITTypeCommandOutput,
   MTurkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -197,9 +194,7 @@ export class CreateHITWithHITTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateHITWithHITTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -252,7 +247,4 @@ export class CreateHITWithHITTypeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITWithHITTypeCommandOutput> {
     return de_CreateHITWithHITTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

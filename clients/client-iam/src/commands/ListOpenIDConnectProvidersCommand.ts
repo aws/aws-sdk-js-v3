@@ -81,9 +81,6 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
   ListOpenIDConnectProvidersCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListOpenIDConnectProvidersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
   ): Promise<ListOpenIDConnectProvidersCommandOutput> {
     return de_ListOpenIDConnectProvidersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

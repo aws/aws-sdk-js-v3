@@ -183,9 +183,6 @@ export class AdminUpdateUserAttributesCommand extends $Command<
   AdminUpdateUserAttributesCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -199,9 +196,7 @@ export class AdminUpdateUserAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: AdminUpdateUserAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -258,7 +253,4 @@ export class AdminUpdateUserAttributesCommand extends $Command<
   ): Promise<AdminUpdateUserAttributesCommandOutput> {
     return de_AdminUpdateUserAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

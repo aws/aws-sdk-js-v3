@@ -132,9 +132,6 @@ export class CreateClusterSecurityGroupCommand extends $Command<
   CreateClusterSecurityGroupCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class CreateClusterSecurityGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateClusterSecurityGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class CreateClusterSecurityGroupCommand extends $Command<
   ): Promise<CreateClusterSecurityGroupCommandOutput> {
     return de_CreateClusterSecurityGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

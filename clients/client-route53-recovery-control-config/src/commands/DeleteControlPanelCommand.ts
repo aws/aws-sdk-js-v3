@@ -90,9 +90,6 @@ export class DeleteControlPanelCommand extends $Command<
   DeleteControlPanelCommandOutput,
   Route53RecoveryControlConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeleteControlPanelCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteControlPanelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteControlPanelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlPanelCommandOutput> {
     return de_DeleteControlPanelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -96,9 +96,6 @@ export class DeleteApplicationOutputCommand extends $Command<
   DeleteApplicationOutputCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DeleteApplicationOutputCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteApplicationOutputCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DeleteApplicationOutputCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationOutputCommandOutput> {
     return de_DeleteApplicationOutputCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

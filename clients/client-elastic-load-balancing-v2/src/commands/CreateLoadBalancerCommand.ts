@@ -293,9 +293,6 @@ export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandOutput,
   ElasticLoadBalancingV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -309,9 +306,7 @@ export class CreateLoadBalancerCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLoadBalancerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -364,7 +359,4 @@ export class CreateLoadBalancerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
     return de_CreateLoadBalancerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

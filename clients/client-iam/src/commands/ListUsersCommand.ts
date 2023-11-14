@@ -141,9 +141,6 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *
  */
 export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -157,9 +154,7 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
    * @public
    */
   constructor(readonly input: ListUsersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
     return de_ListUsersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

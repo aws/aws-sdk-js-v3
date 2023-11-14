@@ -1139,9 +1139,6 @@ export class UpdateChannelClassCommand extends $Command<
   UpdateChannelClassCommandOutput,
   MediaLiveClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -1155,9 +1152,7 @@ export class UpdateChannelClassCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateChannelClassCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -1210,7 +1205,4 @@ export class UpdateChannelClassCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelClassCommandOutput> {
     return de_UpdateChannelClassCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

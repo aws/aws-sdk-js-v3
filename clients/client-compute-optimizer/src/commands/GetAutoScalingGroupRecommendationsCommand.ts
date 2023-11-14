@@ -214,9 +214,6 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
   GetAutoScalingGroupRecommendationsCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -230,9 +227,7 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAutoScalingGroupRecommendationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -291,7 +286,4 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
   ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> {
     return de_GetAutoScalingGroupRecommendationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

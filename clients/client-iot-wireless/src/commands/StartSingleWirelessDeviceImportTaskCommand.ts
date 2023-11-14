@@ -108,9 +108,6 @@ export class StartSingleWirelessDeviceImportTaskCommand extends $Command<
   StartSingleWirelessDeviceImportTaskCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class StartSingleWirelessDeviceImportTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartSingleWirelessDeviceImportTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class StartSingleWirelessDeviceImportTaskCommand extends $Command<
   ): Promise<StartSingleWirelessDeviceImportTaskCommandOutput> {
     return de_StartSingleWirelessDeviceImportTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

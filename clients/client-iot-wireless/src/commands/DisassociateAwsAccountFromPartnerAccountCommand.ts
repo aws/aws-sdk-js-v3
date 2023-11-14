@@ -92,9 +92,6 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
   DisassociateAwsAccountFromPartnerAccountCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateAwsAccountFromPartnerAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
   ): Promise<DisassociateAwsAccountFromPartnerAccountCommandOutput> {
     return de_DisassociateAwsAccountFromPartnerAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -108,9 +108,6 @@ export class ListPricingPlansCommand extends $Command<
   ListPricingPlansCommandOutput,
   BillingconductorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class ListPricingPlansCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPricingPlansCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class ListPricingPlansCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPricingPlansCommandOutput> {
     return de_ListPricingPlansCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

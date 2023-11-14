@@ -2908,9 +2908,6 @@ export class UpdateJobTemplateCommand extends $Command<
   UpdateJobTemplateCommandOutput,
   MediaConvertClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -2924,9 +2921,7 @@ export class UpdateJobTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateJobTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -2979,7 +2974,4 @@ export class UpdateJobTemplateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobTemplateCommandOutput> {
     return de_UpdateJobTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -435,9 +435,6 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
   RestoreDBClusterFromSnapshotCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -451,9 +448,7 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreDBClusterFromSnapshotCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -509,7 +504,4 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput> {
     return de_RestoreDBClusterFromSnapshotCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -186,9 +186,6 @@ export class CreateServerCommand extends $Command<
   CreateServerCommandOutput,
   OpsWorksCMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -202,9 +199,7 @@ export class CreateServerCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateServerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -255,7 +250,4 @@ export class CreateServerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServerCommandOutput> {
     return de_CreateServerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

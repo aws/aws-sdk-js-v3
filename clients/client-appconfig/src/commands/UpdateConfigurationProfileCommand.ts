@@ -132,9 +132,6 @@ export class UpdateConfigurationProfileCommand extends $Command<
   UpdateConfigurationProfileCommandOutput,
   AppConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class UpdateConfigurationProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateConfigurationProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class UpdateConfigurationProfileCommand extends $Command<
   ): Promise<UpdateConfigurationProfileCommandOutput> {
     return de_UpdateConfigurationProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

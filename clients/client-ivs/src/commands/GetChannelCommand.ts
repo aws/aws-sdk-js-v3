@@ -93,9 +93,6 @@ export class GetChannelCommand extends $Command<
   GetChannelCommandOutput,
   IvsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetChannelCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetChannelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class GetChannelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelCommandOutput> {
     return de_GetChannelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

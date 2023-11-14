@@ -125,9 +125,6 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
   DisassociateResolverEndpointIpAddressCommandOutput,
   Route53ResolverClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateResolverEndpointIpAddressCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> {
     return de_DisassociateResolverEndpointIpAddressCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

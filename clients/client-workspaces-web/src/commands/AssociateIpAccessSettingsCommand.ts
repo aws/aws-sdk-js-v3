@@ -90,9 +90,6 @@ export class AssociateIpAccessSettingsCommand extends $Command<
   AssociateIpAccessSettingsCommandOutput,
   WorkSpacesWebClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class AssociateIpAccessSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateIpAccessSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class AssociateIpAccessSettingsCommand extends $Command<
   ): Promise<AssociateIpAccessSettingsCommandOutput> {
     return de_AssociateIpAccessSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

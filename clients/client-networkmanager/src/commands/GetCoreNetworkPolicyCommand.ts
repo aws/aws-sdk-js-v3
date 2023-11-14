@@ -102,9 +102,6 @@ export class GetCoreNetworkPolicyCommand extends $Command<
   GetCoreNetworkPolicyCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetCoreNetworkPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCoreNetworkPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class GetCoreNetworkPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkPolicyCommandOutput> {
     return de_GetCoreNetworkPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

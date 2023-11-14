@@ -127,9 +127,6 @@ export class ListEdgeAgentConfigurationsCommand extends $Command<
   ListEdgeAgentConfigurationsCommandOutput,
   KinesisVideoClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class ListEdgeAgentConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEdgeAgentConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class ListEdgeAgentConfigurationsCommand extends $Command<
   ): Promise<ListEdgeAgentConfigurationsCommandOutput> {
     return de_ListEdgeAgentConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

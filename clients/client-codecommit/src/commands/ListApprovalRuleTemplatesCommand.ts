@@ -81,9 +81,6 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
   ListApprovalRuleTemplatesCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListApprovalRuleTemplatesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
   ): Promise<ListApprovalRuleTemplatesCommandOutput> {
     return de_ListApprovalRuleTemplatesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -227,9 +227,6 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *
  */
 export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOutput, KMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -243,9 +240,7 @@ export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOut
    * @public
    */
   constructor(readonly input: VerifyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -296,7 +291,4 @@ export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyCommandOutput> {
     return de_VerifyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -262,9 +262,6 @@ export class ImportKeyMaterialCommand extends $Command<
   ImportKeyMaterialCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -278,9 +275,7 @@ export class ImportKeyMaterialCommand extends $Command<
    * @public
    */
   constructor(readonly input: ImportKeyMaterialCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -333,7 +328,4 @@ export class ImportKeyMaterialCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyMaterialCommandOutput> {
     return de_ImportKeyMaterialCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

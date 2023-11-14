@@ -113,9 +113,6 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  *
  */
 export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsCommandOutput, SMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
    * @public
    */
   constructor(readonly input: ListAppsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsCommandOutput> {
     return de_ListAppsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -206,9 +206,6 @@ export class UpdateSecretCommand extends $Command<
   UpdateSecretCommandOutput,
   SecretsManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -222,9 +219,7 @@ export class UpdateSecretCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSecretCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -275,7 +270,4 @@ export class UpdateSecretCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecretCommandOutput> {
     return de_UpdateSecretCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

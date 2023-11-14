@@ -119,9 +119,6 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  *
  */
 export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
    * @public
    */
   constructor(readonly input: ListRolesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRolesCommandOutput> {
     return de_ListRolesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

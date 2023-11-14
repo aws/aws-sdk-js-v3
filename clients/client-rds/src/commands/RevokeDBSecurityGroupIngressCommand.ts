@@ -135,9 +135,6 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
   RevokeDBSecurityGroupIngressCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
    * @public
    */
   constructor(readonly input: RevokeDBSecurityGroupIngressCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput> {
     return de_RevokeDBSecurityGroupIngressCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

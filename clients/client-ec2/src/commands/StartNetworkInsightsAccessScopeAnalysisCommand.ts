@@ -109,9 +109,6 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command<
   StartNetworkInsightsAccessScopeAnalysisCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartNetworkInsightsAccessScopeAnalysisCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command<
   ): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput> {
     return de_StartNetworkInsightsAccessScopeAnalysisCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

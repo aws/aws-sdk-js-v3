@@ -100,9 +100,6 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  *
  */
 export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockCommandOutput, QLDBClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
    * @public
    */
   constructor(readonly input: GetBlockCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlockCommandOutput> {
     return de_GetBlockCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

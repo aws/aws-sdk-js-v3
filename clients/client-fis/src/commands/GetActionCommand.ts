@@ -89,9 +89,6 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  *
  */
 export class GetActionCommand extends $Command<GetActionCommandInput, GetActionCommandOutput, FisClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
    * @public
    */
   constructor(readonly input: GetActionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActionCommandOutput> {
     return de_GetActionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

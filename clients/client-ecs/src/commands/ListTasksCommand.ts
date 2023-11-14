@@ -137,9 +137,6 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  *
  */
 export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksCommandOutput, ECSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
    * @public
    */
   constructor(readonly input: ListTasksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
     return de_ListTasksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

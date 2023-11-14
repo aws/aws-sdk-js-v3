@@ -101,9 +101,6 @@ export class ListAgentStatusesCommand extends $Command<
   ListAgentStatusesCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ListAgentStatusesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAgentStatusesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class ListAgentStatusesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgentStatusesCommandOutput> {
     return de_ListAgentStatusesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -156,9 +156,6 @@ export class AssociateSourceNetworkStackCommand extends $Command<
   AssociateSourceNetworkStackCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -172,9 +169,7 @@ export class AssociateSourceNetworkStackCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateSourceNetworkStackCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class AssociateSourceNetworkStackCommand extends $Command<
   ): Promise<AssociateSourceNetworkStackCommandOutput> {
     return de_AssociateSourceNetworkStackCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

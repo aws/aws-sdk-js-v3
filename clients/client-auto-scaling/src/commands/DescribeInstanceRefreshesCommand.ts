@@ -306,9 +306,6 @@ export class DescribeInstanceRefreshesCommand extends $Command<
   DescribeInstanceRefreshesCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -322,9 +319,7 @@ export class DescribeInstanceRefreshesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeInstanceRefreshesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -380,7 +375,4 @@ export class DescribeInstanceRefreshesCommand extends $Command<
   ): Promise<DescribeInstanceRefreshesCommandOutput> {
     return de_DescribeInstanceRefreshesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

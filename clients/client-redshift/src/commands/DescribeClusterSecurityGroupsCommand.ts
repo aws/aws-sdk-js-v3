@@ -139,9 +139,6 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
   DescribeClusterSecurityGroupsCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -155,9 +152,7 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeClusterSecurityGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -213,7 +208,4 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
   ): Promise<DescribeClusterSecurityGroupsCommandOutput> {
     return de_DescribeClusterSecurityGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

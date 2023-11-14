@@ -95,9 +95,6 @@ export class PutDashboardCommand extends $Command<
   PutDashboardCommandOutput,
   CloudWatchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class PutDashboardCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutDashboardCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class PutDashboardCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDashboardCommandOutput> {
     return de_PutDashboardCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

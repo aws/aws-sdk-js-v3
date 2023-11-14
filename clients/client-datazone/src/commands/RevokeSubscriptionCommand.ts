@@ -133,9 +133,6 @@ export class RevokeSubscriptionCommand extends $Command<
   RevokeSubscriptionCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class RevokeSubscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: RevokeSubscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class RevokeSubscriptionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSubscriptionCommandOutput> {
     return de_RevokeSubscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

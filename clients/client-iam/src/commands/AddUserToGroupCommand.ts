@@ -93,9 +93,6 @@ export class AddUserToGroupCommand extends $Command<
   AddUserToGroupCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class AddUserToGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddUserToGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class AddUserToGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddUserToGroupCommandOutput> {
     return de_AddUserToGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

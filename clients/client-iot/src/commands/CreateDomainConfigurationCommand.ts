@@ -115,9 +115,6 @@ export class CreateDomainConfigurationCommand extends $Command<
   CreateDomainConfigurationCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class CreateDomainConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDomainConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class CreateDomainConfigurationCommand extends $Command<
   ): Promise<CreateDomainConfigurationCommandOutput> {
     return de_CreateDomainConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

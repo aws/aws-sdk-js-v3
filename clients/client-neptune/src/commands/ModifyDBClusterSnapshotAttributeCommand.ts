@@ -116,9 +116,6 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
   ModifyDBClusterSnapshotAttributeCommandOutput,
   NeptuneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyDBClusterSnapshotAttributeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> {
     return de_ModifyDBClusterSnapshotAttributeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

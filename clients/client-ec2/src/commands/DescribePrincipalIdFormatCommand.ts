@@ -104,9 +104,6 @@ export class DescribePrincipalIdFormatCommand extends $Command<
   DescribePrincipalIdFormatCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class DescribePrincipalIdFormatCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePrincipalIdFormatCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class DescribePrincipalIdFormatCommand extends $Command<
   ): Promise<DescribePrincipalIdFormatCommandOutput> {
     return de_DescribePrincipalIdFormatCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -92,9 +92,6 @@ export class ListVpcEndpointsForDomainCommand extends $Command<
   ListVpcEndpointsForDomainCommandOutput,
   OpenSearchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class ListVpcEndpointsForDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListVpcEndpointsForDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class ListVpcEndpointsForDomainCommand extends $Command<
   ): Promise<ListVpcEndpointsForDomainCommandOutput> {
     return de_ListVpcEndpointsForDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

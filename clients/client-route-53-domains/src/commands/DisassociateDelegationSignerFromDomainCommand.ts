@@ -100,9 +100,6 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
   DisassociateDelegationSignerFromDomainCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateDelegationSignerFromDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
   ): Promise<DisassociateDelegationSignerFromDomainCommandOutput> {
     return de_DisassociateDelegationSignerFromDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

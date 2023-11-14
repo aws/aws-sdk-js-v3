@@ -418,9 +418,6 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
   RegisterDelegatedAdministratorCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -434,9 +431,7 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterDelegatedAdministratorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -495,7 +490,4 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
   ): Promise<RegisterDelegatedAdministratorCommandOutput> {
     return de_RegisterDelegatedAdministratorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

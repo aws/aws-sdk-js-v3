@@ -415,9 +415,6 @@ export class EnableAWSServiceAccessCommand extends $Command<
   EnableAWSServiceAccessCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -431,9 +428,7 @@ export class EnableAWSServiceAccessCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableAWSServiceAccessCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -486,7 +481,4 @@ export class EnableAWSServiceAccessCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAWSServiceAccessCommandOutput> {
     return de_EnableAWSServiceAccessCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -146,9 +146,6 @@ export class WriteGetObjectResponseCommand extends $Command<
   WriteGetObjectResponseCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
@@ -168,9 +165,7 @@ export class WriteGetObjectResponseCommand extends $Command<
    * @public
    */
   constructor(readonly input: WriteGetObjectResponseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class WriteGetObjectResponseCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteGetObjectResponseCommandOutput> {
     return de_WriteGetObjectResponseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

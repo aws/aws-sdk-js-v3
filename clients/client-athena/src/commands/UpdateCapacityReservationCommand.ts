@@ -77,9 +77,6 @@ export class UpdateCapacityReservationCommand extends $Command<
   UpdateCapacityReservationCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class UpdateCapacityReservationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateCapacityReservationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class UpdateCapacityReservationCommand extends $Command<
   ): Promise<UpdateCapacityReservationCommandOutput> {
     return de_UpdateCapacityReservationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

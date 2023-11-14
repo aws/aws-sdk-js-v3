@@ -124,9 +124,6 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
   ListAvailableManagedRuleGroupVersionsCommandOutput,
   WAFV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAvailableManagedRuleGroupVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
   ): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> {
     return de_ListAvailableManagedRuleGroupVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

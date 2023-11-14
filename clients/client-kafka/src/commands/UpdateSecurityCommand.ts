@@ -121,9 +121,6 @@ export class UpdateSecurityCommand extends $Command<
   UpdateSecurityCommandOutput,
   KafkaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class UpdateSecurityCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSecurityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class UpdateSecurityCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityCommandOutput> {
     return de_UpdateSecurityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -106,9 +106,6 @@ export class ListRepositoriesCommand extends $Command<
   ListRepositoriesCommandOutput,
   CodeartifactClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class ListRepositoriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRepositoriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListRepositoriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRepositoriesCommandOutput> {
     return de_ListRepositoriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

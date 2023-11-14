@@ -104,9 +104,6 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
   DeleteApplicationReferenceDataSourceCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteApplicationReferenceDataSourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> {
     return de_DeleteApplicationReferenceDataSourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

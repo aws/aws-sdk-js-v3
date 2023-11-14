@@ -106,9 +106,6 @@ export class UpdateDatasetEntriesCommand extends $Command<
   UpdateDatasetEntriesCommandOutput,
   LookoutVisionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class UpdateDatasetEntriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDatasetEntriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class UpdateDatasetEntriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetEntriesCommandOutput> {
     return de_UpdateDatasetEntriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

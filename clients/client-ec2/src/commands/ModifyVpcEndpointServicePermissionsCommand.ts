@@ -98,9 +98,6 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
   ModifyVpcEndpointServicePermissionsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyVpcEndpointServicePermissionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
   ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> {
     return de_ModifyVpcEndpointServicePermissionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

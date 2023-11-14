@@ -93,9 +93,6 @@ export class GetWebhookCommand extends $Command<
   GetWebhookCommandOutput,
   AmplifyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetWebhookCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetWebhookCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class GetWebhookCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebhookCommandOutput> {
     return de_GetWebhookCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

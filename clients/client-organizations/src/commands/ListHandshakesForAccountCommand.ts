@@ -303,9 +303,6 @@ export class ListHandshakesForAccountCommand extends $Command<
   ListHandshakesForAccountCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -319,9 +316,7 @@ export class ListHandshakesForAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListHandshakesForAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -374,7 +369,4 @@ export class ListHandshakesForAccountCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHandshakesForAccountCommandOutput> {
     return de_ListHandshakesForAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -111,9 +111,6 @@ export class GetEvidenceCommand extends $Command<
   GetEvidenceCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class GetEvidenceCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEvidenceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class GetEvidenceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEvidenceCommandOutput> {
     return de_GetEvidenceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

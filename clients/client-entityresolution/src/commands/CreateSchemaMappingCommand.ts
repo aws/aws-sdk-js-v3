@@ -128,9 +128,6 @@ export class CreateSchemaMappingCommand extends $Command<
   CreateSchemaMappingCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class CreateSchemaMappingCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateSchemaMappingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class CreateSchemaMappingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaMappingCommandOutput> {
     return de_CreateSchemaMappingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

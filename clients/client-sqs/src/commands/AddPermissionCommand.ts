@@ -149,9 +149,6 @@ export class AddPermissionCommand extends $Command<
   AddPermissionCommandOutput,
   SQSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -165,9 +162,7 @@ export class AddPermissionCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddPermissionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -218,7 +213,4 @@ export class AddPermissionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
     return de_AddPermissionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

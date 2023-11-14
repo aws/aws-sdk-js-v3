@@ -102,9 +102,6 @@ export class CreateRevisionCommand extends $Command<
   CreateRevisionCommandOutput,
   DataExchangeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class CreateRevisionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRevisionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class CreateRevisionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRevisionCommandOutput> {
     return de_CreateRevisionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

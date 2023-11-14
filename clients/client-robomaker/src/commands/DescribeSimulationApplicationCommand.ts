@@ -120,9 +120,6 @@ export class DescribeSimulationApplicationCommand extends $Command<
   DescribeSimulationApplicationCommandOutput,
   RoboMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class DescribeSimulationApplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSimulationApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class DescribeSimulationApplicationCommand extends $Command<
   ): Promise<DescribeSimulationApplicationCommandOutput> {
     return de_DescribeSimulationApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

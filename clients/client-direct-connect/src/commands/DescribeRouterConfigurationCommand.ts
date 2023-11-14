@@ -91,9 +91,6 @@ export class DescribeRouterConfigurationCommand extends $Command<
   DescribeRouterConfigurationCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DescribeRouterConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRouterConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DescribeRouterConfigurationCommand extends $Command<
   ): Promise<DescribeRouterConfigurationCommandOutput> {
     return de_DescribeRouterConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -133,9 +133,6 @@ export class TranslateTextCommand extends $Command<
   TranslateTextCommandOutput,
   TranslateClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class TranslateTextCommand extends $Command<
    * @public
    */
   constructor(readonly input: TranslateTextCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class TranslateTextCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TranslateTextCommandOutput> {
     return de_TranslateTextCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

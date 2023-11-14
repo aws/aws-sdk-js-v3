@@ -129,9 +129,6 @@ export class CreateManagedEndpointCommand extends $Command<
   CreateManagedEndpointCommandOutput,
   EMRContainersClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class CreateManagedEndpointCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateManagedEndpointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class CreateManagedEndpointCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateManagedEndpointCommandOutput> {
     return de_CreateManagedEndpointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

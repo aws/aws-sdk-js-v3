@@ -109,9 +109,6 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
   GetMessagingStreamingConfigurationsCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetMessagingStreamingConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
   ): Promise<GetMessagingStreamingConfigurationsCommandOutput> {
     return de_GetMessagingStreamingConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

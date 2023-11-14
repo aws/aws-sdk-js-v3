@@ -115,9 +115,6 @@ export class DescribeTrafficSourcesCommand extends $Command<
   DescribeTrafficSourcesCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class DescribeTrafficSourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTrafficSourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class DescribeTrafficSourcesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrafficSourcesCommandOutput> {
     return de_DescribeTrafficSourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

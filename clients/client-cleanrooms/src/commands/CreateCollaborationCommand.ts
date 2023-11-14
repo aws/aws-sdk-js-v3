@@ -128,9 +128,6 @@ export class CreateCollaborationCommand extends $Command<
   CreateCollaborationCommandOutput,
   CleanRoomsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class CreateCollaborationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCollaborationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class CreateCollaborationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCollaborationCommandOutput> {
     return de_CreateCollaborationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

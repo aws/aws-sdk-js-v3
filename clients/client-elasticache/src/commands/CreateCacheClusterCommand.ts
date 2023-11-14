@@ -335,9 +335,6 @@ export class CreateCacheClusterCommand extends $Command<
   CreateCacheClusterCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -351,9 +348,7 @@ export class CreateCacheClusterCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCacheClusterCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -406,7 +401,4 @@ export class CreateCacheClusterCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheClusterCommandOutput> {
     return de_CreateCacheClusterCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

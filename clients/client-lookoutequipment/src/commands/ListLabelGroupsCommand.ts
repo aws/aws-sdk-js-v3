@@ -95,9 +95,6 @@ export class ListLabelGroupsCommand extends $Command<
   ListLabelGroupsCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class ListLabelGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListLabelGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class ListLabelGroupsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLabelGroupsCommandOutput> {
     return de_ListLabelGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

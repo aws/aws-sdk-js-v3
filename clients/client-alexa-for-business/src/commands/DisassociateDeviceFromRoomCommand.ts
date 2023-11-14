@@ -78,9 +78,6 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
   DisassociateDeviceFromRoomCommandOutput,
   AlexaForBusinessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateDeviceFromRoomCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -152,7 +147,4 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
   ): Promise<DisassociateDeviceFromRoomCommandOutput> {
     return de_DisassociateDeviceFromRoomCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

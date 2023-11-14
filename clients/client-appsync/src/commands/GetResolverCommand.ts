@@ -115,9 +115,6 @@ export class GetResolverCommand extends $Command<
   GetResolverCommandOutput,
   AppSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class GetResolverCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetResolverCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class GetResolverCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverCommandOutput> {
     return de_GetResolverCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

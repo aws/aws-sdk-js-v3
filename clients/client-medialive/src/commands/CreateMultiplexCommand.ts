@@ -133,9 +133,6 @@ export class CreateMultiplexCommand extends $Command<
   CreateMultiplexCommandOutput,
   MediaLiveClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class CreateMultiplexCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateMultiplexCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class CreateMultiplexCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultiplexCommandOutput> {
     return de_CreateMultiplexCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -76,9 +76,6 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
   DeleteNetworkInsightsAccessScopeCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteNetworkInsightsAccessScopeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
   ): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> {
     return de_DeleteNetworkInsightsAccessScopeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

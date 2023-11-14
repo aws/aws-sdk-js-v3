@@ -83,9 +83,6 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  *
  */
 export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksCommandOutput, OAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksC
    * @public
    */
   constructor(readonly input: ListSinksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -152,7 +147,4 @@ export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSinksCommandOutput> {
     return de_ListSinksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

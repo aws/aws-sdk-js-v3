@@ -78,9 +78,6 @@ export class UpdateExpirationForHITCommand extends $Command<
   UpdateExpirationForHITCommandOutput,
   MTurkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class UpdateExpirationForHITCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateExpirationForHITCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class UpdateExpirationForHITCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExpirationForHITCommandOutput> {
     return de_UpdateExpirationForHITCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

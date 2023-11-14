@@ -159,9 +159,6 @@ export class ListAccountSettingsCommand extends $Command<
   ListAccountSettingsCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -175,9 +172,7 @@ export class ListAccountSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAccountSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class ListAccountSettingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountSettingsCommandOutput> {
     return de_ListAccountSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

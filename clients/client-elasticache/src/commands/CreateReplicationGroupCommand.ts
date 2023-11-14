@@ -460,9 +460,6 @@ export class CreateReplicationGroupCommand extends $Command<
   CreateReplicationGroupCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -476,9 +473,7 @@ export class CreateReplicationGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateReplicationGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -531,7 +526,4 @@ export class CreateReplicationGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationGroupCommandOutput> {
     return de_CreateReplicationGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

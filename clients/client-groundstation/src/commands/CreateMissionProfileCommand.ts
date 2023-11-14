@@ -100,9 +100,6 @@ export class CreateMissionProfileCommand extends $Command<
   CreateMissionProfileCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class CreateMissionProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateMissionProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class CreateMissionProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMissionProfileCommandOutput> {
     return de_CreateMissionProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

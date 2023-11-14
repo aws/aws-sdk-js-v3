@@ -135,9 +135,6 @@ export class UpdateProtectedQueryCommand extends $Command<
   UpdateProtectedQueryCommandOutput,
   CleanRoomsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class UpdateProtectedQueryCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateProtectedQueryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class UpdateProtectedQueryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProtectedQueryCommandOutput> {
     return de_UpdateProtectedQueryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -87,9 +87,6 @@ export class CreateIPSetCommand extends $Command<
   CreateIPSetCommandOutput,
   GuardDutyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class CreateIPSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateIPSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class CreateIPSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIPSetCommandOutput> {
     return de_CreateIPSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

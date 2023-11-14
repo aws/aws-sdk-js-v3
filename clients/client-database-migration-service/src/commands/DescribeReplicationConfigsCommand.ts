@@ -113,9 +113,6 @@ export class DescribeReplicationConfigsCommand extends $Command<
   DescribeReplicationConfigsCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class DescribeReplicationConfigsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeReplicationConfigsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class DescribeReplicationConfigsCommand extends $Command<
   ): Promise<DescribeReplicationConfigsCommandOutput> {
     return de_DescribeReplicationConfigsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

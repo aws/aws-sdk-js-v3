@@ -139,9 +139,6 @@ export class DescribeSlotTypeCommand extends $Command<
   DescribeSlotTypeCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -155,9 +152,7 @@ export class DescribeSlotTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSlotTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class DescribeSlotTypeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSlotTypeCommandOutput> {
     return de_DescribeSlotTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

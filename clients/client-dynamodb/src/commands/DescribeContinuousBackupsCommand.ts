@@ -97,9 +97,6 @@ export class DescribeContinuousBackupsCommand extends $Command<
   DescribeContinuousBackupsCommandOutput,
   DynamoDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class DescribeContinuousBackupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeContinuousBackupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class DescribeContinuousBackupsCommand extends $Command<
   ): Promise<DescribeContinuousBackupsCommandOutput> {
     return de_DescribeContinuousBackupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

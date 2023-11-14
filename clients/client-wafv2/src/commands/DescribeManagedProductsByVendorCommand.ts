@@ -116,9 +116,6 @@ export class DescribeManagedProductsByVendorCommand extends $Command<
   DescribeManagedProductsByVendorCommandOutput,
   WAFV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class DescribeManagedProductsByVendorCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeManagedProductsByVendorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class DescribeManagedProductsByVendorCommand extends $Command<
   ): Promise<DescribeManagedProductsByVendorCommandOutput> {
     return de_DescribeManagedProductsByVendorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

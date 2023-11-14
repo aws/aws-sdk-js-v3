@@ -118,9 +118,6 @@ export class CreateVoiceConnectorCommand extends $Command<
   CreateVoiceConnectorCommandOutput,
   ChimeSDKVoiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class CreateVoiceConnectorCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateVoiceConnectorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class CreateVoiceConnectorCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVoiceConnectorCommandOutput> {
     return de_CreateVoiceConnectorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

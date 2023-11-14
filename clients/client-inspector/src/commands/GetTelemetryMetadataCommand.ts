@@ -253,9 +253,6 @@ export class GetTelemetryMetadataCommand extends $Command<
   GetTelemetryMetadataCommandOutput,
   InspectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -269,9 +266,7 @@ export class GetTelemetryMetadataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTelemetryMetadataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -324,7 +319,4 @@ export class GetTelemetryMetadataCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTelemetryMetadataCommandOutput> {
     return de_GetTelemetryMetadataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

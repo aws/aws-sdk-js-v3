@@ -168,9 +168,6 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
   GenerateEmbedUrlForAnonymousUserCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -184,9 +181,7 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateEmbedUrlForAnonymousUserCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -245,7 +240,4 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
   ): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> {
     return de_GenerateEmbedUrlForAnonymousUserCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -314,9 +314,6 @@ export class DescribeProjectVersionsCommand extends $Command<
   DescribeProjectVersionsCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -330,9 +327,7 @@ export class DescribeProjectVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeProjectVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -385,7 +380,4 @@ export class DescribeProjectVersionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectVersionsCommandOutput> {
     return de_DescribeProjectVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

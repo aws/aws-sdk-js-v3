@@ -94,9 +94,6 @@ export class GetMessagingSessionEndpointCommand extends $Command<
   GetMessagingSessionEndpointCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class GetMessagingSessionEndpointCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetMessagingSessionEndpointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetMessagingSessionEndpointCommand extends $Command<
   ): Promise<GetMessagingSessionEndpointCommandOutput> {
     return de_GetMessagingSessionEndpointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

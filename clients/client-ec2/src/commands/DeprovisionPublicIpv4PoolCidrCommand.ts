@@ -77,9 +77,6 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
   DeprovisionPublicIpv4PoolCidrCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeprovisionPublicIpv4PoolCidrCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
   ): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> {
     return de_DeprovisionPublicIpv4PoolCidrCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

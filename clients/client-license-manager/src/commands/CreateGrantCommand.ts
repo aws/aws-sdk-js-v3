@@ -105,9 +105,6 @@ export class CreateGrantCommand extends $Command<
   CreateGrantCommandOutput,
   LicenseManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class CreateGrantCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateGrantCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class CreateGrantCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGrantCommandOutput> {
     return de_CreateGrantCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

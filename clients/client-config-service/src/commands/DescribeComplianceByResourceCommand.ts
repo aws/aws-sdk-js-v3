@@ -135,9 +135,6 @@ export class DescribeComplianceByResourceCommand extends $Command<
   DescribeComplianceByResourceCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class DescribeComplianceByResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeComplianceByResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class DescribeComplianceByResourceCommand extends $Command<
   ): Promise<DescribeComplianceByResourceCommandOutput> {
     return de_DescribeComplianceByResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

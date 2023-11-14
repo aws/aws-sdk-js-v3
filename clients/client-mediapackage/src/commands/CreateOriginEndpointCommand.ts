@@ -414,9 +414,6 @@ export class CreateOriginEndpointCommand extends $Command<
   CreateOriginEndpointCommandOutput,
   MediaPackageClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -430,9 +427,7 @@ export class CreateOriginEndpointCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateOriginEndpointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -485,7 +480,4 @@ export class CreateOriginEndpointCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOriginEndpointCommandOutput> {
     return de_CreateOriginEndpointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

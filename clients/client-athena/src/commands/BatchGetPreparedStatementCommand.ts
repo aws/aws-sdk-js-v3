@@ -100,9 +100,6 @@ export class BatchGetPreparedStatementCommand extends $Command<
   BatchGetPreparedStatementCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class BatchGetPreparedStatementCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetPreparedStatementCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class BatchGetPreparedStatementCommand extends $Command<
   ): Promise<BatchGetPreparedStatementCommandOutput> {
     return de_BatchGetPreparedStatementCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

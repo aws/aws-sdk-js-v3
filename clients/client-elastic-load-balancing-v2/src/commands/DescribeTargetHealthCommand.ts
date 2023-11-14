@@ -177,9 +177,6 @@ export class DescribeTargetHealthCommand extends $Command<
   DescribeTargetHealthCommandOutput,
   ElasticLoadBalancingV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -193,9 +190,7 @@ export class DescribeTargetHealthCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTargetHealthCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -248,7 +243,4 @@ export class DescribeTargetHealthCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTargetHealthCommandOutput> {
     return de_DescribeTargetHealthCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

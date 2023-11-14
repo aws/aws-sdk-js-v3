@@ -161,9 +161,6 @@ export class GetContentModerationCommand extends $Command<
   GetContentModerationCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -177,9 +174,7 @@ export class GetContentModerationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetContentModerationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -232,7 +227,4 @@ export class GetContentModerationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentModerationCommandOutput> {
     return de_GetContentModerationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

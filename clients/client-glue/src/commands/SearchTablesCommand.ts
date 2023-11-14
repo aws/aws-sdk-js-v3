@@ -195,9 +195,6 @@ export class SearchTablesCommand extends $Command<
   SearchTablesCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -211,9 +208,7 @@ export class SearchTablesCommand extends $Command<
    * @public
    */
   constructor(readonly input: SearchTablesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -264,7 +259,4 @@ export class SearchTablesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchTablesCommandOutput> {
     return de_SearchTablesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

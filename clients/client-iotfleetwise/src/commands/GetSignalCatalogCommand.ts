@@ -96,9 +96,6 @@ export class GetSignalCatalogCommand extends $Command<
   GetSignalCatalogCommandOutput,
   IoTFleetWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetSignalCatalogCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSignalCatalogCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetSignalCatalogCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSignalCatalogCommandOutput> {
     return de_GetSignalCatalogCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

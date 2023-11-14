@@ -101,9 +101,6 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
   AddTagsToOnPremisesInstancesCommandOutput,
   CodeDeployClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddTagsToOnPremisesInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
   ): Promise<AddTagsToOnPremisesInstancesCommandOutput> {
     return de_AddTagsToOnPremisesInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

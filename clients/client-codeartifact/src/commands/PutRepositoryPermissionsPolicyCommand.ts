@@ -123,9 +123,6 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
   PutRepositoryPermissionsPolicyCommandOutput,
   CodeartifactClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutRepositoryPermissionsPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
   ): Promise<PutRepositoryPermissionsPolicyCommandOutput> {
     return de_PutRepositoryPermissionsPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

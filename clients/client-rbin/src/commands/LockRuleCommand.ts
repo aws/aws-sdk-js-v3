@@ -104,9 +104,6 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  *
  */
 export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleCommandOutput, RbinClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
    * @public
    */
   constructor(readonly input: LockRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LockRuleCommandOutput> {
     return de_LockRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

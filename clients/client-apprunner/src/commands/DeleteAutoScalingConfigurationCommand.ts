@@ -100,9 +100,6 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
   DeleteAutoScalingConfigurationCommandOutput,
   AppRunnerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAutoScalingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
   ): Promise<DeleteAutoScalingConfigurationCommandOutput> {
     return de_DeleteAutoScalingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

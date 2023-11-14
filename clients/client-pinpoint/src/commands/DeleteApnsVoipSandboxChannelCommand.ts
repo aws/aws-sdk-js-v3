@@ -109,9 +109,6 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
   DeleteApnsVoipSandboxChannelCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteApnsVoipSandboxChannelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
   ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> {
     return de_DeleteApnsVoipSandboxChannelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

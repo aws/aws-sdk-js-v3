@@ -181,9 +181,6 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
   ListReviewPolicyResultsForHITCommandOutput,
   MTurkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -197,9 +194,7 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListReviewPolicyResultsForHITCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -255,7 +250,4 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
   ): Promise<ListReviewPolicyResultsForHITCommandOutput> {
     return de_ListReviewPolicyResultsForHITCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

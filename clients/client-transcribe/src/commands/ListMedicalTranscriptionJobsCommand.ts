@@ -110,9 +110,6 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
   ListMedicalTranscriptionJobsCommandOutput,
   TranscribeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMedicalTranscriptionJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
   ): Promise<ListMedicalTranscriptionJobsCommandOutput> {
     return de_ListMedicalTranscriptionJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

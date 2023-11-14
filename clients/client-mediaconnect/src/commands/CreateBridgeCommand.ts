@@ -202,9 +202,6 @@ export class CreateBridgeCommand extends $Command<
   CreateBridgeCommandOutput,
   MediaConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -218,9 +215,7 @@ export class CreateBridgeCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateBridgeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class CreateBridgeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBridgeCommandOutput> {
     return de_CreateBridgeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -99,9 +99,6 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
   DeleteDefaultMessageTypeCommandOutput,
   PinpointSMSVoiceV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDefaultMessageTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDefaultMessageTypeCommandOutput> {
     return de_DeleteDefaultMessageTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

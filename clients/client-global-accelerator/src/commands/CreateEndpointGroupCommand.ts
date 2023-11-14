@@ -145,9 +145,6 @@ export class CreateEndpointGroupCommand extends $Command<
   CreateEndpointGroupCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -161,9 +158,7 @@ export class CreateEndpointGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateEndpointGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -216,7 +211,4 @@ export class CreateEndpointGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointGroupCommandOutput> {
     return de_CreateEndpointGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

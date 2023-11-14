@@ -84,9 +84,6 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
   ExportClientVpnClientCertificateRevocationListCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
    * @public
    */
   constructor(readonly input: ExportClientVpnClientCertificateRevocationListCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
   ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput> {
     return de_ExportClientVpnClientCertificateRevocationListCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

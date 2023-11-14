@@ -370,9 +370,6 @@ export class CreateSimulationJobCommand extends $Command<
   CreateSimulationJobCommandOutput,
   RoboMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -386,9 +383,7 @@ export class CreateSimulationJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateSimulationJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -441,7 +436,4 @@ export class CreateSimulationJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSimulationJobCommandOutput> {
     return de_CreateSimulationJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

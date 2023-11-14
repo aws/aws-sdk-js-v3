@@ -95,9 +95,6 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
   DeleteMessagingStreamingConfigurationsCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMessagingStreamingConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
   ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> {
     return de_DeleteMessagingStreamingConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

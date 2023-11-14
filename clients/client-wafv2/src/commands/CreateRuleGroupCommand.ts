@@ -1113,9 +1113,6 @@ export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandOutput,
   WAFV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -1129,9 +1126,7 @@ export class CreateRuleGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRuleGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -1184,7 +1179,4 @@ export class CreateRuleGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
     return de_CreateRuleGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

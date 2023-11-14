@@ -90,9 +90,6 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
   DisableTransitGatewayRouteTablePropagationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableTransitGatewayRouteTablePropagationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
   ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput> {
     return de_DisableTransitGatewayRouteTablePropagationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

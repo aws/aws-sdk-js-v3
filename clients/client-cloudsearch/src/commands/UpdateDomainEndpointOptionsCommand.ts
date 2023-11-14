@@ -110,9 +110,6 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
   UpdateDomainEndpointOptionsCommandOutput,
   CloudSearchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDomainEndpointOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
   ): Promise<UpdateDomainEndpointOptionsCommandOutput> {
     return de_UpdateDomainEndpointOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

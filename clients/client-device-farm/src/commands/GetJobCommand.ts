@@ -171,9 +171,6 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, DeviceFarmClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -187,9 +184,7 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
    * @public
    */
   constructor(readonly input: GetJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -240,7 +235,4 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> {
     return de_GetJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

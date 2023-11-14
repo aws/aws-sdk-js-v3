@@ -102,9 +102,6 @@ export class StartJobCommand extends $Command<
   StartJobCommandOutput,
   AmplifyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class StartJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class StartJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobCommandOutput> {
     return de_StartJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

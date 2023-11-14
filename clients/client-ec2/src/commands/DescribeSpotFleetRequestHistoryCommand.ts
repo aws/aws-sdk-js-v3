@@ -151,9 +151,6 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
   DescribeSpotFleetRequestHistoryCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSpotFleetRequestHistoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -228,7 +223,4 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
   ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> {
     return de_DescribeSpotFleetRequestHistoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

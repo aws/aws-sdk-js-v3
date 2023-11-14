@@ -85,9 +85,6 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
   DeleteAutomaticTapeCreationPolicyCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAutomaticTapeCreationPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
   ): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> {
     return de_DeleteAutomaticTapeCreationPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

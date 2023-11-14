@@ -105,9 +105,6 @@ export class TerminateProvisionedProductCommand extends $Command<
   TerminateProvisionedProductCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class TerminateProvisionedProductCommand extends $Command<
    * @public
    */
   constructor(readonly input: TerminateProvisionedProductCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class TerminateProvisionedProductCommand extends $Command<
   ): Promise<TerminateProvisionedProductCommandOutput> {
     return de_TerminateProvisionedProductCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

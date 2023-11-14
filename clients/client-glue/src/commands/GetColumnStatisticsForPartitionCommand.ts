@@ -163,9 +163,6 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
   GetColumnStatisticsForPartitionCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -179,9 +176,7 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetColumnStatisticsForPartitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -240,7 +235,4 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
   ): Promise<GetColumnStatisticsForPartitionCommandOutput> {
     return de_GetColumnStatisticsForPartitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

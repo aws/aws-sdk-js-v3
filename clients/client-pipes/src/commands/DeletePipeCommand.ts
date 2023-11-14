@@ -90,9 +90,6 @@ export class DeletePipeCommand extends $Command<
   DeletePipeCommandOutput,
   PipesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeletePipeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeletePipeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class DeletePipeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipeCommandOutput> {
     return de_DeletePipeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

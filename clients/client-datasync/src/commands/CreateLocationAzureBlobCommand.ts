@@ -99,9 +99,6 @@ export class CreateLocationAzureBlobCommand extends $Command<
   CreateLocationAzureBlobCommandOutput,
   DataSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class CreateLocationAzureBlobCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLocationAzureBlobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class CreateLocationAzureBlobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationAzureBlobCommandOutput> {
     return de_CreateLocationAzureBlobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

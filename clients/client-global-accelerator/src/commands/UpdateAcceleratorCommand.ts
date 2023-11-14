@@ -136,9 +136,6 @@ export class UpdateAcceleratorCommand extends $Command<
   UpdateAcceleratorCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class UpdateAcceleratorCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateAcceleratorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class UpdateAcceleratorCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAcceleratorCommandOutput> {
     return de_UpdateAcceleratorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

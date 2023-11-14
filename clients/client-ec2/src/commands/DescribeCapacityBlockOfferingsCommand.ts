@@ -96,9 +96,6 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command<
   DescribeCapacityBlockOfferingsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCapacityBlockOfferingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command<
   ): Promise<DescribeCapacityBlockOfferingsCommandOutput> {
     return de_DescribeCapacityBlockOfferingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

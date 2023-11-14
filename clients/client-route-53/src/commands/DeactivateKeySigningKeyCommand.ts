@@ -104,9 +104,6 @@ export class DeactivateKeySigningKeyCommand extends $Command<
   DeactivateKeySigningKeyCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class DeactivateKeySigningKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeactivateKeySigningKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DeactivateKeySigningKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateKeySigningKeyCommandOutput> {
     return de_DeactivateKeySigningKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

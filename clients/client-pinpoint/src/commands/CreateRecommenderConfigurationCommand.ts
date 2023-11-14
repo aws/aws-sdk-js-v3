@@ -123,9 +123,6 @@ export class CreateRecommenderConfigurationCommand extends $Command<
   CreateRecommenderConfigurationCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class CreateRecommenderConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRecommenderConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class CreateRecommenderConfigurationCommand extends $Command<
   ): Promise<CreateRecommenderConfigurationCommandOutput> {
     return de_CreateRecommenderConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

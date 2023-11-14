@@ -84,9 +84,6 @@ export class GetAdminAccountCommand extends $Command<
   GetAdminAccountCommandOutput,
   FMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class GetAdminAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAdminAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class GetAdminAccountCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdminAccountCommandOutput> {
     return de_GetAdminAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

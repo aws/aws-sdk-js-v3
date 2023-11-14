@@ -88,9 +88,6 @@ export class DescribeImagePermissionsCommand extends $Command<
   DescribeImagePermissionsCommandOutput,
   AppStreamClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DescribeImagePermissionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeImagePermissionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class DescribeImagePermissionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagePermissionsCommandOutput> {
     return de_DescribeImagePermissionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

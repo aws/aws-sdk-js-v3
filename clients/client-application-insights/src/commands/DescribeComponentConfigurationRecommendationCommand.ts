@@ -96,9 +96,6 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
   DescribeComponentConfigurationRecommendationCommandOutput,
   ApplicationInsightsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
    * @public
    */
   constructor(readonly input: DescribeComponentConfigurationRecommendationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> {
     return de_DescribeComponentConfigurationRecommendationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

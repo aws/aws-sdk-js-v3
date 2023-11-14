@@ -150,9 +150,6 @@ export class GetExperimentCommand extends $Command<
   GetExperimentCommandOutput,
   FisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -166,9 +163,7 @@ export class GetExperimentCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetExperimentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -219,7 +214,4 @@ export class GetExperimentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentCommandOutput> {
     return de_GetExperimentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

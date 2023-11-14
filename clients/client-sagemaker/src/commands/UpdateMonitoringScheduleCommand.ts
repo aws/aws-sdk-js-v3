@@ -186,9 +186,6 @@ export class UpdateMonitoringScheduleCommand extends $Command<
   UpdateMonitoringScheduleCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -202,9 +199,7 @@ export class UpdateMonitoringScheduleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMonitoringScheduleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -257,7 +252,4 @@ export class UpdateMonitoringScheduleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitoringScheduleCommandOutput> {
     return de_UpdateMonitoringScheduleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

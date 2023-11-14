@@ -98,9 +98,6 @@ export class ListEvaluationFormVersionsCommand extends $Command<
   ListEvaluationFormVersionsCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class ListEvaluationFormVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEvaluationFormVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class ListEvaluationFormVersionsCommand extends $Command<
   ): Promise<ListEvaluationFormVersionsCommandOutput> {
     return de_ListEvaluationFormVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

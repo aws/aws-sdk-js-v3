@@ -234,9 +234,6 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
   AdminRespondToAuthChallengeCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -250,9 +247,7 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
    * @public
    */
   constructor(readonly input: AdminRespondToAuthChallengeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -309,7 +304,4 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
   ): Promise<AdminRespondToAuthChallengeCommandOutput> {
     return de_AdminRespondToAuthChallengeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

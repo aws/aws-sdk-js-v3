@@ -207,9 +207,6 @@ export class StartMigrationCommand extends $Command<
   StartMigrationCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -223,9 +220,7 @@ export class StartMigrationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartMigrationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -278,7 +273,4 @@ export class StartMigrationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMigrationCommandOutput> {
     return de_StartMigrationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

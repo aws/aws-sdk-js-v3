@@ -84,9 +84,6 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  *
  */
 export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommandOutput, OAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommand
    * @public
    */
   constructor(readonly input: GetSinkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSinkCommandOutput> {
     return de_GetSinkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

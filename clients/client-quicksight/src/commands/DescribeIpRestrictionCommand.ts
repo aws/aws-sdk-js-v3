@@ -94,9 +94,6 @@ export class DescribeIpRestrictionCommand extends $Command<
   DescribeIpRestrictionCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class DescribeIpRestrictionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeIpRestrictionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DescribeIpRestrictionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpRestrictionCommandOutput> {
     return de_DescribeIpRestrictionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

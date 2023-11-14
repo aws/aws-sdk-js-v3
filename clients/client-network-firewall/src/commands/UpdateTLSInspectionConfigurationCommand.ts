@@ -194,9 +194,6 @@ export class UpdateTLSInspectionConfigurationCommand extends $Command<
   UpdateTLSInspectionConfigurationCommandOutput,
   NetworkFirewallClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -210,9 +207,7 @@ export class UpdateTLSInspectionConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTLSInspectionConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class UpdateTLSInspectionConfigurationCommand extends $Command<
   ): Promise<UpdateTLSInspectionConfigurationCommandOutput> {
     return de_UpdateTLSInspectionConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

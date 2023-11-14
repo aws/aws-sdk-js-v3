@@ -103,9 +103,6 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
   SSOAdminClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
    * @public
    */
   constructor(readonly input: DeleteInstanceAccessControlAttributeConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
   ): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput> {
     return de_DeleteInstanceAccessControlAttributeConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

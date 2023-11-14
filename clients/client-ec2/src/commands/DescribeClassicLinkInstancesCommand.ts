@@ -108,9 +108,6 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
   DescribeClassicLinkInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeClassicLinkInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
   ): Promise<DescribeClassicLinkInstancesCommandOutput> {
     return de_DescribeClassicLinkInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

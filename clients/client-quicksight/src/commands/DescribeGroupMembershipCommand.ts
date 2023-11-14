@@ -104,9 +104,6 @@ export class DescribeGroupMembershipCommand extends $Command<
   DescribeGroupMembershipCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class DescribeGroupMembershipCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeGroupMembershipCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DescribeGroupMembershipCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupMembershipCommandOutput> {
     return de_DescribeGroupMembershipCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

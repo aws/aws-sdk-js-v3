@@ -129,9 +129,6 @@ export class StartSentimentDetectionJobCommand extends $Command<
   StartSentimentDetectionJobCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class StartSentimentDetectionJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartSentimentDetectionJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class StartSentimentDetectionJobCommand extends $Command<
   ): Promise<StartSentimentDetectionJobCommandOutput> {
     return de_StartSentimentDetectionJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

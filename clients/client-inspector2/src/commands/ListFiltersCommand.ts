@@ -231,9 +231,6 @@ export class ListFiltersCommand extends $Command<
   ListFiltersCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -247,9 +244,7 @@ export class ListFiltersCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListFiltersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -300,7 +295,4 @@ export class ListFiltersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFiltersCommandOutput> {
     return de_ListFiltersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -199,9 +199,6 @@ export class UpdateMetricSetCommand extends $Command<
   UpdateMetricSetCommandOutput,
   LookoutMetricsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -215,9 +212,7 @@ export class UpdateMetricSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMetricSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -270,7 +265,4 @@ export class UpdateMetricSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMetricSetCommandOutput> {
     return de_UpdateMetricSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

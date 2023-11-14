@@ -112,9 +112,6 @@ export class ListAccountAssociationsCommand extends $Command<
   ListAccountAssociationsCommandOutput,
   BillingconductorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class ListAccountAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAccountAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class ListAccountAssociationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAssociationsCommandOutput> {
     return de_ListAccountAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

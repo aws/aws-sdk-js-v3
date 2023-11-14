@@ -113,9 +113,6 @@ export class GetMLTaskRunCommand extends $Command<
   GetMLTaskRunCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class GetMLTaskRunCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetMLTaskRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class GetMLTaskRunCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLTaskRunCommandOutput> {
     return de_GetMLTaskRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

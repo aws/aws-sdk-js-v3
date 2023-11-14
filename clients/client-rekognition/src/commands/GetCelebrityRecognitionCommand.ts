@@ -252,9 +252,6 @@ export class GetCelebrityRecognitionCommand extends $Command<
   GetCelebrityRecognitionCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -268,9 +265,7 @@ export class GetCelebrityRecognitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCelebrityRecognitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -323,7 +318,4 @@ export class GetCelebrityRecognitionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCelebrityRecognitionCommandOutput> {
     return de_GetCelebrityRecognitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

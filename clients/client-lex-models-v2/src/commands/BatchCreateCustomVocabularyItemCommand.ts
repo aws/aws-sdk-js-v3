@@ -121,9 +121,6 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command<
   BatchCreateCustomVocabularyItemCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchCreateCustomVocabularyItemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command<
   ): Promise<BatchCreateCustomVocabularyItemCommandOutput> {
     return de_BatchCreateCustomVocabularyItemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

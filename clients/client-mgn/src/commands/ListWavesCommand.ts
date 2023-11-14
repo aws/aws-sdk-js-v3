@@ -98,9 +98,6 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  *
  */
 export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesCommandOutput, MgnClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesC
    * @public
    */
   constructor(readonly input: ListWavesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWavesCommandOutput> {
     return de_ListWavesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

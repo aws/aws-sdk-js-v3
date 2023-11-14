@@ -94,9 +94,6 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  *
  */
 export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
    * @public
    */
   constructor(readonly input: UntagUserCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagUserCommandOutput> {
     return de_UntagUserCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

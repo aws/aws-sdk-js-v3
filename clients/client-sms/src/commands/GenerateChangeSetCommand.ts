@@ -91,9 +91,6 @@ export class GenerateChangeSetCommand extends $Command<
   GenerateChangeSetCommandOutput,
   SMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class GenerateChangeSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateChangeSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class GenerateChangeSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateChangeSetCommandOutput> {
     return de_GenerateChangeSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

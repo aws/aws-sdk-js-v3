@@ -89,9 +89,6 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
   UpdateDetectorVersionStatusCommandOutput,
   FraudDetectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDetectorVersionStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
   ): Promise<UpdateDetectorVersionStatusCommandOutput> {
     return de_UpdateDetectorVersionStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

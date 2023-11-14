@@ -123,9 +123,6 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
   AllocateConnectionOnInterconnectCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
    * @public
    */
   constructor(readonly input: AllocateConnectionOnInterconnectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
   ): Promise<AllocateConnectionOnInterconnectCommandOutput> {
     return de_AllocateConnectionOnInterconnectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -105,9 +105,6 @@ export class EnableEnhancedMonitoringCommand extends $Command<
   EnableEnhancedMonitoringCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -123,9 +120,7 @@ export class EnableEnhancedMonitoringCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableEnhancedMonitoringCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class EnableEnhancedMonitoringCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableEnhancedMonitoringCommandOutput> {
     return de_EnableEnhancedMonitoringCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

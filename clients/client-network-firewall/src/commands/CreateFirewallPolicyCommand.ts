@@ -190,9 +190,6 @@ export class CreateFirewallPolicyCommand extends $Command<
   CreateFirewallPolicyCommandOutput,
   NetworkFirewallClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -206,9 +203,7 @@ export class CreateFirewallPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateFirewallPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -261,7 +256,4 @@ export class CreateFirewallPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallPolicyCommandOutput> {
     return de_CreateFirewallPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

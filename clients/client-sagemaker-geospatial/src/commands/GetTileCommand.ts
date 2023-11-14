@@ -106,9 +106,6 @@ export class GetTileCommand extends $Command<
   GetTileCommandOutput,
   SageMakerGeospatialClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class GetTileCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class GetTileCommand extends $Command<
   ): Promise<GetTileCommandOutput> {
     return de_GetTileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

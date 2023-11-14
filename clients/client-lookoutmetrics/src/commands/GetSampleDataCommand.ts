@@ -117,9 +117,6 @@ export class GetSampleDataCommand extends $Command<
   GetSampleDataCommandOutput,
   LookoutMetricsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class GetSampleDataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSampleDataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class GetSampleDataCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampleDataCommandOutput> {
     return de_GetSampleDataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

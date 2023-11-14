@@ -101,9 +101,6 @@ export class UpdateControlPanelCommand extends $Command<
   UpdateControlPanelCommandOutput,
   Route53RecoveryControlConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class UpdateControlPanelCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateControlPanelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class UpdateControlPanelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateControlPanelCommandOutput> {
     return de_UpdateControlPanelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

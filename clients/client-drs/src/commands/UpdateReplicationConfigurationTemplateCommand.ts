@@ -156,9 +156,6 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command<
   UpdateReplicationConfigurationTemplateCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -172,9 +169,7 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateReplicationConfigurationTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command<
   ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> {
     return de_UpdateReplicationConfigurationTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

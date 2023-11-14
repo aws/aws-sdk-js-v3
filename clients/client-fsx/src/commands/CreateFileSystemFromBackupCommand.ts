@@ -835,9 +835,6 @@ export class CreateFileSystemFromBackupCommand extends $Command<
   CreateFileSystemFromBackupCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -851,9 +848,7 @@ export class CreateFileSystemFromBackupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateFileSystemFromBackupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -909,7 +904,4 @@ export class CreateFileSystemFromBackupCommand extends $Command<
   ): Promise<CreateFileSystemFromBackupCommandOutput> {
     return de_CreateFileSystemFromBackupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

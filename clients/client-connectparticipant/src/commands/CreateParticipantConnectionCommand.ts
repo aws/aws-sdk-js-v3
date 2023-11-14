@@ -136,9 +136,6 @@ export class CreateParticipantConnectionCommand extends $Command<
   CreateParticipantConnectionCommandOutput,
   ConnectParticipantClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class CreateParticipantConnectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateParticipantConnectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class CreateParticipantConnectionCommand extends $Command<
   ): Promise<CreateParticipantConnectionCommandOutput> {
     return de_CreateParticipantConnectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

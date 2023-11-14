@@ -101,9 +101,6 @@ export class GetUserIdCommand extends $Command<
   GetUserIdCommandOutput,
   IdentitystoreClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetUserIdCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetUserIdCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetUserIdCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserIdCommandOutput> {
     return de_GetUserIdCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

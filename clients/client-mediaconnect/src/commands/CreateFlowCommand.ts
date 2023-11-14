@@ -580,9 +580,6 @@ export class CreateFlowCommand extends $Command<
   CreateFlowCommandOutput,
   MediaConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -596,9 +593,7 @@ export class CreateFlowCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateFlowCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -649,7 +644,4 @@ export class CreateFlowCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowCommandOutput> {
     return de_CreateFlowCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -76,9 +76,6 @@ export class DeleteCapacityReservationCommand extends $Command<
   DeleteCapacityReservationCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class DeleteCapacityReservationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCapacityReservationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DeleteCapacityReservationCommand extends $Command<
   ): Promise<DeleteCapacityReservationCommandOutput> {
     return de_DeleteCapacityReservationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

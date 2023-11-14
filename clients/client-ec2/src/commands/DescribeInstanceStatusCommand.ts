@@ -198,9 +198,6 @@ export class DescribeInstanceStatusCommand extends $Command<
   DescribeInstanceStatusCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -214,9 +211,7 @@ export class DescribeInstanceStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeInstanceStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -269,7 +264,4 @@ export class DescribeInstanceStatusCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceStatusCommandOutput> {
     return de_DescribeInstanceStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

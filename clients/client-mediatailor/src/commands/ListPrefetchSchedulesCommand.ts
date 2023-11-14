@@ -98,9 +98,6 @@ export class ListPrefetchSchedulesCommand extends $Command<
   ListPrefetchSchedulesCommandOutput,
   MediaTailorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class ListPrefetchSchedulesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPrefetchSchedulesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class ListPrefetchSchedulesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrefetchSchedulesCommandOutput> {
     return de_ListPrefetchSchedulesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

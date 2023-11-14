@@ -96,9 +96,6 @@ export class GetChangeCommand extends $Command<
   GetChangeCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetChangeCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetChangeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class GetChangeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeCommandOutput> {
     return de_GetChangeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

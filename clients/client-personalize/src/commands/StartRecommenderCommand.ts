@@ -80,9 +80,6 @@ export class StartRecommenderCommand extends $Command<
   StartRecommenderCommandOutput,
   PersonalizeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class StartRecommenderCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartRecommenderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class StartRecommenderCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecommenderCommandOutput> {
     return de_StartRecommenderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -125,9 +125,6 @@ export class BatchDescribeModelPackageCommand extends $Command<
   BatchDescribeModelPackageCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class BatchDescribeModelPackageCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDescribeModelPackageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class BatchDescribeModelPackageCommand extends $Command<
   ): Promise<BatchDescribeModelPackageCommandOutput> {
     return de_BatchDescribeModelPackageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

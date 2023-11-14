@@ -118,9 +118,6 @@ export class ListInstanceStorageConfigsCommand extends $Command<
   ListInstanceStorageConfigsCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class ListInstanceStorageConfigsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListInstanceStorageConfigsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class ListInstanceStorageConfigsCommand extends $Command<
   ): Promise<ListInstanceStorageConfigsCommandOutput> {
     return de_ListInstanceStorageConfigsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

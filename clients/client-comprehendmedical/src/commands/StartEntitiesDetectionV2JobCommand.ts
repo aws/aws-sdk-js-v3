@@ -105,9 +105,6 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
   StartEntitiesDetectionV2JobCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartEntitiesDetectionV2JobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
   ): Promise<StartEntitiesDetectionV2JobCommandOutput> {
     return de_StartEntitiesDetectionV2JobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

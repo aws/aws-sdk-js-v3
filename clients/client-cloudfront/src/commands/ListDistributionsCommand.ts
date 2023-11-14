@@ -375,9 +375,6 @@ export class ListDistributionsCommand extends $Command<
   ListDistributionsCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -391,9 +388,7 @@ export class ListDistributionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDistributionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -446,7 +441,4 @@ export class ListDistributionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDistributionsCommandOutput> {
     return de_ListDistributionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

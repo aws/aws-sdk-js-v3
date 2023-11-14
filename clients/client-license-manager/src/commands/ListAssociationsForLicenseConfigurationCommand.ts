@@ -112,9 +112,6 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
   ListAssociationsForLicenseConfigurationCommandOutput,
   LicenseManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAssociationsForLicenseConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> {
     return de_ListAssociationsForLicenseConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

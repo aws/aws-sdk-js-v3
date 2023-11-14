@@ -84,9 +84,6 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
   GetVpnConnectionDeviceSampleConfigurationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetVpnConnectionDeviceSampleConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
   ): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> {
     return de_GetVpnConnectionDeviceSampleConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

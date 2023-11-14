@@ -104,9 +104,6 @@ export class DescribeProvisioningTemplateCommand extends $Command<
   DescribeProvisioningTemplateCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class DescribeProvisioningTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeProvisioningTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class DescribeProvisioningTemplateCommand extends $Command<
   ): Promise<DescribeProvisioningTemplateCommandOutput> {
     return de_DescribeProvisioningTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

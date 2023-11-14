@@ -75,9 +75,6 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
   DeleteResourcesByExternalIdCommandOutput,
   CodeDeployClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -91,9 +88,7 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteResourcesByExternalIdCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
   ): Promise<DeleteResourcesByExternalIdCommandOutput> {
     return de_DeleteResourcesByExternalIdCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

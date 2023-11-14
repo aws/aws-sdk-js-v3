@@ -92,9 +92,6 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
   RegisterInstanceEventNotificationAttributesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
    * @public
    */
   constructor(readonly input: RegisterInstanceEventNotificationAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
   ): Promise<RegisterInstanceEventNotificationAttributesCommandOutput> {
     return de_RegisterInstanceEventNotificationAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

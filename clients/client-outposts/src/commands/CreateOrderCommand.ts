@@ -127,9 +127,6 @@ export class CreateOrderCommand extends $Command<
   CreateOrderCommandOutput,
   OutpostsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class CreateOrderCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateOrderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class CreateOrderCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrderCommandOutput> {
     return de_CreateOrderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

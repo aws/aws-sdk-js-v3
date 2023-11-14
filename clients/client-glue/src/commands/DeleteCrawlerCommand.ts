@@ -81,9 +81,6 @@ export class DeleteCrawlerCommand extends $Command<
   DeleteCrawlerCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DeleteCrawlerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCrawlerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DeleteCrawlerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCrawlerCommandOutput> {
     return de_DeleteCrawlerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -134,9 +134,6 @@ export class BatchCreateChannelMembershipCommand extends $Command<
   BatchCreateChannelMembershipCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class BatchCreateChannelMembershipCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchCreateChannelMembershipCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class BatchCreateChannelMembershipCommand extends $Command<
   ): Promise<BatchCreateChannelMembershipCommandOutput> {
     return de_BatchCreateChannelMembershipCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

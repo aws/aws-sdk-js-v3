@@ -152,9 +152,6 @@ export class CreateAppBlockCommand extends $Command<
   CreateAppBlockCommandOutput,
   AppStreamClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -168,9 +165,7 @@ export class CreateAppBlockCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAppBlockCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class CreateAppBlockCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppBlockCommandOutput> {
     return de_CreateAppBlockCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

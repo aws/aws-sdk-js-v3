@@ -121,9 +121,6 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
   GetConfigurationSetEventDestinationsCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetConfigurationSetEventDestinationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
     return de_GetConfigurationSetEventDestinationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

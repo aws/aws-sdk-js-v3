@@ -135,9 +135,6 @@ export class RejectResourceShareInvitationCommand extends $Command<
   RejectResourceShareInvitationCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class RejectResourceShareInvitationCommand extends $Command<
    * @public
    */
   constructor(readonly input: RejectResourceShareInvitationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class RejectResourceShareInvitationCommand extends $Command<
   ): Promise<RejectResourceShareInvitationCommandOutput> {
     return de_RejectResourceShareInvitationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

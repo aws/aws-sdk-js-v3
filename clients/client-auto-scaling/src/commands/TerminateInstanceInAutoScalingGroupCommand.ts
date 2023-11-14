@@ -118,9 +118,6 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
   TerminateInstanceInAutoScalingGroupCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: TerminateInstanceInAutoScalingGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> {
     return de_TerminateInstanceInAutoScalingGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

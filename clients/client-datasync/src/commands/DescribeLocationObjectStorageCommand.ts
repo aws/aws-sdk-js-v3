@@ -92,9 +92,6 @@ export class DescribeLocationObjectStorageCommand extends $Command<
   DescribeLocationObjectStorageCommandOutput,
   DataSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class DescribeLocationObjectStorageCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeLocationObjectStorageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class DescribeLocationObjectStorageCommand extends $Command<
   ): Promise<DescribeLocationObjectStorageCommandOutput> {
     return de_DescribeLocationObjectStorageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

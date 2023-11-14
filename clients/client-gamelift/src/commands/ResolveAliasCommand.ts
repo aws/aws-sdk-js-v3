@@ -97,9 +97,6 @@ export class ResolveAliasCommand extends $Command<
   ResolveAliasCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class ResolveAliasCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResolveAliasCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class ResolveAliasCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveAliasCommandOutput> {
     return de_ResolveAliasCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

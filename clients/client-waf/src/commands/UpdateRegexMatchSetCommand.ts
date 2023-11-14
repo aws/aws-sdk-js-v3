@@ -187,9 +187,6 @@ export class UpdateRegexMatchSetCommand extends $Command<
   UpdateRegexMatchSetCommandOutput,
   WAFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -203,9 +200,7 @@ export class UpdateRegexMatchSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateRegexMatchSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -258,7 +253,4 @@ export class UpdateRegexMatchSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexMatchSetCommandOutput> {
     return de_UpdateRegexMatchSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

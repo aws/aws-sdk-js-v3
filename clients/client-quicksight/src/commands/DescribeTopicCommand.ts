@@ -343,9 +343,6 @@ export class DescribeTopicCommand extends $Command<
   DescribeTopicCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -359,9 +356,7 @@ export class DescribeTopicCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTopicCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -412,7 +407,4 @@ export class DescribeTopicCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTopicCommandOutput> {
     return de_DescribeTopicCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

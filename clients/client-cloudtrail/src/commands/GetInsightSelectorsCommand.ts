@@ -150,9 +150,6 @@ export class GetInsightSelectorsCommand extends $Command<
   GetInsightSelectorsCommandOutput,
   CloudTrailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -166,9 +163,7 @@ export class GetInsightSelectorsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetInsightSelectorsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -221,7 +216,4 @@ export class GetInsightSelectorsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightSelectorsCommandOutput> {
     return de_GetInsightSelectorsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

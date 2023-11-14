@@ -127,9 +127,6 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
   DescribePendingMaintenanceActionsCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePendingMaintenanceActionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
     return de_DescribePendingMaintenanceActionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

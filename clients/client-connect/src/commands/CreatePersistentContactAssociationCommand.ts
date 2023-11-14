@@ -103,9 +103,6 @@ export class CreatePersistentContactAssociationCommand extends $Command<
   CreatePersistentContactAssociationCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class CreatePersistentContactAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreatePersistentContactAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class CreatePersistentContactAssociationCommand extends $Command<
   ): Promise<CreatePersistentContactAssociationCommandOutput> {
     return de_CreatePersistentContactAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

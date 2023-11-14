@@ -81,9 +81,6 @@ export class DisassociateResourceCommand extends $Command<
   DisassociateResourceCommandOutput,
   SyntheticsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DisassociateResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -152,7 +147,4 @@ export class DisassociateResourceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResourceCommandOutput> {
     return de_DisassociateResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

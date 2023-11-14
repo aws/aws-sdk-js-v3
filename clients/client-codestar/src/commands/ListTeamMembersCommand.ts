@@ -88,9 +88,6 @@ export class ListTeamMembersCommand extends $Command<
   ListTeamMembersCommandOutput,
   CodeStarClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class ListTeamMembersCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTeamMembersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class ListTeamMembersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTeamMembersCommandOutput> {
     return de_ListTeamMembersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

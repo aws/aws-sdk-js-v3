@@ -94,9 +94,6 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
   GetDefaultRetentionPolicyCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDefaultRetentionPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
   ): Promise<GetDefaultRetentionPolicyCommandOutput> {
     return de_GetDefaultRetentionPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

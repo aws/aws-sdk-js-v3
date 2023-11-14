@@ -90,9 +90,6 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
   DeleteCustomVerificationEmailTemplateCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCustomVerificationEmailTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
   ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> {
     return de_DeleteCustomVerificationEmailTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

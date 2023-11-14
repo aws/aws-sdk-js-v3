@@ -143,9 +143,6 @@ export class RebootReplicationInstanceCommand extends $Command<
   RebootReplicationInstanceCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -159,9 +156,7 @@ export class RebootReplicationInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: RebootReplicationInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -217,7 +212,4 @@ export class RebootReplicationInstanceCommand extends $Command<
   ): Promise<RebootReplicationInstanceCommandOutput> {
     return de_RebootReplicationInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

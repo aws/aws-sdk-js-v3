@@ -80,9 +80,6 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
   DisassociateSkillGroupFromRoomCommandOutput,
   AlexaForBusinessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateSkillGroupFromRoomCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
   ): Promise<DisassociateSkillGroupFromRoomCommandOutput> {
     return de_DisassociateSkillGroupFromRoomCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

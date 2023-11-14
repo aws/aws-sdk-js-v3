@@ -146,9 +146,6 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
   DescribeEC2InstanceLimitsCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeEC2InstanceLimitsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
   ): Promise<DescribeEC2InstanceLimitsCommandOutput> {
     return de_DescribeEC2InstanceLimitsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

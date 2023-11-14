@@ -279,9 +279,6 @@ export class CreateReplicationInstanceCommand extends $Command<
   CreateReplicationInstanceCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -295,9 +292,7 @@ export class CreateReplicationInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateReplicationInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -353,7 +348,4 @@ export class CreateReplicationInstanceCommand extends $Command<
   ): Promise<CreateReplicationInstanceCommandOutput> {
     return de_CreateReplicationInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

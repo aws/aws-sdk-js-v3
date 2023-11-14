@@ -135,9 +135,6 @@ export class VerifyPinDataCommand extends $Command<
   VerifyPinDataCommandOutput,
   PaymentCryptographyDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class VerifyPinDataCommand extends $Command<
    * @public
    */
   constructor(readonly input: VerifyPinDataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class VerifyPinDataCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyPinDataCommandOutput> {
     return de_VerifyPinDataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

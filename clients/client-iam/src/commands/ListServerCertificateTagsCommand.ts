@@ -96,9 +96,6 @@ export class ListServerCertificateTagsCommand extends $Command<
   ListServerCertificateTagsCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class ListServerCertificateTagsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListServerCertificateTagsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class ListServerCertificateTagsCommand extends $Command<
   ): Promise<ListServerCertificateTagsCommandOutput> {
     return de_ListServerCertificateTagsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

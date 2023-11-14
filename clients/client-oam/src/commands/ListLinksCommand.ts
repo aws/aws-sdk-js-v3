@@ -89,9 +89,6 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  *
  */
 export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksCommandOutput, OAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
    * @public
    */
   constructor(readonly input: ListLinksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLinksCommandOutput> {
     return de_ListLinksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

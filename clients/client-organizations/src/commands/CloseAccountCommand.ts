@@ -456,9 +456,6 @@ export class CloseAccountCommand extends $Command<
   CloseAccountCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -472,9 +469,7 @@ export class CloseAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: CloseAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -525,7 +520,4 @@ export class CloseAccountCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseAccountCommandOutput> {
     return de_CloseAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

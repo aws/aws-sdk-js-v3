@@ -108,9 +108,6 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  *
  */
 export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOutput, ApiGatewayV2ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
    * @public
    */
   constructor(readonly input: GetApiCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiCommandOutput> {
     return de_GetApiCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

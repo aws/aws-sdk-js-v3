@@ -147,9 +147,6 @@ export class StartLaunchCommand extends $Command<
   StartLaunchCommandOutput,
   EvidentlyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -163,9 +160,7 @@ export class StartLaunchCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartLaunchCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -216,7 +211,4 @@ export class StartLaunchCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLaunchCommandOutput> {
     return de_StartLaunchCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

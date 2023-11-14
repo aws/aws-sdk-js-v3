@@ -145,9 +145,6 @@ export class GetResourceCommand extends $Command<
   GetResourceCommandOutput,
   CloudControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -161,9 +158,7 @@ export class GetResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class GetResourceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCommandOutput> {
     return de_GetResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

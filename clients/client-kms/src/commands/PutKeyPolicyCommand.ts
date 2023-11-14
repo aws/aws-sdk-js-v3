@@ -144,9 +144,6 @@ export class PutKeyPolicyCommand extends $Command<
   PutKeyPolicyCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class PutKeyPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutKeyPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -213,7 +208,4 @@ export class PutKeyPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeyPolicyCommandOutput> {
     return de_PutKeyPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

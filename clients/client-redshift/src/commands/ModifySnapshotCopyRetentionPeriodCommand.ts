@@ -293,9 +293,6 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   ModifySnapshotCopyRetentionPeriodCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -309,9 +306,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifySnapshotCopyRetentionPeriodCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -370,7 +365,4 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> {
     return de_ModifySnapshotCopyRetentionPeriodCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

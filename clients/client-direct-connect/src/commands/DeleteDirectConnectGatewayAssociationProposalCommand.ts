@@ -106,9 +106,6 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
   DeleteDirectConnectGatewayAssociationProposalCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
    * @public
    */
   constructor(readonly input: DeleteDirectConnectGatewayAssociationProposalCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
   ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> {
     return de_DeleteDirectConnectGatewayAssociationProposalCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

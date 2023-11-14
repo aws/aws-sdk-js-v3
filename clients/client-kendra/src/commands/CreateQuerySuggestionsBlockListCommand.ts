@@ -133,9 +133,6 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
   CreateQuerySuggestionsBlockListCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateQuerySuggestionsBlockListCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
   ): Promise<CreateQuerySuggestionsBlockListCommandOutput> {
     return de_CreateQuerySuggestionsBlockListCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

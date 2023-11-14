@@ -109,9 +109,6 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
   ServiceQuotasClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
    * @public
    */
   constructor(readonly input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
   ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
     return de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -102,9 +102,6 @@ export class AbortMultipartReadSetUploadCommand extends $Command<
   AbortMultipartReadSetUploadCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class AbortMultipartReadSetUploadCommand extends $Command<
    * @public
    */
   constructor(readonly input: AbortMultipartReadSetUploadCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class AbortMultipartReadSetUploadCommand extends $Command<
   ): Promise<AbortMultipartReadSetUploadCommandOutput> {
     return de_AbortMultipartReadSetUploadCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

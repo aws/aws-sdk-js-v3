@@ -101,9 +101,6 @@ export class GetTimelineEventCommand extends $Command<
   GetTimelineEventCommandOutput,
   SSMIncidentsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetTimelineEventCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTimelineEventCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class GetTimelineEventCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTimelineEventCommandOutput> {
     return de_GetTimelineEventCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

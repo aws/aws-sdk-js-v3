@@ -161,9 +161,6 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
   CreatePrivateVirtualInterfaceCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -177,9 +174,7 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreatePrivateVirtualInterfaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -235,7 +230,4 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
   ): Promise<CreatePrivateVirtualInterfaceCommandOutput> {
     return de_CreatePrivateVirtualInterfaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -96,9 +96,6 @@ export class UploadEntityDefinitionsCommand extends $Command<
   UploadEntityDefinitionsCommandOutput,
   IoTThingsGraphClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class UploadEntityDefinitionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: UploadEntityDefinitionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class UploadEntityDefinitionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadEntityDefinitionsCommandOutput> {
     return de_UploadEntityDefinitionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

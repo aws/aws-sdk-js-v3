@@ -130,9 +130,6 @@ export class PutCompositeAlarmCommand extends $Command<
   PutCompositeAlarmCommandOutput,
   CloudWatchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class PutCompositeAlarmCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutCompositeAlarmCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class PutCompositeAlarmCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCompositeAlarmCommandOutput> {
     return de_PutCompositeAlarmCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

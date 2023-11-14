@@ -96,9 +96,6 @@ export class ListRulesetsCommand extends $Command<
   ListRulesetsCommandOutput,
   DataBrewClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class ListRulesetsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRulesetsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListRulesetsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesetsCommandOutput> {
     return de_ListRulesetsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

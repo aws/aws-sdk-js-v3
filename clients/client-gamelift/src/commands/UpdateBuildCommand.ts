@@ -108,9 +108,6 @@ export class UpdateBuildCommand extends $Command<
   UpdateBuildCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class UpdateBuildCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateBuildCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class UpdateBuildCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBuildCommandOutput> {
     return de_UpdateBuildCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

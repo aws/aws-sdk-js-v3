@@ -123,9 +123,6 @@ export class AssociateInstanceEventWindowCommand extends $Command<
   AssociateInstanceEventWindowCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class AssociateInstanceEventWindowCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateInstanceEventWindowCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class AssociateInstanceEventWindowCommand extends $Command<
   ): Promise<AssociateInstanceEventWindowCommandOutput> {
     return de_AssociateInstanceEventWindowCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

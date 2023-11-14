@@ -121,9 +121,6 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
   ListCustomRoutingPortMappingsByDestinationCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListCustomRoutingPortMappingsByDestinationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
   ): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> {
     return de_ListCustomRoutingPortMappingsByDestinationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

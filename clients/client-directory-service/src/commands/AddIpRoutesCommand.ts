@@ -104,9 +104,6 @@ export class AddIpRoutesCommand extends $Command<
   AddIpRoutesCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class AddIpRoutesCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddIpRoutesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class AddIpRoutesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddIpRoutesCommandOutput> {
     return de_AddIpRoutesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

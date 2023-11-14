@@ -78,9 +78,6 @@ export class RejectSkillCommand extends $Command<
   RejectSkillCommandOutput,
   AlexaForBusinessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class RejectSkillCommand extends $Command<
    * @public
    */
   constructor(readonly input: RejectSkillCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -147,7 +142,4 @@ export class RejectSkillCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSkillCommandOutput> {
     return de_RejectSkillCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

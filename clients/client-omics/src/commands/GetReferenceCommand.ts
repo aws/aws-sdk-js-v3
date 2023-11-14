@@ -99,9 +99,6 @@ export class GetReferenceCommand extends $Command<
   GetReferenceCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetReferenceCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetReferenceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class GetReferenceCommand extends $Command<
   ): Promise<GetReferenceCommandOutput> {
     return de_GetReferenceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

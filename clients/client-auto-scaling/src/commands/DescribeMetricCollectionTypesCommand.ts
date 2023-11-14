@@ -130,9 +130,6 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
   DescribeMetricCollectionTypesCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeMetricCollectionTypesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
   ): Promise<DescribeMetricCollectionTypesCommandOutput> {
     return de_DescribeMetricCollectionTypesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

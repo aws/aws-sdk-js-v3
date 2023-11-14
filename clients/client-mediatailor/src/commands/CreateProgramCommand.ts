@@ -169,9 +169,6 @@ export class CreateProgramCommand extends $Command<
   CreateProgramCommandOutput,
   MediaTailorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -185,9 +182,7 @@ export class CreateProgramCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateProgramCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -238,7 +233,4 @@ export class CreateProgramCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProgramCommandOutput> {
     return de_CreateProgramCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

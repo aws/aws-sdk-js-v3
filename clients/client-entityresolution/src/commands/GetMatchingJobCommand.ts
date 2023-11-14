@@ -108,9 +108,6 @@ export class GetMatchingJobCommand extends $Command<
   GetMatchingJobCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class GetMatchingJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetMatchingJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class GetMatchingJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchingJobCommandOutput> {
     return de_GetMatchingJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

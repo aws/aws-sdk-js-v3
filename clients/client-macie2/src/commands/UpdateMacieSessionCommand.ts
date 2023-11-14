@@ -90,9 +90,6 @@ export class UpdateMacieSessionCommand extends $Command<
   UpdateMacieSessionCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class UpdateMacieSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMacieSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class UpdateMacieSessionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMacieSessionCommandOutput> {
     return de_UpdateMacieSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

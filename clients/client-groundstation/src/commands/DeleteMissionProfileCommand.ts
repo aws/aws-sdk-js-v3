@@ -79,9 +79,6 @@ export class DeleteMissionProfileCommand extends $Command<
   DeleteMissionProfileCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class DeleteMissionProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMissionProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DeleteMissionProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMissionProfileCommandOutput> {
     return de_DeleteMissionProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -99,9 +99,6 @@ export class GetOutpostResolverCommand extends $Command<
   GetOutpostResolverCommandOutput,
   Route53ResolverClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetOutpostResolverCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetOutpostResolverCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetOutpostResolverCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOutpostResolverCommandOutput> {
     return de_GetOutpostResolverCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -91,9 +91,6 @@ export class DeleteSubscriptionTargetCommand extends $Command<
   DeleteSubscriptionTargetCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeleteSubscriptionTargetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSubscriptionTargetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteSubscriptionTargetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriptionTargetCommandOutput> {
     return de_DeleteSubscriptionTargetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

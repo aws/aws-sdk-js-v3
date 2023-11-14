@@ -129,9 +129,6 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
   GetAggregateComplianceDetailsByConfigRuleCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAggregateComplianceDetailsByConfigRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> {
     return de_GetAggregateComplianceDetailsByConfigRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

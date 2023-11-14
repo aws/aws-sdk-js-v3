@@ -159,9 +159,6 @@ export class GetObjectTaggingCommand extends $Command<
   GetObjectTaggingCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -181,9 +178,7 @@ export class GetObjectTaggingCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetObjectTaggingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -236,7 +231,4 @@ export class GetObjectTaggingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectTaggingCommandOutput> {
     return de_GetObjectTaggingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

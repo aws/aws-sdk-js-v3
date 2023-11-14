@@ -125,9 +125,6 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  *
  */
 export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
    * @public
    */
   constructor(readonly input: TagPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagPolicyCommandOutput> {
     return de_TagPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -90,9 +90,6 @@ export class DeleteSubscriptionRequestCommand extends $Command<
   DeleteSubscriptionRequestCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DeleteSubscriptionRequestCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSubscriptionRequestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class DeleteSubscriptionRequestCommand extends $Command<
   ): Promise<DeleteSubscriptionRequestCommandOutput> {
     return de_DeleteSubscriptionRequestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

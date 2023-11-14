@@ -94,9 +94,6 @@ export class ListSupportedInstanceTypesCommand extends $Command<
   ListSupportedInstanceTypesCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class ListSupportedInstanceTypesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListSupportedInstanceTypesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ListSupportedInstanceTypesCommand extends $Command<
   ): Promise<ListSupportedInstanceTypesCommandOutput> {
     return de_ListSupportedInstanceTypesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -103,9 +103,6 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
   GetRecoveryGroupReadinessSummaryCommandOutput,
   Route53RecoveryReadinessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRecoveryGroupReadinessSummaryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
   ): Promise<GetRecoveryGroupReadinessSummaryCommandOutput> {
     return de_GetRecoveryGroupReadinessSummaryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

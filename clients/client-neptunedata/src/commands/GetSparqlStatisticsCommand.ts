@@ -119,9 +119,6 @@ export class GetSparqlStatisticsCommand extends $Command<
   GetSparqlStatisticsCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class GetSparqlStatisticsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSparqlStatisticsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class GetSparqlStatisticsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSparqlStatisticsCommandOutput> {
     return de_GetSparqlStatisticsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

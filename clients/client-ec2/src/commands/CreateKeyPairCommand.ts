@@ -114,9 +114,6 @@ export class CreateKeyPairCommand extends $Command<
   CreateKeyPairCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class CreateKeyPairCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateKeyPairCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class CreateKeyPairCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyPairCommandOutput> {
     return de_CreateKeyPairCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

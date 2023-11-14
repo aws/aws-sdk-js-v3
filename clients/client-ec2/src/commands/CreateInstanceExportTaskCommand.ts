@@ -113,9 +113,6 @@ export class CreateInstanceExportTaskCommand extends $Command<
   CreateInstanceExportTaskCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class CreateInstanceExportTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateInstanceExportTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class CreateInstanceExportTaskCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceExportTaskCommandOutput> {
     return de_CreateInstanceExportTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

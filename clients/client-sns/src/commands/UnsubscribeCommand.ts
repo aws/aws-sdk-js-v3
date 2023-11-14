@@ -96,9 +96,6 @@ export class UnsubscribeCommand extends $Command<
   UnsubscribeCommandOutput,
   SNSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class UnsubscribeCommand extends $Command<
    * @public
    */
   constructor(readonly input: UnsubscribeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class UnsubscribeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeCommandOutput> {
     return de_UnsubscribeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

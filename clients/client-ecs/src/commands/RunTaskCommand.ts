@@ -440,9 +440,6 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *
  */
 export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommandOutput, ECSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -456,9 +453,7 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
    * @public
    */
   constructor(readonly input: RunTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -509,7 +504,4 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunTaskCommandOutput> {
     return de_RunTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

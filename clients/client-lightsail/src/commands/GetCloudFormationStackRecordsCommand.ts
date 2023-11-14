@@ -132,9 +132,6 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
   GetCloudFormationStackRecordsCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCloudFormationStackRecordsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
   ): Promise<GetCloudFormationStackRecordsCommandOutput> {
     return de_GetCloudFormationStackRecordsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

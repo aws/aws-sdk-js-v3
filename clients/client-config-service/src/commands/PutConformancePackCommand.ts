@@ -156,9 +156,6 @@ export class PutConformancePackCommand extends $Command<
   PutConformancePackCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -172,9 +169,7 @@ export class PutConformancePackCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutConformancePackCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -227,7 +222,4 @@ export class PutConformancePackCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConformancePackCommandOutput> {
     return de_PutConformancePackCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

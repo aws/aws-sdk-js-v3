@@ -108,9 +108,6 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
    * @public
    */
   constructor(readonly input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
   ): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> {
     return de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -94,9 +94,6 @@ export class UpdateVpcLinkCommand extends $Command<
   UpdateVpcLinkCommandOutput,
   ApiGatewayV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class UpdateVpcLinkCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateVpcLinkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class UpdateVpcLinkCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcLinkCommandOutput> {
     return de_UpdateVpcLinkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

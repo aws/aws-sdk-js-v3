@@ -101,9 +101,6 @@ export class GetFacetCommand extends $Command<
   GetFacetCommandOutput,
   CloudDirectoryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetFacetCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetFacetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetFacetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFacetCommandOutput> {
     return de_GetFacetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -99,9 +99,6 @@ export class StartDeviceAuthorizationCommand extends $Command<
   StartDeviceAuthorizationCommandOutput,
   SSOOIDCClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class StartDeviceAuthorizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartDeviceAuthorizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class StartDeviceAuthorizationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceAuthorizationCommandOutput> {
     return de_StartDeviceAuthorizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

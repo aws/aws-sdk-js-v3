@@ -203,9 +203,6 @@ export class UpdateLaunchProfileCommand extends $Command<
   UpdateLaunchProfileCommandOutput,
   NimbleClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -219,9 +216,7 @@ export class UpdateLaunchProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateLaunchProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -274,7 +269,4 @@ export class UpdateLaunchProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLaunchProfileCommandOutput> {
     return de_UpdateLaunchProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

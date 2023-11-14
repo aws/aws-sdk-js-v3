@@ -313,9 +313,6 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
   GetHLSStreamingSessionURLCommandOutput,
   KinesisVideoArchivedMediaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -329,9 +326,7 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetHLSStreamingSessionURLCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -387,7 +382,4 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
   ): Promise<GetHLSStreamingSessionURLCommandOutput> {
     return de_GetHLSStreamingSessionURLCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -82,9 +82,6 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
   DeleteAvailabilityConfigurationCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAvailabilityConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
   ): Promise<DeleteAvailabilityConfigurationCommandOutput> {
     return de_DeleteAvailabilityConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -91,9 +91,6 @@ export class ListTestGridSessionActionsCommand extends $Command<
   ListTestGridSessionActionsCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class ListTestGridSessionActionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTestGridSessionActionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListTestGridSessionActionsCommand extends $Command<
   ): Promise<ListTestGridSessionActionsCommandOutput> {
     return de_ListTestGridSessionActionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

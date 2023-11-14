@@ -136,9 +136,6 @@ export class GetStagesCommand extends $Command<
   GetStagesCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class GetStagesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetStagesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class GetStagesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStagesCommandOutput> {
     return de_GetStagesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

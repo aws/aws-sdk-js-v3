@@ -118,9 +118,6 @@ export class AllocateStaticIpCommand extends $Command<
   AllocateStaticIpCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class AllocateStaticIpCommand extends $Command<
    * @public
    */
   constructor(readonly input: AllocateStaticIpCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class AllocateStaticIpCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateStaticIpCommandOutput> {
     return de_AllocateStaticIpCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

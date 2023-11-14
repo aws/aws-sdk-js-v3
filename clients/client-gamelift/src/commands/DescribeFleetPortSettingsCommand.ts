@@ -128,9 +128,6 @@ export class DescribeFleetPortSettingsCommand extends $Command<
   DescribeFleetPortSettingsCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class DescribeFleetPortSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeFleetPortSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class DescribeFleetPortSettingsCommand extends $Command<
   ): Promise<DescribeFleetPortSettingsCommandOutput> {
     return de_DescribeFleetPortSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -95,9 +95,6 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
   DescribeCrossAccountAccessRoleCommandOutput,
   InspectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCrossAccountAccessRoleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
     return de_DescribeCrossAccountAccessRoleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

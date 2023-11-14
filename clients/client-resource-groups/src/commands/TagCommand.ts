@@ -109,9 +109,6 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  *
  */
 export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, ResourceGroupsClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
    * @public
    */
   constructor(readonly input: TagCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> {
     return de_TagCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

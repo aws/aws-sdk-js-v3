@@ -159,9 +159,6 @@ export class RegisterInstanceCommand extends $Command<
   RegisterInstanceCommandOutput,
   ServiceDiscoveryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -175,9 +172,7 @@ export class RegisterInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class RegisterInstanceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterInstanceCommandOutput> {
     return de_RegisterInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

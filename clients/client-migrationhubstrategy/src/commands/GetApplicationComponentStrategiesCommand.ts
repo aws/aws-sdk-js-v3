@@ -106,9 +106,6 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
   GetApplicationComponentStrategiesCommandOutput,
   MigrationHubStrategyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetApplicationComponentStrategiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
   ): Promise<GetApplicationComponentStrategiesCommandOutput> {
     return de_GetApplicationComponentStrategiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

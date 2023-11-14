@@ -93,9 +93,6 @@ export class ExportSourceNetworkCfnTemplateCommand extends $Command<
   ExportSourceNetworkCfnTemplateCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class ExportSourceNetworkCfnTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: ExportSourceNetworkCfnTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class ExportSourceNetworkCfnTemplateCommand extends $Command<
   ): Promise<ExportSourceNetworkCfnTemplateCommandOutput> {
     return de_ExportSourceNetworkCfnTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -316,9 +316,6 @@ export class ReplicateKeyCommand extends $Command<
   ReplicateKeyCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -332,9 +329,7 @@ export class ReplicateKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReplicateKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -385,7 +380,4 @@ export class ReplicateKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateKeyCommandOutput> {
     return de_ReplicateKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

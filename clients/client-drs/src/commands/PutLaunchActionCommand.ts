@@ -119,9 +119,6 @@ export class PutLaunchActionCommand extends $Command<
   PutLaunchActionCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class PutLaunchActionCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutLaunchActionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class PutLaunchActionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLaunchActionCommandOutput> {
     return de_PutLaunchActionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

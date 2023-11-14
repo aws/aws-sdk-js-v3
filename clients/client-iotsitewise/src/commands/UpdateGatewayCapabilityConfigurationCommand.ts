@@ -111,9 +111,6 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
   UpdateGatewayCapabilityConfigurationCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateGatewayCapabilityConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
   ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> {
     return de_UpdateGatewayCapabilityConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

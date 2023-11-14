@@ -155,9 +155,6 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  *
  */
 export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
    * @public
    */
   constructor(readonly input: TagRoleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagRoleCommandOutput> {
     return de_TagRoleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

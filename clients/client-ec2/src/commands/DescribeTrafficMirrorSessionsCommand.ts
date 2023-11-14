@@ -104,9 +104,6 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
   DescribeTrafficMirrorSessionsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTrafficMirrorSessionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
   ): Promise<DescribeTrafficMirrorSessionsCommandOutput> {
     return de_DescribeTrafficMirrorSessionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -101,9 +101,6 @@ export class DeleteViewCommand extends $Command<
   DeleteViewCommandOutput,
   ResourceExplorer2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DeleteViewCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteViewCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class DeleteViewCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteViewCommandOutput> {
     return de_DeleteViewCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

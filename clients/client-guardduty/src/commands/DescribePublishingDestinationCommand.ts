@@ -90,9 +90,6 @@ export class DescribePublishingDestinationCommand extends $Command<
   DescribePublishingDestinationCommandOutput,
   GuardDutyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DescribePublishingDestinationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePublishingDestinationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DescribePublishingDestinationCommand extends $Command<
   ): Promise<DescribePublishingDestinationCommandOutput> {
     return de_DescribePublishingDestinationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

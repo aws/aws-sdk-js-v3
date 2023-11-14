@@ -81,9 +81,6 @@ export class DeleteHostCommand extends $Command<
   DeleteHostCommandOutput,
   CodeStarConnectionsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DeleteHostCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteHostCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DeleteHostCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostCommandOutput> {
     return de_DeleteHostCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -123,9 +123,6 @@ export class ListStackInstanceResourceDriftsCommand extends $Command<
   ListStackInstanceResourceDriftsCommandOutput,
   CloudFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class ListStackInstanceResourceDriftsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListStackInstanceResourceDriftsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class ListStackInstanceResourceDriftsCommand extends $Command<
   ): Promise<ListStackInstanceResourceDriftsCommandOutput> {
     return de_ListStackInstanceResourceDriftsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -95,9 +95,6 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
   ResetServiceSpecificCredentialCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResetServiceSpecificCredentialCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
   ): Promise<ResetServiceSpecificCredentialCommandOutput> {
     return de_ResetServiceSpecificCredentialCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

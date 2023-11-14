@@ -117,9 +117,6 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
   PutVoiceConnectorLoggingConfigurationCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutVoiceConnectorLoggingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> {
     return de_PutVoiceConnectorLoggingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

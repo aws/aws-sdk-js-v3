@@ -101,9 +101,6 @@ export class DeleteDistributionConfigurationCommand extends $Command<
   DeleteDistributionConfigurationCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class DeleteDistributionConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDistributionConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class DeleteDistributionConfigurationCommand extends $Command<
   ): Promise<DeleteDistributionConfigurationCommandOutput> {
     return de_DeleteDistributionConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

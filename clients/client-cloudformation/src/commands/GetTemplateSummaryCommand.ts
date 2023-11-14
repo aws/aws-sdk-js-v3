@@ -128,9 +128,6 @@ export class GetTemplateSummaryCommand extends $Command<
   GetTemplateSummaryCommandOutput,
   CloudFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class GetTemplateSummaryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTemplateSummaryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class GetTemplateSummaryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateSummaryCommandOutput> {
     return de_GetTemplateSummaryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

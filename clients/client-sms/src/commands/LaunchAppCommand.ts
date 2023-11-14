@@ -80,9 +80,6 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  *
  */
 export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppCommandOutput, SMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
    * @public
    */
   constructor(readonly input: LaunchAppCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LaunchAppCommandOutput> {
     return de_LaunchAppCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

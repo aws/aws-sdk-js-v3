@@ -96,9 +96,6 @@ export class GetBatchPredictionCommand extends $Command<
   GetBatchPredictionCommandOutput,
   MachineLearningClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetBatchPredictionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBatchPredictionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetBatchPredictionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchPredictionCommandOutput> {
     return de_GetBatchPredictionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

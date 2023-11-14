@@ -125,9 +125,6 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  *
  */
 export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyCommandOutput, KMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
    * @public
    */
   constructor(readonly input: EnableKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableKeyCommandOutput> {
     return de_EnableKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

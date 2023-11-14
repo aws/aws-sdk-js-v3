@@ -109,9 +109,6 @@ export class StopStreamEncryptionCommand extends $Command<
   StopStreamEncryptionCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -127,9 +124,7 @@ export class StopStreamEncryptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopStreamEncryptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class StopStreamEncryptionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamEncryptionCommandOutput> {
     return de_StopStreamEncryptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

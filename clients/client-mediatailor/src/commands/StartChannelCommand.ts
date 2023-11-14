@@ -68,9 +68,6 @@ export class StartChannelCommand extends $Command<
   StartChannelCommandOutput,
   MediaTailorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -84,9 +81,7 @@ export class StartChannelCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartChannelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -137,7 +132,4 @@ export class StartChannelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChannelCommandOutput> {
     return de_StartChannelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

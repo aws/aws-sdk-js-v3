@@ -79,9 +79,6 @@ export interface PromoteCommandOutput extends PromoteResponse, __MetadataBearer 
  *
  */
 export class PromoteCommand extends $Command<PromoteCommandInput, PromoteCommandOutput, MqClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class PromoteCommand extends $Command<PromoteCommandInput, PromoteCommand
    * @public
    */
   constructor(readonly input: PromoteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class PromoteCommand extends $Command<PromoteCommandInput, PromoteCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PromoteCommandOutput> {
     return de_PromoteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

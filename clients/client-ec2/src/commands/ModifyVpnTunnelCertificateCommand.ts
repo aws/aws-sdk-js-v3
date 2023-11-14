@@ -181,9 +181,6 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
   ModifyVpnTunnelCertificateCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -197,9 +194,7 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyVpnTunnelCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -255,7 +250,4 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
   ): Promise<ModifyVpnTunnelCertificateCommandOutput> {
     return de_ModifyVpnTunnelCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -151,9 +151,6 @@ export class PutProfileObjectTypeCommand extends $Command<
   PutProfileObjectTypeCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class PutProfileObjectTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutProfileObjectTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -222,7 +217,4 @@ export class PutProfileObjectTypeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProfileObjectTypeCommandOutput> {
     return de_PutProfileObjectTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

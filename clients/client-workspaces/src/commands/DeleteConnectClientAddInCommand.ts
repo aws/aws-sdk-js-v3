@@ -79,9 +79,6 @@ export class DeleteConnectClientAddInCommand extends $Command<
   DeleteConnectClientAddInCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class DeleteConnectClientAddInCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteConnectClientAddInCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DeleteConnectClientAddInCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectClientAddInCommandOutput> {
     return de_DeleteConnectClientAddInCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -84,9 +84,6 @@ export class GetStageSessionCommand extends $Command<
   GetStageSessionCommandOutput,
   IVSRealTimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class GetStageSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetStageSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class GetStageSessionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStageSessionCommandOutput> {
     return de_GetStageSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

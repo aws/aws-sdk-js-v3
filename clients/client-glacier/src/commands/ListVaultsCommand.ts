@@ -140,9 +140,6 @@ export class ListVaultsCommand extends $Command<
   ListVaultsCommandOutput,
   GlacierClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -156,9 +153,7 @@ export class ListVaultsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListVaultsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class ListVaultsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVaultsCommandOutput> {
     return de_ListVaultsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

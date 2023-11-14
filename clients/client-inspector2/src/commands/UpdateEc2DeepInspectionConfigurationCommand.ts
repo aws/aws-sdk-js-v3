@@ -101,9 +101,6 @@ export class UpdateEc2DeepInspectionConfigurationCommand extends $Command<
   UpdateEc2DeepInspectionConfigurationCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class UpdateEc2DeepInspectionConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateEc2DeepInspectionConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class UpdateEc2DeepInspectionConfigurationCommand extends $Command<
   ): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput> {
     return de_UpdateEc2DeepInspectionConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

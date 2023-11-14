@@ -112,9 +112,6 @@ export class DescribePhoneNumberCommand extends $Command<
   DescribePhoneNumberCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class DescribePhoneNumberCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePhoneNumberCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DescribePhoneNumberCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePhoneNumberCommandOutput> {
     return de_DescribePhoneNumberCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

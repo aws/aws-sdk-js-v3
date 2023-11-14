@@ -93,9 +93,6 @@ export class DeletePermissionGroupCommand extends $Command<
   DeletePermissionGroupCommandOutput,
   FinspaceDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DeletePermissionGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeletePermissionGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DeletePermissionGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionGroupCommandOutput> {
     return de_DeletePermissionGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

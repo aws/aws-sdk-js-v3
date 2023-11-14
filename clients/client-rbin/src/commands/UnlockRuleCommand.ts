@@ -104,9 +104,6 @@ export class UnlockRuleCommand extends $Command<
   UnlockRuleCommandOutput,
   RbinClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class UnlockRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UnlockRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class UnlockRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlockRuleCommandOutput> {
     return de_UnlockRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

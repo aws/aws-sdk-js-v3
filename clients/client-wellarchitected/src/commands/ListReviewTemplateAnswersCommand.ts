@@ -138,9 +138,6 @@ export class ListReviewTemplateAnswersCommand extends $Command<
   ListReviewTemplateAnswersCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class ListReviewTemplateAnswersCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListReviewTemplateAnswersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class ListReviewTemplateAnswersCommand extends $Command<
   ): Promise<ListReviewTemplateAnswersCommandOutput> {
     return de_ListReviewTemplateAnswersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

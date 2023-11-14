@@ -137,9 +137,6 @@ export class PutBucketVersioningCommand extends $Command<
   PutBucketVersioningCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -157,9 +154,7 @@ export class PutBucketVersioningCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketVersioningCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class PutBucketVersioningCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketVersioningCommandOutput> {
     return de_PutBucketVersioningCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

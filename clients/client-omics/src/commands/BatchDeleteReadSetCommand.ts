@@ -97,9 +97,6 @@ export class BatchDeleteReadSetCommand extends $Command<
   BatchDeleteReadSetCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class BatchDeleteReadSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDeleteReadSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class BatchDeleteReadSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteReadSetCommandOutput> {
     return de_BatchDeleteReadSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

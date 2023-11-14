@@ -94,9 +94,6 @@ export class ListOfferingPromotionsCommand extends $Command<
   ListOfferingPromotionsCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class ListOfferingPromotionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListOfferingPromotionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListOfferingPromotionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingPromotionsCommandOutput> {
     return de_ListOfferingPromotionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

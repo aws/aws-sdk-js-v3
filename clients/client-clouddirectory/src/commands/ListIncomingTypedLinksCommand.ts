@@ -163,9 +163,6 @@ export class ListIncomingTypedLinksCommand extends $Command<
   ListIncomingTypedLinksCommandOutput,
   CloudDirectoryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -179,9 +176,7 @@ export class ListIncomingTypedLinksCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListIncomingTypedLinksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -234,7 +229,4 @@ export class ListIncomingTypedLinksCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncomingTypedLinksCommandOutput> {
     return de_ListIncomingTypedLinksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

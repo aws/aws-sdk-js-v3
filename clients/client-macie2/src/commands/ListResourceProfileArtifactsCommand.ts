@@ -98,9 +98,6 @@ export class ListResourceProfileArtifactsCommand extends $Command<
   ListResourceProfileArtifactsCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class ListResourceProfileArtifactsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListResourceProfileArtifactsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class ListResourceProfileArtifactsCommand extends $Command<
   ): Promise<ListResourceProfileArtifactsCommandOutput> {
     return de_ListResourceProfileArtifactsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

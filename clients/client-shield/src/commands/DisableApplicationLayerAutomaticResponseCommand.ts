@@ -94,9 +94,6 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
   DisableApplicationLayerAutomaticResponseCommandOutput,
   ShieldClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableApplicationLayerAutomaticResponseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
   ): Promise<DisableApplicationLayerAutomaticResponseCommandOutput> {
     return de_DisableApplicationLayerAutomaticResponseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

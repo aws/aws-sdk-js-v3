@@ -191,9 +191,6 @@ export class GetTableVersionsCommand extends $Command<
   GetTableVersionsCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -207,9 +204,7 @@ export class GetTableVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTableVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -262,7 +257,4 @@ export class GetTableVersionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableVersionsCommandOutput> {
     return de_GetTableVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

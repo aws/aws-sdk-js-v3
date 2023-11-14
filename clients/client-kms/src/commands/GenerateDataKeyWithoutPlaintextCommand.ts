@@ -243,9 +243,6 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
   GenerateDataKeyWithoutPlaintextCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -259,9 +256,7 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateDataKeyWithoutPlaintextCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -320,7 +315,4 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> {
     return de_GenerateDataKeyWithoutPlaintextCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

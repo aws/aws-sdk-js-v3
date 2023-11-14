@@ -74,9 +74,6 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
   DeleteAnomalySubscriptionCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -90,9 +87,7 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAnomalySubscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
   ): Promise<DeleteAnomalySubscriptionCommandOutput> {
     return de_DeleteAnomalySubscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

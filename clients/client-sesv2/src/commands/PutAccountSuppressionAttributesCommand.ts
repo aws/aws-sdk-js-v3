@@ -81,9 +81,6 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
   PutAccountSuppressionAttributesCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutAccountSuppressionAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
   ): Promise<PutAccountSuppressionAttributesCommandOutput> {
     return de_PutAccountSuppressionAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

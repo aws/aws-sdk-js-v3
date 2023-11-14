@@ -130,9 +130,6 @@ export class GetSizeConstraintSetCommand extends $Command<
   GetSizeConstraintSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class GetSizeConstraintSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSizeConstraintSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class GetSizeConstraintSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSizeConstraintSetCommandOutput> {
     return de_GetSizeConstraintSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

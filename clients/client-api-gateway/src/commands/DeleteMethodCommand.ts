@@ -82,9 +82,6 @@ export class DeleteMethodCommand extends $Command<
   DeleteMethodCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class DeleteMethodCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMethodCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DeleteMethodCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMethodCommandOutput> {
     return de_DeleteMethodCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

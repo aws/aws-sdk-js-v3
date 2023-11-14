@@ -146,9 +146,6 @@ export class PutTraceSegmentsCommand extends $Command<
   PutTraceSegmentsCommandOutput,
   XRayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class PutTraceSegmentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutTraceSegmentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -217,7 +212,4 @@ export class PutTraceSegmentsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTraceSegmentsCommandOutput> {
     return de_PutTraceSegmentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

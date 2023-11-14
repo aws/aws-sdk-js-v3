@@ -170,9 +170,6 @@ export class GetJobRunCommand extends $Command<
   GetJobRunCommandOutput,
   EMRServerlessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -186,9 +183,7 @@ export class GetJobRunCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetJobRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -239,7 +234,4 @@ export class GetJobRunCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunCommandOutput> {
     return de_GetJobRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

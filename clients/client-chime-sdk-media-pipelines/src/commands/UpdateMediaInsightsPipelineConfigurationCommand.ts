@@ -302,9 +302,6 @@ export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command<
   UpdateMediaInsightsPipelineConfigurationCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -318,9 +315,7 @@ export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMediaInsightsPipelineConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -385,7 +380,4 @@ export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command<
   ): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> {
     return de_UpdateMediaInsightsPipelineConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

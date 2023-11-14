@@ -130,9 +130,6 @@ export class GetInfrastructureConfigurationCommand extends $Command<
   GetInfrastructureConfigurationCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class GetInfrastructureConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetInfrastructureConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class GetInfrastructureConfigurationCommand extends $Command<
   ): Promise<GetInfrastructureConfigurationCommandOutput> {
     return de_GetInfrastructureConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

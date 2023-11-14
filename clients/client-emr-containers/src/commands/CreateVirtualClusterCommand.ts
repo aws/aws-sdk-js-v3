@@ -97,9 +97,6 @@ export class CreateVirtualClusterCommand extends $Command<
   CreateVirtualClusterCommandOutput,
   EMRContainersClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class CreateVirtualClusterCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateVirtualClusterCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class CreateVirtualClusterCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualClusterCommandOutput> {
     return de_CreateVirtualClusterCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

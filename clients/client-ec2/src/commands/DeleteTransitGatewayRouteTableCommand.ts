@@ -90,9 +90,6 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
   DeleteTransitGatewayRouteTableCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTransitGatewayRouteTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
   ): Promise<DeleteTransitGatewayRouteTableCommandOutput> {
     return de_DeleteTransitGatewayRouteTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

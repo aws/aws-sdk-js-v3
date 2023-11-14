@@ -119,9 +119,6 @@ export class GetContainerServiceMetricDataCommand extends $Command<
   GetContainerServiceMetricDataCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class GetContainerServiceMetricDataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetContainerServiceMetricDataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class GetContainerServiceMetricDataCommand extends $Command<
   ): Promise<GetContainerServiceMetricDataCommandOutput> {
     return de_GetContainerServiceMetricDataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

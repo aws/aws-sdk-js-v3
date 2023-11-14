@@ -108,9 +108,6 @@ export class ListRotationShiftsCommand extends $Command<
   ListRotationShiftsCommandOutput,
   SSMContactsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class ListRotationShiftsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRotationShiftsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class ListRotationShiftsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRotationShiftsCommandOutput> {
     return de_ListRotationShiftsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

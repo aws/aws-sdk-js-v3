@@ -103,9 +103,6 @@ export class DescribeWorkspaceAssociationsCommand extends $Command<
   DescribeWorkspaceAssociationsCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DescribeWorkspaceAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeWorkspaceAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DescribeWorkspaceAssociationsCommand extends $Command<
   ): Promise<DescribeWorkspaceAssociationsCommandOutput> {
     return de_DescribeWorkspaceAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

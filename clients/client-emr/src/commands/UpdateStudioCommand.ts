@@ -82,9 +82,6 @@ export class UpdateStudioCommand extends $Command<
   UpdateStudioCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class UpdateStudioCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateStudioCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class UpdateStudioCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioCommandOutput> {
     return de_UpdateStudioCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

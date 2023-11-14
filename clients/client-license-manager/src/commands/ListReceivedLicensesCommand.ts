@@ -159,9 +159,6 @@ export class ListReceivedLicensesCommand extends $Command<
   ListReceivedLicensesCommandOutput,
   LicenseManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -175,9 +172,7 @@ export class ListReceivedLicensesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListReceivedLicensesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class ListReceivedLicensesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceivedLicensesCommandOutput> {
     return de_ListReceivedLicensesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

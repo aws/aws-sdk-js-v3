@@ -90,9 +90,6 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command<
   ListFunctionsByCodeSigningConfigCommandOutput,
   LambdaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListFunctionsByCodeSigningConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command<
   ): Promise<ListFunctionsByCodeSigningConfigCommandOutput> {
     return de_ListFunctionsByCodeSigningConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

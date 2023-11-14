@@ -80,9 +80,6 @@ export class DeleteStackCommand extends $Command<
   DeleteStackCommandOutput,
   AppStreamClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class DeleteStackCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteStackCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class DeleteStackCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackCommandOutput> {
     return de_DeleteStackCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -85,9 +85,6 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
   DescribeLocationFsxWindowsCommandOutput,
   DataSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeLocationFsxWindowsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
   ): Promise<DescribeLocationFsxWindowsCommandOutput> {
     return de_DescribeLocationFsxWindowsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -148,9 +148,6 @@ export class CreateChangeSetCommand extends $Command<
   CreateChangeSetCommandOutput,
   CloudFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -164,9 +161,7 @@ export class CreateChangeSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateChangeSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -219,7 +214,4 @@ export class CreateChangeSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChangeSetCommandOutput> {
     return de_CreateChangeSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

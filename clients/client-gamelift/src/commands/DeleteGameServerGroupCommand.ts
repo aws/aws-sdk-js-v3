@@ -139,9 +139,6 @@ export class DeleteGameServerGroupCommand extends $Command<
   DeleteGameServerGroupCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -155,9 +152,7 @@ export class DeleteGameServerGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteGameServerGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class DeleteGameServerGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameServerGroupCommandOutput> {
     return de_DeleteGameServerGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

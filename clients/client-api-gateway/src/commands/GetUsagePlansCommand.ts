@@ -116,9 +116,6 @@ export class GetUsagePlansCommand extends $Command<
   GetUsagePlansCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class GetUsagePlansCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetUsagePlansCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class GetUsagePlansCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlansCommandOutput> {
     return de_GetUsagePlansCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -88,9 +88,6 @@ export class ListNamedQueriesCommand extends $Command<
   ListNamedQueriesCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class ListNamedQueriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListNamedQueriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class ListNamedQueriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamedQueriesCommandOutput> {
     return de_ListNamedQueriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -121,9 +121,6 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
   TransferDomainToAnotherAwsAccountCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: TransferDomainToAnotherAwsAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
   ): Promise<TransferDomainToAnotherAwsAccountCommandOutput> {
     return de_TransferDomainToAnotherAwsAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

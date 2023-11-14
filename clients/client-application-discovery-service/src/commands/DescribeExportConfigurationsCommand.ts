@@ -119,9 +119,6 @@ export class DescribeExportConfigurationsCommand extends $Command<
   DescribeExportConfigurationsCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class DescribeExportConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeExportConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class DescribeExportConfigurationsCommand extends $Command<
   ): Promise<DescribeExportConfigurationsCommandOutput> {
     return de_DescribeExportConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

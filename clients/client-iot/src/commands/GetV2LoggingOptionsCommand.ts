@@ -80,9 +80,6 @@ export class GetV2LoggingOptionsCommand extends $Command<
   GetV2LoggingOptionsCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class GetV2LoggingOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetV2LoggingOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class GetV2LoggingOptionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetV2LoggingOptionsCommandOutput> {
     return de_GetV2LoggingOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

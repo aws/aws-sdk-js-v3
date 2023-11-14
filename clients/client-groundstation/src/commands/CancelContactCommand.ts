@@ -79,9 +79,6 @@ export class CancelContactCommand extends $Command<
   CancelContactCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class CancelContactCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelContactCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class CancelContactCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelContactCommandOutput> {
     return de_CancelContactCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

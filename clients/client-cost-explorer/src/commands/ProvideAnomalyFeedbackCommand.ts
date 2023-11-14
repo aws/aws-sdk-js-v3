@@ -74,9 +74,6 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
   ProvideAnomalyFeedbackCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -90,9 +87,7 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
    * @public
    */
   constructor(readonly input: ProvideAnomalyFeedbackCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -145,7 +140,4 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvideAnomalyFeedbackCommandOutput> {
     return de_ProvideAnomalyFeedbackCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

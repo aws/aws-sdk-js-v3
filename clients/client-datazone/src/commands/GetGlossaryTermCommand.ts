@@ -111,9 +111,6 @@ export class GetGlossaryTermCommand extends $Command<
   GetGlossaryTermCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class GetGlossaryTermCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetGlossaryTermCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class GetGlossaryTermCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGlossaryTermCommandOutput> {
     return de_GetGlossaryTermCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -204,9 +204,6 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
   DescribeComputeEnvironmentsCommandOutput,
   BatchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -220,9 +217,7 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeComputeEnvironmentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -278,7 +273,4 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
   ): Promise<DescribeComputeEnvironmentsCommandOutput> {
     return de_DescribeComputeEnvironmentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

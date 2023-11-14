@@ -152,9 +152,6 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
   RegisterSlackWorkspaceForOrganizationCommandOutput,
   SupportAppClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -168,9 +165,7 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterSlackWorkspaceForOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -229,7 +224,4 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
   ): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> {
     return de_RegisterSlackWorkspaceForOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

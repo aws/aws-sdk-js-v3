@@ -205,9 +205,6 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
   PutBucketNotificationConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -227,9 +224,7 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketNotificationConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -288,7 +283,4 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
   ): Promise<PutBucketNotificationConfigurationCommandOutput> {
     return de_PutBucketNotificationConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

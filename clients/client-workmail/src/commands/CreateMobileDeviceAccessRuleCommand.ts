@@ -117,9 +117,6 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
   CreateMobileDeviceAccessRuleCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateMobileDeviceAccessRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
   ): Promise<CreateMobileDeviceAccessRuleCommandOutput> {
     return de_CreateMobileDeviceAccessRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

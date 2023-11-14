@@ -81,9 +81,6 @@ export class DeleteWhatIfForecastCommand extends $Command<
   DeleteWhatIfForecastCommandOutput,
   ForecastClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DeleteWhatIfForecastCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteWhatIfForecastCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -152,7 +147,4 @@ export class DeleteWhatIfForecastCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWhatIfForecastCommandOutput> {
     return de_DeleteWhatIfForecastCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

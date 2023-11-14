@@ -122,9 +122,6 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
   GetRelationalDatabaseParametersCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRelationalDatabaseParametersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
   ): Promise<GetRelationalDatabaseParametersCommandOutput> {
     return de_GetRelationalDatabaseParametersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -146,9 +146,6 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
   AssociateIdentityProviderConfigCommandOutput,
   EKSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateIdentityProviderConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
   ): Promise<AssociateIdentityProviderConfigCommandOutput> {
     return de_AssociateIdentityProviderConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

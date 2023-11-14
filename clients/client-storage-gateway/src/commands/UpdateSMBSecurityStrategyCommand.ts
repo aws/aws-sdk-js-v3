@@ -84,9 +84,6 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
   UpdateSMBSecurityStrategyCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSMBSecurityStrategyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
   ): Promise<UpdateSMBSecurityStrategyCommandOutput> {
     return de_UpdateSMBSecurityStrategyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

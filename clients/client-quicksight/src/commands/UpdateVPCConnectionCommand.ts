@@ -117,9 +117,6 @@ export class UpdateVPCConnectionCommand extends $Command<
   UpdateVPCConnectionCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class UpdateVPCConnectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateVPCConnectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class UpdateVPCConnectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVPCConnectionCommandOutput> {
     return de_UpdateVPCConnectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -101,9 +101,6 @@ export class ListStackSetOperationResultsCommand extends $Command<
   ListStackSetOperationResultsCommandOutput,
   CloudFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ListStackSetOperationResultsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListStackSetOperationResultsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ListStackSetOperationResultsCommand extends $Command<
   ): Promise<ListStackSetOperationResultsCommandOutput> {
     return de_ListStackSetOperationResultsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

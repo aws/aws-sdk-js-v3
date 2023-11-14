@@ -73,9 +73,6 @@ export class DisableImageDeprecationCommand extends $Command<
   DisableImageDeprecationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -89,9 +86,7 @@ export class DisableImageDeprecationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableImageDeprecationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -144,7 +139,4 @@ export class DisableImageDeprecationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableImageDeprecationCommandOutput> {
     return de_DisableImageDeprecationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

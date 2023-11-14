@@ -214,9 +214,6 @@ export class CreateReplicationConfigurationCommand extends $Command<
   CreateReplicationConfigurationCommandOutput,
   EFSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -230,9 +227,7 @@ export class CreateReplicationConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateReplicationConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -291,7 +286,4 @@ export class CreateReplicationConfigurationCommand extends $Command<
   ): Promise<CreateReplicationConfigurationCommandOutput> {
     return de_CreateReplicationConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

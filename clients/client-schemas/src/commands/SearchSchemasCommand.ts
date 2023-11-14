@@ -97,9 +97,6 @@ export class SearchSchemasCommand extends $Command<
   SearchSchemasCommandOutput,
   SchemasClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class SearchSchemasCommand extends $Command<
    * @public
    */
   constructor(readonly input: SearchSchemasCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class SearchSchemasCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSchemasCommandOutput> {
     return de_SearchSchemasCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

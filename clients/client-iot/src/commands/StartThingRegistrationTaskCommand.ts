@@ -86,9 +86,6 @@ export class StartThingRegistrationTaskCommand extends $Command<
   StartThingRegistrationTaskCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class StartThingRegistrationTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartThingRegistrationTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class StartThingRegistrationTaskCommand extends $Command<
   ): Promise<StartThingRegistrationTaskCommandOutput> {
     return de_StartThingRegistrationTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

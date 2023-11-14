@@ -178,9 +178,6 @@ export class GetPipelineCommand extends $Command<
   GetPipelineCommandOutput,
   CodePipelineClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -194,9 +191,7 @@ export class GetPipelineCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPipelineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -247,7 +242,4 @@ export class GetPipelineCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPipelineCommandOutput> {
     return de_GetPipelineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

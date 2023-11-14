@@ -117,9 +117,6 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
   CreateCertificateAuthorityAuditReportCommandOutput,
   ACMPCAClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCertificateAuthorityAuditReportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
   ): Promise<CreateCertificateAuthorityAuditReportCommandOutput> {
     return de_CreateCertificateAuthorityAuditReportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

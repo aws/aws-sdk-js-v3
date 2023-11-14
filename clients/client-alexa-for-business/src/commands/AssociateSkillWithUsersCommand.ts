@@ -76,9 +76,6 @@ export class AssociateSkillWithUsersCommand extends $Command<
   AssociateSkillWithUsersCommandOutput,
   AlexaForBusinessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class AssociateSkillWithUsersCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateSkillWithUsersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -147,7 +142,4 @@ export class AssociateSkillWithUsersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSkillWithUsersCommandOutput> {
     return de_AssociateSkillWithUsersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

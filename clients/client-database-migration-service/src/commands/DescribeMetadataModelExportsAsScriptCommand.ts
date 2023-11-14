@@ -144,9 +144,6 @@ export class DescribeMetadataModelExportsAsScriptCommand extends $Command<
   DescribeMetadataModelExportsAsScriptCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class DescribeMetadataModelExportsAsScriptCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeMetadataModelExportsAsScriptCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -221,7 +216,4 @@ export class DescribeMetadataModelExportsAsScriptCommand extends $Command<
   ): Promise<DescribeMetadataModelExportsAsScriptCommandOutput> {
     return de_DescribeMetadataModelExportsAsScriptCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -161,9 +161,6 @@ export class DeleteRuleGroupCommand extends $Command<
   DeleteRuleGroupCommandOutput,
   WAFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -177,9 +174,7 @@ export class DeleteRuleGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteRuleGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -232,7 +227,4 @@ export class DeleteRuleGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleGroupCommandOutput> {
     return de_DeleteRuleGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

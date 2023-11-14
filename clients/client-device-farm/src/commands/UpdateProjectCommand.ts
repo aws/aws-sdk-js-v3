@@ -129,9 +129,6 @@ export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class UpdateProjectCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateProjectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class UpdateProjectCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
     return de_UpdateProjectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -124,9 +124,6 @@ export class GetSegmentImportJobsCommand extends $Command<
   GetSegmentImportJobsCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class GetSegmentImportJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSegmentImportJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class GetSegmentImportJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentImportJobsCommandOutput> {
     return de_GetSegmentImportJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

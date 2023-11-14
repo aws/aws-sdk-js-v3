@@ -136,9 +136,6 @@ export class MergeShardsCommand extends $Command<
   MergeShardsCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -154,9 +151,7 @@ export class MergeShardsCommand extends $Command<
    * @public
    */
   constructor(readonly input: MergeShardsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class MergeShardsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeShardsCommandOutput> {
     return de_MergeShardsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

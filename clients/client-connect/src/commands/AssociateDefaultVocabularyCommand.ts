@@ -86,9 +86,6 @@ export class AssociateDefaultVocabularyCommand extends $Command<
   AssociateDefaultVocabularyCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class AssociateDefaultVocabularyCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateDefaultVocabularyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class AssociateDefaultVocabularyCommand extends $Command<
   ): Promise<AssociateDefaultVocabularyCommandOutput> {
     return de_AssociateDefaultVocabularyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

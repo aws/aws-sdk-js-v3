@@ -210,9 +210,6 @@ export class AddFlowOutputsCommand extends $Command<
   AddFlowOutputsCommandOutput,
   MediaConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -226,9 +223,7 @@ export class AddFlowOutputsCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddFlowOutputsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -281,7 +276,4 @@ export class AddFlowOutputsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowOutputsCommandOutput> {
     return de_AddFlowOutputsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

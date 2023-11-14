@@ -223,9 +223,6 @@ export class StartCallAnalyticsJobCommand extends $Command<
   StartCallAnalyticsJobCommandOutput,
   TranscribeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -239,9 +236,7 @@ export class StartCallAnalyticsJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartCallAnalyticsJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -294,7 +289,4 @@ export class StartCallAnalyticsJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCallAnalyticsJobCommandOutput> {
     return de_StartCallAnalyticsJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

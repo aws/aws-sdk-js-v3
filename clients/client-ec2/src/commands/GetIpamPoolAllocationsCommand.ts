@@ -96,9 +96,6 @@ export class GetIpamPoolAllocationsCommand extends $Command<
   GetIpamPoolAllocationsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetIpamPoolAllocationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetIpamPoolAllocationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetIpamPoolAllocationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIpamPoolAllocationsCommandOutput> {
     return de_GetIpamPoolAllocationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

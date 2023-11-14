@@ -83,9 +83,6 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
   AssociateClientVpnTargetNetworkCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateClientVpnTargetNetworkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
   ): Promise<AssociateClientVpnTargetNetworkCommandOutput> {
     return de_AssociateClientVpnTargetNetworkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

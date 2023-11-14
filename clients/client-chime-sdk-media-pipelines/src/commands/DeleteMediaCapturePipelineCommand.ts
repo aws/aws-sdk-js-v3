@@ -93,9 +93,6 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
   DeleteMediaCapturePipelineCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMediaCapturePipelineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
   ): Promise<DeleteMediaCapturePipelineCommandOutput> {
     return de_DeleteMediaCapturePipelineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

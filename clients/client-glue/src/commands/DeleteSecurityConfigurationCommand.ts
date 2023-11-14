@@ -82,9 +82,6 @@ export class DeleteSecurityConfigurationCommand extends $Command<
   DeleteSecurityConfigurationCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class DeleteSecurityConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSecurityConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class DeleteSecurityConfigurationCommand extends $Command<
   ): Promise<DeleteSecurityConfigurationCommandOutput> {
     return de_DeleteSecurityConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -135,9 +135,6 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *
  */
 export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
    * @public
    */
   constructor(readonly input: GetRoleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoleCommandOutput> {
     return de_GetRoleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

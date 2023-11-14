@@ -89,9 +89,6 @@ export class GetExtensionAssociationCommand extends $Command<
   GetExtensionAssociationCommandOutput,
   AppConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class GetExtensionAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetExtensionAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class GetExtensionAssociationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExtensionAssociationCommandOutput> {
     return de_GetExtensionAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

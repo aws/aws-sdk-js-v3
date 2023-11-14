@@ -120,9 +120,6 @@ export class PutPackageOriginConfigurationCommand extends $Command<
   PutPackageOriginConfigurationCommandOutput,
   CodeartifactClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class PutPackageOriginConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutPackageOriginConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class PutPackageOriginConfigurationCommand extends $Command<
   ): Promise<PutPackageOriginConfigurationCommandOutput> {
     return de_PutPackageOriginConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -100,9 +100,6 @@ export class ListConnectorsCommand extends $Command<
   ListConnectorsCommandOutput,
   AppflowClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class ListConnectorsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListConnectorsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class ListConnectorsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectorsCommandOutput> {
     return de_ListConnectorsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

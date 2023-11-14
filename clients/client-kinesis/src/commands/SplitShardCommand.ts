@@ -140,9 +140,6 @@ export class SplitShardCommand extends $Command<
   SplitShardCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -158,9 +155,7 @@ export class SplitShardCommand extends $Command<
    * @public
    */
   constructor(readonly input: SplitShardCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class SplitShardCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SplitShardCommandOutput> {
     return de_SplitShardCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

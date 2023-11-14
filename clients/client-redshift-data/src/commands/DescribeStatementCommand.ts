@@ -121,9 +121,6 @@ export class DescribeStatementCommand extends $Command<
   DescribeStatementCommandOutput,
   RedshiftDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class DescribeStatementCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeStatementCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class DescribeStatementCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStatementCommandOutput> {
     return de_DescribeStatementCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

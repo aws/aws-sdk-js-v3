@@ -94,9 +94,6 @@ export class CreateSiteCommand extends $Command<
   CreateSiteCommandOutput,
   IoTRoboRunnerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class CreateSiteCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateSiteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class CreateSiteCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSiteCommandOutput> {
     return de_CreateSiteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

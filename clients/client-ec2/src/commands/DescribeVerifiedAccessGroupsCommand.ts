@@ -108,9 +108,6 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command<
   DescribeVerifiedAccessGroupsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeVerifiedAccessGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command<
   ): Promise<DescribeVerifiedAccessGroupsCommandOutput> {
     return de_DescribeVerifiedAccessGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

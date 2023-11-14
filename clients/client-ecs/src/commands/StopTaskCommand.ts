@@ -250,9 +250,6 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  *
  */
 export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskCommandOutput, ECSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -266,9 +263,7 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
    * @public
    */
   constructor(readonly input: StopTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -319,7 +314,4 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTaskCommandOutput> {
     return de_StopTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -362,9 +362,6 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *
  */
 export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectCommandOutput, S3ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -384,9 +381,7 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
    * @public
    */
   constructor(readonly input: GetObjectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -449,7 +444,4 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
   ): Promise<GetObjectCommandOutput> {
     return de_GetObjectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

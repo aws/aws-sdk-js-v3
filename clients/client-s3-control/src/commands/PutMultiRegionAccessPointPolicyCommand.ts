@@ -101,9 +101,6 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
   PutMultiRegionAccessPointPolicyCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -120,9 +117,7 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutMultiRegionAccessPointPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
   ): Promise<PutMultiRegionAccessPointPolicyCommandOutput> {
     return de_PutMultiRegionAccessPointPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

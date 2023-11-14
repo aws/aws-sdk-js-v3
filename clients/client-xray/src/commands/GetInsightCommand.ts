@@ -119,9 +119,6 @@ export class GetInsightCommand extends $Command<
   GetInsightCommandOutput,
   XRayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class GetInsightCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetInsightCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class GetInsightCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightCommandOutput> {
     return de_GetInsightCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

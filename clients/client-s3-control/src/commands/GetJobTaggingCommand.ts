@@ -110,9 +110,6 @@ export class GetJobTaggingCommand extends $Command<
   GetJobTaggingCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -129,9 +126,7 @@ export class GetJobTaggingCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetJobTaggingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class GetJobTaggingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobTaggingCommandOutput> {
     return de_GetJobTaggingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

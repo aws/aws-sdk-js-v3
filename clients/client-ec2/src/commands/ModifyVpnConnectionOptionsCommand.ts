@@ -188,9 +188,6 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
   ModifyVpnConnectionOptionsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -204,9 +201,7 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyVpnConnectionOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -262,7 +257,4 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
   ): Promise<ModifyVpnConnectionOptionsCommandOutput> {
     return de_ModifyVpnConnectionOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

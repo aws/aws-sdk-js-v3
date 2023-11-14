@@ -94,9 +94,6 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
   DeleteBucketIntelligentTieringConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -116,9 +113,7 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
    * @public
    */
   constructor(readonly input: DeleteBucketIntelligentTieringConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
   ): Promise<DeleteBucketIntelligentTieringConfigurationCommandOutput> {
     return de_DeleteBucketIntelligentTieringConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

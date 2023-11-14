@@ -109,9 +109,6 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
   SSOAdminClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
    * @public
    */
   constructor(readonly input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
   ): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput> {
     return de_AttachCustomerManagedPolicyReferenceToPermissionSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -102,9 +102,6 @@ export class CreateProgressUpdateStreamCommand extends $Command<
   CreateProgressUpdateStreamCommandOutput,
   MigrationHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class CreateProgressUpdateStreamCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateProgressUpdateStreamCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class CreateProgressUpdateStreamCommand extends $Command<
   ): Promise<CreateProgressUpdateStreamCommandOutput> {
     return de_CreateProgressUpdateStreamCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

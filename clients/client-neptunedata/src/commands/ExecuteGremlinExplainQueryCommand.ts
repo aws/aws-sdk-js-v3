@@ -180,9 +180,6 @@ export class ExecuteGremlinExplainQueryCommand extends $Command<
   ExecuteGremlinExplainQueryCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -196,9 +193,7 @@ export class ExecuteGremlinExplainQueryCommand extends $Command<
    * @public
    */
   constructor(readonly input: ExecuteGremlinExplainQueryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -254,7 +249,4 @@ export class ExecuteGremlinExplainQueryCommand extends $Command<
   ): Promise<ExecuteGremlinExplainQueryCommandOutput> {
     return de_ExecuteGremlinExplainQueryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

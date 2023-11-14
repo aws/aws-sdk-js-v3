@@ -137,9 +137,6 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
   CountOpenWorkflowExecutionsCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: CountOpenWorkflowExecutionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
   ): Promise<CountOpenWorkflowExecutionsCommandOutput> {
     return de_CountOpenWorkflowExecutionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

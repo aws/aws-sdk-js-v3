@@ -103,9 +103,6 @@ export class ListContactChannelsCommand extends $Command<
   ListContactChannelsCommandOutput,
   SSMContactsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class ListContactChannelsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListContactChannelsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class ListContactChannelsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactChannelsCommandOutput> {
     return de_ListContactChannelsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

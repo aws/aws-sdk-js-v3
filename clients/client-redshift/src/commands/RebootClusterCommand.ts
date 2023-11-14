@@ -272,9 +272,6 @@ export class RebootClusterCommand extends $Command<
   RebootClusterCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -288,9 +285,7 @@ export class RebootClusterCommand extends $Command<
    * @public
    */
   constructor(readonly input: RebootClusterCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -341,7 +336,4 @@ export class RebootClusterCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootClusterCommandOutput> {
     return de_RebootClusterCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

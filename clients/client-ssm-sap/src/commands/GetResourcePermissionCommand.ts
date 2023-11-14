@@ -80,9 +80,6 @@ export class GetResourcePermissionCommand extends $Command<
   GetResourcePermissionCommandOutput,
   SsmSapClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class GetResourcePermissionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetResourcePermissionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class GetResourcePermissionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePermissionCommandOutput> {
     return de_GetResourcePermissionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

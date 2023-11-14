@@ -105,9 +105,6 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
   IncreaseStreamRetentionPeriodCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -123,9 +120,7 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
    * @public
    */
   constructor(readonly input: IncreaseStreamRetentionPeriodCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
   ): Promise<IncreaseStreamRetentionPeriodCommandOutput> {
     return de_IncreaseStreamRetentionPeriodCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

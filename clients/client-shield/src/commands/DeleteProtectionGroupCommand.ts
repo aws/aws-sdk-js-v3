@@ -78,9 +78,6 @@ export class DeleteProtectionGroupCommand extends $Command<
   DeleteProtectionGroupCommandOutput,
   ShieldClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class DeleteProtectionGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteProtectionGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class DeleteProtectionGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtectionGroupCommandOutput> {
     return de_DeleteProtectionGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

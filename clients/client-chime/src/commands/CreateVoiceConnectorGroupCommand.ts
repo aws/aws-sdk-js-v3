@@ -125,9 +125,6 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
   CreateVoiceConnectorGroupCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateVoiceConnectorGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
   ): Promise<CreateVoiceConnectorGroupCommandOutput> {
     return de_CreateVoiceConnectorGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

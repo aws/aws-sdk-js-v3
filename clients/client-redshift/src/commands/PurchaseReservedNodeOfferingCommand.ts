@@ -115,9 +115,6 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
   PurchaseReservedNodeOfferingCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
    * @public
    */
   constructor(readonly input: PurchaseReservedNodeOfferingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
   ): Promise<PurchaseReservedNodeOfferingCommandOutput> {
     return de_PurchaseReservedNodeOfferingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -129,9 +129,6 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
   DescribeResourceCollectionHealthCommandOutput,
   DevOpsGuruClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeResourceCollectionHealthCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
   ): Promise<DescribeResourceCollectionHealthCommandOutput> {
     return de_DescribeResourceCollectionHealthCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

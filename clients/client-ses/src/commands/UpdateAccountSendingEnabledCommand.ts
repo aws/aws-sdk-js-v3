@@ -84,9 +84,6 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
   UpdateAccountSendingEnabledCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateAccountSendingEnabledCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
   ): Promise<UpdateAccountSendingEnabledCommandOutput> {
     return de_UpdateAccountSendingEnabledCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

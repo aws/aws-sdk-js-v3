@@ -81,9 +81,6 @@ export class DeleteConfigurationRecorderCommand extends $Command<
   DeleteConfigurationRecorderCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DeleteConfigurationRecorderCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteConfigurationRecorderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class DeleteConfigurationRecorderCommand extends $Command<
   ): Promise<DeleteConfigurationRecorderCommandOutput> {
     return de_DeleteConfigurationRecorderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

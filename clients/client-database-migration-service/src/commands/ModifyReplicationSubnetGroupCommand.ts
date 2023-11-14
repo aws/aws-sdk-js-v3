@@ -137,9 +137,6 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
   ModifyReplicationSubnetGroupCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyReplicationSubnetGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
   ): Promise<ModifyReplicationSubnetGroupCommandOutput> {
     return de_ModifyReplicationSubnetGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

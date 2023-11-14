@@ -85,9 +85,6 @@ export class DeleteAccessPointPolicyCommand extends $Command<
   DeleteAccessPointPolicyCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -105,9 +102,7 @@ export class DeleteAccessPointPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAccessPointPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteAccessPointPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointPolicyCommandOutput> {
     return de_DeleteAccessPointPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

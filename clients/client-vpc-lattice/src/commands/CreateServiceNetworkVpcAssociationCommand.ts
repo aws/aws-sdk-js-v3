@@ -124,9 +124,6 @@ export class CreateServiceNetworkVpcAssociationCommand extends $Command<
   CreateServiceNetworkVpcAssociationCommandOutput,
   VPCLatticeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class CreateServiceNetworkVpcAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateServiceNetworkVpcAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class CreateServiceNetworkVpcAssociationCommand extends $Command<
   ): Promise<CreateServiceNetworkVpcAssociationCommandOutput> {
     return de_CreateServiceNetworkVpcAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

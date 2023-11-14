@@ -105,9 +105,6 @@ export class ListHumanLoopsCommand extends $Command<
   ListHumanLoopsCommandOutput,
   SageMakerA2IRuntimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class ListHumanLoopsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListHumanLoopsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class ListHumanLoopsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHumanLoopsCommandOutput> {
     return de_ListHumanLoopsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

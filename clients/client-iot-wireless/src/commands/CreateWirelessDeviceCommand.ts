@@ -154,9 +154,6 @@ export class CreateWirelessDeviceCommand extends $Command<
   CreateWirelessDeviceCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -170,9 +167,7 @@ export class CreateWirelessDeviceCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateWirelessDeviceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -225,7 +220,4 @@ export class CreateWirelessDeviceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWirelessDeviceCommandOutput> {
     return de_CreateWirelessDeviceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -113,9 +113,6 @@ export class ListContactsCommand extends $Command<
   ListContactsCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListContactsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListContactsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class ListContactsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactsCommandOutput> {
     return de_ListContactsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

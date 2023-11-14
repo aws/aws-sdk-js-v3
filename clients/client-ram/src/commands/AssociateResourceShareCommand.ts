@@ -136,9 +136,6 @@ export class AssociateResourceShareCommand extends $Command<
   AssociateResourceShareCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class AssociateResourceShareCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateResourceShareCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class AssociateResourceShareCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceShareCommandOutput> {
     return de_AssociateResourceShareCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

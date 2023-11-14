@@ -188,9 +188,6 @@ export class RecognizeUtteranceCommand extends $Command<
   RecognizeUtteranceCommandOutput,
   LexRuntimeV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -204,9 +201,7 @@ export class RecognizeUtteranceCommand extends $Command<
    * @public
    */
   constructor(readonly input: RecognizeUtteranceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -262,7 +257,4 @@ export class RecognizeUtteranceCommand extends $Command<
   ): Promise<RecognizeUtteranceCommandOutput> {
     return de_RecognizeUtteranceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

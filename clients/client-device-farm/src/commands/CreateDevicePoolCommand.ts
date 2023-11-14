@@ -124,9 +124,6 @@ export class CreateDevicePoolCommand extends $Command<
   CreateDevicePoolCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class CreateDevicePoolCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDevicePoolCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class CreateDevicePoolCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevicePoolCommandOutput> {
     return de_CreateDevicePoolCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

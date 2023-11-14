@@ -103,9 +103,6 @@ export class DeleteStateMachineVersionCommand extends $Command<
   DeleteStateMachineVersionCommandOutput,
   SFNClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DeleteStateMachineVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteStateMachineVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DeleteStateMachineVersionCommand extends $Command<
   ): Promise<DeleteStateMachineVersionCommandOutput> {
     return de_DeleteStateMachineVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

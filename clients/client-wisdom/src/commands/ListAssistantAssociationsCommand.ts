@@ -99,9 +99,6 @@ export class ListAssistantAssociationsCommand extends $Command<
   ListAssistantAssociationsCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ListAssistantAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAssistantAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class ListAssistantAssociationsCommand extends $Command<
   ): Promise<ListAssistantAssociationsCommandOutput> {
     return de_ListAssistantAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

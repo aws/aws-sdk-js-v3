@@ -122,9 +122,6 @@ export class CreateStandbyWorkspacesCommand extends $Command<
   CreateStandbyWorkspacesCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class CreateStandbyWorkspacesCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateStandbyWorkspacesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class CreateStandbyWorkspacesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStandbyWorkspacesCommandOutput> {
     return de_CreateStandbyWorkspacesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

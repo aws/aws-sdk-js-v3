@@ -94,9 +94,6 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
   UpdateTableStorageOptimizerCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTableStorageOptimizerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
   ): Promise<UpdateTableStorageOptimizerCommandOutput> {
     return de_UpdateTableStorageOptimizerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

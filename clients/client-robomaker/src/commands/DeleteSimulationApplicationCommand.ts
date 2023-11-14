@@ -84,9 +84,6 @@ export class DeleteSimulationApplicationCommand extends $Command<
   DeleteSimulationApplicationCommandOutput,
   RoboMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeleteSimulationApplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSimulationApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class DeleteSimulationApplicationCommand extends $Command<
   ): Promise<DeleteSimulationApplicationCommandOutput> {
     return de_DeleteSimulationApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -177,9 +177,6 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
   DescribeOptionGroupOptionsCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -193,9 +190,7 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeOptionGroupOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -251,7 +246,4 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
   ): Promise<DescribeOptionGroupOptionsCommandOutput> {
     return de_DescribeOptionGroupOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -123,9 +123,6 @@ export class ListDistributedGrantsCommand extends $Command<
   ListDistributedGrantsCommandOutput,
   LicenseManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class ListDistributedGrantsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDistributedGrantsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class ListDistributedGrantsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDistributedGrantsCommandOutput> {
     return de_ListDistributedGrantsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

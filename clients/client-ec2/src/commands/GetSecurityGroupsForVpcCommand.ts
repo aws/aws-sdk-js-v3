@@ -96,9 +96,6 @@ export class GetSecurityGroupsForVpcCommand extends $Command<
   GetSecurityGroupsForVpcCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetSecurityGroupsForVpcCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSecurityGroupsForVpcCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetSecurityGroupsForVpcCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecurityGroupsForVpcCommandOutput> {
     return de_GetSecurityGroupsForVpcCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

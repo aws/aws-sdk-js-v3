@@ -101,9 +101,6 @@ export class CreateInvitationsCommand extends $Command<
   CreateInvitationsCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class CreateInvitationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateInvitationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class CreateInvitationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInvitationsCommandOutput> {
     return de_CreateInvitationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

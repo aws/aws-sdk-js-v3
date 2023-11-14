@@ -73,9 +73,6 @@ export class CreateVpnConnectionRouteCommand extends $Command<
   CreateVpnConnectionRouteCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -89,9 +86,7 @@ export class CreateVpnConnectionRouteCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateVpnConnectionRouteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -144,7 +139,4 @@ export class CreateVpnConnectionRouteCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpnConnectionRouteCommandOutput> {
     return de_CreateVpnConnectionRouteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

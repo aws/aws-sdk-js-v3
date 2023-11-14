@@ -127,9 +127,6 @@ export class ListTableRowsCommand extends $Command<
   ListTableRowsCommandOutput,
   HoneycodeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class ListTableRowsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTableRowsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class ListTableRowsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRowsCommandOutput> {
     return de_ListTableRowsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

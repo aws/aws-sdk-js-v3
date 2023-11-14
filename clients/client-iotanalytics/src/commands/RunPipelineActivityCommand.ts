@@ -150,9 +150,6 @@ export class RunPipelineActivityCommand extends $Command<
   RunPipelineActivityCommandOutput,
   IoTAnalyticsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -166,9 +163,7 @@ export class RunPipelineActivityCommand extends $Command<
    * @public
    */
   constructor(readonly input: RunPipelineActivityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -221,7 +216,4 @@ export class RunPipelineActivityCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunPipelineActivityCommandOutput> {
     return de_RunPipelineActivityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

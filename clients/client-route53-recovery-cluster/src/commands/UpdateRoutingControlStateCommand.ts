@@ -130,9 +130,6 @@ export class UpdateRoutingControlStateCommand extends $Command<
   UpdateRoutingControlStateCommandOutput,
   Route53RecoveryClusterClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class UpdateRoutingControlStateCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateRoutingControlStateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class UpdateRoutingControlStateCommand extends $Command<
   ): Promise<UpdateRoutingControlStateCommandOutput> {
     return de_UpdateRoutingControlStateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

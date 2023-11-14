@@ -693,9 +693,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *
  */
 export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyCommandOutput, KMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -709,9 +706,7 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
    * @public
    */
   constructor(readonly input: CreateKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -762,7 +757,4 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyCommandOutput> {
     return de_CreateKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

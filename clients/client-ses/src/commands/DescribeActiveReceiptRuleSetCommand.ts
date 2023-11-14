@@ -158,9 +158,6 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
   DescribeActiveReceiptRuleSetCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -174,9 +171,7 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeActiveReceiptRuleSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -232,7 +227,4 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
   ): Promise<DescribeActiveReceiptRuleSetCommandOutput> {
     return de_DescribeActiveReceiptRuleSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -293,9 +293,6 @@ export class ListTestExecutionResultItemsCommand extends $Command<
   ListTestExecutionResultItemsCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -309,9 +306,7 @@ export class ListTestExecutionResultItemsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTestExecutionResultItemsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -367,7 +362,4 @@ export class ListTestExecutionResultItemsCommand extends $Command<
   ): Promise<ListTestExecutionResultItemsCommandOutput> {
     return de_ListTestExecutionResultItemsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

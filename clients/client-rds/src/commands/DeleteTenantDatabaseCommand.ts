@@ -112,9 +112,6 @@ export class DeleteTenantDatabaseCommand extends $Command<
   DeleteTenantDatabaseCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class DeleteTenantDatabaseCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTenantDatabaseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DeleteTenantDatabaseCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTenantDatabaseCommandOutput> {
     return de_DeleteTenantDatabaseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

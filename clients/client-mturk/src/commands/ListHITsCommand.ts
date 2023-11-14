@@ -121,9 +121,6 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  *
  */
 export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsCommandOutput, MTurkClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
    * @public
    */
   constructor(readonly input: ListHITsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHITsCommandOutput> {
     return de_ListHITsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

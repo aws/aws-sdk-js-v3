@@ -85,9 +85,6 @@ export class SetSMBGuestPasswordCommand extends $Command<
   SetSMBGuestPasswordCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class SetSMBGuestPasswordCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetSMBGuestPasswordCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class SetSMBGuestPasswordCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSMBGuestPasswordCommandOutput> {
     return de_SetSMBGuestPasswordCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -103,9 +103,6 @@ export class HeadBucketCommand extends $Command<
   HeadBucketCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -125,9 +122,7 @@ export class HeadBucketCommand extends $Command<
    * @public
    */
   constructor(readonly input: HeadBucketCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class HeadBucketCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadBucketCommandOutput> {
     return de_HeadBucketCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

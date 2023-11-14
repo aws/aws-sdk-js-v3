@@ -79,9 +79,6 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
   RunFleetAdvisorLsaAnalysisCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
    * @public
    */
   constructor(readonly input: RunFleetAdvisorLsaAnalysisCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
   ): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> {
     return de_RunFleetAdvisorLsaAnalysisCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

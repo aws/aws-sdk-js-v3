@@ -98,9 +98,6 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
   DeleteSMSSandboxPhoneNumberCommandOutput,
   SNSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSMSSandboxPhoneNumberCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
   ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> {
     return de_DeleteSMSSandboxPhoneNumberCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

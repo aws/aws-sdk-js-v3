@@ -126,9 +126,6 @@ export class UpdateMeshCommand extends $Command<
   UpdateMeshCommandOutput,
   AppMeshClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class UpdateMeshCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMeshCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class UpdateMeshCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMeshCommandOutput> {
     return de_UpdateMeshCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -90,9 +90,6 @@ export class ListBatchInferenceJobsCommand extends $Command<
   ListBatchInferenceJobsCommandOutput,
   PersonalizeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ListBatchInferenceJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListBatchInferenceJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class ListBatchInferenceJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchInferenceJobsCommandOutput> {
     return de_ListBatchInferenceJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

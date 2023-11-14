@@ -128,9 +128,6 @@ export class BatchDeleteAutomationRulesCommand extends $Command<
   BatchDeleteAutomationRulesCommandOutput,
   SecurityHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class BatchDeleteAutomationRulesCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDeleteAutomationRulesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class BatchDeleteAutomationRulesCommand extends $Command<
   ): Promise<BatchDeleteAutomationRulesCommandOutput> {
     return de_BatchDeleteAutomationRulesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -130,9 +130,6 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
   DescribeNetworkInsightsPathsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeNetworkInsightsPathsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
   ): Promise<DescribeNetworkInsightsPathsCommandOutput> {
     return de_DescribeNetworkInsightsPathsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

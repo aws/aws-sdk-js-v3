@@ -221,9 +221,6 @@ export class DescribeImageScanFindingsCommand extends $Command<
   DescribeImageScanFindingsCommandOutput,
   ECRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -237,9 +234,7 @@ export class DescribeImageScanFindingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeImageScanFindingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -295,7 +290,4 @@ export class DescribeImageScanFindingsCommand extends $Command<
   ): Promise<DescribeImageScanFindingsCommandOutput> {
     return de_DescribeImageScanFindingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

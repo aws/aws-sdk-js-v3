@@ -77,9 +77,6 @@ export class DeletePendingAggregationRequestCommand extends $Command<
   DeletePendingAggregationRequestCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DeletePendingAggregationRequestCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeletePendingAggregationRequestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class DeletePendingAggregationRequestCommand extends $Command<
   ): Promise<DeletePendingAggregationRequestCommandOutput> {
     return de_DeletePendingAggregationRequestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

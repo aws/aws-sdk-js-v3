@@ -178,9 +178,6 @@ export class GetCostCategoriesCommand extends $Command<
   GetCostCategoriesCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -194,9 +191,7 @@ export class GetCostCategoriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCostCategoriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -249,7 +244,4 @@ export class GetCostCategoriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostCategoriesCommandOutput> {
     return de_GetCostCategoriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

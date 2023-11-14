@@ -110,9 +110,6 @@ export class CancelFlowExecutionsCommand extends $Command<
   CancelFlowExecutionsCommandOutput,
   AppflowClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class CancelFlowExecutionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelFlowExecutionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class CancelFlowExecutionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelFlowExecutionsCommandOutput> {
     return de_CancelFlowExecutionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

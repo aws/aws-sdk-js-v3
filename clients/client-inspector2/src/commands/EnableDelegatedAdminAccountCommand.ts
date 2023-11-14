@@ -95,9 +95,6 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
   EnableDelegatedAdminAccountCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableDelegatedAdminAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
   ): Promise<EnableDelegatedAdminAccountCommandOutput> {
     return de_EnableDelegatedAdminAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

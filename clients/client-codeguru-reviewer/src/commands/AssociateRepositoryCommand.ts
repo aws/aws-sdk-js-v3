@@ -157,9 +157,6 @@ export class AssociateRepositoryCommand extends $Command<
   AssociateRepositoryCommandOutput,
   CodeGuruReviewerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -173,9 +170,7 @@ export class AssociateRepositoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateRepositoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -228,7 +223,4 @@ export class AssociateRepositoryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRepositoryCommandOutput> {
     return de_AssociateRepositoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -114,9 +114,6 @@ export class GetAssetPropertyValueCommand extends $Command<
   GetAssetPropertyValueCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class GetAssetPropertyValueCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAssetPropertyValueCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class GetAssetPropertyValueCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssetPropertyValueCommandOutput> {
     return de_GetAssetPropertyValueCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

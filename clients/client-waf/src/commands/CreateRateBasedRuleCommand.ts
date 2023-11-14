@@ -250,9 +250,6 @@ export class CreateRateBasedRuleCommand extends $Command<
   CreateRateBasedRuleCommandOutput,
   WAFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -266,9 +263,7 @@ export class CreateRateBasedRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRateBasedRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -321,7 +316,4 @@ export class CreateRateBasedRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRateBasedRuleCommandOutput> {
     return de_CreateRateBasedRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

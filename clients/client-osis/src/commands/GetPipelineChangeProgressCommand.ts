@@ -100,9 +100,6 @@ export class GetPipelineChangeProgressCommand extends $Command<
   GetPipelineChangeProgressCommandOutput,
   OSISClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class GetPipelineChangeProgressCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPipelineChangeProgressCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class GetPipelineChangeProgressCommand extends $Command<
   ): Promise<GetPipelineChangeProgressCommandOutput> {
     return de_GetPipelineChangeProgressCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

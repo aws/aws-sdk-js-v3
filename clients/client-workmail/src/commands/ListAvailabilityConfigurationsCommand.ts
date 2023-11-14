@@ -100,9 +100,6 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
   ListAvailabilityConfigurationsCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAvailabilityConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
   ): Promise<ListAvailabilityConfigurationsCommandOutput> {
     return de_ListAvailabilityConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

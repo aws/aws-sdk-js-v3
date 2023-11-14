@@ -99,9 +99,6 @@ export class GetSecurityConfigCommand extends $Command<
   GetSecurityConfigCommandOutput,
   OpenSearchServerlessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetSecurityConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSecurityConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetSecurityConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecurityConfigCommandOutput> {
     return de_GetSecurityConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -186,9 +186,6 @@ export class PutClusterCapacityProvidersCommand extends $Command<
   PutClusterCapacityProvidersCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -202,9 +199,7 @@ export class PutClusterCapacityProvidersCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutClusterCapacityProvidersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -260,7 +255,4 @@ export class PutClusterCapacityProvidersCommand extends $Command<
   ): Promise<PutClusterCapacityProvidersCommandOutput> {
     return de_PutClusterCapacityProvidersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

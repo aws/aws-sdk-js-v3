@@ -92,9 +92,6 @@ export class CreateProjectMembershipCommand extends $Command<
   CreateProjectMembershipCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class CreateProjectMembershipCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateProjectMembershipCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class CreateProjectMembershipCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectMembershipCommandOutput> {
     return de_CreateProjectMembershipCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

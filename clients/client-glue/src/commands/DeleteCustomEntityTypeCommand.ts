@@ -85,9 +85,6 @@ export class DeleteCustomEntityTypeCommand extends $Command<
   DeleteCustomEntityTypeCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class DeleteCustomEntityTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCustomEntityTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class DeleteCustomEntityTypeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomEntityTypeCommandOutput> {
     return de_DeleteCustomEntityTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

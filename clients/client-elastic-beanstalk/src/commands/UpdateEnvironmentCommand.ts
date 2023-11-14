@@ -239,9 +239,6 @@ export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -255,9 +252,7 @@ export class UpdateEnvironmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateEnvironmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -310,7 +305,4 @@ export class UpdateEnvironmentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
     return de_UpdateEnvironmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

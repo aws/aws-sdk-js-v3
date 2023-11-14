@@ -84,9 +84,6 @@ export class RegisterElasticIpCommand extends $Command<
   RegisterElasticIpCommandOutput,
   OpsWorksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class RegisterElasticIpCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterElasticIpCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class RegisterElasticIpCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterElasticIpCommandOutput> {
     return de_RegisterElasticIpCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

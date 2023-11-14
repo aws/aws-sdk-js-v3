@@ -101,9 +101,6 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
   ListWorkersWithQualificationTypeCommandOutput,
   MTurkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListWorkersWithQualificationTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
   ): Promise<ListWorkersWithQualificationTypeCommandOutput> {
     return de_ListWorkersWithQualificationTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

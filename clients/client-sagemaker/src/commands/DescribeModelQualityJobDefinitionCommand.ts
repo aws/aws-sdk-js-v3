@@ -180,9 +180,6 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
   DescribeModelQualityJobDefinitionCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -196,9 +193,7 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeModelQualityJobDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -257,7 +252,4 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
   ): Promise<DescribeModelQualityJobDefinitionCommandOutput> {
     return de_DescribeModelQualityJobDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

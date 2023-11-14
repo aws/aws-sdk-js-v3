@@ -122,9 +122,6 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
   RemoveDraftAppVersionResourceMappingsCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveDraftAppVersionResourceMappingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
   ): Promise<RemoveDraftAppVersionResourceMappingsCommandOutput> {
     return de_RemoveDraftAppVersionResourceMappingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

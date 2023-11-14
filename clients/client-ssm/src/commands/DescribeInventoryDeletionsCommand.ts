@@ -103,9 +103,6 @@ export class DescribeInventoryDeletionsCommand extends $Command<
   DescribeInventoryDeletionsCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DescribeInventoryDeletionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeInventoryDeletionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DescribeInventoryDeletionsCommand extends $Command<
   ): Promise<DescribeInventoryDeletionsCommandOutput> {
     return de_DescribeInventoryDeletionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

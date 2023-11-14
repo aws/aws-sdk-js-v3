@@ -171,9 +171,6 @@ export class UploadMultipartPartCommand extends $Command<
   UploadMultipartPartCommandOutput,
   GlacierClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -187,9 +184,7 @@ export class UploadMultipartPartCommand extends $Command<
    * @public
    */
   constructor(readonly input: UploadMultipartPartCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -242,7 +237,4 @@ export class UploadMultipartPartCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadMultipartPartCommandOutput> {
     return de_UploadMultipartPartCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -110,9 +110,6 @@ export class DescribeSharedDirectoriesCommand extends $Command<
   DescribeSharedDirectoriesCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class DescribeSharedDirectoriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSharedDirectoriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class DescribeSharedDirectoriesCommand extends $Command<
   ): Promise<DescribeSharedDirectoriesCommandOutput> {
     return de_DescribeSharedDirectoriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -87,9 +87,6 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
   DeleteMedicalTranscriptionJobCommandOutput,
   TranscribeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMedicalTranscriptionJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
   ): Promise<DeleteMedicalTranscriptionJobCommandOutput> {
     return de_DeleteMedicalTranscriptionJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

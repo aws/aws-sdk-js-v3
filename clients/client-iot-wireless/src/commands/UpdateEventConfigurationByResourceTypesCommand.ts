@@ -113,9 +113,6 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
   UpdateEventConfigurationByResourceTypesCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateEventConfigurationByResourceTypesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
   ): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> {
     return de_UpdateEventConfigurationByResourceTypesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -84,9 +84,6 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
   GetComplianceSummaryByConfigRuleCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetComplianceSummaryByConfigRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
   ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> {
     return de_GetComplianceSummaryByConfigRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

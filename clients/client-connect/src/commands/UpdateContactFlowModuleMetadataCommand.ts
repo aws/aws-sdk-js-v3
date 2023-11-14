@@ -98,9 +98,6 @@ export class UpdateContactFlowModuleMetadataCommand extends $Command<
   UpdateContactFlowModuleMetadataCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class UpdateContactFlowModuleMetadataCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateContactFlowModuleMetadataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class UpdateContactFlowModuleMetadataCommand extends $Command<
   ): Promise<UpdateContactFlowModuleMetadataCommandOutput> {
     return de_UpdateContactFlowModuleMetadataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

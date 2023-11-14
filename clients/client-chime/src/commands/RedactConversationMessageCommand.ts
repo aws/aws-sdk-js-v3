@@ -91,9 +91,6 @@ export class RedactConversationMessageCommand extends $Command<
   RedactConversationMessageCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class RedactConversationMessageCommand extends $Command<
    * @public
    */
   constructor(readonly input: RedactConversationMessageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class RedactConversationMessageCommand extends $Command<
   ): Promise<RedactConversationMessageCommandOutput> {
     return de_RedactConversationMessageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -215,9 +215,6 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
   BatchDescribeMergeConflictsCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -231,9 +228,7 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDescribeMergeConflictsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -289,7 +284,4 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
   ): Promise<BatchDescribeMergeConflictsCommandOutput> {
     return de_BatchDescribeMergeConflictsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

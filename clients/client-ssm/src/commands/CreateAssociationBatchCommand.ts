@@ -375,9 +375,6 @@ export class CreateAssociationBatchCommand extends $Command<
   CreateAssociationBatchCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -391,9 +388,7 @@ export class CreateAssociationBatchCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAssociationBatchCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -446,7 +441,4 @@ export class CreateAssociationBatchCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssociationBatchCommandOutput> {
     return de_CreateAssociationBatchCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

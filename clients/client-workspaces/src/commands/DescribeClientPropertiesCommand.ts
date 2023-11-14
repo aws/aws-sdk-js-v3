@@ -89,9 +89,6 @@ export class DescribeClientPropertiesCommand extends $Command<
   DescribeClientPropertiesCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DescribeClientPropertiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeClientPropertiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class DescribeClientPropertiesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClientPropertiesCommandOutput> {
     return de_DescribeClientPropertiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

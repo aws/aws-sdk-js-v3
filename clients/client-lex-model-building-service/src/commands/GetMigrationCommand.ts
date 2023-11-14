@@ -111,9 +111,6 @@ export class GetMigrationCommand extends $Command<
   GetMigrationCommandOutput,
   LexModelBuildingServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class GetMigrationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetMigrationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class GetMigrationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMigrationCommandOutput> {
     return de_GetMigrationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

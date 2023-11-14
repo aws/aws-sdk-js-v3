@@ -144,9 +144,6 @@ export class ListOpenCypherQueriesCommand extends $Command<
   ListOpenCypherQueriesCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class ListOpenCypherQueriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListOpenCypherQueriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -215,7 +210,4 @@ export class ListOpenCypherQueriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpenCypherQueriesCommandOutput> {
     return de_ListOpenCypherQueriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

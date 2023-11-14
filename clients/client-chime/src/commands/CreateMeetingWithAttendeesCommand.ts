@@ -167,9 +167,6 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
   CreateMeetingWithAttendeesCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -183,9 +180,7 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateMeetingWithAttendeesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -241,7 +236,4 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
   ): Promise<CreateMeetingWithAttendeesCommandOutput> {
     return de_CreateMeetingWithAttendeesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

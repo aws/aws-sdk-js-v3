@@ -112,9 +112,6 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
   DeleteVerifiedAccessTrustProviderCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteVerifiedAccessTrustProviderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
   ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> {
     return de_DeleteVerifiedAccessTrustProviderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

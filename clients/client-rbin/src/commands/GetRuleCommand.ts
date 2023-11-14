@@ -96,9 +96,6 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *
  */
 export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommandOutput, RbinClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
    * @public
    */
   constructor(readonly input: GetRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRuleCommandOutput> {
     return de_GetRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

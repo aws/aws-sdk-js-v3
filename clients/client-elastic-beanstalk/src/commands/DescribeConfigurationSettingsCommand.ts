@@ -167,9 +167,6 @@ export class DescribeConfigurationSettingsCommand extends $Command<
   DescribeConfigurationSettingsCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -183,9 +180,7 @@ export class DescribeConfigurationSettingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeConfigurationSettingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -241,7 +236,4 @@ export class DescribeConfigurationSettingsCommand extends $Command<
   ): Promise<DescribeConfigurationSettingsCommandOutput> {
     return de_DescribeConfigurationSettingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

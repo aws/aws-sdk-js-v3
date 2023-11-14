@@ -203,9 +203,6 @@ export class DescribeBrokerCommand extends $Command<
   DescribeBrokerCommandOutput,
   MqClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -219,9 +216,7 @@ export class DescribeBrokerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeBrokerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -274,7 +269,4 @@ export class DescribeBrokerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBrokerCommandOutput> {
     return de_DescribeBrokerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

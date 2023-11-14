@@ -72,9 +72,6 @@ export class UpdateCoreDefinitionCommand extends $Command<
   UpdateCoreDefinitionCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -88,9 +85,7 @@ export class UpdateCoreDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateCoreDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -143,7 +138,4 @@ export class UpdateCoreDefinitionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCoreDefinitionCommandOutput> {
     return de_UpdateCoreDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

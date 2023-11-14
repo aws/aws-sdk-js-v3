@@ -181,9 +181,6 @@ export class ResumeServiceCommand extends $Command<
   ResumeServiceCommandOutput,
   AppRunnerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -197,9 +194,7 @@ export class ResumeServiceCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResumeServiceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -250,7 +245,4 @@ export class ResumeServiceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeServiceCommandOutput> {
     return de_ResumeServiceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

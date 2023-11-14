@@ -161,9 +161,6 @@ export class CreateIdentityPoolCommand extends $Command<
   CreateIdentityPoolCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -177,9 +174,7 @@ export class CreateIdentityPoolCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateIdentityPoolCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class CreateIdentityPoolCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityPoolCommandOutput> {
     return de_CreateIdentityPoolCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

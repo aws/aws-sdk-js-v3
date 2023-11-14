@@ -243,9 +243,6 @@ export class PostContentCommand extends $Command<
   PostContentCommandOutput,
   LexRuntimeServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -259,9 +256,7 @@ export class PostContentCommand extends $Command<
    * @public
    */
   constructor(readonly input: PostContentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -315,7 +310,4 @@ export class PostContentCommand extends $Command<
   ): Promise<PostContentCommandOutput> {
     return de_PostContentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -83,9 +83,6 @@ export class ListContactListsCommand extends $Command<
   ListContactListsCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class ListContactListsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListContactListsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class ListContactListsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactListsCommandOutput> {
     return de_ListContactListsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

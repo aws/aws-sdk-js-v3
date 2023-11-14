@@ -96,9 +96,6 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
   AuthorizeVpcEndpointAccessCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
    * @public
    */
   constructor(readonly input: AuthorizeVpcEndpointAccessCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
   ): Promise<AuthorizeVpcEndpointAccessCommandOutput> {
     return de_AuthorizeVpcEndpointAccessCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

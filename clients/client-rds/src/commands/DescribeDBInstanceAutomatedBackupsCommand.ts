@@ -179,9 +179,6 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
   DescribeDBInstanceAutomatedBackupsCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -195,9 +192,7 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDBInstanceAutomatedBackupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -256,7 +251,4 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> {
     return de_DescribeDBInstanceAutomatedBackupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

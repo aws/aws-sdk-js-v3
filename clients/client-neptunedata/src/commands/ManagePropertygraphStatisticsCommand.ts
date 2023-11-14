@@ -121,9 +121,6 @@ export class ManagePropertygraphStatisticsCommand extends $Command<
   ManagePropertygraphStatisticsCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class ManagePropertygraphStatisticsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ManagePropertygraphStatisticsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class ManagePropertygraphStatisticsCommand extends $Command<
   ): Promise<ManagePropertygraphStatisticsCommandOutput> {
     return de_ManagePropertygraphStatisticsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

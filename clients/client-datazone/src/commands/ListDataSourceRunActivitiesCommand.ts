@@ -122,9 +122,6 @@ export class ListDataSourceRunActivitiesCommand extends $Command<
   ListDataSourceRunActivitiesCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class ListDataSourceRunActivitiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDataSourceRunActivitiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class ListDataSourceRunActivitiesCommand extends $Command<
   ): Promise<ListDataSourceRunActivitiesCommandOutput> {
     return de_ListDataSourceRunActivitiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

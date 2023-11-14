@@ -144,9 +144,6 @@ export class CreateRetrainingSchedulerCommand extends $Command<
   CreateRetrainingSchedulerCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class CreateRetrainingSchedulerCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRetrainingSchedulerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -218,7 +213,4 @@ export class CreateRetrainingSchedulerCommand extends $Command<
   ): Promise<CreateRetrainingSchedulerCommandOutput> {
     return de_CreateRetrainingSchedulerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

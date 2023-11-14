@@ -75,9 +75,6 @@ export class DeleteEventBusCommand extends $Command<
   DeleteEventBusCommandOutput,
   EventBridgeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -91,9 +88,7 @@ export class DeleteEventBusCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteEventBusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -146,7 +141,4 @@ export class DeleteEventBusCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventBusCommandOutput> {
     return de_DeleteEventBusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

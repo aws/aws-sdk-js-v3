@@ -487,9 +487,6 @@ export class TransactGetItemsCommand extends $Command<
   TransactGetItemsCommandOutput,
   DynamoDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -503,9 +500,7 @@ export class TransactGetItemsCommand extends $Command<
    * @public
    */
   constructor(readonly input: TransactGetItemsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -558,7 +553,4 @@ export class TransactGetItemsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactGetItemsCommandOutput> {
     return de_TransactGetItemsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

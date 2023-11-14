@@ -298,9 +298,6 @@ export class AssumeRoleWithSAMLCommand extends $Command<
   AssumeRoleWithSAMLCommandOutput,
   STSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
@@ -315,9 +312,7 @@ export class AssumeRoleWithSAMLCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssumeRoleWithSAMLCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -370,7 +365,4 @@ export class AssumeRoleWithSAMLCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleWithSAMLCommandOutput> {
     return de_AssumeRoleWithSAMLCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

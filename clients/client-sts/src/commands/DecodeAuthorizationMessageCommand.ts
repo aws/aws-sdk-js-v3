@@ -127,9 +127,6 @@ export class DecodeAuthorizationMessageCommand extends $Command<
   DecodeAuthorizationMessageCommandOutput,
   STSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
@@ -144,9 +141,7 @@ export class DecodeAuthorizationMessageCommand extends $Command<
    * @public
    */
   constructor(readonly input: DecodeAuthorizationMessageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class DecodeAuthorizationMessageCommand extends $Command<
   ): Promise<DecodeAuthorizationMessageCommandOutput> {
     return de_DecodeAuthorizationMessageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

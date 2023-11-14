@@ -177,9 +177,6 @@ export class CreateThemeCommand extends $Command<
   CreateThemeCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -193,9 +190,7 @@ export class CreateThemeCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateThemeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -246,7 +241,4 @@ export class CreateThemeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThemeCommandOutput> {
     return de_CreateThemeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

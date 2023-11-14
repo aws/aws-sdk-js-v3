@@ -194,9 +194,6 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
   DescribeOrderableDBInstanceOptionsCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -210,9 +207,7 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeOrderableDBInstanceOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> {
     return de_DescribeOrderableDBInstanceOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

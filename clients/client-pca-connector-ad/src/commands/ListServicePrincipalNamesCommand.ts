@@ -105,9 +105,6 @@ export class ListServicePrincipalNamesCommand extends $Command<
   ListServicePrincipalNamesCommandOutput,
   PcaConnectorAdClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class ListServicePrincipalNamesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListServicePrincipalNamesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class ListServicePrincipalNamesCommand extends $Command<
   ): Promise<ListServicePrincipalNamesCommandOutput> {
     return de_ListServicePrincipalNamesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

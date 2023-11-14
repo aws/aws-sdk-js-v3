@@ -100,9 +100,6 @@ export class ImportVmImageCommand extends $Command<
   ImportVmImageCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class ImportVmImageCommand extends $Command<
    * @public
    */
   constructor(readonly input: ImportVmImageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class ImportVmImageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportVmImageCommandOutput> {
     return de_ImportVmImageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

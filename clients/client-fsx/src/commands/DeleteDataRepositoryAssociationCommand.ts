@@ -103,9 +103,6 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
   DeleteDataRepositoryAssociationCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDataRepositoryAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
   ): Promise<DeleteDataRepositoryAssociationCommandOutput> {
     return de_DeleteDataRepositoryAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

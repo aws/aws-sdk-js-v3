@@ -103,9 +103,6 @@ export class GetSnapshotsCommand extends $Command<
   GetSnapshotsCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class GetSnapshotsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSnapshotsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class GetSnapshotsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotsCommandOutput> {
     return de_GetSnapshotsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

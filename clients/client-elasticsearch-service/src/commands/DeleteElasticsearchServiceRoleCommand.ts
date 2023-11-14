@@ -81,9 +81,6 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
   DeleteElasticsearchServiceRoleCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteElasticsearchServiceRoleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
   ): Promise<DeleteElasticsearchServiceRoleCommandOutput> {
     return de_DeleteElasticsearchServiceRoleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -261,9 +261,6 @@ export class DescribeContactEvaluationCommand extends $Command<
   DescribeContactEvaluationCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -277,9 +274,7 @@ export class DescribeContactEvaluationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeContactEvaluationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -335,7 +330,4 @@ export class DescribeContactEvaluationCommand extends $Command<
   ): Promise<DescribeContactEvaluationCommandOutput> {
     return de_DescribeContactEvaluationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

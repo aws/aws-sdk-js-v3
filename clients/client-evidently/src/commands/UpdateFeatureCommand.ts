@@ -142,9 +142,6 @@ export class UpdateFeatureCommand extends $Command<
   UpdateFeatureCommandOutput,
   EvidentlyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -158,9 +155,7 @@ export class UpdateFeatureCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateFeatureCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class UpdateFeatureCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeatureCommandOutput> {
     return de_UpdateFeatureCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

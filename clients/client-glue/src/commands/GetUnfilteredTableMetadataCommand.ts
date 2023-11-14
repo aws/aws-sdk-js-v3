@@ -210,9 +210,6 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
   GetUnfilteredTableMetadataCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -226,9 +223,7 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetUnfilteredTableMetadataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -284,7 +279,4 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
   ): Promise<GetUnfilteredTableMetadataCommandOutput> {
     return de_GetUnfilteredTableMetadataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -113,9 +113,6 @@ export class ListScheduledQueriesCommand extends $Command<
   ListScheduledQueriesCommandOutput,
   TimestreamQueryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListScheduledQueriesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListScheduledQueriesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class ListScheduledQueriesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledQueriesCommandOutput> {
     return de_ListScheduledQueriesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

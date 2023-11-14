@@ -91,9 +91,6 @@ export class SendBonusCommand extends $Command<
   SendBonusCommandOutput,
   MTurkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class SendBonusCommand extends $Command<
    * @public
    */
   constructor(readonly input: SendBonusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class SendBonusCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBonusCommandOutput> {
     return de_SendBonusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

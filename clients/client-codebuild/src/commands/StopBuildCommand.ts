@@ -257,9 +257,6 @@ export class StopBuildCommand extends $Command<
   StopBuildCommandOutput,
   CodeBuildClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -273,9 +270,7 @@ export class StopBuildCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopBuildCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -326,7 +321,4 @@ export class StopBuildCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBuildCommandOutput> {
     return de_StopBuildCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

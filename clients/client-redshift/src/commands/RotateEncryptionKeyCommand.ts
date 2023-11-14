@@ -276,9 +276,6 @@ export class RotateEncryptionKeyCommand extends $Command<
   RotateEncryptionKeyCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -292,9 +289,7 @@ export class RotateEncryptionKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: RotateEncryptionKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -347,7 +342,4 @@ export class RotateEncryptionKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateEncryptionKeyCommandOutput> {
     return de_RotateEncryptionKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

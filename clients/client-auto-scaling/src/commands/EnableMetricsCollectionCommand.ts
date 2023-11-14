@@ -93,9 +93,6 @@ export class EnableMetricsCollectionCommand extends $Command<
   EnableMetricsCollectionCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class EnableMetricsCollectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableMetricsCollectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class EnableMetricsCollectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMetricsCollectionCommandOutput> {
     return de_EnableMetricsCollectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

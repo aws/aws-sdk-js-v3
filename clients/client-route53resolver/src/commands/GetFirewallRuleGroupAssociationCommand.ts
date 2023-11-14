@@ -101,9 +101,6 @@ export class GetFirewallRuleGroupAssociationCommand extends $Command<
   GetFirewallRuleGroupAssociationCommandOutput,
   Route53ResolverClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetFirewallRuleGroupAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetFirewallRuleGroupAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class GetFirewallRuleGroupAssociationCommand extends $Command<
   ): Promise<GetFirewallRuleGroupAssociationCommandOutput> {
     return de_GetFirewallRuleGroupAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

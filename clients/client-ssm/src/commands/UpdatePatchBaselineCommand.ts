@@ -193,9 +193,6 @@ export class UpdatePatchBaselineCommand extends $Command<
   UpdatePatchBaselineCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -209,9 +206,7 @@ export class UpdatePatchBaselineCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdatePatchBaselineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -264,7 +259,4 @@ export class UpdatePatchBaselineCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePatchBaselineCommandOutput> {
     return de_UpdatePatchBaselineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

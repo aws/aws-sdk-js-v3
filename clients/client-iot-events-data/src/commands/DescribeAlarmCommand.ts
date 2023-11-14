@@ -128,9 +128,6 @@ export class DescribeAlarmCommand extends $Command<
   DescribeAlarmCommandOutput,
   IoTEventsDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class DescribeAlarmCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAlarmCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class DescribeAlarmCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmCommandOutput> {
     return de_DescribeAlarmCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

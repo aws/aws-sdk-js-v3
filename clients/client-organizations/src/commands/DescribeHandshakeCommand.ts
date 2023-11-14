@@ -286,9 +286,6 @@ export class DescribeHandshakeCommand extends $Command<
   DescribeHandshakeCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -302,9 +299,7 @@ export class DescribeHandshakeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeHandshakeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -357,7 +352,4 @@ export class DescribeHandshakeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHandshakeCommandOutput> {
     return de_DescribeHandshakeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -146,9 +146,6 @@ export class GetContainerRecipeCommand extends $Command<
   GetContainerRecipeCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class GetContainerRecipeCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetContainerRecipeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -217,7 +212,4 @@ export class GetContainerRecipeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerRecipeCommandOutput> {
     return de_GetContainerRecipeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

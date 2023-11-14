@@ -136,9 +136,6 @@ export class BatchUpdateDevicePositionCommand extends $Command<
   BatchUpdateDevicePositionCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class BatchUpdateDevicePositionCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchUpdateDevicePositionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class BatchUpdateDevicePositionCommand extends $Command<
   ): Promise<BatchUpdateDevicePositionCommandOutput> {
     return de_BatchUpdateDevicePositionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

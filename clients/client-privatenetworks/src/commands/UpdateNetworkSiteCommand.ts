@@ -138,9 +138,6 @@ export class UpdateNetworkSiteCommand extends $Command<
   UpdateNetworkSiteCommandOutput,
   PrivateNetworksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class UpdateNetworkSiteCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateNetworkSiteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class UpdateNetworkSiteCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkSiteCommandOutput> {
     return de_UpdateNetworkSiteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

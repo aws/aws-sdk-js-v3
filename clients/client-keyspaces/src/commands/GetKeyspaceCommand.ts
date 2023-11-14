@@ -91,9 +91,6 @@ export class GetKeyspaceCommand extends $Command<
   GetKeyspaceCommandOutput,
   KeyspacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class GetKeyspaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetKeyspaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class GetKeyspaceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyspaceCommandOutput> {
     return de_GetKeyspaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

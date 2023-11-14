@@ -96,9 +96,6 @@ export class DescribeCustomDomainAssociationsCommand extends $Command<
   DescribeCustomDomainAssociationsCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DescribeCustomDomainAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCustomDomainAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class DescribeCustomDomainAssociationsCommand extends $Command<
   ): Promise<DescribeCustomDomainAssociationsCommandOutput> {
     return de_DescribeCustomDomainAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

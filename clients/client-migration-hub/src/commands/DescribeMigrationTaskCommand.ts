@@ -112,9 +112,6 @@ export class DescribeMigrationTaskCommand extends $Command<
   DescribeMigrationTaskCommandOutput,
   MigrationHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class DescribeMigrationTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeMigrationTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DescribeMigrationTaskCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMigrationTaskCommandOutput> {
     return de_DescribeMigrationTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

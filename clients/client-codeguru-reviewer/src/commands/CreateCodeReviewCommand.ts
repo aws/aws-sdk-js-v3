@@ -193,9 +193,6 @@ export class CreateCodeReviewCommand extends $Command<
   CreateCodeReviewCommandOutput,
   CodeGuruReviewerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -209,9 +206,7 @@ export class CreateCodeReviewCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCodeReviewCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -264,7 +259,4 @@ export class CreateCodeReviewCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCodeReviewCommandOutput> {
     return de_CreateCodeReviewCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

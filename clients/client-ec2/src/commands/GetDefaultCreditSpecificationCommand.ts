@@ -79,9 +79,6 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
   GetDefaultCreditSpecificationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDefaultCreditSpecificationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
   ): Promise<GetDefaultCreditSpecificationCommandOutput> {
     return de_GetDefaultCreditSpecificationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

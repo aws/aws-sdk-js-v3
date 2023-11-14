@@ -77,9 +77,6 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
   DeregisterOnPremisesInstanceCommandOutput,
   CodeDeployClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeregisterOnPremisesInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
   ): Promise<DeregisterOnPremisesInstanceCommandOutput> {
     return de_DeregisterOnPremisesInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }
