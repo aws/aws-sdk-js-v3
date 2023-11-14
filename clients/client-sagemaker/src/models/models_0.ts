@@ -5681,7 +5681,7 @@ export interface AutoMLJobObjective {
    *                   Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance a
    *                   default objective metric, the cross-entropy loss. After fine-tuning a language model,
    *                   you can evaluate the quality of its generated text using different metrics.
-   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/llms-finetuning-models.html">Metrics for
+   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-metrics.html">Metrics for
    *                         fine-tuning LLMs in Autopilot</a>.</p>
    *             </li>
    *          </ul>
@@ -6069,7 +6069,7 @@ export interface TextGenerationJobConfig {
   /**
    * @public
    * <p>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety of large
-   *          language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/llms-finetuning-models.html#llms-finetuning-supported-llms">Text generation models supporting fine-tuning in Autopilot</a>. If no
+   *          language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-models.html#autopilot-llms-finetuning-supported-llms">Text generation models supporting fine-tuning in Autopilot</a>. If no
    *             <code>BaseModelName</code> is provided, the default model used is Falcon-7B-Instruct.
    *       </p>
    */
@@ -6817,13 +6817,13 @@ export interface InferenceSpecification {
    * @public
    * <p>The supported MIME types for the input data.</p>
    */
-  SupportedContentTypes: string[] | undefined;
+  SupportedContentTypes?: string[];
 
   /**
    * @public
    * <p>The supported MIME types for the output data.</p>
    */
-  SupportedResponseMIMETypes: string[] | undefined;
+  SupportedResponseMIMETypes?: string[];
 }
 
 /**
@@ -10140,7 +10140,7 @@ export interface CreateAutoMLJobV2Request {
    *                   Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance a
    *                   default objective metric, the cross-entropy loss. After fine-tuning a language model,
    *                   you can evaluate the quality of its generated text using different metrics.
-   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/llms-finetuning-models.html">Metrics for
+   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-metrics.html">Metrics for
    *                         fine-tuning LLMs in Autopilot</a>.</p>
    *                </li>
    *             </ul>
