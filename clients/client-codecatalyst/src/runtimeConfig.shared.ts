@@ -1,12 +1,9 @@
 // smithy-typescript generated code
-import { HttpBearerAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
-import { defaultCodeCatalystHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { CodeCatalystClientConfig } from "./CodeCatalystClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
@@ -21,14 +18,6 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
     disableHostPrefix: config?.disableHostPrefix ?? false,
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
-    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultCodeCatalystHttpAuthSchemeProvider,
-    httpAuthSchemes: config?.httpAuthSchemes ?? [
-      {
-        schemeId: "smithy.api#httpBearerAuth",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpBearerAuth"),
-        signer: new HttpBearerAuthSigner(),
-      },
-    ],
     logger: config?.logger ?? new NoOpLogger(),
     serviceId: config?.serviceId ?? "CodeCatalyst",
     urlParser: config?.urlParser ?? parseUrl,

@@ -5,9 +5,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
-import { HttpBearerAuthSigner } from "@smithy/core";
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
-import { IdentityProviderConfig } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { CodeCatalystClientConfig } from "./CodeCatalystClient";
@@ -31,17 +29,6 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
-    httpAuthSchemes: config?.httpAuthSchemes ?? [
-      {
-        schemeId: "smithy.api#httpBearerAuth",
-        identityProvider: (ipc: IdentityProviderConfig) =>
-          ipc.getIdentityProvider("smithy.api#httpBearerAuth") ||
-          (async () => {
-            throw new Error("`token` is missing");
-          }),
-        signer: new HttpBearerAuthSigner(),
-      },
-    ],
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
