@@ -106,9 +106,6 @@ export class DescribeCustomRoutingAcceleratorCommand extends $Command<
   DescribeCustomRoutingAcceleratorCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class DescribeCustomRoutingAcceleratorCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCustomRoutingAcceleratorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DescribeCustomRoutingAcceleratorCommand extends $Command<
   ): Promise<DescribeCustomRoutingAcceleratorCommandOutput> {
     return de_DescribeCustomRoutingAcceleratorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

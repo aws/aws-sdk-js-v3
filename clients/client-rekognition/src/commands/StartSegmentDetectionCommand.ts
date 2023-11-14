@@ -145,9 +145,6 @@ export class StartSegmentDetectionCommand extends $Command<
   StartSegmentDetectionCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -161,9 +158,7 @@ export class StartSegmentDetectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartSegmentDetectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -216,7 +211,4 @@ export class StartSegmentDetectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSegmentDetectionCommandOutput> {
     return de_StartSegmentDetectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

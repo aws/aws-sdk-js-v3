@@ -89,9 +89,6 @@ export class GetBulkDeploymentStatusCommand extends $Command<
   GetBulkDeploymentStatusCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class GetBulkDeploymentStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBulkDeploymentStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class GetBulkDeploymentStatusCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBulkDeploymentStatusCommandOutput> {
     return de_GetBulkDeploymentStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

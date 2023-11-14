@@ -99,9 +99,6 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
   AssociatePhoneNumberContactFlowCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociatePhoneNumberContactFlowCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
   ): Promise<AssociatePhoneNumberContactFlowCommandOutput> {
     return de_AssociatePhoneNumberContactFlowCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

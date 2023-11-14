@@ -271,9 +271,6 @@ export class DefineIndexFieldCommand extends $Command<
   DefineIndexFieldCommandOutput,
   CloudSearchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -287,9 +284,7 @@ export class DefineIndexFieldCommand extends $Command<
    * @public
    */
   constructor(readonly input: DefineIndexFieldCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -342,7 +337,4 @@ export class DefineIndexFieldCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineIndexFieldCommandOutput> {
     return de_DefineIndexFieldCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

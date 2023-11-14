@@ -120,9 +120,6 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
   RotateIngestEndpointCredentialsCommandOutput,
   MediaPackageClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
    * @public
    */
   constructor(readonly input: RotateIngestEndpointCredentialsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
   ): Promise<RotateIngestEndpointCredentialsCommandOutput> {
     return de_RotateIngestEndpointCredentialsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

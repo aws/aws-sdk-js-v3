@@ -94,9 +94,6 @@ export class ListVpcEndpointsCommand extends $Command<
   ListVpcEndpointsCommandOutput,
   OpenSearchServerlessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class ListVpcEndpointsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListVpcEndpointsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListVpcEndpointsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointsCommandOutput> {
     return de_ListVpcEndpointsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

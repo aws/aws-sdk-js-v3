@@ -207,9 +207,6 @@ export class CreateCertificateCommand extends $Command<
   CreateCertificateCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -223,9 +220,7 @@ export class CreateCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -278,7 +273,4 @@ export class CreateCertificateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCertificateCommandOutput> {
     return de_CreateCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

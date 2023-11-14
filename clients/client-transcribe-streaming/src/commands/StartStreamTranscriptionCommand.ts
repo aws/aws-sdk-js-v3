@@ -248,9 +248,6 @@ export class StartStreamTranscriptionCommand extends $Command<
   StartStreamTranscriptionCommandOutput,
   TranscribeStreamingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -264,9 +261,7 @@ export class StartStreamTranscriptionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartStreamTranscriptionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -327,7 +322,4 @@ export class StartStreamTranscriptionCommand extends $Command<
   ): Promise<StartStreamTranscriptionCommandOutput> {
     return de_StartStreamTranscriptionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

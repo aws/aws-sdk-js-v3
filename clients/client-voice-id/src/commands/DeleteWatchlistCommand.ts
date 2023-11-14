@@ -96,9 +96,6 @@ export class DeleteWatchlistCommand extends $Command<
   DeleteWatchlistCommandOutput,
   VoiceIDClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DeleteWatchlistCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteWatchlistCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DeleteWatchlistCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWatchlistCommandOutput> {
     return de_DeleteWatchlistCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

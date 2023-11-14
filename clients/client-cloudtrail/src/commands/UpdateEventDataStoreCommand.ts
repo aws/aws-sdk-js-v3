@@ -256,9 +256,6 @@ export class UpdateEventDataStoreCommand extends $Command<
   UpdateEventDataStoreCommandOutput,
   CloudTrailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -272,9 +269,7 @@ export class UpdateEventDataStoreCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateEventDataStoreCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -327,7 +322,4 @@ export class UpdateEventDataStoreCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventDataStoreCommandOutput> {
     return de_UpdateEventDataStoreCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

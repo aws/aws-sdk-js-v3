@@ -130,9 +130,6 @@ export class VerifyDomainDkimCommand extends $Command<
   VerifyDomainDkimCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class VerifyDomainDkimCommand extends $Command<
    * @public
    */
   constructor(readonly input: VerifyDomainDkimCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class VerifyDomainDkimCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyDomainDkimCommandOutput> {
     return de_VerifyDomainDkimCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

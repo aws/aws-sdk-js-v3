@@ -194,9 +194,6 @@ export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -210,9 +207,7 @@ export class DetectEntitiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DetectEntitiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -265,7 +260,4 @@ export class DetectEntitiesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesCommandOutput> {
     return de_DetectEntitiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -123,9 +123,6 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
   UpdateFirewallEncryptionConfigurationCommandOutput,
   NetworkFirewallClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateFirewallEncryptionConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
   ): Promise<UpdateFirewallEncryptionConfigurationCommandOutput> {
     return de_UpdateFirewallEncryptionConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

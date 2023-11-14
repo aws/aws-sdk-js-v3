@@ -113,9 +113,6 @@ export class ListMediaPipelineKinesisVideoStreamPoolsCommand extends $Command<
   ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListMediaPipelineKinesisVideoStreamPoolsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMediaPipelineKinesisVideoStreamPoolsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class ListMediaPipelineKinesisVideoStreamPoolsCommand extends $Command<
   ): Promise<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput> {
     return de_ListMediaPipelineKinesisVideoStreamPoolsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

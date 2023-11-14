@@ -119,9 +119,6 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
   DescribeBudgetNotificationsForAccountCommandOutput,
   BudgetsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeBudgetNotificationsForAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
   ): Promise<DescribeBudgetNotificationsForAccountCommandOutput> {
     return de_DescribeBudgetNotificationsForAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

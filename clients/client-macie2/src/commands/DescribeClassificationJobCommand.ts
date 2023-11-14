@@ -235,9 +235,6 @@ export class DescribeClassificationJobCommand extends $Command<
   DescribeClassificationJobCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -251,9 +248,7 @@ export class DescribeClassificationJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeClassificationJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -309,7 +304,4 @@ export class DescribeClassificationJobCommand extends $Command<
   ): Promise<DescribeClassificationJobCommandOutput> {
     return de_DescribeClassificationJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -95,9 +95,6 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
   DescribeServiceActionExecutionParametersCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeServiceActionExecutionParametersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput> {
     return de_DescribeServiceActionExecutionParametersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

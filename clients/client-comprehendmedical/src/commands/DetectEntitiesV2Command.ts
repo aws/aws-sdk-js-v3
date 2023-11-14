@@ -162,9 +162,6 @@ export class DetectEntitiesV2Command extends $Command<
   DetectEntitiesV2CommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -178,9 +175,7 @@ export class DetectEntitiesV2Command extends $Command<
    * @public
    */
   constructor(readonly input: DetectEntitiesV2CommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class DetectEntitiesV2Command extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesV2CommandOutput> {
     return de_DetectEntitiesV2Command(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

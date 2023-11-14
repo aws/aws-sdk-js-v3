@@ -155,9 +155,6 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
   ListRelatedResourcesForAuditFindingCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRelatedResourcesForAuditFindingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -232,7 +227,4 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
   ): Promise<ListRelatedResourcesForAuditFindingCommandOutput> {
     return de_ListRelatedResourcesForAuditFindingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

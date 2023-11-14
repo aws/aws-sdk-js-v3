@@ -170,9 +170,6 @@ export class GetCurrentUserDataCommand extends $Command<
   GetCurrentUserDataCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -186,9 +183,7 @@ export class GetCurrentUserDataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCurrentUserDataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -241,7 +236,4 @@ export class GetCurrentUserDataCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentUserDataCommandOutput> {
     return de_GetCurrentUserDataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -144,9 +144,6 @@ export class GetNetworkRoutesCommand extends $Command<
   GetNetworkRoutesCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class GetNetworkRoutesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetNetworkRoutesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -215,7 +210,4 @@ export class GetNetworkRoutesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkRoutesCommandOutput> {
     return de_GetNetworkRoutesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

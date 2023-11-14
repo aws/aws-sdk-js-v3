@@ -144,9 +144,6 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
   CreateDeliverabilityTestReportCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDeliverabilityTestReportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -221,7 +216,4 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
   ): Promise<CreateDeliverabilityTestReportCommandOutput> {
     return de_CreateDeliverabilityTestReportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

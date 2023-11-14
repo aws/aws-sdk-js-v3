@@ -146,9 +146,6 @@ export class SearchSecurityProfilesCommand extends $Command<
   SearchSecurityProfilesCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class SearchSecurityProfilesCommand extends $Command<
    * @public
    */
   constructor(readonly input: SearchSecurityProfilesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -217,7 +212,4 @@ export class SearchSecurityProfilesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSecurityProfilesCommandOutput> {
     return de_SearchSecurityProfilesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

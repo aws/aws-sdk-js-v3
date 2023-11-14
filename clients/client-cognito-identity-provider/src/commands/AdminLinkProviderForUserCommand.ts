@@ -151,9 +151,6 @@ export class AdminLinkProviderForUserCommand extends $Command<
   AdminLinkProviderForUserCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class AdminLinkProviderForUserCommand extends $Command<
    * @public
    */
   constructor(readonly input: AdminLinkProviderForUserCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class AdminLinkProviderForUserCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminLinkProviderForUserCommandOutput> {
     return de_AdminLinkProviderForUserCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

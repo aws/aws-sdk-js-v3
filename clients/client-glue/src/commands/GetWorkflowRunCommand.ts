@@ -216,9 +216,6 @@ export class GetWorkflowRunCommand extends $Command<
   GetWorkflowRunCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -232,9 +229,7 @@ export class GetWorkflowRunCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetWorkflowRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -287,7 +282,4 @@ export class GetWorkflowRunCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowRunCommandOutput> {
     return de_GetWorkflowRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

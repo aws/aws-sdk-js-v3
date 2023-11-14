@@ -109,9 +109,6 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
   BatchGetGraphMemberDatasourcesCommandOutput,
   DetectiveClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetGraphMemberDatasourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
   ): Promise<BatchGetGraphMemberDatasourcesCommandOutput> {
     return de_BatchGetGraphMemberDatasourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

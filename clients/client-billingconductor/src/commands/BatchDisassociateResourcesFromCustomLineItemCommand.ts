@@ -128,9 +128,6 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
   BatchDisassociateResourcesFromCustomLineItemCommandOutput,
   BillingconductorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
    * @public
    */
   constructor(readonly input: BatchDisassociateResourcesFromCustomLineItemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
   ): Promise<BatchDisassociateResourcesFromCustomLineItemCommandOutput> {
     return de_BatchDisassociateResourcesFromCustomLineItemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -117,9 +117,6 @@ export class CreateDataSourceFromS3Command extends $Command<
   CreateDataSourceFromS3CommandOutput,
   MachineLearningClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class CreateDataSourceFromS3Command extends $Command<
    * @public
    */
   constructor(readonly input: CreateDataSourceFromS3CommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class CreateDataSourceFromS3Command extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceFromS3CommandOutput> {
     return de_CreateDataSourceFromS3Command(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

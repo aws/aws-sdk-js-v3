@@ -83,9 +83,6 @@ export class GetQueryLoggingConfigCommand extends $Command<
   GetQueryLoggingConfigCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class GetQueryLoggingConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetQueryLoggingConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class GetQueryLoggingConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryLoggingConfigCommandOutput> {
     return de_GetQueryLoggingConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

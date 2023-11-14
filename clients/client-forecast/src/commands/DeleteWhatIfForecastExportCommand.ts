@@ -80,9 +80,6 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
   DeleteWhatIfForecastExportCommandOutput,
   ForecastClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteWhatIfForecastExportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
   ): Promise<DeleteWhatIfForecastExportCommandOutput> {
     return de_DeleteWhatIfForecastExportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

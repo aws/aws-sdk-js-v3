@@ -103,9 +103,6 @@ export class CreateProjectCommand extends $Command<
   CreateProjectCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class CreateProjectCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateProjectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class CreateProjectCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectCommandOutput> {
     return de_CreateProjectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -96,9 +96,6 @@ export class ListWhatIfForecastsCommand extends $Command<
   ListWhatIfForecastsCommandOutput,
   ForecastClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class ListWhatIfForecastsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListWhatIfForecastsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class ListWhatIfForecastsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWhatIfForecastsCommandOutput> {
     return de_ListWhatIfForecastsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -109,9 +109,6 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
   DisableKinesisStreamingDestinationCommandOutput,
   DynamoDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableKinesisStreamingDestinationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
   ): Promise<DisableKinesisStreamingDestinationCommandOutput> {
     return de_DisableKinesisStreamingDestinationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

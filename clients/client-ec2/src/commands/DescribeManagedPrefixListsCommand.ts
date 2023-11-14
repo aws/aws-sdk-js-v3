@@ -103,9 +103,6 @@ export class DescribeManagedPrefixListsCommand extends $Command<
   DescribeManagedPrefixListsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DescribeManagedPrefixListsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeManagedPrefixListsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class DescribeManagedPrefixListsCommand extends $Command<
   ): Promise<DescribeManagedPrefixListsCommandOutput> {
     return de_DescribeManagedPrefixListsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

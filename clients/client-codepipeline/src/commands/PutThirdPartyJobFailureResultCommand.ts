@@ -90,9 +90,6 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
   PutThirdPartyJobFailureResultCommandOutput,
   CodePipelineClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutThirdPartyJobFailureResultCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
   ): Promise<PutThirdPartyJobFailureResultCommandOutput> {
     return de_PutThirdPartyJobFailureResultCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

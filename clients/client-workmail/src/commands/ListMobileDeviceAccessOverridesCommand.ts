@@ -104,9 +104,6 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
   ListMobileDeviceAccessOverridesCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMobileDeviceAccessOverridesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
   ): Promise<ListMobileDeviceAccessOverridesCommandOutput> {
     return de_ListMobileDeviceAccessOverridesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

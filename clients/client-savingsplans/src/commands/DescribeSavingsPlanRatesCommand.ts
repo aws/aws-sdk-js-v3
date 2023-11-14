@@ -104,9 +104,6 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
   DescribeSavingsPlanRatesCommandOutput,
   SavingsplansClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSavingsPlanRatesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSavingsPlanRatesCommandOutput> {
     return de_DescribeSavingsPlanRatesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

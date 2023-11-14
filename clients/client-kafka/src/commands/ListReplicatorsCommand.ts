@@ -118,9 +118,6 @@ export class ListReplicatorsCommand extends $Command<
   ListReplicatorsCommandOutput,
   KafkaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class ListReplicatorsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListReplicatorsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class ListReplicatorsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReplicatorsCommandOutput> {
     return de_ListReplicatorsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

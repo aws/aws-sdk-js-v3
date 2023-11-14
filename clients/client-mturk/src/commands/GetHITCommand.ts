@@ -112,9 +112,6 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  *
  */
 export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOutput, MTurkClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
    * @public
    */
   constructor(readonly input: GetHITCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHITCommandOutput> {
     return de_GetHITCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

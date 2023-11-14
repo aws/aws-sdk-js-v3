@@ -96,9 +96,6 @@ export class StartQueryPlanningCommand extends $Command<
   StartQueryPlanningCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class StartQueryPlanningCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartQueryPlanningCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class StartQueryPlanningCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryPlanningCommandOutput> {
     return de_StartQueryPlanningCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

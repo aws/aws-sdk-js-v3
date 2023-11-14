@@ -96,9 +96,6 @@ export class BatchEnableAlarmCommand extends $Command<
   BatchEnableAlarmCommandOutput,
   IoTEventsDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class BatchEnableAlarmCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchEnableAlarmCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class BatchEnableAlarmCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEnableAlarmCommandOutput> {
     return de_BatchEnableAlarmCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -517,9 +517,6 @@ export class DescribeCacheParametersCommand extends $Command<
   DescribeCacheParametersCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -533,9 +530,7 @@ export class DescribeCacheParametersCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCacheParametersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -588,7 +583,4 @@ export class DescribeCacheParametersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheParametersCommandOutput> {
     return de_DescribeCacheParametersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

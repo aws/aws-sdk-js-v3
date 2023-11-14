@@ -113,9 +113,6 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
   GetBlockPublicAccessConfigurationCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBlockPublicAccessConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput> {
     return de_GetBlockPublicAccessConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

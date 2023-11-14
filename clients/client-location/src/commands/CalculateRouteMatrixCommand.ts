@@ -192,9 +192,6 @@ export class CalculateRouteMatrixCommand extends $Command<
   CalculateRouteMatrixCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -208,9 +205,7 @@ export class CalculateRouteMatrixCommand extends $Command<
    * @public
    */
   constructor(readonly input: CalculateRouteMatrixCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -263,7 +258,4 @@ export class CalculateRouteMatrixCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CalculateRouteMatrixCommandOutput> {
     return de_CalculateRouteMatrixCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -109,9 +109,6 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, ChimeClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
    * @public
    */
   constructor(readonly input: GetUserCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserCommandOutput> {
     return de_GetUserCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

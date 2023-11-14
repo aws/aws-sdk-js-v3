@@ -249,9 +249,6 @@ export class CreateAlarmModelCommand extends $Command<
   CreateAlarmModelCommandOutput,
   IoTEventsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -265,9 +262,7 @@ export class CreateAlarmModelCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAlarmModelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -320,7 +315,4 @@ export class CreateAlarmModelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAlarmModelCommandOutput> {
     return de_CreateAlarmModelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

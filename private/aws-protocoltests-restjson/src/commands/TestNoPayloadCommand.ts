@@ -74,16 +74,11 @@ export class TestNoPayloadCommand extends $Command<
   TestNoPayloadCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: TestNoPayloadCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -133,7 +128,4 @@ export class TestNoPayloadCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestNoPayloadCommandOutput> {
     return de_TestNoPayloadCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

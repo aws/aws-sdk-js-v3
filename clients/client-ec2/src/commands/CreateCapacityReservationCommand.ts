@@ -144,9 +144,6 @@ export class CreateCapacityReservationCommand extends $Command<
   CreateCapacityReservationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class CreateCapacityReservationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCapacityReservationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -218,7 +213,4 @@ export class CreateCapacityReservationCommand extends $Command<
   ): Promise<CreateCapacityReservationCommandOutput> {
     return de_CreateCapacityReservationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

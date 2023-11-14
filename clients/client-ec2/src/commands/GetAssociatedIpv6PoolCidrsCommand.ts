@@ -79,9 +79,6 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
   GetAssociatedIpv6PoolCidrsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAssociatedIpv6PoolCidrsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
   ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> {
     return de_GetAssociatedIpv6PoolCidrsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

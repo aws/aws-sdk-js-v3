@@ -83,9 +83,6 @@ export class GetContainerAPIMetadataCommand extends $Command<
   GetContainerAPIMetadataCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class GetContainerAPIMetadataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetContainerAPIMetadataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class GetContainerAPIMetadataCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerAPIMetadataCommandOutput> {
     return de_GetContainerAPIMetadataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

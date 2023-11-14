@@ -480,9 +480,6 @@ export class GetCampaignVersionsCommand extends $Command<
   GetCampaignVersionsCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -496,9 +493,7 @@ export class GetCampaignVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCampaignVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -551,7 +546,4 @@ export class GetCampaignVersionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignVersionsCommandOutput> {
     return de_GetCampaignVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

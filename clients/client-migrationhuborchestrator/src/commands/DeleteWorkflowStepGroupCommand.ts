@@ -88,9 +88,6 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
   DeleteWorkflowStepGroupCommandOutput,
   MigrationHubOrchestratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteWorkflowStepGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowStepGroupCommandOutput> {
     return de_DeleteWorkflowStepGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

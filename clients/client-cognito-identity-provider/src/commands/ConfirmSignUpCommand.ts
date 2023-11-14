@@ -154,9 +154,6 @@ export class ConfirmSignUpCommand extends $Command<
   ConfirmSignUpCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -170,9 +167,7 @@ export class ConfirmSignUpCommand extends $Command<
    * @public
    */
   constructor(readonly input: ConfirmSignUpCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class ConfirmSignUpCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSignUpCommandOutput> {
     return de_ConfirmSignUpCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

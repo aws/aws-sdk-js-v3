@@ -120,9 +120,6 @@ export class UpdateAppMonitorCommand extends $Command<
   UpdateAppMonitorCommandOutput,
   RUMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class UpdateAppMonitorCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateAppMonitorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class UpdateAppMonitorCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppMonitorCommandOutput> {
     return de_UpdateAppMonitorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

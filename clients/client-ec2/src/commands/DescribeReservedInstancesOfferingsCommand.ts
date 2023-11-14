@@ -133,9 +133,6 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
   DescribeReservedInstancesOfferingsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeReservedInstancesOfferingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
   ): Promise<DescribeReservedInstancesOfferingsCommandOutput> {
     return de_DescribeReservedInstancesOfferingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

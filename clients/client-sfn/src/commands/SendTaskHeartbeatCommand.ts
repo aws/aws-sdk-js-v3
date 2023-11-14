@@ -89,9 +89,6 @@ export class SendTaskHeartbeatCommand extends $Command<
   SendTaskHeartbeatCommandOutput,
   SFNClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class SendTaskHeartbeatCommand extends $Command<
    * @public
    */
   constructor(readonly input: SendTaskHeartbeatCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class SendTaskHeartbeatCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskHeartbeatCommandOutput> {
     return de_SendTaskHeartbeatCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -104,9 +104,6 @@ export class StartSessionCommand extends $Command<
   StartSessionCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class StartSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class StartSessionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSessionCommandOutput> {
     return de_StartSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

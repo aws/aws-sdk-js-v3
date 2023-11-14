@@ -129,9 +129,6 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
   ListTypedLinkFacetAttributesCommandOutput,
   CloudDirectoryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTypedLinkFacetAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
   ): Promise<ListTypedLinkFacetAttributesCommandOutput> {
     return de_ListTypedLinkFacetAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

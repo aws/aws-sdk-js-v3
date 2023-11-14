@@ -83,9 +83,6 @@ export class GenerateRecommendationsCommand extends $Command<
   GenerateRecommendationsCommandOutput,
   DataSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class GenerateRecommendationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateRecommendationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class GenerateRecommendationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateRecommendationsCommandOutput> {
     return de_GenerateRecommendationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

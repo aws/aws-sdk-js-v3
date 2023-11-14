@@ -127,9 +127,6 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
   GetTransitGatewayRouteTableAttachmentCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTransitGatewayRouteTableAttachmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
   ): Promise<GetTransitGatewayRouteTableAttachmentCommandOutput> {
     return de_GetTransitGatewayRouteTableAttachmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -109,9 +109,6 @@ export class ListThingsCommand extends $Command<
   ListThingsCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class ListThingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListThingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class ListThingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingsCommandOutput> {
     return de_ListThingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -168,9 +168,6 @@ export class DescribeGameSessionDetailsCommand extends $Command<
   DescribeGameSessionDetailsCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -184,9 +181,7 @@ export class DescribeGameSessionDetailsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeGameSessionDetailsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -242,7 +237,4 @@ export class DescribeGameSessionDetailsCommand extends $Command<
   ): Promise<DescribeGameSessionDetailsCommandOutput> {
     return de_DescribeGameSessionDetailsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

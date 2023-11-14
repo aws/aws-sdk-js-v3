@@ -84,9 +84,6 @@ export class DeactivatePipelineCommand extends $Command<
   DeactivatePipelineCommandOutput,
   DataPipelineClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeactivatePipelineCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeactivatePipelineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class DeactivatePipelineCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivatePipelineCommandOutput> {
     return de_DeactivatePipelineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

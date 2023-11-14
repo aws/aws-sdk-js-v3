@@ -102,9 +102,6 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
   CreateWorkspaceApiKeyCommandOutput,
   GrafanaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateWorkspaceApiKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceApiKeyCommandOutput> {
     return de_CreateWorkspaceApiKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

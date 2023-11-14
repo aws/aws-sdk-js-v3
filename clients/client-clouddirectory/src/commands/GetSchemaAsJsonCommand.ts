@@ -93,9 +93,6 @@ export class GetSchemaAsJsonCommand extends $Command<
   GetSchemaAsJsonCommandOutput,
   CloudDirectoryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetSchemaAsJsonCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSchemaAsJsonCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class GetSchemaAsJsonCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaAsJsonCommandOutput> {
     return de_GetSchemaAsJsonCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

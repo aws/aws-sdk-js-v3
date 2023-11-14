@@ -91,9 +91,6 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
   DeregisterInstanceEventNotificationAttributesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
    * @public
    */
   constructor(readonly input: DeregisterInstanceEventNotificationAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
   ): Promise<DeregisterInstanceEventNotificationAttributesCommandOutput> {
     return de_DeregisterInstanceEventNotificationAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

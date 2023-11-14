@@ -133,9 +133,6 @@ export class DescribeTableDataImportJobCommand extends $Command<
   DescribeTableDataImportJobCommandOutput,
   HoneycodeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class DescribeTableDataImportJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTableDataImportJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class DescribeTableDataImportJobCommand extends $Command<
   ): Promise<DescribeTableDataImportJobCommandOutput> {
     return de_DescribeTableDataImportJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

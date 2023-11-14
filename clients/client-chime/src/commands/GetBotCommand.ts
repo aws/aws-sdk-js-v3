@@ -98,9 +98,6 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  *
  */
 export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOutput, ChimeClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
    * @public
    */
   constructor(readonly input: GetBotCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotCommandOutput> {
     return de_GetBotCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -146,9 +146,6 @@ export class CreateAccessControlConfigurationCommand extends $Command<
   CreateAccessControlConfigurationCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class CreateAccessControlConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAccessControlConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class CreateAccessControlConfigurationCommand extends $Command<
   ): Promise<CreateAccessControlConfigurationCommandOutput> {
     return de_CreateAccessControlConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

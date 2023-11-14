@@ -225,9 +225,6 @@ export class CreateTaskSetCommand extends $Command<
   CreateTaskSetCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -241,9 +238,7 @@ export class CreateTaskSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateTaskSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -294,7 +289,4 @@ export class CreateTaskSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskSetCommandOutput> {
     return de_CreateTaskSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -123,9 +123,6 @@ export class StartMetadataModelConversionCommand extends $Command<
   StartMetadataModelConversionCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class StartMetadataModelConversionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartMetadataModelConversionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class StartMetadataModelConversionCommand extends $Command<
   ): Promise<StartMetadataModelConversionCommandOutput> {
     return de_StartMetadataModelConversionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

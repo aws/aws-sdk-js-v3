@@ -100,9 +100,6 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
   DeleteBucketAnalyticsConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -122,9 +119,7 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteBucketAnalyticsConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> {
     return de_DeleteBucketAnalyticsConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

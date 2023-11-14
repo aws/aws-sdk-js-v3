@@ -87,9 +87,6 @@ export class DescribeRuntimeVersionsCommand extends $Command<
   DescribeRuntimeVersionsCommandOutput,
   SyntheticsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DescribeRuntimeVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRuntimeVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class DescribeRuntimeVersionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuntimeVersionsCommandOutput> {
     return de_DescribeRuntimeVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

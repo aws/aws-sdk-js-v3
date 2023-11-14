@@ -487,9 +487,6 @@ export class UpdatePolicyCommand extends $Command<
   UpdatePolicyCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -503,9 +500,7 @@ export class UpdatePolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdatePolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -556,7 +551,4 @@ export class UpdatePolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePolicyCommandOutput> {
     return de_UpdatePolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

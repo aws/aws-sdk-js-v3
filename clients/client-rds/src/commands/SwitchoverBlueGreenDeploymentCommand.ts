@@ -257,9 +257,6 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
   SwitchoverBlueGreenDeploymentCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -273,9 +270,7 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
    * @public
    */
   constructor(readonly input: SwitchoverBlueGreenDeploymentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -331,7 +326,4 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
   ): Promise<SwitchoverBlueGreenDeploymentCommandOutput> {
     return de_SwitchoverBlueGreenDeploymentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

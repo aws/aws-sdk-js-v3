@@ -103,9 +103,6 @@ export class ListRecommendationFeedbackCommand extends $Command<
   ListRecommendationFeedbackCommandOutput,
   CodeGuruReviewerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class ListRecommendationFeedbackCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRecommendationFeedbackCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListRecommendationFeedbackCommand extends $Command<
   ): Promise<ListRecommendationFeedbackCommandOutput> {
     return de_ListRecommendationFeedbackCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -119,9 +119,6 @@ export class UpdateTrustAnchorCommand extends $Command<
   UpdateTrustAnchorCommandOutput,
   RolesAnywhereClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class UpdateTrustAnchorCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTrustAnchorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class UpdateTrustAnchorCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrustAnchorCommandOutput> {
     return de_UpdateTrustAnchorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

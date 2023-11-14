@@ -104,9 +104,6 @@ export class ListEnabledControlsCommand extends $Command<
   ListEnabledControlsCommandOutput,
   ControlTowerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class ListEnabledControlsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEnabledControlsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ListEnabledControlsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnabledControlsCommandOutput> {
     return de_ListEnabledControlsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

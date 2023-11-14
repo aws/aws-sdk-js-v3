@@ -113,9 +113,6 @@ export class DescribeLoggingConfigurationCommand extends $Command<
   DescribeLoggingConfigurationCommandOutput,
   NetworkFirewallClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class DescribeLoggingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeLoggingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class DescribeLoggingConfigurationCommand extends $Command<
   ): Promise<DescribeLoggingConfigurationCommandOutput> {
     return de_DescribeLoggingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

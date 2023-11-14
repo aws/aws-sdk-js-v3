@@ -381,9 +381,6 @@ export class BatchGetAutomationRulesCommand extends $Command<
   BatchGetAutomationRulesCommandOutput,
   SecurityHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -397,9 +394,7 @@ export class BatchGetAutomationRulesCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetAutomationRulesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -452,7 +447,4 @@ export class BatchGetAutomationRulesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetAutomationRulesCommandOutput> {
     return de_BatchGetAutomationRulesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

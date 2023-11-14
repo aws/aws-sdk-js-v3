@@ -127,9 +127,6 @@ export class GetStreamingDistributionCommand extends $Command<
   GetStreamingDistributionCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class GetStreamingDistributionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetStreamingDistributionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class GetStreamingDistributionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamingDistributionCommandOutput> {
     return de_GetStreamingDistributionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

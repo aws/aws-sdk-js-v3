@@ -136,9 +136,6 @@ export class PutScheduledActionCommand extends $Command<
   PutScheduledActionCommandOutput,
   ApplicationAutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class PutScheduledActionCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutScheduledActionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class PutScheduledActionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScheduledActionCommandOutput> {
     return de_PutScheduledActionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

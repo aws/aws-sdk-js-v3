@@ -105,9 +105,6 @@ export class CreateRuleGroupsNamespaceCommand extends $Command<
   CreateRuleGroupsNamespaceCommandOutput,
   AmpClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class CreateRuleGroupsNamespaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRuleGroupsNamespaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class CreateRuleGroupsNamespaceCommand extends $Command<
   ): Promise<CreateRuleGroupsNamespaceCommandOutput> {
     return de_CreateRuleGroupsNamespaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

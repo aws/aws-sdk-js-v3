@@ -122,9 +122,6 @@ export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandOutput,
   S3OutpostsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class ListEndpointsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEndpointsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class ListEndpointsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointsCommandOutput> {
     return de_ListEndpointsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

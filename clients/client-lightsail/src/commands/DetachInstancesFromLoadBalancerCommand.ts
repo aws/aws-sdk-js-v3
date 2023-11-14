@@ -131,9 +131,6 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
   DetachInstancesFromLoadBalancerCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DetachInstancesFromLoadBalancerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
   ): Promise<DetachInstancesFromLoadBalancerCommandOutput> {
     return de_DetachInstancesFromLoadBalancerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -478,9 +478,6 @@ export class StartConversationCommand extends $Command<
   StartConversationCommandOutput,
   LexRuntimeV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -494,9 +491,7 @@ export class StartConversationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartConversationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -556,7 +551,4 @@ export class StartConversationCommand extends $Command<
   ): Promise<StartConversationCommandOutput> {
     return de_StartConversationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

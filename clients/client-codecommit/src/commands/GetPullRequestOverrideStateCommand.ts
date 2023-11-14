@@ -103,9 +103,6 @@ export class GetPullRequestOverrideStateCommand extends $Command<
   GetPullRequestOverrideStateCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class GetPullRequestOverrideStateCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPullRequestOverrideStateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class GetPullRequestOverrideStateCommand extends $Command<
   ): Promise<GetPullRequestOverrideStateCommandOutput> {
     return de_GetPullRequestOverrideStateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

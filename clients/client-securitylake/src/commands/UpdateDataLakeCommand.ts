@@ -155,9 +155,6 @@ export class UpdateDataLakeCommand extends $Command<
   UpdateDataLakeCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class UpdateDataLakeCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDataLakeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -226,7 +221,4 @@ export class UpdateDataLakeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataLakeCommandOutput> {
     return de_UpdateDataLakeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

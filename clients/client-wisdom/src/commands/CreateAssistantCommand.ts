@@ -111,9 +111,6 @@ export class CreateAssistantCommand extends $Command<
   CreateAssistantCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class CreateAssistantCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAssistantCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class CreateAssistantCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssistantCommandOutput> {
     return de_CreateAssistantCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

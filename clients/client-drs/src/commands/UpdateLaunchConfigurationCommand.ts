@@ -113,9 +113,6 @@ export class UpdateLaunchConfigurationCommand extends $Command<
   UpdateLaunchConfigurationCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class UpdateLaunchConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateLaunchConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class UpdateLaunchConfigurationCommand extends $Command<
   ): Promise<UpdateLaunchConfigurationCommandOutput> {
     return de_UpdateLaunchConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

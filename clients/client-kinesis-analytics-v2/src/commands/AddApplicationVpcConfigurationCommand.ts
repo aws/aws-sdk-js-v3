@@ -128,9 +128,6 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
   AddApplicationVpcConfigurationCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddApplicationVpcConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
   ): Promise<AddApplicationVpcConfigurationCommandOutput> {
     return de_AddApplicationVpcConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

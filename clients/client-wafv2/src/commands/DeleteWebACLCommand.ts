@@ -155,9 +155,6 @@ export class DeleteWebACLCommand extends $Command<
   DeleteWebACLCommandOutput,
   WAFV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class DeleteWebACLCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteWebACLCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class DeleteWebACLCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebACLCommandOutput> {
     return de_DeleteWebACLCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

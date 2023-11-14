@@ -111,9 +111,6 @@ export class ListMetricValuesCommand extends $Command<
   ListMetricValuesCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class ListMetricValuesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMetricValuesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class ListMetricValuesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricValuesCommandOutput> {
     return de_ListMetricValuesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -102,9 +102,6 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
   GetSipMediaApplicationLoggingConfigurationCommandOutput,
   ChimeSDKVoiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSipMediaApplicationLoggingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
   ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput> {
     return de_GetSipMediaApplicationLoggingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

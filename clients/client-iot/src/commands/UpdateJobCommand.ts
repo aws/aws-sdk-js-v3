@@ -115,9 +115,6 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  *
  */
 export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobCommandOutput, IoTClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobC
    * @public
    */
   constructor(readonly input: UpdateJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobCommandOutput> {
     return de_UpdateJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

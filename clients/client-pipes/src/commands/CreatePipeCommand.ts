@@ -393,9 +393,6 @@ export class CreatePipeCommand extends $Command<
   CreatePipeCommandOutput,
   PipesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -409,9 +406,7 @@ export class CreatePipeCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreatePipeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -462,7 +457,4 @@ export class CreatePipeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipeCommandOutput> {
     return de_CreatePipeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

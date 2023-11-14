@@ -131,9 +131,6 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
   DescribeOrganizationConfigRuleStatusesCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeOrganizationConfigRuleStatusesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> {
     return de_DescribeOrganizationConfigRuleStatusesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

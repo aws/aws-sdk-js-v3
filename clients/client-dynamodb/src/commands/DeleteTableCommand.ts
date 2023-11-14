@@ -282,9 +282,6 @@ export class DeleteTableCommand extends $Command<
   DeleteTableCommandOutput,
   DynamoDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -298,9 +295,7 @@ export class DeleteTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -351,7 +346,4 @@ export class DeleteTableCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableCommandOutput> {
     return de_DeleteTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

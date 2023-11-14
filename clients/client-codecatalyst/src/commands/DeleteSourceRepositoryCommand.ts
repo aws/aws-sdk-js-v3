@@ -94,9 +94,6 @@ export class DeleteSourceRepositoryCommand extends $Command<
   DeleteSourceRepositoryCommandOutput,
   CodeCatalystClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DeleteSourceRepositoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSourceRepositoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DeleteSourceRepositoryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSourceRepositoryCommandOutput> {
     return de_DeleteSourceRepositoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

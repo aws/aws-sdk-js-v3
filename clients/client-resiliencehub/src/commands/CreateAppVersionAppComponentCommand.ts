@@ -126,9 +126,6 @@ export class CreateAppVersionAppComponentCommand extends $Command<
   CreateAppVersionAppComponentCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class CreateAppVersionAppComponentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAppVersionAppComponentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class CreateAppVersionAppComponentCommand extends $Command<
   ): Promise<CreateAppVersionAppComponentCommandOutput> {
     return de_CreateAppVersionAppComponentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

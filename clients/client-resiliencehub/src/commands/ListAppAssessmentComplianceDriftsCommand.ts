@@ -135,9 +135,6 @@ export class ListAppAssessmentComplianceDriftsCommand extends $Command<
   ListAppAssessmentComplianceDriftsCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class ListAppAssessmentComplianceDriftsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAppAssessmentComplianceDriftsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class ListAppAssessmentComplianceDriftsCommand extends $Command<
   ): Promise<ListAppAssessmentComplianceDriftsCommandOutput> {
     return de_ListAppAssessmentComplianceDriftsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

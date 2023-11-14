@@ -132,9 +132,6 @@ export class ListResourceComplianceSummariesCommand extends $Command<
   ListResourceComplianceSummariesCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class ListResourceComplianceSummariesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListResourceComplianceSummariesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -209,7 +204,4 @@ export class ListResourceComplianceSummariesCommand extends $Command<
   ): Promise<ListResourceComplianceSummariesCommandOutput> {
     return de_ListResourceComplianceSummariesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

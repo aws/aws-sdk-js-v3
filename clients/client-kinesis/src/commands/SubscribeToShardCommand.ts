@@ -176,9 +176,6 @@ export class SubscribeToShardCommand extends $Command<
   SubscribeToShardCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `data` },
@@ -194,9 +191,7 @@ export class SubscribeToShardCommand extends $Command<
    * @public
    */
   constructor(readonly input: SubscribeToShardCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -252,7 +247,4 @@ export class SubscribeToShardCommand extends $Command<
   ): Promise<SubscribeToShardCommandOutput> {
     return de_SubscribeToShardCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

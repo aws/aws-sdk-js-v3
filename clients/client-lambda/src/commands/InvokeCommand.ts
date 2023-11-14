@@ -226,9 +226,6 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *
  */
 export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -242,9 +239,7 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
    * @public
    */
   constructor(readonly input: InvokeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -295,7 +290,4 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeCommandOutput> {
     return de_InvokeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

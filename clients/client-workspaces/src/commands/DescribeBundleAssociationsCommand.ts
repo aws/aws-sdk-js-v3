@@ -98,9 +98,6 @@ export class DescribeBundleAssociationsCommand extends $Command<
   DescribeBundleAssociationsCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class DescribeBundleAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeBundleAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class DescribeBundleAssociationsCommand extends $Command<
   ): Promise<DescribeBundleAssociationsCommandOutput> {
     return de_DescribeBundleAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -270,9 +270,6 @@ export class HeadObjectCommand extends $Command<
   HeadObjectCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -292,9 +289,7 @@ export class HeadObjectCommand extends $Command<
    * @public
    */
   constructor(readonly input: HeadObjectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -346,7 +341,4 @@ export class HeadObjectCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadObjectCommandOutput> {
     return de_HeadObjectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -153,9 +153,6 @@ export class AddInstanceFleetCommand extends $Command<
   AddInstanceFleetCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class AddInstanceFleetCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddInstanceFleetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class AddInstanceFleetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddInstanceFleetCommandOutput> {
     return de_AddInstanceFleetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

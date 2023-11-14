@@ -78,9 +78,6 @@ export class GetEncryptionConfigCommand extends $Command<
   GetEncryptionConfigCommandOutput,
   XRayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class GetEncryptionConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEncryptionConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class GetEncryptionConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEncryptionConfigCommandOutput> {
     return de_GetEncryptionConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

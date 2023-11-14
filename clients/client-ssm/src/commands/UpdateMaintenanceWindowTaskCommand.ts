@@ -304,9 +304,6 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
   UpdateMaintenanceWindowTaskCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -320,9 +317,7 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMaintenanceWindowTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -378,7 +373,4 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
   ): Promise<UpdateMaintenanceWindowTaskCommandOutput> {
     return de_UpdateMaintenanceWindowTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

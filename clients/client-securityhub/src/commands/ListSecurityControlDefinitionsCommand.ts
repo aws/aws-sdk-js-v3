@@ -147,9 +147,6 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
   ListSecurityControlDefinitionsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -163,9 +160,7 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListSecurityControlDefinitionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
   ): Promise<ListSecurityControlDefinitionsCommandOutput> {
     return de_ListSecurityControlDefinitionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

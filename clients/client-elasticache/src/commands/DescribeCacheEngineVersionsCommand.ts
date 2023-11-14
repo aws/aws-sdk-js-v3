@@ -183,9 +183,6 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
   DescribeCacheEngineVersionsCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -199,9 +196,7 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCacheEngineVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -257,7 +252,4 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
   ): Promise<DescribeCacheEngineVersionsCommandOutput> {
     return de_DescribeCacheEngineVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

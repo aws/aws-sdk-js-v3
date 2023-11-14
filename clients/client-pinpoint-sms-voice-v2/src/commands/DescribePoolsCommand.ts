@@ -128,9 +128,6 @@ export class DescribePoolsCommand extends $Command<
   DescribePoolsCommandOutput,
   PinpointSMSVoiceV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class DescribePoolsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePoolsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class DescribePoolsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePoolsCommandOutput> {
     return de_DescribePoolsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

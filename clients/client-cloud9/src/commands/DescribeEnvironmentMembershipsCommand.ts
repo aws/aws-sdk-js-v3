@@ -197,9 +197,6 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
   DescribeEnvironmentMembershipsCommandOutput,
   Cloud9ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -213,9 +210,7 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeEnvironmentMembershipsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -274,7 +269,4 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
   ): Promise<DescribeEnvironmentMembershipsCommandOutput> {
     return de_DescribeEnvironmentMembershipsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

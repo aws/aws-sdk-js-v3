@@ -97,9 +97,6 @@ export class BatchSnoozeAlarmCommand extends $Command<
   BatchSnoozeAlarmCommandOutput,
   IoTEventsDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class BatchSnoozeAlarmCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchSnoozeAlarmCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class BatchSnoozeAlarmCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchSnoozeAlarmCommandOutput> {
     return de_BatchSnoozeAlarmCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

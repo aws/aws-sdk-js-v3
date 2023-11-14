@@ -98,9 +98,6 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
   NotifyRecommendationsReceivedCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
    * @public
    */
   constructor(readonly input: NotifyRecommendationsReceivedCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
   ): Promise<NotifyRecommendationsReceivedCommandOutput> {
     return de_NotifyRecommendationsReceivedCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

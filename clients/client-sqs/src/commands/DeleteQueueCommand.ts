@@ -118,9 +118,6 @@ export class DeleteQueueCommand extends $Command<
   DeleteQueueCommandOutput,
   SQSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class DeleteQueueCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteQueueCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class DeleteQueueCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueueCommandOutput> {
     return de_DeleteQueueCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

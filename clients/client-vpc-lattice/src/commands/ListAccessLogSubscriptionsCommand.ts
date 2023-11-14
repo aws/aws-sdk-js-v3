@@ -96,9 +96,6 @@ export class ListAccessLogSubscriptionsCommand extends $Command<
   ListAccessLogSubscriptionsCommandOutput,
   VPCLatticeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class ListAccessLogSubscriptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAccessLogSubscriptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class ListAccessLogSubscriptionsCommand extends $Command<
   ): Promise<ListAccessLogSubscriptionsCommandOutput> {
     return de_ListAccessLogSubscriptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

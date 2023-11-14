@@ -110,9 +110,6 @@ export class ListGroupMembershipsForMemberCommand extends $Command<
   ListGroupMembershipsForMemberCommandOutput,
   IdentitystoreClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class ListGroupMembershipsForMemberCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListGroupMembershipsForMemberCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class ListGroupMembershipsForMemberCommand extends $Command<
   ): Promise<ListGroupMembershipsForMemberCommandOutput> {
     return de_ListGroupMembershipsForMemberCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

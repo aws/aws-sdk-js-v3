@@ -98,9 +98,6 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
   ListProfileObjectTypeTemplatesCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListProfileObjectTypeTemplatesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
   ): Promise<ListProfileObjectTypeTemplatesCommandOutput> {
     return de_ListProfileObjectTypeTemplatesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -92,9 +92,6 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  *
  */
 export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommandOutput, AppSyncClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
    * @public
    */
   constructor(readonly input: GetTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTypeCommandOutput> {
     return de_GetTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

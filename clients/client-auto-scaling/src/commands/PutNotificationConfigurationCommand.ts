@@ -108,9 +108,6 @@ export class PutNotificationConfigurationCommand extends $Command<
   PutNotificationConfigurationCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class PutNotificationConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutNotificationConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class PutNotificationConfigurationCommand extends $Command<
   ): Promise<PutNotificationConfigurationCommandOutput> {
     return de_PutNotificationConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

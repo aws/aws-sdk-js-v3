@@ -80,9 +80,6 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
   GetAWSOrganizationsAccessStatusCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAWSOrganizationsAccessStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
   ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> {
     return de_GetAWSOrganizationsAccessStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

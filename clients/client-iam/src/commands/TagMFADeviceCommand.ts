@@ -130,9 +130,6 @@ export class TagMFADeviceCommand extends $Command<
   TagMFADeviceCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class TagMFADeviceCommand extends $Command<
    * @public
    */
   constructor(readonly input: TagMFADeviceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class TagMFADeviceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagMFADeviceCommandOutput> {
     return de_TagMFADeviceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

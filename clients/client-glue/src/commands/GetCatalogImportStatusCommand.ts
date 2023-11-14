@@ -80,9 +80,6 @@ export class GetCatalogImportStatusCommand extends $Command<
   GetCatalogImportStatusCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class GetCatalogImportStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCatalogImportStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class GetCatalogImportStatusCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCatalogImportStatusCommandOutput> {
     return de_GetCatalogImportStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

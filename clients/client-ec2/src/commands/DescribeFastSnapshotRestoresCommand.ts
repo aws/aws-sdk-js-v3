@@ -97,9 +97,6 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
   DescribeFastSnapshotRestoresCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeFastSnapshotRestoresCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
   ): Promise<DescribeFastSnapshotRestoresCommandOutput> {
     return de_DescribeFastSnapshotRestoresCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

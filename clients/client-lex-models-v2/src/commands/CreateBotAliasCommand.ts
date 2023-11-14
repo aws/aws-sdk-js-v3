@@ -196,9 +196,6 @@ export class CreateBotAliasCommand extends $Command<
   CreateBotAliasCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -212,9 +209,7 @@ export class CreateBotAliasCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateBotAliasCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -267,7 +262,4 @@ export class CreateBotAliasCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotAliasCommandOutput> {
     return de_CreateBotAliasCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

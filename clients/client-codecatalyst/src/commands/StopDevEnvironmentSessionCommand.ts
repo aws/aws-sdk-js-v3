@@ -96,9 +96,6 @@ export class StopDevEnvironmentSessionCommand extends $Command<
   StopDevEnvironmentSessionCommandOutput,
   CodeCatalystClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class StopDevEnvironmentSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopDevEnvironmentSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class StopDevEnvironmentSessionCommand extends $Command<
   ): Promise<StopDevEnvironmentSessionCommandOutput> {
     return de_StopDevEnvironmentSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -279,9 +279,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *
  */
 export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptCommandOutput, KMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -295,9 +292,7 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
    * @public
    */
   constructor(readonly input: ReEncryptCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -348,7 +343,4 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReEncryptCommandOutput> {
     return de_ReEncryptCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

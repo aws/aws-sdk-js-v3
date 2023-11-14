@@ -199,9 +199,6 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
   RespondDecisionTaskCompletedCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -215,9 +212,7 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
    * @public
    */
   constructor(readonly input: RespondDecisionTaskCompletedCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -273,7 +268,4 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
   ): Promise<RespondDecisionTaskCompletedCommandOutput> {
     return de_RespondDecisionTaskCompletedCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

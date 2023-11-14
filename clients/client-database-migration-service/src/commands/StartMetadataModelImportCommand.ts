@@ -123,9 +123,6 @@ export class StartMetadataModelImportCommand extends $Command<
   StartMetadataModelImportCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class StartMetadataModelImportCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartMetadataModelImportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class StartMetadataModelImportCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMetadataModelImportCommandOutput> {
     return de_StartMetadataModelImportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

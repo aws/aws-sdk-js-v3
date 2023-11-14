@@ -89,9 +89,6 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
   ListAllowedNodeTypeUpdatesCommandOutput,
   MemoryDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAllowedNodeTypeUpdatesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
   ): Promise<ListAllowedNodeTypeUpdatesCommandOutput> {
     return de_ListAllowedNodeTypeUpdatesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

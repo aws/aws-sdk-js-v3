@@ -83,9 +83,6 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
   DisassociateServiceActionFromProvisioningArtifactCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
    * @public
    */
   constructor(readonly input: DisassociateServiceActionFromProvisioningArtifactCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
   ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> {
     return de_DisassociateServiceActionFromProvisioningArtifactCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -85,9 +85,6 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
   ModifyVpcEndpointConnectionNotificationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyVpcEndpointConnectionNotificationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> {
     return de_ModifyVpcEndpointConnectionNotificationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

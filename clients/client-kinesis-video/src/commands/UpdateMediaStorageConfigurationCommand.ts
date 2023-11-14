@@ -133,9 +133,6 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
   UpdateMediaStorageConfigurationCommandOutput,
   KinesisVideoClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMediaStorageConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
   ): Promise<UpdateMediaStorageConfigurationCommandOutput> {
     return de_UpdateMediaStorageConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

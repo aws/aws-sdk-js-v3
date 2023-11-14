@@ -86,9 +86,6 @@ export class DeleteIngestionCommand extends $Command<
   DeleteIngestionCommandOutput,
   AppFabricClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class DeleteIngestionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteIngestionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DeleteIngestionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIngestionCommandOutput> {
     return de_DeleteIngestionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

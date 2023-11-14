@@ -111,9 +111,6 @@ export class DescribeVolumesModificationsCommand extends $Command<
   DescribeVolumesModificationsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class DescribeVolumesModificationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeVolumesModificationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class DescribeVolumesModificationsCommand extends $Command<
   ): Promise<DescribeVolumesModificationsCommandOutput> {
     return de_DescribeVolumesModificationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -226,9 +226,6 @@ export class DescribeAutoMLJobCommand extends $Command<
   DescribeAutoMLJobCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -242,9 +239,7 @@ export class DescribeAutoMLJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAutoMLJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -297,7 +292,4 @@ export class DescribeAutoMLJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAutoMLJobCommandOutput> {
     return de_DescribeAutoMLJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -107,9 +107,6 @@ export class GetRasterDataCollectionCommand extends $Command<
   GetRasterDataCollectionCommandOutput,
   SageMakerGeospatialClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class GetRasterDataCollectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRasterDataCollectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class GetRasterDataCollectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRasterDataCollectionCommandOutput> {
     return de_GetRasterDataCollectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

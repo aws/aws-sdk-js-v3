@@ -529,9 +529,6 @@ export class DescribeIntentCommand extends $Command<
   DescribeIntentCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -545,9 +542,7 @@ export class DescribeIntentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeIntentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -600,7 +595,4 @@ export class DescribeIntentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIntentCommandOutput> {
     return de_DescribeIntentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

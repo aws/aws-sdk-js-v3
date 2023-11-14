@@ -116,9 +116,6 @@ export class DescribeNodeCommand extends $Command<
   DescribeNodeCommandOutput,
   PanoramaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class DescribeNodeCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeNodeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class DescribeNodeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNodeCommandOutput> {
     return de_DescribeNodeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

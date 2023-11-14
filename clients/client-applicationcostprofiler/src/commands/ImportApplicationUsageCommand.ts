@@ -93,9 +93,6 @@ export class ImportApplicationUsageCommand extends $Command<
   ImportApplicationUsageCommandOutput,
   ApplicationCostProfilerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class ImportApplicationUsageCommand extends $Command<
    * @public
    */
   constructor(readonly input: ImportApplicationUsageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class ImportApplicationUsageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportApplicationUsageCommandOutput> {
     return de_ImportApplicationUsageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

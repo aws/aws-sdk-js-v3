@@ -69,9 +69,6 @@ export class DeleteLiveSourceCommand extends $Command<
   DeleteLiveSourceCommandOutput,
   MediaTailorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -85,9 +82,7 @@ export class DeleteLiveSourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteLiveSourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -140,7 +135,4 @@ export class DeleteLiveSourceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLiveSourceCommandOutput> {
     return de_DeleteLiveSourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

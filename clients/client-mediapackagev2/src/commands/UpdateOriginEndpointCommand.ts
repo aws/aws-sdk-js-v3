@@ -242,9 +242,6 @@ export class UpdateOriginEndpointCommand extends $Command<
   UpdateOriginEndpointCommandOutput,
   MediaPackageV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -258,9 +255,7 @@ export class UpdateOriginEndpointCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateOriginEndpointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -313,7 +308,4 @@ export class UpdateOriginEndpointCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOriginEndpointCommandOutput> {
     return de_UpdateOriginEndpointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

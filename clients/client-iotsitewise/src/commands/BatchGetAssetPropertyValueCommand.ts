@@ -130,9 +130,6 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
   BatchGetAssetPropertyValueCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetAssetPropertyValueCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
   ): Promise<BatchGetAssetPropertyValueCommandOutput> {
     return de_BatchGetAssetPropertyValueCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

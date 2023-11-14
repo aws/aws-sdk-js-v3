@@ -105,9 +105,6 @@ export class PutRumEventsCommand extends $Command<
   PutRumEventsCommandOutput,
   RUMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class PutRumEventsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutRumEventsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class PutRumEventsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRumEventsCommandOutput> {
     return de_PutRumEventsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

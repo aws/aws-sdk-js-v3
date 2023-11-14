@@ -153,9 +153,6 @@ export class PromotePermissionCreatedFromPolicyCommand extends $Command<
   PromotePermissionCreatedFromPolicyCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class PromotePermissionCreatedFromPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PromotePermissionCreatedFromPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class PromotePermissionCreatedFromPolicyCommand extends $Command<
   ): Promise<PromotePermissionCreatedFromPolicyCommandOutput> {
     return de_PromotePermissionCreatedFromPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

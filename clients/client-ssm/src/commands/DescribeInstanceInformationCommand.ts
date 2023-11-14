@@ -158,9 +158,6 @@ export class DescribeInstanceInformationCommand extends $Command<
   DescribeInstanceInformationCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -174,9 +171,7 @@ export class DescribeInstanceInformationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeInstanceInformationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -232,7 +227,4 @@ export class DescribeInstanceInformationCommand extends $Command<
   ): Promise<DescribeInstanceInformationCommandOutput> {
     return de_DescribeInstanceInformationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

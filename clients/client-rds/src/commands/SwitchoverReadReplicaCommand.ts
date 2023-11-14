@@ -300,9 +300,6 @@ export class SwitchoverReadReplicaCommand extends $Command<
   SwitchoverReadReplicaCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -316,9 +313,7 @@ export class SwitchoverReadReplicaCommand extends $Command<
    * @public
    */
   constructor(readonly input: SwitchoverReadReplicaCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -371,7 +366,4 @@ export class SwitchoverReadReplicaCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SwitchoverReadReplicaCommandOutput> {
     return de_SwitchoverReadReplicaCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

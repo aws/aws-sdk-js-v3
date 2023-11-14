@@ -156,9 +156,6 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
   CreateVerifiedAccessEndpointCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -172,9 +169,7 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateVerifiedAccessEndpointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
   ): Promise<CreateVerifiedAccessEndpointCommandOutput> {
     return de_CreateVerifiedAccessEndpointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

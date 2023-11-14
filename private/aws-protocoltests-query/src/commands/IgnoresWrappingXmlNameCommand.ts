@@ -70,16 +70,11 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
   IgnoresWrappingXmlNameCommandOutput,
   QueryProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: IgnoresWrappingXmlNameCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -129,7 +124,4 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IgnoresWrappingXmlNameCommandOutput> {
     return de_IgnoresWrappingXmlNameCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -112,9 +112,6 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
   GetJourneyExecutionActivityMetricsCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetJourneyExecutionActivityMetricsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> {
     return de_GetJourneyExecutionActivityMetricsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

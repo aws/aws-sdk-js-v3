@@ -80,9 +80,6 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
   DeleteNetworkInterfacePermissionCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteNetworkInterfacePermissionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
   ): Promise<DeleteNetworkInterfacePermissionCommandOutput> {
     return de_DeleteNetworkInterfacePermissionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -96,9 +96,6 @@ export class SuggestCommand extends $Command<
   SuggestCommandOutput,
   CloudSearchDomainClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class SuggestCommand extends $Command<
    * @public
    */
   constructor(readonly input: SuggestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class SuggestCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuggestCommandOutput> {
     return de_SuggestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

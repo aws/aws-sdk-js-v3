@@ -417,9 +417,6 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
   ListAWSServiceAccessForOrganizationCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -433,9 +430,7 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAWSServiceAccessForOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -494,7 +489,4 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> {
     return de_ListAWSServiceAccessForOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

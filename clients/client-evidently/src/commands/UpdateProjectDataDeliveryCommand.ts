@@ -125,9 +125,6 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
   UpdateProjectDataDeliveryCommandOutput,
   EvidentlyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateProjectDataDeliveryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
   ): Promise<UpdateProjectDataDeliveryCommandOutput> {
     return de_UpdateProjectDataDeliveryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -119,9 +119,6 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
   DescribeRemediationExecutionStatusCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRemediationExecutionStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
   ): Promise<DescribeRemediationExecutionStatusCommandOutput> {
     return de_DescribeRemediationExecutionStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

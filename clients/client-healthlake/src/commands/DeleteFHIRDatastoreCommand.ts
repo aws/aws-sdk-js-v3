@@ -91,9 +91,6 @@ export class DeleteFHIRDatastoreCommand extends $Command<
   DeleteFHIRDatastoreCommandOutput,
   HealthLakeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DeleteFHIRDatastoreCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFHIRDatastoreCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class DeleteFHIRDatastoreCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFHIRDatastoreCommandOutput> {
     return de_DeleteFHIRDatastoreCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

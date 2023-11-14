@@ -114,9 +114,6 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
   RegisterAppInstanceUserEndpointCommandOutput,
   ChimeSDKIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterAppInstanceUserEndpointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
   ): Promise<RegisterAppInstanceUserEndpointCommandOutput> {
     return de_RegisterAppInstanceUserEndpointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

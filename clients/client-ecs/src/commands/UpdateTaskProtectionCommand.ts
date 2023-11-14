@@ -219,9 +219,6 @@ export class UpdateTaskProtectionCommand extends $Command<
   UpdateTaskProtectionCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -235,9 +232,7 @@ export class UpdateTaskProtectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTaskProtectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -290,7 +285,4 @@ export class UpdateTaskProtectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskProtectionCommandOutput> {
     return de_UpdateTaskProtectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

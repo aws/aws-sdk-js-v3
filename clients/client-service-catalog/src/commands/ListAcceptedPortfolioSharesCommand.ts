@@ -91,9 +91,6 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
   ListAcceptedPortfolioSharesCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAcceptedPortfolioSharesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
   ): Promise<ListAcceptedPortfolioSharesCommandOutput> {
     return de_ListAcceptedPortfolioSharesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -99,9 +99,6 @@ export interface GetSdkCommandOutput extends GetSdkCommandOutputType, __Metadata
  *
  */
 export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOutput, APIGatewayClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
    * @public
    */
   constructor(readonly input: GetSdkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSdkCommandOutput> {
     return de_GetSdkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

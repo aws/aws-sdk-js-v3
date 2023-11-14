@@ -91,9 +91,6 @@ export class ListLiveSourcesCommand extends $Command<
   ListLiveSourcesCommandOutput,
   MediaTailorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class ListLiveSourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListLiveSourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class ListLiveSourcesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLiveSourcesCommandOutput> {
     return de_ListLiveSourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

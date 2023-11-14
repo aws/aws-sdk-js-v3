@@ -234,9 +234,6 @@ export class ListPackagingConfigurationsCommand extends $Command<
   ListPackagingConfigurationsCommandOutput,
   MediaPackageVodClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -250,9 +247,7 @@ export class ListPackagingConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPackagingConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -308,7 +303,4 @@ export class ListPackagingConfigurationsCommand extends $Command<
   ): Promise<ListPackagingConfigurationsCommandOutput> {
     return de_ListPackagingConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

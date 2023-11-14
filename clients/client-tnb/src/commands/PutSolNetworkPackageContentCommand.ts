@@ -116,9 +116,6 @@ export class PutSolNetworkPackageContentCommand extends $Command<
   PutSolNetworkPackageContentCommandOutput,
   TnbClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class PutSolNetworkPackageContentCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutSolNetworkPackageContentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class PutSolNetworkPackageContentCommand extends $Command<
   ): Promise<PutSolNetworkPackageContentCommandOutput> {
     return de_PutSolNetworkPackageContentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -227,9 +227,6 @@ export class GetDocumentAnalysisCommand extends $Command<
   GetDocumentAnalysisCommandOutput,
   TextractClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -243,9 +240,7 @@ export class GetDocumentAnalysisCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDocumentAnalysisCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -298,7 +293,4 @@ export class GetDocumentAnalysisCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentAnalysisCommandOutput> {
     return de_GetDocumentAnalysisCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

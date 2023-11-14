@@ -103,9 +103,6 @@ export class CopyBackupToRegionCommand extends $Command<
   CopyBackupToRegionCommandOutput,
   CloudHSMV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class CopyBackupToRegionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CopyBackupToRegionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class CopyBackupToRegionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyBackupToRegionCommandOutput> {
     return de_CopyBackupToRegionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -160,9 +160,6 @@ export class DescribeNatGatewaysCommand extends $Command<
   DescribeNatGatewaysCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -176,9 +173,7 @@ export class DescribeNatGatewaysCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeNatGatewaysCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -231,7 +226,4 @@ export class DescribeNatGatewaysCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNatGatewaysCommandOutput> {
     return de_DescribeNatGatewaysCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

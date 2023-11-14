@@ -99,9 +99,6 @@ export class SendApiAssetCommand extends $Command<
   SendApiAssetCommandOutput,
   DataExchangeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class SendApiAssetCommand extends $Command<
    * @public
    */
   constructor(readonly input: SendApiAssetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class SendApiAssetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendApiAssetCommandOutput> {
     return de_SendApiAssetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

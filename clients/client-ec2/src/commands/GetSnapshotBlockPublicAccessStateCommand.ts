@@ -78,9 +78,6 @@ export class GetSnapshotBlockPublicAccessStateCommand extends $Command<
   GetSnapshotBlockPublicAccessStateCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class GetSnapshotBlockPublicAccessStateCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSnapshotBlockPublicAccessStateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class GetSnapshotBlockPublicAccessStateCommand extends $Command<
   ): Promise<GetSnapshotBlockPublicAccessStateCommandOutput> {
     return de_GetSnapshotBlockPublicAccessStateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

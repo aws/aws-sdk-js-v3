@@ -167,9 +167,6 @@ export class GetMetricDataV2Command extends $Command<
   GetMetricDataV2CommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -183,9 +180,7 @@ export class GetMetricDataV2Command extends $Command<
    * @public
    */
   constructor(readonly input: GetMetricDataV2CommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -238,7 +233,4 @@ export class GetMetricDataV2Command extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataV2CommandOutput> {
     return de_GetMetricDataV2Command(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

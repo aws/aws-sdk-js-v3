@@ -289,16 +289,11 @@ export class KitchenSinkOperationCommand extends $Command<
   KitchenSinkOperationCommandOutput,
   JsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: KitchenSinkOperationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -348,7 +343,4 @@ export class KitchenSinkOperationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<KitchenSinkOperationCommandOutput> {
     return de_KitchenSinkOperationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

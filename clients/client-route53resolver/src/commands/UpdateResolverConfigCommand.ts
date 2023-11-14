@@ -105,9 +105,6 @@ export class UpdateResolverConfigCommand extends $Command<
   UpdateResolverConfigCommandOutput,
   Route53ResolverClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class UpdateResolverConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateResolverConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class UpdateResolverConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverConfigCommandOutput> {
     return de_UpdateResolverConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

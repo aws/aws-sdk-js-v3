@@ -115,9 +115,6 @@ export class CancelLoaderJobCommand extends $Command<
   CancelLoaderJobCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class CancelLoaderJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelLoaderJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class CancelLoaderJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelLoaderJobCommandOutput> {
     return de_CancelLoaderJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

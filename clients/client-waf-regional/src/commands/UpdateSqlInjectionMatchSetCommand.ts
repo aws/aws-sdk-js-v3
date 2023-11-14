@@ -258,9 +258,6 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
   UpdateSqlInjectionMatchSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -274,9 +271,7 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSqlInjectionMatchSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -332,7 +327,4 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
   ): Promise<UpdateSqlInjectionMatchSetCommandOutput> {
     return de_UpdateSqlInjectionMatchSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

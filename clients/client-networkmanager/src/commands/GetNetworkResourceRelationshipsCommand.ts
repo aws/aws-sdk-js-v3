@@ -104,9 +104,6 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
   GetNetworkResourceRelationshipsCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetNetworkResourceRelationshipsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
   ): Promise<GetNetworkResourceRelationshipsCommandOutput> {
     return de_GetNetworkResourceRelationshipsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

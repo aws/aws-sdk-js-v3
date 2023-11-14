@@ -126,9 +126,6 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
   DescribeVerifiedAccessTrustProvidersCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeVerifiedAccessTrustProvidersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
   ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> {
     return de_DescribeVerifiedAccessTrustProvidersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

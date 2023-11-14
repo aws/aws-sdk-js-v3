@@ -93,9 +93,6 @@ export class UpdatePlaceIndexCommand extends $Command<
   UpdatePlaceIndexCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class UpdatePlaceIndexCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdatePlaceIndexCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class UpdatePlaceIndexCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlaceIndexCommandOutput> {
     return de_UpdatePlaceIndexCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

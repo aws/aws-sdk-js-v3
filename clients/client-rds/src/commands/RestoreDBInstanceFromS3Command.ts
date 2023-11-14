@@ -429,9 +429,6 @@ export class RestoreDBInstanceFromS3Command extends $Command<
   RestoreDBInstanceFromS3CommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -445,9 +442,7 @@ export class RestoreDBInstanceFromS3Command extends $Command<
    * @public
    */
   constructor(readonly input: RestoreDBInstanceFromS3CommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -500,7 +495,4 @@ export class RestoreDBInstanceFromS3Command extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDBInstanceFromS3CommandOutput> {
     return de_RestoreDBInstanceFromS3Command(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -126,9 +126,6 @@ export class ListProductSubscriptionsCommand extends $Command<
   ListProductSubscriptionsCommandOutput,
   LicenseManagerUserSubscriptionsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class ListProductSubscriptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListProductSubscriptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class ListProductSubscriptionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProductSubscriptionsCommandOutput> {
     return de_ListProductSubscriptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

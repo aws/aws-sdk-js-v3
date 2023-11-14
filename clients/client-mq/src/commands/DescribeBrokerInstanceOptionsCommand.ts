@@ -107,9 +107,6 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
   DescribeBrokerInstanceOptionsCommandOutput,
   MqClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeBrokerInstanceOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
   ): Promise<DescribeBrokerInstanceOptionsCommandOutput> {
     return de_DescribeBrokerInstanceOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

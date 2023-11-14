@@ -148,9 +148,6 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
   ListBucketAnalyticsConfigurationsCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -170,9 +167,7 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListBucketAnalyticsConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -231,7 +226,4 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> {
     return de_ListBucketAnalyticsConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

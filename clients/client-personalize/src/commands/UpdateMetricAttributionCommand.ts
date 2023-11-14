@@ -99,9 +99,6 @@ export class UpdateMetricAttributionCommand extends $Command<
   UpdateMetricAttributionCommandOutput,
   PersonalizeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class UpdateMetricAttributionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMetricAttributionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class UpdateMetricAttributionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMetricAttributionCommandOutput> {
     return de_UpdateMetricAttributionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

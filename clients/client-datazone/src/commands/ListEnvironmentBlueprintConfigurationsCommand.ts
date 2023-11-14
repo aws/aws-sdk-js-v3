@@ -117,9 +117,6 @@ export class ListEnvironmentBlueprintConfigurationsCommand extends $Command<
   ListEnvironmentBlueprintConfigurationsCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class ListEnvironmentBlueprintConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEnvironmentBlueprintConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class ListEnvironmentBlueprintConfigurationsCommand extends $Command<
   ): Promise<ListEnvironmentBlueprintConfigurationsCommandOutput> {
     return de_ListEnvironmentBlueprintConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

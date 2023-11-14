@@ -100,9 +100,6 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
   ChimeSDKVoiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteVoiceConnectorTerminationCredentialsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> {
     return de_DeleteVoiceConnectorTerminationCredentialsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

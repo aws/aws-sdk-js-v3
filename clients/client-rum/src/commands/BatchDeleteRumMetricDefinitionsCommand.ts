@@ -112,9 +112,6 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
   BatchDeleteRumMetricDefinitionsCommandOutput,
   RUMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDeleteRumMetricDefinitionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
   ): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> {
     return de_BatchDeleteRumMetricDefinitionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

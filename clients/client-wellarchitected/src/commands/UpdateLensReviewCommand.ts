@@ -128,9 +128,6 @@ export class UpdateLensReviewCommand extends $Command<
   UpdateLensReviewCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class UpdateLensReviewCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateLensReviewCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class UpdateLensReviewCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLensReviewCommandOutput> {
     return de_UpdateLensReviewCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

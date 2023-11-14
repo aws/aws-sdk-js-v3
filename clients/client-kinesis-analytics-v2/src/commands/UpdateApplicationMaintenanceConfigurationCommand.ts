@@ -123,9 +123,6 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
   UpdateApplicationMaintenanceConfigurationCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateApplicationMaintenanceConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
   ): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> {
     return de_UpdateApplicationMaintenanceConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

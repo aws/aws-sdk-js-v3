@@ -256,9 +256,6 @@ export class GetTraceSummariesCommand extends $Command<
   GetTraceSummariesCommandOutput,
   XRayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -272,9 +269,7 @@ export class GetTraceSummariesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTraceSummariesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -327,7 +322,4 @@ export class GetTraceSummariesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTraceSummariesCommandOutput> {
     return de_GetTraceSummariesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -91,16 +91,11 @@ export class XmlEnumsCommand extends $Command<
   XmlEnumsCommandOutput,
   RestXmlProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: XmlEnumsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class XmlEnumsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEnumsCommandOutput> {
     return de_XmlEnumsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

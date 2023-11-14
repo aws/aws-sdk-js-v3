@@ -200,9 +200,6 @@ export class GetAccessPreviewCommand extends $Command<
   GetAccessPreviewCommandOutput,
   AccessAnalyzerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -216,9 +213,7 @@ export class GetAccessPreviewCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAccessPreviewCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class GetAccessPreviewCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPreviewCommandOutput> {
     return de_GetAccessPreviewCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

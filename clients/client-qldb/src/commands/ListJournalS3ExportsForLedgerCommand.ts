@@ -102,9 +102,6 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
   ListJournalS3ExportsForLedgerCommandOutput,
   QLDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListJournalS3ExportsForLedgerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
     return de_ListJournalS3ExportsForLedgerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

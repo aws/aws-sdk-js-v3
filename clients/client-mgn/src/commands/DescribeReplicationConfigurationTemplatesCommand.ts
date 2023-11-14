@@ -119,9 +119,6 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
   DescribeReplicationConfigurationTemplatesCommandOutput,
   MgnClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeReplicationConfigurationTemplatesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
   ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput> {
     return de_DescribeReplicationConfigurationTemplatesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

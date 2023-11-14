@@ -116,9 +116,6 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
   DescribeApplicableIndividualAssessmentsCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeApplicableIndividualAssessmentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
   ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> {
     return de_DescribeApplicableIndividualAssessmentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

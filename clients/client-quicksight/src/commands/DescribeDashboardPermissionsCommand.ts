@@ -115,9 +115,6 @@ export class DescribeDashboardPermissionsCommand extends $Command<
   DescribeDashboardPermissionsCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class DescribeDashboardPermissionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDashboardPermissionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class DescribeDashboardPermissionsCommand extends $Command<
   ): Promise<DescribeDashboardPermissionsCommandOutput> {
     return de_DescribeDashboardPermissionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

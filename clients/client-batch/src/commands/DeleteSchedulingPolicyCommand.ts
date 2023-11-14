@@ -77,9 +77,6 @@ export class DeleteSchedulingPolicyCommand extends $Command<
   DeleteSchedulingPolicyCommandOutput,
   BatchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DeleteSchedulingPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteSchedulingPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class DeleteSchedulingPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchedulingPolicyCommandOutput> {
     return de_DeleteSchedulingPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

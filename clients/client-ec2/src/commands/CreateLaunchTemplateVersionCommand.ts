@@ -638,9 +638,6 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
   CreateLaunchTemplateVersionCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -654,9 +651,7 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLaunchTemplateVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -712,7 +707,4 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
   ): Promise<CreateLaunchTemplateVersionCommandOutput> {
     return de_CreateLaunchTemplateVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

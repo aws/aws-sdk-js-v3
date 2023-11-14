@@ -156,9 +156,6 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
   GetLendingAnalysisSummaryCommandOutput,
   TextractClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -172,9 +169,7 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetLendingAnalysisSummaryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
   ): Promise<GetLendingAnalysisSummaryCommandOutput> {
     return de_GetLendingAnalysisSummaryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

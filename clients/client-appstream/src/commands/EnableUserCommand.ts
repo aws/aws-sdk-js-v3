@@ -75,9 +75,6 @@ export class EnableUserCommand extends $Command<
   EnableUserCommandOutput,
   AppStreamClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -91,9 +88,7 @@ export class EnableUserCommand extends $Command<
    * @public
    */
   constructor(readonly input: EnableUserCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -144,7 +139,4 @@ export class EnableUserCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableUserCommandOutput> {
     return de_EnableUserCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

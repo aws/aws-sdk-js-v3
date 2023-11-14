@@ -90,9 +90,6 @@ export class GetDedicatedIpsCommand extends $Command<
   GetDedicatedIpsCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class GetDedicatedIpsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDedicatedIpsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class GetDedicatedIpsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpsCommandOutput> {
     return de_GetDedicatedIpsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

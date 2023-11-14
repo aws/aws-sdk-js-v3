@@ -152,9 +152,6 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
   ModifyNetworkInterfaceAttributeCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -168,9 +165,7 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyNetworkInterfaceAttributeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -229,7 +224,4 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
   ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> {
     return de_ModifyNetworkInterfaceAttributeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

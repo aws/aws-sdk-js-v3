@@ -107,9 +107,6 @@ export class DeleteCrossAccountAttachmentCommand extends $Command<
   DeleteCrossAccountAttachmentCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class DeleteCrossAccountAttachmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCrossAccountAttachmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class DeleteCrossAccountAttachmentCommand extends $Command<
   ): Promise<DeleteCrossAccountAttachmentCommandOutput> {
     return de_DeleteCrossAccountAttachmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

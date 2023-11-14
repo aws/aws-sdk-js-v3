@@ -105,9 +105,6 @@ export class DeletePermissionVersionCommand extends $Command<
   DeletePermissionVersionCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class DeletePermissionVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeletePermissionVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DeletePermissionVersionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionVersionCommandOutput> {
     return de_DeletePermissionVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

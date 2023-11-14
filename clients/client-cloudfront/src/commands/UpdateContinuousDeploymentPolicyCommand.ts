@@ -170,9 +170,6 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
   UpdateContinuousDeploymentPolicyCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -186,9 +183,7 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateContinuousDeploymentPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -247,7 +242,4 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
   ): Promise<UpdateContinuousDeploymentPolicyCommandOutput> {
     return de_UpdateContinuousDeploymentPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

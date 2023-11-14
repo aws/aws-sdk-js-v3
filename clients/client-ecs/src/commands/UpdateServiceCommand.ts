@@ -582,9 +582,6 @@ export class UpdateServiceCommand extends $Command<
   UpdateServiceCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -598,9 +595,7 @@ export class UpdateServiceCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateServiceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -651,7 +646,4 @@ export class UpdateServiceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
     return de_UpdateServiceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

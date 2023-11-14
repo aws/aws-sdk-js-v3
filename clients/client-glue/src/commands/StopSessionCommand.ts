@@ -89,9 +89,6 @@ export class StopSessionCommand extends $Command<
   StopSessionCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class StopSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class StopSessionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSessionCommandOutput> {
     return de_StopSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

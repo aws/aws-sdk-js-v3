@@ -93,9 +93,6 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
   DescribeClusterDbRevisionsCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeClusterDbRevisionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
   ): Promise<DescribeClusterDbRevisionsCommandOutput> {
     return de_DescribeClusterDbRevisionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

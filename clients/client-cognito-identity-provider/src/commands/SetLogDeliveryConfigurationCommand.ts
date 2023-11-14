@@ -115,9 +115,6 @@ export class SetLogDeliveryConfigurationCommand extends $Command<
   SetLogDeliveryConfigurationCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class SetLogDeliveryConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetLogDeliveryConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class SetLogDeliveryConfigurationCommand extends $Command<
   ): Promise<SetLogDeliveryConfigurationCommandOutput> {
     return de_SetLogDeliveryConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

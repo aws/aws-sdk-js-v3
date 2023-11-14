@@ -143,9 +143,6 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
   DescribeBudgetPerformanceHistoryCommandOutput,
   BudgetsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -159,9 +156,7 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeBudgetPerformanceHistoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
   ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> {
     return de_DescribeBudgetPerformanceHistoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

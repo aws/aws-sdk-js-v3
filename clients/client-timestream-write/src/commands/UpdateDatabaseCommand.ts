@@ -108,9 +108,6 @@ export class UpdateDatabaseCommand extends $Command<
   UpdateDatabaseCommandOutput,
   TimestreamWriteClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class UpdateDatabaseCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDatabaseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class UpdateDatabaseCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatabaseCommandOutput> {
     return de_UpdateDatabaseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

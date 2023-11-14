@@ -125,9 +125,6 @@ export class CreateLegalHoldCommand extends $Command<
   CreateLegalHoldCommandOutput,
   BackupClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class CreateLegalHoldCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLegalHoldCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class CreateLegalHoldCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLegalHoldCommandOutput> {
     return de_CreateLegalHoldCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -93,9 +93,6 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
   GetFailbackReplicationConfigurationCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetFailbackReplicationConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
   ): Promise<GetFailbackReplicationConfigurationCommandOutput> {
     return de_GetFailbackReplicationConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

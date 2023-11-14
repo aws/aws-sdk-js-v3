@@ -105,9 +105,6 @@ export class ListPositionConfigurationsCommand extends $Command<
   ListPositionConfigurationsCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class ListPositionConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPositionConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class ListPositionConfigurationsCommand extends $Command<
   ): Promise<ListPositionConfigurationsCommandOutput> {
     return de_ListPositionConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

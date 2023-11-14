@@ -91,9 +91,6 @@ export class DeleteKnowledgeBaseCommand extends $Command<
   DeleteKnowledgeBaseCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DeleteKnowledgeBaseCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteKnowledgeBaseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class DeleteKnowledgeBaseCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKnowledgeBaseCommandOutput> {
     return de_DeleteKnowledgeBaseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

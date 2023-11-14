@@ -77,9 +77,6 @@ export class DetachElasticLoadBalancerCommand extends $Command<
   DetachElasticLoadBalancerCommandOutput,
   OpsWorksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DetachElasticLoadBalancerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DetachElasticLoadBalancerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DetachElasticLoadBalancerCommand extends $Command<
   ): Promise<DetachElasticLoadBalancerCommandOutput> {
     return de_DetachElasticLoadBalancerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -111,9 +111,6 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
   UpdateFunctionEventInvokeConfigCommandOutput,
   LambdaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateFunctionEventInvokeConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
   ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> {
     return de_UpdateFunctionEventInvokeConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

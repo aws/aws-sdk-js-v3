@@ -106,9 +106,6 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
   CreateAdditionalAssignmentsForHITCommandOutput,
   MTurkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateAdditionalAssignmentsForHITCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> {
     return de_CreateAdditionalAssignmentsForHITCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

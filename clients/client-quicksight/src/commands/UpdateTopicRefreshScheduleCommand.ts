@@ -111,9 +111,6 @@ export class UpdateTopicRefreshScheduleCommand extends $Command<
   UpdateTopicRefreshScheduleCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class UpdateTopicRefreshScheduleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTopicRefreshScheduleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class UpdateTopicRefreshScheduleCommand extends $Command<
   ): Promise<UpdateTopicRefreshScheduleCommandOutput> {
     return de_UpdateTopicRefreshScheduleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

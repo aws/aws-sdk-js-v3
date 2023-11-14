@@ -111,9 +111,6 @@ export class GetAutoSnapshotsCommand extends $Command<
   GetAutoSnapshotsCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class GetAutoSnapshotsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAutoSnapshotsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class GetAutoSnapshotsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoSnapshotsCommandOutput> {
     return de_GetAutoSnapshotsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

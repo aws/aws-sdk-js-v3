@@ -233,9 +233,6 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
   CreateUnreferencedMergeCommitCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -249,9 +246,7 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateUnreferencedMergeCommitCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -307,7 +302,4 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
   ): Promise<CreateUnreferencedMergeCommitCommandOutput> {
     return de_CreateUnreferencedMergeCommitCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

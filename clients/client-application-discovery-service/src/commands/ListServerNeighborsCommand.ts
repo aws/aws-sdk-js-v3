@@ -108,9 +108,6 @@ export class ListServerNeighborsCommand extends $Command<
   ListServerNeighborsCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class ListServerNeighborsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListServerNeighborsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class ListServerNeighborsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServerNeighborsCommandOutput> {
     return de_ListServerNeighborsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

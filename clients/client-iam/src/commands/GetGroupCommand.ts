@@ -105,9 +105,6 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  *
  */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, IAMClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
    * @public
    */
   constructor(readonly input: GetGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupCommandOutput> {
     return de_GetGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

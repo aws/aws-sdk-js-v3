@@ -510,9 +510,6 @@ export class ReplaceTopicRuleCommand extends $Command<
   ReplaceTopicRuleCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -526,9 +523,7 @@ export class ReplaceTopicRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReplaceTopicRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -581,7 +576,4 @@ export class ReplaceTopicRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceTopicRuleCommandOutput> {
     return de_ReplaceTopicRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

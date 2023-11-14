@@ -91,9 +91,6 @@ export class DeleteProvisionedModelThroughputCommand extends $Command<
   DeleteProvisionedModelThroughputCommandOutput,
   BedrockClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DeleteProvisionedModelThroughputCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteProvisionedModelThroughputCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class DeleteProvisionedModelThroughputCommand extends $Command<
   ): Promise<DeleteProvisionedModelThroughputCommandOutput> {
     return de_DeleteProvisionedModelThroughputCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -77,9 +77,6 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
   DisassociateTrunkInterfaceCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateTrunkInterfaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
   ): Promise<DisassociateTrunkInterfaceCommandOutput> {
     return de_DisassociateTrunkInterfaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

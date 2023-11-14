@@ -105,9 +105,6 @@ export class GetModelsCommand extends $Command<
   GetModelsCommandOutput,
   FraudDetectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class GetModelsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetModelsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class GetModelsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelsCommandOutput> {
     return de_GetModelsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

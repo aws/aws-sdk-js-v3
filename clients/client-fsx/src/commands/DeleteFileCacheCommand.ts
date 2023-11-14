@@ -101,9 +101,6 @@ export class DeleteFileCacheCommand extends $Command<
   DeleteFileCacheCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class DeleteFileCacheCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFileCacheCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class DeleteFileCacheCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileCacheCommandOutput> {
     return de_DeleteFileCacheCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

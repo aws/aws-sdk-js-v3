@@ -174,9 +174,6 @@ export class CreateByteMatchSetCommand extends $Command<
   CreateByteMatchSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -190,9 +187,7 @@ export class CreateByteMatchSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateByteMatchSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -245,7 +240,4 @@ export class CreateByteMatchSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateByteMatchSetCommandOutput> {
     return de_CreateByteMatchSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

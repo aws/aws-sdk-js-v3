@@ -104,9 +104,6 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
   SearchTransitGatewayMulticastGroupsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: SearchTransitGatewayMulticastGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> {
     return de_SearchTransitGatewayMulticastGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

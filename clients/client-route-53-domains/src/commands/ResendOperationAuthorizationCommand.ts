@@ -77,9 +77,6 @@ export class ResendOperationAuthorizationCommand extends $Command<
   ResendOperationAuthorizationCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class ResendOperationAuthorizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResendOperationAuthorizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class ResendOperationAuthorizationCommand extends $Command<
   ): Promise<ResendOperationAuthorizationCommandOutput> {
     return de_ResendOperationAuthorizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

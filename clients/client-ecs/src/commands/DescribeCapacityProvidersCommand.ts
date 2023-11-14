@@ -122,9 +122,6 @@ export class DescribeCapacityProvidersCommand extends $Command<
   DescribeCapacityProvidersCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class DescribeCapacityProvidersCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCapacityProvidersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class DescribeCapacityProvidersCommand extends $Command<
   ): Promise<DescribeCapacityProvidersCommandOutput> {
     return de_DescribeCapacityProvidersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

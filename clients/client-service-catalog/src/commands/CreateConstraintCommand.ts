@@ -99,9 +99,6 @@ export class CreateConstraintCommand extends $Command<
   CreateConstraintCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class CreateConstraintCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateConstraintCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class CreateConstraintCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConstraintCommandOutput> {
     return de_CreateConstraintCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

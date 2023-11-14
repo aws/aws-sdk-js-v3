@@ -134,9 +134,6 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  *
  */
 export class StartTestCommand extends $Command<StartTestCommandInput, StartTestCommandOutput, MgnClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class StartTestCommand extends $Command<StartTestCommandInput, StartTestC
    * @public
    */
   constructor(readonly input: StartTestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class StartTestCommand extends $Command<StartTestCommandInput, StartTestC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTestCommandOutput> {
     return de_StartTestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

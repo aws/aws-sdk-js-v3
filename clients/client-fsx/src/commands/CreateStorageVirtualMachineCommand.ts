@@ -180,9 +180,6 @@ export class CreateStorageVirtualMachineCommand extends $Command<
   CreateStorageVirtualMachineCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -196,9 +193,7 @@ export class CreateStorageVirtualMachineCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateStorageVirtualMachineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -254,7 +249,4 @@ export class CreateStorageVirtualMachineCommand extends $Command<
   ): Promise<CreateStorageVirtualMachineCommandOutput> {
     return de_CreateStorageVirtualMachineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

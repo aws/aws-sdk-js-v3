@@ -85,9 +85,6 @@ export class ListPortfoliosCommand extends $Command<
   ListPortfoliosCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class ListPortfoliosCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPortfoliosCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class ListPortfoliosCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortfoliosCommandOutput> {
     return de_ListPortfoliosCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

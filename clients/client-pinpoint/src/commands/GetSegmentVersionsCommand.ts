@@ -251,9 +251,6 @@ export class GetSegmentVersionsCommand extends $Command<
   GetSegmentVersionsCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -267,9 +264,7 @@ export class GetSegmentVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSegmentVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -322,7 +317,4 @@ export class GetSegmentVersionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentVersionsCommandOutput> {
     return de_GetSegmentVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

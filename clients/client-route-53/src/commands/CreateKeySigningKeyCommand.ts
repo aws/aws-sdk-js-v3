@@ -135,9 +135,6 @@ export class CreateKeySigningKeyCommand extends $Command<
   CreateKeySigningKeyCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class CreateKeySigningKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateKeySigningKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class CreateKeySigningKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeySigningKeyCommandOutput> {
     return de_CreateKeySigningKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

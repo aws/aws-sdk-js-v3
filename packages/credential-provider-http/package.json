@@ -27,13 +27,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/fetch-http-handler": "^2.2.4",
-    "@smithy/node-http-handler": "^2.1.8",
+    "@smithy/fetch-http-handler": "^2.2.6",
+    "@smithy/node-http-handler": "^2.1.9",
     "@smithy/property-provider": "^2.0.0",
-    "@smithy/protocol-http": "^3.0.8",
-    "@smithy/smithy-client": "^2.1.12",
-    "@smithy/types": "^2.4.0",
-    "@smithy/util-stream": "^2.0.17",
+    "@smithy/protocol-http": "^3.0.9",
+    "@smithy/smithy-client": "^2.1.15",
+    "@smithy/types": "^2.5.0",
+    "@smithy/util-stream": "^2.0.20",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

@@ -200,9 +200,6 @@ export class PutBucketLoggingCommand extends $Command<
   PutBucketLoggingCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -222,9 +219,7 @@ export class PutBucketLoggingCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketLoggingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -284,7 +279,4 @@ export class PutBucketLoggingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketLoggingCommandOutput> {
     return de_PutBucketLoggingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

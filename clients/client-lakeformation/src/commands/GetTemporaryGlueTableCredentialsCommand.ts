@@ -106,9 +106,6 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
   GetTemporaryGlueTableCredentialsCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTemporaryGlueTableCredentialsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
   ): Promise<GetTemporaryGlueTableCredentialsCommandOutput> {
     return de_GetTemporaryGlueTableCredentialsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

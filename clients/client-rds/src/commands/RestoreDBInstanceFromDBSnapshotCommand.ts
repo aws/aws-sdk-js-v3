@@ -483,9 +483,6 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
   RestoreDBInstanceFromDBSnapshotCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -499,9 +496,7 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreDBInstanceFromDBSnapshotCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -560,7 +555,4 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
   ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> {
     return de_RestoreDBInstanceFromDBSnapshotCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

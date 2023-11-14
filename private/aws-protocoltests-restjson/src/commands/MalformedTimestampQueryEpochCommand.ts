@@ -70,16 +70,11 @@ export class MalformedTimestampQueryEpochCommand extends $Command<
   MalformedTimestampQueryEpochCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: MalformedTimestampQueryEpochCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -132,7 +127,4 @@ export class MalformedTimestampQueryEpochCommand extends $Command<
   ): Promise<MalformedTimestampQueryEpochCommandOutput> {
     return de_MalformedTimestampQueryEpochCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

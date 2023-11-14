@@ -89,9 +89,6 @@ export class UpdateAccountConfigurationCommand extends $Command<
   UpdateAccountConfigurationCommandOutput,
   CodeGuruSecurityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class UpdateAccountConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateAccountConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class UpdateAccountConfigurationCommand extends $Command<
   ): Promise<UpdateAccountConfigurationCommandOutput> {
     return de_UpdateAccountConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

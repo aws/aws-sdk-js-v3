@@ -77,9 +77,6 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
   DeleteAggregationAuthorizationCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAggregationAuthorizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
   ): Promise<DeleteAggregationAuthorizationCommandOutput> {
     return de_DeleteAggregationAuthorizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

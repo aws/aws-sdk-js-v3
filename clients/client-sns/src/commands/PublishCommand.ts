@@ -153,9 +153,6 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *
  */
 export class PublishCommand extends $Command<PublishCommandInput, PublishCommandOutput, SNSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
    * @public
    */
   constructor(readonly input: PublishCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -222,7 +217,4 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
     return de_PublishCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -210,9 +210,6 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
   AuthorizeSecurityGroupEgressCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -226,9 +223,7 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
    * @public
    */
   constructor(readonly input: AuthorizeSecurityGroupEgressCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -284,7 +279,4 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
   ): Promise<AuthorizeSecurityGroupEgressCommandOutput> {
     return de_AuthorizeSecurityGroupEgressCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

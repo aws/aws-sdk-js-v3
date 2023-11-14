@@ -153,9 +153,6 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
   GetDiscoveredResourceCountsCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDiscoveredResourceCountsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -227,7 +222,4 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
   ): Promise<GetDiscoveredResourceCountsCommandOutput> {
     return de_GetDiscoveredResourceCountsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

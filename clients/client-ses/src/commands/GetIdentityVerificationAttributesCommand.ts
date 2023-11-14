@@ -123,9 +123,6 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
   GetIdentityVerificationAttributesCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetIdentityVerificationAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
   ): Promise<GetIdentityVerificationAttributesCommandOutput> {
     return de_GetIdentityVerificationAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

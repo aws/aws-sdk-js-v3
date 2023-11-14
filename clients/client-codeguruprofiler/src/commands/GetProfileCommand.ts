@@ -168,9 +168,6 @@ export class GetProfileCommand extends $Command<
   GetProfileCommandOutput,
   CodeGuruProfilerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -184,9 +181,7 @@ export class GetProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -237,7 +232,4 @@ export class GetProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
     return de_GetProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

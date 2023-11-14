@@ -101,9 +101,6 @@ export class ListAppAuthorizationsCommand extends $Command<
   ListAppAuthorizationsCommandOutput,
   AppFabricClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ListAppAuthorizationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAppAuthorizationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class ListAppAuthorizationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppAuthorizationsCommandOutput> {
     return de_ListAppAuthorizationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

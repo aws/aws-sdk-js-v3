@@ -74,9 +74,6 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
   StopInferenceRecommendationsJobCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -90,9 +87,7 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopInferenceRecommendationsJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
   ): Promise<StopInferenceRecommendationsJobCommandOutput> {
     return de_StopInferenceRecommendationsJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

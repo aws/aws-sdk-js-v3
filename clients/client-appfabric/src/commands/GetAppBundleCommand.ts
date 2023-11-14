@@ -89,9 +89,6 @@ export class GetAppBundleCommand extends $Command<
   GetAppBundleCommandOutput,
   AppFabricClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class GetAppBundleCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAppBundleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class GetAppBundleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppBundleCommandOutput> {
     return de_GetAppBundleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

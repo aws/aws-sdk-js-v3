@@ -122,9 +122,6 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command<
   ListServiceNetworkServiceAssociationsCommandOutput,
   VPCLatticeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListServiceNetworkServiceAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command<
   ): Promise<ListServiceNetworkServiceAssociationsCommandOutput> {
     return de_ListServiceNetworkServiceAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

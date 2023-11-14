@@ -133,9 +133,6 @@ export class CreateCapacityReservationFleetCommand extends $Command<
   CreateCapacityReservationFleetCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class CreateCapacityReservationFleetCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCapacityReservationFleetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class CreateCapacityReservationFleetCommand extends $Command<
   ): Promise<CreateCapacityReservationFleetCommandOutput> {
     return de_CreateCapacityReservationFleetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -155,9 +155,6 @@ export class ListIdentityPoolUsageCommand extends $Command<
   ListIdentityPoolUsageCommandOutput,
   CognitoSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class ListIdentityPoolUsageCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListIdentityPoolUsageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -226,7 +221,4 @@ export class ListIdentityPoolUsageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityPoolUsageCommandOutput> {
     return de_ListIdentityPoolUsageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

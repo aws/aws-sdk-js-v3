@@ -99,9 +99,6 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
   SetPrincipalTagAttributeMapCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetPrincipalTagAttributeMapCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
   ): Promise<SetPrincipalTagAttributeMapCommandOutput> {
     return de_SetPrincipalTagAttributeMapCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

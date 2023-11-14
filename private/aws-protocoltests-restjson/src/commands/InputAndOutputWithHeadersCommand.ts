@@ -132,16 +132,11 @@ export class InputAndOutputWithHeadersCommand extends $Command<
   InputAndOutputWithHeadersCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: InputAndOutputWithHeadersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class InputAndOutputWithHeadersCommand extends $Command<
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
     return de_InputAndOutputWithHeadersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

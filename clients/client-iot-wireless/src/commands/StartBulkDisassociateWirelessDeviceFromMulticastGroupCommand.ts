@@ -100,9 +100,6 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
   StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
    * @public
    */
   constructor(readonly input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
   ): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> {
     return de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

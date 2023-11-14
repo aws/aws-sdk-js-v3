@@ -153,9 +153,6 @@ export class ConfirmForgotPasswordCommand extends $Command<
   ConfirmForgotPasswordCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class ConfirmForgotPasswordCommand extends $Command<
    * @public
    */
   constructor(readonly input: ConfirmForgotPasswordCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class ConfirmForgotPasswordCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmForgotPasswordCommandOutput> {
     return de_ConfirmForgotPasswordCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

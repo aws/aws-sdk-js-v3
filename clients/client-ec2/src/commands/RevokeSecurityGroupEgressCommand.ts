@@ -164,9 +164,6 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
   RevokeSecurityGroupEgressCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -180,9 +177,7 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
    * @public
    */
   constructor(readonly input: RevokeSecurityGroupEgressCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -238,7 +233,4 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
   ): Promise<RevokeSecurityGroupEgressCommandOutput> {
     return de_RevokeSecurityGroupEgressCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

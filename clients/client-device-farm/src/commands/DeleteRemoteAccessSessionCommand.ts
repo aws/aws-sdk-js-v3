@@ -91,9 +91,6 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
   DeleteRemoteAccessSessionCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteRemoteAccessSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
   ): Promise<DeleteRemoteAccessSessionCommandOutput> {
     return de_DeleteRemoteAccessSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -135,9 +135,6 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
   DescribeVpcEndpointServiceConfigurationsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeVpcEndpointServiceConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -218,7 +213,4 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> {
     return de_DescribeVpcEndpointServiceConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -97,9 +97,6 @@ export class ListLayoutsCommand extends $Command<
   ListLayoutsCommandOutput,
   ConnectCasesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class ListLayoutsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListLayoutsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class ListLayoutsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLayoutsCommandOutput> {
     return de_ListLayoutsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

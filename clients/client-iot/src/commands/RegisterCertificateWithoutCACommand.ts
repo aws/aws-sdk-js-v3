@@ -104,9 +104,6 @@ export class RegisterCertificateWithoutCACommand extends $Command<
   RegisterCertificateWithoutCACommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class RegisterCertificateWithoutCACommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterCertificateWithoutCACommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class RegisterCertificateWithoutCACommand extends $Command<
   ): Promise<RegisterCertificateWithoutCACommandOutput> {
     return de_RegisterCertificateWithoutCACommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

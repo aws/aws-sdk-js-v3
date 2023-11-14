@@ -83,9 +83,6 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
   GetNamespaceDeletionStatusCommandOutput,
   IoTThingsGraphClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetNamespaceDeletionStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
   ): Promise<GetNamespaceDeletionStatusCommandOutput> {
     return de_GetNamespaceDeletionStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

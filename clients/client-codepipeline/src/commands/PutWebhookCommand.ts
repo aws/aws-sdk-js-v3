@@ -151,9 +151,6 @@ export class PutWebhookCommand extends $Command<
   PutWebhookCommandOutput,
   CodePipelineClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class PutWebhookCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutWebhookCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class PutWebhookCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutWebhookCommandOutput> {
     return de_PutWebhookCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

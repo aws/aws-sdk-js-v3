@@ -134,9 +134,6 @@ export class CancelRotateSecretCommand extends $Command<
   CancelRotateSecretCommandOutput,
   SecretsManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class CancelRotateSecretCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelRotateSecretCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class CancelRotateSecretCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRotateSecretCommandOutput> {
     return de_CancelRotateSecretCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

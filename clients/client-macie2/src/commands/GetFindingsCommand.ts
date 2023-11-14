@@ -401,9 +401,6 @@ export class GetFindingsCommand extends $Command<
   GetFindingsCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -417,9 +414,7 @@ export class GetFindingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetFindingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -470,7 +465,4 @@ export class GetFindingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsCommandOutput> {
     return de_GetFindingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

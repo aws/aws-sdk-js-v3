@@ -83,9 +83,6 @@ export class AssociateMemberCommand extends $Command<
   AssociateMemberCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class AssociateMemberCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateMemberCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -154,7 +149,4 @@ export class AssociateMemberCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberCommandOutput> {
     return de_AssociateMemberCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

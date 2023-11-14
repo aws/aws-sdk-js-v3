@@ -122,9 +122,6 @@ export class StopRelationalDatabaseCommand extends $Command<
   StopRelationalDatabaseCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class StopRelationalDatabaseCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopRelationalDatabaseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class StopRelationalDatabaseCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRelationalDatabaseCommandOutput> {
     return de_StopRelationalDatabaseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

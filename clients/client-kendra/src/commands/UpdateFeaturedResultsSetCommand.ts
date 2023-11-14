@@ -127,9 +127,6 @@ export class UpdateFeaturedResultsSetCommand extends $Command<
   UpdateFeaturedResultsSetCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -143,9 +140,7 @@ export class UpdateFeaturedResultsSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateFeaturedResultsSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class UpdateFeaturedResultsSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeaturedResultsSetCommandOutput> {
     return de_UpdateFeaturedResultsSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

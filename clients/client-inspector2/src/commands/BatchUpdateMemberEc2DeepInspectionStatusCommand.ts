@@ -110,9 +110,6 @@ export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command<
   BatchUpdateMemberEc2DeepInspectionStatusCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchUpdateMemberEc2DeepInspectionStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command<
   ): Promise<BatchUpdateMemberEc2DeepInspectionStatusCommandOutput> {
     return de_BatchUpdateMemberEc2DeepInspectionStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

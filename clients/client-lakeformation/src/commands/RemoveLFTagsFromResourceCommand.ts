@@ -169,9 +169,6 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
   RemoveLFTagsFromResourceCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -185,9 +182,7 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveLFTagsFromResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -240,7 +235,4 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveLFTagsFromResourceCommandOutput> {
     return de_RemoveLFTagsFromResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

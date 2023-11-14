@@ -92,9 +92,6 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
   BatchGetCustomEntityTypesCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetCustomEntityTypesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
   ): Promise<BatchGetCustomEntityTypesCommandOutput> {
     return de_BatchGetCustomEntityTypesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -71,9 +71,6 @@ export class DeletePublicIpv4PoolCommand extends $Command<
   DeletePublicIpv4PoolCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -87,9 +84,7 @@ export class DeletePublicIpv4PoolCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeletePublicIpv4PoolCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -142,7 +137,4 @@ export class DeletePublicIpv4PoolCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicIpv4PoolCommandOutput> {
     return de_DeletePublicIpv4PoolCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -106,9 +106,6 @@ export class StopContinuousExportCommand extends $Command<
   StopContinuousExportCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class StopContinuousExportCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopContinuousExportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class StopContinuousExportCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContinuousExportCommandOutput> {
     return de_StopContinuousExportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

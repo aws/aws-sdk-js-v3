@@ -136,9 +136,6 @@ export class UpdateSubscriptionTargetCommand extends $Command<
   UpdateSubscriptionTargetCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -151,9 +148,7 @@ export class UpdateSubscriptionTargetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSubscriptionTargetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class UpdateSubscriptionTargetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubscriptionTargetCommandOutput> {
     return de_UpdateSubscriptionTargetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

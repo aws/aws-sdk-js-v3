@@ -94,9 +94,6 @@ export class UpdateWirelessGatewayCommand extends $Command<
   UpdateWirelessGatewayCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class UpdateWirelessGatewayCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateWirelessGatewayCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class UpdateWirelessGatewayCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWirelessGatewayCommandOutput> {
     return de_UpdateWirelessGatewayCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

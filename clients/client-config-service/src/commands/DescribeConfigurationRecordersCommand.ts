@@ -107,9 +107,6 @@ export class DescribeConfigurationRecordersCommand extends $Command<
   DescribeConfigurationRecordersCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class DescribeConfigurationRecordersCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeConfigurationRecordersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class DescribeConfigurationRecordersCommand extends $Command<
   ): Promise<DescribeConfigurationRecordersCommandOutput> {
     return de_DescribeConfigurationRecordersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

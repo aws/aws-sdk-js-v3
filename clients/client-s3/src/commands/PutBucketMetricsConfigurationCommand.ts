@@ -140,9 +140,6 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
   PutBucketMetricsConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -162,9 +159,7 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketMetricsConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -220,7 +215,4 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
   ): Promise<PutBucketMetricsConfigurationCommandOutput> {
     return de_PutBucketMetricsConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

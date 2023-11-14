@@ -122,9 +122,6 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
   InstallToRemoteAccessSessionCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
    * @public
    */
   constructor(readonly input: InstallToRemoteAccessSessionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
   ): Promise<InstallToRemoteAccessSessionCommandOutput> {
     return de_InstallToRemoteAccessSessionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

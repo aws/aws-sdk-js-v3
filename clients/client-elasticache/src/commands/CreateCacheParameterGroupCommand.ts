@@ -145,9 +145,6 @@ export class CreateCacheParameterGroupCommand extends $Command<
   CreateCacheParameterGroupCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -161,9 +158,7 @@ export class CreateCacheParameterGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCacheParameterGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -219,7 +214,4 @@ export class CreateCacheParameterGroupCommand extends $Command<
   ): Promise<CreateCacheParameterGroupCommandOutput> {
     return de_CreateCacheParameterGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

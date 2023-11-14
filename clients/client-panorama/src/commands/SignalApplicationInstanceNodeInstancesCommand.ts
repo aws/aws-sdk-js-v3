@@ -97,9 +97,6 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
   SignalApplicationInstanceNodeInstancesCommandOutput,
   PanoramaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: SignalApplicationInstanceNodeInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
   ): Promise<SignalApplicationInstanceNodeInstancesCommandOutput> {
     return de_SignalApplicationInstanceNodeInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

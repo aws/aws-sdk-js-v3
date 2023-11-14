@@ -105,9 +105,6 @@ export class PutChunkCommand extends $Command<
   PutChunkCommandOutput,
   BackupStorageClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class PutChunkCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutChunkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class PutChunkCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutChunkCommandOutput> {
     return de_PutChunkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -84,9 +84,6 @@ export class GetStoredQueryCommand extends $Command<
   GetStoredQueryCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class GetStoredQueryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetStoredQueryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class GetStoredQueryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStoredQueryCommandOutput> {
     return de_GetStoredQueryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -292,9 +292,6 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
   CreateBlueGreenDeploymentCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -308,9 +305,7 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateBlueGreenDeploymentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -366,7 +361,4 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
   ): Promise<CreateBlueGreenDeploymentCommandOutput> {
     return de_CreateBlueGreenDeploymentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

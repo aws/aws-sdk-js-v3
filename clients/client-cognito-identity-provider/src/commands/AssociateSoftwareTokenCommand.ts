@@ -129,9 +129,6 @@ export class AssociateSoftwareTokenCommand extends $Command<
   AssociateSoftwareTokenCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class AssociateSoftwareTokenCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateSoftwareTokenCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class AssociateSoftwareTokenCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSoftwareTokenCommandOutput> {
     return de_AssociateSoftwareTokenCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

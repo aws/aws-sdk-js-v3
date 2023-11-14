@@ -96,9 +96,6 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
   UpdateCampaignDialerConfigCommandOutput,
   ConnectCampaignsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateCampaignDialerConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
   ): Promise<UpdateCampaignDialerConfigCommandOutput> {
     return de_UpdateCampaignDialerConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

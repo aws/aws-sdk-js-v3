@@ -91,9 +91,6 @@ export class DescribeConfigurationRevisionCommand extends $Command<
   DescribeConfigurationRevisionCommandOutput,
   MqClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DescribeConfigurationRevisionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeConfigurationRevisionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DescribeConfigurationRevisionCommand extends $Command<
   ): Promise<DescribeConfigurationRevisionCommandOutput> {
     return de_DescribeConfigurationRevisionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

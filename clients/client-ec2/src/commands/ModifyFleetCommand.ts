@@ -200,9 +200,6 @@ export class ModifyFleetCommand extends $Command<
   ModifyFleetCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -216,9 +213,7 @@ export class ModifyFleetCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyFleetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -269,7 +264,4 @@ export class ModifyFleetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyFleetCommandOutput> {
     return de_ModifyFleetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

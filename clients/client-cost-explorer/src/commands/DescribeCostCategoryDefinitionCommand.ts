@@ -194,9 +194,6 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
   DescribeCostCategoryDefinitionCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -210,9 +207,7 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeCostCategoryDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
   ): Promise<DescribeCostCategoryDefinitionCommandOutput> {
     return de_DescribeCostCategoryDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

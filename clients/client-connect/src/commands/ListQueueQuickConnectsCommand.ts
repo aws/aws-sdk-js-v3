@@ -101,9 +101,6 @@ export class ListQueueQuickConnectsCommand extends $Command<
   ListQueueQuickConnectsCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ListQueueQuickConnectsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListQueueQuickConnectsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class ListQueueQuickConnectsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueueQuickConnectsCommandOutput> {
     return de_ListQueueQuickConnectsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

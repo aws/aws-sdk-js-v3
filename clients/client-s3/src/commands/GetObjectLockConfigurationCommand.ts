@@ -90,9 +90,6 @@ export class GetObjectLockConfigurationCommand extends $Command<
   GetObjectLockConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -112,9 +109,7 @@ export class GetObjectLockConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetObjectLockConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetObjectLockConfigurationCommand extends $Command<
   ): Promise<GetObjectLockConfigurationCommandOutput> {
     return de_GetObjectLockConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -107,9 +107,6 @@ export class ListEulaAcceptancesCommand extends $Command<
   ListEulaAcceptancesCommandOutput,
   NimbleClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class ListEulaAcceptancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEulaAcceptancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class ListEulaAcceptancesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEulaAcceptancesCommandOutput> {
     return de_ListEulaAcceptancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

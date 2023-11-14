@@ -88,9 +88,6 @@ export class UpdateRevealConfigurationCommand extends $Command<
   UpdateRevealConfigurationCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class UpdateRevealConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateRevealConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class UpdateRevealConfigurationCommand extends $Command<
   ): Promise<UpdateRevealConfigurationCommandOutput> {
     return de_UpdateRevealConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

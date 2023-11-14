@@ -153,9 +153,6 @@ export class AdminDisableProviderForUserCommand extends $Command<
   AdminDisableProviderForUserCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class AdminDisableProviderForUserCommand extends $Command<
    * @public
    */
   constructor(readonly input: AdminDisableProviderForUserCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -228,7 +223,4 @@ export class AdminDisableProviderForUserCommand extends $Command<
   ): Promise<AdminDisableProviderForUserCommandOutput> {
     return de_AdminDisableProviderForUserCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

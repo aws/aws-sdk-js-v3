@@ -120,9 +120,6 @@ export class ListDatastoresCommand extends $Command<
   ListDatastoresCommandOutput,
   IoTAnalyticsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class ListDatastoresCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDatastoresCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class ListDatastoresCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatastoresCommandOutput> {
     return de_ListDatastoresCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

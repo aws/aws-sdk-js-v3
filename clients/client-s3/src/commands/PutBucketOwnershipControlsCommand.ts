@@ -96,9 +96,6 @@ export class PutBucketOwnershipControlsCommand extends $Command<
   PutBucketOwnershipControlsCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -118,9 +115,7 @@ export class PutBucketOwnershipControlsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketOwnershipControlsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class PutBucketOwnershipControlsCommand extends $Command<
   ): Promise<PutBucketOwnershipControlsCommandOutput> {
     return de_PutBucketOwnershipControlsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

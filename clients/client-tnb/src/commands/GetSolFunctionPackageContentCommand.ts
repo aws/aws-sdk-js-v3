@@ -104,9 +104,6 @@ export class GetSolFunctionPackageContentCommand extends $Command<
   GetSolFunctionPackageContentCommandOutput,
   TnbClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class GetSolFunctionPackageContentCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSolFunctionPackageContentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class GetSolFunctionPackageContentCommand extends $Command<
   ): Promise<GetSolFunctionPackageContentCommandOutput> {
     return de_GetSolFunctionPackageContentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

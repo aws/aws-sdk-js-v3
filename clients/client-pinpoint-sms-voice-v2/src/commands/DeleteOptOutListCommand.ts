@@ -103,9 +103,6 @@ export class DeleteOptOutListCommand extends $Command<
   DeleteOptOutListCommandOutput,
   PinpointSMSVoiceV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class DeleteOptOutListCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteOptOutListCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class DeleteOptOutListCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOptOutListCommandOutput> {
     return de_DeleteOptOutListCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

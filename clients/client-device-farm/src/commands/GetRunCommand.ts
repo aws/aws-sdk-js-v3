@@ -215,9 +215,6 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  *
  */
 export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOutput, DeviceFarmClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -231,9 +228,7 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
    * @public
    */
   constructor(readonly input: GetRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -284,7 +279,4 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunCommandOutput> {
     return de_GetRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

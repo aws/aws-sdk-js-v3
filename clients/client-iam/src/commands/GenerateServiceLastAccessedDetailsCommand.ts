@@ -158,9 +158,6 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
   GenerateServiceLastAccessedDetailsCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -174,9 +171,7 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateServiceLastAccessedDetailsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -235,7 +230,4 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> {
     return de_GenerateServiceLastAccessedDetailsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -88,9 +88,6 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
   DeleteFunctionEventInvokeConfigCommandOutput,
   LambdaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFunctionEventInvokeConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> {
     return de_DeleteFunctionEventInvokeConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

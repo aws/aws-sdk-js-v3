@@ -7,17 +7,13 @@ import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/cor
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { nodeProvider } from "@aws-sdk/token-providers";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
-import {
-  HttpApiKeyAuthSigner,
-  HttpBearerAuthSigner,
-  IdentityProviderConfig,
-  NoAuthSigner,
-  SigV4Signer,
-} from "@smithy/experimental-identity-and-auth";
+import { HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner } from "@smithy/core";
+import { SigV4Signer } from "@smithy/experimental-identity-and-auth";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { IdentityProviderConfig } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { WeatherClientConfig } from "./WeatherClient";
@@ -46,25 +42,28 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (config: IdentityProviderConfig) =>
-          config.getIdentityProvider("aws.auth#sigv4") || decorateDefaultCredentialProvider(credentialDefaultProvider),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4") ||
+          (async (idProps) =>
+            await decorateDefaultCredentialProvider(credentialDefaultProvider)(idProps?.__config || {})()),
         signer: new SigV4Signer(),
       },
       {
         schemeId: "smithy.api#httpApiKeyAuth",
-        identityProvider: (config: IdentityProviderConfig) => config.getIdentityProvider("smithy.api#httpApiKeyAuth"),
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpApiKeyAuth"),
         signer: new HttpApiKeyAuthSigner(),
       },
       {
         schemeId: "smithy.api#httpBearerAuth",
-        identityProvider: (config: IdentityProviderConfig) =>
-          config.getIdentityProvider("smithy.api#httpBearerAuth") || nodeProvider,
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth") ||
+          (async (idProps) => await nodeProvider(idProps?.__config || {})(idProps)),
         signer: new HttpBearerAuthSigner(),
       },
       {
         schemeId: "smithy.api#noAuth",
-        identityProvider: (config: IdentityProviderConfig) =>
-          config.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
         signer: new NoAuthSigner(),
       },
     ],

@@ -99,9 +99,6 @@ export interface GetShareCommandOutput extends GetShareResponse, __MetadataBeare
  *
  */
 export class GetShareCommand extends $Command<GetShareCommandInput, GetShareCommandOutput, OmicsClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetShareCommand extends $Command<GetShareCommandInput, GetShareComm
    * @public
    */
   constructor(readonly input: GetShareCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetShareCommand extends $Command<GetShareCommandInput, GetShareComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetShareCommandOutput> {
     return de_GetShareCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

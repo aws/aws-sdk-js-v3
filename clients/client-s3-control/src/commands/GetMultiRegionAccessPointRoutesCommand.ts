@@ -118,9 +118,6 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
   GetMultiRegionAccessPointRoutesCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -137,9 +134,7 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetMultiRegionAccessPointRoutesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
   ): Promise<GetMultiRegionAccessPointRoutesCommandOutput> {
     return de_GetMultiRegionAccessPointRoutesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

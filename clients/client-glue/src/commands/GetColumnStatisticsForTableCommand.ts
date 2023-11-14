@@ -157,9 +157,6 @@ export class GetColumnStatisticsForTableCommand extends $Command<
   GetColumnStatisticsForTableCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -173,9 +170,7 @@ export class GetColumnStatisticsForTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetColumnStatisticsForTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -231,7 +226,4 @@ export class GetColumnStatisticsForTableCommand extends $Command<
   ): Promise<GetColumnStatisticsForTableCommandOutput> {
     return de_GetColumnStatisticsForTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

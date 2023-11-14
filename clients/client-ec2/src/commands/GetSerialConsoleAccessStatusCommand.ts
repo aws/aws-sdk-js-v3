@@ -75,9 +75,6 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
   GetSerialConsoleAccessStatusCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -91,9 +88,7 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSerialConsoleAccessStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
   ): Promise<GetSerialConsoleAccessStatusCommandOutput> {
     return de_GetSerialConsoleAccessStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

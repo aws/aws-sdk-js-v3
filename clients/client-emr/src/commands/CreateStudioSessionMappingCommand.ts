@@ -83,9 +83,6 @@ export class CreateStudioSessionMappingCommand extends $Command<
   CreateStudioSessionMappingCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class CreateStudioSessionMappingCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateStudioSessionMappingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class CreateStudioSessionMappingCommand extends $Command<
   ): Promise<CreateStudioSessionMappingCommandOutput> {
     return de_CreateStudioSessionMappingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

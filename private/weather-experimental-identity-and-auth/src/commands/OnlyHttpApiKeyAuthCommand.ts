@@ -62,16 +62,11 @@ export class OnlyHttpApiKeyAuthCommand extends $Command<
   OnlyHttpApiKeyAuthCommandOutput,
   WeatherClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: OnlyHttpApiKeyAuthCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -121,7 +116,4 @@ export class OnlyHttpApiKeyAuthCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OnlyHttpApiKeyAuthCommandOutput> {
     throw new Error("No supported protocol was found");
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -88,9 +88,6 @@ export class GetLogRecordCommand extends $Command<
   GetLogRecordCommandOutput,
   CloudWatchLogsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class GetLogRecordCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetLogRecordCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class GetLogRecordCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogRecordCommandOutput> {
     return de_GetLogRecordCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

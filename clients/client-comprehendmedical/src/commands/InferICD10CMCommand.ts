@@ -145,9 +145,6 @@ export class InferICD10CMCommand extends $Command<
   InferICD10CMCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -161,9 +158,7 @@ export class InferICD10CMCommand extends $Command<
    * @public
    */
   constructor(readonly input: InferICD10CMCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class InferICD10CMCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InferICD10CMCommandOutput> {
     return de_InferICD10CMCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

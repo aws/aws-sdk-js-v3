@@ -82,9 +82,6 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
   DeleteApprovalRuleTemplateCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteApprovalRuleTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
   ): Promise<DeleteApprovalRuleTemplateCommandOutput> {
     return de_DeleteApprovalRuleTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

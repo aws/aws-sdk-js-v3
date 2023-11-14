@@ -204,9 +204,6 @@ export class DescribeSecurityGroupsCommand extends $Command<
   DescribeSecurityGroupsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -220,9 +217,7 @@ export class DescribeSecurityGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSecurityGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -275,7 +270,4 @@ export class DescribeSecurityGroupsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityGroupsCommandOutput> {
     return de_DescribeSecurityGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

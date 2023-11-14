@@ -94,9 +94,6 @@ export class CancelResourceRequestCommand extends $Command<
   CancelResourceRequestCommandOutput,
   CloudControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class CancelResourceRequestCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelResourceRequestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class CancelResourceRequestCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelResourceRequestCommandOutput> {
     return de_CancelResourceRequestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

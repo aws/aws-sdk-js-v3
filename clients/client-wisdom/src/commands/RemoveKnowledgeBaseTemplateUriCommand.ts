@@ -82,9 +82,6 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
   RemoveKnowledgeBaseTemplateUriCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveKnowledgeBaseTemplateUriCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
   ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput> {
     return de_RemoveKnowledgeBaseTemplateUriCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

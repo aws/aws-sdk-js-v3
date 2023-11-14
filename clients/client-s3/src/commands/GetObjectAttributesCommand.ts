@@ -268,9 +268,6 @@ export class GetObjectAttributesCommand extends $Command<
   GetObjectAttributesCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -290,9 +287,7 @@ export class GetObjectAttributesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetObjectAttributesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -346,7 +341,4 @@ export class GetObjectAttributesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAttributesCommandOutput> {
     return de_GetObjectAttributesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

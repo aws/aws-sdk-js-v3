@@ -131,9 +131,6 @@ export class UpdateTimeToLiveCommand extends $Command<
   UpdateTimeToLiveCommandOutput,
   DynamoDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class UpdateTimeToLiveCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateTimeToLiveCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class UpdateTimeToLiveCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTimeToLiveCommandOutput> {
     return de_UpdateTimeToLiveCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

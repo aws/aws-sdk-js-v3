@@ -89,9 +89,6 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
   GetCloudFrontOriginAccessIdentityCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCloudFrontOriginAccessIdentityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
     return de_GetCloudFrontOriginAccessIdentityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

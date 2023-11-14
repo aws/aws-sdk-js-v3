@@ -956,9 +956,6 @@ export class CreateDistributionWithTagsCommand extends $Command<
   CreateDistributionWithTagsCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -972,9 +969,7 @@ export class CreateDistributionWithTagsCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDistributionWithTagsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -1030,7 +1025,4 @@ export class CreateDistributionWithTagsCommand extends $Command<
   ): Promise<CreateDistributionWithTagsCommandOutput> {
     return de_CreateDistributionWithTagsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

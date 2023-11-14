@@ -142,9 +142,6 @@ export class BatchEvaluateGeofencesCommand extends $Command<
   BatchEvaluateGeofencesCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -158,9 +155,7 @@ export class BatchEvaluateGeofencesCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchEvaluateGeofencesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -213,7 +208,4 @@ export class BatchEvaluateGeofencesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEvaluateGeofencesCommandOutput> {
     return de_BatchEvaluateGeofencesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

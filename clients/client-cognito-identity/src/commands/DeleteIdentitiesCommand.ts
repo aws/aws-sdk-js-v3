@@ -89,9 +89,6 @@ export class DeleteIdentitiesCommand extends $Command<
   DeleteIdentitiesCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DeleteIdentitiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteIdentitiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DeleteIdentitiesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentitiesCommandOutput> {
     return de_DeleteIdentitiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

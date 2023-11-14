@@ -94,9 +94,6 @@ export class CreatePerformanceAnalysisReportCommand extends $Command<
   CreatePerformanceAnalysisReportCommandOutput,
   PIClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class CreatePerformanceAnalysisReportCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreatePerformanceAnalysisReportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class CreatePerformanceAnalysisReportCommand extends $Command<
   ): Promise<CreatePerformanceAnalysisReportCommandOutput> {
     return de_CreatePerformanceAnalysisReportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

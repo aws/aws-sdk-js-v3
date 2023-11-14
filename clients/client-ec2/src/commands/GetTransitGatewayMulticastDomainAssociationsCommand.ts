@@ -102,9 +102,6 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
    * @public
    */
   constructor(readonly input: GetTransitGatewayMulticastDomainAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> {
     return de_GetTransitGatewayMulticastDomainAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

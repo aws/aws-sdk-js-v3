@@ -82,9 +82,6 @@ export class ListBuildsForProjectCommand extends $Command<
   ListBuildsForProjectCommandOutput,
   CodeBuildClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class ListBuildsForProjectCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListBuildsForProjectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class ListBuildsForProjectCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuildsForProjectCommandOutput> {
     return de_ListBuildsForProjectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -100,9 +100,6 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
   StartInputDeviceMaintenanceWindowCommandOutput,
   MediaLiveClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartInputDeviceMaintenanceWindowCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
   ): Promise<StartInputDeviceMaintenanceWindowCommandOutput> {
     return de_StartInputDeviceMaintenanceWindowCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

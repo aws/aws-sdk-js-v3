@@ -86,9 +86,6 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  *
  */
 export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamCommandOutput, IvsClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
    * @public
    */
   constructor(readonly input: GetStreamCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamCommandOutput> {
     return de_GetStreamCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

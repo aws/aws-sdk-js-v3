@@ -111,9 +111,6 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
   ListAssessmentFrameworkShareRequestsCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAssessmentFrameworkShareRequestsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
   ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> {
     return de_ListAssessmentFrameworkShareRequestsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

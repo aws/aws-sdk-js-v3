@@ -141,9 +141,6 @@ export class DescribeWorkspaceCommand extends $Command<
   DescribeWorkspaceCommandOutput,
   GrafanaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -157,9 +154,7 @@ export class DescribeWorkspaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeWorkspaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class DescribeWorkspaceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceCommandOutput> {
     return de_DescribeWorkspaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

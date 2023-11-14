@@ -103,9 +103,6 @@ export class InvokeEndpointAsyncCommand extends $Command<
   InvokeEndpointAsyncCommandOutput,
   SageMakerRuntimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class InvokeEndpointAsyncCommand extends $Command<
    * @public
    */
   constructor(readonly input: InvokeEndpointAsyncCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class InvokeEndpointAsyncCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeEndpointAsyncCommandOutput> {
     return de_InvokeEndpointAsyncCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

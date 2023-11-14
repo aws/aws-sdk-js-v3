@@ -105,9 +105,6 @@ export class StartRecommendationReportGenerationCommand extends $Command<
   StartRecommendationReportGenerationCommandOutput,
   MigrationHubStrategyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class StartRecommendationReportGenerationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartRecommendationReportGenerationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class StartRecommendationReportGenerationCommand extends $Command<
   ): Promise<StartRecommendationReportGenerationCommandOutput> {
     return de_StartRecommendationReportGenerationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

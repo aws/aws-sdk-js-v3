@@ -119,9 +119,6 @@ export class CreateRealtimeLogConfigCommand extends $Command<
   CreateRealtimeLogConfigCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class CreateRealtimeLogConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateRealtimeLogConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class CreateRealtimeLogConfigCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRealtimeLogConfigCommandOutput> {
     return de_CreateRealtimeLogConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

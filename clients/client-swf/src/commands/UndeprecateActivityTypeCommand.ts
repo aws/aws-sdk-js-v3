@@ -122,9 +122,6 @@ export class UndeprecateActivityTypeCommand extends $Command<
   UndeprecateActivityTypeCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class UndeprecateActivityTypeCommand extends $Command<
    * @public
    */
   constructor(readonly input: UndeprecateActivityTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class UndeprecateActivityTypeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateActivityTypeCommandOutput> {
     return de_UndeprecateActivityTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

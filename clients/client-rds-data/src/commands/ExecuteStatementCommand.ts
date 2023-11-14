@@ -229,9 +229,6 @@ export class ExecuteStatementCommand extends $Command<
   ExecuteStatementCommandOutput,
   RDSDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -245,9 +242,7 @@ export class ExecuteStatementCommand extends $Command<
    * @public
    */
   constructor(readonly input: ExecuteStatementCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -300,7 +295,4 @@ export class ExecuteStatementCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteStatementCommandOutput> {
     return de_ExecuteStatementCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

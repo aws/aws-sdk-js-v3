@@ -116,9 +116,6 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
   AttachLoadBalancerToSubnetsCommandOutput,
   ElasticLoadBalancingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
    * @public
    */
   constructor(readonly input: AttachLoadBalancerToSubnetsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
   ): Promise<AttachLoadBalancerToSubnetsCommandOutput> {
     return de_AttachLoadBalancerToSubnetsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

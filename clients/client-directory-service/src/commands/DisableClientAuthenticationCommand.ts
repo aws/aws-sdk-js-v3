@@ -87,9 +87,6 @@ export class DisableClientAuthenticationCommand extends $Command<
   DisableClientAuthenticationCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DisableClientAuthenticationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableClientAuthenticationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class DisableClientAuthenticationCommand extends $Command<
   ): Promise<DisableClientAuthenticationCommandOutput> {
     return de_DisableClientAuthenticationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

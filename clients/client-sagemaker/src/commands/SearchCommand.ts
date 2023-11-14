@@ -2071,9 +2071,6 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *
  */
 export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOutput, SageMakerClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -2087,9 +2084,7 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
    * @public
    */
   constructor(readonly input: SearchCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -2140,7 +2135,4 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
     return de_SearchCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

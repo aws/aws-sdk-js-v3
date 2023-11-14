@@ -88,9 +88,6 @@ export class PutLoggingOptionsCommand extends $Command<
   PutLoggingOptionsCommandOutput,
   IoTAnalyticsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class PutLoggingOptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutLoggingOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class PutLoggingOptionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingOptionsCommandOutput> {
     return de_PutLoggingOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

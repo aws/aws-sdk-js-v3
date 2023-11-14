@@ -77,9 +77,6 @@ export class DescribeDRTAccessCommand extends $Command<
   DescribeDRTAccessCommandOutput,
   ShieldClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -93,9 +90,7 @@ export class DescribeDRTAccessCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDRTAccessCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class DescribeDRTAccessCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDRTAccessCommandOutput> {
     return de_DescribeDRTAccessCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

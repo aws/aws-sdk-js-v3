@@ -140,9 +140,6 @@ export class CreateInferenceExperimentCommand extends $Command<
   CreateInferenceExperimentCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -156,9 +153,7 @@ export class CreateInferenceExperimentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateInferenceExperimentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class CreateInferenceExperimentCommand extends $Command<
   ): Promise<CreateInferenceExperimentCommandOutput> {
     return de_CreateInferenceExperimentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

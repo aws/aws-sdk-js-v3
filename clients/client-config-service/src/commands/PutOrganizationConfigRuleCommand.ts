@@ -245,9 +245,6 @@ export class PutOrganizationConfigRuleCommand extends $Command<
   PutOrganizationConfigRuleCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -261,9 +258,7 @@ export class PutOrganizationConfigRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutOrganizationConfigRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -319,7 +314,4 @@ export class PutOrganizationConfigRuleCommand extends $Command<
   ): Promise<PutOrganizationConfigRuleCommandOutput> {
     return de_PutOrganizationConfigRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -93,9 +93,6 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
   GetClusterCredentialsWithIAMCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetClusterCredentialsWithIAMCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -167,7 +162,4 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
   ): Promise<GetClusterCredentialsWithIAMCommandOutput> {
     return de_GetClusterCredentialsWithIAMCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

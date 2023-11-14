@@ -232,9 +232,6 @@ export class UpdateBudgetActionCommand extends $Command<
   UpdateBudgetActionCommandOutput,
   BudgetsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -248,9 +245,7 @@ export class UpdateBudgetActionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateBudgetActionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -303,7 +298,4 @@ export class UpdateBudgetActionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBudgetActionCommandOutput> {
     return de_UpdateBudgetActionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

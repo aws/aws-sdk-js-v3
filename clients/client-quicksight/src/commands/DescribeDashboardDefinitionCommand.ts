@@ -4640,9 +4640,6 @@ export class DescribeDashboardDefinitionCommand extends $Command<
   DescribeDashboardDefinitionCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -4656,9 +4653,7 @@ export class DescribeDashboardDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDashboardDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -4714,7 +4709,4 @@ export class DescribeDashboardDefinitionCommand extends $Command<
   ): Promise<DescribeDashboardDefinitionCommandOutput> {
     return de_DescribeDashboardDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

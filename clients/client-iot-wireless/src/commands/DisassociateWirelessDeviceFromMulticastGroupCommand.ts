@@ -93,9 +93,6 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
   DisassociateWirelessDeviceFromMulticastGroupCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
    * @public
    */
   constructor(readonly input: DisassociateWirelessDeviceFromMulticastGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
   ): Promise<DisassociateWirelessDeviceFromMulticastGroupCommandOutput> {
     return de_DisassociateWirelessDeviceFromMulticastGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

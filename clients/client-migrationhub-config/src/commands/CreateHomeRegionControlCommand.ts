@@ -109,9 +109,6 @@ export class CreateHomeRegionControlCommand extends $Command<
   CreateHomeRegionControlCommandOutput,
   MigrationHubConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class CreateHomeRegionControlCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateHomeRegionControlCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class CreateHomeRegionControlCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHomeRegionControlCommandOutput> {
     return de_CreateHomeRegionControlCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -160,9 +160,6 @@ export class GetResourceConfigHistoryCommand extends $Command<
   GetResourceConfigHistoryCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -176,9 +173,7 @@ export class GetResourceConfigHistoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetResourceConfigHistoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -231,7 +226,4 @@ export class GetResourceConfigHistoryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceConfigHistoryCommandOutput> {
     return de_GetResourceConfigHistoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

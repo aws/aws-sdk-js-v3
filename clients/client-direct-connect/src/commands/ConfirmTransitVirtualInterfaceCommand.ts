@@ -83,9 +83,6 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
   ConfirmTransitVirtualInterfaceCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: ConfirmTransitVirtualInterfaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
   ): Promise<ConfirmTransitVirtualInterfaceCommandOutput> {
     return de_ConfirmTransitVirtualInterfaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

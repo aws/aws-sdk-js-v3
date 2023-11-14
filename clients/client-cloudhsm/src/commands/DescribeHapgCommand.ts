@@ -107,9 +107,6 @@ export class DescribeHapgCommand extends $Command<
   DescribeHapgCommandOutput,
   CloudHSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class DescribeHapgCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeHapgCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DescribeHapgCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHapgCommandOutput> {
     return de_DescribeHapgCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

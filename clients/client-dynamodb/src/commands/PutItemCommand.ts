@@ -293,9 +293,6 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *
  */
 export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommandOutput, DynamoDBClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -309,9 +306,7 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
    * @public
    */
   constructor(readonly input: PutItemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -362,7 +357,4 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutItemCommandOutput> {
     return de_PutItemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

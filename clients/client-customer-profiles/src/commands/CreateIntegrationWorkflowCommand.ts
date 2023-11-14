@@ -173,9 +173,6 @@ export class CreateIntegrationWorkflowCommand extends $Command<
   CreateIntegrationWorkflowCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -189,9 +186,7 @@ export class CreateIntegrationWorkflowCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateIntegrationWorkflowCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -247,7 +242,4 @@ export class CreateIntegrationWorkflowCommand extends $Command<
   ): Promise<CreateIntegrationWorkflowCommandOutput> {
     return de_CreateIntegrationWorkflowCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

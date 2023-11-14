@@ -86,9 +86,6 @@ export class ListDataflowEndpointGroupsCommand extends $Command<
   ListDataflowEndpointGroupsCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class ListDataflowEndpointGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDataflowEndpointGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class ListDataflowEndpointGroupsCommand extends $Command<
   ): Promise<ListDataflowEndpointGroupsCommandOutput> {
     return de_ListDataflowEndpointGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

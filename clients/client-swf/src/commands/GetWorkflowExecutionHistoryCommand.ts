@@ -498,9 +498,6 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
   GetWorkflowExecutionHistoryCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -514,9 +511,7 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetWorkflowExecutionHistoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -572,7 +567,4 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
   ): Promise<GetWorkflowExecutionHistoryCommandOutput> {
     return de_GetWorkflowExecutionHistoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

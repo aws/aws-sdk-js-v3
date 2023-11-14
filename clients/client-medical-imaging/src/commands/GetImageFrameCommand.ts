@@ -101,9 +101,6 @@ export class GetImageFrameCommand extends $Command<
   GetImageFrameCommandOutput,
   MedicalImagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetImageFrameCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetImageFrameCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class GetImageFrameCommand extends $Command<
   ): Promise<GetImageFrameCommandOutput> {
     return de_GetImageFrameCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

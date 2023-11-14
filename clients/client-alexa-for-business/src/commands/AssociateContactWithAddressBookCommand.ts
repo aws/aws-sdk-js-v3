@@ -79,9 +79,6 @@ export class AssociateContactWithAddressBookCommand extends $Command<
   AssociateContactWithAddressBookCommandOutput,
   AlexaForBusinessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class AssociateContactWithAddressBookCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateContactWithAddressBookCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class AssociateContactWithAddressBookCommand extends $Command<
   ): Promise<AssociateContactWithAddressBookCommandOutput> {
     return de_AssociateContactWithAddressBookCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

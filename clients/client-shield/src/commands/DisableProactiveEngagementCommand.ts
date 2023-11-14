@@ -82,9 +82,6 @@ export class DisableProactiveEngagementCommand extends $Command<
   DisableProactiveEngagementCommandOutput,
   ShieldClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class DisableProactiveEngagementCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableProactiveEngagementCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class DisableProactiveEngagementCommand extends $Command<
   ): Promise<DisableProactiveEngagementCommandOutput> {
     return de_DisableProactiveEngagementCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -99,9 +99,6 @@ export class AbortDocumentVersionUploadCommand extends $Command<
   AbortDocumentVersionUploadCommandOutput,
   WorkDocsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
    * @public
    */
   constructor(readonly input: AbortDocumentVersionUploadCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class AbortDocumentVersionUploadCommand extends $Command<
   ): Promise<AbortDocumentVersionUploadCommandOutput> {
     return de_AbortDocumentVersionUploadCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

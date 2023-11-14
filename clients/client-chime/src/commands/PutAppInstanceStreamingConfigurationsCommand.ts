@@ -122,9 +122,6 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
   PutAppInstanceStreamingConfigurationsCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutAppInstanceStreamingConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
   ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput> {
     return de_PutAppInstanceStreamingConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

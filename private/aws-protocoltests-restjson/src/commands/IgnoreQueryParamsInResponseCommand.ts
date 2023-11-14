@@ -72,16 +72,11 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
   IgnoreQueryParamsInResponseCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: IgnoreQueryParamsInResponseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -134,7 +129,4 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> {
     return de_IgnoreQueryParamsInResponseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

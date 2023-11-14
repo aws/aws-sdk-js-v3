@@ -125,9 +125,6 @@ export class ListBatchJobExecutionsCommand extends $Command<
   ListBatchJobExecutionsCommandOutput,
   M2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class ListBatchJobExecutionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListBatchJobExecutionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class ListBatchJobExecutionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchJobExecutionsCommandOutput> {
     return de_ListBatchJobExecutionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

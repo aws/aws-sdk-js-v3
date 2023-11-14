@@ -111,9 +111,6 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
   DetachLoadBalancerTargetGroupsCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DetachLoadBalancerTargetGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
   ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> {
     return de_DetachLoadBalancerTargetGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

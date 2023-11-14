@@ -526,9 +526,6 @@ export class GetViolationDetailsCommand extends $Command<
   GetViolationDetailsCommandOutput,
   FMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -542,9 +539,7 @@ export class GetViolationDetailsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetViolationDetailsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -597,7 +592,4 @@ export class GetViolationDetailsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetViolationDetailsCommandOutput> {
     return de_GetViolationDetailsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

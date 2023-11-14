@@ -133,9 +133,6 @@ export class GetDataflowEndpointGroupCommand extends $Command<
   GetDataflowEndpointGroupCommandOutput,
   GroundStationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class GetDataflowEndpointGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDataflowEndpointGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class GetDataflowEndpointGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowEndpointGroupCommandOutput> {
     return de_GetDataflowEndpointGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -67,16 +67,11 @@ export class DatetimeOffsetsCommand extends $Command<
   DatetimeOffsetsCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: DatetimeOffsetsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -126,7 +121,4 @@ export class DatetimeOffsetsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DatetimeOffsetsCommandOutput> {
     return de_DatetimeOffsetsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

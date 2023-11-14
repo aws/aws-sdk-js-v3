@@ -122,9 +122,6 @@ export class GetResourceShareAssociationsCommand extends $Command<
   GetResourceShareAssociationsCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class GetResourceShareAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetResourceShareAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class GetResourceShareAssociationsCommand extends $Command<
   ): Promise<GetResourceShareAssociationsCommandOutput> {
     return de_GetResourceShareAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -116,9 +116,6 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *
  */
 export class StartRunCommand extends $Command<StartRunCommandInput, StartRunCommandOutput, OmicsClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
    * @public
    */
   constructor(readonly input: StartRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRunCommandOutput> {
     return de_StartRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

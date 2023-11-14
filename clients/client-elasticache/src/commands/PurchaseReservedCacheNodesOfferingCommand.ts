@@ -139,9 +139,6 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
   PurchaseReservedCacheNodesOfferingCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -155,9 +152,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
    * @public
    */
   constructor(readonly input: PurchaseReservedCacheNodesOfferingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -216,7 +211,4 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> {
     return de_PurchaseReservedCacheNodesOfferingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

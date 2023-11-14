@@ -250,9 +250,6 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  *
  */
 export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommandOutput, DynamoDBClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -266,9 +263,7 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
    * @public
    */
   constructor(readonly input: GetItemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -319,7 +314,4 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetItemCommandOutput> {
     return de_GetItemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

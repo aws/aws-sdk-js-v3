@@ -68,9 +68,6 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
   RemoveManagedScalingPolicyCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -84,9 +81,7 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveManagedScalingPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -142,7 +137,4 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
   ): Promise<RemoveManagedScalingPolicyCommandOutput> {
     return de_RemoveManagedScalingPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

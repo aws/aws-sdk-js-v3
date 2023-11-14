@@ -81,9 +81,6 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *
  */
 export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommandOutput, EMRClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
    * @public
    */
   constructor(readonly input: AddTagsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
     return de_AddTagsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

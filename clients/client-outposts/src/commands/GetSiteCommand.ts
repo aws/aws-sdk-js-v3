@@ -102,9 +102,6 @@ export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
  *
  */
 export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommandOutput, OutpostsClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
    * @public
    */
   constructor(readonly input: GetSiteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSiteCommandOutput> {
     return de_GetSiteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

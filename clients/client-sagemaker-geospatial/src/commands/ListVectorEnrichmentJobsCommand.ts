@@ -111,9 +111,6 @@ export class ListVectorEnrichmentJobsCommand extends $Command<
   ListVectorEnrichmentJobsCommandOutput,
   SageMakerGeospatialClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class ListVectorEnrichmentJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListVectorEnrichmentJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class ListVectorEnrichmentJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVectorEnrichmentJobsCommandOutput> {
     return de_ListVectorEnrichmentJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

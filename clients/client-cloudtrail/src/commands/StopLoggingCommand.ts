@@ -146,9 +146,6 @@ export class StopLoggingCommand extends $Command<
   StopLoggingCommandOutput,
   CloudTrailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -162,9 +159,7 @@ export class StopLoggingCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopLoggingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -215,7 +210,4 @@ export class StopLoggingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLoggingCommandOutput> {
     return de_StopLoggingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

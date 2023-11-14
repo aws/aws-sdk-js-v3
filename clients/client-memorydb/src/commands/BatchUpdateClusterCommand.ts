@@ -159,9 +159,6 @@ export class BatchUpdateClusterCommand extends $Command<
   BatchUpdateClusterCommandOutput,
   MemoryDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -175,9 +172,7 @@ export class BatchUpdateClusterCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchUpdateClusterCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class BatchUpdateClusterCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateClusterCommandOutput> {
     return de_BatchUpdateClusterCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

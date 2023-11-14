@@ -106,9 +106,6 @@ export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command<
   DeleteOutboundCrossClusterSearchConnectionCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteOutboundCrossClusterSearchConnectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command<
   ): Promise<DeleteOutboundCrossClusterSearchConnectionCommandOutput> {
     return de_DeleteOutboundCrossClusterSearchConnectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

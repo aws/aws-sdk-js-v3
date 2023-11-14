@@ -111,9 +111,6 @@ export class ListMLModelTrainingJobsCommand extends $Command<
   ListMLModelTrainingJobsCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class ListMLModelTrainingJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMLModelTrainingJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class ListMLModelTrainingJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMLModelTrainingJobsCommandOutput> {
     return de_ListMLModelTrainingJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -131,9 +131,6 @@ export class ListCustomLineItemVersionsCommand extends $Command<
   ListCustomLineItemVersionsCommandOutput,
   BillingconductorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class ListCustomLineItemVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListCustomLineItemVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class ListCustomLineItemVersionsCommand extends $Command<
   ): Promise<ListCustomLineItemVersionsCommandOutput> {
     return de_ListCustomLineItemVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

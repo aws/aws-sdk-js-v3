@@ -88,9 +88,6 @@ export class GetPromptFileCommand extends $Command<
   GetPromptFileCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class GetPromptFileCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPromptFileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class GetPromptFileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPromptFileCommandOutput> {
     return de_GetPromptFileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

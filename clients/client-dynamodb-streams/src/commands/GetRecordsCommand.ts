@@ -275,9 +275,6 @@ export class GetRecordsCommand extends $Command<
   GetRecordsCommandOutput,
   DynamoDBStreamsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -291,9 +288,7 @@ export class GetRecordsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRecordsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -344,7 +339,4 @@ export class GetRecordsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
     return de_GetRecordsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

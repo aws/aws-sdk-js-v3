@@ -163,9 +163,6 @@ export class CreateStateMachineCommand extends $Command<
   CreateStateMachineCommandOutput,
   SFNClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -179,9 +176,7 @@ export class CreateStateMachineCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateStateMachineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -234,7 +229,4 @@ export class CreateStateMachineCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStateMachineCommandOutput> {
     return de_CreateStateMachineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

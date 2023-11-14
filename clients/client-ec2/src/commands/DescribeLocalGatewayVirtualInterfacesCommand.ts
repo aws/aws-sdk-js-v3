@@ -110,9 +110,6 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeLocalGatewayVirtualInterfacesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> {
     return de_DescribeLocalGatewayVirtualInterfacesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -85,9 +85,6 @@ export class StartOnDemandAuditTaskCommand extends $Command<
   StartOnDemandAuditTaskCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class StartOnDemandAuditTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartOnDemandAuditTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class StartOnDemandAuditTaskCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartOnDemandAuditTaskCommandOutput> {
     return de_StartOnDemandAuditTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

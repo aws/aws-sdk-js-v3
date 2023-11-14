@@ -83,9 +83,6 @@ export class DeleteWirelessGatewayTaskCommand extends $Command<
   DeleteWirelessGatewayTaskCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DeleteWirelessGatewayTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteWirelessGatewayTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DeleteWirelessGatewayTaskCommand extends $Command<
   ): Promise<DeleteWirelessGatewayTaskCommandOutput> {
     return de_DeleteWirelessGatewayTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

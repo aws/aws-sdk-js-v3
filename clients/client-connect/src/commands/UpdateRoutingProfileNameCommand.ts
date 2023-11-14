@@ -90,9 +90,6 @@ export class UpdateRoutingProfileNameCommand extends $Command<
   UpdateRoutingProfileNameCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class UpdateRoutingProfileNameCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateRoutingProfileNameCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class UpdateRoutingProfileNameCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoutingProfileNameCommandOutput> {
     return de_UpdateRoutingProfileNameCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

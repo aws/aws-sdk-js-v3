@@ -70,16 +70,11 @@ export class EndpointWithHostLabelHeaderOperationCommand extends $Command<
   EndpointWithHostLabelHeaderOperationCommandOutput,
   RestXmlProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: EndpointWithHostLabelHeaderOperationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -135,7 +130,4 @@ export class EndpointWithHostLabelHeaderOperationCommand extends $Command<
   ): Promise<EndpointWithHostLabelHeaderOperationCommandOutput> {
     return de_EndpointWithHostLabelHeaderOperationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -86,9 +86,6 @@ export class ListImagesInRecycleBinCommand extends $Command<
   ListImagesInRecycleBinCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class ListImagesInRecycleBinCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListImagesInRecycleBinCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class ListImagesInRecycleBinCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesInRecycleBinCommandOutput> {
     return de_ListImagesInRecycleBinCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

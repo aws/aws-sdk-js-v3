@@ -470,9 +470,6 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
   CreateDBInstanceReadReplicaCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -486,9 +483,7 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDBInstanceReadReplicaCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -545,7 +540,4 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
   ): Promise<CreateDBInstanceReadReplicaCommandOutput> {
     return de_CreateDBInstanceReadReplicaCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

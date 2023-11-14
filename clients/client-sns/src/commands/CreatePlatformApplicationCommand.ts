@@ -128,9 +128,6 @@ export class CreatePlatformApplicationCommand extends $Command<
   CreatePlatformApplicationCommandOutput,
   SNSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class CreatePlatformApplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreatePlatformApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class CreatePlatformApplicationCommand extends $Command<
   ): Promise<CreatePlatformApplicationCommandOutput> {
     return de_CreatePlatformApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

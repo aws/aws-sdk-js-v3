@@ -138,9 +138,6 @@ export class MergeBranchesByFastForwardCommand extends $Command<
   MergeBranchesByFastForwardCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class MergeBranchesByFastForwardCommand extends $Command<
    * @public
    */
   constructor(readonly input: MergeBranchesByFastForwardCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class MergeBranchesByFastForwardCommand extends $Command<
   ): Promise<MergeBranchesByFastForwardCommandOutput> {
     return de_MergeBranchesByFastForwardCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

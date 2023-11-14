@@ -246,9 +246,6 @@ export class IncreaseReplicaCountCommand extends $Command<
   IncreaseReplicaCountCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -262,9 +259,7 @@ export class IncreaseReplicaCountCommand extends $Command<
    * @public
    */
   constructor(readonly input: IncreaseReplicaCountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -317,7 +312,4 @@ export class IncreaseReplicaCountCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IncreaseReplicaCountCommandOutput> {
     return de_IncreaseReplicaCountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

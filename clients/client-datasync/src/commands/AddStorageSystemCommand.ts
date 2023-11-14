@@ -102,9 +102,6 @@ export class AddStorageSystemCommand extends $Command<
   AddStorageSystemCommandOutput,
   DataSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class AddStorageSystemCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddStorageSystemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class AddStorageSystemCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddStorageSystemCommandOutput> {
     return de_AddStorageSystemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

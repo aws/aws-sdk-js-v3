@@ -110,9 +110,6 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
   CreateLocationFsxOpenZfsCommandOutput,
   DataSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateLocationFsxOpenZfsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxOpenZfsCommandOutput> {
     return de_CreateLocationFsxOpenZfsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

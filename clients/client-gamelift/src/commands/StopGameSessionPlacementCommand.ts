@@ -125,9 +125,6 @@ export class StopGameSessionPlacementCommand extends $Command<
   StopGameSessionPlacementCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class StopGameSessionPlacementCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopGameSessionPlacementCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class StopGameSessionPlacementCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopGameSessionPlacementCommandOutput> {
     return de_StopGameSessionPlacementCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

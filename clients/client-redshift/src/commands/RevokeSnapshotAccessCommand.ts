@@ -142,9 +142,6 @@ export class RevokeSnapshotAccessCommand extends $Command<
   RevokeSnapshotAccessCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -158,9 +155,7 @@ export class RevokeSnapshotAccessCommand extends $Command<
    * @public
    */
   constructor(readonly input: RevokeSnapshotAccessCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -213,7 +208,4 @@ export class RevokeSnapshotAccessCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSnapshotAccessCommandOutput> {
     return de_RevokeSnapshotAccessCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

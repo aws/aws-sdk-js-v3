@@ -101,9 +101,6 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
   UpdateNetworkResourceMetadataCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateNetworkResourceMetadataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
   ): Promise<UpdateNetworkResourceMetadataCommandOutput> {
     return de_UpdateNetworkResourceMetadataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

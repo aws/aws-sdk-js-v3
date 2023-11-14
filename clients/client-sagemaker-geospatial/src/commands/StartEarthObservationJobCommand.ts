@@ -390,9 +390,6 @@ export class StartEarthObservationJobCommand extends $Command<
   StartEarthObservationJobCommandOutput,
   SageMakerGeospatialClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -406,9 +403,7 @@ export class StartEarthObservationJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartEarthObservationJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -461,7 +456,4 @@ export class StartEarthObservationJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEarthObservationJobCommandOutput> {
     return de_StartEarthObservationJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

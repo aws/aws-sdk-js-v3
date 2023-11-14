@@ -74,16 +74,11 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
   HttpPayloadWithXmlNameCommandOutput,
   RestXmlProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: HttpPayloadWithXmlNameCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -133,7 +128,4 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadWithXmlNameCommandOutput> {
     return de_HttpPayloadWithXmlNameCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

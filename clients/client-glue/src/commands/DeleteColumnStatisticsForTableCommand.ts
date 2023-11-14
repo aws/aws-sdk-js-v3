@@ -92,9 +92,6 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
   DeleteColumnStatisticsForTableCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteColumnStatisticsForTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
   ): Promise<DeleteColumnStatisticsForTableCommandOutput> {
     return de_DeleteColumnStatisticsForTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

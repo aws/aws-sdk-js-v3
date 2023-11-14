@@ -143,9 +143,6 @@ export class CreateDatastoreCommand extends $Command<
   CreateDatastoreCommandOutput,
   IoTAnalyticsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -159,9 +156,7 @@ export class CreateDatastoreCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDatastoreCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class CreateDatastoreCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatastoreCommandOutput> {
     return de_CreateDatastoreCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

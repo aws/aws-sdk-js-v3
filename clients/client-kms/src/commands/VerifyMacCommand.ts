@@ -185,9 +185,6 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  *
  */
 export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacCommandOutput, KMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -201,9 +198,7 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
    * @public
    */
   constructor(readonly input: VerifyMacCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -254,7 +249,4 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyMacCommandOutput> {
     return de_VerifyMacCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

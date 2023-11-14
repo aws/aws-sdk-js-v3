@@ -169,9 +169,6 @@ export class DescribeModelBiasJobDefinitionCommand extends $Command<
   DescribeModelBiasJobDefinitionCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -185,9 +182,7 @@ export class DescribeModelBiasJobDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeModelBiasJobDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -246,7 +241,4 @@ export class DescribeModelBiasJobDefinitionCommand extends $Command<
   ): Promise<DescribeModelBiasJobDefinitionCommandOutput> {
     return de_DescribeModelBiasJobDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

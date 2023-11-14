@@ -79,9 +79,6 @@ export class CloseTunnelCommand extends $Command<
   CloseTunnelCommandOutput,
   IoTSecureTunnelingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -95,9 +92,7 @@ export class CloseTunnelCommand extends $Command<
    * @public
    */
   constructor(readonly input: CloseTunnelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class CloseTunnelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseTunnelCommandOutput> {
     return de_CloseTunnelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

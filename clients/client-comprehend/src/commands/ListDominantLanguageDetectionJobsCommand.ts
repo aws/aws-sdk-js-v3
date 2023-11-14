@@ -134,9 +134,6 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
   ListDominantLanguageDetectionJobsCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -150,9 +147,7 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDominantLanguageDetectionJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput> {
     return de_ListDominantLanguageDetectionJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

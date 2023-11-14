@@ -142,9 +142,6 @@ export class MeterUsageCommand extends $Command<
   MeterUsageCommandOutput,
   MarketplaceMeteringClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -158,9 +155,7 @@ export class MeterUsageCommand extends $Command<
    * @public
    */
   constructor(readonly input: MeterUsageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -211,7 +206,4 @@ export class MeterUsageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MeterUsageCommandOutput> {
     return de_MeterUsageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

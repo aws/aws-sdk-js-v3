@@ -225,9 +225,6 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
   GetEC2InstanceRecommendationsCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -241,9 +238,7 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEC2InstanceRecommendationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -299,7 +294,4 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
   ): Promise<GetEC2InstanceRecommendationsCommandOutput> {
     return de_GetEC2InstanceRecommendationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

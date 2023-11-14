@@ -184,9 +184,6 @@ export class DisconnectSourceServerCommand extends $Command<
   DisconnectSourceServerCommandOutput,
   DrsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -200,9 +197,7 @@ export class DisconnectSourceServerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisconnectSourceServerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -255,7 +250,4 @@ export class DisconnectSourceServerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectSourceServerCommandOutput> {
     return de_DisconnectSourceServerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

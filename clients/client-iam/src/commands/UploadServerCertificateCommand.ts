@@ -174,9 +174,6 @@ export class UploadServerCertificateCommand extends $Command<
   UploadServerCertificateCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -190,9 +187,7 @@ export class UploadServerCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: UploadServerCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -245,7 +240,4 @@ export class UploadServerCertificateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadServerCertificateCommandOutput> {
     return de_UploadServerCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

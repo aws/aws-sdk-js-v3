@@ -91,9 +91,6 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
   RegisterDefaultPatchBaselineCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterDefaultPatchBaselineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
   ): Promise<RegisterDefaultPatchBaselineCommandOutput> {
     return de_RegisterDefaultPatchBaselineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

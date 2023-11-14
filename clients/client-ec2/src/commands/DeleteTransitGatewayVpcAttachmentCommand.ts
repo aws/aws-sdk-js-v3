@@ -97,9 +97,6 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
   DeleteTransitGatewayVpcAttachmentCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTransitGatewayVpcAttachmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> {
     return de_DeleteTransitGatewayVpcAttachmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

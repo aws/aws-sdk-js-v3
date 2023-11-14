@@ -139,9 +139,6 @@ export class RejectSubscriptionRequestCommand extends $Command<
   RejectSubscriptionRequestCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class RejectSubscriptionRequestCommand extends $Command<
    * @public
    */
   constructor(readonly input: RejectSubscriptionRequestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class RejectSubscriptionRequestCommand extends $Command<
   ): Promise<RejectSubscriptionRequestCommandOutput> {
     return de_RejectSubscriptionRequestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -237,9 +237,6 @@ export class SendCommandCommand extends $Command<
   SendCommandCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -253,9 +250,7 @@ export class SendCommandCommand extends $Command<
    * @public
    */
   constructor(readonly input: SendCommandCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -306,7 +301,4 @@ export class SendCommandCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendCommandCommandOutput> {
     return de_SendCommandCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

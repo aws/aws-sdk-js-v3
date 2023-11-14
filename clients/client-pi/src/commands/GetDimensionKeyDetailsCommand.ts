@@ -94,9 +94,6 @@ export class GetDimensionKeyDetailsCommand extends $Command<
   GetDimensionKeyDetailsCommandOutput,
   PIClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class GetDimensionKeyDetailsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDimensionKeyDetailsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class GetDimensionKeyDetailsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDimensionKeyDetailsCommandOutput> {
     return de_GetDimensionKeyDetailsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

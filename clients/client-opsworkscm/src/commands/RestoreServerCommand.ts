@@ -137,9 +137,6 @@ export class RestoreServerCommand extends $Command<
   RestoreServerCommandOutput,
   OpsWorksCMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class RestoreServerCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreServerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class RestoreServerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreServerCommandOutput> {
     return de_RestoreServerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

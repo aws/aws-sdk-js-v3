@@ -185,9 +185,6 @@ export class CreateStreamProcessorCommand extends $Command<
   CreateStreamProcessorCommandOutput,
   RekognitionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -201,9 +198,7 @@ export class CreateStreamProcessorCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateStreamProcessorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -256,7 +251,4 @@ export class CreateStreamProcessorCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamProcessorCommandOutput> {
     return de_CreateStreamProcessorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

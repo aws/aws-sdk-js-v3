@@ -175,9 +175,6 @@ export class DescribeServiceCommand extends $Command<
   DescribeServiceCommandOutput,
   AppRunnerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -191,9 +188,7 @@ export class DescribeServiceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeServiceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -246,7 +241,4 @@ export class DescribeServiceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceCommandOutput> {
     return de_DescribeServiceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

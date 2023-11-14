@@ -111,9 +111,6 @@ export class ListFHIRExportJobsCommand extends $Command<
   ListFHIRExportJobsCommandOutput,
   HealthLakeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class ListFHIRExportJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListFHIRExportJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class ListFHIRExportJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFHIRExportJobsCommandOutput> {
     return de_ListFHIRExportJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

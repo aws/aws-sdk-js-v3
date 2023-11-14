@@ -218,9 +218,6 @@ export class SetRiskConfigurationCommand extends $Command<
   SetRiskConfigurationCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -234,9 +231,7 @@ export class SetRiskConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetRiskConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -290,7 +285,4 @@ export class SetRiskConfigurationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRiskConfigurationCommandOutput> {
     return de_SetRiskConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

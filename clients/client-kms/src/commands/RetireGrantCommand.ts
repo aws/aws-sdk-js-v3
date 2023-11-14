@@ -175,9 +175,6 @@ export class RetireGrantCommand extends $Command<
   RetireGrantCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -191,9 +188,7 @@ export class RetireGrantCommand extends $Command<
    * @public
    */
   constructor(readonly input: RetireGrantCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -244,7 +239,4 @@ export class RetireGrantCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetireGrantCommandOutput> {
     return de_RetireGrantCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

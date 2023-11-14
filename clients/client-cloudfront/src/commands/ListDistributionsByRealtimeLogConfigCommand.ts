@@ -391,9 +391,6 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
   ListDistributionsByRealtimeLogConfigCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -407,9 +404,7 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListDistributionsByRealtimeLogConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -468,7 +463,4 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
   ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput> {
     return de_ListDistributionsByRealtimeLogConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

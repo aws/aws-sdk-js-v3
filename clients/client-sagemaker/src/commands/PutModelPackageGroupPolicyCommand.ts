@@ -73,9 +73,6 @@ export class PutModelPackageGroupPolicyCommand extends $Command<
   PutModelPackageGroupPolicyCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -89,9 +86,7 @@ export class PutModelPackageGroupPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutModelPackageGroupPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -147,7 +142,4 @@ export class PutModelPackageGroupPolicyCommand extends $Command<
   ): Promise<PutModelPackageGroupPolicyCommandOutput> {
     return de_PutModelPackageGroupPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

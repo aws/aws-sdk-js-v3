@@ -109,9 +109,6 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
   PutRegistryScanningConfigurationCommandOutput,
   ECRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutRegistryScanningConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
   ): Promise<PutRegistryScanningConfigurationCommandOutput> {
     return de_PutRegistryScanningConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

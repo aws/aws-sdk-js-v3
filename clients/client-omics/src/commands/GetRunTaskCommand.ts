@@ -107,9 +107,6 @@ export class GetRunTaskCommand extends $Command<
   GetRunTaskCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class GetRunTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRunTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class GetRunTaskCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunTaskCommandOutput> {
     return de_GetRunTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

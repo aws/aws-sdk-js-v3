@@ -96,9 +96,6 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
   AssociateTagOptionWithResourceCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateTagOptionWithResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
   ): Promise<AssociateTagOptionWithResourceCommandOutput> {
     return de_AssociateTagOptionWithResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

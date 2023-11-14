@@ -149,9 +149,6 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
   ListActivatedRulesInRuleGroupCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -165,9 +162,7 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListActivatedRulesInRuleGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
     return de_ListActivatedRulesInRuleGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

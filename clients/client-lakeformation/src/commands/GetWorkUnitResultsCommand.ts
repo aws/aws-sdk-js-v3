@@ -98,9 +98,6 @@ export class GetWorkUnitResultsCommand extends $Command<
   GetWorkUnitResultsCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class GetWorkUnitResultsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetWorkUnitResultsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -172,7 +167,4 @@ export class GetWorkUnitResultsCommand extends $Command<
   ): Promise<GetWorkUnitResultsCommandOutput> {
     return de_GetWorkUnitResultsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

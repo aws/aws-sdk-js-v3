@@ -116,9 +116,6 @@ export class DescribeRepositoryAssociationCommand extends $Command<
   DescribeRepositoryAssociationCommandOutput,
   CodeGuruReviewerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -132,9 +129,7 @@ export class DescribeRepositoryAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRepositoryAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class DescribeRepositoryAssociationCommand extends $Command<
   ): Promise<DescribeRepositoryAssociationCommandOutput> {
     return de_DescribeRepositoryAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

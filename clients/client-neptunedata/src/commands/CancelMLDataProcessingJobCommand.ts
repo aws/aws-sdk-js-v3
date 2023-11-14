@@ -110,9 +110,6 @@ export class CancelMLDataProcessingJobCommand extends $Command<
   CancelMLDataProcessingJobCommandOutput,
   NeptunedataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class CancelMLDataProcessingJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelMLDataProcessingJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class CancelMLDataProcessingJobCommand extends $Command<
   ): Promise<CancelMLDataProcessingJobCommandOutput> {
     return de_CancelMLDataProcessingJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

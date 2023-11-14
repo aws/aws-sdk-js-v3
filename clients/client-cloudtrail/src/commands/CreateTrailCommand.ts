@@ -240,9 +240,6 @@ export class CreateTrailCommand extends $Command<
   CreateTrailCommandOutput,
   CloudTrailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -256,9 +253,7 @@ export class CreateTrailCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateTrailCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -309,7 +304,4 @@ export class CreateTrailCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrailCommandOutput> {
     return de_CreateTrailCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

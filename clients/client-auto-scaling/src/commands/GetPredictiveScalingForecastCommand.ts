@@ -192,9 +192,6 @@ export class GetPredictiveScalingForecastCommand extends $Command<
   GetPredictiveScalingForecastCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -208,9 +205,7 @@ export class GetPredictiveScalingForecastCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPredictiveScalingForecastCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -266,7 +261,4 @@ export class GetPredictiveScalingForecastCommand extends $Command<
   ): Promise<GetPredictiveScalingForecastCommandOutput> {
     return de_GetPredictiveScalingForecastCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

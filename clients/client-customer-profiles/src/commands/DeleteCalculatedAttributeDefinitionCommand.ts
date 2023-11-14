@@ -94,9 +94,6 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command<
   DeleteCalculatedAttributeDefinitionCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCalculatedAttributeDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command<
   ): Promise<DeleteCalculatedAttributeDefinitionCommandOutput> {
     return de_DeleteCalculatedAttributeDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

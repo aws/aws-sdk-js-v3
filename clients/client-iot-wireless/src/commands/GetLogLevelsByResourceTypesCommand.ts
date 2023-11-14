@@ -114,9 +114,6 @@ export class GetLogLevelsByResourceTypesCommand extends $Command<
   GetLogLevelsByResourceTypesCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class GetLogLevelsByResourceTypesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetLogLevelsByResourceTypesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class GetLogLevelsByResourceTypesCommand extends $Command<
   ): Promise<GetLogLevelsByResourceTypesCommandOutput> {
     return de_GetLogLevelsByResourceTypesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

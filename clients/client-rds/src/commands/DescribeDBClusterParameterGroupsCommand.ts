@@ -151,9 +151,6 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
   DescribeDBClusterParameterGroupsCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDBClusterParameterGroupsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -228,7 +223,4 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> {
     return de_DescribeDBClusterParameterGroupsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -84,9 +84,6 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
   ListSnapshotsInRecycleBinCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListSnapshotsInRecycleBinCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
   ): Promise<ListSnapshotsInRecycleBinCommandOutput> {
     return de_ListSnapshotsInRecycleBinCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

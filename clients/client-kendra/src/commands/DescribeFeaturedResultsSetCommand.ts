@@ -113,9 +113,6 @@ export class DescribeFeaturedResultsSetCommand extends $Command<
   DescribeFeaturedResultsSetCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class DescribeFeaturedResultsSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeFeaturedResultsSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class DescribeFeaturedResultsSetCommand extends $Command<
   ): Promise<DescribeFeaturedResultsSetCommandOutput> {
     return de_DescribeFeaturedResultsSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

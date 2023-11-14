@@ -89,9 +89,6 @@ export class StartFuotaTaskCommand extends $Command<
   StartFuotaTaskCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class StartFuotaTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartFuotaTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class StartFuotaTaskCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFuotaTaskCommandOutput> {
     return de_StartFuotaTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

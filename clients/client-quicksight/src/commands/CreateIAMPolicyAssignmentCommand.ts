@@ -118,9 +118,6 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
   CreateIAMPolicyAssignmentCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -134,9 +131,7 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateIAMPolicyAssignmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
   ): Promise<CreateIAMPolicyAssignmentCommandOutput> {
     return de_CreateIAMPolicyAssignmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

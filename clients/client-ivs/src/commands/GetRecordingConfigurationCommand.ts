@@ -109,9 +109,6 @@ export class GetRecordingConfigurationCommand extends $Command<
   GetRecordingConfigurationCommandOutput,
   IvsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class GetRecordingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRecordingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class GetRecordingConfigurationCommand extends $Command<
   ): Promise<GetRecordingConfigurationCommandOutput> {
     return de_GetRecordingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

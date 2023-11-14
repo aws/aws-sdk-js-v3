@@ -135,9 +135,6 @@ export class GetBucketWebsiteCommand extends $Command<
   GetBucketWebsiteCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -157,9 +154,7 @@ export class GetBucketWebsiteCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBucketWebsiteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class GetBucketWebsiteCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketWebsiteCommandOutput> {
     return de_GetBucketWebsiteCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

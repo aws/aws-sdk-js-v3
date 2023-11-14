@@ -100,9 +100,6 @@ export class DeleteBuildCommand extends $Command<
   DeleteBuildCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DeleteBuildCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteBuildCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class DeleteBuildCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBuildCommandOutput> {
     return de_DeleteBuildCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -288,9 +288,6 @@ export class UpdateIPSetCommand extends $Command<
   UpdateIPSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -304,9 +301,7 @@ export class UpdateIPSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateIPSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -357,7 +352,4 @@ export class UpdateIPSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIPSetCommandOutput> {
     return de_UpdateIPSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

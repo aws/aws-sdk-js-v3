@@ -90,9 +90,6 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
   DeleteVpcEndpointConnectionNotificationsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteVpcEndpointConnectionNotificationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> {
     return de_DeleteVpcEndpointConnectionNotificationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

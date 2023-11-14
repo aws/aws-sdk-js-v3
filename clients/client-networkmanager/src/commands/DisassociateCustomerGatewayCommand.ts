@@ -101,9 +101,6 @@ export class DisassociateCustomerGatewayCommand extends $Command<
   DisassociateCustomerGatewayCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class DisassociateCustomerGatewayCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateCustomerGatewayCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DisassociateCustomerGatewayCommand extends $Command<
   ): Promise<DisassociateCustomerGatewayCommandOutput> {
     return de_DisassociateCustomerGatewayCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

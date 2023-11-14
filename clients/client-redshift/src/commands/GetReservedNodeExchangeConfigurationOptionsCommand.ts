@@ -152,9 +152,6 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
   GetReservedNodeExchangeConfigurationOptionsCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -168,9 +165,7 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
    * @public
    */
   constructor(readonly input: GetReservedNodeExchangeConfigurationOptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -235,7 +230,4 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
   ): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> {
     return de_GetReservedNodeExchangeConfigurationOptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

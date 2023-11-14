@@ -101,9 +101,6 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
   DeleteBucketLifecycleConfigurationCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -121,9 +118,7 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteBucketLifecycleConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
   ): Promise<DeleteBucketLifecycleConfigurationCommandOutput> {
     return de_DeleteBucketLifecycleConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

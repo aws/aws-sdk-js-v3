@@ -248,9 +248,6 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   ModifyReplicationGroupShardConfigurationCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -264,9 +261,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ModifyReplicationGroupShardConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -331,7 +326,4 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
     return de_ModifyReplicationGroupShardConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

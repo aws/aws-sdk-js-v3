@@ -92,9 +92,6 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
   DisassociateWirelessGatewayFromCertificateCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateWirelessGatewayFromCertificateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
   ): Promise<DisassociateWirelessGatewayFromCertificateCommandOutput> {
     return de_DisassociateWirelessGatewayFromCertificateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -82,9 +82,6 @@ export class UnassignIpv6AddressesCommand extends $Command<
   UnassignIpv6AddressesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class UnassignIpv6AddressesCommand extends $Command<
    * @public
    */
   constructor(readonly input: UnassignIpv6AddressesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class UnassignIpv6AddressesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignIpv6AddressesCommandOutput> {
     return de_UnassignIpv6AddressesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

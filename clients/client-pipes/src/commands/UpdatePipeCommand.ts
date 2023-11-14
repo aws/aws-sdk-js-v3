@@ -376,9 +376,6 @@ export class UpdatePipeCommand extends $Command<
   UpdatePipeCommandOutput,
   PipesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -392,9 +389,7 @@ export class UpdatePipeCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdatePipeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -445,7 +440,4 @@ export class UpdatePipeCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipeCommandOutput> {
     return de_UpdatePipeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

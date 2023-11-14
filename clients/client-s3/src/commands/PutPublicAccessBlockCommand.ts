@@ -114,9 +114,6 @@ export class PutPublicAccessBlockCommand extends $Command<
   PutPublicAccessBlockCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -136,9 +133,7 @@ export class PutPublicAccessBlockCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutPublicAccessBlockCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class PutPublicAccessBlockCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPublicAccessBlockCommandOutput> {
     return de_PutPublicAccessBlockCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

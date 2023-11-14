@@ -55,8 +55,20 @@ public class AwsCustomizeSigv4AuthPlugin implements HttpAuthTypeScriptIntegratio
                 w.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                 w.addImport("defaultProvider", "credentialDefaultProvider",
                     AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                w.write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
+                w.write("""
+                    async (idProps) => await \
+                    decorateDefaultCredentialProvider(credentialDefaultProvider)(idProps?.__config || {})()""");
             })
+            // Add __config as an identityProperty for backward compatibility of `credentialDefaultProvider`
+            .propertiesExtractor(s -> w -> w.write("""
+                (__config, context) => ({
+                    /**
+                     * @internal
+                     */
+                    identityProperties: {
+                        __config,
+                    },
+                }),"""))
             .build();
         supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
     }

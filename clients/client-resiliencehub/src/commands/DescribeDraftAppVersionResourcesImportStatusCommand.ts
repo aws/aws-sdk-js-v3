@@ -108,9 +108,6 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
   DescribeDraftAppVersionResourcesImportStatusCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
    * @public
    */
   constructor(readonly input: DescribeDraftAppVersionResourcesImportStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
   ): Promise<DescribeDraftAppVersionResourcesImportStatusCommandOutput> {
     return de_DescribeDraftAppVersionResourcesImportStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

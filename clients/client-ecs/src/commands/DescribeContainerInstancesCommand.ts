@@ -268,9 +268,6 @@ export class DescribeContainerInstancesCommand extends $Command<
   DescribeContainerInstancesCommandOutput,
   ECSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -284,9 +281,7 @@ export class DescribeContainerInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeContainerInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -342,7 +337,4 @@ export class DescribeContainerInstancesCommand extends $Command<
   ): Promise<DescribeContainerInstancesCommandOutput> {
     return de_DescribeContainerInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -92,9 +92,6 @@ export class DeleteServicePrincipalNameCommand extends $Command<
   DeleteServicePrincipalNameCommandOutput,
   PcaConnectorAdClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class DeleteServicePrincipalNameCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteServicePrincipalNameCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class DeleteServicePrincipalNameCommand extends $Command<
   ): Promise<DeleteServicePrincipalNameCommandOutput> {
     return de_DeleteServicePrincipalNameCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -96,9 +96,6 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
   ListAssociatedRoute53HealthChecksCommandOutput,
   Route53RecoveryControlConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAssociatedRoute53HealthChecksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
   ): Promise<ListAssociatedRoute53HealthChecksCommandOutput> {
     return de_ListAssociatedRoute53HealthChecksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

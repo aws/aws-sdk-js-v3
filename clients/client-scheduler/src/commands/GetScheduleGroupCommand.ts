@@ -86,9 +86,6 @@ export class GetScheduleGroupCommand extends $Command<
   GetScheduleGroupCommandOutput,
   SchedulerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class GetScheduleGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetScheduleGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class GetScheduleGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetScheduleGroupCommandOutput> {
     return de_GetScheduleGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

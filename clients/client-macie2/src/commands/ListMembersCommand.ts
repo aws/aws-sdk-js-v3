@@ -108,9 +108,6 @@ export class ListMembersCommand extends $Command<
   ListMembersCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class ListMembersCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMembersCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListMembersCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
     return de_ListMembersCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

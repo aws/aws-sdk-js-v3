@@ -102,9 +102,6 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  *
  */
 export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput, ResourceGroupsClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
    * @public
    */
   constructor(readonly input: UntagCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagCommandOutput> {
     return de_UntagCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

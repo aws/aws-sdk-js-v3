@@ -120,9 +120,6 @@ export class DescribeConfigurationsCommand extends $Command<
   DescribeConfigurationsCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class DescribeConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class DescribeConfigurationsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationsCommandOutput> {
     return de_DescribeConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

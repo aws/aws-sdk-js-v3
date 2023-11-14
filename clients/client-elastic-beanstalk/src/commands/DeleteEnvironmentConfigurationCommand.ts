@@ -89,9 +89,6 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
   DeleteEnvironmentConfigurationCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteEnvironmentConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
   ): Promise<DeleteEnvironmentConfigurationCommandOutput> {
     return de_DeleteEnvironmentConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -115,9 +115,6 @@ export class LookupDeveloperIdentityCommand extends $Command<
   LookupDeveloperIdentityCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class LookupDeveloperIdentityCommand extends $Command<
    * @public
    */
   constructor(readonly input: LookupDeveloperIdentityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class LookupDeveloperIdentityCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupDeveloperIdentityCommandOutput> {
     return de_LookupDeveloperIdentityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

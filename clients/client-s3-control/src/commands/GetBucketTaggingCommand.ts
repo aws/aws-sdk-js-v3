@@ -113,9 +113,6 @@ export class GetBucketTaggingCommand extends $Command<
   GetBucketTaggingCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -133,9 +130,7 @@ export class GetBucketTaggingCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBucketTaggingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class GetBucketTaggingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketTaggingCommandOutput> {
     return de_GetBucketTaggingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

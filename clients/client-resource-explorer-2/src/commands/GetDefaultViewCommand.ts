@@ -94,9 +94,6 @@ export class GetDefaultViewCommand extends $Command<
   GetDefaultViewCommandOutput,
   ResourceExplorer2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetDefaultViewCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDefaultViewCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class GetDefaultViewCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultViewCommandOutput> {
     return de_GetDefaultViewCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

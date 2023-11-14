@@ -272,9 +272,6 @@ export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandOutput,
   AutoScalingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -288,9 +285,7 @@ export class PutScalingPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutScalingPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -343,7 +338,4 @@ export class PutScalingPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
     return de_PutScalingPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

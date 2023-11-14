@@ -141,9 +141,6 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
   RegisterInstancesWithLoadBalancerCommandOutput,
   ElasticLoadBalancingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -157,9 +154,7 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterInstancesWithLoadBalancerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -218,7 +213,4 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
   ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> {
     return de_RegisterInstancesWithLoadBalancerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -150,9 +150,6 @@ export class ListNetworkResourcesCommand extends $Command<
   ListNetworkResourcesCommandOutput,
   PrivateNetworksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -166,9 +163,7 @@ export class ListNetworkResourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListNetworkResourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -221,7 +216,4 @@ export class ListNetworkResourcesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkResourcesCommandOutput> {
     return de_ListNetworkResourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

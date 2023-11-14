@@ -113,9 +113,6 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  *
  */
 export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOutput, Inspector2ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
    * @public
    */
   constructor(readonly input: EnableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableCommandOutput> {
     return de_EnableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

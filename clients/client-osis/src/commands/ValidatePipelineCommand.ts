@@ -87,9 +87,6 @@ export class ValidatePipelineCommand extends $Command<
   ValidatePipelineCommandOutput,
   OSISClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class ValidatePipelineCommand extends $Command<
    * @public
    */
   constructor(readonly input: ValidatePipelineCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class ValidatePipelineCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidatePipelineCommandOutput> {
     return de_ValidatePipelineCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

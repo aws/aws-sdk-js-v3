@@ -94,9 +94,6 @@ export class UpdateSceneCommand extends $Command<
   UpdateSceneCommandOutput,
   IoTTwinMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class UpdateSceneCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSceneCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class UpdateSceneCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSceneCommandOutput> {
     return de_UpdateSceneCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

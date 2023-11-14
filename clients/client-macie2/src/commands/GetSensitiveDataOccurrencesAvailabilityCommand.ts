@@ -94,9 +94,6 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
   GetSensitiveDataOccurrencesAvailabilityCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSensitiveDataOccurrencesAvailabilityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
   ): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput> {
     return de_GetSensitiveDataOccurrencesAvailabilityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

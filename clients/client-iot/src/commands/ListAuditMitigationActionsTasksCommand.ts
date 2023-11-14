@@ -98,9 +98,6 @@ export class ListAuditMitigationActionsTasksCommand extends $Command<
   ListAuditMitigationActionsTasksCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class ListAuditMitigationActionsTasksCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAuditMitigationActionsTasksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ListAuditMitigationActionsTasksCommand extends $Command<
   ): Promise<ListAuditMitigationActionsTasksCommandOutput> {
     return de_ListAuditMitigationActionsTasksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

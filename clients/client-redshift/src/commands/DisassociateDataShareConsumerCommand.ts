@@ -96,9 +96,6 @@ export class DisassociateDataShareConsumerCommand extends $Command<
   DisassociateDataShareConsumerCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DisassociateDataShareConsumerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateDataShareConsumerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class DisassociateDataShareConsumerCommand extends $Command<
   ): Promise<DisassociateDataShareConsumerCommandOutput> {
     return de_DisassociateDataShareConsumerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

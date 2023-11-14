@@ -126,9 +126,6 @@ export class BatchGetFindingDetailsCommand extends $Command<
   BatchGetFindingDetailsCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class BatchGetFindingDetailsCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetFindingDetailsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class BatchGetFindingDetailsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFindingDetailsCommandOutput> {
     return de_BatchGetFindingDetailsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

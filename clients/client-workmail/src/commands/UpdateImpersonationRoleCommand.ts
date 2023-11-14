@@ -111,9 +111,6 @@ export class UpdateImpersonationRoleCommand extends $Command<
   UpdateImpersonationRoleCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class UpdateImpersonationRoleCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateImpersonationRoleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class UpdateImpersonationRoleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImpersonationRoleCommandOutput> {
     return de_UpdateImpersonationRoleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

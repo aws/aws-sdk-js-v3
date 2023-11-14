@@ -143,9 +143,6 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
   DescribeIdentityPoolUsageCommandOutput,
   CognitoSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -159,9 +156,7 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeIdentityPoolUsageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -217,7 +212,4 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
   ): Promise<DescribeIdentityPoolUsageCommandOutput> {
     return de_DescribeIdentityPoolUsageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

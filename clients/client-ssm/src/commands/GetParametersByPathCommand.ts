@@ -125,9 +125,6 @@ export class GetParametersByPathCommand extends $Command<
   GetParametersByPathCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class GetParametersByPathCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetParametersByPathCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class GetParametersByPathCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersByPathCommandOutput> {
     return de_GetParametersByPathCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

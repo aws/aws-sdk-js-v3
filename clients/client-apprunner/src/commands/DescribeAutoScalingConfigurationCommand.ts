@@ -97,9 +97,6 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
   DescribeAutoScalingConfigurationCommandOutput,
   AppRunnerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAutoScalingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
   ): Promise<DescribeAutoScalingConfigurationCommandOutput> {
     return de_DescribeAutoScalingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

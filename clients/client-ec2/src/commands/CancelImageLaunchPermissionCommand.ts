@@ -74,9 +74,6 @@ export class CancelImageLaunchPermissionCommand extends $Command<
   CancelImageLaunchPermissionCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -90,9 +87,7 @@ export class CancelImageLaunchPermissionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelImageLaunchPermissionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class CancelImageLaunchPermissionCommand extends $Command<
   ): Promise<CancelImageLaunchPermissionCommandOutput> {
     return de_CancelImageLaunchPermissionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -125,9 +125,6 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  *
  */
 export class PutImageCommand extends $Command<PutImageCommandInput, PutImageCommandOutput, ECRClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
    * @public
    */
   constructor(readonly input: PutImageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageCommandOutput> {
     return de_PutImageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -484,9 +484,6 @@ export class CreateOrganizationCommand extends $Command<
   CreateOrganizationCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -500,9 +497,7 @@ export class CreateOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -555,7 +550,4 @@ export class CreateOrganizationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrganizationCommandOutput> {
     return de_CreateOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

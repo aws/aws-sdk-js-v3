@@ -99,9 +99,6 @@ export class GetChunkCommand extends $Command<
   GetChunkCommandOutput,
   BackupStorageClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetChunkCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetChunkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class GetChunkCommand extends $Command<
   ): Promise<GetChunkCommandOutput> {
     return de_GetChunkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

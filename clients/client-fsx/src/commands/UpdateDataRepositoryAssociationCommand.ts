@@ -157,9 +157,6 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
   UpdateDataRepositoryAssociationCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -173,9 +170,7 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDataRepositoryAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -234,7 +229,4 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
   ): Promise<UpdateDataRepositoryAssociationCommandOutput> {
     return de_UpdateDataRepositoryAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

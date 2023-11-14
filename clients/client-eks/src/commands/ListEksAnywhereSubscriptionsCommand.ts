@@ -117,9 +117,6 @@ export class ListEksAnywhereSubscriptionsCommand extends $Command<
   ListEksAnywhereSubscriptionsCommandOutput,
   EKSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -133,9 +130,7 @@ export class ListEksAnywhereSubscriptionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListEksAnywhereSubscriptionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class ListEksAnywhereSubscriptionsCommand extends $Command<
   ): Promise<ListEksAnywhereSubscriptionsCommandOutput> {
     return de_ListEksAnywhereSubscriptionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

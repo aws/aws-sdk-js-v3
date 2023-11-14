@@ -95,9 +95,6 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
   ListTargetsForSecurityProfileCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTargetsForSecurityProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
   ): Promise<ListTargetsForSecurityProfileCommandOutput> {
     return de_ListTargetsForSecurityProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -307,9 +307,6 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
   AssumeRoleWithWebIdentityCommandOutput,
   STSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
@@ -324,9 +321,7 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssumeRoleWithWebIdentityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -382,7 +377,4 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
   ): Promise<AssumeRoleWithWebIdentityCommandOutput> {
     return de_AssumeRoleWithWebIdentityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

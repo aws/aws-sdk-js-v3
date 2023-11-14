@@ -327,9 +327,6 @@ export class CreateDeploymentGroupCommand extends $Command<
   CreateDeploymentGroupCommandOutput,
   CodeDeployClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -343,9 +340,7 @@ export class CreateDeploymentGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDeploymentGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -398,7 +393,4 @@ export class CreateDeploymentGroupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentGroupCommandOutput> {
     return de_CreateDeploymentGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

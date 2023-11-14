@@ -113,9 +113,6 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
   ListJournalKinesisStreamsForLedgerCommandOutput,
   QLDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListJournalKinesisStreamsForLedgerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
   ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> {
     return de_ListJournalKinesisStreamsForLedgerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

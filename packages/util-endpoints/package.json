@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/util-endpoints": "^1.0.2",
+    "@smithy/util-endpoints": "^1.0.4",
     "tslib": "^2.5.0"
   },
   "engines": {

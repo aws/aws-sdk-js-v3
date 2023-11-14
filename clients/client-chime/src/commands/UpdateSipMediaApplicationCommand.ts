@@ -126,9 +126,6 @@ export class UpdateSipMediaApplicationCommand extends $Command<
   UpdateSipMediaApplicationCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class UpdateSipMediaApplicationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSipMediaApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class UpdateSipMediaApplicationCommand extends $Command<
   ): Promise<UpdateSipMediaApplicationCommandOutput> {
     return de_UpdateSipMediaApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

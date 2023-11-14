@@ -141,9 +141,6 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  *
  */
 export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLCommandOutput, WAFClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -157,9 +154,7 @@ export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLC
    * @public
    */
   constructor(readonly input: GetWebACLCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -210,7 +205,4 @@ export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLCommandOutput> {
     return de_GetWebACLCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

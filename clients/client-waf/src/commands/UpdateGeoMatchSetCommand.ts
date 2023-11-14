@@ -227,9 +227,6 @@ export class UpdateGeoMatchSetCommand extends $Command<
   UpdateGeoMatchSetCommandOutput,
   WAFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -243,9 +240,7 @@ export class UpdateGeoMatchSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateGeoMatchSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -298,7 +293,4 @@ export class UpdateGeoMatchSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGeoMatchSetCommandOutput> {
     return de_UpdateGeoMatchSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

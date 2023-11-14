@@ -71,16 +71,11 @@ export class XmlEmptyMapsCommand extends $Command<
   XmlEmptyMapsCommandOutput,
   QueryProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: XmlEmptyMapsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -130,7 +125,4 @@ export class XmlEmptyMapsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyMapsCommandOutput> {
     return de_XmlEmptyMapsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

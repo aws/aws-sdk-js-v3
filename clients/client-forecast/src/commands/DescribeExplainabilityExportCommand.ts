@@ -97,9 +97,6 @@ export class DescribeExplainabilityExportCommand extends $Command<
   DescribeExplainabilityExportCommandOutput,
   ForecastClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class DescribeExplainabilityExportCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeExplainabilityExportCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class DescribeExplainabilityExportCommand extends $Command<
   ): Promise<DescribeExplainabilityExportCommandOutput> {
     return de_DescribeExplainabilityExportCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

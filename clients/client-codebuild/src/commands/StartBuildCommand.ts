@@ -375,9 +375,6 @@ export class StartBuildCommand extends $Command<
   StartBuildCommandOutput,
   CodeBuildClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -391,9 +388,7 @@ export class StartBuildCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartBuildCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -444,7 +439,4 @@ export class StartBuildCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBuildCommandOutput> {
     return de_StartBuildCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

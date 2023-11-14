@@ -111,9 +111,6 @@ export class PutRecommendationPreferencesCommand extends $Command<
   PutRecommendationPreferencesCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class PutRecommendationPreferencesCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutRecommendationPreferencesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class PutRecommendationPreferencesCommand extends $Command<
   ): Promise<PutRecommendationPreferencesCommandOutput> {
     return de_PutRecommendationPreferencesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

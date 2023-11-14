@@ -72,16 +72,11 @@ export class QueryParamsAsStringListMapCommand extends $Command<
   QueryParamsAsStringListMapCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: QueryParamsAsStringListMapCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -134,7 +129,4 @@ export class QueryParamsAsStringListMapCommand extends $Command<
   ): Promise<QueryParamsAsStringListMapCommandOutput> {
     return de_QueryParamsAsStringListMapCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

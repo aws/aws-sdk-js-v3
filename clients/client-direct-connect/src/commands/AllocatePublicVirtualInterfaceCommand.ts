@@ -158,9 +158,6 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
   AllocatePublicVirtualInterfaceCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -174,9 +171,7 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: AllocatePublicVirtualInterfaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -235,7 +230,4 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput> {
     return de_AllocatePublicVirtualInterfaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

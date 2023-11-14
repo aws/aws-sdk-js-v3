@@ -270,9 +270,6 @@ export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer 
  *
  */
 export class RetrieveCommand extends $Command<RetrieveCommandInput, RetrieveCommandOutput, KendraClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -286,9 +283,7 @@ export class RetrieveCommand extends $Command<RetrieveCommandInput, RetrieveComm
    * @public
    */
   constructor(readonly input: RetrieveCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -339,7 +334,4 @@ export class RetrieveCommand extends $Command<RetrieveCommandInput, RetrieveComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveCommandOutput> {
     return de_RetrieveCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

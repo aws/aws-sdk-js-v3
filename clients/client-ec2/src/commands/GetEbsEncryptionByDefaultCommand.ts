@@ -74,9 +74,6 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
   GetEbsEncryptionByDefaultCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -90,9 +87,7 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetEbsEncryptionByDefaultCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -148,7 +143,4 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
   ): Promise<GetEbsEncryptionByDefaultCommandOutput> {
     return de_GetEbsEncryptionByDefaultCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

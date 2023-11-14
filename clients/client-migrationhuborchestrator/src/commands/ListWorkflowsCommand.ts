@@ -108,9 +108,6 @@ export class ListWorkflowsCommand extends $Command<
   ListWorkflowsCommandOutput,
   MigrationHubOrchestratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class ListWorkflowsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListWorkflowsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListWorkflowsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowsCommandOutput> {
     return de_ListWorkflowsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

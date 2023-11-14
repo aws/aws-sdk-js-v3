@@ -104,9 +104,6 @@ export class GetApnsVoipSandboxChannelCommand extends $Command<
   GetApnsVoipSandboxChannelCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class GetApnsVoipSandboxChannelCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetApnsVoipSandboxChannelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class GetApnsVoipSandboxChannelCommand extends $Command<
   ): Promise<GetApnsVoipSandboxChannelCommandOutput> {
     return de_GetApnsVoipSandboxChannelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -136,9 +136,6 @@ export class ListTokenBalancesCommand extends $Command<
   ListTokenBalancesCommandOutput,
   ManagedBlockchainQueryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -152,9 +149,7 @@ export class ListTokenBalancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTokenBalancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class ListTokenBalancesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTokenBalancesCommandOutput> {
     return de_ListTokenBalancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

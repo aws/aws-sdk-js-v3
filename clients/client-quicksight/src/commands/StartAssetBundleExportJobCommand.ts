@@ -169,9 +169,6 @@ export class StartAssetBundleExportJobCommand extends $Command<
   StartAssetBundleExportJobCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -185,9 +182,7 @@ export class StartAssetBundleExportJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartAssetBundleExportJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -243,7 +238,4 @@ export class StartAssetBundleExportJobCommand extends $Command<
   ): Promise<StartAssetBundleExportJobCommandOutput> {
     return de_StartAssetBundleExportJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

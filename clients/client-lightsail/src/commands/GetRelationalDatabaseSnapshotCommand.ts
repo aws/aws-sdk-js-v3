@@ -129,9 +129,6 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
   GetRelationalDatabaseSnapshotCommandOutput,
   LightsailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRelationalDatabaseSnapshotCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
   ): Promise<GetRelationalDatabaseSnapshotCommandOutput> {
     return de_GetRelationalDatabaseSnapshotCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

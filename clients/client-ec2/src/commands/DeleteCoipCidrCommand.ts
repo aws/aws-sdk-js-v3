@@ -78,9 +78,6 @@ export class DeleteCoipCidrCommand extends $Command<
   DeleteCoipCidrCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class DeleteCoipCidrCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCoipCidrCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class DeleteCoipCidrCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoipCidrCommandOutput> {
     return de_DeleteCoipCidrCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

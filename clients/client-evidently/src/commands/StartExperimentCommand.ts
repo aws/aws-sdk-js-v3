@@ -91,9 +91,6 @@ export class StartExperimentCommand extends $Command<
   StartExperimentCommandOutput,
   EvidentlyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class StartExperimentCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartExperimentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class StartExperimentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExperimentCommandOutput> {
     return de_StartExperimentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

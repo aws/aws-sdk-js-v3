@@ -275,9 +275,6 @@ export class GetExecutionHistoryCommand extends $Command<
   GetExecutionHistoryCommandOutput,
   SFNClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -291,9 +288,7 @@ export class GetExecutionHistoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetExecutionHistoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -346,7 +341,4 @@ export class GetExecutionHistoryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExecutionHistoryCommandOutput> {
     return de_GetExecutionHistoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

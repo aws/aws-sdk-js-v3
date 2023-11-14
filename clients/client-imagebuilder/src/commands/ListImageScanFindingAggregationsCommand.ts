@@ -174,9 +174,6 @@ export class ListImageScanFindingAggregationsCommand extends $Command<
   ListImageScanFindingAggregationsCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -190,9 +187,7 @@ export class ListImageScanFindingAggregationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListImageScanFindingAggregationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -251,7 +246,4 @@ export class ListImageScanFindingAggregationsCommand extends $Command<
   ): Promise<ListImageScanFindingAggregationsCommandOutput> {
     return de_ListImageScanFindingAggregationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

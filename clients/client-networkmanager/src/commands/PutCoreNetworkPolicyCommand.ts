@@ -111,9 +111,6 @@ export class PutCoreNetworkPolicyCommand extends $Command<
   PutCoreNetworkPolicyCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class PutCoreNetworkPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutCoreNetworkPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class PutCoreNetworkPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCoreNetworkPolicyCommandOutput> {
     return de_PutCoreNetworkPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

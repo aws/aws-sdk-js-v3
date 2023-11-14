@@ -173,9 +173,6 @@ export class StartNetworkResourceUpdateCommand extends $Command<
   StartNetworkResourceUpdateCommandOutput,
   PrivateNetworksClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -189,9 +186,7 @@ export class StartNetworkResourceUpdateCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartNetworkResourceUpdateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -247,7 +242,4 @@ export class StartNetworkResourceUpdateCommand extends $Command<
   ): Promise<StartNetworkResourceUpdateCommandOutput> {
     return de_StartNetworkResourceUpdateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

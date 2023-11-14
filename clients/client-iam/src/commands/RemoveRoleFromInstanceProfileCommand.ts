@@ -112,9 +112,6 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
   RemoveRoleFromInstanceProfileCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: RemoveRoleFromInstanceProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
   ): Promise<RemoveRoleFromInstanceProfileCommandOutput> {
     return de_RemoveRoleFromInstanceProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

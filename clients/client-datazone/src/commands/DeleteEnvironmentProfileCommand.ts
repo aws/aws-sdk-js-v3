@@ -87,9 +87,6 @@ export class DeleteEnvironmentProfileCommand extends $Command<
   DeleteEnvironmentProfileCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -102,9 +99,7 @@ export class DeleteEnvironmentProfileCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteEnvironmentProfileCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DeleteEnvironmentProfileCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEnvironmentProfileCommandOutput> {
     return de_DeleteEnvironmentProfileCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -90,9 +90,6 @@ export class GetLFTagCommand extends $Command<
   GetLFTagCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class GetLFTagCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetLFTagCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class GetLFTagCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLFTagCommandOutput> {
     return de_GetLFTagCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

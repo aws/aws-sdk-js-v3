@@ -161,9 +161,6 @@ export class DescribeDashboardSnapshotJobResultCommand extends $Command<
   DescribeDashboardSnapshotJobResultCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -177,9 +174,7 @@ export class DescribeDashboardSnapshotJobResultCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeDashboardSnapshotJobResultCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -238,7 +233,4 @@ export class DescribeDashboardSnapshotJobResultCommand extends $Command<
   ): Promise<DescribeDashboardSnapshotJobResultCommandOutput> {
     return de_DescribeDashboardSnapshotJobResultCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -153,9 +153,6 @@ export class DescribeReservedDBInstancesCommand extends $Command<
   DescribeReservedDBInstancesCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class DescribeReservedDBInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeReservedDBInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -227,7 +222,4 @@ export class DescribeReservedDBInstancesCommand extends $Command<
   ): Promise<DescribeReservedDBInstancesCommandOutput> {
     return de_DescribeReservedDBInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

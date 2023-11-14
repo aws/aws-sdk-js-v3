@@ -91,9 +91,6 @@ export class ListFileSystemAssociationsCommand extends $Command<
   ListFileSystemAssociationsCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class ListFileSystemAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListFileSystemAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class ListFileSystemAssociationsCommand extends $Command<
   ): Promise<ListFileSystemAssociationsCommandOutput> {
     return de_ListFileSystemAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

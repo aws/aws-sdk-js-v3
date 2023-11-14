@@ -101,9 +101,6 @@ export class GetSyncJobCommand extends $Command<
   GetSyncJobCommandOutput,
   IoTTwinMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetSyncJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSyncJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetSyncJobCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSyncJobCommandOutput> {
     return de_GetSyncJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

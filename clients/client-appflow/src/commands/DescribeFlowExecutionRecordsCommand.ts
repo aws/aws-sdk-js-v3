@@ -125,9 +125,6 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
   DescribeFlowExecutionRecordsCommandOutput,
   AppflowClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeFlowExecutionRecordsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -199,7 +194,4 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
   ): Promise<DescribeFlowExecutionRecordsCommandOutput> {
     return de_DescribeFlowExecutionRecordsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

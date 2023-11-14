@@ -197,9 +197,6 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
   AssociateVPCWithHostedZoneCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -213,9 +210,7 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateVPCWithHostedZoneCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -272,7 +267,4 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
   ): Promise<AssociateVPCWithHostedZoneCommandOutput> {
     return de_AssociateVPCWithHostedZoneCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

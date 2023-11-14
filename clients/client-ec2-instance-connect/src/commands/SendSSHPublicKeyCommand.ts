@@ -125,9 +125,6 @@ export class SendSSHPublicKeyCommand extends $Command<
   SendSSHPublicKeyCommandOutput,
   EC2InstanceConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class SendSSHPublicKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: SendSSHPublicKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class SendSSHPublicKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendSSHPublicKeyCommandOutput> {
     return de_SendSSHPublicKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

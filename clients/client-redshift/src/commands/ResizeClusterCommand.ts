@@ -359,9 +359,6 @@ export class ResizeClusterCommand extends $Command<
   ResizeClusterCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -375,9 +372,7 @@ export class ResizeClusterCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResizeClusterCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -428,7 +423,4 @@ export class ResizeClusterCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResizeClusterCommandOutput> {
     return de_ResizeClusterCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

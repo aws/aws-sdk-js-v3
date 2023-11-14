@@ -91,16 +91,11 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
   StreamingTraitsWithMediaTypeCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: StreamingTraitsWithMediaTypeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
   ): Promise<StreamingTraitsWithMediaTypeCommandOutput> {
     return de_StreamingTraitsWithMediaTypeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

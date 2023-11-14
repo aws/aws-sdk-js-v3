@@ -105,9 +105,6 @@ export class GetTransitGatewayPeeringCommand extends $Command<
   GetTransitGatewayPeeringCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class GetTransitGatewayPeeringCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTransitGatewayPeeringCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class GetTransitGatewayPeeringCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTransitGatewayPeeringCommandOutput> {
     return de_GetTransitGatewayPeeringCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -282,9 +282,6 @@ export class DisableSnapshotCopyCommand extends $Command<
   DisableSnapshotCopyCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -298,9 +295,7 @@ export class DisableSnapshotCopyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableSnapshotCopyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -353,7 +348,4 @@ export class DisableSnapshotCopyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableSnapshotCopyCommandOutput> {
     return de_DisableSnapshotCopyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -101,9 +101,6 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
   DisassociateConfigurationItemsFromApplicationCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
    * @public
    */
   constructor(readonly input: DisassociateConfigurationItemsFromApplicationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
   ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> {
     return de_DisassociateConfigurationItemsFromApplicationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -67,16 +67,11 @@ export interface LengthCommandOutput extends LengthOutput, __MetadataBearer {}
  *
  */
 export class LengthCommand extends $Command<LengthCommandInput, LengthCommandOutput, EchoServiceClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: LengthCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -126,7 +121,4 @@ export class LengthCommand extends $Command<LengthCommandInput, LengthCommandOut
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LengthCommandOutput> {
     return de_LengthCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

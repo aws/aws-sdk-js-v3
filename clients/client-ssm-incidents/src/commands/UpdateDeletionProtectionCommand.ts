@@ -88,9 +88,6 @@ export class UpdateDeletionProtectionCommand extends $Command<
   UpdateDeletionProtectionCommandOutput,
   SSMIncidentsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class UpdateDeletionProtectionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDeletionProtectionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class UpdateDeletionProtectionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeletionProtectionCommandOutput> {
     return de_UpdateDeletionProtectionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

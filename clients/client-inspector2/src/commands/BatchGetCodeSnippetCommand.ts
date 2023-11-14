@@ -110,9 +110,6 @@ export class BatchGetCodeSnippetCommand extends $Command<
   BatchGetCodeSnippetCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class BatchGetCodeSnippetCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetCodeSnippetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class BatchGetCodeSnippetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCodeSnippetCommandOutput> {
     return de_BatchGetCodeSnippetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

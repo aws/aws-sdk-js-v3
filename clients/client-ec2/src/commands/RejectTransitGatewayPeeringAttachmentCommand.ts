@@ -110,9 +110,6 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
   RejectTransitGatewayPeeringAttachmentCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: RejectTransitGatewayPeeringAttachmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
   ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> {
     return de_RejectTransitGatewayPeeringAttachmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -165,9 +165,6 @@ export class PutLogEventsCommand extends $Command<
   PutLogEventsCommandOutput,
   CloudWatchLogsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -181,9 +178,7 @@ export class PutLogEventsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutLogEventsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -234,7 +229,4 @@ export class PutLogEventsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLogEventsCommandOutput> {
     return de_PutLogEventsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -111,9 +111,6 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
   GetCompatibleElasticsearchVersionsCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCompatibleElasticsearchVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
     return de_GetCompatibleElasticsearchVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

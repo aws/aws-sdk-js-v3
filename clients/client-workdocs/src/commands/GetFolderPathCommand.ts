@@ -108,9 +108,6 @@ export class GetFolderPathCommand extends $Command<
   GetFolderPathCommandOutput,
   WorkDocsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class GetFolderPathCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetFolderPathCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class GetFolderPathCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFolderPathCommandOutput> {
     return de_GetFolderPathCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

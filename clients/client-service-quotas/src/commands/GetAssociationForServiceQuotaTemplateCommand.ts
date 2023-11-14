@@ -103,9 +103,6 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
   GetAssociationForServiceQuotaTemplateCommandOutput,
   ServiceQuotasClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAssociationForServiceQuotaTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> {
     return de_GetAssociationForServiceQuotaTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

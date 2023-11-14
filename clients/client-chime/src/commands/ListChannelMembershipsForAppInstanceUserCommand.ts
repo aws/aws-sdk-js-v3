@@ -133,9 +133,6 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
   ListChannelMembershipsForAppInstanceUserCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListChannelMembershipsForAppInstanceUserCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -216,7 +211,4 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
   ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> {
     return de_ListChannelMembershipsForAppInstanceUserCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

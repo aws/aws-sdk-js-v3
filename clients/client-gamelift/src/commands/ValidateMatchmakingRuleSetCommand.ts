@@ -94,9 +94,6 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
   ValidateMatchmakingRuleSetCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: ValidateMatchmakingRuleSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
   ): Promise<ValidateMatchmakingRuleSetCommandOutput> {
     return de_ValidateMatchmakingRuleSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

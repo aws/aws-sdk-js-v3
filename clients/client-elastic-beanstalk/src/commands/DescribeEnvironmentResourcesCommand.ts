@@ -155,9 +155,6 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
   DescribeEnvironmentResourcesCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeEnvironmentResourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -229,7 +224,4 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
   ): Promise<DescribeEnvironmentResourcesCommandOutput> {
     return de_DescribeEnvironmentResourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

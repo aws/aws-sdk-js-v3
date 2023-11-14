@@ -99,9 +99,6 @@ export class ListHsmsCommand extends $Command<
   ListHsmsCommandOutput,
   CloudHSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ListHsmsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListHsmsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ListHsmsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHsmsCommandOutput> {
     return de_ListHsmsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -654,9 +654,6 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
   UpdateDistributionWithStagingConfigCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -670,9 +667,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDistributionWithStagingConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -731,7 +726,4 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
   ): Promise<UpdateDistributionWithStagingConfigCommandOutput> {
     return de_UpdateDistributionWithStagingConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

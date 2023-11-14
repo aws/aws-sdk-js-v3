@@ -90,9 +90,6 @@ export class UpdateHostKeyCommand extends $Command<
   UpdateHostKeyCommandOutput,
   TransferClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class UpdateHostKeyCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateHostKeyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class UpdateHostKeyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostKeyCommandOutput> {
     return de_UpdateHostKeyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

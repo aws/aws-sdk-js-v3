@@ -144,9 +144,6 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
   GetRateBasedStatementManagedKeysCommandOutput,
   WAFV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -160,9 +157,7 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRateBasedStatementManagedKeysCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -221,7 +216,4 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
   ): Promise<GetRateBasedStatementManagedKeysCommandOutput> {
     return de_GetRateBasedStatementManagedKeysCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

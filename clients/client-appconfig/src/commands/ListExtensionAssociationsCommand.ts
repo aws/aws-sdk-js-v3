@@ -90,9 +90,6 @@ export class ListExtensionAssociationsCommand extends $Command<
   ListExtensionAssociationsCommandOutput,
   AppConfigClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ListExtensionAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListExtensionAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class ListExtensionAssociationsCommand extends $Command<
   ): Promise<ListExtensionAssociationsCommandOutput> {
     return de_ListExtensionAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

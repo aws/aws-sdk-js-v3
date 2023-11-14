@@ -120,9 +120,6 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
   DescribeAggregateComplianceByConformancePacksCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
    * @public
    */
   constructor(readonly input: DescribeAggregateComplianceByConformancePacksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
   ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput> {
     return de_DescribeAggregateComplianceByConformancePacksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

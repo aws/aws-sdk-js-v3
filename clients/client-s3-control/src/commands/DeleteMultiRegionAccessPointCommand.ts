@@ -112,9 +112,6 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
   DeleteMultiRegionAccessPointCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -131,9 +128,7 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMultiRegionAccessPointCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
   ): Promise<DeleteMultiRegionAccessPointCommandOutput> {
     return de_DeleteMultiRegionAccessPointCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

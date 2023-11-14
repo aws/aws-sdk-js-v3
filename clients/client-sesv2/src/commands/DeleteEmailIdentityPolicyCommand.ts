@@ -89,9 +89,6 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
   DeleteEmailIdentityPolicyCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteEmailIdentityPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -163,7 +158,4 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
   ): Promise<DeleteEmailIdentityPolicyCommandOutput> {
     return de_DeleteEmailIdentityPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

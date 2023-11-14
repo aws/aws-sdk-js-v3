@@ -109,9 +109,6 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
   DescribeRuleGroupMetadataCommandOutput,
   NetworkFirewallClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeRuleGroupMetadataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
   ): Promise<DescribeRuleGroupMetadataCommandOutput> {
     return de_DescribeRuleGroupMetadataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

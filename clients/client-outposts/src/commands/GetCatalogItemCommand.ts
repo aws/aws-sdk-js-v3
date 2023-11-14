@@ -97,9 +97,6 @@ export class GetCatalogItemCommand extends $Command<
   GetCatalogItemCommandOutput,
   OutpostsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class GetCatalogItemCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCatalogItemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetCatalogItemCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCatalogItemCommandOutput> {
     return de_GetCatalogItemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

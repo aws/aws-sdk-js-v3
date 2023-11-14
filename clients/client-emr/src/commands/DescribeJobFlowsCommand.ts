@@ -206,9 +206,6 @@ export class DescribeJobFlowsCommand extends $Command<
   DescribeJobFlowsCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -222,9 +219,7 @@ export class DescribeJobFlowsCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeJobFlowsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -277,7 +272,4 @@ export class DescribeJobFlowsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobFlowsCommandOutput> {
     return de_DescribeJobFlowsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

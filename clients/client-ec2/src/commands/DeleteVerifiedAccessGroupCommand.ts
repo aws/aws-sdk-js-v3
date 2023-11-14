@@ -91,9 +91,6 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
   DeleteVerifiedAccessGroupCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteVerifiedAccessGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
   ): Promise<DeleteVerifiedAccessGroupCommandOutput> {
     return de_DeleteVerifiedAccessGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

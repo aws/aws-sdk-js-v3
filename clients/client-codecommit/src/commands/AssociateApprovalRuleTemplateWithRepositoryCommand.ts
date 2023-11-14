@@ -124,9 +124,6 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
   AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
    * @public
    */
   constructor(readonly input: AssociateApprovalRuleTemplateWithRepositoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
     return de_AssociateApprovalRuleTemplateWithRepositoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

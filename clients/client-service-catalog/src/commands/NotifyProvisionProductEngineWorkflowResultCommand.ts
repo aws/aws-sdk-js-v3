@@ -103,9 +103,6 @@ export class NotifyProvisionProductEngineWorkflowResultCommand extends $Command<
   NotifyProvisionProductEngineWorkflowResultCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class NotifyProvisionProductEngineWorkflowResultCommand extends $Command<
    * @public
    */
   constructor(readonly input: NotifyProvisionProductEngineWorkflowResultCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class NotifyProvisionProductEngineWorkflowResultCommand extends $Command<
   ): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> {
     return de_NotifyProvisionProductEngineWorkflowResultCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

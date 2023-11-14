@@ -200,9 +200,6 @@ export class DeleteFileSystemCommand extends $Command<
   DeleteFileSystemCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -216,9 +213,7 @@ export class DeleteFileSystemCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteFileSystemCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class DeleteFileSystemCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemCommandOutput> {
     return de_DeleteFileSystemCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

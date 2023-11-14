@@ -101,9 +101,6 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
   ResetDBClusterParameterGroupCommandOutput,
   DocDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResetDBClusterParameterGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
   ): Promise<ResetDBClusterParameterGroupCommandOutput> {
     return de_ResetDBClusterParameterGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

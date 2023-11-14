@@ -102,9 +102,6 @@ export class DescribePortfolioShareStatusCommand extends $Command<
   DescribePortfolioShareStatusCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class DescribePortfolioShareStatusCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePortfolioShareStatusCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DescribePortfolioShareStatusCommand extends $Command<
   ): Promise<DescribePortfolioShareStatusCommandOutput> {
     return de_DescribePortfolioShareStatusCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

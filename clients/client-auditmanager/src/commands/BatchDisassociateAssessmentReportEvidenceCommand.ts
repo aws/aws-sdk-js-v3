@@ -107,9 +107,6 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
   BatchDisassociateAssessmentReportEvidenceCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDisassociateAssessmentReportEvidenceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
   ): Promise<BatchDisassociateAssessmentReportEvidenceCommandOutput> {
     return de_BatchDisassociateAssessmentReportEvidenceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

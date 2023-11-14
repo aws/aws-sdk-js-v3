@@ -99,9 +99,6 @@ export class UpdateMedicalVocabularyCommand extends $Command<
   UpdateMedicalVocabularyCommandOutput,
   TranscribeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class UpdateMedicalVocabularyCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateMedicalVocabularyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class UpdateMedicalVocabularyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMedicalVocabularyCommandOutput> {
     return de_UpdateMedicalVocabularyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

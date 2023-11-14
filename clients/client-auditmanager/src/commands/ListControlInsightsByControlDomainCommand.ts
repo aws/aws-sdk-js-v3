@@ -113,9 +113,6 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
   ListControlInsightsByControlDomainCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListControlInsightsByControlDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
   ): Promise<ListControlInsightsByControlDomainCommandOutput> {
     return de_ListControlInsightsByControlDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -109,9 +109,6 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
   DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -125,9 +122,7 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
    * @public
    */
   constructor(readonly input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
   ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> {
     return de_DescribeLocalGatewayRouteTableVpcAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

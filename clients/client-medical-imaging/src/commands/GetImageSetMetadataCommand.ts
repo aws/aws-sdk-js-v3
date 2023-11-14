@@ -102,9 +102,6 @@ export class GetImageSetMetadataCommand extends $Command<
   GetImageSetMetadataCommandOutput,
   MedicalImagingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetImageSetMetadataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetImageSetMetadataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class GetImageSetMetadataCommand extends $Command<
   ): Promise<GetImageSetMetadataCommandOutput> {
     return de_GetImageSetMetadataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

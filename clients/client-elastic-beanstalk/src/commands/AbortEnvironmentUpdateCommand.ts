@@ -85,9 +85,6 @@ export class AbortEnvironmentUpdateCommand extends $Command<
   AbortEnvironmentUpdateCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class AbortEnvironmentUpdateCommand extends $Command<
    * @public
    */
   constructor(readonly input: AbortEnvironmentUpdateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class AbortEnvironmentUpdateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortEnvironmentUpdateCommandOutput> {
     return de_AbortEnvironmentUpdateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

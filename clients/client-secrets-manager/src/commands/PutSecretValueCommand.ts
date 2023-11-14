@@ -176,9 +176,6 @@ export class PutSecretValueCommand extends $Command<
   PutSecretValueCommandOutput,
   SecretsManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -192,9 +189,7 @@ export class PutSecretValueCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutSecretValueCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -247,7 +242,4 @@ export class PutSecretValueCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSecretValueCommandOutput> {
     return de_PutSecretValueCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

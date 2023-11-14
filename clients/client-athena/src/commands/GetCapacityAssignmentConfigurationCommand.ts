@@ -92,9 +92,6 @@ export class GetCapacityAssignmentConfigurationCommand extends $Command<
   GetCapacityAssignmentConfigurationCommandOutput,
   AthenaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class GetCapacityAssignmentConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCapacityAssignmentConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class GetCapacityAssignmentConfigurationCommand extends $Command<
   ): Promise<GetCapacityAssignmentConfigurationCommandOutput> {
     return de_GetCapacityAssignmentConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

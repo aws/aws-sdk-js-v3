@@ -102,9 +102,6 @@ export class ListLoggingConfigurationsCommand extends $Command<
   ListLoggingConfigurationsCommandOutput,
   IvschatClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class ListLoggingConfigurationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListLoggingConfigurationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class ListLoggingConfigurationsCommand extends $Command<
   ): Promise<ListLoggingConfigurationsCommandOutput> {
     return de_ListLoggingConfigurationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

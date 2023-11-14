@@ -158,9 +158,6 @@ export class PutMethodCommand extends $Command<
   PutMethodCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -174,9 +171,7 @@ export class PutMethodCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutMethodCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -227,7 +222,4 @@ export class PutMethodCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMethodCommandOutput> {
     return de_PutMethodCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

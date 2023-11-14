@@ -151,9 +151,6 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
   PutBucketLifecycleConfigurationCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -171,9 +168,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketLifecycleConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -234,7 +229,4 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
   ): Promise<PutBucketLifecycleConfigurationCommandOutput> {
     return de_PutBucketLifecycleConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

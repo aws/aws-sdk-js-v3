@@ -83,9 +83,6 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
   DescribePipelineDefinitionForExecutionCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePipelineDefinitionForExecutionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
   ): Promise<DescribePipelineDefinitionForExecutionCommandOutput> {
     return de_DescribePipelineDefinitionForExecutionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

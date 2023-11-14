@@ -149,9 +149,6 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
   DeregisterOrganizationAdminAccountCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -165,9 +162,7 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeregisterOrganizationAdminAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -226,7 +221,4 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
   ): Promise<DeregisterOrganizationAdminAccountCommandOutput> {
     return de_DeregisterOrganizationAdminAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

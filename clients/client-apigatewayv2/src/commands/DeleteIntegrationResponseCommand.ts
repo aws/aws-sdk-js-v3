@@ -76,9 +76,6 @@ export class DeleteIntegrationResponseCommand extends $Command<
   DeleteIntegrationResponseCommandOutput,
   ApiGatewayV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class DeleteIntegrationResponseCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteIntegrationResponseCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DeleteIntegrationResponseCommand extends $Command<
   ): Promise<DeleteIntegrationResponseCommandOutput> {
     return de_DeleteIntegrationResponseCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

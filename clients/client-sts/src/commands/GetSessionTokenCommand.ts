@@ -170,9 +170,6 @@ export class GetSessionTokenCommand extends $Command<
   GetSessionTokenCommandOutput,
   STSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
@@ -187,9 +184,7 @@ export class GetSessionTokenCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetSessionTokenCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -243,7 +238,4 @@ export class GetSessionTokenCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionTokenCommandOutput> {
     return de_GetSessionTokenCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

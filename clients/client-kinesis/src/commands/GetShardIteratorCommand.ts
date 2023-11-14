@@ -131,9 +131,6 @@ export class GetShardIteratorCommand extends $Command<
   GetShardIteratorCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `data` },
@@ -149,9 +146,7 @@ export class GetShardIteratorCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetShardIteratorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -204,7 +199,4 @@ export class GetShardIteratorCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetShardIteratorCommandOutput> {
     return de_GetShardIteratorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

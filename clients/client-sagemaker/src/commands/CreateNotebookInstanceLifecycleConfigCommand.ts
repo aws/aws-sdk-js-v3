@@ -105,9 +105,6 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
   CreateNotebookInstanceLifecycleConfigCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateNotebookInstanceLifecycleConfigCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> {
     return de_CreateNotebookInstanceLifecycleConfigCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

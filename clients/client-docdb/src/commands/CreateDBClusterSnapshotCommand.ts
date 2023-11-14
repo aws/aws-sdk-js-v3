@@ -113,9 +113,6 @@ export class CreateDBClusterSnapshotCommand extends $Command<
   CreateDBClusterSnapshotCommandOutput,
   DocDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class CreateDBClusterSnapshotCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDBClusterSnapshotCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class CreateDBClusterSnapshotCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterSnapshotCommandOutput> {
     return de_CreateDBClusterSnapshotCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

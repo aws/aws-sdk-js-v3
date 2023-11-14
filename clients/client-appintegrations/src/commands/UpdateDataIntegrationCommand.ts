@@ -90,9 +90,6 @@ export class UpdateDataIntegrationCommand extends $Command<
   UpdateDataIntegrationCommandOutput,
   AppIntegrationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class UpdateDataIntegrationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDataIntegrationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class UpdateDataIntegrationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataIntegrationCommandOutput> {
     return de_UpdateDataIntegrationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

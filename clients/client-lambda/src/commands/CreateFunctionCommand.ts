@@ -302,9 +302,6 @@ export class CreateFunctionCommand extends $Command<
   CreateFunctionCommandOutput,
   LambdaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -318,9 +315,7 @@ export class CreateFunctionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateFunctionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -373,7 +368,4 @@ export class CreateFunctionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
     return de_CreateFunctionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

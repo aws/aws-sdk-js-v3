@@ -96,9 +96,6 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  *
  */
 export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommandOutput, NimbleClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
    * @public
    */
   constructor(readonly input: GetEulaCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -165,7 +160,4 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEulaCommandOutput> {
     return de_GetEulaCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

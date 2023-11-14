@@ -131,9 +131,6 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
   AdminUpdateAuthEventFeedbackCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
    * @public
    */
   constructor(readonly input: AdminUpdateAuthEventFeedbackCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -206,7 +201,4 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
   ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> {
     return de_AdminUpdateAuthEventFeedbackCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

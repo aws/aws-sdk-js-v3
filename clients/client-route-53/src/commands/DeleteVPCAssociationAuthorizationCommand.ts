@@ -110,9 +110,6 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
   DeleteVPCAssociationAuthorizationCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteVPCAssociationAuthorizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> {
     return de_DeleteVPCAssociationAuthorizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

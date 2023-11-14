@@ -106,9 +106,6 @@ export class GetBatchPredictionJobsCommand extends $Command<
   GetBatchPredictionJobsCommandOutput,
   FraudDetectorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class GetBatchPredictionJobsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBatchPredictionJobsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class GetBatchPredictionJobsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchPredictionJobsCommandOutput> {
     return de_GetBatchPredictionJobsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -90,9 +90,6 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
   DeleteVectorEnrichmentJobCommandOutput,
   SageMakerGeospatialClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteVectorEnrichmentJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
   ): Promise<DeleteVectorEnrichmentJobCommandOutput> {
     return de_DeleteVectorEnrichmentJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

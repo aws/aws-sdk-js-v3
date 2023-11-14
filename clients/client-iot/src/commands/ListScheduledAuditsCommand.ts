@@ -90,9 +90,6 @@ export class ListScheduledAuditsCommand extends $Command<
   ListScheduledAuditsCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ListScheduledAuditsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListScheduledAuditsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class ListScheduledAuditsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledAuditsCommandOutput> {
     return de_ListScheduledAuditsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

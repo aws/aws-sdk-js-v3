@@ -297,9 +297,6 @@ export class GetRightsizingRecommendationCommand extends $Command<
   GetRightsizingRecommendationCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -313,9 +310,7 @@ export class GetRightsizingRecommendationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetRightsizingRecommendationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -371,7 +366,4 @@ export class GetRightsizingRecommendationCommand extends $Command<
   ): Promise<GetRightsizingRecommendationCommandOutput> {
     return de_GetRightsizingRecommendationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

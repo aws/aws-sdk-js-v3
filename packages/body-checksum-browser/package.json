@@ -23,10 +23,10 @@
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
     "@smithy/chunked-blob-reader": "^2.0.0",
-    "@smithy/protocol-http": "^3.0.8",
-    "@smithy/types": "^2.4.0",
+    "@smithy/protocol-http": "^3.0.9",
+    "@smithy/types": "^2.5.0",
     "@smithy/util-hex-encoding": "^2.0.0",
-    "@smithy/util-utf8": "^2.0.0",
+    "@smithy/util-utf8": "^2.0.2",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

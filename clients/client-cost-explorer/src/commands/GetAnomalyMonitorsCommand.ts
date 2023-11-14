@@ -163,9 +163,6 @@ export class GetAnomalyMonitorsCommand extends $Command<
   GetAnomalyMonitorsCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -179,9 +176,7 @@ export class GetAnomalyMonitorsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAnomalyMonitorsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -234,7 +229,4 @@ export class GetAnomalyMonitorsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalyMonitorsCommandOutput> {
     return de_GetAnomalyMonitorsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

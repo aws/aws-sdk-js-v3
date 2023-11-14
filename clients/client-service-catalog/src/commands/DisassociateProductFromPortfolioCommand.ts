@@ -85,9 +85,6 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
   DisassociateProductFromPortfolioCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateProductFromPortfolioCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
   ): Promise<DisassociateProductFromPortfolioCommandOutput> {
     return de_DisassociateProductFromPortfolioCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

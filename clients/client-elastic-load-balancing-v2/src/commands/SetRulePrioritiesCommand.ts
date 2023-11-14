@@ -237,9 +237,6 @@ export class SetRulePrioritiesCommand extends $Command<
   SetRulePrioritiesCommandOutput,
   ElasticLoadBalancingV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -253,9 +250,7 @@ export class SetRulePrioritiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetRulePrioritiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -308,7 +303,4 @@ export class SetRulePrioritiesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRulePrioritiesCommandOutput> {
     return de_SetRulePrioritiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

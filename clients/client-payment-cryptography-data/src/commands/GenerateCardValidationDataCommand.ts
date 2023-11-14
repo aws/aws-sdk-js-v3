@@ -149,9 +149,6 @@ export class GenerateCardValidationDataCommand extends $Command<
   GenerateCardValidationDataCommandOutput,
   PaymentCryptographyDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -165,9 +162,7 @@ export class GenerateCardValidationDataCommand extends $Command<
    * @public
    */
   constructor(readonly input: GenerateCardValidationDataCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -223,7 +218,4 @@ export class GenerateCardValidationDataCommand extends $Command<
   ): Promise<GenerateCardValidationDataCommandOutput> {
     return de_GenerateCardValidationDataCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

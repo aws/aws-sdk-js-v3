@@ -105,9 +105,6 @@ export class CreateReplaceRootVolumeTaskCommand extends $Command<
   CreateReplaceRootVolumeTaskCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class CreateReplaceRootVolumeTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateReplaceRootVolumeTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class CreateReplaceRootVolumeTaskCommand extends $Command<
   ): Promise<CreateReplaceRootVolumeTaskCommandOutput> {
     return de_CreateReplaceRootVolumeTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

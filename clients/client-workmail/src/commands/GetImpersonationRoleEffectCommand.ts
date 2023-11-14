@@ -101,9 +101,6 @@ export class GetImpersonationRoleEffectCommand extends $Command<
   GetImpersonationRoleEffectCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetImpersonationRoleEffectCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetImpersonationRoleEffectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class GetImpersonationRoleEffectCommand extends $Command<
   ): Promise<GetImpersonationRoleEffectCommandOutput> {
     return de_GetImpersonationRoleEffectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

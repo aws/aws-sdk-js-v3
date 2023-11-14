@@ -137,9 +137,6 @@ export class DescribeForecastCommand extends $Command<
   DescribeForecastCommandOutput,
   ForecastClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class DescribeForecastCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeForecastCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class DescribeForecastCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeForecastCommandOutput> {
     return de_DescribeForecastCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

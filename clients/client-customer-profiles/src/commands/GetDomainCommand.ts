@@ -162,9 +162,6 @@ export class GetDomainCommand extends $Command<
   GetDomainCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -178,9 +175,7 @@ export class GetDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -231,7 +226,4 @@ export class GetDomainCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainCommandOutput> {
     return de_GetDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -157,9 +157,6 @@ export class DeleteAppVersionResourceCommand extends $Command<
   DeleteAppVersionResourceCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -173,9 +170,7 @@ export class DeleteAppVersionResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAppVersionResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -228,7 +223,4 @@ export class DeleteAppVersionResourceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppVersionResourceCommandOutput> {
     return de_DeleteAppVersionResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

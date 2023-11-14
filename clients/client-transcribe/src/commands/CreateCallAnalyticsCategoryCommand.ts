@@ -263,9 +263,6 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
   CreateCallAnalyticsCategoryCommandOutput,
   TranscribeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -279,9 +276,7 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCallAnalyticsCategoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -337,7 +332,4 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
   ): Promise<CreateCallAnalyticsCategoryCommandOutput> {
     return de_CreateCallAnalyticsCategoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

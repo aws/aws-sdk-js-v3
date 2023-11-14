@@ -137,9 +137,6 @@ export class UnsubscribeFromDatasetCommand extends $Command<
   UnsubscribeFromDatasetCommandOutput,
   CognitoSyncClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -153,9 +150,7 @@ export class UnsubscribeFromDatasetCommand extends $Command<
    * @public
    */
   constructor(readonly input: UnsubscribeFromDatasetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -208,7 +203,4 @@ export class UnsubscribeFromDatasetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromDatasetCommandOutput> {
     return de_UnsubscribeFromDatasetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

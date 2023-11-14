@@ -128,9 +128,6 @@ export class GetCallerIdentityCommand extends $Command<
   GetCallerIdentityCommandOutput,
   STSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
@@ -145,9 +142,7 @@ export class GetCallerIdentityCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCallerIdentityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class GetCallerIdentityCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallerIdentityCommandOutput> {
     return de_GetCallerIdentityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

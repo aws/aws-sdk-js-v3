@@ -93,9 +93,6 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command<
   GetAutomatedDiscoveryConfigurationCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAutomatedDiscoveryConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command<
   ): Promise<GetAutomatedDiscoveryConfigurationCommandOutput> {
     return de_GetAutomatedDiscoveryConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

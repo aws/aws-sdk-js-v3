@@ -87,9 +87,6 @@ export class GetReusableDelegationSetCommand extends $Command<
   GetReusableDelegationSetCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class GetReusableDelegationSetCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetReusableDelegationSetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class GetReusableDelegationSetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReusableDelegationSetCommandOutput> {
     return de_GetReusableDelegationSetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

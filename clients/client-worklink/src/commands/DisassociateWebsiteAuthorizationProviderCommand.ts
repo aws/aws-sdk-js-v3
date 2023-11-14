@@ -100,9 +100,6 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
   DisassociateWebsiteAuthorizationProviderCommandOutput,
   WorkLinkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -116,9 +113,7 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateWebsiteAuthorizationProviderCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
   ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> {
     return de_DisassociateWebsiteAuthorizationProviderCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

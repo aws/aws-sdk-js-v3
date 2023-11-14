@@ -104,9 +104,6 @@ export class ListAdminAccountsForOrganizationCommand extends $Command<
   ListAdminAccountsForOrganizationCommandOutput,
   FMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class ListAdminAccountsForOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAdminAccountsForOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -181,7 +176,4 @@ export class ListAdminAccountsForOrganizationCommand extends $Command<
   ): Promise<ListAdminAccountsForOrganizationCommandOutput> {
     return de_ListAdminAccountsForOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

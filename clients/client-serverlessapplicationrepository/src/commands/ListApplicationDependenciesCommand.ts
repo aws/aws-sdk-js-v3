@@ -103,9 +103,6 @@ export class ListApplicationDependenciesCommand extends $Command<
   ListApplicationDependenciesCommandOutput,
   ServerlessApplicationRepositoryClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -119,9 +116,7 @@ export class ListApplicationDependenciesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListApplicationDependenciesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class ListApplicationDependenciesCommand extends $Command<
   ): Promise<ListApplicationDependenciesCommandOutput> {
     return de_ListApplicationDependenciesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

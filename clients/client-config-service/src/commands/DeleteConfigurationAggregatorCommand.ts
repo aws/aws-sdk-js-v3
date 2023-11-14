@@ -75,9 +75,6 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
   DeleteConfigurationAggregatorCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -91,9 +88,7 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteConfigurationAggregatorCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -149,7 +144,4 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
   ): Promise<DeleteConfigurationAggregatorCommandOutput> {
     return de_DeleteConfigurationAggregatorCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

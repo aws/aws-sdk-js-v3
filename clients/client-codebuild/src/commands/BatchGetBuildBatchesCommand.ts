@@ -291,9 +291,6 @@ export class BatchGetBuildBatchesCommand extends $Command<
   BatchGetBuildBatchesCommandOutput,
   CodeBuildClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -307,9 +304,7 @@ export class BatchGetBuildBatchesCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetBuildBatchesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -362,7 +357,4 @@ export class BatchGetBuildBatchesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetBuildBatchesCommandOutput> {
     return de_BatchGetBuildBatchesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

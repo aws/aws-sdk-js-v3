@@ -294,9 +294,6 @@ export class PutBotCommand extends $Command<
   PutBotCommandOutput,
   LexModelBuildingServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -310,9 +307,7 @@ export class PutBotCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBotCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -363,7 +358,4 @@ export class PutBotCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBotCommandOutput> {
     return de_PutBotCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

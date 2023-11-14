@@ -123,9 +123,6 @@ export class GetCostEstimationCommand extends $Command<
   GetCostEstimationCommandOutput,
   DevOpsGuruClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -139,9 +136,7 @@ export class GetCostEstimationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCostEstimationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -194,7 +189,4 @@ export class GetCostEstimationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostEstimationCommandOutput> {
     return de_GetCostEstimationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

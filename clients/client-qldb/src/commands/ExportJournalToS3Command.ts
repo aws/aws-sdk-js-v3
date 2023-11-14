@@ -97,9 +97,6 @@ export class ExportJournalToS3Command extends $Command<
   ExportJournalToS3CommandOutput,
   QLDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class ExportJournalToS3Command extends $Command<
    * @public
    */
   constructor(readonly input: ExportJournalToS3CommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ExportJournalToS3Command extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportJournalToS3CommandOutput> {
     return de_ExportJournalToS3Command(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

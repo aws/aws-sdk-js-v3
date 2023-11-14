@@ -211,9 +211,6 @@ export class DeleteReplicationInstanceCommand extends $Command<
   DeleteReplicationInstanceCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -227,9 +224,7 @@ export class DeleteReplicationInstanceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteReplicationInstanceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -285,7 +280,4 @@ export class DeleteReplicationInstanceCommand extends $Command<
   ): Promise<DeleteReplicationInstanceCommandOutput> {
     return de_DeleteReplicationInstanceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

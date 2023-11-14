@@ -108,9 +108,6 @@ export class CreateHostCommand extends $Command<
   CreateHostCommandOutput,
   CodeStarConnectionsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -124,9 +121,7 @@ export class CreateHostCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateHostCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class CreateHostCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHostCommandOutput> {
     return de_CreateHostCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

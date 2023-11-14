@@ -102,9 +102,6 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
   CreateApplicationPresignedUrlCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateApplicationPresignedUrlCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
   ): Promise<CreateApplicationPresignedUrlCommandOutput> {
     return de_CreateApplicationPresignedUrlCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

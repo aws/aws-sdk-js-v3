@@ -96,9 +96,6 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
   UnlinkDeveloperIdentityCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
    * @public
    */
   constructor(readonly input: UnlinkDeveloperIdentityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlinkDeveloperIdentityCommandOutput> {
     return de_UnlinkDeveloperIdentityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

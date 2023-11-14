@@ -102,9 +102,6 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command<
   GetModelInvocationLoggingConfigurationCommandOutput,
   BedrockClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetModelInvocationLoggingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command<
   ): Promise<GetModelInvocationLoggingConfigurationCommandOutput> {
     return de_GetModelInvocationLoggingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

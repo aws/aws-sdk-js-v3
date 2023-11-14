@@ -93,9 +93,6 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
   AssociateServiceActionWithProvisioningArtifactCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
    * @public
    */
   constructor(readonly input: AssociateServiceActionWithProvisioningArtifactCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
   ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> {
     return de_AssociateServiceActionWithProvisioningArtifactCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -102,9 +102,6 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *
  */
 export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsCommandOutput, ChimeClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
    * @public
    */
   constructor(readonly input: ListBotsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotsCommandOutput> {
     return de_ListBotsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

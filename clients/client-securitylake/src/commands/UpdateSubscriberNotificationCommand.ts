@@ -111,9 +111,6 @@ export class UpdateSubscriberNotificationCommand extends $Command<
   UpdateSubscriberNotificationCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class UpdateSubscriberNotificationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateSubscriberNotificationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -185,7 +180,4 @@ export class UpdateSubscriberNotificationCommand extends $Command<
   ): Promise<UpdateSubscriberNotificationCommandOutput> {
     return de_UpdateSubscriberNotificationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

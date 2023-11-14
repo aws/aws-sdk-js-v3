@@ -320,9 +320,6 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *
  */
 export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskCommandOutput, ECSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -336,9 +333,7 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
    * @public
    */
   constructor(readonly input: StartTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -389,7 +384,4 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskCommandOutput> {
     return de_StartTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

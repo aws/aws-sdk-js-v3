@@ -75,9 +75,6 @@ export class DisableVpcClassicLinkCommand extends $Command<
   DisableVpcClassicLinkCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -91,9 +88,7 @@ export class DisableVpcClassicLinkCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableVpcClassicLinkCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -146,7 +141,4 @@ export class DisableVpcClassicLinkCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableVpcClassicLinkCommandOutput> {
     return de_DisableVpcClassicLinkCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

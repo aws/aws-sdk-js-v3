@@ -197,9 +197,6 @@ export class CreateOriginRequestPolicyCommand extends $Command<
   CreateOriginRequestPolicyCommandOutput,
   CloudFrontClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -213,9 +210,7 @@ export class CreateOriginRequestPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateOriginRequestPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -271,7 +266,4 @@ export class CreateOriginRequestPolicyCommand extends $Command<
   ): Promise<CreateOriginRequestPolicyCommandOutput> {
     return de_CreateOriginRequestPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

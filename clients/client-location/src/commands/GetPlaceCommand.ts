@@ -138,9 +138,6 @@ export class GetPlaceCommand extends $Command<
   GetPlaceCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -154,9 +151,7 @@ export class GetPlaceCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPlaceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class GetPlaceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlaceCommandOutput> {
     return de_GetPlaceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -141,9 +141,6 @@ export class StartTestSetGenerationCommand extends $Command<
   StartTestSetGenerationCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -157,9 +154,7 @@ export class StartTestSetGenerationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartTestSetGenerationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -212,7 +207,4 @@ export class StartTestSetGenerationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTestSetGenerationCommandOutput> {
     return de_StartTestSetGenerationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

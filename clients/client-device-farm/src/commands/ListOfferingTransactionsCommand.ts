@@ -213,9 +213,6 @@ export class ListOfferingTransactionsCommand extends $Command<
   ListOfferingTransactionsCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -229,9 +226,7 @@ export class ListOfferingTransactionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListOfferingTransactionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -284,7 +279,4 @@ export class ListOfferingTransactionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingTransactionsCommandOutput> {
     return de_ListOfferingTransactionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

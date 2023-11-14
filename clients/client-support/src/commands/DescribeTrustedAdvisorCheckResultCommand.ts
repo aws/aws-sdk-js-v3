@@ -172,9 +172,6 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
   DescribeTrustedAdvisorCheckResultCommandOutput,
   SupportClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -188,9 +185,7 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTrustedAdvisorCheckResultCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -249,7 +244,4 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> {
     return de_DescribeTrustedAdvisorCheckResultCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

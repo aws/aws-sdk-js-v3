@@ -263,9 +263,6 @@ export class GetAutomationExecutionCommand extends $Command<
   GetAutomationExecutionCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -279,9 +276,7 @@ export class GetAutomationExecutionCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAutomationExecutionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -334,7 +329,4 @@ export class GetAutomationExecutionCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutomationExecutionCommandOutput> {
     return de_GetAutomationExecutionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

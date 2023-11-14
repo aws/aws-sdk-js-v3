@@ -253,9 +253,6 @@ export class ListGrantsCommand extends $Command<
   ListGrantsCommandOutput,
   KMSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -269,9 +266,7 @@ export class ListGrantsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListGrantsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -322,7 +317,4 @@ export class ListGrantsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGrantsCommandOutput> {
     return de_ListGrantsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -128,9 +128,6 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
   ListUnsupportedAppVersionResourcesCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListUnsupportedAppVersionResourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
   ): Promise<ListUnsupportedAppVersionResourcesCommandOutput> {
     return de_ListUnsupportedAppVersionResourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

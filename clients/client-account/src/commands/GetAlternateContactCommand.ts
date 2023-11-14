@@ -107,9 +107,6 @@ export class GetAlternateContactCommand extends $Command<
   GetAlternateContactCommandOutput,
   AccountClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class GetAlternateContactCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAlternateContactCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class GetAlternateContactCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAlternateContactCommandOutput> {
     return de_GetAlternateContactCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

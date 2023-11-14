@@ -620,9 +620,6 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
   ReleaseFileSystemNfsV3LocksCommandOutput,
   FSxClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -636,9 +633,7 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
    * @public
    */
   constructor(readonly input: ReleaseFileSystemNfsV3LocksCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -694,7 +689,4 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
   ): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> {
     return de_ReleaseFileSystemNfsV3LocksCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

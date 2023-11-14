@@ -107,9 +107,6 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
   CancelCapacityReservationFleetsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelCapacityReservationFleetsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
   ): Promise<CancelCapacityReservationFleetsCommandOutput> {
     return de_CancelCapacityReservationFleetsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -106,9 +106,6 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
   StartDataQualityRuleRecommendationRunCommandOutput,
   GlueClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartDataQualityRuleRecommendationRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
   ): Promise<StartDataQualityRuleRecommendationRunCommandOutput> {
     return de_StartDataQualityRuleRecommendationRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

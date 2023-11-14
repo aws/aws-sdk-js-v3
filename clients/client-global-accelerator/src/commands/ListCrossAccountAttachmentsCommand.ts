@@ -106,9 +106,6 @@ export class ListCrossAccountAttachmentsCommand extends $Command<
   ListCrossAccountAttachmentsCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class ListCrossAccountAttachmentsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListCrossAccountAttachmentsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class ListCrossAccountAttachmentsCommand extends $Command<
   ): Promise<ListCrossAccountAttachmentsCommandOutput> {
     return de_ListCrossAccountAttachmentsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

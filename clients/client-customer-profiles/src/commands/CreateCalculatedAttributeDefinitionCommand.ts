@@ -153,9 +153,6 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command<
   CreateCalculatedAttributeDefinitionCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -169,9 +166,7 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateCalculatedAttributeDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -230,7 +225,4 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command<
   ): Promise<CreateCalculatedAttributeDefinitionCommandOutput> {
     return de_CreateCalculatedAttributeDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

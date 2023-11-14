@@ -122,9 +122,6 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  *
  */
 export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommandOutput, GlueClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -138,9 +135,7 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
    * @public
    */
   constructor(readonly input: GetPlanCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlanCommandOutput> {
     return de_GetPlanCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

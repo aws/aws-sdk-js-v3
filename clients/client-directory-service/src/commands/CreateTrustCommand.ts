@@ -102,9 +102,6 @@ export class CreateTrustCommand extends $Command<
   CreateTrustCommandOutput,
   DirectoryServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -118,9 +115,7 @@ export class CreateTrustCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateTrustCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class CreateTrustCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustCommandOutput> {
     return de_CreateTrustCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

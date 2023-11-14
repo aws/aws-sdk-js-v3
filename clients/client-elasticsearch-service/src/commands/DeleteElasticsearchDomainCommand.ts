@@ -202,9 +202,6 @@ export class DeleteElasticsearchDomainCommand extends $Command<
   DeleteElasticsearchDomainCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -218,9 +215,7 @@ export class DeleteElasticsearchDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteElasticsearchDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -276,7 +271,4 @@ export class DeleteElasticsearchDomainCommand extends $Command<
   ): Promise<DeleteElasticsearchDomainCommandOutput> {
     return de_DeleteElasticsearchDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

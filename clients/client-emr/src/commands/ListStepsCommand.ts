@@ -119,9 +119,6 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  *
  */
 export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsCommandOutput, EMRClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
    * @public
    */
   constructor(readonly input: ListStepsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStepsCommandOutput> {
     return de_ListStepsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

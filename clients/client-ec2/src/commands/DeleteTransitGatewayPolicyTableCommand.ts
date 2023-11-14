@@ -87,9 +87,6 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command<
   DeleteTransitGatewayPolicyTableCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteTransitGatewayPolicyTableCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command<
   ): Promise<DeleteTransitGatewayPolicyTableCommandOutput> {
     return de_DeleteTransitGatewayPolicyTableCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

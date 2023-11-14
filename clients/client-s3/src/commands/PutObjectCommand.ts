@@ -364,9 +364,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *
  */
 export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectCommandOutput, S3ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -386,9 +383,7 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
    * @public
    */
   constructor(readonly input: PutObjectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -448,7 +443,4 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
     return de_PutObjectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

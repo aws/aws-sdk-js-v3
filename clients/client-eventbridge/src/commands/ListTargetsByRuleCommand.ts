@@ -208,9 +208,6 @@ export class ListTargetsByRuleCommand extends $Command<
   ListTargetsByRuleCommandOutput,
   EventBridgeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -224,9 +221,7 @@ export class ListTargetsByRuleCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTargetsByRuleCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -279,7 +274,4 @@ export class ListTargetsByRuleCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsByRuleCommandOutput> {
     return de_ListTargetsByRuleCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

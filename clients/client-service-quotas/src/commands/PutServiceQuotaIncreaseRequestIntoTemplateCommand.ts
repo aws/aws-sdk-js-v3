@@ -124,9 +124,6 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
   PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
   ServiceQuotasClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> {
     return de_PutServiceQuotaIncreaseRequestIntoTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

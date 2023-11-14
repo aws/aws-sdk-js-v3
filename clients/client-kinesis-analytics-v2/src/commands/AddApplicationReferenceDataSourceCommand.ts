@@ -168,9 +168,6 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
   AddApplicationReferenceDataSourceCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -184,9 +181,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: AddApplicationReferenceDataSourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -245,7 +240,4 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
   ): Promise<AddApplicationReferenceDataSourceCommandOutput> {
     return de_AddApplicationReferenceDataSourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

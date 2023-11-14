@@ -105,9 +105,6 @@ export class RegisterStreamConsumerCommand extends $Command<
   RegisterStreamConsumerCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -123,9 +120,7 @@ export class RegisterStreamConsumerCommand extends $Command<
    * @public
    */
   constructor(readonly input: RegisterStreamConsumerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class RegisterStreamConsumerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterStreamConsumerCommandOutput> {
     return de_RegisterStreamConsumerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

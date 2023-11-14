@@ -134,9 +134,6 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
   GetBucketInventoryConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -156,9 +153,7 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetBucketInventoryConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -217,7 +212,4 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
   ): Promise<GetBucketInventoryConfigurationCommandOutput> {
     return de_GetBucketInventoryConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

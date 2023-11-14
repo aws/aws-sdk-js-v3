@@ -113,9 +113,6 @@ export class ListAdapterVersionsCommand extends $Command<
   ListAdapterVersionsCommandOutput,
   TextractClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class ListAdapterVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAdapterVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -184,7 +179,4 @@ export class ListAdapterVersionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAdapterVersionsCommandOutput> {
     return de_ListAdapterVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

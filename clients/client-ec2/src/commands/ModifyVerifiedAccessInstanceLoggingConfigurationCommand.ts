@@ -131,9 +131,6 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
   ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
    * @public
    */
   constructor(readonly input: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -214,7 +209,4 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
   ): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput> {
     return de_ModifyVerifiedAccessInstanceLoggingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -106,9 +106,6 @@ export class ListTopicRuleDestinationsCommand extends $Command<
   ListTopicRuleDestinationsCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class ListTopicRuleDestinationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTopicRuleDestinationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -180,7 +175,4 @@ export class ListTopicRuleDestinationsCommand extends $Command<
   ): Promise<ListTopicRuleDestinationsCommandOutput> {
     return de_ListTopicRuleDestinationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

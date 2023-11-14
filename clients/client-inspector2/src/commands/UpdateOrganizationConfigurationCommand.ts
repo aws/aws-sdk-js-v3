@@ -98,9 +98,6 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
   UpdateOrganizationConfigurationCommandOutput,
   Inspector2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateOrganizationConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
   ): Promise<UpdateOrganizationConfigurationCommandOutput> {
     return de_UpdateOrganizationConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

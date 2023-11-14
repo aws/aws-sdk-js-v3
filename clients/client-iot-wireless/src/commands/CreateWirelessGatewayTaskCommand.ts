@@ -90,9 +90,6 @@ export class CreateWirelessGatewayTaskCommand extends $Command<
   CreateWirelessGatewayTaskCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class CreateWirelessGatewayTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateWirelessGatewayTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class CreateWirelessGatewayTaskCommand extends $Command<
   ): Promise<CreateWirelessGatewayTaskCommandOutput> {
     return de_CreateWirelessGatewayTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

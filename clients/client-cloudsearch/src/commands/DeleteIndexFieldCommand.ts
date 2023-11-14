@@ -182,9 +182,6 @@ export class DeleteIndexFieldCommand extends $Command<
   DeleteIndexFieldCommandOutput,
   CloudSearchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -198,9 +195,7 @@ export class DeleteIndexFieldCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteIndexFieldCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -253,7 +248,4 @@ export class DeleteIndexFieldCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIndexFieldCommandOutput> {
     return de_DeleteIndexFieldCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

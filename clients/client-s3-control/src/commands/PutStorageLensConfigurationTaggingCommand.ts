@@ -92,9 +92,6 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
   PutStorageLensConfigurationTaggingCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -111,9 +108,7 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutStorageLensConfigurationTaggingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
   ): Promise<PutStorageLensConfigurationTaggingCommandOutput> {
     return de_PutStorageLensConfigurationTaggingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

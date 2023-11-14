@@ -97,9 +97,6 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
   UpdateDocumentDefaultVersionCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDocumentDefaultVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -171,7 +166,4 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
   ): Promise<UpdateDocumentDefaultVersionCommandOutput> {
     return de_UpdateDocumentDefaultVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -99,9 +99,6 @@ export class ArchiveWaveCommand extends $Command<
   ArchiveWaveCommandOutput,
   MgnClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ArchiveWaveCommand extends $Command<
    * @public
    */
   constructor(readonly input: ArchiveWaveCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ArchiveWaveCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveWaveCommandOutput> {
     return de_ArchiveWaveCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

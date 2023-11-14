@@ -107,9 +107,6 @@ export class CreateSequenceStoreCommand extends $Command<
   CreateSequenceStoreCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class CreateSequenceStoreCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateSequenceStoreCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class CreateSequenceStoreCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSequenceStoreCommandOutput> {
     return de_CreateSequenceStoreCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -267,9 +267,6 @@ export class ScheduleRunCommand extends $Command<
   ScheduleRunCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -283,9 +280,7 @@ export class ScheduleRunCommand extends $Command<
    * @public
    */
   constructor(readonly input: ScheduleRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -336,7 +331,4 @@ export class ScheduleRunCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScheduleRunCommandOutput> {
     return de_ScheduleRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -89,9 +89,6 @@ export class ProvisionIpamPoolCidrCommand extends $Command<
   ProvisionIpamPoolCidrCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -105,9 +102,7 @@ export class ProvisionIpamPoolCidrCommand extends $Command<
    * @public
    */
   constructor(readonly input: ProvisionIpamPoolCidrCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class ProvisionIpamPoolCidrCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionIpamPoolCidrCommandOutput> {
     return de_ProvisionIpamPoolCidrCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

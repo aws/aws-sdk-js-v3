@@ -106,9 +106,6 @@ export class SubmitContactEvaluationCommand extends $Command<
   SubmitContactEvaluationCommandOutput,
   ConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class SubmitContactEvaluationCommand extends $Command<
    * @public
    */
   constructor(readonly input: SubmitContactEvaluationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -177,7 +172,4 @@ export class SubmitContactEvaluationCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitContactEvaluationCommandOutput> {
     return de_SubmitContactEvaluationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

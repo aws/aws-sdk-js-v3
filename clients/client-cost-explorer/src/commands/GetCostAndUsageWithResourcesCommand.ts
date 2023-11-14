@@ -225,9 +225,6 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
   GetCostAndUsageWithResourcesCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -241,9 +238,7 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCostAndUsageWithResourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -299,7 +294,4 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
   ): Promise<GetCostAndUsageWithResourcesCommandOutput> {
     return de_GetCostAndUsageWithResourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

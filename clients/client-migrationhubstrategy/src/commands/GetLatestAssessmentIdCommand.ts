@@ -85,9 +85,6 @@ export class GetLatestAssessmentIdCommand extends $Command<
   GetLatestAssessmentIdCommandOutput,
   MigrationHubStrategyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class GetLatestAssessmentIdCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetLatestAssessmentIdCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class GetLatestAssessmentIdCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLatestAssessmentIdCommandOutput> {
     return de_GetLatestAssessmentIdCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

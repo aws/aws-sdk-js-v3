@@ -129,9 +129,6 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
   DeleteGlobalReplicationGroupCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -145,9 +142,7 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteGlobalReplicationGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
   ): Promise<DeleteGlobalReplicationGroupCommandOutput> {
     return de_DeleteGlobalReplicationGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

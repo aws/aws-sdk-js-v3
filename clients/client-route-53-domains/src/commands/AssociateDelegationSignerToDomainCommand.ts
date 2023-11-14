@@ -114,9 +114,6 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
   AssociateDelegationSignerToDomainCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateDelegationSignerToDomainCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
   ): Promise<AssociateDelegationSignerToDomainCommandOutput> {
     return de_AssociateDelegationSignerToDomainCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

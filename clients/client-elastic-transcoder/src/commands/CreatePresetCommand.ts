@@ -222,9 +222,6 @@ export class CreatePresetCommand extends $Command<
   CreatePresetCommandOutput,
   ElasticTranscoderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -238,9 +235,7 @@ export class CreatePresetCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreatePresetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -291,7 +286,4 @@ export class CreatePresetCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresetCommandOutput> {
     return de_CreatePresetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

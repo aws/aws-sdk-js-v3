@@ -159,9 +159,6 @@ export class GetCommentsForComparedCommitCommand extends $Command<
   GetCommentsForComparedCommitCommandOutput,
   CodeCommitClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -175,9 +172,7 @@ export class GetCommentsForComparedCommitCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCommentsForComparedCommitCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -233,7 +228,4 @@ export class GetCommentsForComparedCommitCommand extends $Command<
   ): Promise<GetCommentsForComparedCommitCommandOutput> {
     return de_GetCommentsForComparedCommitCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

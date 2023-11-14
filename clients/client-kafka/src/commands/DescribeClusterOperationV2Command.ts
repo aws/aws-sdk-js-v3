@@ -325,9 +325,6 @@ export class DescribeClusterOperationV2Command extends $Command<
   DescribeClusterOperationV2CommandOutput,
   KafkaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -341,9 +338,7 @@ export class DescribeClusterOperationV2Command extends $Command<
    * @public
    */
   constructor(readonly input: DescribeClusterOperationV2CommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -399,7 +394,4 @@ export class DescribeClusterOperationV2Command extends $Command<
   ): Promise<DescribeClusterOperationV2CommandOutput> {
     return de_DescribeClusterOperationV2Command(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

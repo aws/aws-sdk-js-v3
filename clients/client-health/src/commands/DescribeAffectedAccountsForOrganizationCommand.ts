@@ -96,9 +96,6 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
   DescribeAffectedAccountsForOrganizationCommandOutput,
   HealthClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAffectedAccountsForOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
   ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> {
     return de_DescribeAffectedAccountsForOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

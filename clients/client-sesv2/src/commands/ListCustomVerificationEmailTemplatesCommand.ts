@@ -99,9 +99,6 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
   ListCustomVerificationEmailTemplatesCommandOutput,
   SESv2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListCustomVerificationEmailTemplatesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
   ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> {
     return de_ListCustomVerificationEmailTemplatesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

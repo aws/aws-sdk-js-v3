@@ -80,9 +80,6 @@ export class DescribeHumanTaskUiCommand extends $Command<
   DescribeHumanTaskUiCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -96,9 +93,7 @@ export class DescribeHumanTaskUiCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeHumanTaskUiCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -151,7 +146,4 @@ export class DescribeHumanTaskUiCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHumanTaskUiCommandOutput> {
     return de_DescribeHumanTaskUiCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

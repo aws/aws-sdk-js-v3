@@ -104,9 +104,6 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelElasticsearchServiceSoftwareUpdateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -187,7 +182,4 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
   ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> {
     return de_CancelElasticsearchServiceSoftwareUpdateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

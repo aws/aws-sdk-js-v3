@@ -70,16 +70,11 @@ export class MalformedIntegerCommand extends $Command<
   MalformedIntegerCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: MalformedIntegerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -129,7 +124,4 @@ export class MalformedIntegerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedIntegerCommandOutput> {
     return de_MalformedIntegerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

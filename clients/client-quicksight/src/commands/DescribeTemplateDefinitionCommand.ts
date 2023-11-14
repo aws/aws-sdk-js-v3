@@ -4616,9 +4616,6 @@ export class DescribeTemplateDefinitionCommand extends $Command<
   DescribeTemplateDefinitionCommandOutput,
   QuickSightClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -4632,9 +4629,7 @@ export class DescribeTemplateDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeTemplateDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -4690,7 +4685,4 @@ export class DescribeTemplateDefinitionCommand extends $Command<
   ): Promise<DescribeTemplateDefinitionCommandOutput> {
     return de_DescribeTemplateDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

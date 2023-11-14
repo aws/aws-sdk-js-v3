@@ -111,9 +111,6 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
   CancelReplicationTaskAssessmentRunCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
    * @public
    */
   constructor(readonly input: CancelReplicationTaskAssessmentRunCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
   ): Promise<CancelReplicationTaskAssessmentRunCommandOutput> {
     return de_CancelReplicationTaskAssessmentRunCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

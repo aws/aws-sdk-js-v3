@@ -98,9 +98,6 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
   DescribeMaintenanceWindowsForTargetCommandOutput,
   SSMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeMaintenanceWindowsForTargetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> {
     return de_DescribeMaintenanceWindowsForTargetCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

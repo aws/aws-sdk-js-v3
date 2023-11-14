@@ -126,9 +126,6 @@ export class ListPendingInvitationResourcesCommand extends $Command<
   ListPendingInvitationResourcesCommandOutput,
   RAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class ListPendingInvitationResourcesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListPendingInvitationResourcesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -203,7 +198,4 @@ export class ListPendingInvitationResourcesCommand extends $Command<
   ): Promise<ListPendingInvitationResourcesCommandOutput> {
     return de_ListPendingInvitationResourcesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -85,9 +85,6 @@ export class DescribeSecurityConfigurationCommand extends $Command<
   DescribeSecurityConfigurationCommandOutput,
   EMRClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -101,9 +98,7 @@ export class DescribeSecurityConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeSecurityConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -159,7 +154,4 @@ export class DescribeSecurityConfigurationCommand extends $Command<
   ): Promise<DescribeSecurityConfigurationCommandOutput> {
     return de_DescribeSecurityConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

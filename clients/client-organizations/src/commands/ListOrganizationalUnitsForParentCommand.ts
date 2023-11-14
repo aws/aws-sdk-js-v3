@@ -248,9 +248,6 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
   ListOrganizationalUnitsForParentCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -264,9 +261,7 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListOrganizationalUnitsForParentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -325,7 +320,4 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
   ): Promise<ListOrganizationalUnitsForParentCommandOutput> {
     return de_ListOrganizationalUnitsForParentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

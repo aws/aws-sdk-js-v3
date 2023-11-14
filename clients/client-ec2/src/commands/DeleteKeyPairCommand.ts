@@ -84,9 +84,6 @@ export class DeleteKeyPairCommand extends $Command<
   DeleteKeyPairCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeleteKeyPairCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteKeyPairCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -153,7 +148,4 @@ export class DeleteKeyPairCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyPairCommandOutput> {
     return de_DeleteKeyPairCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -178,9 +178,6 @@ export class GetDimensionValuesCommand extends $Command<
   GetDimensionValuesCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -194,9 +191,7 @@ export class GetDimensionValuesCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDimensionValuesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -249,7 +244,4 @@ export class GetDimensionValuesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDimensionValuesCommandOutput> {
     return de_GetDimensionValuesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -248,9 +248,6 @@ export class GetQuerySuggestionsCommand extends $Command<
   GetQuerySuggestionsCommandOutput,
   KendraClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -264,9 +261,7 @@ export class GetQuerySuggestionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetQuerySuggestionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -319,7 +314,4 @@ export class GetQuerySuggestionsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQuerySuggestionsCommandOutput> {
     return de_GetQuerySuggestionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

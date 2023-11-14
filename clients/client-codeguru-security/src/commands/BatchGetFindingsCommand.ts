@@ -151,9 +151,6 @@ export class BatchGetFindingsCommand extends $Command<
   BatchGetFindingsCommandOutput,
   CodeGuruSecurityClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -167,9 +164,7 @@ export class BatchGetFindingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetFindingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -222,7 +217,4 @@ export class BatchGetFindingsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFindingsCommandOutput> {
     return de_BatchGetFindingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

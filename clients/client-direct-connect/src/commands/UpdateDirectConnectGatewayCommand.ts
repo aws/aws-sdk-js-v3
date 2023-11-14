@@ -84,9 +84,6 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
   UpdateDirectConnectGatewayCommandOutput,
   DirectConnectClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDirectConnectGatewayCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -158,7 +153,4 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
   ): Promise<UpdateDirectConnectGatewayCommandOutput> {
     return de_UpdateDirectConnectGatewayCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

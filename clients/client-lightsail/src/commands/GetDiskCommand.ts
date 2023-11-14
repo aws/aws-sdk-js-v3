@@ -132,9 +132,6 @@ export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
  *
  */
 export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommandOutput, LightsailClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -148,9 +145,7 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
    * @public
    */
   constructor(readonly input: GetDiskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -201,7 +196,4 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskCommandOutput> {
     return de_GetDiskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

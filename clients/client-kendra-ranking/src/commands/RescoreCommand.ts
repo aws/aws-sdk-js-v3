@@ -125,9 +125,6 @@ export class RescoreCommand extends $Command<
   RescoreCommandOutput,
   KendraRankingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class RescoreCommand extends $Command<
    * @public
    */
   constructor(readonly input: RescoreCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class RescoreCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RescoreCommandOutput> {
     return de_RescoreCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

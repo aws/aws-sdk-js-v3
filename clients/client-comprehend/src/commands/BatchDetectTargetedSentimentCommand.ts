@@ -142,9 +142,6 @@ export class BatchDetectTargetedSentimentCommand extends $Command<
   BatchDetectTargetedSentimentCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -158,9 +155,7 @@ export class BatchDetectTargetedSentimentCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDetectTargetedSentimentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -216,7 +211,4 @@ export class BatchDetectTargetedSentimentCommand extends $Command<
   ): Promise<BatchDetectTargetedSentimentCommandOutput> {
     return de_BatchDetectTargetedSentimentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

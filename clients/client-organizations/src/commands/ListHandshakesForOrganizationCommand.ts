@@ -357,9 +357,6 @@ export class ListHandshakesForOrganizationCommand extends $Command<
   ListHandshakesForOrganizationCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -373,9 +370,7 @@ export class ListHandshakesForOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListHandshakesForOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -431,7 +426,4 @@ export class ListHandshakesForOrganizationCommand extends $Command<
   ): Promise<ListHandshakesForOrganizationCommandOutput> {
     return de_ListHandshakesForOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -119,9 +119,6 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
   DisableAvailabilityZonesForLoadBalancerCommandOutput,
   ElasticLoadBalancingClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -135,9 +132,7 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisableAvailabilityZonesForLoadBalancerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -202,7 +197,4 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
   ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> {
     return de_DisableAvailabilityZonesForLoadBalancerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

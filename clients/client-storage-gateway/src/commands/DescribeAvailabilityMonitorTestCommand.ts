@@ -87,9 +87,6 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
   DescribeAvailabilityMonitorTestCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAvailabilityMonitorTestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput> {
     return de_DescribeAvailabilityMonitorTestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -124,9 +124,6 @@ export class StartExtensionPackAssociationCommand extends $Command<
   StartExtensionPackAssociationCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class StartExtensionPackAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartExtensionPackAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class StartExtensionPackAssociationCommand extends $Command<
   ): Promise<StartExtensionPackAssociationCommandOutput> {
     return de_StartExtensionPackAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

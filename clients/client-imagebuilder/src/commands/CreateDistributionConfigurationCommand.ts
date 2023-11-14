@@ -195,9 +195,6 @@ export class CreateDistributionConfigurationCommand extends $Command<
   CreateDistributionConfigurationCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -211,9 +208,7 @@ export class CreateDistributionConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDistributionConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -272,7 +267,4 @@ export class CreateDistributionConfigurationCommand extends $Command<
   ): Promise<CreateDistributionConfigurationCommandOutput> {
     return de_CreateDistributionConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

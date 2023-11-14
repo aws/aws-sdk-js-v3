@@ -486,9 +486,6 @@ export class CreateDetectorModelCommand extends $Command<
   CreateDetectorModelCommandOutput,
   IoTEventsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -502,9 +499,7 @@ export class CreateDetectorModelCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateDetectorModelCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -557,7 +552,4 @@ export class CreateDetectorModelCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDetectorModelCommandOutput> {
     return de_CreateDetectorModelCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

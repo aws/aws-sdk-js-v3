@@ -83,9 +83,6 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
   DeleteCostCategoryDefinitionCommandOutput,
   CostExplorerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -99,9 +96,7 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteCostCategoryDefinitionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
   ): Promise<DeleteCostCategoryDefinitionCommandOutput> {
     return de_DeleteCostCategoryDefinitionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

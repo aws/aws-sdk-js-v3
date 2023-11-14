@@ -76,9 +76,6 @@ export class DisassociateRoleFromGroupCommand extends $Command<
   DisassociateRoleFromGroupCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -92,9 +89,7 @@ export class DisassociateRoleFromGroupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateRoleFromGroupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -150,7 +145,4 @@ export class DisassociateRoleFromGroupCommand extends $Command<
   ): Promise<DisassociateRoleFromGroupCommandOutput> {
     return de_DisassociateRoleFromGroupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

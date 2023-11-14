@@ -114,9 +114,6 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
   DescribeICD10CMInferenceJobCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -130,9 +127,7 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeICD10CMInferenceJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -188,7 +183,4 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
   ): Promise<DescribeICD10CMInferenceJobCommandOutput> {
     return de_DescribeICD10CMInferenceJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

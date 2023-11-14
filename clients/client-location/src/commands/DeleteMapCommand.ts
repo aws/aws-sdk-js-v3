@@ -88,9 +88,6 @@ export class DeleteMapCommand extends $Command<
   DeleteMapCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -104,9 +101,7 @@ export class DeleteMapCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteMapCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -157,7 +152,4 @@ export class DeleteMapCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMapCommandOutput> {
     return de_DeleteMapCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

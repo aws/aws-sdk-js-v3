@@ -124,9 +124,6 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
   GetJourneyDateRangeKpiCommandOutput,
   PinpointClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -140,9 +137,7 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetJourneyDateRangeKpiCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJourneyDateRangeKpiCommandOutput> {
     return de_GetJourneyDateRangeKpiCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

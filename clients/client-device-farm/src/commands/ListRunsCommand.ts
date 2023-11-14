@@ -226,9 +226,6 @@ export class ListRunsCommand extends $Command<
   ListRunsCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -242,9 +239,7 @@ export class ListRunsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListRunsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -295,7 +290,4 @@ export class ListRunsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunsCommandOutput> {
     return de_ListRunsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

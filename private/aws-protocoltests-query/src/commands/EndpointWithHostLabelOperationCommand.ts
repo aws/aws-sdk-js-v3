@@ -70,16 +70,11 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
   EndpointWithHostLabelOperationCommandOutput,
   QueryProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: EndpointWithHostLabelOperationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -135,7 +130,4 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
   ): Promise<EndpointWithHostLabelOperationCommandOutput> {
     return de_EndpointWithHostLabelOperationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

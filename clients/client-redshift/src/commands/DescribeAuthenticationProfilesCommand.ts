@@ -87,9 +87,6 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
   DescribeAuthenticationProfilesCommandOutput,
   RedshiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -103,9 +100,7 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeAuthenticationProfilesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
   ): Promise<DescribeAuthenticationProfilesCommandOutput> {
     return de_DescribeAuthenticationProfilesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

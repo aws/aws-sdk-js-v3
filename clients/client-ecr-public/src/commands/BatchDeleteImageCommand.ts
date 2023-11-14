@@ -112,9 +112,6 @@ export class BatchDeleteImageCommand extends $Command<
   BatchDeleteImageCommandOutput,
   ECRPUBLICClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class BatchDeleteImageCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchDeleteImageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class BatchDeleteImageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImageCommandOutput> {
     return de_BatchDeleteImageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -176,9 +176,6 @@ export class BatchGetStandardsControlAssociationsCommand extends $Command<
   BatchGetStandardsControlAssociationsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -192,9 +189,7 @@ export class BatchGetStandardsControlAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: BatchGetStandardsControlAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -253,7 +248,4 @@ export class BatchGetStandardsControlAssociationsCommand extends $Command<
   ): Promise<BatchGetStandardsControlAssociationsCommandOutput> {
     return de_BatchGetStandardsControlAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -94,9 +94,6 @@ export class AssociateDelegateToResourceCommand extends $Command<
   AssociateDelegateToResourceCommandOutput,
   WorkMailClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class AssociateDelegateToResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateDelegateToResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class AssociateDelegateToResourceCommand extends $Command<
   ): Promise<AssociateDelegateToResourceCommandOutput> {
     return de_AssociateDelegateToResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -92,9 +92,6 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
   UpdateConfigurationSetReputationMetricsEnabledCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
    * @public
    */
   constructor(readonly input: UpdateConfigurationSetReputationMetricsEnabledCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
   ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> {
     return de_UpdateConfigurationSetReputationMetricsEnabledCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

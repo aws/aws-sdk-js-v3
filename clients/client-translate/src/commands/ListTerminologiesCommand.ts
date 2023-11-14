@@ -105,9 +105,6 @@ export class ListTerminologiesCommand extends $Command<
   ListTerminologiesCommandOutput,
   TranslateClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -121,9 +118,7 @@ export class ListTerminologiesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTerminologiesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class ListTerminologiesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTerminologiesCommandOutput> {
     return de_ListTerminologiesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

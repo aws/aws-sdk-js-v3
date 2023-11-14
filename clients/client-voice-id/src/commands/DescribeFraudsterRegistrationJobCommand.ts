@@ -130,9 +130,6 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
   DescribeFraudsterRegistrationJobCommandOutput,
   VoiceIDClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -146,9 +143,7 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeFraudsterRegistrationJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
   ): Promise<DescribeFraudsterRegistrationJobCommandOutput> {
     return de_DescribeFraudsterRegistrationJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

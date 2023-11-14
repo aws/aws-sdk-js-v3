@@ -90,9 +90,6 @@ export class ListMetricAttributionMetricsCommand extends $Command<
   ListMetricAttributionMetricsCommandOutput,
   PersonalizeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class ListMetricAttributionMetricsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListMetricAttributionMetricsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class ListMetricAttributionMetricsCommand extends $Command<
   ): Promise<ListMetricAttributionMetricsCommandOutput> {
     return de_ListMetricAttributionMetricsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -110,9 +110,6 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
   ListTrainingJobsForHyperParameterTuningJobCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTrainingJobsForHyperParameterTuningJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -193,7 +188,4 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> {
     return de_ListTrainingJobsForHyperParameterTuningJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

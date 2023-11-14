@@ -97,9 +97,6 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
   UpdateAccountAuditConfigurationCommandOutput,
   IoTClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -113,9 +110,7 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateAccountAuditConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -174,7 +169,4 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
   ): Promise<UpdateAccountAuditConfigurationCommandOutput> {
     return de_UpdateAccountAuditConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

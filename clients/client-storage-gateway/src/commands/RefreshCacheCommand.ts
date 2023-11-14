@@ -120,9 +120,6 @@ export class RefreshCacheCommand extends $Command<
   RefreshCacheCommandOutput,
   StorageGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -136,9 +133,7 @@ export class RefreshCacheCommand extends $Command<
    * @public
    */
   constructor(readonly input: RefreshCacheCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -189,7 +184,4 @@ export class RefreshCacheCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshCacheCommandOutput> {
     return de_RefreshCacheCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

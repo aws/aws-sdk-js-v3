@@ -94,9 +94,6 @@ export class GetObjectCommand extends $Command<
   GetObjectCommandOutput,
   MediaStoreDataClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -110,9 +107,7 @@ export class GetObjectCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetObjectCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -166,7 +161,4 @@ export class GetObjectCommand extends $Command<
   ): Promise<GetObjectCommandOutput> {
     return de_GetObjectCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

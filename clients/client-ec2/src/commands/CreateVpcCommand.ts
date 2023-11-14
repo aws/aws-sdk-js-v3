@@ -155,9 +155,6 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  *
  */
 export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcCommandOutput, EC2ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -171,9 +168,7 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
    * @public
    */
   constructor(readonly input: CreateVpcCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcCommandOutput> {
     return de_CreateVpcCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

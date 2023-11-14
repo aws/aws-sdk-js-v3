@@ -93,9 +93,6 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
   ListTrafficPolicyVersionsCommandOutput,
   Route53ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListTrafficPolicyVersionsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
   ): Promise<ListTrafficPolicyVersionsCommandOutput> {
     return de_ListTrafficPolicyVersionsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

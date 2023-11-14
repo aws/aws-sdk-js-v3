@@ -96,9 +96,6 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
   DisassociateWirelessDeviceFromFuotaTaskCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateWirelessDeviceFromFuotaTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
   ): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput> {
     return de_DisassociateWirelessDeviceFromFuotaTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

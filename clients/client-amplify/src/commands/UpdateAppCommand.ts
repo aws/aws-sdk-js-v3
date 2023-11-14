@@ -185,9 +185,6 @@ export class UpdateAppCommand extends $Command<
   UpdateAppCommandOutput,
   AmplifyClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -201,9 +198,7 @@ export class UpdateAppCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateAppCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -254,7 +249,4 @@ export class UpdateAppCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppCommandOutput> {
     return de_UpdateAppCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

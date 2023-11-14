@@ -98,9 +98,6 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
   DescribeWebsiteCertificateAuthorityCommandOutput,
   WorkLinkClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -114,9 +111,7 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeWebsiteCertificateAuthorityCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
   ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> {
     return de_DescribeWebsiteCertificateAuthorityCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

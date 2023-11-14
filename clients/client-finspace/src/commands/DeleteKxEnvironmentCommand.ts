@@ -84,9 +84,6 @@ export class DeleteKxEnvironmentCommand extends $Command<
   DeleteKxEnvironmentCommandOutput,
   FinspaceClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -100,9 +97,7 @@ export class DeleteKxEnvironmentCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteKxEnvironmentCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -155,7 +150,4 @@ export class DeleteKxEnvironmentCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxEnvironmentCommandOutput> {
     return de_DeleteKxEnvironmentCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

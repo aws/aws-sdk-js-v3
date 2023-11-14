@@ -95,9 +95,6 @@ export class StartPipelineReprocessingCommand extends $Command<
   StartPipelineReprocessingCommandOutput,
   IoTAnalyticsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class StartPipelineReprocessingCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartPipelineReprocessingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -169,7 +164,4 @@ export class StartPipelineReprocessingCommand extends $Command<
   ): Promise<StartPipelineReprocessingCommandOutput> {
     return de_StartPipelineReprocessingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

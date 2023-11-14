@@ -81,9 +81,6 @@ export class DeregisterWirelessDeviceCommand extends $Command<
   DeregisterWirelessDeviceCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -97,9 +94,7 @@ export class DeregisterWirelessDeviceCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeregisterWirelessDeviceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -152,7 +147,4 @@ export class DeregisterWirelessDeviceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterWirelessDeviceCommandOutput> {
     return de_DeregisterWirelessDeviceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

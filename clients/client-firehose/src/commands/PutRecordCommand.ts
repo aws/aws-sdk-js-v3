@@ -128,9 +128,6 @@ export class PutRecordCommand extends $Command<
   PutRecordCommandOutput,
   FirehoseClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -144,9 +141,7 @@ export class PutRecordCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutRecordCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -197,7 +192,4 @@ export class PutRecordCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
     return de_PutRecordCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

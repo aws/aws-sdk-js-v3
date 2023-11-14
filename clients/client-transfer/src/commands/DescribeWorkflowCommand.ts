@@ -205,9 +205,6 @@ export class DescribeWorkflowCommand extends $Command<
   DescribeWorkflowCommandOutput,
   TransferClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -221,9 +218,7 @@ export class DescribeWorkflowCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeWorkflowCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -276,7 +271,4 @@ export class DescribeWorkflowCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkflowCommandOutput> {
     return de_DescribeWorkflowCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -4,14 +4,10 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
-import {
-  HttpApiKeyAuthSigner,
-  HttpBearerAuthSigner,
-  IdentityProviderConfig,
-  NoAuthSigner,
-  SigV4Signer,
-} from "@smithy/experimental-identity-and-auth";
+import { HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner } from "@smithy/core";
+import { SigV4Signer } from "@smithy/experimental-identity-and-auth";
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
+import { IdentityProviderConfig } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { WeatherClientConfig } from "./WeatherClient";
@@ -37,8 +33,8 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (config: IdentityProviderConfig) =>
-          config.getIdentityProvider("aws.auth#sigv4") ||
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4") ||
           (async () => {
             throw new Error("`credentials` is missing");
           }),
@@ -46,13 +42,13 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
       },
       {
         schemeId: "smithy.api#httpApiKeyAuth",
-        identityProvider: (config: IdentityProviderConfig) => config.getIdentityProvider("smithy.api#httpApiKeyAuth"),
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpApiKeyAuth"),
         signer: new HttpApiKeyAuthSigner(),
       },
       {
         schemeId: "smithy.api#httpBearerAuth",
-        identityProvider: (config: IdentityProviderConfig) =>
-          config.getIdentityProvider("smithy.api#httpBearerAuth") ||
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth") ||
           (async () => {
             throw new Error("`token` is missing");
           }),
@@ -60,8 +56,8 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
       },
       {
         schemeId: "smithy.api#noAuth",
-        identityProvider: (config: IdentityProviderConfig) =>
-          config.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
         signer: new NoAuthSigner(),
       },
     ],

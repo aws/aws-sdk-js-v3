@@ -131,9 +131,6 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
   StartKeyPhrasesDetectionJobCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -147,9 +144,7 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartKeyPhrasesDetectionJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -205,7 +200,4 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
   ): Promise<StartKeyPhrasesDetectionJobCommandOutput> {
     return de_StartKeyPhrasesDetectionJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

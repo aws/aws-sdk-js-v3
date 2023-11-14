@@ -95,9 +95,6 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
   RejectDomainTransferFromAnotherAwsAccountCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: RejectDomainTransferFromAnotherAwsAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -178,7 +173,4 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
   ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> {
     return de_RejectDomainTransferFromAnotherAwsAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

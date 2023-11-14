@@ -251,9 +251,6 @@ export class CreateWebACLCommand extends $Command<
   CreateWebACLCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -267,9 +264,7 @@ export class CreateWebACLCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateWebACLCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -320,7 +315,4 @@ export class CreateWebACLCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebACLCommandOutput> {
     return de_CreateWebACLCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

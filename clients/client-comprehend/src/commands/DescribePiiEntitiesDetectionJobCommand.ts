@@ -121,9 +121,6 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
   DescribePiiEntitiesDetectionJobCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -137,9 +134,7 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribePiiEntitiesDetectionJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -198,7 +193,4 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
   ): Promise<DescribePiiEntitiesDetectionJobCommandOutput> {
     return de_DescribePiiEntitiesDetectionJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

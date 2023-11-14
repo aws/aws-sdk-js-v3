@@ -91,9 +91,6 @@ export class RebootInstancesCommand extends $Command<
   RebootInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class RebootInstancesCommand extends $Command<
    * @public
    */
   constructor(readonly input: RebootInstancesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -162,7 +157,4 @@ export class RebootInstancesCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInstancesCommandOutput> {
     return de_RebootInstancesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

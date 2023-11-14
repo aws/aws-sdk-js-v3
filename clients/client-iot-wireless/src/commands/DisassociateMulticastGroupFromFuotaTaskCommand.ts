@@ -93,9 +93,6 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
   DisassociateMulticastGroupFromFuotaTaskCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -109,9 +106,7 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
    * @public
    */
   constructor(readonly input: DisassociateMulticastGroupFromFuotaTaskCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
   ): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput> {
     return de_DisassociateMulticastGroupFromFuotaTaskCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

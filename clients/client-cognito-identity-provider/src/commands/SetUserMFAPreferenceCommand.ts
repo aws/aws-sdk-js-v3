@@ -125,9 +125,6 @@ export class SetUserMFAPreferenceCommand extends $Command<
   SetUserMFAPreferenceCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -141,9 +138,7 @@ export class SetUserMFAPreferenceCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetUserMFAPreferenceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class SetUserMFAPreferenceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserMFAPreferenceCommandOutput> {
     return de_SetUserMFAPreferenceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -112,9 +112,6 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
   GetTransitGatewayConnectPeerAssociationsCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetTransitGatewayConnectPeerAssociationsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
   ): Promise<GetTransitGatewayConnectPeerAssociationsCommandOutput> {
     return de_GetTransitGatewayConnectPeerAssociationsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

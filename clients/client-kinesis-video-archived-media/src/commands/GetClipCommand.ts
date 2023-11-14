@@ -169,9 +169,6 @@ export class GetClipCommand extends $Command<
   GetClipCommandOutput,
   KinesisVideoArchivedMediaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -185,9 +182,7 @@ export class GetClipCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetClipCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -241,7 +236,4 @@ export class GetClipCommand extends $Command<
   ): Promise<GetClipCommandOutput> {
     return de_GetClipCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

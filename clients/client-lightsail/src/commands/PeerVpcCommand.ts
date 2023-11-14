@@ -110,9 +110,6 @@ export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
  *
  */
 export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommandOutput, LightsailClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -126,9 +123,7 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
    * @public
    */
   constructor(readonly input: PeerVpcCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -179,7 +174,4 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PeerVpcCommandOutput> {
     return de_PeerVpcCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

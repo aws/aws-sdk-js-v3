@@ -205,9 +205,6 @@ export class ListLakeFormationOptInsCommand extends $Command<
   ListLakeFormationOptInsCommandOutput,
   LakeFormationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -221,9 +218,7 @@ export class ListLakeFormationOptInsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListLakeFormationOptInsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -276,7 +271,4 @@ export class ListLakeFormationOptInsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLakeFormationOptInsCommandOutput> {
     return de_ListLakeFormationOptInsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

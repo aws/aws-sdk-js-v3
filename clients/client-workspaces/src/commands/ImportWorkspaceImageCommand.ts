@@ -104,9 +104,6 @@ export class ImportWorkspaceImageCommand extends $Command<
   ImportWorkspaceImageCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -120,9 +117,7 @@ export class ImportWorkspaceImageCommand extends $Command<
    * @public
    */
   constructor(readonly input: ImportWorkspaceImageCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ImportWorkspaceImageCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportWorkspaceImageCommandOutput> {
     return de_ImportWorkspaceImageCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -151,9 +151,6 @@ export class CreateSubscriptionRequestCommand extends $Command<
   CreateSubscriptionRequestCommandOutput,
   DataZoneClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -166,9 +163,7 @@ export class CreateSubscriptionRequestCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateSubscriptionRequestCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -224,7 +219,4 @@ export class CreateSubscriptionRequestCommand extends $Command<
   ): Promise<CreateSubscriptionRequestCommandOutput> {
     return de_CreateSubscriptionRequestCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

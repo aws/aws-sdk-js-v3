@@ -174,9 +174,6 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
   CreateMatchmakingConfigurationCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -190,9 +187,7 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateMatchmakingConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -251,7 +246,4 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
   ): Promise<CreateMatchmakingConfigurationCommandOutput> {
     return de_CreateMatchmakingConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

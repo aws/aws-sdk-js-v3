@@ -312,9 +312,6 @@ export class RestoreTableFromBackupCommand extends $Command<
   RestoreTableFromBackupCommandOutput,
   DynamoDBClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -328,9 +325,7 @@ export class RestoreTableFromBackupCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreTableFromBackupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -383,7 +378,4 @@ export class RestoreTableFromBackupCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableFromBackupCommandOutput> {
     return de_RestoreTableFromBackupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

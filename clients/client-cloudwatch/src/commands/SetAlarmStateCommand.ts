@@ -92,9 +92,6 @@ export class SetAlarmStateCommand extends $Command<
   SetAlarmStateCommandOutput,
   CloudWatchClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -108,9 +105,7 @@ export class SetAlarmStateCommand extends $Command<
    * @public
    */
   constructor(readonly input: SetAlarmStateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -161,7 +156,4 @@ export class SetAlarmStateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetAlarmStateCommandOutput> {
     return de_SetAlarmStateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

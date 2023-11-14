@@ -603,9 +603,6 @@ export class InviteAccountToOrganizationCommand extends $Command<
   InviteAccountToOrganizationCommandOutput,
   OrganizationsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -619,9 +616,7 @@ export class InviteAccountToOrganizationCommand extends $Command<
    * @public
    */
   constructor(readonly input: InviteAccountToOrganizationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -677,7 +672,4 @@ export class InviteAccountToOrganizationCommand extends $Command<
   ): Promise<InviteAccountToOrganizationCommandOutput> {
     return de_InviteAccountToOrganizationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

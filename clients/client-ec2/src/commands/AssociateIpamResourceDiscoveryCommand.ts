@@ -106,9 +106,6 @@ export class AssociateIpamResourceDiscoveryCommand extends $Command<
   AssociateIpamResourceDiscoveryCommandOutput,
   EC2ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -122,9 +119,7 @@ export class AssociateIpamResourceDiscoveryCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateIpamResourceDiscoveryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -183,7 +178,4 @@ export class AssociateIpamResourceDiscoveryCommand extends $Command<
   ): Promise<AssociateIpamResourceDiscoveryCommandOutput> {
     return de_AssociateIpamResourceDiscoveryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

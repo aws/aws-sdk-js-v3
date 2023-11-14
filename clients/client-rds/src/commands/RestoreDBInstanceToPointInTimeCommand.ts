@@ -547,9 +547,6 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
   RestoreDBInstanceToPointInTimeCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -563,9 +560,7 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
    * @public
    */
   constructor(readonly input: RestoreDBInstanceToPointInTimeCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -624,7 +619,4 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> {
     return de_RestoreDBInstanceToPointInTimeCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

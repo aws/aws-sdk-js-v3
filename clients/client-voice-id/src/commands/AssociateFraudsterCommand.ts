@@ -111,9 +111,6 @@ export class AssociateFraudsterCommand extends $Command<
   AssociateFraudsterCommandOutput,
   VoiceIDClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -127,9 +124,7 @@ export class AssociateFraudsterCommand extends $Command<
    * @public
    */
   constructor(readonly input: AssociateFraudsterCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -182,7 +177,4 @@ export class AssociateFraudsterCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateFraudsterCommandOutput> {
     return de_AssociateFraudsterCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

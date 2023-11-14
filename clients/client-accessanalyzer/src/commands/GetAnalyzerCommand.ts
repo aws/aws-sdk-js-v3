@@ -99,9 +99,6 @@ export class GetAnalyzerCommand extends $Command<
   GetAnalyzerCommandOutput,
   AccessAnalyzerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class GetAnalyzerCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAnalyzerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class GetAnalyzerCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnalyzerCommandOutput> {
     return de_GetAnalyzerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

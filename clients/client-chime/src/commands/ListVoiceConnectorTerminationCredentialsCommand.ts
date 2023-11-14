@@ -112,9 +112,6 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
   ListVoiceConnectorTerminationCredentialsCommandOutput,
   ChimeClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -128,9 +125,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListVoiceConnectorTerminationCredentialsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -195,7 +190,4 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> {
     return de_ListVoiceConnectorTerminationCredentialsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

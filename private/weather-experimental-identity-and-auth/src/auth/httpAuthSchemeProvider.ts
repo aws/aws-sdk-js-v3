@@ -1,25 +1,20 @@
 // smithy-typescript generated code
 import { WeatherClientResolvedConfig } from "../WeatherClient";
+import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {
   ApiKeyIdentity,
   ApiKeyIdentityProvider,
-  DefaultIdentityProviderConfig,
-  HttpApiKeyAuthLocation,
-  HttpAuthOption,
-  HttpAuthSchemeParameters,
-  HttpAuthSchemeParametersProvider,
-  HttpAuthSchemeProvider,
-  IdentityProviderConfig,
-  TokenIdentity,
-  TokenIdentityProvider,
-  doesIdentityRequireRefresh,
-  isIdentityExpired,
-  memoizeIdentityProvider,
-} from "@smithy/experimental-identity-and-auth";
-import {
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
   HandlerExecutionContext,
+  HttpApiKeyAuthLocation,
+  HttpAuthOption,
+  HttpAuthScheme,
+  HttpAuthSchemeParameters,
+  HttpAuthSchemeParametersProvider,
+  HttpAuthSchemeProvider,
+  TokenIdentity,
+  TokenIdentityProvider,
   Provider as __Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
@@ -67,6 +62,14 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WeatherHttpAuthSchemeP
       name: "weather",
       region: authParameters.region,
     },
+    propertiesExtractor: (__config, context) => ({
+      /**
+       * @internal
+       */
+      identityProperties: {
+        __config,
+      },
+    }),
   };
 }
 
@@ -90,6 +93,14 @@ function createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters: WeatherHttp
 function createSmithyApiHttpBearerAuthHttpAuthOption(authParameters: WeatherHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "smithy.api#httpBearerAuth",
+    propertiesExtractor: (__config, context) => ({
+      /**
+       * @internal
+       */
+      identityProperties: {
+        __config,
+      },
+    }),
   };
 }
 
@@ -164,6 +175,18 @@ export const defaultWeatherHttpAuthSchemeProvider: WeatherHttpAuthSchemeProvider
  */
 export interface HttpAuthSchemeInputConfig {
   /**
+   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * @internal
+   */
+  httpAuthSchemes?: HttpAuthScheme[];
+
+  /**
+   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * @internal
+   */
+  httpAuthSchemeProvider?: WeatherHttpAuthSchemeProvider;
+
+  /**
    * The API key to use when making requests.
    */
   apiKey?: ApiKeyIdentity | ApiKeyIdentityProvider;
@@ -186,6 +209,18 @@ export interface HttpAuthSchemeInputConfig {
  */
 export interface HttpAuthSchemeResolvedConfig {
   /**
+   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * @internal
+   */
+  readonly httpAuthSchemes: HttpAuthScheme[];
+
+  /**
+   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * @internal
+   */
+  readonly httpAuthSchemeProvider: WeatherHttpAuthSchemeProvider;
+
+  /**
    * The API key to use when making requests.
    */
   readonly apiKey?: ApiKeyIdentityProvider;
@@ -201,16 +236,6 @@ export interface HttpAuthSchemeResolvedConfig {
    * The token used to authenticate requests.
    */
   readonly token?: TokenIdentityProvider;
-  /**
-   * experimentalIdentityAndAuth: provides parameters for HttpAuthSchemeProvider.
-   * @internal
-   */
-  readonly httpAuthSchemeParametersProvider: WeatherHttpAuthSchemeParametersProvider;
-  /**
-   * experimentalIdentityAndAuth: abstraction around identity configuration fields
-   * @internal
-   */
-  readonly identityProviderConfig: IdentityProviderConfig;
 }
 
 /**
@@ -227,11 +252,5 @@ export const resolveHttpAuthSchemeConfig = (config: HttpAuthSchemeInputConfig): 
     credentials,
     region,
     token,
-    httpAuthSchemeParametersProvider: defaultWeatherHttpAuthSchemeParametersProvider,
-    identityProviderConfig: new DefaultIdentityProviderConfig({
-      "aws.auth#sigv4": credentials,
-      "smithy.api#httpApiKeyAuth": apiKey,
-      "smithy.api#httpBearerAuth": token,
-    }),
-  };
+  } as HttpAuthSchemeResolvedConfig;
 };

@@ -113,9 +113,6 @@ export class DeleteDBClusterAutomatedBackupCommand extends $Command<
   DeleteDBClusterAutomatedBackupCommandOutput,
   RDSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -129,9 +126,7 @@ export class DeleteDBClusterAutomatedBackupCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteDBClusterAutomatedBackupCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -190,7 +185,4 @@ export class DeleteDBClusterAutomatedBackupCommand extends $Command<
   ): Promise<DeleteDBClusterAutomatedBackupCommandOutput> {
     return de_DeleteDBClusterAutomatedBackupCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

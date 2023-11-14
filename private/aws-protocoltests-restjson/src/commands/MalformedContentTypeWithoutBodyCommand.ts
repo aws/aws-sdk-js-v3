@@ -67,16 +67,11 @@ export class MalformedContentTypeWithoutBodyCommand extends $Command<
   MalformedContentTypeWithoutBodyCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: MalformedContentTypeWithoutBodyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -132,7 +127,4 @@ export class MalformedContentTypeWithoutBodyCommand extends $Command<
   ): Promise<MalformedContentTypeWithoutBodyCommandOutput> {
     return de_MalformedContentTypeWithoutBodyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

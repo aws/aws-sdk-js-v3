@@ -115,9 +115,6 @@ export class GetDevicePositionHistoryCommand extends $Command<
   GetDevicePositionHistoryCommandOutput,
   LocationClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class GetDevicePositionHistoryCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetDevicePositionHistoryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -186,7 +181,4 @@ export class GetDevicePositionHistoryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicePositionHistoryCommandOutput> {
     return de_GetDevicePositionHistoryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

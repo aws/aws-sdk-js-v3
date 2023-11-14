@@ -87,9 +87,6 @@ export class GetAccessKeyInfoCommand extends $Command<
   GetAccessKeyInfoCommandOutput,
   STSClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
@@ -104,9 +101,7 @@ export class GetAccessKeyInfoCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAccessKeyInfoCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -160,7 +155,4 @@ export class GetAccessKeyInfoCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyInfoCommandOutput> {
     return de_GetAccessKeyInfoCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

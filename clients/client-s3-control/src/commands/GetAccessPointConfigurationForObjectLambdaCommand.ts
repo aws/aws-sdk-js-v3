@@ -109,9 +109,6 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
   GetAccessPointConfigurationForObjectLambdaCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       RequiresAccountId: { type: "staticContextParams", value: true },
@@ -128,9 +125,7 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetAccessPointConfigurationForObjectLambdaCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -196,7 +191,4 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
   ): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput> {
     return de_GetAccessPointConfigurationForObjectLambdaCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

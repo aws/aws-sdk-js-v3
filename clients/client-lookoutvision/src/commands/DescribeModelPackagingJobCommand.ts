@@ -133,9 +133,6 @@ export class DescribeModelPackagingJobCommand extends $Command<
   DescribeModelPackagingJobCommandOutput,
   LookoutVisionClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -149,9 +146,7 @@ export class DescribeModelPackagingJobCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeModelPackagingJobCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -207,7 +202,4 @@ export class DescribeModelPackagingJobCommand extends $Command<
   ): Promise<DescribeModelPackagingJobCommandOutput> {
     return de_DescribeModelPackagingJobCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

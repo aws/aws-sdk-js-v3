@@ -101,9 +101,6 @@ export class GetCaseEventConfigurationCommand extends $Command<
   GetCaseEventConfigurationCommandOutput,
   ConnectCasesClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class GetCaseEventConfigurationCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetCaseEventConfigurationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class GetCaseEventConfigurationCommand extends $Command<
   ): Promise<GetCaseEventConfigurationCommandOutput> {
     return de_GetCaseEventConfigurationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

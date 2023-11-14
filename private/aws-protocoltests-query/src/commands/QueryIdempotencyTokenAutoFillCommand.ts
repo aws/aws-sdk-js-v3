@@ -70,16 +70,11 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
   QueryIdempotencyTokenAutoFillCommandOutput,
   QueryProtocolClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   /**
    * @public
    */
   constructor(readonly input: QueryIdempotencyTokenAutoFillCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -132,7 +127,4 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
     return de_QueryIdempotencyTokenAutoFillCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

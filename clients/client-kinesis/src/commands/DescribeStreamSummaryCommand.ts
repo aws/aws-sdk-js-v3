@@ -118,9 +118,6 @@ export class DescribeStreamSummaryCommand extends $Command<
   DescribeStreamSummaryCommandOutput,
   KinesisClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
@@ -136,9 +133,7 @@ export class DescribeStreamSummaryCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeStreamSummaryCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -191,7 +186,4 @@ export class DescribeStreamSummaryCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamSummaryCommandOutput> {
     return de_DescribeStreamSummaryCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

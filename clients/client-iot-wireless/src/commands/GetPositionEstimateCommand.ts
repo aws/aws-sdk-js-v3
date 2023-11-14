@@ -236,9 +236,6 @@ export class GetPositionEstimateCommand extends $Command<
   GetPositionEstimateCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -252,9 +249,7 @@ export class GetPositionEstimateCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPositionEstimateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -307,7 +302,4 @@ export class GetPositionEstimateCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPositionEstimateCommandOutput> {
     return de_GetPositionEstimateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -95,9 +95,6 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  *
  */
 export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommandOutput, ChimeClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -111,9 +108,7 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
    * @public
    */
   constructor(readonly input: GetRoomCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomCommandOutput> {
     return de_GetRoomCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

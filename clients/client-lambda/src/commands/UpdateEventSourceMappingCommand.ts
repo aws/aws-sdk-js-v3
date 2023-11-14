@@ -310,9 +310,6 @@ export class UpdateEventSourceMappingCommand extends $Command<
   UpdateEventSourceMappingCommandOutput,
   LambdaClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -326,9 +323,7 @@ export class UpdateEventSourceMappingCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateEventSourceMappingCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -381,7 +376,4 @@ export class UpdateEventSourceMappingCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventSourceMappingCommandOutput> {
     return de_UpdateEventSourceMappingCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

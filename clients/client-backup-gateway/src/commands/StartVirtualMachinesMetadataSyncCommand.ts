@@ -91,9 +91,6 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
   StartVirtualMachinesMetadataSyncCommandOutput,
   BackupGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -107,9 +104,7 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
    * @public
    */
   constructor(readonly input: StartVirtualMachinesMetadataSyncCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -168,7 +163,4 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
   ): Promise<StartVirtualMachinesMetadataSyncCommandOutput> {
     return de_StartVirtualMachinesMetadataSyncCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

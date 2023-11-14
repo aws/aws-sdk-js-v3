@@ -101,9 +101,6 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
   ListAttachedGroupPoliciesCommandOutput,
   IAMClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -117,9 +114,7 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAttachedGroupPoliciesCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -175,7 +170,4 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
   ): Promise<ListAttachedGroupPoliciesCommandOutput> {
     return de_ListAttachedGroupPoliciesCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

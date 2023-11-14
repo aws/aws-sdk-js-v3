@@ -107,9 +107,6 @@ export class StopResourceCommand extends $Command<
   StopResourceCommandOutput,
   ForecastClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -123,9 +120,7 @@ export class StopResourceCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopResourceCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -176,7 +171,4 @@ export class StopResourceCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopResourceCommandOutput> {
     return de_StopResourceCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

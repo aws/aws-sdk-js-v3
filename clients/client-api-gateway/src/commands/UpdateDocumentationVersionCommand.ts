@@ -99,9 +99,6 @@ export class UpdateDocumentationVersionCommand extends $Command<
   UpdateDocumentationVersionCommandOutput,
   APIGatewayClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -115,9 +112,7 @@ export class UpdateDocumentationVersionCommand extends $Command<
    * @public
    */
   constructor(readonly input: UpdateDocumentationVersionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -173,7 +168,4 @@ export class UpdateDocumentationVersionCommand extends $Command<
   ): Promise<UpdateDocumentationVersionCommandOutput> {
     return de_UpdateDocumentationVersionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

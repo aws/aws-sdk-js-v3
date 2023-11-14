@@ -96,9 +96,6 @@ export class DeleteRecommendationTemplateCommand extends $Command<
   DeleteRecommendationTemplateCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -112,9 +109,7 @@ export class DeleteRecommendationTemplateCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteRecommendationTemplateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -170,7 +165,4 @@ export class DeleteRecommendationTemplateCommand extends $Command<
   ): Promise<DeleteRecommendationTemplateCommandOutput> {
     return de_DeleteRecommendationTemplateCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

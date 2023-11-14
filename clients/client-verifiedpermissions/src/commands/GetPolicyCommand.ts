@@ -200,9 +200,6 @@ export class GetPolicyCommand extends $Command<
   GetPolicyCommandOutput,
   VerifiedPermissionsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -216,9 +213,7 @@ export class GetPolicyCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetPolicyCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -269,7 +264,4 @@ export class GetPolicyCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
     return de_GetPolicyCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

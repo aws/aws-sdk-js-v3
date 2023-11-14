@@ -139,9 +139,6 @@ export class ListAccessPreviewFindingsCommand extends $Command<
   ListAccessPreviewFindingsCommandOutput,
   AccessAnalyzerClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -155,9 +152,7 @@ export class ListAccessPreviewFindingsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ListAccessPreviewFindingsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -213,7 +208,4 @@ export class ListAccessPreviewFindingsCommand extends $Command<
   ): Promise<ListAccessPreviewFindingsCommandOutput> {
     return de_ListAccessPreviewFindingsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

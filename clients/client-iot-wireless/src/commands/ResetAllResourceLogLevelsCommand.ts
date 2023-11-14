@@ -82,9 +82,6 @@ export class ResetAllResourceLogLevelsCommand extends $Command<
   ResetAllResourceLogLevelsCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -98,9 +95,7 @@ export class ResetAllResourceLogLevelsCommand extends $Command<
    * @public
    */
   constructor(readonly input: ResetAllResourceLogLevelsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -156,7 +151,4 @@ export class ResetAllResourceLogLevelsCommand extends $Command<
   ): Promise<ResetAllResourceLogLevelsCommandOutput> {
     return de_ResetAllResourceLogLevelsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

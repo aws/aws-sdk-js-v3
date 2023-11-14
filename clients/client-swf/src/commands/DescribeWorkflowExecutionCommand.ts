@@ -148,9 +148,6 @@ export class DescribeWorkflowExecutionCommand extends $Command<
   DescribeWorkflowExecutionCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -164,9 +161,7 @@ export class DescribeWorkflowExecutionCommand extends $Command<
    * @public
    */
   constructor(readonly input: DescribeWorkflowExecutionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -222,7 +217,4 @@ export class DescribeWorkflowExecutionCommand extends $Command<
   ): Promise<DescribeWorkflowExecutionCommandOutput> {
     return de_DescribeWorkflowExecutionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

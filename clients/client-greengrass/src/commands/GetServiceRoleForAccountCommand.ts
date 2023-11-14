@@ -72,9 +72,6 @@ export class GetServiceRoleForAccountCommand extends $Command<
   GetServiceRoleForAccountCommandOutput,
   GreengrassClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -88,9 +85,7 @@ export class GetServiceRoleForAccountCommand extends $Command<
    * @public
    */
   constructor(readonly input: GetServiceRoleForAccountCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -143,7 +138,4 @@ export class GetServiceRoleForAccountCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceRoleForAccountCommandOutput> {
     return de_GetServiceRoleForAccountCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

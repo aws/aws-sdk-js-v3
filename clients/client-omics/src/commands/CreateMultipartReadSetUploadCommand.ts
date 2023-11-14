@@ -126,9 +126,6 @@ export class CreateMultipartReadSetUploadCommand extends $Command<
   CreateMultipartReadSetUploadCommandOutput,
   OmicsClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -142,9 +139,7 @@ export class CreateMultipartReadSetUploadCommand extends $Command<
    * @public
    */
   constructor(readonly input: CreateMultipartReadSetUploadCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -200,7 +195,4 @@ export class CreateMultipartReadSetUploadCommand extends $Command<
   ): Promise<CreateMultipartReadSetUploadCommandOutput> {
     return de_CreateMultipartReadSetUploadCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

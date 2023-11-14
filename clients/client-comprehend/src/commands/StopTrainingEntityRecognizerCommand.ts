@@ -90,9 +90,6 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
   StopTrainingEntityRecognizerCommandOutput,
   ComprehendClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -106,9 +103,7 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
    * @public
    */
   constructor(readonly input: StopTrainingEntityRecognizerCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -164,7 +159,4 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
   ): Promise<StopTrainingEntityRecognizerCommandOutput> {
     return de_StopTrainingEntityRecognizerCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

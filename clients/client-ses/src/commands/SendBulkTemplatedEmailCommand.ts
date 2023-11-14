@@ -181,9 +181,6 @@ export class SendBulkTemplatedEmailCommand extends $Command<
   SendBulkTemplatedEmailCommandOutput,
   SESClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -197,9 +194,7 @@ export class SendBulkTemplatedEmailCommand extends $Command<
    * @public
    */
   constructor(readonly input: SendBulkTemplatedEmailCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -252,7 +247,4 @@ export class SendBulkTemplatedEmailCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBulkTemplatedEmailCommandOutput> {
     return de_SendBulkTemplatedEmailCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -78,9 +78,6 @@ export class DeleteAssistantAssociationCommand extends $Command<
   DeleteAssistantAssociationCommandOutput,
   WisdomClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -94,9 +91,7 @@ export class DeleteAssistantAssociationCommand extends $Command<
    * @public
    */
   constructor(readonly input: DeleteAssistantAssociationCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -152,7 +147,4 @@ export class DeleteAssistantAssociationCommand extends $Command<
   ): Promise<DeleteAssistantAssociationCommandOutput> {
     return de_DeleteAssistantAssociationCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

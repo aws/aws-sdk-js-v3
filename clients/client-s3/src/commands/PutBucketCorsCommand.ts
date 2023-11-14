@@ -190,9 +190,6 @@ export class PutBucketCorsCommand extends $Command<
   PutBucketCorsCommandOutput,
   S3ClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
@@ -212,9 +209,7 @@ export class PutBucketCorsCommand extends $Command<
    * @public
    */
   constructor(readonly input: PutBucketCorsCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -272,7 +267,4 @@ export class PutBucketCorsCommand extends $Command<
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketCorsCommandOutput> {
     return de_PutBucketCorsCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -115,9 +115,6 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
   RequestCancelWorkflowExecutionCommandOutput,
   SWFClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -131,9 +128,7 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
    * @public
    */
   constructor(readonly input: RequestCancelWorkflowExecutionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -192,7 +187,4 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
   ): Promise<RequestCancelWorkflowExecutionCommandOutput> {
     return de_RequestCancelWorkflowExecutionCommand(output, context);
   }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }
