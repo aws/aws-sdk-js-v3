@@ -91,6 +91,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * //         },
  * //       },
  * //       suppressAlerts: true || false,
+ * //       exportMetric: true || false,
  * //     },
  * //   ],
  * //   alertTargets: { // AlertTargets
@@ -109,11 +110,16 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * //         dimensionName: "STRING_VALUE", // required
  * //         operator: "IN" || "NOT_IN",
  * //       },
+ * //       exportMetric: true || false,
  * //     },
  * //   ],
  * //   version: Number("long"),
  * //   creationDate: new Date("TIMESTAMP"),
  * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   metricsExportConfig: { // MetricsExportConfig
+ * //     mqttTopic: "STRING_VALUE", // required
+ * //     roleArn: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

@@ -85,6 +85,7 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *         },
  *       },
  *       suppressAlerts: true || false,
+ *       exportMetric: true || false,
  *     },
  *   ],
  *   alertTargets: { // AlertTargets
@@ -103,6 +104,7 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *         dimensionName: "STRING_VALUE", // required
  *         operator: "IN" || "NOT_IN",
  *       },
+ *       exportMetric: true || false,
  *     },
  *   ],
  *   tags: [ // TagList
@@ -111,6 +113,10 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   metricsExportConfig: { // MetricsExportConfig
+ *     mqttTopic: "STRING_VALUE", // required
+ *     roleArn: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateSecurityProfileCommand(input);
  * const response = await client.send(command);

@@ -98,6 +98,7 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * //           },
  * //         },
  * //         suppressAlerts: true || false,
+ * //         exportMetric: true || false,
  * //       },
  * //       lastViolationValue: {
  * //         count: Number("long"),

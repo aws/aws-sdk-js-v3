@@ -85,6 +85,7 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  *         },
  *       },
  *       suppressAlerts: true || false,
+ *       exportMetric: true || false,
  *     },
  *   ],
  *   alertTargets: { // AlertTargets
@@ -103,12 +104,18 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  *         dimensionName: "STRING_VALUE", // required
  *         operator: "IN" || "NOT_IN",
  *       },
+ *       exportMetric: true || false,
  *     },
  *   ],
  *   deleteBehaviors: true || false,
  *   deleteAlertTargets: true || false,
  *   deleteAdditionalMetricsToRetain: true || false,
  *   expectedVersion: Number("long"),
+ *   metricsExportConfig: { // MetricsExportConfig
+ *     mqttTopic: "STRING_VALUE", // required
+ *     roleArn: "STRING_VALUE", // required
+ *   },
+ *   deleteMetricsExportConfig: true || false,
  * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);
@@ -153,6 +160,7 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  * //         },
  * //       },
  * //       suppressAlerts: true || false,
+ * //       exportMetric: true || false,
  * //     },
  * //   ],
  * //   alertTargets: { // AlertTargets
@@ -171,11 +179,16 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  * //         dimensionName: "STRING_VALUE", // required
  * //         operator: "IN" || "NOT_IN",
  * //       },
+ * //       exportMetric: true || false,
  * //     },
  * //   ],
  * //   version: Number("long"),
  * //   creationDate: new Date("TIMESTAMP"),
  * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   metricsExportConfig: { // MetricsExportConfig
+ * //     mqttTopic: "STRING_VALUE", // required
+ * //     roleArn: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

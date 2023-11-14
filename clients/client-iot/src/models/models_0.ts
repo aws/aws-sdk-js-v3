@@ -1976,6 +1976,12 @@ export interface Behavior {
    *         </p>
    */
   suppressAlerts?: boolean;
+
+  /**
+   * @public
+   * <p>Value indicates exporting metrics related to the behavior when it is true.</p>
+   */
+  exportMetric?: boolean;
 }
 
 /**
@@ -2094,6 +2100,13 @@ export interface MetricToRetain {
    * <p>The dimension of a metric. This can't be used with custom metrics.</p>
    */
   metricDimension?: MetricDimension;
+
+  /**
+   * @public
+   * <p>Value added in both Behavior and AdditionalMetricsToRetainV2 to indicate if Device
+   *             Defender Detect should export the corresponding metrics.</p>
+   */
+  exportMetric?: boolean;
 }
 
 /**
@@ -3457,8 +3470,8 @@ export interface CancelAuditMitigationActionsTaskResponse {}
 export interface CancelAuditTaskRequest {
   /**
    * @public
-   * <p>The ID of the audit you want to cancel. You can only cancel an
-   *               audit that is "IN_PROGRESS".</p>
+   * <p>The ID of the audit you want to cancel. You can only cancel an audit that is
+   *       "IN_PROGRESS".</p>
    */
   taskId: string | undefined;
 }
@@ -3487,9 +3500,7 @@ export interface CancelCertificateTransferRequest {
 export interface CancelDetectMitigationActionsTaskRequest {
   /**
    * @public
-   * <p>
-   *       The unique identifier of the task.
-   *     </p>
+   * <p> The unique identifier of the task. </p>
    */
   taskId: string | undefined;
 }
@@ -4036,19 +4047,15 @@ export interface CreateCustomMetricRequest {
 
   /**
    * @public
-   * <p>
-   *       Metadata that can be used to manage the custom metric.
-   *     </p>
+   * <p> Metadata that can be used to manage the custom metric. </p>
    */
   tags?: Tag[];
 
   /**
    * @public
-   * <p>Each custom
-   *       metric must have a unique client request token. If you try to create a new custom metric that
-   *       already exists with a different token,
-   *       an exception
-   *       occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request. </p>
+   * <p>Each custom metric must have a unique client request token. If you try to create a new
+   *       custom metric that already exists with a different token, an exception occurs. If you omit
+   *       this value, Amazon Web Services SDKs will automatically generate a unique client request. </p>
    */
   clientRequestToken?: string;
 }
@@ -4059,9 +4066,7 @@ export interface CreateCustomMetricRequest {
 export interface CreateCustomMetricResponse {
   /**
    * @public
-   * <p>
-   *       The name of the custom metric to be used in the metric report.
-   *     </p>
+   * <p> The name of the custom metric to be used in the metric report. </p>
    */
   metricName?: string;
 
@@ -4094,7 +4099,8 @@ export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
 export interface CreateDimensionRequest {
   /**
    * @public
-   * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
+   * <p>A unique identifier for the dimension. Choose something that describes the type and value
+   *       to make it easy to remember what it does.</p>
    */
   name: string | undefined;
 
@@ -4107,7 +4113,8 @@ export interface CreateDimensionRequest {
 
   /**
    * @public
-   * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
+   * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code>
+   *       dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
    */
   stringValues: string[] | undefined;
 
@@ -4119,8 +4126,9 @@ export interface CreateDimensionRequest {
 
   /**
    * @public
-   * <p>Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs.
-   *       If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.</p>
+   * <p>Each dimension must have a unique client request token. If you try to create a new
+   *       dimension with the same token as a dimension that already exists, an exception occurs. If you
+   *       omit this value, Amazon Web Services SDKs will automatically generate a unique client request.</p>
    */
   clientRequestToken?: string;
 }
@@ -4137,10 +4145,7 @@ export interface CreateDimensionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name
-   *       (ARN)
-   *       of
-   *       the created dimension.</p>
+   * <p>The Amazon Resource Name (ARN) of the created dimension.</p>
    */
   arn?: string;
 }
@@ -5349,7 +5354,8 @@ export interface MitigationActionParams {
 export interface CreateMitigationActionRequest {
   /**
    * @public
-   * <p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>
+   * <p>A friendly name for the action. Choose a friendly name that accurately describes the
+   *       action (for example, <code>EnableLoggingAction</code>).</p>
    */
   actionName: string | undefined;
 
@@ -6667,44 +6673,36 @@ export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 export interface CreateScheduledAuditRequest {
   /**
    * @public
-   * <p>How often the scheduled audit takes
-   *       place, either
-   *       <code>DAILY</code>,
-   *       <code>WEEKLY</code>, <code>BIWEEKLY</code> or <code>MONTHLY</code>. The start time of each audit is
-   *       determined by the system.</p>
+   * <p>How often the scheduled audit takes place, either <code>DAILY</code>, <code>WEEKLY</code>,
+   *         <code>BIWEEKLY</code> or <code>MONTHLY</code>. The start time of each audit is determined by
+   *       the system.</p>
    */
   frequency: AuditFrequency | undefined;
 
   /**
    * @public
-   * <p>The day of the month on which the scheduled audit takes place.
-   *       This
-   *       can be "1" through "31" or "LAST". This field is required if the "frequency"
-   *       parameter is set to <code>MONTHLY</code>. If days
-   *       29
-   *       to 31 are specified, and the month
-   *       doesn't
-   *       have that many days, the audit takes place on the <code>LAST</code> day of the month.</p>
+   * <p>The day of the month on which the scheduled audit takes place. This can be "1" through
+   *       "31" or "LAST". This field is required if the "frequency" parameter is set to
+   *         <code>MONTHLY</code>. If days 29 to 31 are specified, and the month doesn't have that many
+   *       days, the audit takes place on the <code>LAST</code> day of the month.</p>
    */
   dayOfMonth?: string;
 
   /**
    * @public
-   * <p>The day of the week on which the scheduled audit takes
-   *       place,
-   *       either
-   *       <code>SUN</code>,
-   *       <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the <code>frequency</code>
-   *       parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
+   * <p>The day of the week on which the scheduled audit takes place, either <code>SUN</code>,
+   *         <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or
+   *         <code>SAT</code>. This field is required if the <code>frequency</code> parameter is set to
+   *         <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
   dayOfWeek?: DayOfWeek;
 
   /**
    * @public
-   * <p>Which checks are performed during the scheduled audit. Checks must be enabled
-   *             for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *             to select which checks are enabled.)</p>
+   * <p>Which checks are performed during the scheduled audit. Checks must be enabled for your
+   *       account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks,
+   *       including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select
+   *       which checks are enabled.)</p>
    */
   targetCheckNames: string[] | undefined;
 
@@ -6734,6 +6732,26 @@ export interface CreateScheduledAuditResponse {
 
 /**
  * @public
+ * <p>Set configurations for metrics export.</p>
+ */
+export interface MetricsExportConfig {
+  /**
+   * @public
+   * <p>The MQTT topic that Device Defender Detect should publish messages to for metrics
+   *       export.</p>
+   */
+  mqttTopic: string | undefined;
+
+  /**
+   * @public
+   * <p>This role ARN has permission to publish MQTT messages, after which Device Defender Detect
+   *       can assume the role and publish messages on your behalf.</p>
+   */
+  roleArn: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateSecurityProfileRequest {
   /**
@@ -6750,14 +6768,15 @@ export interface CreateSecurityProfileRequest {
 
   /**
    * @public
-   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an
+   *       alert.</p>
    */
   behaviors?: Behavior[];
 
   /**
    * @public
    * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
-   *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
+   *       console.) Alerts are generated when a device (thing) violates a behavior.</p>
    */
   alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
 
@@ -6766,17 +6785,20 @@ export interface CreateSecurityProfileRequest {
    * @deprecated
    *
    * <p>
-   *             <i>Please use <a>CreateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i>
+   *             <i>Please use <a>CreateSecurityProfileRequest$additionalMetricsToRetainV2</a>
+   *       instead.</i>
    *          </p>
-   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
-   *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
-   *         any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
+   *          <p>A list of metrics whose data is retained (stored). By default, data is retained for any
+   *       metric used in the profile's <code>behaviors</code>, but it is also retained for any metric
+   *       specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    */
   additionalMetricsToRetain?: string[];
 
   /**
    * @public
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any
+   *       metric used in the profile's <code>behaviors</code>, but it is also retained for any metric
+   *       specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    */
   additionalMetricsToRetainV2?: MetricToRetain[];
 
@@ -6785,6 +6807,12 @@ export interface CreateSecurityProfileRequest {
    * <p>Metadata that can be used to manage the security profile.</p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+   */
+  metricsExportConfig?: MetricsExportConfig;
 }
 
 /**
@@ -7551,9 +7579,7 @@ export interface DeleteCertificateRequest {
 export interface DeleteCustomMetricRequest {
   /**
    * @public
-   * <p>
-   *       The name of the custom metric.
-   *     </p>
+   * <p> The name of the custom metric. </p>
    */
   metricName: string | undefined;
 }
@@ -7594,23 +7620,6 @@ export interface DeleteDomainConfigurationRequest {
  * @public
  */
 export interface DeleteDomainConfigurationResponse {}
-
-/**
- * @public
- */
-export interface DeleteDynamicThingGroupRequest {
-  /**
-   * @public
-   * <p>The name of the dynamic thing group to delete.</p>
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   * @public
-   * <p>The expected version of the dynamic thing group to delete.</p>
-   */
-  expectedVersion?: number;
-}
 
 /**
  * @internal

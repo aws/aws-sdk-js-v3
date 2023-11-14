@@ -88,6 +88,7 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  *         },
  *       },
  *       suppressAlerts: true || false,
+ *       exportMetric: true || false,
  *     },
  *   ],
  * };

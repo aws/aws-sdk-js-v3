@@ -37,9 +37,9 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
 
 /**
  * @public
- * <p>Lists the Device Defender security profile violations discovered during the given time period.
- *       You can use filters to limit the results to those alerts issued for a particular security profile,
- *       behavior, or thing (device).</p>
+ * <p>Lists the Device Defender security profile violations discovered during the given time
+ *       period. You can use filters to limit the results to those alerts issued for a particular
+ *       security profile, behavior, or thing (device).</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListViolationEvents</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +102,7 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  * //           },
  * //         },
  * //         suppressAlerts: true || false,
+ * //         exportMetric: true || false,
  * //       },
  * //       metricValue: {
  * //         count: Number("long"),

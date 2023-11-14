@@ -791,6 +791,7 @@ import {
   MaintenanceWindow,
   MalformedPolicyException,
   MetricDimension,
+  MetricsExportConfig,
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
@@ -2302,6 +2303,7 @@ export const se_CreateSecurityProfileCommand = async (
       additionalMetricsToRetainV2: (_) => _json(_),
       alertTargets: (_) => _json(_),
       behaviors: (_) => se_Behaviors(_, context),
+      metricsExportConfig: (_) => _json(_),
       securityProfileDescription: [],
       tags: (_) => _json(_),
     })
@@ -8560,6 +8562,8 @@ export const se_UpdateSecurityProfileCommand = async (
       deleteAdditionalMetricsToRetain: [],
       deleteAlertTargets: [],
       deleteBehaviors: [],
+      deleteMetricsExportConfig: [],
+      metricsExportConfig: (_) => _json(_),
       securityProfileDescription: [],
     })
   );
@@ -15172,6 +15176,7 @@ export const de_DescribeSecurityProfileCommand = async (
     behaviors: (_) => de_Behaviors(_, context),
     creationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricsExportConfig: _json,
     securityProfileArn: __expectString,
     securityProfileDescription: __expectString,
     securityProfileName: __expectString,
@@ -23191,6 +23196,7 @@ export const de_UpdateSecurityProfileCommand = async (
     behaviors: (_) => de_Behaviors(_, context),
     creationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricsExportConfig: _json,
     securityProfileArn: __expectString,
     securityProfileDescription: __expectString,
     securityProfileName: __expectString,
@@ -24384,6 +24390,7 @@ const se_AwsJobExponentialRolloutRate = (input: AwsJobExponentialRolloutRate, co
 const se_Behavior = (input: Behavior, context: __SerdeContext): any => {
   return take(input, {
     criteria: (_) => se_BehaviorCriteria(_, context),
+    exportMetric: [],
     metric: [],
     metricDimension: _json,
     name: [],
@@ -24573,6 +24580,8 @@ const se_JobExecutionsRolloutConfig = (input: JobExecutionsRolloutConfig, contex
 // se_MaintenanceWindows omitted.
 
 // se_MetricDimension omitted.
+
+// se_MetricsExportConfig omitted.
 
 // se_MetricToRetain omitted.
 
@@ -25116,6 +25125,7 @@ const de_AwsJobExponentialRolloutRate = (output: any, context: __SerdeContext): 
 const de_Behavior = (output: any, context: __SerdeContext): Behavior => {
   return take(output, {
     criteria: (_: any) => de_BehaviorCriteria(_, context),
+    exportMetric: __expectBoolean,
     metric: __expectString,
     metricDimension: _json,
     name: __expectString,
@@ -25743,6 +25753,8 @@ const de_MetricDatumList = (output: any, context: __SerdeContext): MetricDatum[]
 // de_MetricDimension omitted.
 
 // de_MetricNames omitted.
+
+// de_MetricsExportConfig omitted.
 
 // de_MetricToRetain omitted.
 
