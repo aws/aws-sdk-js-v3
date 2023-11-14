@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
+import { UntagResourceInput, UntagResourceInputFilterSensitiveLog, UntagResourceOutput } from "../models/models_0";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
@@ -80,8 +80,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The principal making the request isn't permitted to perform the operation.</p>
@@ -134,7 +134,7 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UntagResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "ResourceExplorer",

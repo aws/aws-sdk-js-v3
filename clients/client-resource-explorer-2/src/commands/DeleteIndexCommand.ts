@@ -92,8 +92,8 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax

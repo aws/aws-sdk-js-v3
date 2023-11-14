@@ -116,8 +116,8 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The principal making the request isn't permitted to perform the operation.</p>

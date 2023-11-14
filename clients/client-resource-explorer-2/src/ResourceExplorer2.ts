@@ -22,6 +22,11 @@ import {
   DisassociateDefaultViewCommandOutput,
 } from "./commands/DisassociateDefaultViewCommand";
 import {
+  GetAccountLevelServiceConfigurationCommand,
+  GetAccountLevelServiceConfigurationCommandInput,
+  GetAccountLevelServiceConfigurationCommandOutput,
+} from "./commands/GetAccountLevelServiceConfigurationCommand";
+import {
   GetDefaultViewCommand,
   GetDefaultViewCommandInput,
   GetDefaultViewCommandOutput,
@@ -29,6 +34,11 @@ import {
 import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetViewCommand, GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
 import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
+import {
+  ListIndexesForMembersCommand,
+  ListIndexesForMembersCommandInput,
+  ListIndexesForMembersCommandOutput,
+} from "./commands/ListIndexesForMembersCommand";
 import {
   ListSupportedResourceTypesCommand,
   ListSupportedResourceTypesCommandInput,
@@ -63,10 +73,12 @@ const commands = {
   DeleteIndexCommand,
   DeleteViewCommand,
   DisassociateDefaultViewCommand,
+  GetAccountLevelServiceConfigurationCommand,
   GetDefaultViewCommand,
   GetIndexCommand,
   GetViewCommand,
   ListIndexesCommand,
+  ListIndexesForMembersCommand,
   ListSupportedResourceTypesCommand,
   ListTagsForResourceCommand,
   ListViewsCommand,
@@ -168,6 +180,23 @@ export interface ResourceExplorer2 {
   ): void;
 
   /**
+   * @see {@link GetAccountLevelServiceConfigurationCommand}
+   */
+  getAccountLevelServiceConfiguration(
+    args: GetAccountLevelServiceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountLevelServiceConfigurationCommandOutput>;
+  getAccountLevelServiceConfiguration(
+    args: GetAccountLevelServiceConfigurationCommandInput,
+    cb: (err: any, data?: GetAccountLevelServiceConfigurationCommandOutput) => void
+  ): void;
+  getAccountLevelServiceConfiguration(
+    args: GetAccountLevelServiceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountLevelServiceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDefaultViewCommand}
    */
   getDefaultView(
@@ -212,6 +241,23 @@ export interface ResourceExplorer2 {
     args: ListIndexesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIndexesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIndexesForMembersCommand}
+   */
+  listIndexesForMembers(
+    args: ListIndexesForMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndexesForMembersCommandOutput>;
+  listIndexesForMembers(
+    args: ListIndexesForMembersCommandInput,
+    cb: (err: any, data?: ListIndexesForMembersCommandOutput) => void
+  ): void;
+  listIndexesForMembers(
+    args: ListIndexesForMembersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIndexesForMembersCommandOutput) => void
   ): void;
 
   /**

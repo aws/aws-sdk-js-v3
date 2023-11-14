@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { GetIndexOutput, GetIndexOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetIndexCommand, se_GetIndexCommand } from "../protocols/Aws_restJson1";
+import { GetAccountLevelServiceConfigurationOutput } from "../models/models_0";
+import {
+  de_GetAccountLevelServiceConfigurationCommand,
+  se_GetAccountLevelServiceConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -29,52 +32,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetIndexCommand}.
+ * The input for {@link GetAccountLevelServiceConfigurationCommand}.
  */
-export interface GetIndexCommandInput {}
+export interface GetAccountLevelServiceConfigurationCommandInput {}
 /**
  * @public
  *
- * The output of {@link GetIndexCommand}.
+ * The output of {@link GetAccountLevelServiceConfigurationCommand}.
  */
-export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer {}
+export interface GetAccountLevelServiceConfigurationCommandOutput
+  extends GetAccountLevelServiceConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves details about the Amazon Web Services Resource Explorer index in the Amazon Web Services Region in which you invoked
- *             the operation.</p>
+ * <p>Retrieves the status of your account's Amazon Web Services service access, and validates the service
+ *             linked role required to access the multi-account search feature. Only the management
+ *             account or a delegated administrator with service access enabled can invoke this API
+ *             call. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, GetIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, GetIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, GetAccountLevelServiceConfigurationCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
+ * // const { ResourceExplorer2Client, GetAccountLevelServiceConfigurationCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = {};
- * const command = new GetIndexCommand(input);
+ * const command = new GetAccountLevelServiceConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // GetIndexOutput
- * //   Arn: "STRING_VALUE",
- * //   Type: "STRING_VALUE",
- * //   State: "STRING_VALUE",
- * //   ReplicatingFrom: [ // RegionList
- * //     "STRING_VALUE",
- * //   ],
- * //   ReplicatingTo: [
- * //     "STRING_VALUE",
- * //   ],
- * //   CreatedAt: new Date("TIMESTAMP"),
- * //   LastUpdatedAt: new Date("TIMESTAMP"),
- * //   Tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
+ * // { // GetAccountLevelServiceConfigurationOutput
+ * //   OrgConfiguration: { // OrgConfiguration
+ * //     AWSServiceAccessStatus: "STRING_VALUE", // required
+ * //     ServiceLinkedRole: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param GetIndexCommandInput - {@link GetIndexCommandInput}
- * @returns {@link GetIndexCommandOutput}
- * @see {@link GetIndexCommandInput} for command's `input` shape.
- * @see {@link GetIndexCommandOutput} for command's `response` shape.
+ * @param GetAccountLevelServiceConfigurationCommandInput - {@link GetAccountLevelServiceConfigurationCommandInput}
+ * @returns {@link GetAccountLevelServiceConfigurationCommandOutput}
+ * @see {@link GetAccountLevelServiceConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetAccountLevelServiceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -94,17 +91,13 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
  *             Resource Explorer</a>.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
- *             for the operation, and try again.</p>
- *
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
-export class GetIndexCommand extends $Command<
-  GetIndexCommandInput,
-  GetIndexCommandOutput,
+export class GetAccountLevelServiceConfigurationCommand extends $Command<
+  GetAccountLevelServiceConfigurationCommandInput,
+  GetAccountLevelServiceConfigurationCommandOutput,
   ResourceExplorer2ClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -118,7 +111,7 @@ export class GetIndexCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetIndexCommandInput) {
+  constructor(readonly input: GetAccountLevelServiceConfigurationCommandInput) {
     super();
   }
 
@@ -129,24 +122,26 @@ export class GetIndexCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceExplorer2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetIndexCommandInput, GetIndexCommandOutput> {
+  ): Handler<GetAccountLevelServiceConfigurationCommandInput, GetAccountLevelServiceConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetIndexCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAccountLevelServiceConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ResourceExplorer2Client";
-    const commandName = "GetIndexCommand";
+    const commandName = "GetAccountLevelServiceConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetIndexOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "ResourceExplorer",
-        operation: "GetIndex",
+        operation: "GetAccountLevelServiceConfiguration",
       },
     };
     const { requestHandler } = configuration;
@@ -160,14 +155,20 @@ export class GetIndexCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetIndexCommand(input, context);
+  private serialize(
+    input: GetAccountLevelServiceConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_GetAccountLevelServiceConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexCommandOutput> {
-    return de_GetIndexCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetAccountLevelServiceConfigurationCommandOutput> {
+    return de_GetAccountLevelServiceConfigurationCommand(output, context);
   }
 }

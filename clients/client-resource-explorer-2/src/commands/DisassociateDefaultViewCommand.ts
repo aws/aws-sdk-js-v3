@@ -73,10 +73,14 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  *  <p>The request failed because of internal service error. Try your request again
  *             later.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to
+ *             identity the resource, and try again.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax

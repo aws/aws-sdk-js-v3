@@ -281,6 +281,14 @@ DisassociateDefaultView
 </details>
 <details>
 <summary>
+GetAccountLevelServiceConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/getaccountlevelserviceconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getaccountlevelserviceconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getaccountlevelserviceconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetDefaultView
 </summary>
 
@@ -309,6 +317,14 @@ ListIndexes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/listindexescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listindexescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listindexescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListIndexesForMembers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/listindexesformemberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listindexesformemberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listindexesformemberscommandoutput.html)
 
 </details>
 <details>

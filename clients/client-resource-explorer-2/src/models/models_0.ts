@@ -101,8 +101,8 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  * <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -168,6 +168,20 @@ export class ValidationException extends __BaseException {
     this.FieldList = opts.FieldList;
   }
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AWSServiceAccessStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AWSServiceAccessStatus = (typeof AWSServiceAccessStatus)[keyof typeof AWSServiceAccessStatus];
 
 /**
  * @public
@@ -333,9 +347,13 @@ export class UnauthorizedException extends __BaseException {
 
 /**
  * @public
- * <p>The request failed because either you specified parameters that didn’t match the
+ * <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the
  *             original request, or you attempted to create a view with a name that already exists in
  *             this Amazon Web Services Region.</p>
+ *          <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match
+ *             the original request, or an index already exists in the current Amazon Web Services Region.</p>
+ *          <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already
+ *             have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -363,7 +381,7 @@ export interface CreateIndexInput {
    * @public
    * <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the
    *         accidental creation of duplicate versions. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type
-   *         value</a> to ensure the uniqueness of your views.</p>
+   *         value</a> to ensure the uniqueness of your index.</p>
    */
   ClientToken?: string;
 
@@ -538,7 +556,7 @@ export interface ListIndexesInput {
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
-   *     from.</p>
+   *     from. The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 }
@@ -570,21 +588,19 @@ export interface Index {
 
   /**
    * @public
-   * <p>The type of index. It can be one of the following
-   *             values:</p>
+   * <p>The type of index. It can be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>LOCAL</b> – The index contains information
-   *                     about resources from only the same Amazon Web Services Region.</p>
+   *                   <code>LOCAL</code> – The index contains information about resources
+   *                     from only the same Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AGGREGATOR</b> – Resource Explorer replicates copies
-   *                     of the indexed information about resources in all other Amazon Web Services Regions to the
-   *                     aggregator index. This lets search results in the Region with the aggregator index to
-   *                     include resources from all Regions in the account where Resource Explorer is turned
-   *                     on.</p>
+   *                   <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed
+   *                     information about resources in all other Amazon Web Services Regions to the aggregator index. This
+   *                     lets search results in the Region with the aggregator index to include resources
+   *                     from all Regions in the account where Resource Explorer is turned on.</p>
    *             </li>
    *          </ul>
    */
@@ -606,7 +622,8 @@ export interface ListIndexesOutput {
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 }
@@ -725,6 +742,13 @@ export interface CreateViewInput {
 
   /**
    * @public
+   * <p>The root ARN of the account, an organizational unit (OU), or an organization ARN. If
+   *             left empty, the default is account.</p>
+   */
+  Scope?: string;
+
+  /**
+   * @public
    * <p>An array of strings that specify which resources are included in the results of
    *             queries made using this view. When you use this view in a <a>Search</a>
    *             operation, the filter string is combined with the search's <code>QueryString</code>
@@ -820,7 +844,7 @@ export interface ListViewsInput {
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
-   *     from.</p>
+   *     from. The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 
@@ -857,7 +881,8 @@ export interface ListViewsOutput {
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 }
@@ -909,6 +934,37 @@ export interface UpdateViewOutput {
    * <p>Details about the view that you changed with this operation.</p>
    */
   View?: View;
+}
+
+/**
+ * @public
+ * <p>This is a structure that contains the status of Amazon Web Services service access, and whether you have a valid service-linked role to enable
+ *             multi-account search for your organization.</p>
+ */
+export interface OrgConfiguration {
+  /**
+   * @public
+   * <p>This value displays whether your Amazon Web Services service access is <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
+  AWSServiceAccessStatus: AWSServiceAccessStatus | undefined;
+
+  /**
+   * @public
+   * <p>This value shows whether or not you have a valid a service-linked role required to start the multi-account search feature.</p>
+   */
+  ServiceLinkedRole?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAccountLevelServiceConfigurationOutput {
+  /**
+   * @public
+   * <p>Details about the organization, and whether configuration is <code>ENABLED</code> or
+   *                 <code>DISABLED</code>.</p>
+   */
+  OrgConfiguration?: OrgConfiguration;
 }
 
 /**
@@ -987,6 +1043,112 @@ export interface GetIndexOutput {
 /**
  * @public
  */
+export interface ListIndexesForMembersInput {
+  /**
+   * @public
+   * <p>The account IDs will limit the output to only indexes from these
+   *             accounts.</p>
+   */
+  AccountIdList: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value appropriate to the
+   *     operation. If additional items exist beyond those included in the current response, the
+   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
+   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
+   *     the next part of the results.</p>
+   *          <note>
+   *             <p>An API operation can return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
+   *          </note>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from. The pagination tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services
+ *             resources that the service discovers. </p>
+ */
+export interface MemberIndex {
+  /**
+   * @public
+   * <p>The account ID for the index.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region in which the index
+   *             exists.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The type of index. It can be one of the following values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOCAL</code> – The index contains information about resources
+   *                     from only the same Amazon Web Services Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed
+   *                     information about resources in all other Amazon Web Services Regions to the aggregator index. This
+   *                     lets search results in the Region with the aggregator index to include resources
+   *                     from all Regions in the account where Resource Explorer is turned on.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: IndexType;
+}
+
+/**
+ * @public
+ */
+export interface ListIndexesForMembersOutput {
+  /**
+   * @public
+   * <p>A structure that contains the details and status of each
+   *             index.</p>
+   */
+  Indexes?: MemberIndex[];
+
+  /**
+   * @public
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListSupportedResourceTypesInput {
   /**
    * @public
@@ -994,7 +1156,7 @@ export interface ListSupportedResourceTypesInput {
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
-   *     from.</p>
+   *     from. The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 
@@ -1049,7 +1211,8 @@ export interface ListSupportedResourceTypesOutput {
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 }
@@ -1243,7 +1406,7 @@ export interface SearchInput {
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
-   *     from.</p>
+   *     from. The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 }
@@ -1263,7 +1426,8 @@ export interface SearchOutput {
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 
@@ -1354,9 +1518,18 @@ export const BatchGetViewOutputFilterSensitiveLog = (obj: BatchGetViewOutput): a
 /**
  * @internal
  */
+export const CreateIndexInputFilterSensitiveLog = (obj: CreateIndexInput): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateViewInputFilterSensitiveLog = (obj: CreateViewInput): any => ({
   ...obj,
   ...(obj.Filters && { Filters: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -1373,6 +1546,7 @@ export const CreateViewOutputFilterSensitiveLog = (obj: CreateViewOutput): any =
 export const GetViewOutputFilterSensitiveLog = (obj: GetViewOutput): any => ({
   ...obj,
   ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -1394,7 +1568,39 @@ export const UpdateViewOutputFilterSensitiveLog = (obj: UpdateViewOutput): any =
 /**
  * @internal
  */
+export const GetIndexOutputFilterSensitiveLog = (obj: GetIndexOutput): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const SearchInputFilterSensitiveLog = (obj: SearchInput): any => ({
   ...obj,
   ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
 });

@@ -35,10 +35,18 @@ import {
   DisassociateDefaultViewCommandInput,
   DisassociateDefaultViewCommandOutput,
 } from "../commands/DisassociateDefaultViewCommand";
+import {
+  GetAccountLevelServiceConfigurationCommandInput,
+  GetAccountLevelServiceConfigurationCommandOutput,
+} from "../commands/GetAccountLevelServiceConfigurationCommand";
 import { GetDefaultViewCommandInput, GetDefaultViewCommandOutput } from "../commands/GetDefaultViewCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "../commands/GetIndexCommand";
 import { GetViewCommandInput, GetViewCommandOutput } from "../commands/GetViewCommand";
 import { ListIndexesCommandInput, ListIndexesCommandOutput } from "../commands/ListIndexesCommand";
+import {
+  ListIndexesForMembersCommandInput,
+  ListIndexesForMembersCommandOutput,
+} from "../commands/ListIndexesForMembersCommand";
 import {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
@@ -176,6 +184,7 @@ export const se_CreateViewCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Filters: (_) => _json(_),
       IncludedProperties: (_) => _json(_),
+      Scope: [],
       Tags: (_) => _json(_),
       ViewName: [],
     })
@@ -262,6 +271,32 @@ export const se_DisassociateDefaultViewCommand = async (
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DisassociateDefaultView";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetAccountLevelServiceConfigurationCommand
+ */
+export const se_GetAccountLevelServiceConfigurationCommand = async (
+  input: GetAccountLevelServiceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetAccountLevelServiceConfiguration";
   let body: any;
   body = "";
   return new __HttpRequest({
@@ -373,6 +408,37 @@ export const se_ListIndexesCommand = async (
       NextToken: [],
       Regions: (_) => _json(_),
       Type: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListIndexesForMembersCommand
+ */
+export const se_ListIndexesForMembersCommand = async (
+  input: ListIndexesForMembersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListIndexesForMembers";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountIdList: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
     })
   );
   return new __HttpRequest({
@@ -1024,12 +1090,71 @@ const de_DisassociateDefaultViewCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.resourceexplorer2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.resourceexplorer2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.resourceexplorer2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetAccountLevelServiceConfigurationCommand
+ */
+export const de_GetAccountLevelServiceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountLevelServiceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAccountLevelServiceConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    OrgConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAccountLevelServiceConfigurationCommandError
+ */
+const de_GetAccountLevelServiceConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountLevelServiceConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.resourceexplorer2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.resourceexplorer2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1257,6 +1382,63 @@ const de_ListIndexesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIndexesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.resourceexplorer2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.resourceexplorer2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.resourceexplorer2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListIndexesForMembersCommand
+ */
+export const de_ListIndexesForMembersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIndexesForMembersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIndexesForMembersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Indexes: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIndexesForMembersCommandError
+ */
+const de_ListIndexesForMembersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIndexesForMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1924,6 +2106,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AccountIdList omitted.
+
 // se_IncludedProperty omitted.
 
 // se_IncludedPropertyList omitted.
@@ -1947,6 +2131,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_Index omitted.
 
 // de_IndexList omitted.
+
+// de_MemberIndex omitted.
+
+// de_MemberIndexList omitted.
+
+// de_OrgConfiguration omitted.
 
 // de_RegionList omitted.
 

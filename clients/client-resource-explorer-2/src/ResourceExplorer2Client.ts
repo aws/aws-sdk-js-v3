@@ -63,10 +63,18 @@ import {
   DisassociateDefaultViewCommandInput,
   DisassociateDefaultViewCommandOutput,
 } from "./commands/DisassociateDefaultViewCommand";
+import {
+  GetAccountLevelServiceConfigurationCommandInput,
+  GetAccountLevelServiceConfigurationCommandOutput,
+} from "./commands/GetAccountLevelServiceConfigurationCommand";
 import { GetDefaultViewCommandInput, GetDefaultViewCommandOutput } from "./commands/GetDefaultViewCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
 import { ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
+import {
+  ListIndexesForMembersCommandInput,
+  ListIndexesForMembersCommandOutput,
+} from "./commands/ListIndexesForMembersCommand";
 import {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
@@ -103,10 +111,12 @@ export type ServiceInputTypes =
   | DeleteIndexCommandInput
   | DeleteViewCommandInput
   | DisassociateDefaultViewCommandInput
+  | GetAccountLevelServiceConfigurationCommandInput
   | GetDefaultViewCommandInput
   | GetIndexCommandInput
   | GetViewCommandInput
   | ListIndexesCommandInput
+  | ListIndexesForMembersCommandInput
   | ListSupportedResourceTypesCommandInput
   | ListTagsForResourceCommandInput
   | ListViewsCommandInput
@@ -127,10 +137,12 @@ export type ServiceOutputTypes =
   | DeleteIndexCommandOutput
   | DeleteViewCommandOutput
   | DisassociateDefaultViewCommandOutput
+  | GetAccountLevelServiceConfigurationCommandOutput
   | GetDefaultViewCommandOutput
   | GetIndexCommandOutput
   | GetViewCommandOutput
   | ListIndexesCommandOutput
+  | ListIndexesForMembersCommandOutput
   | ListSupportedResourceTypesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListViewsCommandOutput
