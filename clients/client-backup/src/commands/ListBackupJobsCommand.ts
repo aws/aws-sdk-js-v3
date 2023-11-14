@@ -58,6 +58,7 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  *   ByCompleteAfter: new Date("TIMESTAMP"),
  *   ByCompleteBefore: new Date("TIMESTAMP"),
  *   ByParentJobId: "STRING_VALUE",
+ *   ByMessageCategory: "STRING_VALUE",
  * };
  * const command = new ListBackupJobsCommand(input);
  * const response = await client.send(command);
@@ -94,6 +95,7 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * //       ParentJobId: "STRING_VALUE",
  * //       IsParent: true || false,
  * //       ResourceName: "STRING_VALUE",
+ * //       MessageCategory: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

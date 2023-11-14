@@ -57,6 +57,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  *   ByCompleteBefore: new Date("TIMESTAMP"),
  *   ByCompleteAfter: new Date("TIMESTAMP"),
  *   ByParentJobId: "STRING_VALUE",
+ *   ByMessageCategory: "STRING_VALUE",
  * };
  * const command = new ListCopyJobsCommand(input);
  * const response = await client.send(command);
@@ -91,6 +92,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * //         "<keys>": Number("long"),
  * //       },
  * //       ResourceName: "STRING_VALUE",
+ * //       MessageCategory: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

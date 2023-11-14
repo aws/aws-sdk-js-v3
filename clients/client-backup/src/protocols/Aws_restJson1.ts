@@ -129,6 +129,10 @@ import {
   GetSupportedResourceTypesCommandOutput,
 } from "../commands/GetSupportedResourceTypesCommand";
 import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "../commands/ListBackupJobsCommand";
+import {
+  ListBackupJobSummariesCommandInput,
+  ListBackupJobSummariesCommandOutput,
+} from "../commands/ListBackupJobSummariesCommand";
 import { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "../commands/ListBackupPlansCommand";
 import {
   ListBackupPlanTemplatesCommandInput,
@@ -144,6 +148,10 @@ import {
 } from "../commands/ListBackupSelectionsCommand";
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "../commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "../commands/ListCopyJobsCommand";
+import {
+  ListCopyJobSummariesCommandInput,
+  ListCopyJobSummariesCommandOutput,
+} from "../commands/ListCopyJobSummariesCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "../commands/ListFrameworksCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "../commands/ListLegalHoldsCommand";
 import {
@@ -169,6 +177,10 @@ import {
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "../commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "../commands/ListReportPlansCommand";
 import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "../commands/ListRestoreJobsCommand";
+import {
+  ListRestoreJobSummariesCommandInput,
+  ListRestoreJobSummariesCommandOutput,
+} from "../commands/ListRestoreJobSummariesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommandInput,
@@ -209,6 +221,7 @@ import {
   AdvancedBackupSetting,
   AlreadyExistsException,
   BackupJob,
+  BackupJobSummary,
   BackupPlanInput,
   BackupPlansListMember,
   BackupRuleInput,
@@ -225,6 +238,7 @@ import {
   ControlScope,
   CopyAction,
   CopyJob,
+  CopyJobSummary,
   DateRange,
   DependencyFailureException,
   Framework,
@@ -246,6 +260,7 @@ import {
   ReportSetting,
   ResourceNotFoundException,
   RestoreJobsListMember,
+  RestoreJobSummary,
   ServiceUnavailableException,
 } from "../models/models_0";
 
@@ -1573,6 +1588,40 @@ export const se_ListBackupJobsCommand = async (
       () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     parentJobId: [, input.ByParentJobId!],
+    messageCategory: [, input.ByMessageCategory!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListBackupJobSummariesCommand
+ */
+export const se_ListBackupJobSummariesCommand = async (
+  input: ListBackupJobSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/backup-job-summaries";
+  const query: any = map({
+    AccountId: [, input.AccountId!],
+    State: [, input.State!],
+    ResourceType: [, input.ResourceType!],
+    MessageCategory: [, input.MessageCategory!],
+    AggregationPeriod: [, input.AggregationPeriod!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1778,6 +1827,40 @@ export const se_ListCopyJobsCommand = async (
       () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     parentJobId: [, input.ByParentJobId!],
+    messageCategory: [, input.ByMessageCategory!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListCopyJobSummariesCommand
+ */
+export const se_ListCopyJobSummariesCommand = async (
+  input: ListCopyJobSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/copy-job-summaries";
+  const query: any = map({
+    AccountId: [, input.AccountId!],
+    State: [, input.State!],
+    ResourceType: [, input.ResourceType!],
+    MessageCategory: [, input.MessageCategory!],
+    AggregationPeriod: [, input.AggregationPeriod!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2115,6 +2198,38 @@ export const se_ListRestoreJobsCommand = async (
       () => input.ByCompleteAfter !== void 0,
       () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListRestoreJobSummariesCommand
+ */
+export const se_ListRestoreJobSummariesCommand = async (
+  input: ListRestoreJobSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/restore-job-summaries";
+  const query: any = map({
+    AccountId: [, input.AccountId!],
+    State: [, input.State!],
+    ResourceType: [, input.ResourceType!],
+    AggregationPeriod: [, input.AggregationPeriod!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
   });
   let body: any;
   return new __HttpRequest({
@@ -3743,6 +3858,7 @@ export const de_DescribeBackupJobCommand = async (
     ExpectedCompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IamRoleArn: __expectString,
     IsParent: __expectBoolean,
+    MessageCategory: __expectString,
     NumberOfChildJobs: __expectLong,
     ParentJobId: __expectString,
     PercentDone: __expectString,
@@ -5144,6 +5260,58 @@ const de_ListBackupJobsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListBackupJobSummariesCommand
+ */
+export const de_ListBackupJobSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBackupJobSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListBackupJobSummariesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationPeriod: __expectString,
+    BackupJobSummaries: (_) => de_BackupJobSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBackupJobSummariesCommandError
+ */
+const de_ListBackupJobSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBackupJobSummariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListBackupPlansCommand
  */
 export const de_ListBackupPlansCommand = async (
@@ -5457,6 +5625,58 @@ const de_ListCopyJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCopyJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCopyJobSummariesCommand
+ */
+export const de_ListCopyJobSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCopyJobSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCopyJobSummariesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationPeriod: __expectString,
+    CopyJobSummaries: (_) => de_CopyJobSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCopyJobSummariesCommandError
+ */
+const de_ListCopyJobSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCopyJobSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6003,6 +6223,58 @@ const de_ListRestoreJobsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreJobSummariesCommand
+ */
+export const de_ListRestoreJobSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreJobSummariesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationPeriod: __expectString,
+    NextToken: __expectString,
+    RestoreJobSummaries: (_) => de_RestoreJobSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreJobSummariesCommandError
+ */
+const de_ListRestoreJobSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobSummariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -7337,6 +7609,7 @@ const de_BackupJob = (output: any, context: __SerdeContext): BackupJob => {
     ExpectedCompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IamRoleArn: __expectString,
     IsParent: __expectBoolean,
+    MessageCategory: __expectString,
     ParentJobId: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
@@ -7359,6 +7632,34 @@ const de_BackupJobsList = (output: any, context: __SerdeContext): BackupJob[] =>
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_BackupJob(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1BackupJobSummary
+ */
+const de_BackupJobSummary = (output: any, context: __SerdeContext): BackupJobSummary => {
+  return take(output, {
+    AccountId: __expectString,
+    Count: __expectInt32,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageCategory: __expectString,
+    Region: __expectString,
+    ResourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BackupJobSummaryList
+ */
+const de_BackupJobSummaryList = (output: any, context: __SerdeContext): BackupJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BackupJobSummary(entry, context);
     });
   return retVal;
 };
@@ -7523,6 +7824,7 @@ const de_CopyJob = (output: any, context: __SerdeContext): CopyJob => {
     DestinationRecoveryPointArn: __expectString,
     IamRoleArn: __expectString,
     IsParent: __expectBoolean,
+    MessageCategory: __expectString,
     NumberOfChildJobs: __expectLong,
     ParentJobId: __expectString,
     ResourceArn: __expectString,
@@ -7545,6 +7847,34 @@ const de_CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_CopyJob(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CopyJobSummary
+ */
+const de_CopyJobSummary = (output: any, context: __SerdeContext): CopyJobSummary => {
+  return take(output, {
+    AccountId: __expectString,
+    Count: __expectInt32,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageCategory: __expectString,
+    Region: __expectString,
+    ResourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CopyJobSummaryList
+ */
+const de_CopyJobSummaryList = (output: any, context: __SerdeContext): CopyJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CopyJobSummary(entry, context);
     });
   return retVal;
 };
@@ -7845,6 +8175,33 @@ const de_RestoreJobsListMember = (output: any, context: __SerdeContext): Restore
     Status: __expectString,
     StatusMessage: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreJobSummary
+ */
+const de_RestoreJobSummary = (output: any, context: __SerdeContext): RestoreJobSummary => {
+  return take(output, {
+    AccountId: __expectString,
+    Count: __expectInt32,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Region: __expectString,
+    ResourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreJobSummaryList
+ */
+const de_RestoreJobSummaryList = (output: any, context: __SerdeContext): RestoreJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RestoreJobSummary(entry, context);
+    });
+  return retVal;
 };
 
 // de_stringList omitted.

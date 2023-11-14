@@ -209,6 +209,11 @@ import {
   ListBackupJobsCommandOutput,
 } from "./commands/ListBackupJobsCommand";
 import {
+  ListBackupJobSummariesCommand,
+  ListBackupJobSummariesCommandInput,
+  ListBackupJobSummariesCommandOutput,
+} from "./commands/ListBackupJobSummariesCommand";
+import {
   ListBackupPlansCommand,
   ListBackupPlansCommandInput,
   ListBackupPlansCommandOutput,
@@ -238,6 +243,11 @@ import {
   ListCopyJobsCommandInput,
   ListCopyJobsCommandOutput,
 } from "./commands/ListCopyJobsCommand";
+import {
+  ListCopyJobSummariesCommand,
+  ListCopyJobSummariesCommandInput,
+  ListCopyJobSummariesCommandOutput,
+} from "./commands/ListCopyJobSummariesCommand";
 import {
   ListFrameworksCommand,
   ListFrameworksCommandInput,
@@ -288,6 +298,11 @@ import {
   ListRestoreJobsCommandInput,
   ListRestoreJobsCommandOutput,
 } from "./commands/ListRestoreJobsCommand";
+import {
+  ListRestoreJobSummariesCommand,
+  ListRestoreJobSummariesCommandInput,
+  ListRestoreJobSummariesCommandOutput,
+} from "./commands/ListRestoreJobSummariesCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommand,
@@ -408,12 +423,14 @@ const commands = {
   GetRecoveryPointRestoreMetadataCommand,
   GetSupportedResourceTypesCommand,
   ListBackupJobsCommand,
+  ListBackupJobSummariesCommand,
   ListBackupPlansCommand,
   ListBackupPlanTemplatesCommand,
   ListBackupPlanVersionsCommand,
   ListBackupSelectionsCommand,
   ListBackupVaultsCommand,
   ListCopyJobsCommand,
+  ListCopyJobSummariesCommand,
   ListFrameworksCommand,
   ListLegalHoldsCommand,
   ListProtectedResourcesCommand,
@@ -424,6 +441,7 @@ const commands = {
   ListReportJobsCommand,
   ListReportPlansCommand,
   ListRestoreJobsCommand,
+  ListRestoreJobSummariesCommand,
   ListTagsCommand,
   PutBackupVaultAccessPolicyCommand,
   PutBackupVaultLockConfigurationCommand,
@@ -1112,6 +1130,23 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link ListBackupJobSummariesCommand}
+   */
+  listBackupJobSummaries(
+    args: ListBackupJobSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBackupJobSummariesCommandOutput>;
+  listBackupJobSummaries(
+    args: ListBackupJobSummariesCommandInput,
+    cb: (err: any, data?: ListBackupJobSummariesCommandOutput) => void
+  ): void;
+  listBackupJobSummaries(
+    args: ListBackupJobSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBackupJobSummariesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBackupPlansCommand}
    */
   listBackupPlans(
@@ -1202,6 +1237,23 @@ export interface Backup {
     args: ListCopyJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCopyJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCopyJobSummariesCommand}
+   */
+  listCopyJobSummaries(
+    args: ListCopyJobSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCopyJobSummariesCommandOutput>;
+  listCopyJobSummaries(
+    args: ListCopyJobSummariesCommandInput,
+    cb: (err: any, data?: ListCopyJobSummariesCommandOutput) => void
+  ): void;
+  listCopyJobSummaries(
+    args: ListCopyJobSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCopyJobSummariesCommandOutput) => void
   ): void;
 
   /**
@@ -1357,6 +1409,23 @@ export interface Backup {
     args: ListRestoreJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRestoreJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRestoreJobSummariesCommand}
+   */
+  listRestoreJobSummaries(
+    args: ListRestoreJobSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRestoreJobSummariesCommandOutput>;
+  listRestoreJobSummaries(
+    args: ListRestoreJobSummariesCommandInput,
+    cb: (err: any, data?: ListRestoreJobSummariesCommandOutput) => void
+  ): void;
+  listRestoreJobSummaries(
+    args: ListRestoreJobSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRestoreJobSummariesCommandOutput) => void
   ): void;
 
   /**

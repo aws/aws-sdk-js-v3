@@ -79,6 +79,7 @@ export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __M
  * //       "<keys>": Number("long"),
  * //     },
  * //     ResourceName: "STRING_VALUE",
+ * //     MessageCategory: "STRING_VALUE",
  * //   },
  * // };
  *

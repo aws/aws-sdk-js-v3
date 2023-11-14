@@ -37,6 +37,21 @@ export interface AdvancedBackupSetting {
 
 /**
  * @public
+ * @enum
+ */
+export const AggregationPeriod = {
+  FOURTEEN_DAYS: "FOURTEEN_DAYS",
+  ONE_DAY: "ONE_DAY",
+  SEVEN_DAYS: "SEVEN_DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationPeriod = (typeof AggregationPeriod)[keyof typeof AggregationPeriod];
+
+/**
+ * @public
  * <p>The required resource already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -320,6 +335,120 @@ export interface BackupJob {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupJobStatus = {
+  ABORTED: "ABORTED",
+  ABORTING: "ABORTING",
+  AGGREGATE_ALL: "AGGREGATE_ALL",
+  ANY: "ANY",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PARTIAL: "PARTIAL",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupJobStatus = (typeof BackupJobStatus)[keyof typeof BackupJobStatus];
+
+/**
+ * @public
+ * <p>This is a summary of jobs created
+ *          or running within the most recent 30 days.</p>
+ *          <p>The returned summary may contain the following:
+ *          Region, Account, State, RestourceType, MessageCategory,
+ *          StartTime, EndTime, and Count of included jobs.</p>
+ */
+export interface BackupJobSummary {
+  /**
+   * @public
+   * <p>The Amazon Web Services Regions within the job summary.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The account ID that owns the jobs within the summary.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This value is job count for jobs
+   *          with the specified state.</p>
+   */
+  State?: BackupJobStatus;
+
+  /**
+   * @public
+   * <p>This value is the job count for the specified resource type.
+   *          The request <code>GetSupportedResourceTypes</code> returns
+   *          strings for supported resource types.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>The value as a number of jobs in a job summary.</p>
+   */
+  Count?: number;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job start time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job end time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  EndTime?: Date;
 }
 
 /**
@@ -1627,6 +1756,120 @@ export interface CopyJob {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum</p>
+   */
+  MessageCategory?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CopyJobStatus = {
+  ABORTED: "ABORTED",
+  ABORTING: "ABORTING",
+  AGGREGATE_ALL: "AGGREGATE_ALL",
+  ANY: "ANY",
+  COMPLETED: "COMPLETED",
+  COMPLETING: "COMPLETING",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  FAILING: "FAILING",
+  PARTIAL: "PARTIAL",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type CopyJobStatus = (typeof CopyJobStatus)[keyof typeof CopyJobStatus];
+
+/**
+ * @public
+ * <p>This is a summary of copy jobs created
+ *          or running within the most recent 30 days.</p>
+ *          <p>The returned summary may contain the following:
+ *          Region, Account, State, RestourceType, MessageCategory,
+ *          StartTime, EndTime, and Count of included jobs.</p>
+ */
+export interface CopyJobSummary {
+  /**
+   * @public
+   * <p>This is the Amazon Web Services Regions within the job summary.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The account ID that owns the jobs within the summary.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This value is job count for jobs
+   *          with the specified state.</p>
+   */
+  State?: CopyJobStatus;
+
+  /**
+   * @public
+   * <p>This value is the job count for the specified resource type.
+   *          The request <code>GetSupportedResourceTypes</code> returns
+   *          strings for supported resource types</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>The value as a number of jobs in a job summary.</p>
+   */
+  Count?: number;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job start time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job end time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  EndTime?: Date;
 }
 
 /**
@@ -2798,6 +3041,17 @@ export interface DescribeBackupJobOutput {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings may include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   */
+  MessageCategory?: string;
 }
 
 /**
@@ -4457,6 +4711,17 @@ export interface ListBackupJobsInput {
    * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
    */
   ByParentJobId?: string;
+
+  /**
+   * @public
+   * <p>This returns a list of backup jobs for the specified
+   *          message category.</p>
+   *          <p>Example strings may include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   */
+  ByMessageCategory?: string;
 }
 
 /**
@@ -4476,6 +4741,155 @@ export interface ListBackupJobsOutput {
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupJobSummariesInput {
+  /**
+   * @public
+   * <p>Returns the job count for the specified account.</p>
+   *          <p>If the request is sent from a member account or an account
+   *          not part of Amazon Web Services Organizations, jobs within requestor's account
+   *          will be returned.</p>
+   *          <p>Root, admin, and delegated administrator accounts can use
+   *          the value ANY to return job counts from every account in the
+   *          organization.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          from all accounts within the authenticated organization,
+   *          then returns the sum.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for jobs
+   *          with the specified state.</p>
+   *          <p>The the value ANY returns count of all states.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all states and returns the sum.</p>
+   */
+  State?: BackupJobStatus;
+
+  /**
+   * @public
+   * <p>Returns the job count for the specified resource type.
+   *          Use request <code>GetSupportedResourceTypes</code> to obtain
+   *          strings for supported resource types.</p>
+   *          <p>The the value ANY returns count of all resource types.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all resource types and returns the sum.</p>
+   *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for the specified
+   *          message category.</p>
+   *          <p>Example accepted strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of accepted MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <p>Acceptable values include</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * @public
+   * <p>This parameter sets the maximum number of items
+   *          to be returned.</p>
+   *          <p>The value is an integer. Range of accepted values is from
+   *          1 to 500.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupJobSummariesOutput {
+  /**
+   * @public
+   * <p>This request returns a summary that contains
+   *          Region, Account, State, ResourceType, MessageCategory,
+   *          StartTime, EndTime, and Count of included jobs.</p>
+   */
+  BackupJobSummaries?: BackupJobSummary[];
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: string;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
    */
   NextToken?: string;
 }
@@ -4848,6 +5262,21 @@ export interface ListCopyJobsInput {
    * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
    */
   ByParentJobId?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for the specified
+   *          message category.</p>
+   *          <p>Example accepted strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of accepted MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  ByMessageCategory?: string;
 }
 
 /**
@@ -4866,6 +5295,154 @@ export interface ListCopyJobsOutput {
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return maxResults number of items, NextToken allows you to return more items in
    *          your list starting at the location pointed to by the next token. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCopyJobSummariesInput {
+  /**
+   * @public
+   * <p>Returns the job count for the specified account.</p>
+   *          <p>If the request is sent from a member account or an account
+   *          not part of Amazon Web Services Organizations, jobs within requestor's account
+   *          will be returned.</p>
+   *          <p>Root, admin, and delegated administrator accounts can use
+   *          the value ANY to return job counts from every account in the
+   *          organization.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          from all accounts within the authenticated organization,
+   *          then returns the sum.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for jobs
+   *          with the specified state.</p>
+   *          <p>The the value ANY returns count of all states.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all states and returns the sum.</p>
+   */
+  State?: CopyJobStatus;
+
+  /**
+   * @public
+   * <p>Returns the job count for the specified resource type.
+   *          Use request <code>GetSupportedResourceTypes</code> to obtain
+   *          strings for supported resource types.</p>
+   *          <p>The the value ANY returns count of all resource types.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all resource types and returns the sum.</p>
+   *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for the specified
+   *          message category.</p>
+   *          <p>Example accepted strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of accepted MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * @public
+   * <p>This parameter sets the maximum number of items
+   *          to be returned.</p>
+   *          <p>The value is an integer. Range of accepted values is from
+   *          1 to 500.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCopyJobSummariesOutput {
+  /**
+   * @public
+   * <p>This return shows a summary that contains
+   *          Region, Account, State, ResourceType, MessageCategory,
+   *          StartTime, EndTime, and Count of included jobs.</p>
+   */
+  CopyJobSummaries?: CopyJobSummary[];
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: string;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
    */
   NextToken?: string;
 }
@@ -5964,6 +6541,221 @@ export interface ListRestoreJobsOutput {
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RestoreJobState = {
+  ABORTED: "ABORTED",
+  AGGREGATE_ALL: "AGGREGATE_ALL",
+  ANY: "ANY",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreJobState = (typeof RestoreJobState)[keyof typeof RestoreJobState];
+
+/**
+ * @public
+ */
+export interface ListRestoreJobSummariesInput {
+  /**
+   * @public
+   * <p>Returns the job count for the specified account.</p>
+   *          <p>If the request is sent from a member account or an account
+   *          not part of Amazon Web Services Organizations, jobs within requestor's account
+   *          will be returned.</p>
+   *          <p>Root, admin, and delegated administrator accounts can use
+   *          the value ANY to return job counts from every account in the
+   *          organization.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          from all accounts within the authenticated organization,
+   *          then returns the sum.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for jobs
+   *          with the specified state.</p>
+   *          <p>The the value ANY returns count of all states.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all states and returns the sum.</p>
+   */
+  State?: RestoreJobState;
+
+  /**
+   * @public
+   * <p>Returns the job count for the specified resource type.
+   *          Use request <code>GetSupportedResourceTypes</code> to obtain
+   *          strings for supported resource types.</p>
+   *          <p>The the value ANY returns count of all resource types.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all resource types and returns the sum.</p>
+   *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <p>Acceptable values include</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * @public
+   * <p>This parameter sets the maximum number of items
+   *          to be returned.</p>
+   *          <p>The value is an integer. Range of accepted values is from
+   *          1 to 500.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>This is a summary of restore jobs created
+ *          or running within the most recent 30 days.</p>
+ *          <p>The returned summary may contain the following:
+ *          Region, Account, State, ResourceType, MessageCategory,
+ *          StartTime, EndTime, and Count of included jobs.</p>
+ */
+export interface RestoreJobSummary {
+  /**
+   * @public
+   * <p>The Amazon Web Services Regions within the job summary.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The account ID that owns the jobs within the summary.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This value is job count for jobs
+   *          with the specified state.</p>
+   */
+  State?: RestoreJobState;
+
+  /**
+   * @public
+   * <p>This value is the job count for the specified resource type.
+   *          The request <code>GetSupportedResourceTypes</code> returns
+   *          strings for supported resource types.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>The value as a number of jobs in a job summary.</p>
+   */
+  Count?: number;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job start time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job end time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  EndTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreJobSummariesOutput {
+  /**
+   * @public
+   * <p>This return contains a summary that contains
+   *          Region, Account, State, ResourceType, MessageCategory,
+   *          StartTime, EndTime, and Count of included jobs.</p>
+   */
+  RestoreJobSummaries?: RestoreJobSummary[];
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: string;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
    */
   NextToken?: string;
 }

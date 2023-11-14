@@ -154,6 +154,10 @@ import {
   GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand";
 import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand";
+import {
+  ListBackupJobSummariesCommandInput,
+  ListBackupJobSummariesCommandOutput,
+} from "./commands/ListBackupJobSummariesCommand";
 import { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "./commands/ListBackupPlansCommand";
 import {
   ListBackupPlanTemplatesCommandInput,
@@ -169,6 +173,10 @@ import {
 } from "./commands/ListBackupSelectionsCommand";
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand";
+import {
+  ListCopyJobSummariesCommandInput,
+  ListCopyJobSummariesCommandOutput,
+} from "./commands/ListCopyJobSummariesCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
 import {
@@ -194,6 +202,10 @@ import {
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "./commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "./commands/ListReportPlansCommand";
 import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "./commands/ListRestoreJobsCommand";
+import {
+  ListRestoreJobSummariesCommandInput,
+  ListRestoreJobSummariesCommandOutput,
+} from "./commands/ListRestoreJobSummariesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommandInput,
@@ -284,12 +296,14 @@ export type ServiceInputTypes =
   | GetLegalHoldCommandInput
   | GetRecoveryPointRestoreMetadataCommandInput
   | GetSupportedResourceTypesCommandInput
+  | ListBackupJobSummariesCommandInput
   | ListBackupJobsCommandInput
   | ListBackupPlanTemplatesCommandInput
   | ListBackupPlanVersionsCommandInput
   | ListBackupPlansCommandInput
   | ListBackupSelectionsCommandInput
   | ListBackupVaultsCommandInput
+  | ListCopyJobSummariesCommandInput
   | ListCopyJobsCommandInput
   | ListFrameworksCommandInput
   | ListLegalHoldsCommandInput
@@ -300,6 +314,7 @@ export type ServiceInputTypes =
   | ListRecoveryPointsByResourceCommandInput
   | ListReportJobsCommandInput
   | ListReportPlansCommandInput
+  | ListRestoreJobSummariesCommandInput
   | ListRestoreJobsCommandInput
   | ListTagsCommandInput
   | PutBackupVaultAccessPolicyCommandInput
@@ -363,12 +378,14 @@ export type ServiceOutputTypes =
   | GetLegalHoldCommandOutput
   | GetRecoveryPointRestoreMetadataCommandOutput
   | GetSupportedResourceTypesCommandOutput
+  | ListBackupJobSummariesCommandOutput
   | ListBackupJobsCommandOutput
   | ListBackupPlanTemplatesCommandOutput
   | ListBackupPlanVersionsCommandOutput
   | ListBackupPlansCommandOutput
   | ListBackupSelectionsCommandOutput
   | ListBackupVaultsCommandOutput
+  | ListCopyJobSummariesCommandOutput
   | ListCopyJobsCommandOutput
   | ListFrameworksCommandOutput
   | ListLegalHoldsCommandOutput
@@ -379,6 +396,7 @@ export type ServiceOutputTypes =
   | ListRecoveryPointsByResourceCommandOutput
   | ListReportJobsCommandOutput
   | ListReportPlansCommandOutput
+  | ListRestoreJobSummariesCommandOutput
   | ListRestoreJobsCommandOutput
   | ListTagsCommandOutput
   | PutBackupVaultAccessPolicyCommandOutput
