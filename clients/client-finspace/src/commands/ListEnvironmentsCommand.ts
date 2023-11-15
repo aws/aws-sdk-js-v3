@@ -37,6 +37,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>A list of all of your FinSpace environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

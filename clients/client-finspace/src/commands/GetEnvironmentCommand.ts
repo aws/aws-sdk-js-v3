@@ -37,6 +37,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Returns the FinSpace environment object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

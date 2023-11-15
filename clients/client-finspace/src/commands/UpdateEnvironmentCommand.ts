@@ -37,6 +37,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Update your FinSpace environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
