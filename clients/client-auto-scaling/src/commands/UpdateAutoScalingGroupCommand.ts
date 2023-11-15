@@ -208,6 +208,10 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *   Context: "STRING_VALUE",
  *   DesiredCapacityType: "STRING_VALUE",
  *   DefaultInstanceWarmup: Number("int"),
+ *   InstanceMaintenancePolicy: { // InstanceMaintenancePolicy
+ *     MinHealthyPercentage: Number("int"),
+ *     MaxHealthyPercentage: Number("int"),
+ *   },
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

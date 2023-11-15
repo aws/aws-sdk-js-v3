@@ -250,6 +250,10 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //           Type: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       InstanceMaintenancePolicy: { // InstanceMaintenancePolicy
+ * //         MinHealthyPercentage: Number("int"),
+ * //         MaxHealthyPercentage: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

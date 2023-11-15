@@ -215,6 +215,10 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *       Type: "STRING_VALUE",
  *     },
  *   ],
+ *   InstanceMaintenancePolicy: { // InstanceMaintenancePolicy
+ *     MinHealthyPercentage: Number("int"),
+ *     MaxHealthyPercentage: Number("int"),
+ *   },
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

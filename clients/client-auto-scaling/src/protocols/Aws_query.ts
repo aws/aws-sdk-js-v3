@@ -327,6 +327,7 @@ import {
   GetPredictiveScalingForecastType,
   Instance,
   InstanceGeneration,
+  InstanceMaintenancePolicy,
   InstanceMetadataOptions,
   InstanceMonitoring,
   InstanceRefresh,
@@ -5410,6 +5411,13 @@ const se_CreateAutoScalingGroupType = (input: CreateAutoScalingGroupType, contex
       entries[loc] = value;
     });
   }
+  if (input.InstanceMaintenancePolicy != null) {
+    const memberEntries = se_InstanceMaintenancePolicy(input.InstanceMaintenancePolicy, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceMaintenancePolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -6325,6 +6333,20 @@ const se_InstanceIds = (input: string[], context: __SerdeContext): any => {
     }
     entries[`member.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryInstanceMaintenancePolicy
+ */
+const se_InstanceMaintenancePolicy = (input: InstanceMaintenancePolicy, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.MinHealthyPercentage != null) {
+    entries["MinHealthyPercentage"] = input.MinHealthyPercentage;
+  }
+  if (input.MaxHealthyPercentage != null) {
+    entries["MaxHealthyPercentage"] = input.MaxHealthyPercentage;
   }
   return entries;
 };
@@ -7581,6 +7603,9 @@ const se_RefreshPreferences = (input: RefreshPreferences, context: __SerdeContex
       entries[loc] = value;
     });
   }
+  if (input.MaxHealthyPercentage != null) {
+    entries["MaxHealthyPercentage"] = input.MaxHealthyPercentage;
+  }
   return entries;
 };
 
@@ -8150,6 +8175,13 @@ const se_UpdateAutoScalingGroupType = (input: UpdateAutoScalingGroupType, contex
   if (input.DefaultInstanceWarmup != null) {
     entries["DefaultInstanceWarmup"] = input.DefaultInstanceWarmup;
   }
+  if (input.InstanceMaintenancePolicy != null) {
+    const memberEntries = se_InstanceMaintenancePolicy(input.InstanceMaintenancePolicy, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceMaintenancePolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -8599,6 +8631,9 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
     contents.TrafficSources = [];
   } else if (output["TrafficSources"] !== undefined && output["TrafficSources"]["member"] !== undefined) {
     contents.TrafficSources = de_TrafficSources(__getArrayIfSingleItem(output["TrafficSources"]["member"]), context);
+  }
+  if (output["InstanceMaintenancePolicy"] !== undefined) {
+    contents.InstanceMaintenancePolicy = de_InstanceMaintenancePolicy(output["InstanceMaintenancePolicy"], context);
   }
   return contents;
 };
@@ -9432,6 +9467,20 @@ const de_InstanceGenerations = (output: any, context: __SerdeContext): InstanceG
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+/**
+ * deserializeAws_queryInstanceMaintenancePolicy
+ */
+const de_InstanceMaintenancePolicy = (output: any, context: __SerdeContext): InstanceMaintenancePolicy => {
+  const contents: any = {};
+  if (output["MinHealthyPercentage"] !== undefined) {
+    contents.MinHealthyPercentage = __strictParseInt32(output["MinHealthyPercentage"]) as number;
+  }
+  if (output["MaxHealthyPercentage"] !== undefined) {
+    contents.MaxHealthyPercentage = __strictParseInt32(output["MaxHealthyPercentage"]) as number;
+  }
+  return contents;
 };
 
 /**
@@ -10722,6 +10771,9 @@ const de_RefreshPreferences = (output: any, context: __SerdeContext): RefreshPre
   }
   if (output["AlarmSpecification"] !== undefined) {
     contents.AlarmSpecification = de_AlarmSpecification(output["AlarmSpecification"], context);
+  }
+  if (output["MaxHealthyPercentage"] !== undefined) {
+    contents.MaxHealthyPercentage = __strictParseInt32(output["MaxHealthyPercentage"]) as number;
   }
   return contents;
 };

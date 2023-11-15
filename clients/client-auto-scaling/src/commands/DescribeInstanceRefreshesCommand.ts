@@ -100,6 +100,7 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         MaxHealthyPercentage: Number("int"),
  * //       },
  * //       DesiredConfiguration: { // DesiredConfiguration
  * //         LaunchTemplate: { // LaunchTemplateSpecification
