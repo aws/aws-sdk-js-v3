@@ -1641,6 +1641,7 @@ export const Runtime = {
   go1x: "go1.x",
   java11: "java11",
   java17: "java17",
+  java21: "java21",
   java8: "java8",
   java8al2: "java8.al2",
   nodejs: "nodejs",
