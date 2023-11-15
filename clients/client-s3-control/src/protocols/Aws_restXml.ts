@@ -43,6 +43,10 @@ import {
   CreateMultiRegionAccessPointCommandInput,
   CreateMultiRegionAccessPointCommandOutput,
 } from "../commands/CreateMultiRegionAccessPointCommand";
+import {
+  CreateStorageLensGroupCommandInput,
+  CreateStorageLensGroupCommandOutput,
+} from "../commands/CreateStorageLensGroupCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "../commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointForObjectLambdaCommandInput,
@@ -87,6 +91,10 @@ import {
   DeleteStorageLensConfigurationTaggingCommandInput,
   DeleteStorageLensConfigurationTaggingCommandOutput,
 } from "../commands/DeleteStorageLensConfigurationTaggingCommand";
+import {
+  DeleteStorageLensGroupCommandInput,
+  DeleteStorageLensGroupCommandOutput,
+} from "../commands/DeleteStorageLensGroupCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "../commands/DescribeJobCommand";
 import {
   DescribeMultiRegionAccessPointOperationCommandInput,
@@ -161,6 +169,10 @@ import {
   GetStorageLensConfigurationTaggingCommandInput,
   GetStorageLensConfigurationTaggingCommandOutput,
 } from "../commands/GetStorageLensConfigurationTaggingCommand";
+import {
+  GetStorageLensGroupCommandInput,
+  GetStorageLensGroupCommandOutput,
+} from "../commands/GetStorageLensGroupCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "../commands/ListAccessPointsCommand";
 import {
   ListAccessPointsForObjectLambdaCommandInput,
@@ -179,6 +191,14 @@ import {
   ListStorageLensConfigurationsCommandInput,
   ListStorageLensConfigurationsCommandOutput,
 } from "../commands/ListStorageLensConfigurationsCommand";
+import {
+  ListStorageLensGroupsCommandInput,
+  ListStorageLensGroupsCommandOutput,
+} from "../commands/ListStorageLensGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import {
   PutAccessPointConfigurationForObjectLambdaCommandInput,
   PutAccessPointConfigurationForObjectLambdaCommandOutput,
@@ -226,8 +246,14 @@ import {
   SubmitMultiRegionAccessPointRoutesCommandInput,
   SubmitMultiRegionAccessPointRoutesCommandOutput,
 } from "../commands/SubmitMultiRegionAccessPointRoutesCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "../commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "../commands/UpdateJobStatusCommand";
+import {
+  UpdateStorageLensGroupCommandInput,
+  UpdateStorageLensGroupCommandOutput,
+} from "../commands/UpdateStorageLensGroupCommand";
 import {
   _Exclude,
   AbortIncompleteMultipartUpload,
@@ -283,6 +309,9 @@ import {
   LifecycleRuleAndOperator,
   LifecycleRuleFilter,
   ListStorageLensConfigurationEntry,
+  ListStorageLensGroupEntry,
+  MatchObjectAge,
+  MatchObjectSize,
   Metrics,
   MultiRegionAccessPointPolicyDocument,
   MultiRegionAccessPointRegionalResponse,
@@ -349,7 +378,14 @@ import {
   StorageLensConfiguration,
   StorageLensDataExport,
   StorageLensDataExportEncryption,
+  StorageLensGroup,
+  StorageLensGroupAndOperator,
+  StorageLensGroupFilter,
+  StorageLensGroupLevel,
+  StorageLensGroupLevelSelectionCriteria,
+  StorageLensGroupOrOperator,
   StorageLensTag,
+  Tag,
   Tagging,
   TooManyRequestsException,
   TooManyTagsException,
@@ -630,6 +666,59 @@ export const se_CreateMultiRegionAccessPointCommand = async (
   if (input.Details !== undefined) {
     const node = se_CreateMultiRegionAccessPointInput(input.Details, context).withName("Details");
     bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlCreateStorageLensGroupCommand
+ */
+export const se_CreateStorageLensGroupCommand = async (
+  input: CreateStorageLensGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateStorageLensGroupRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.StorageLensGroup !== undefined) {
+    const node = se_StorageLensGroup(input.StorageLensGroup, context).withName("StorageLensGroup");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Tags !== undefined) {
+    const nodes = se_TagList(input.Tags, context);
+    const containerNode = new __XmlNode("Tags");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1167,6 +1256,43 @@ export const se_DeleteStorageLensConfigurationTaggingCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}/tagging";
   resolvedPath = __resolvedPath(resolvedPath, input, "ConfigId", () => input.ConfigId!, "{ConfigId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlDeleteStorageLensGroupCommand
+ */
+export const se_DeleteStorageLensGroupCommand = async (
+  input: DeleteStorageLensGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2056,6 +2182,43 @@ export const se_GetStorageLensConfigurationTaggingCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetStorageLensGroupCommand
+ */
+export const se_GetStorageLensGroupCommand = async (
+  input: GetStorageLensGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlListAccessPointsCommand
  */
 export const se_ListAccessPointsCommand = async (
@@ -2295,6 +2458,83 @@ export const se_ListStorageLensConfigurationsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlListStorageLensGroupsCommand
+ */
+export const se_ListStorageLensGroupsCommand = async (
+  input: ListStorageLensGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup";
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/tags/{ResourceArn+}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2990,6 +3230,100 @@ export const se_SubmitMultiRegionAccessPointRoutesCommand = async (
 };
 
 /**
+ * serializeAws_restXmlTagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/tags/{ResourceArn+}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("TagResourceRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.Tags !== undefined) {
+    const nodes = se_TagList(input.Tags, context);
+    const containerNode = new __XmlNode("Tags");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlUntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/tags/{ResourceArn+}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlUpdateJobPriorityCommand
  */
 export const se_UpdateJobPriorityCommand = async (
@@ -3068,6 +3402,52 @@ export const se_UpdateJobStatusCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlUpdateStorageLensGroupCommand
+ */
+export const se_UpdateStorageLensGroupCommand = async (
+  input: UpdateStorageLensGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("UpdateStorageLensGroupRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.StorageLensGroup !== undefined) {
+    const node = se_StorageLensGroup(input.StorageLensGroup, context).withName("StorageLensGroup");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3290,6 +3670,43 @@ const de_CreateMultiRegionAccessPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMultiRegionAccessPointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlCreateStorageLensGroupCommand
+ */
+export const de_CreateStorageLensGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStorageLensGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CreateStorageLensGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateStorageLensGroupCommandError
+ */
+const de_CreateStorageLensGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStorageLensGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3823,6 +4240,43 @@ const de_DeleteStorageLensConfigurationTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStorageLensConfigurationTaggingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlDeleteStorageLensGroupCommand
+ */
+export const de_DeleteStorageLensGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStorageLensGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteStorageLensGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteStorageLensGroupCommandError
+ */
+const de_DeleteStorageLensGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStorageLensGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4852,6 +5306,44 @@ const de_GetStorageLensConfigurationTaggingCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlGetStorageLensGroupCommand
+ */
+export const de_GetStorageLensGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStorageLensGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetStorageLensGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.StorageLensGroup = de_StorageLensGroup(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetStorageLensGroupCommandError
+ */
+const de_GetStorageLensGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStorageLensGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlListAccessPointsCommand
  */
 export const de_ListAccessPointsCommand = async (
@@ -5138,6 +5630,96 @@ const de_ListStorageLensConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStorageLensConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlListStorageLensGroupsCommand
+ */
+export const de_ListStorageLensGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStorageLensGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListStorageLensGroupsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(data["NextToken"]);
+  }
+  if (data.StorageLensGroupList === "") {
+    contents.StorageLensGroupList = [];
+  } else if (data["StorageLensGroupList"] !== undefined) {
+    contents.StorageLensGroupList = de_StorageLensGroupList(
+      __getArrayIfSingleItem(data["StorageLensGroupList"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListStorageLensGroupsCommandError
+ */
+const de_ListStorageLensGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStorageLensGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTagsForResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Tags === "") {
+    contents.Tags = [];
+  } else if (data["Tags"] !== undefined && data["Tags"]["Tag"] !== undefined) {
+    contents.Tags = de_TagList(__getArrayIfSingleItem(data["Tags"]["Tag"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5688,6 +6270,80 @@ const de_SubmitMultiRegionAccessPointRoutesCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlTagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlTagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlUntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlUntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlUpdateJobPriorityCommand
  */
 export const de_UpdateJobPriorityCommand = async (
@@ -5807,6 +6463,43 @@ const de_UpdateJobStatusCommandError = async (
         errorCode,
       });
   }
+};
+
+/**
+ * deserializeAws_restXmlUpdateStorageLensGroupCommand
+ */
+export const de_UpdateStorageLensGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageLensGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_UpdateStorageLensGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlUpdateStorageLensGroupCommandError
+ */
+const de_UpdateStorageLensGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageLensGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
 };
 
 const throwDefaultError = withBaseException(__BaseException);
@@ -6073,6 +6766,10 @@ const se_AccountLevel = (input: AccountLevel, context: __SerdeContext): any => {
     const node = se_DetailedStatusCodesMetrics(input.DetailedStatusCodesMetrics, context).withName(
       "DetailedStatusCodesMetrics"
     );
+    bodyNode.addChildNode(node);
+  }
+  if (input.StorageLensGroupLevel != null) {
+    const node = se_StorageLensGroupLevel(input.StorageLensGroupLevel, context).withName("StorageLensGroupLevel");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -6764,6 +7461,74 @@ const se_LifecycleRules = (input: LifecycleRule[], context: __SerdeContext): any
       const node = se_LifecycleRule(entry, context);
       return node.withName("Rule");
     });
+};
+
+/**
+ * serializeAws_restXmlMatchAnyPrefix
+ */
+const se_MatchAnyPrefix = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("Prefix", entry);
+      return node.withName("Prefix");
+    });
+};
+
+/**
+ * serializeAws_restXmlMatchAnySuffix
+ */
+const se_MatchAnySuffix = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("Suffix", entry);
+      return node.withName("Suffix");
+    });
+};
+
+/**
+ * serializeAws_restXmlMatchAnyTag
+ */
+const se_MatchAnyTag = (input: S3Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = se_S3Tag(entry, context);
+      return node.withName("Tag");
+    });
+};
+
+/**
+ * serializeAws_restXmlMatchObjectAge
+ */
+const se_MatchObjectAge = (input: MatchObjectAge, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("MatchObjectAge");
+  if (input.DaysGreaterThan != null) {
+    const node = __XmlNode.of("ObjectAgeValue", String(input.DaysGreaterThan)).withName("DaysGreaterThan");
+    bodyNode.addChildNode(node);
+  }
+  if (input.DaysLessThan != null) {
+    const node = __XmlNode.of("ObjectAgeValue", String(input.DaysLessThan)).withName("DaysLessThan");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlMatchObjectSize
+ */
+const se_MatchObjectSize = (input: MatchObjectSize, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("MatchObjectSize");
+  if (input.BytesGreaterThan != null) {
+    const node = __XmlNode.of("ObjectSizeValue", String(input.BytesGreaterThan)).withName("BytesGreaterThan");
+    bodyNode.addChildNode(node);
+  }
+  if (input.BytesLessThan != null) {
+    const node = __XmlNode.of("ObjectSizeValue", String(input.BytesLessThan)).withName("BytesLessThan");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
 };
 
 /**
@@ -7955,6 +8720,219 @@ const se_StorageLensDataExportEncryption = (input: StorageLensDataExportEncrypti
 };
 
 /**
+ * serializeAws_restXmlStorageLensGroup
+ */
+const se_StorageLensGroup = (input: StorageLensGroup, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("StorageLensGroup");
+  if (input.Name != null) {
+    const node = __XmlNode.of("StorageLensGroupName", input.Name).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Filter != null) {
+    const node = se_StorageLensGroupFilter(input.Filter, context).withName("Filter");
+    bodyNode.addChildNode(node);
+  }
+  if (input.StorageLensGroupArn != null) {
+    const node = __XmlNode.of("StorageLensGroupArn", input.StorageLensGroupArn).withName("StorageLensGroupArn");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlStorageLensGroupAndOperator
+ */
+const se_StorageLensGroupAndOperator = (input: StorageLensGroupAndOperator, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("StorageLensGroupAndOperator");
+  if (input.MatchAnyPrefix != null) {
+    const nodes = se_MatchAnyPrefix(input.MatchAnyPrefix, context);
+    const containerNode = new __XmlNode("MatchAnyPrefix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnySuffix != null) {
+    const nodes = se_MatchAnySuffix(input.MatchAnySuffix, context);
+    const containerNode = new __XmlNode("MatchAnySuffix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnyTag != null) {
+    const nodes = se_MatchAnyTag(input.MatchAnyTag, context);
+    const containerNode = new __XmlNode("MatchAnyTag");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchObjectAge != null) {
+    const node = se_MatchObjectAge(input.MatchObjectAge, context).withName("MatchObjectAge");
+    bodyNode.addChildNode(node);
+  }
+  if (input.MatchObjectSize != null) {
+    const node = se_MatchObjectSize(input.MatchObjectSize, context).withName("MatchObjectSize");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlStorageLensGroupFilter
+ */
+const se_StorageLensGroupFilter = (input: StorageLensGroupFilter, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("StorageLensGroupFilter");
+  if (input.MatchAnyPrefix != null) {
+    const nodes = se_MatchAnyPrefix(input.MatchAnyPrefix, context);
+    const containerNode = new __XmlNode("MatchAnyPrefix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnySuffix != null) {
+    const nodes = se_MatchAnySuffix(input.MatchAnySuffix, context);
+    const containerNode = new __XmlNode("MatchAnySuffix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnyTag != null) {
+    const nodes = se_MatchAnyTag(input.MatchAnyTag, context);
+    const containerNode = new __XmlNode("MatchAnyTag");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchObjectAge != null) {
+    const node = se_MatchObjectAge(input.MatchObjectAge, context).withName("MatchObjectAge");
+    bodyNode.addChildNode(node);
+  }
+  if (input.MatchObjectSize != null) {
+    const node = se_MatchObjectSize(input.MatchObjectSize, context).withName("MatchObjectSize");
+    bodyNode.addChildNode(node);
+  }
+  if (input.And != null) {
+    const node = se_StorageLensGroupAndOperator(input.And, context).withName("And");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Or != null) {
+    const node = se_StorageLensGroupOrOperator(input.Or, context).withName("Or");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlStorageLensGroupLevel
+ */
+const se_StorageLensGroupLevel = (input: StorageLensGroupLevel, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("StorageLensGroupLevel");
+  if (input.SelectionCriteria != null) {
+    const node = se_StorageLensGroupLevelSelectionCriteria(input.SelectionCriteria, context).withName(
+      "SelectionCriteria"
+    );
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlStorageLensGroupLevelExclude
+ */
+const se_StorageLensGroupLevelExclude = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("StorageLensGroupArn", entry);
+      return node.withName("Arn");
+    });
+};
+
+/**
+ * serializeAws_restXmlStorageLensGroupLevelInclude
+ */
+const se_StorageLensGroupLevelInclude = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("StorageLensGroupArn", entry);
+      return node.withName("Arn");
+    });
+};
+
+/**
+ * serializeAws_restXmlStorageLensGroupLevelSelectionCriteria
+ */
+const se_StorageLensGroupLevelSelectionCriteria = (
+  input: StorageLensGroupLevelSelectionCriteria,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("StorageLensGroupLevelSelectionCriteria");
+  if (input.Include != null) {
+    const nodes = se_StorageLensGroupLevelInclude(input.Include, context);
+    const containerNode = new __XmlNode("Include");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.Exclude != null) {
+    const nodes = se_StorageLensGroupLevelExclude(input.Exclude, context);
+    const containerNode = new __XmlNode("Exclude");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlStorageLensGroupOrOperator
+ */
+const se_StorageLensGroupOrOperator = (input: StorageLensGroupOrOperator, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("StorageLensGroupOrOperator");
+  if (input.MatchAnyPrefix != null) {
+    const nodes = se_MatchAnyPrefix(input.MatchAnyPrefix, context);
+    const containerNode = new __XmlNode("MatchAnyPrefix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnySuffix != null) {
+    const nodes = se_MatchAnySuffix(input.MatchAnySuffix, context);
+    const containerNode = new __XmlNode("MatchAnySuffix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnyTag != null) {
+    const nodes = se_MatchAnyTag(input.MatchAnyTag, context);
+    const containerNode = new __XmlNode("MatchAnyTag");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchObjectAge != null) {
+    const node = se_MatchObjectAge(input.MatchObjectAge, context).withName("MatchObjectAge");
+    bodyNode.addChildNode(node);
+  }
+  if (input.MatchObjectSize != null) {
+    const node = se_MatchObjectSize(input.MatchObjectSize, context).withName("MatchObjectSize");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
  * serializeAws_restXmlStorageLensTag
  */
 const se_StorageLensTag = (input: StorageLensTag, context: __SerdeContext): any => {
@@ -7983,6 +8961,22 @@ const se_StorageLensTags = (input: StorageLensTag[], context: __SerdeContext): a
 };
 
 /**
+ * serializeAws_restXmlTag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("Tag");
+  if (input.Key != null) {
+    const node = __XmlNode.of("TagKeyString", input.Key).withName("Key");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Value != null) {
+    const node = __XmlNode.of("TagValueString", input.Value).withName("Value");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
  * serializeAws_restXmlTagging
  */
 const se_Tagging = (input: Tagging, context: __SerdeContext): any => {
@@ -7996,6 +8990,18 @@ const se_Tagging = (input: Tagging, context: __SerdeContext): any => {
     bodyNode.addChildNode(containerNode);
   }
   return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlTagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = se_Tag(entry, context);
+      return node.withName("Tag");
+    });
 };
 
 /**
@@ -8145,6 +9151,9 @@ const de_AccountLevel = (output: any, context: __SerdeContext): AccountLevel => 
   }
   if (output["DetailedStatusCodesMetrics"] !== undefined) {
     contents.DetailedStatusCodesMetrics = de_DetailedStatusCodesMetrics(output["DetailedStatusCodesMetrics"], context);
+  }
+  if (output["StorageLensGroupLevel"] !== undefined) {
+    contents.StorageLensGroupLevel = de_StorageLensGroupLevel(output["StorageLensGroupLevel"], context);
   }
   return contents;
 };
@@ -9000,6 +10009,84 @@ const de_ListStorageLensConfigurationEntry = (
   }
   if (output["IsEnabled"] !== undefined) {
     contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListStorageLensGroupEntry
+ */
+const de_ListStorageLensGroupEntry = (output: any, context: __SerdeContext): ListStorageLensGroupEntry => {
+  const contents: any = {};
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["StorageLensGroupArn"] !== undefined) {
+    contents.StorageLensGroupArn = __expectString(output["StorageLensGroupArn"]);
+  }
+  if (output["HomeRegion"] !== undefined) {
+    contents.HomeRegion = __expectString(output["HomeRegion"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlMatchAnyPrefix
+ */
+const de_MatchAnyPrefix = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_restXmlMatchAnySuffix
+ */
+const de_MatchAnySuffix = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_restXmlMatchAnyTag
+ */
+const de_MatchAnyTag = (output: any, context: __SerdeContext): S3Tag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_S3Tag(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlMatchObjectAge
+ */
+const de_MatchObjectAge = (output: any, context: __SerdeContext): MatchObjectAge => {
+  const contents: any = {};
+  if (output["DaysGreaterThan"] !== undefined) {
+    contents.DaysGreaterThan = __strictParseInt32(output["DaysGreaterThan"]) as number;
+  }
+  if (output["DaysLessThan"] !== undefined) {
+    contents.DaysLessThan = __strictParseInt32(output["DaysLessThan"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlMatchObjectSize
+ */
+const de_MatchObjectSize = (output: any, context: __SerdeContext): MatchObjectSize => {
+  const contents: any = {};
+  if (output["BytesGreaterThan"] !== undefined) {
+    contents.BytesGreaterThan = __strictParseLong(output["BytesGreaterThan"]) as number;
+  }
+  if (output["BytesLessThan"] !== undefined) {
+    contents.BytesLessThan = __strictParseLong(output["BytesLessThan"]) as number;
   }
   return contents;
 };
@@ -10275,6 +11362,181 @@ const de_StorageLensDataExportEncryption = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_restXmlStorageLensGroup
+ */
+const de_StorageLensGroup = (output: any, context: __SerdeContext): StorageLensGroup => {
+  const contents: any = {};
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["Filter"] !== undefined) {
+    contents.Filter = de_StorageLensGroupFilter(output["Filter"], context);
+  }
+  if (output["StorageLensGroupArn"] !== undefined) {
+    contents.StorageLensGroupArn = __expectString(output["StorageLensGroupArn"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupAndOperator
+ */
+const de_StorageLensGroupAndOperator = (output: any, context: __SerdeContext): StorageLensGroupAndOperator => {
+  const contents: any = {};
+  if (output.MatchAnyPrefix === "") {
+    contents.MatchAnyPrefix = [];
+  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["Prefix"] !== undefined) {
+    contents.MatchAnyPrefix = de_MatchAnyPrefix(__getArrayIfSingleItem(output["MatchAnyPrefix"]["Prefix"]), context);
+  }
+  if (output.MatchAnySuffix === "") {
+    contents.MatchAnySuffix = [];
+  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["Suffix"] !== undefined) {
+    contents.MatchAnySuffix = de_MatchAnySuffix(__getArrayIfSingleItem(output["MatchAnySuffix"]["Suffix"]), context);
+  }
+  if (output.MatchAnyTag === "") {
+    contents.MatchAnyTag = [];
+  } else if (output["MatchAnyTag"] !== undefined && output["MatchAnyTag"]["Tag"] !== undefined) {
+    contents.MatchAnyTag = de_MatchAnyTag(__getArrayIfSingleItem(output["MatchAnyTag"]["Tag"]), context);
+  }
+  if (output["MatchObjectAge"] !== undefined) {
+    contents.MatchObjectAge = de_MatchObjectAge(output["MatchObjectAge"], context);
+  }
+  if (output["MatchObjectSize"] !== undefined) {
+    contents.MatchObjectSize = de_MatchObjectSize(output["MatchObjectSize"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupFilter
+ */
+const de_StorageLensGroupFilter = (output: any, context: __SerdeContext): StorageLensGroupFilter => {
+  const contents: any = {};
+  if (output.MatchAnyPrefix === "") {
+    contents.MatchAnyPrefix = [];
+  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["Prefix"] !== undefined) {
+    contents.MatchAnyPrefix = de_MatchAnyPrefix(__getArrayIfSingleItem(output["MatchAnyPrefix"]["Prefix"]), context);
+  }
+  if (output.MatchAnySuffix === "") {
+    contents.MatchAnySuffix = [];
+  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["Suffix"] !== undefined) {
+    contents.MatchAnySuffix = de_MatchAnySuffix(__getArrayIfSingleItem(output["MatchAnySuffix"]["Suffix"]), context);
+  }
+  if (output.MatchAnyTag === "") {
+    contents.MatchAnyTag = [];
+  } else if (output["MatchAnyTag"] !== undefined && output["MatchAnyTag"]["Tag"] !== undefined) {
+    contents.MatchAnyTag = de_MatchAnyTag(__getArrayIfSingleItem(output["MatchAnyTag"]["Tag"]), context);
+  }
+  if (output["MatchObjectAge"] !== undefined) {
+    contents.MatchObjectAge = de_MatchObjectAge(output["MatchObjectAge"], context);
+  }
+  if (output["MatchObjectSize"] !== undefined) {
+    contents.MatchObjectSize = de_MatchObjectSize(output["MatchObjectSize"], context);
+  }
+  if (output["And"] !== undefined) {
+    contents.And = de_StorageLensGroupAndOperator(output["And"], context);
+  }
+  if (output["Or"] !== undefined) {
+    contents.Or = de_StorageLensGroupOrOperator(output["Or"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupLevel
+ */
+const de_StorageLensGroupLevel = (output: any, context: __SerdeContext): StorageLensGroupLevel => {
+  const contents: any = {};
+  if (output["SelectionCriteria"] !== undefined) {
+    contents.SelectionCriteria = de_StorageLensGroupLevelSelectionCriteria(output["SelectionCriteria"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupLevelExclude
+ */
+const de_StorageLensGroupLevelExclude = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupLevelInclude
+ */
+const de_StorageLensGroupLevelInclude = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupLevelSelectionCriteria
+ */
+const de_StorageLensGroupLevelSelectionCriteria = (
+  output: any,
+  context: __SerdeContext
+): StorageLensGroupLevelSelectionCriteria => {
+  const contents: any = {};
+  if (output.Include === "") {
+    contents.Include = [];
+  } else if (output["Include"] !== undefined && output["Include"]["Arn"] !== undefined) {
+    contents.Include = de_StorageLensGroupLevelInclude(__getArrayIfSingleItem(output["Include"]["Arn"]), context);
+  }
+  if (output.Exclude === "") {
+    contents.Exclude = [];
+  } else if (output["Exclude"] !== undefined && output["Exclude"]["Arn"] !== undefined) {
+    contents.Exclude = de_StorageLensGroupLevelExclude(__getArrayIfSingleItem(output["Exclude"]["Arn"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupList
+ */
+const de_StorageLensGroupList = (output: any, context: __SerdeContext): ListStorageLensGroupEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ListStorageLensGroupEntry(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlStorageLensGroupOrOperator
+ */
+const de_StorageLensGroupOrOperator = (output: any, context: __SerdeContext): StorageLensGroupOrOperator => {
+  const contents: any = {};
+  if (output.MatchAnyPrefix === "") {
+    contents.MatchAnyPrefix = [];
+  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["Prefix"] !== undefined) {
+    contents.MatchAnyPrefix = de_MatchAnyPrefix(__getArrayIfSingleItem(output["MatchAnyPrefix"]["Prefix"]), context);
+  }
+  if (output.MatchAnySuffix === "") {
+    contents.MatchAnySuffix = [];
+  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["Suffix"] !== undefined) {
+    contents.MatchAnySuffix = de_MatchAnySuffix(__getArrayIfSingleItem(output["MatchAnySuffix"]["Suffix"]), context);
+  }
+  if (output.MatchAnyTag === "") {
+    contents.MatchAnyTag = [];
+  } else if (output["MatchAnyTag"] !== undefined && output["MatchAnyTag"]["Tag"] !== undefined) {
+    contents.MatchAnyTag = de_MatchAnyTag(__getArrayIfSingleItem(output["MatchAnyTag"]["Tag"]), context);
+  }
+  if (output["MatchObjectAge"] !== undefined) {
+    contents.MatchObjectAge = de_MatchObjectAge(output["MatchObjectAge"], context);
+  }
+  if (output["MatchObjectSize"] !== undefined) {
+    contents.MatchObjectSize = de_MatchObjectSize(output["MatchObjectSize"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlStorageLensTag
  */
 const de_StorageLensTag = (output: any, context: __SerdeContext): StorageLensTag => {
@@ -10296,6 +11558,31 @@ const de_StorageLensTags = (output: any, context: __SerdeContext): StorageLensTa
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_StorageLensTag(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlTag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
+  const contents: any = {};
+  if (output["Key"] !== undefined) {
+    contents.Key = __expectString(output["Key"]);
+  }
+  if (output["Value"] !== undefined) {
+    contents.Value = __expectString(output["Value"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlTagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Tag(entry, context);
     });
 };
 

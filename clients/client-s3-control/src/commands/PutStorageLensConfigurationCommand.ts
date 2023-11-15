@@ -93,6 +93,16 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *       DetailedStatusCodesMetrics: {
  *         IsEnabled: true || false,
  *       },
+ *       StorageLensGroupLevel: { // StorageLensGroupLevel
+ *         SelectionCriteria: { // StorageLensGroupLevelSelectionCriteria
+ *           Include: [ // StorageLensGroupLevelInclude
+ *             "STRING_VALUE",
+ *           ],
+ *           Exclude: [ // StorageLensGroupLevelExclude
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
  *     },
  *     Include: { // Include
  *       Buckets: [ // Buckets

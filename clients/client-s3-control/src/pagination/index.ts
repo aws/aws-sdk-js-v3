@@ -6,3 +6,4 @@ export * from "./ListJobsPaginator";
 export * from "./ListMultiRegionAccessPointsPaginator";
 export * from "./ListRegionalBucketsPaginator";
 export * from "./ListStorageLensConfigurationsPaginator";
+export * from "./ListStorageLensGroupsPaginator";

@@ -245,6 +245,14 @@ CreateMultiRegionAccessPoint
 </details>
 <details>
 <summary>
+CreateStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/createstoragelensgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createstoragelensgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createstoragelensgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteAccessPoint
 </summary>
 
@@ -353,6 +361,14 @@ DeleteStorageLensConfigurationTagging
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletestoragelensconfigurationtaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensconfigurationtaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensconfigurationtaggingcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletestoragelensgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensgroupcommandoutput.html)
 
 </details>
 <details>
@@ -541,6 +557,14 @@ GetStorageLensConfigurationTagging
 </details>
 <details>
 <summary>
+GetStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getstoragelensgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getstoragelensgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getstoragelensgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListAccessPoints
 </summary>
 
@@ -585,6 +609,22 @@ ListStorageLensConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/liststoragelensconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/liststoragelensconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/liststoragelensconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListStorageLensGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/liststoragelensgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/liststoragelensgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/liststoragelensgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -701,6 +741,22 @@ SubmitMultiRegionAccessPointRoutes
 </details>
 <details>
 <summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateJobPriority
 </summary>
 
@@ -713,5 +769,13 @@ UpdateJobStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/updatejobstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatejobstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatejobstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/updatestoragelensgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatestoragelensgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatestoragelensgroupcommandoutput.html)
 
 </details>

@@ -69,6 +69,10 @@ import {
   CreateMultiRegionAccessPointCommandInput,
   CreateMultiRegionAccessPointCommandOutput,
 } from "./commands/CreateMultiRegionAccessPointCommand";
+import {
+  CreateStorageLensGroupCommandInput,
+  CreateStorageLensGroupCommandOutput,
+} from "./commands/CreateStorageLensGroupCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointForObjectLambdaCommandInput,
@@ -113,6 +117,10 @@ import {
   DeleteStorageLensConfigurationTaggingCommandInput,
   DeleteStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationTaggingCommand";
+import {
+  DeleteStorageLensGroupCommandInput,
+  DeleteStorageLensGroupCommandOutput,
+} from "./commands/DeleteStorageLensGroupCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   DescribeMultiRegionAccessPointOperationCommandInput,
@@ -187,6 +195,10 @@ import {
   GetStorageLensConfigurationTaggingCommandInput,
   GetStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/GetStorageLensConfigurationTaggingCommand";
+import {
+  GetStorageLensGroupCommandInput,
+  GetStorageLensGroupCommandOutput,
+} from "./commands/GetStorageLensGroupCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import {
   ListAccessPointsForObjectLambdaCommandInput,
@@ -205,6 +217,14 @@ import {
   ListStorageLensConfigurationsCommandInput,
   ListStorageLensConfigurationsCommandOutput,
 } from "./commands/ListStorageLensConfigurationsCommand";
+import {
+  ListStorageLensGroupsCommandInput,
+  ListStorageLensGroupsCommandOutput,
+} from "./commands/ListStorageLensGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import {
   PutAccessPointConfigurationForObjectLambdaCommandInput,
   PutAccessPointConfigurationForObjectLambdaCommandOutput,
@@ -252,8 +272,14 @@ import {
   SubmitMultiRegionAccessPointRoutesCommandInput,
   SubmitMultiRegionAccessPointRoutesCommandOutput,
 } from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
+import {
+  UpdateStorageLensGroupCommandInput,
+  UpdateStorageLensGroupCommandOutput,
+} from "./commands/UpdateStorageLensGroupCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -274,6 +300,7 @@ export type ServiceInputTypes =
   | CreateBucketCommandInput
   | CreateJobCommandInput
   | CreateMultiRegionAccessPointCommandInput
+  | CreateStorageLensGroupCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointForObjectLambdaCommandInput
   | DeleteAccessPointPolicyCommandInput
@@ -288,6 +315,7 @@ export type ServiceInputTypes =
   | DeletePublicAccessBlockCommandInput
   | DeleteStorageLensConfigurationCommandInput
   | DeleteStorageLensConfigurationTaggingCommandInput
+  | DeleteStorageLensGroupCommandInput
   | DescribeJobCommandInput
   | DescribeMultiRegionAccessPointOperationCommandInput
   | GetAccessPointCommandInput
@@ -311,12 +339,15 @@ export type ServiceInputTypes =
   | GetPublicAccessBlockCommandInput
   | GetStorageLensConfigurationCommandInput
   | GetStorageLensConfigurationTaggingCommandInput
+  | GetStorageLensGroupCommandInput
   | ListAccessPointsCommandInput
   | ListAccessPointsForObjectLambdaCommandInput
   | ListJobsCommandInput
   | ListMultiRegionAccessPointsCommandInput
   | ListRegionalBucketsCommandInput
   | ListStorageLensConfigurationsCommandInput
+  | ListStorageLensGroupsCommandInput
+  | ListTagsForResourceCommandInput
   | PutAccessPointConfigurationForObjectLambdaCommandInput
   | PutAccessPointPolicyCommandInput
   | PutAccessPointPolicyForObjectLambdaCommandInput
@@ -331,8 +362,11 @@ export type ServiceInputTypes =
   | PutStorageLensConfigurationCommandInput
   | PutStorageLensConfigurationTaggingCommandInput
   | SubmitMultiRegionAccessPointRoutesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateJobPriorityCommandInput
-  | UpdateJobStatusCommandInput;
+  | UpdateJobStatusCommandInput
+  | UpdateStorageLensGroupCommandInput;
 
 /**
  * @public
@@ -343,6 +377,7 @@ export type ServiceOutputTypes =
   | CreateBucketCommandOutput
   | CreateJobCommandOutput
   | CreateMultiRegionAccessPointCommandOutput
+  | CreateStorageLensGroupCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointForObjectLambdaCommandOutput
   | DeleteAccessPointPolicyCommandOutput
@@ -357,6 +392,7 @@ export type ServiceOutputTypes =
   | DeletePublicAccessBlockCommandOutput
   | DeleteStorageLensConfigurationCommandOutput
   | DeleteStorageLensConfigurationTaggingCommandOutput
+  | DeleteStorageLensGroupCommandOutput
   | DescribeJobCommandOutput
   | DescribeMultiRegionAccessPointOperationCommandOutput
   | GetAccessPointCommandOutput
@@ -380,12 +416,15 @@ export type ServiceOutputTypes =
   | GetPublicAccessBlockCommandOutput
   | GetStorageLensConfigurationCommandOutput
   | GetStorageLensConfigurationTaggingCommandOutput
+  | GetStorageLensGroupCommandOutput
   | ListAccessPointsCommandOutput
   | ListAccessPointsForObjectLambdaCommandOutput
   | ListJobsCommandOutput
   | ListMultiRegionAccessPointsCommandOutput
   | ListRegionalBucketsCommandOutput
   | ListStorageLensConfigurationsCommandOutput
+  | ListStorageLensGroupsCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutAccessPointConfigurationForObjectLambdaCommandOutput
   | PutAccessPointPolicyCommandOutput
   | PutAccessPointPolicyForObjectLambdaCommandOutput
@@ -400,8 +439,11 @@ export type ServiceOutputTypes =
   | PutStorageLensConfigurationCommandOutput
   | PutStorageLensConfigurationTaggingCommandOutput
   | SubmitMultiRegionAccessPointRoutesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateJobPriorityCommandOutput
-  | UpdateJobStatusCommandOutput;
+  | UpdateJobStatusCommandOutput
+  | UpdateStorageLensGroupCommandOutput;
 
 /**
  * @public

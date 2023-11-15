@@ -24,6 +24,11 @@ import {
   CreateMultiRegionAccessPointCommandOutput,
 } from "./commands/CreateMultiRegionAccessPointCommand";
 import {
+  CreateStorageLensGroupCommand,
+  CreateStorageLensGroupCommandInput,
+  CreateStorageLensGroupCommandOutput,
+} from "./commands/CreateStorageLensGroupCommand";
+import {
   DeleteAccessPointCommand,
   DeleteAccessPointCommandInput,
   DeleteAccessPointCommandOutput,
@@ -93,6 +98,11 @@ import {
   DeleteStorageLensConfigurationTaggingCommandInput,
   DeleteStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationTaggingCommand";
+import {
+  DeleteStorageLensGroupCommand,
+  DeleteStorageLensGroupCommandInput,
+  DeleteStorageLensGroupCommandOutput,
+} from "./commands/DeleteStorageLensGroupCommand";
 import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   DescribeMultiRegionAccessPointOperationCommand,
@@ -201,6 +211,11 @@ import {
   GetStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/GetStorageLensConfigurationTaggingCommand";
 import {
+  GetStorageLensGroupCommand,
+  GetStorageLensGroupCommandInput,
+  GetStorageLensGroupCommandOutput,
+} from "./commands/GetStorageLensGroupCommand";
+import {
   ListAccessPointsCommand,
   ListAccessPointsCommandInput,
   ListAccessPointsCommandOutput,
@@ -226,6 +241,16 @@ import {
   ListStorageLensConfigurationsCommandInput,
   ListStorageLensConfigurationsCommandOutput,
 } from "./commands/ListStorageLensConfigurationsCommand";
+import {
+  ListStorageLensGroupsCommand,
+  ListStorageLensGroupsCommandInput,
+  ListStorageLensGroupsCommandOutput,
+} from "./commands/ListStorageLensGroupsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import {
   PutAccessPointConfigurationForObjectLambdaCommand,
   PutAccessPointConfigurationForObjectLambdaCommandInput,
@@ -296,6 +321,12 @@ import {
   SubmitMultiRegionAccessPointRoutesCommandInput,
   SubmitMultiRegionAccessPointRoutesCommandOutput,
 } from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateJobPriorityCommand,
   UpdateJobPriorityCommandInput,
@@ -306,6 +337,11 @@ import {
   UpdateJobStatusCommandInput,
   UpdateJobStatusCommandOutput,
 } from "./commands/UpdateJobStatusCommand";
+import {
+  UpdateStorageLensGroupCommand,
+  UpdateStorageLensGroupCommandInput,
+  UpdateStorageLensGroupCommandOutput,
+} from "./commands/UpdateStorageLensGroupCommand";
 import { S3ControlClient, S3ControlClientConfig } from "./S3ControlClient";
 
 const commands = {
@@ -314,6 +350,7 @@ const commands = {
   CreateBucketCommand,
   CreateJobCommand,
   CreateMultiRegionAccessPointCommand,
+  CreateStorageLensGroupCommand,
   DeleteAccessPointCommand,
   DeleteAccessPointForObjectLambdaCommand,
   DeleteAccessPointPolicyCommand,
@@ -328,6 +365,7 @@ const commands = {
   DeletePublicAccessBlockCommand,
   DeleteStorageLensConfigurationCommand,
   DeleteStorageLensConfigurationTaggingCommand,
+  DeleteStorageLensGroupCommand,
   DescribeJobCommand,
   DescribeMultiRegionAccessPointOperationCommand,
   GetAccessPointCommand,
@@ -351,12 +389,15 @@ const commands = {
   GetPublicAccessBlockCommand,
   GetStorageLensConfigurationCommand,
   GetStorageLensConfigurationTaggingCommand,
+  GetStorageLensGroupCommand,
   ListAccessPointsCommand,
   ListAccessPointsForObjectLambdaCommand,
   ListJobsCommand,
   ListMultiRegionAccessPointsCommand,
   ListRegionalBucketsCommand,
   ListStorageLensConfigurationsCommand,
+  ListStorageLensGroupsCommand,
+  ListTagsForResourceCommand,
   PutAccessPointConfigurationForObjectLambdaCommand,
   PutAccessPointPolicyCommand,
   PutAccessPointPolicyForObjectLambdaCommand,
@@ -371,8 +412,11 @@ const commands = {
   PutStorageLensConfigurationCommand,
   PutStorageLensConfigurationTaggingCommand,
   SubmitMultiRegionAccessPointRoutesCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
   UpdateJobPriorityCommand,
   UpdateJobStatusCommand,
+  UpdateStorageLensGroupCommand,
 };
 
 export interface S3Control {
@@ -447,6 +491,23 @@ export interface S3Control {
     args: CreateMultiRegionAccessPointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateMultiRegionAccessPointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStorageLensGroupCommand}
+   */
+  createStorageLensGroup(
+    args: CreateStorageLensGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStorageLensGroupCommandOutput>;
+  createStorageLensGroup(
+    args: CreateStorageLensGroupCommandInput,
+    cb: (err: any, data?: CreateStorageLensGroupCommandOutput) => void
+  ): void;
+  createStorageLensGroup(
+    args: CreateStorageLensGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStorageLensGroupCommandOutput) => void
   ): void;
 
   /**
@@ -679,6 +740,23 @@ export interface S3Control {
     args: DeleteStorageLensConfigurationTaggingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteStorageLensConfigurationTaggingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStorageLensGroupCommand}
+   */
+  deleteStorageLensGroup(
+    args: DeleteStorageLensGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStorageLensGroupCommandOutput>;
+  deleteStorageLensGroup(
+    args: DeleteStorageLensGroupCommandInput,
+    cb: (err: any, data?: DeleteStorageLensGroupCommandOutput) => void
+  ): void;
+  deleteStorageLensGroup(
+    args: DeleteStorageLensGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStorageLensGroupCommandOutput) => void
   ): void;
 
   /**
@@ -1049,6 +1127,23 @@ export interface S3Control {
   ): void;
 
   /**
+   * @see {@link GetStorageLensGroupCommand}
+   */
+  getStorageLensGroup(
+    args: GetStorageLensGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStorageLensGroupCommandOutput>;
+  getStorageLensGroup(
+    args: GetStorageLensGroupCommandInput,
+    cb: (err: any, data?: GetStorageLensGroupCommandOutput) => void
+  ): void;
+  getStorageLensGroup(
+    args: GetStorageLensGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStorageLensGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccessPointsCommand}
    */
   listAccessPoints(
@@ -1142,6 +1237,40 @@ export interface S3Control {
     args: ListStorageLensConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStorageLensConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStorageLensGroupsCommand}
+   */
+  listStorageLensGroups(
+    args: ListStorageLensGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStorageLensGroupsCommandOutput>;
+  listStorageLensGroups(
+    args: ListStorageLensGroupsCommandInput,
+    cb: (err: any, data?: ListStorageLensGroupsCommandOutput) => void
+  ): void;
+  listStorageLensGroups(
+    args: ListStorageLensGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStorageLensGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
   /**
@@ -1374,6 +1503,28 @@ export interface S3Control {
   ): void;
 
   /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateJobPriorityCommand}
    */
   updateJobPriority(
@@ -1402,6 +1553,23 @@ export interface S3Control {
     args: UpdateJobStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateJobStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateStorageLensGroupCommand}
+   */
+  updateStorageLensGroup(
+    args: UpdateStorageLensGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStorageLensGroupCommandOutput>;
+  updateStorageLensGroup(
+    args: UpdateStorageLensGroupCommandInput,
+    cb: (err: any, data?: UpdateStorageLensGroupCommandOutput) => void
+  ): void;
+  updateStorageLensGroup(
+    args: UpdateStorageLensGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStorageLensGroupCommandOutput) => void
   ): void;
 }
 
