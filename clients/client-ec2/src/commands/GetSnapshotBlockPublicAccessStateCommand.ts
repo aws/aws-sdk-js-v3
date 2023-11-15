@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetSnapshotBlockPublicAccessStateRequest, GetSnapshotBlockPublicAccessStateResult } from "../models/models_5";
+import { GetSnapshotBlockPublicAccessStateRequest, GetSnapshotBlockPublicAccessStateResult } from "../models/models_6";
 import {
   de_GetSnapshotBlockPublicAccessStateCommand,
   se_GetSnapshotBlockPublicAccessStateCommand,

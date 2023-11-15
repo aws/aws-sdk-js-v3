@@ -1399,6 +1399,11 @@ import {
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand";
 import {
+  DescribeLockedSnapshotsCommand,
+  DescribeLockedSnapshotsCommandInput,
+  DescribeLockedSnapshotsCommandOutput,
+} from "./commands/DescribeLockedSnapshotsCommand";
+import {
   DescribeManagedPrefixListsCommand,
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -2317,6 +2322,11 @@ import {
   ListSnapshotsInRecycleBinCommandOutput,
 } from "./commands/ListSnapshotsInRecycleBinCommand";
 import {
+  LockSnapshotCommand,
+  LockSnapshotCommandInput,
+  LockSnapshotCommandOutput,
+} from "./commands/LockSnapshotCommand";
+import {
   ModifyAddressAttributeCommand,
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
@@ -2945,6 +2955,11 @@ import {
   UnassignPrivateNatGatewayAddressCommandOutput,
 } from "./commands/UnassignPrivateNatGatewayAddressCommand";
 import {
+  UnlockSnapshotCommand,
+  UnlockSnapshotCommandInput,
+  UnlockSnapshotCommandOutput,
+} from "./commands/UnlockSnapshotCommand";
+import {
   UnmonitorInstancesCommand,
   UnmonitorInstancesCommandInput,
   UnmonitorInstancesCommandOutput,
@@ -3255,6 +3270,7 @@ const commands = {
   DescribeLocalGatewaysCommand,
   DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   DescribeLocalGatewayVirtualInterfacesCommand,
+  DescribeLockedSnapshotsCommand,
   DescribeManagedPrefixListsCommand,
   DescribeMovingAddressesCommand,
   DescribeNatGatewaysCommand,
@@ -3441,6 +3457,7 @@ const commands = {
   ImportVolumeCommand,
   ListImagesInRecycleBinCommand,
   ListSnapshotsInRecycleBinCommand,
+  LockSnapshotCommand,
   ModifyAddressAttributeCommand,
   ModifyAvailabilityZoneGroupCommand,
   ModifyCapacityReservationCommand,
@@ -3569,6 +3586,7 @@ const commands = {
   UnassignIpv6AddressesCommand,
   UnassignPrivateIpAddressesCommand,
   UnassignPrivateNatGatewayAddressCommand,
+  UnlockSnapshotCommand,
   UnmonitorInstancesCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
@@ -8269,6 +8287,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeLockedSnapshotsCommand}
+   */
+  describeLockedSnapshots(
+    args: DescribeLockedSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLockedSnapshotsCommandOutput>;
+  describeLockedSnapshots(
+    args: DescribeLockedSnapshotsCommandInput,
+    cb: (err: any, data?: DescribeLockedSnapshotsCommandOutput) => void
+  ): void;
+  describeLockedSnapshots(
+    args: DescribeLockedSnapshotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLockedSnapshotsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeManagedPrefixListsCommand}
    */
   describeManagedPrefixLists(
@@ -11356,6 +11391,17 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link LockSnapshotCommand}
+   */
+  lockSnapshot(args: LockSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<LockSnapshotCommandOutput>;
+  lockSnapshot(args: LockSnapshotCommandInput, cb: (err: any, data?: LockSnapshotCommandOutput) => void): void;
+  lockSnapshot(
+    args: LockSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LockSnapshotCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyAddressAttributeCommand}
    */
   modifyAddressAttribute(
@@ -13457,6 +13503,20 @@ export interface EC2 {
     args: UnassignPrivateNatGatewayAddressCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UnlockSnapshotCommand}
+   */
+  unlockSnapshot(
+    args: UnlockSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnlockSnapshotCommandOutput>;
+  unlockSnapshot(args: UnlockSnapshotCommandInput, cb: (err: any, data?: UnlockSnapshotCommandOutput) => void): void;
+  unlockSnapshot(
+    args: UnlockSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnlockSnapshotCommandOutput) => void
   ): void;
 
   /**

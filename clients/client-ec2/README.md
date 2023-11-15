@@ -2535,6 +2535,14 @@ DescribeLocalGatewayVirtualInterfaces
 </details>
 <details>
 <summary>
+DescribeLockedSnapshots
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/describelockedsnapshotscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describelockedsnapshotscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describelockedsnapshotscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeManagedPrefixLists
 </summary>
 
@@ -4023,6 +4031,14 @@ ListSnapshotsInRecycleBin
 </details>
 <details>
 <summary>
+LockSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/locksnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/locksnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/locksnapshotcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ModifyAddressAttribute
 </summary>
 
@@ -5043,6 +5059,14 @@ UnassignPrivateNatGatewayAddress
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/unassignprivatenatgatewayaddresscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/unassignprivatenatgatewayaddresscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/unassignprivatenatgatewayaddresscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UnlockSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/unlocksnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/unlocksnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/unlocksnapshotcommandoutput.html)
 
 </details>
 <details>

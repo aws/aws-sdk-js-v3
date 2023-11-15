@@ -8615,6 +8615,7 @@ export const _InstanceType = {
   d3en_8xlarge: "d3en.8xlarge",
   d3en_xlarge: "d3en.xlarge",
   dl1_24xlarge: "dl1.24xlarge",
+  dl2q_24xlarge: "dl2q.24xlarge",
   f1_16xlarge: "f1.16xlarge",
   f1_2xlarge: "f1.2xlarge",
   f1_4xlarge: "f1.4xlarge",

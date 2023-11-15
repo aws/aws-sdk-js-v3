@@ -25,7 +25,6 @@ import {
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
-  TransitGatewayPeeringAttachment,
   UserIdGroupPair,
 } from "./models_0";
 import {
@@ -88,7 +87,6 @@ import {
   TrafficMirrorTarget,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
-  TransitGatewayMulticastDomain,
 } from "./models_2";
 import {
   ArchitectureValues,
@@ -5531,6 +5529,176 @@ export interface DescribeLocalGatewayVirtualInterfacesResult {
   /**
    * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLockedSnapshotsRequest {
+  /**
+   * @public
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>lock-state</code> - The state of the snapshot lock (<code>compliance-cooloff</code> |
+   *           <code>governance</code> | <code>compliance</code> | <code>expired</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The IDs of the snapshots for which to view the lock status.</p>
+   */
+  SnapshotIds?: string[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LockState = {
+  compliance: "compliance",
+  compliance_cooloff: "compliance-cooloff",
+  expired: "expired",
+  governance: "governance",
+} as const;
+
+/**
+ * @public
+ */
+export type LockState = (typeof LockState)[keyof typeof LockState];
+
+/**
+ * @public
+ * <p>Information about a locked snapshot.</p>
+ */
+export interface LockedSnapshotsInfo {
+  /**
+   * @public
+   * <p>The account ID of the Amazon Web Services account that owns the snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * @public
+   * <p>The state of the snapshot lock. Valid states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>compliance-cooloff</code> - The snapshot has been locked in
+   *           compliance mode but it is still within the cooling-off period. The snapshot can't be
+   *           deleted, but it can be unlocked and the lock settings can be modified by users with
+   *           appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>governance</code> - The snapshot is locked in governance mode. The
+   *           snapshot can't be deleted, but it can be unlocked and the lock settings can be
+   *           modified by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>compliance</code> - The snapshot is locked in compliance mode and the
+   *           cooling-off period has expired. The snapshot can't be unlocked or deleted. The lock
+   *           duration can only be increased by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The snapshot was locked in compliance or governance
+   *           mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState;
+
+  /**
+   * @public
+   * <p>The period of time for which the snapshot is locked, in days.</p>
+   */
+  LockDuration?: number;
+
+  /**
+   * @public
+   * <p>The compliance mode cooling-off period, in hours.</p>
+   */
+  CoolOffPeriod?: number;
+
+  /**
+   * @public
+   * <p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   */
+  CoolOffPeriodExpiresOn?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the snapshot was locked, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   */
+  LockCreatedOn?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the lock duration started, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   *          <p>If you lock a snapshot that is in the <code>pending</code> state, the lock duration
+   *       starts only once the snapshot enters the <code>completed</code> state.</p>
+   */
+  LockDurationStartTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the lock will expire, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   */
+  LockExpiresOn?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLockedSnapshotsResult {
+  /**
+   * @public
+   * <p>Information about the snapshots.</p>
+   */
+  Snapshots?: LockedSnapshotsInfo[];
+
+  /**
+   * @public
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -12808,147 +12976,6 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
    *                   <code>transit-gateway-multicast-domain-id</code> - The ID of the transit gateway multicast domain.</p>
    *             </li>
    *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayMulticastDomainsResult {
-  /**
-   * @public
-   * <p>Information about the transit gateway multicast domains.</p>
-   */
-  TransitGatewayMulticastDomains?: TransitGatewayMulticastDomain[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPeeringAttachmentsRequest {
-  /**
-   * @public
-   * <p>One or more IDs of the transit gateway peering attachments.</p>
-   */
-  TransitGatewayAttachmentIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-owner-id</code> - The ID of your Amazon Web Services account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>remote-owner-id</code> - The ID of the Amazon Web Services account in the remote Region that owns the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the peering attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPeeringAttachmentsResult {
-  /**
-   * @public
-   * <p>The transit gateway peering attachments.</p>
-   */
-  TransitGatewayPeeringAttachments?: TransitGatewayPeeringAttachment[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPolicyTablesRequest {
-  /**
-   * @public
-   * <p>The IDs of the transit gateway policy tables.</p>
-   */
-  TransitGatewayPolicyTableIds?: string[];
-
-  /**
-   * @public
-   * <p>The filters associated with the transit gateway policy table.</p>
    */
   Filters?: Filter[];
 

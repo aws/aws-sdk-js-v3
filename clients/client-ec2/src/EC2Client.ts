@@ -981,6 +981,10 @@ import {
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand";
 import {
+  DescribeLockedSnapshotsCommandInput,
+  DescribeLockedSnapshotsCommandOutput,
+} from "./commands/DescribeLockedSnapshotsCommand";
+import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
 } from "./commands/DescribeManagedPrefixListsCommand";
@@ -1655,6 +1659,7 @@ import {
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
 } from "./commands/ListSnapshotsInRecycleBinCommand";
+import { LockSnapshotCommandInput, LockSnapshotCommandOutput } from "./commands/LockSnapshotCommand";
 import {
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
@@ -2092,6 +2097,7 @@ import {
   UnassignPrivateNatGatewayAddressCommandInput,
   UnassignPrivateNatGatewayAddressCommandOutput,
 } from "./commands/UnassignPrivateNatGatewayAddressCommand";
+import { UnlockSnapshotCommandInput, UnlockSnapshotCommandOutput } from "./commands/UnlockSnapshotCommand";
 import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "./commands/UnmonitorInstancesCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
@@ -2405,6 +2411,7 @@ export type ServiceInputTypes =
   | DescribeLocalGatewayVirtualInterfaceGroupsCommandInput
   | DescribeLocalGatewayVirtualInterfacesCommandInput
   | DescribeLocalGatewaysCommandInput
+  | DescribeLockedSnapshotsCommandInput
   | DescribeManagedPrefixListsCommandInput
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
@@ -2591,6 +2598,7 @@ export type ServiceInputTypes =
   | ImportVolumeCommandInput
   | ListImagesInRecycleBinCommandInput
   | ListSnapshotsInRecycleBinCommandInput
+  | LockSnapshotCommandInput
   | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
@@ -2719,6 +2727,7 @@ export type ServiceInputTypes =
   | UnassignIpv6AddressesCommandInput
   | UnassignPrivateIpAddressesCommandInput
   | UnassignPrivateNatGatewayAddressCommandInput
+  | UnlockSnapshotCommandInput
   | UnmonitorInstancesCommandInput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandInput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandInput
@@ -3016,6 +3025,7 @@ export type ServiceOutputTypes =
   | DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
   | DescribeLocalGatewayVirtualInterfacesCommandOutput
   | DescribeLocalGatewaysCommandOutput
+  | DescribeLockedSnapshotsCommandOutput
   | DescribeManagedPrefixListsCommandOutput
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput
@@ -3202,6 +3212,7 @@ export type ServiceOutputTypes =
   | ImportVolumeCommandOutput
   | ListImagesInRecycleBinCommandOutput
   | ListSnapshotsInRecycleBinCommandOutput
+  | LockSnapshotCommandOutput
   | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
@@ -3330,6 +3341,7 @@ export type ServiceOutputTypes =
   | UnassignIpv6AddressesCommandOutput
   | UnassignPrivateIpAddressesCommandOutput
   | UnassignPrivateNatGatewayAddressCommandOutput
+  | UnlockSnapshotCommandOutput
   | UnmonitorInstancesCommandOutput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandOutput

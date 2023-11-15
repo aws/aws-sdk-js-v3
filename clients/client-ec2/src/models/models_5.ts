@@ -20,6 +20,7 @@ import {
   TransitGatewayAssociation,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
+  TransitGatewayPeeringAttachment,
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
@@ -38,7 +39,6 @@ import {
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
-  TargetCapacityUnitType,
   VolumeType,
   Vpc,
 } from "./models_1";
@@ -54,6 +54,7 @@ import {
   SSEType,
   State,
   TransitGateway,
+  TransitGatewayMulticastDomain,
   TransitGatewayPolicyTable,
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
@@ -83,6 +84,147 @@ import {
   VirtualizationType,
 } from "./models_3";
 import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayMulticastDomainsResult {
+  /**
+   * @public
+   * <p>Information about the transit gateway multicast domains.</p>
+   */
+  TransitGatewayMulticastDomains?: TransitGatewayMulticastDomain[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayPeeringAttachmentsRequest {
+  /**
+   * @public
+   * <p>One or more IDs of the transit gateway peering attachments.</p>
+   */
+  TransitGatewayAttachmentIds?: string[];
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-owner-id</code> - The ID of your Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>remote-owner-id</code> - The ID of the Amazon Web Services account in the remote Region that owns the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the peering attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayPeeringAttachmentsResult {
+  /**
+   * @public
+   * <p>The transit gateway peering attachments.</p>
+   */
+  TransitGatewayPeeringAttachments?: TransitGatewayPeeringAttachment[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayPolicyTablesRequest {
+  /**
+   * @public
+   * <p>The IDs of the transit gateway policy tables.</p>
+   */
+  TransitGatewayPolicyTableIds?: string[];
+
+  /**
+   * @public
+   * <p>The filters associated with the transit gateway policy table.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -8273,154 +8415,6 @@ export interface GetSerialConsoleAccessStatusResult {
    * 			is disabled for your account.</p>
    */
   SerialConsoleAccessEnabled?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetSnapshotBlockPublicAccessStateRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetSnapshotBlockPublicAccessStateResult {
-  /**
-   * @public
-   * <p>The current state of block public access for snapshots. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in
-   *           the account can't request new public sharing. Additionally, snapshots that were already
-   *           publicly shared are treated as private and are not publicly available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-new-sharing</code>  - Only new public sharing of snapshots is blocked.
-   *           Users in the account can't request new public sharing. However, snapshots that were
-   *           already publicly shared, remain publicly available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unblocked</code>  - Public sharing is not blocked. Users can publicly share
-   *           snapshots.</p>
-   *             </li>
-   *          </ul>
-   */
-  State?: SnapshotBlockPublicAccessState;
-}
-
-/**
- * @public
- * <p>The architecture type, virtualization type, and other attributes for the instance types.
- *          When you specify instance attributes, Amazon EC2 will identify instance types with those
- *          attributes.</p>
- *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
- *          <code>InstanceTypes</code>.</p>
- */
-export interface InstanceRequirementsWithMetadataRequest {
-  /**
-   * @public
-   * <p>The architecture type.</p>
-   */
-  ArchitectureTypes?: ArchitectureType[];
-
-  /**
-   * @public
-   * <p>The virtualization type.</p>
-   */
-  VirtualizationTypes?: VirtualizationType[];
-
-  /**
-   * @public
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   */
-  InstanceRequirements?: InstanceRequirementsRequest;
-}
-
-/**
- * @public
- */
-export interface GetSpotPlacementScoresRequest {
-  /**
-   * @public
-   * <p>The instance types. We recommend that you specify at least three instance types. If you
-   *          specify one or two instance types, or specify variations of a single instance type (for
-   *          example, an <code>m3.xlarge</code> with and without instance storage), the returned
-   *          placement score will always be low. </p>
-   *          <p>If you specify <code>InstanceTypes</code>, you can't specify
-   *             <code>InstanceRequirementsWithMetadata</code>.</p>
-   */
-  InstanceTypes?: string[];
-
-  /**
-   * @public
-   * <p>The target capacity.</p>
-   */
-  TargetCapacity: number | undefined;
-
-  /**
-   * @public
-   * <p>The unit for the target capacity.</p>
-   *          <p>Default: <code>units</code> (translates to number of instances)</p>
-   */
-  TargetCapacityUnitType?: TargetCapacityUnitType;
-
-  /**
-   * @public
-   * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
-   *          Otherwise, the response returns a list of scored Regions.</p>
-   *          <p>A list of scored Availability Zones is useful if you want to launch all of your Spot
-   *          capacity into a single Availability Zone.</p>
-   */
-  SingleAvailabilityZone?: boolean;
-
-  /**
-   * @public
-   * <p>The Regions used to narrow down the list of Regions to be scored. Enter the Region code,
-   *          for example, <code>us-east-1</code>.</p>
-   */
-  RegionNames?: string[];
-
-  /**
-   * @public
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   *          <p>If you specify <code>InstanceRequirementsWithMetadata</code>, you can't specify
-   *             <code>InstanceTypes</code>.</p>
-   */
-  InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
 }
 
 /**

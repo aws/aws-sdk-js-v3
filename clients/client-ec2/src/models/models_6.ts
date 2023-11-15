@@ -7,7 +7,6 @@ import {
   AddIpamOperatingRegion,
   AddPrefixListEntry,
   AddressAttribute,
-  AddressAttributeName,
   Affinity,
   ApplianceModeSupportValue,
   AutoPlacement,
@@ -55,7 +54,7 @@ import {
   HostnameType,
   IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
-  InstanceInterruptionBehavior,
+  InstanceRequirementsRequest,
   Ipam,
   IpamPool,
   IpamResourceDiscovery,
@@ -69,8 +68,8 @@ import {
   RuleAction,
   SelfServicePortal,
   ShutdownBehavior,
-  SpotInstanceType,
   TargetCapacitySpecificationRequest,
+  TargetCapacityUnitType,
   VolumeType,
 } from "./models_1";
 import {
@@ -129,8 +128,10 @@ import {
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
   TpmSupportValues,
+  VirtualizationType,
 } from "./models_3";
 import {
+  ArchitectureType,
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   HttpTokensState,
@@ -142,6 +143,7 @@ import {
   InstanceNetworkInterfaceSpecification,
   InstanceStatusEvent,
   LaunchTemplateConfig,
+  LockState,
   Monitoring,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
@@ -150,19 +152,166 @@ import {
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
-  SpotInstanceRequest,
-  SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_4";
 import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
+  SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetSnapshotBlockPublicAccessStateRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetSnapshotBlockPublicAccessStateResult {
+  /**
+   * @public
+   * <p>The current state of block public access for snapshots. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in
+   *           the account can't request new public sharing. Additionally, snapshots that were already
+   *           publicly shared are treated as private and are not publicly available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-new-sharing</code>  - Only new public sharing of snapshots is blocked.
+   *           Users in the account can't request new public sharing. However, snapshots that were
+   *           already publicly shared, remain publicly available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unblocked</code>  - Public sharing is not blocked. Users can publicly share
+   *           snapshots.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: SnapshotBlockPublicAccessState;
+}
+
+/**
+ * @public
+ * <p>The architecture type, virtualization type, and other attributes for the instance types.
+ *          When you specify instance attributes, Amazon EC2 will identify instance types with those
+ *          attributes.</p>
+ *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
+ *          <code>InstanceTypes</code>.</p>
+ */
+export interface InstanceRequirementsWithMetadataRequest {
+  /**
+   * @public
+   * <p>The architecture type.</p>
+   */
+  ArchitectureTypes?: ArchitectureType[];
+
+  /**
+   * @public
+   * <p>The virtualization type.</p>
+   */
+  VirtualizationTypes?: VirtualizationType[];
+
+  /**
+   * @public
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   */
+  InstanceRequirements?: InstanceRequirementsRequest;
+}
+
+/**
+ * @public
+ */
+export interface GetSpotPlacementScoresRequest {
+  /**
+   * @public
+   * <p>The instance types. We recommend that you specify at least three instance types. If you
+   *          specify one or two instance types, or specify variations of a single instance type (for
+   *          example, an <code>m3.xlarge</code> with and without instance storage), the returned
+   *          placement score will always be low. </p>
+   *          <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *             <code>InstanceRequirementsWithMetadata</code>.</p>
+   */
+  InstanceTypes?: string[];
+
+  /**
+   * @public
+   * <p>The target capacity.</p>
+   */
+  TargetCapacity: number | undefined;
+
+  /**
+   * @public
+   * <p>The unit for the target capacity.</p>
+   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType;
+
+  /**
+   * @public
+   * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
+   *          Otherwise, the response returns a list of scored Regions.</p>
+   *          <p>A list of scored Availability Zones is useful if you want to launch all of your Spot
+   *          capacity into a single Availability Zone.</p>
+   */
+  SingleAvailabilityZone?: boolean;
+
+  /**
+   * @public
+   * <p>The Regions used to narrow down the list of Regions to be scored. Enter the Region code,
+   *          for example, <code>us-east-1</code>.</p>
+   */
+  RegionNames?: string[];
+
+  /**
+   * @public
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <p>If you specify <code>InstanceRequirementsWithMetadata</code>, you can't specify
+   *             <code>InstanceTypes</code>.</p>
+   */
+  InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -2307,6 +2456,192 @@ export interface ListSnapshotsInRecycleBinResult {
    *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LockMode = {
+  compliance: "compliance",
+  governance: "governance",
+} as const;
+
+/**
+ * @public
+ */
+export type LockMode = (typeof LockMode)[keyof typeof LockMode];
+
+/**
+ * @public
+ */
+export interface LockSnapshotRequest {
+  /**
+   * @public
+   * <p>The ID of the snapshot to lock.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The mode in which to lock the snapshot. Specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>governance</code> - Locks the snapshot in governance mode. Snapshots locked in governance
+   *           mode can't be deleted until one of the following conditions are met:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The lock duration expires.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The snapshot is unlocked by a user with the appropriate permissions.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>Users with the appropriate IAM permissions can unlock the snapshot, increase or decrease the lock
+   *           duration, and change the lock mode to <code>compliance</code> at any time.</p>
+   *                <p>If you lock a snapshot in <code>governance</code> mode, omit <b>
+   *           CoolOffPeriod</b>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>compliance</code> - Locks the snapshot in compliance mode. Snapshots locked in compliance
+   *           mode can't be unlocked by any user. They can be deleted only after the lock duration expires. Users
+   *           can't decrease the lock duration or change the lock mode to <code>governance</code>. However, users
+   *           with appropriate IAM permissions can increase the lock duration at any time.</p>
+   *                <p>If you lock a snapshot in <code>compliance</code> mode, you can optionally specify
+   *           <b>CoolOffPeriod</b>.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockMode: LockMode | undefined;
+
+  /**
+   * @public
+   * <p>The cooling-off period during which you can unlock the snapshot or modify the lock settings after
+   *       locking the snapshot in compliance mode, in hours. After the cooling-off period expires, you can't
+   *       unlock or delete the snapshot, decrease the lock duration, or change the lock mode. You can increase
+   *       the lock duration after the cooling-off period expires.</p>
+   *          <p>The cooling-off period is optional when locking a snapshot in compliance mode. If you are locking
+   *       the snapshot in governance mode, omit this parameter.</p>
+   *          <p>To lock the snapshot in compliance mode immediately without a cooling-off period, omit this
+   *       parameter.</p>
+   *          <p>If you are extending the lock duration for a snapshot that is locked in compliance mode after
+   *       the cooling-off period has expired, omit this parameter. If you specify a cooling-period in a such
+   *       a request, the request fails.</p>
+   *          <p>Allowed values: Min 1, max 72.</p>
+   */
+  CoolOffPeriod?: number;
+
+  /**
+   * @public
+   * <p>The period of time for which to lock the snapshot, in days. The snapshot lock will automatically
+   *       expire after this period lapses.</p>
+   *          <p>You must specify either this parameter or <b>ExpirationDate</b>, but
+   *       not both.</p>
+   *          <p>Allowed values: Min: 1, max 36500</p>
+   */
+  LockDuration?: number;
+
+  /**
+   * @public
+   * <p>The date and time at which the snapshot lock is to automatically expire, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   *          <p>You must specify either this parameter or <b>LockDuration</b>, but
+   *       not both.</p>
+   */
+  ExpirationDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface LockSnapshotResult {
+  /**
+   * @public
+   * <p>The ID of the snapshot</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * @public
+   * <p>The state of the snapshot lock. Valid states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>compliance-cooloff</code> - The snapshot has been locked in
+   *           compliance mode but it is still within the cooling-off period. The snapshot can't be
+   *           deleted, but it can be unlocked and the lock settings can be modified by users with
+   *           appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>governance</code> - The snapshot is locked in governance mode. The
+   *           snapshot can't be deleted, but it can be unlocked and the lock settings can be
+   *           modified by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>compliance</code> - The snapshot is locked in compliance mode and the
+   *           cooling-off period has expired. The snapshot can't be unlocked or deleted. The lock
+   *           duration can only be increased by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The snapshot was locked in compliance or governance
+   *           mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState;
+
+  /**
+   * @public
+   * <p>The period of time for which the snapshot is locked, in days.</p>
+   */
+  LockDuration?: number;
+
+  /**
+   * @public
+   * <p>The compliance mode cooling-off period, in hours.</p>
+   */
+  CoolOffPeriod?: number;
+
+  /**
+   * @public
+   * <p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   */
+  CoolOffPeriodExpiresOn?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the snapshot was locked, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   */
+  LockCreatedOn?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the lock will expire, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   */
+  LockExpiresOn?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the lock duration started, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   */
+  LockDurationStartTime?: Date;
 }
 
 /**
@@ -9085,226 +9420,6 @@ export interface RequestSpotLaunchSpecification {
 }
 
 /**
- * @public
- * <p>Contains the parameters for RequestSpotInstances.</p>
- */
-export interface RequestSpotInstancesRequest {
-  /**
-   * @public
-   * <p>The user-specified name for a logical grouping of requests.</p>
-   *          <p>When you specify an Availability Zone group in a Spot Instance request, all Spot
-   *             Instances in the request are launched in the same Availability Zone. Instance proximity
-   *             is maintained with this parameter, but the choice of Availability Zone is not. The group
-   *             applies only to requests for Spot Instances of the same instance type. Any additional
-   *             Spot Instance requests that are specified with the same Availability Zone group name are
-   *             launched in that same Availability Zone, as long as at least one instance from the group
-   *             is still active.</p>
-   *          <p>If there is no active instance running in the Availability Zone group that you specify
-   *             for a new Spot Instance request (all instances are terminated, the request is expired,
-   *             or the maximum price you specified falls below current Spot price), then Amazon EC2 launches
-   *             the instance in any Availability Zone where the constraint can be met. Consequently, the
-   *             subsequent set of Spot Instances could be placed in a different zone from the original
-   *             request, even if you specified the same Availability Zone group.</p>
-   *          <p>Default: Instances are launched in any available Availability Zone.</p>
-   */
-  AvailabilityZoneGroup?: string;
-
-  /**
-   * @public
-   * <p>Deprecated.</p>
-   */
-  BlockDurationMinutes?: number;
-
-  /**
-   * @public
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The maximum number of Spot Instances to launch.</p>
-   *          <p>Default: 1</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * @public
-   * <p>The instance launch group. Launch groups are Spot Instances that launch together and
-   *             terminate together.</p>
-   *          <p>Default: Instances are launched and terminated individually</p>
-   */
-  LaunchGroup?: string;
-
-  /**
-   * @public
-   * <p>The launch specification.</p>
-   */
-  LaunchSpecification?: RequestSpotLaunchSpecification;
-
-  /**
-   * @public
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   */
-  SpotPrice?: string;
-
-  /**
-   * @public
-   * <p>The Spot Instance request type.</p>
-   *          <p>Default: <code>one-time</code>
-   *          </p>
-   */
-  Type?: SpotInstanceType;
-
-  /**
-   * @public
-   * <p>The start date of the request. If this is a one-time request, the request becomes
-   *             active at this date and time and remains active until all instances launch, the request
-   *             expires, or the request is canceled. If the request is persistent, the request becomes
-   *             active at this date and time and remains active until it expires or is canceled.</p>
-   *          <p>The specified start date and time cannot be equal to the current date and time. You
-   *             must specify a start date and time that occurs after the current date and time.</p>
-   */
-  ValidFrom?: Date;
-
-  /**
-   * @public
-   * <p>The end date of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   *          <ul>
-   *             <li>
-   *                <p>For a persistent request, the request remains active until the
-   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
-   *                     remains active until you cancel it. </p>
-   *             </li>
-   *             <li>
-   *                <p>For a one-time request, the request remains active until all instances launch,
-   *                     the request is canceled, or the <code>ValidUntil</code> date and time is
-   *                     reached. By default, the request is valid for 7 days from the date the request
-   *                     was created.</p>
-   *             </li>
-   *          </ul>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * @public
-   * <p>The key-value pair for tagging the Spot Instance request on creation. The value for
-   *             <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
-   *             Spot Instance request fails. To tag the Spot Instance request after it has been created,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * @public
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
-}
-
-/**
- * @public
- * <p>Contains the output of RequestSpotInstances.</p>
- */
-export interface RequestSpotInstancesResult {
-  /**
-   * @public
-   * <p>The Spot Instance requests.</p>
-   */
-  SpotInstanceRequests?: SpotInstanceRequest[];
-}
-
-/**
- * @public
- */
-export interface ResetAddressAttributeRequest {
-  /**
-   * @public
-   * <p>[EC2-VPC] The allocation ID.</p>
-   */
-  AllocationId: string | undefined;
-
-  /**
-   * @public
-   * <p>The attribute of the IP address.</p>
-   */
-  Attribute: AddressAttributeName | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface ResetAddressAttributeResult {
-  /**
-   * @public
-   * <p>Information about the IP address.</p>
-   */
-  Address?: AddressAttribute;
-}
-
-/**
- * @public
- */
-export interface ResetEbsDefaultKmsKeyIdRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface ResetEbsDefaultKmsKeyIdResult {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for EBS encryption by default.</p>
-   */
-  KmsKeyId?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResetFpgaImageAttributeName = {
-  loadPermission: "loadPermission",
-} as const;
-
-/**
- * @public
- */
-export type ResetFpgaImageAttributeName =
-  (typeof ResetFpgaImageAttributeName)[keyof typeof ResetFpgaImageAttributeName];
-
-/**
  * @internal
  */
 export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
@@ -9532,24 +9647,4 @@ export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetR
 export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
   ...obj,
   ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesRequestFilterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: RequestSpotLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesResultFilterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
-  ...obj,
-  ...(obj.SpotInstanceRequests && {
-    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
-  }),
 });

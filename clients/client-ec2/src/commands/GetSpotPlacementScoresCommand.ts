@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetSpotPlacementScoresRequest } from "../models/models_5";
-import { GetSpotPlacementScoresResult } from "../models/models_6";
+import { GetSpotPlacementScoresRequest, GetSpotPlacementScoresResult } from "../models/models_6";
 import { de_GetSpotPlacementScoresCommand, se_GetSpotPlacementScoresCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -955,6 +955,10 @@ import {
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "../commands/DescribeLocalGatewayVirtualInterfacesCommand";
 import {
+  DescribeLockedSnapshotsCommandInput,
+  DescribeLockedSnapshotsCommandOutput,
+} from "../commands/DescribeLockedSnapshotsCommand";
+import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
 } from "../commands/DescribeManagedPrefixListsCommand";
@@ -1629,6 +1633,7 @@ import {
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
 } from "../commands/ListSnapshotsInRecycleBinCommand";
+import { LockSnapshotCommandInput, LockSnapshotCommandOutput } from "../commands/LockSnapshotCommand";
 import {
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
@@ -2066,6 +2071,7 @@ import {
   UnassignPrivateNatGatewayAddressCommandInput,
   UnassignPrivateNatGatewayAddressCommandOutput,
 } from "../commands/UnassignPrivateNatGatewayAddressCommand";
+import { UnlockSnapshotCommandInput, UnlockSnapshotCommandOutput } from "../commands/UnlockSnapshotCommand";
 import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "../commands/UnmonitorInstancesCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
@@ -3117,6 +3123,8 @@ import {
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
+  DescribeLockedSnapshotsRequest,
+  DescribeLockedSnapshotsResult,
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
   DescribeMovingAddressesRequest,
@@ -3210,10 +3218,6 @@ import {
   DescribeTransitGatewayConnectsRequest,
   DescribeTransitGatewayConnectsResult,
   DescribeTransitGatewayMulticastDomainsRequest,
-  DescribeTransitGatewayMulticastDomainsResult,
-  DescribeTransitGatewayPeeringAttachmentsRequest,
-  DescribeTransitGatewayPeeringAttachmentsResult,
-  DescribeTransitGatewayPolicyTablesRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3262,6 +3266,7 @@ import {
   LocalGateway,
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
+  LockedSnapshotsInfo,
   MemoryInfo,
   Monitoring,
   MovingAddressStatus,
@@ -3332,6 +3337,10 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeTransitGatewayMulticastDomainsResult,
+  DescribeTransitGatewayPeeringAttachmentsRequest,
+  DescribeTransitGatewayPeeringAttachmentsResult,
+  DescribeTransitGatewayPolicyTablesRequest,
   DescribeTransitGatewayPolicyTablesResult,
   DescribeTransitGatewayRouteTableAnnouncementsRequest,
   DescribeTransitGatewayRouteTableAnnouncementsResult,
@@ -3563,12 +3572,8 @@ import {
   GetSecurityGroupsForVpcResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
-  GetSnapshotBlockPublicAccessStateRequest,
-  GetSnapshotBlockPublicAccessStateResult,
-  GetSpotPlacementScoresRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
-  InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
@@ -3616,6 +3621,9 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetSnapshotBlockPublicAccessStateRequest,
+  GetSnapshotBlockPublicAccessStateResult,
+  GetSpotPlacementScoresRequest,
   GetSpotPlacementScoresResult,
   GetSubnetCidrReservationsRequest,
   GetSubnetCidrReservationsResult,
@@ -3662,6 +3670,7 @@ import {
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
   InstanceMonitoring,
+  InstanceRequirementsWithMetadataRequest,
   IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
@@ -3670,6 +3679,8 @@ import {
   ListSnapshotsInRecycleBinResult,
   LoadPermissionModifications,
   LoadPermissionRequest,
+  LockSnapshotRequest,
+  LockSnapshotResult,
   MaintenanceDetails,
   ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
@@ -3863,14 +3874,8 @@ import {
   ReportInstanceStatusRequest,
   RequestSpotFleetRequest,
   RequestSpotFleetResponse,
-  RequestSpotInstancesRequest,
-  RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
   ReservedInstanceLimitPrice,
-  ResetAddressAttributeRequest,
-  ResetAddressAttributeResult,
-  ResetEbsDefaultKmsKeyIdRequest,
-  ResetEbsDefaultKmsKeyIdResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3911,6 +3916,12 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RequestSpotInstancesRequest,
+  RequestSpotInstancesResult,
+  ResetAddressAttributeRequest,
+  ResetAddressAttributeResult,
+  ResetEbsDefaultKmsKeyIdRequest,
+  ResetEbsDefaultKmsKeyIdResult,
   ResetFpgaImageAttributeRequest,
   ResetFpgaImageAttributeResult,
   ResetImageAttributeRequest,
@@ -3975,6 +3986,8 @@ import {
   UnassignPrivateIpAddressesRequest,
   UnassignPrivateNatGatewayAddressRequest,
   UnassignPrivateNatGatewayAddressResult,
+  UnlockSnapshotRequest,
+  UnlockSnapshotResult,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
@@ -8882,6 +8895,23 @@ export const se_DescribeLocalGatewayVirtualInterfacesCommand = async (
 };
 
 /**
+ * serializeAws_ec2DescribeLockedSnapshotsCommand
+ */
+export const se_DescribeLockedSnapshotsCommand = async (
+  input: DescribeLockedSnapshotsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeLockedSnapshotsRequest(input, context),
+    Action: "DescribeLockedSnapshots",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DescribeManagedPrefixListsCommand
  */
 export const se_DescribeManagedPrefixListsCommand = async (
@@ -12044,6 +12074,23 @@ export const se_ListSnapshotsInRecycleBinCommand = async (
 };
 
 /**
+ * serializeAws_ec2LockSnapshotCommand
+ */
+export const se_LockSnapshotCommand = async (
+  input: LockSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_LockSnapshotRequest(input, context),
+    Action: "LockSnapshot",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2ModifyAddressAttributeCommand
  */
 export const se_ModifyAddressAttributeCommand = async (
@@ -14214,6 +14261,23 @@ export const se_UnassignPrivateNatGatewayAddressCommand = async (
   body = buildFormUrlencodedString({
     ...se_UnassignPrivateNatGatewayAddressRequest(input, context),
     Action: "UnassignPrivateNatGatewayAddress",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2UnlockSnapshotCommand
+ */
+export const se_UnlockSnapshotCommand = async (
+  input: UnlockSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_UnlockSnapshotRequest(input, context),
+    Action: "UnlockSnapshot",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -25727,6 +25791,46 @@ const de_DescribeLocalGatewayVirtualInterfacesCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2DescribeLockedSnapshotsCommand
+ */
+export const de_DescribeLockedSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLockedSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeLockedSnapshotsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeLockedSnapshotsResult(data, context);
+  const response: DescribeLockedSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeLockedSnapshotsCommandError
+ */
+const de_DescribeLockedSnapshotsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLockedSnapshotsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2DescribeManagedPrefixListsCommand
  */
 export const de_DescribeManagedPrefixListsCommand = async (
@@ -33143,6 +33247,46 @@ const de_ListSnapshotsInRecycleBinCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2LockSnapshotCommand
+ */
+export const de_LockSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<LockSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_LockSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_LockSnapshotResult(data, context);
+  const response: LockSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2LockSnapshotCommandError
+ */
+const de_LockSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<LockSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2ModifyAddressAttributeCommand
  */
 export const de_ModifyAddressAttributeCommand = async (
@@ -38189,6 +38333,46 @@ const de_UnassignPrivateNatGatewayAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnassignPrivateNatGatewayAddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2UnlockSnapshotCommand
+ */
+export const de_UnlockSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnlockSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UnlockSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UnlockSnapshotResult(data, context);
+  const response: UnlockSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2UnlockSnapshotCommandError
+ */
+const de_UnlockSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnlockSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -48420,6 +48604,43 @@ const se_DescribeLocalGatewayVirtualInterfacesRequest = (
 };
 
 /**
+ * serializeAws_ec2DescribeLockedSnapshotsRequest
+ */
+const se_DescribeLockedSnapshotsRequest = (input: DescribeLockedSnapshotsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.SnapshotIds != null) {
+    const memberEntries = se_SnapshotIdStringList(input.SnapshotIds, context);
+    if (input.SnapshotIds?.length === 0) {
+      entries.SnapshotId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SnapshotId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DescribeManagedPrefixListsRequest
  */
 const se_DescribeManagedPrefixListsRequest = (
@@ -57396,6 +57617,32 @@ const se_LocalStorageTypeSet = (input: LocalStorageType[], context: __SerdeConte
 };
 
 /**
+ * serializeAws_ec2LockSnapshotRequest
+ */
+const se_LockSnapshotRequest = (input: LockSnapshotRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SnapshotId != null) {
+    entries["SnapshotId"] = input.SnapshotId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.LockMode != null) {
+    entries["LockMode"] = input.LockMode;
+  }
+  if (input.CoolOffPeriod != null) {
+    entries["CoolOffPeriod"] = input.CoolOffPeriod;
+  }
+  if (input.LockDuration != null) {
+    entries["LockDuration"] = input.LockDuration;
+  }
+  if (input.ExpirationDate != null) {
+    entries["ExpirationDate"] = input.ExpirationDate.toISOString().split(".")[0] + "Z";
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2MemoryGiBPerVCpu
  */
 const se_MemoryGiBPerVCpu = (input: MemoryGiBPerVCpu, context: __SerdeContext): any => {
@@ -65740,6 +65987,20 @@ const se_UnassignPrivateNatGatewayAddressRequest = (
 };
 
 /**
+ * serializeAws_ec2UnlockSnapshotRequest
+ */
+const se_UnlockSnapshotRequest = (input: UnlockSnapshotRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SnapshotId != null) {
+    entries["SnapshotId"] = input.SnapshotId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2UnmonitorInstancesRequest
  */
 const se_UnmonitorInstancesRequest = (input: UnmonitorInstancesRequest, context: __SerdeContext): any => {
@@ -73719,6 +73980,22 @@ const de_DescribeLocalGatewayVirtualInterfacesResult = (
       __getArrayIfSingleItem(output["localGatewayVirtualInterfaceSet"]["item"]),
       context
     );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeLockedSnapshotsResult
+ */
+const de_DescribeLockedSnapshotsResult = (output: any, context: __SerdeContext): DescribeLockedSnapshotsResult => {
+  const contents: any = {};
+  if (output.snapshotSet === "") {
+    contents.Snapshots = [];
+  } else if (output["snapshotSet"] !== undefined && output["snapshotSet"]["item"] !== undefined) {
+    contents.Snapshots = de_LockedSnapshotsInfoList(__getArrayIfSingleItem(output["snapshotSet"]["item"]), context);
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -84387,6 +84664,88 @@ const de_LocalStorageTypeSet = (output: any, context: __SerdeContext): LocalStor
 };
 
 /**
+ * deserializeAws_ec2LockedSnapshotsInfo
+ */
+const de_LockedSnapshotsInfo = (output: any, context: __SerdeContext): LockedSnapshotsInfo => {
+  const contents: any = {};
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["lockState"] !== undefined) {
+    contents.LockState = __expectString(output["lockState"]);
+  }
+  if (output["lockDuration"] !== undefined) {
+    contents.LockDuration = __strictParseInt32(output["lockDuration"]) as number;
+  }
+  if (output["coolOffPeriod"] !== undefined) {
+    contents.CoolOffPeriod = __strictParseInt32(output["coolOffPeriod"]) as number;
+  }
+  if (output["coolOffPeriodExpiresOn"] !== undefined) {
+    contents.CoolOffPeriodExpiresOn = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["coolOffPeriodExpiresOn"])
+    );
+  }
+  if (output["lockCreatedOn"] !== undefined) {
+    contents.LockCreatedOn = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lockCreatedOn"]));
+  }
+  if (output["lockDurationStartTime"] !== undefined) {
+    contents.LockDurationStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lockDurationStartTime"]));
+  }
+  if (output["lockExpiresOn"] !== undefined) {
+    contents.LockExpiresOn = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lockExpiresOn"]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2LockedSnapshotsInfoList
+ */
+const de_LockedSnapshotsInfoList = (output: any, context: __SerdeContext): LockedSnapshotsInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LockedSnapshotsInfo(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2LockSnapshotResult
+ */
+const de_LockSnapshotResult = (output: any, context: __SerdeContext): LockSnapshotResult => {
+  const contents: any = {};
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["lockState"] !== undefined) {
+    contents.LockState = __expectString(output["lockState"]);
+  }
+  if (output["lockDuration"] !== undefined) {
+    contents.LockDuration = __strictParseInt32(output["lockDuration"]) as number;
+  }
+  if (output["coolOffPeriod"] !== undefined) {
+    contents.CoolOffPeriod = __strictParseInt32(output["coolOffPeriod"]) as number;
+  }
+  if (output["coolOffPeriodExpiresOn"] !== undefined) {
+    contents.CoolOffPeriodExpiresOn = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["coolOffPeriodExpiresOn"])
+    );
+  }
+  if (output["lockCreatedOn"] !== undefined) {
+    contents.LockCreatedOn = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lockCreatedOn"]));
+  }
+  if (output["lockExpiresOn"] !== undefined) {
+    contents.LockExpiresOn = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lockExpiresOn"]));
+  }
+  if (output["lockDurationStartTime"] !== undefined) {
+    contents.LockDurationStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lockDurationStartTime"]));
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2MaintenanceDetails
  */
 const de_MaintenanceDetails = (output: any, context: __SerdeContext): MaintenanceDetails => {
@@ -93371,6 +93730,17 @@ const de_UnassignPrivateNatGatewayAddressResult = (
       __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
       context
     );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2UnlockSnapshotResult
+ */
+const de_UnlockSnapshotResult = (output: any, context: __SerdeContext): UnlockSnapshotResult => {
+  const contents: any = {};
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   return contents;
 };
