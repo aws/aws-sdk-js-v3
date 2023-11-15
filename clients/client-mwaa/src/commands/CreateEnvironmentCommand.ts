@@ -103,6 +103,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   WebserverAccessMode: "STRING_VALUE",
  *   MinWorkers: Number("int"),
  *   Schedulers: Number("int"),
+ *   EndpointManagement: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);

@@ -77,6 +77,20 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  * @enum
  */
+export const EndpointManagement = {
+  CUSTOMER: "CUSTOMER",
+  SERVICE: "SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointManagement = (typeof EndpointManagement)[keyof typeof EndpointManagement];
+
+/**
+ * @public
+ * @enum
+ */
 export const LoggingLevel = {
   CRITICAL: "CRITICAL",
   DEBUG: "DEBUG",
@@ -291,7 +305,8 @@ export interface CreateEnvironmentInput {
    * @public
    * <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version.
    *             For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
-   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>.</p>
+   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>
+   *          </p>
    */
   AirflowVersion?: string;
 
@@ -315,7 +330,7 @@ export interface CreateEnvironmentInput {
 
   /**
    * @public
-   * <p>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
+   * <p>Defines the access mode for the Apache Airflow <i>web server</i>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
   WebserverAccessMode?: WebserverAccessMode;
 
@@ -338,6 +353,15 @@ export interface CreateEnvironmentInput {
    *          </ul>
    */
   Schedulers?: number;
+
+  /**
+   * @public
+   * <p>Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to <code>SERVICE</code>, Amazon MWAA will create and manage the required VPC endpoints in
+   *         your VPC. If set to <code>CUSTOMER</code>, you must create, and manage, the VPC endpoints for your VPC. If you choose to create an environment in a shared VPC, you must set this value to <code>CUSTOMER</code>.
+   *         In a shared VPC deployment, the environment will remain in <code>PENDING</code> status until you create the VPC endpoints. If you do not take action to
+   *             create the endpoints within 72 hours, the status will change to <code>CREATE_FAILED</code>. You can delete the failed environment and create a new one.</p>
+   */
+  EndpointManagement?: EndpointManagement;
 }
 
 /**
@@ -580,6 +604,7 @@ export const EnvironmentStatus = {
   CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
   DELETED: "DELETED",
   DELETING: "DELETING",
+  PENDING: "PENDING",
   ROLLING_BACK: "ROLLING_BACK",
   UNAVAILABLE: "UNAVAILABLE",
   UPDATE_FAILED: "UPDATE_FAILED",
@@ -604,7 +629,8 @@ export interface Environment {
 
   /**
    * @public
-   * <p>The status of the Amazon MWAA environment. Valid values:</p>
+   * <p>The status of the Amazon MWAA environment.</p>
+   *          <p>Valid values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -623,6 +649,11 @@ export interface Environment {
    *             <li>
    *                <p>
    *                   <code>AVAILABLE</code> - Indicates the request was successful and the environment is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - Indicates the request was successful, but the process to create the environment is paused until you create the required
+   *                     VPC endpoints in your VPC. After you create the VPC endpoints, the process resumes.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -825,7 +856,7 @@ export interface Environment {
 
   /**
    * @public
-   * <p>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
+   * <p>The Apache Airflow <i>web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
   WebserverAccessMode?: WebserverAccessMode;
 
@@ -840,6 +871,32 @@ export interface Environment {
    * <p>The number of Apache Airflow schedulers that run in your Amazon MWAA environment.</p>
    */
   Schedulers?: number;
+
+  /**
+   * @public
+   * <p>The VPC endpoint for the environment's web server.</p>
+   */
+  WebserverVpcEndpointService?: string;
+
+  /**
+   * @public
+   * <p>The VPC endpoint for the environment's Amazon RDS database.</p>
+   */
+  DatabaseVpcEndpointService?: string;
+
+  /**
+   * @public
+   * <p>The queue ARN for the environment's <a href="https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/celery.html">Celery Executor</a>. Amazon MWAA uses a Celery Executor
+   *             to distribute tasks across multiple workers. When you create an environment in a shared VPC, you must provide access to the Celery Executor queue from your VPC.</p>
+   */
+  CeleryExecutorQueue?: string;
+
+  /**
+   * @public
+   * <p>Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to <code>SERVICE</code>, Amazon MWAA will create and manage the required VPC endpoints in
+   *             your VPC. If set to <code>CUSTOMER</code>, you must create, and manage, the VPC endpoints in your VPC.</p>
+   */
+  EndpointManagement?: EndpointManagement;
 }
 
 /**

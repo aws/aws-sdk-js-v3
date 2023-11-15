@@ -124,6 +124,10 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //     WebserverAccessMode: "STRING_VALUE",
  * //     MinWorkers: Number("int"),
  * //     Schedulers: Number("int"),
+ * //     WebserverVpcEndpointService: "STRING_VALUE",
+ * //     DatabaseVpcEndpointService: "STRING_VALUE",
+ * //     CeleryExecutorQueue: "STRING_VALUE",
+ * //     EndpointManagement: "STRING_VALUE",
  * //   },
  * // };
  *

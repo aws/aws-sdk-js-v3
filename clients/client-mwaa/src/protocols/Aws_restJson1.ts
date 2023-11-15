@@ -110,6 +110,7 @@ export const se_CreateEnvironmentCommand = async (
       AirflowConfigurationOptions: (_) => _json(_),
       AirflowVersion: [],
       DagS3Path: [],
+      EndpointManagement: [],
       EnvironmentClass: [],
       ExecutionRoleArn: [],
       KmsKey: [],
@@ -1179,8 +1180,11 @@ const de_Environment = (output: any, context: __SerdeContext): Environment => {
     AirflowConfigurationOptions: _json,
     AirflowVersion: __expectString,
     Arn: __expectString,
+    CeleryExecutorQueue: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DagS3Path: __expectString,
+    DatabaseVpcEndpointService: __expectString,
+    EndpointManagement: __expectString,
     EnvironmentClass: __expectString,
     ExecutionRoleArn: __expectString,
     KmsKey: __expectString,
@@ -1203,6 +1207,7 @@ const de_Environment = (output: any, context: __SerdeContext): Environment => {
     Tags: _json,
     WebserverAccessMode: __expectString,
     WebserverUrl: __expectString,
+    WebserverVpcEndpointService: __expectString,
     WeeklyMaintenanceWindowStart: __expectString,
   }) as any;
 };
