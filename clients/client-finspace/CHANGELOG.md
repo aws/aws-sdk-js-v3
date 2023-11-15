@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.452.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.451.0...v3.452.0) (2023-11-15)
+
+
+### Features
+
+* **client-finspace:** Adding deprecated trait on Dataset Browser Environment APIs ([4ae18d4](https://github.com/aws/aws-sdk-js-v3/commit/4ae18d4b6211fb002a61a31169ca170dab68e7de))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.452.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.451.0...v3.452.0) (2023-11-15)
+
+
+### Features
+
+* **client-auto-scaling:** This release introduces Instance Maintenance Policy, a new EC2 Auto Scaling capability that allows customers to define whether instances are launched before or after existing instances are terminated during instance replacement operations. ([b686217](https://github.com/aws/aws-sdk-js-v3/commit/b68621758ea52a681c482c34db9a94ef3472f3a1))
+* **client-cloudtrail:** The Lake Repricing feature lets customers configure a BillingMode for an event data store. The BillingMode determines the cost for ingesting and storing events and the default and maximum retention period for the event data store. ([13420a5](https://github.com/aws/aws-sdk-js-v3/commit/13420a55d5a145a90fd79029e68c87fbc36a3930))
+* **client-codecatalyst:** This release adds functionality for retrieving information about workflows and workflow runs and starting workflow runs in Amazon CodeCatalyst. ([dc25b99](https://github.com/aws/aws-sdk-js-v3/commit/dc25b996cbf2bccc321bda5fca8134406f5a623a))
+* **client-ec2:** AWS EBS now supports Snapshot Lock, giving users the ability to lock an EBS Snapshot to prohibit deletion of the snapshot. This release introduces the LockSnapshot, UnlockSnapshot & DescribeLockedSnapshots APIs to manage lock configuration for snapshots. The release also includes the dl2q_24xlarge. ([8177a46](https://github.com/aws/aws-sdk-js-v3/commit/8177a4654cf77422903e41ccacd07601b149c533))
+* **client-finspace-data:** Adding deprecated trait to APIs in this name space. ([7fb7599](https://github.com/aws/aws-sdk-js-v3/commit/7fb75992c2616828d1a6832efd31133a2a861ffa))
+* **client-finspace:** Adding deprecated trait on Dataset Browser Environment APIs ([4ae18d4](https://github.com/aws/aws-sdk-js-v3/commit/4ae18d4b6211fb002a61a31169ca170dab68e7de))
+* **client-lambda:** Add Java 21 (java21) support to AWS Lambda ([39e78bd](https://github.com/aws/aws-sdk-js-v3/commit/39e78bda81114375b42c7579e4dc9d7e01274534))
+* **client-mwaa:** This Amazon MWAA release adds support for customer-managed VPC endpoints. This lets you choose whether to create, and manage your environment's VPC endpoints, or to have Amazon MWAA create, and manage them for you. ([9cd2e86](https://github.com/aws/aws-sdk-js-v3/commit/9cd2e86fe1aecf67d3b98601f03d04a1b775581b))
+* **client-redshift:** The custom domain name SDK for Amazon Redshift provisioned clusters is updated with additional required parameters for modify and delete operations. Additionally, users can provide domain names with longer top-level domains. ([c6395af](https://github.com/aws/aws-sdk-js-v3/commit/c6395af6c38da2402a1530be07b55beeb326f102))
+* **client-s3-control:** Add 5 APIs to create, update, get, list, delete S3 Storage Lens group(eg. CreateStorageLensGroup), 3 APIs for tagging(TagResource,UntagResource,ListTagsForResource), and update to StorageLensConfiguration to allow metrics to be aggregated on Storage Lens groups. ([e91d398](https://github.com/aws/aws-sdk-js-v3/commit/e91d3986adc264d5354ded3c122016cf7f4a61de))
+* **client-ssm-sap:** Update the default value of MaxResult to 50. ([1d0800f](https://github.com/aws/aws-sdk-js-v3/commit/1d0800f754b2bdfabc458df33a6713179eb4b3b2))
+* **clients:** update client endpoints as of 2023-11-15 ([ba096d8](https://github.com/aws/aws-sdk-js-v3/commit/ba096d82bca3c7877f9b673f9b4eae73d6c86e88))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 
