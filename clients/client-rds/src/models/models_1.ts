@@ -8173,12 +8173,10 @@ export interface ModifyDBSnapshotMessage {
    *          <p>
    *             <b>MySQL</b>
    *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>5.5.46</code> (supported for 5.1 DB snapshots)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For the list of engine versions that are available for upgrading a DB snapshot, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html">
+   *                 Upgrading a MySQL DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    *          <p>
    *             <b>Oracle</b>
    *          </p>
@@ -8210,8 +8208,9 @@ export interface ModifyDBSnapshotMessage {
    *             <b>PostgreSQL</b>
    *          </p>
    *          <p>For the list of engine versions that are available for upgrading a DB snapshot, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion">
-   *               Upgrading the PostgreSQL DB Engine for Amazon RDS</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html">
+   *                 Upgrading a PostgreSQL DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    */
   EngineVersion?: string;
 
