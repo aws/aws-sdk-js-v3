@@ -37,6 +37,8 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a Dataview for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

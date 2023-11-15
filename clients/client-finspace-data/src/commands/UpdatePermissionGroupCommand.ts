@@ -41,6 +41,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -41,6 +41,8 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists details of all the users in a specific permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

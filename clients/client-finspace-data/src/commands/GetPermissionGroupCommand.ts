@@ -41,6 +41,8 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves the details of a specific permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

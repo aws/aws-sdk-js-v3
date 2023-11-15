@@ -37,6 +37,8 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists all available Dataviews for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

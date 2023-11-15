@@ -37,6 +37,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists all available users in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

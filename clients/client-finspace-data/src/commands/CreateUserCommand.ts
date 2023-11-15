@@ -37,6 +37,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a new user in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

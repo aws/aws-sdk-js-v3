@@ -37,6 +37,8 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates a FinSpace Changeset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

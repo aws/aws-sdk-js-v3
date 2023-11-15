@@ -37,6 +37,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates a FinSpace Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

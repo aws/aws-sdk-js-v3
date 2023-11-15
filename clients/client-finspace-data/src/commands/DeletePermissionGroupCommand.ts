@@ -37,6 +37,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a permission group. This action is irreversible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

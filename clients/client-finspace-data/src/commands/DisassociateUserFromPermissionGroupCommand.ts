@@ -45,6 +45,8 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Removes a user from a permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

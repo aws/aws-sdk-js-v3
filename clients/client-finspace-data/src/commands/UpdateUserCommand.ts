@@ -37,6 +37,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Modifies the details of the specified user. You cannot update the <code>userId</code> for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

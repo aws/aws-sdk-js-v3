@@ -37,6 +37,8 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Get information about a Changeset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

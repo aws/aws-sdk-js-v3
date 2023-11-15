@@ -46,6 +46,8 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Request programmatic credentials to use with FinSpace SDK. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials">Step 2. Access credentials programmatically using IAM access key id and secret access key</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

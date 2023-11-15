@@ -37,6 +37,8 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Returns information about a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

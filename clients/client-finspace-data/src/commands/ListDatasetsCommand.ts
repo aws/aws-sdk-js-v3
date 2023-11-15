@@ -37,6 +37,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists all of the active Datasets that a user has access to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

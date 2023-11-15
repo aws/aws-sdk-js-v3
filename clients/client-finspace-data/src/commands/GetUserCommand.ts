@@ -37,6 +37,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves details for a specific user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

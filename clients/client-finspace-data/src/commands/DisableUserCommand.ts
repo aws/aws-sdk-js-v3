@@ -37,6 +37,8 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Denies access to the FinSpace web application and API for the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

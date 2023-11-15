@@ -41,6 +41,8 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
