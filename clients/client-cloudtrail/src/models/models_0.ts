@@ -1307,6 +1307,20 @@ export interface AdvancedEventSelector {
 
 /**
  * @public
+ * @enum
+ */
+export const BillingMode = {
+  EXTENDABLE_RETENTION_PRICING: "EXTENDABLE_RETENTION_PRICING",
+  FIXED_RETENTION_PRICING: "FIXED_RETENTION_PRICING",
+} as const;
+
+/**
+ * @public
+ */
+export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
+
+/**
+ * @public
  */
 export interface CancelQueryRequest {
   /**
@@ -1793,8 +1807,10 @@ export interface CreateEventDataStoreRequest {
 
   /**
    * @public
-   * <p>The retention period of the event data store, in days. You can set a retention period of
-   *          up to 2557 days, the equivalent of seven years. CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
+   * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 3653 days, the equivalent of 10 years. If <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 2557 days, the equivalent of seven years.</p>
+   *          <p>CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
    *          of the event is within the specified retention period. For example, if you set a retention period of 90 days, CloudTrail will remove events
    *       when the <code>eventTime</code> is older than 90 days.</p>
    *          <note>
@@ -1870,6 +1886,29 @@ export interface CreateEventDataStoreRequest {
    * <p>Specifies whether the event data store should start ingesting live events. The default is true.</p>
    */
   StartIngestion?: boolean;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store determines the cost for ingesting events and the default and maximum retention period for the event data store.</p>
+   *          <p>The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended if you want a flexible retention period of up to 3653 days (about 10 years).
+   *                 The default retention period for this billing mode is 366 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect to ingest more than 25 TB of event data per month and need a retention period of up to 2557 days (about 7 years).
+   *                 The default retention period for this billing mode is 2557 days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default value is <code>EXTENDABLE_RETENTION_PRICING</code>.</p>
+   *          <p>For more information about CloudTrail pricing,
+   *          see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail Pricing</a> and
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -1974,6 +2013,12 @@ export interface CreateEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -3773,6 +3818,12 @@ export interface GetEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -4945,8 +4996,7 @@ export interface ListEventDataStoresRequest {
 /**
  * @public
  * <p>A storage lake of event data against which you can run complex SQL-based queries. An
- *          event data store can include events that you have logged on your account from the last 90
- *          to 2557 days (about three months to up to seven years). To select events for an event data
+ *          event data store can include events that you have logged on your account. To select events for an event data
  *          store, use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">advanced event selectors</a>.</p>
  */
 export interface EventDataStore {
@@ -6397,6 +6447,12 @@ export interface RestoreEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -6881,8 +6937,10 @@ export interface UpdateEventDataStoreRequest {
 
   /**
    * @public
-   * <p>The retention period of the event data store, in days. You can set a retention period of
-   *          up to 2557 days, the equivalent of seven years. CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
+   * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 3653 days, the equivalent of 10 years. If <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 2557 days, the equivalent of seven years.</p>
+   *          <p>CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
    *          of the event is within the specified retention period. For example, if you set a retention period of 90 days, CloudTrail will remove events
    *          when the <code>eventTime</code> is older than 90 days.</p>
    *          <note>
@@ -6941,6 +6999,33 @@ export interface UpdateEventDataStoreRequest {
    *          </ul>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <note>
+   *             <p>You can't change the billing mode from <code>EXTENDABLE_RETENTION_PRICING</code> to <code>FIXED_RETENTION_PRICING</code>. If <code>BillingMode</code> is set to
+   *             <code>EXTENDABLE_RETENTION_PRICING</code> and you want to use <code>FIXED_RETENTION_PRICING</code> instead, you'll need to stop ingestion on the event data store and create a new event data store that uses <code>FIXED_RETENTION_PRICING</code>.</p>
+   *          </note>
+   *          <p>The billing mode for the event data store determines the cost
+   *          for ingesting events and the default and maximum retention period for the event data store.</p>
+   *          <p>The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended if you want a flexible retention period of up to 3653 days (about 10 years). The default retention period for this billing mode is
+   *                366 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect to ingest more than 25 TB of event data per month and need a retention period of up to 2557 days (about 7 years).
+   *                The default retention period for this billing mode is 2557 days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about CloudTrail pricing,
+   *          see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail Pricing</a> and
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -7020,6 +7105,12 @@ export interface UpdateEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**

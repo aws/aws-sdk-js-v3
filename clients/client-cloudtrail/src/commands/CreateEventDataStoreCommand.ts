@@ -84,6 +84,7 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *   ],
  *   KmsKeyId: "STRING_VALUE",
  *   StartIngestion: true || false,
+ *   BillingMode: "EXTENDABLE_RETENTION_PRICING" || "FIXED_RETENTION_PRICING",
  * };
  * const command = new CreateEventDataStoreCommand(input);
  * const response = await client.send(command);
@@ -130,6 +131,7 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * //   UpdatedTimestamp: new Date("TIMESTAMP"),
  * //   KmsKeyId: "STRING_VALUE",
+ * //   BillingMode: "EXTENDABLE_RETENTION_PRICING" || "FIXED_RETENTION_PRICING",
  * // };
  *
  * ```

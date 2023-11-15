@@ -5740,6 +5740,7 @@ const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContex
 const de_CreateEventDataStoreResponse = (output: any, context: __SerdeContext): CreateEventDataStoreResponse => {
   return take(output, {
     AdvancedEventSelectors: _json,
+    BillingMode: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EventDataStoreArn: __expectString,
     KmsKeyId: __expectString,
@@ -5892,6 +5893,7 @@ const de_GetChannelResponse = (output: any, context: __SerdeContext): GetChannel
 const de_GetEventDataStoreResponse = (output: any, context: __SerdeContext): GetEventDataStoreResponse => {
   return take(output, {
     AdvancedEventSelectors: _json,
+    BillingMode: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EventDataStoreArn: __expectString,
     KmsKeyId: __expectString,
@@ -6292,6 +6294,7 @@ const de_QueryStatisticsForDescribeQuery = (output: any, context: __SerdeContext
 const de_RestoreEventDataStoreResponse = (output: any, context: __SerdeContext): RestoreEventDataStoreResponse => {
   return take(output, {
     AdvancedEventSelectors: _json,
+    BillingMode: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EventDataStoreArn: __expectString,
     KmsKeyId: __expectString,
@@ -6386,6 +6389,7 @@ const de_StopImportResponse = (output: any, context: __SerdeContext): StopImport
 const de_UpdateEventDataStoreResponse = (output: any, context: __SerdeContext): UpdateEventDataStoreResponse => {
   return take(output, {
     AdvancedEventSelectors: _json,
+    BillingMode: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EventDataStoreArn: __expectString,
     KmsKeyId: __expectString,

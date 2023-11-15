@@ -40,8 +40,8 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
  *          the ID portion of the ARN. Other parameters are optional, but at least one optional
  *          parameter must be specified, or CloudTrail throws an error.
- *             <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and
- *          2557. By default, <code>TerminationProtection</code> is enabled.</p>
+ *             <code>RetentionPeriod</code> is in days, and valid values are integers between 7 and
+ *          3653 if the <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, or between 7 and 2557 if <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>. By default, <code>TerminationProtection</code> is enabled.</p>
  *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
  *          includes or excludes management, data, or Insights events in your event data store. For more
  *          information about <code>AdvancedEventSelectors</code>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.</p>
@@ -87,6 +87,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *   RetentionPeriod: Number("int"),
  *   TerminationProtectionEnabled: true || false,
  *   KmsKeyId: "STRING_VALUE",
+ *   BillingMode: "EXTENDABLE_RETENTION_PRICING" || "FIXED_RETENTION_PRICING",
  * };
  * const command = new UpdateEventDataStoreCommand(input);
  * const response = await client.send(command);
@@ -127,6 +128,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * //   UpdatedTimestamp: new Date("TIMESTAMP"),
  * //   KmsKeyId: "STRING_VALUE",
+ * //   BillingMode: "EXTENDABLE_RETENTION_PRICING" || "FIXED_RETENTION_PRICING",
  * // };
  *
  * ```

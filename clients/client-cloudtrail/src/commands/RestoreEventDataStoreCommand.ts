@@ -89,6 +89,7 @@ export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStor
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * //   UpdatedTimestamp: new Date("TIMESTAMP"),
  * //   KmsKeyId: "STRING_VALUE",
+ * //   BillingMode: "EXTENDABLE_RETENTION_PRICING" || "FIXED_RETENTION_PRICING",
  * // };
  *
  * ```
