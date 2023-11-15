@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { ListDevEnvironmentsRequest, ListDevEnvironmentsResponse } from "../models/models_0";
-import { de_ListDevEnvironmentsCommand, se_ListDevEnvironmentsCommand } from "../protocols/Aws_restJson1";
+import { ListWorkflowsRequest, ListWorkflowsResponse } from "../models/models_0";
+import { de_ListWorkflowsCommand, se_ListWorkflowsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,81 +25,61 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListDevEnvironmentsCommand}.
+ * The input for {@link ListWorkflowsCommand}.
  */
-export interface ListDevEnvironmentsCommandInput extends ListDevEnvironmentsRequest {}
+export interface ListWorkflowsCommandInput extends ListWorkflowsRequest {}
 /**
  * @public
  *
- * The output of {@link ListDevEnvironmentsCommand}.
+ * The output of {@link ListWorkflowsCommand}.
  */
-export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsResponse, __MetadataBearer {}
+export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves a list of Dev Environments in a project.</p>
+ * <p>Retrieves a list of workflows in a specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, ListDevEnvironmentsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, ListDevEnvironmentsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, ListWorkflowsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
+ * // const { CodeCatalystClient, ListWorkflowsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = { // ListDevEnvironmentsRequest
+ * const input = { // ListWorkflowsRequest
  *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE",
- *   filters: [ // Filters
- *     { // Filter
- *       key: "STRING_VALUE", // required
- *       values: [ // StringList // required
- *         "STRING_VALUE",
- *       ],
- *       comparisonOperator: "STRING_VALUE",
- *     },
- *   ],
+ *   projectName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   sortBy: [ // WorkflowSortCriteriaList
+ *     {},
+ *   ],
  * };
- * const command = new ListDevEnvironmentsCommand(input);
+ * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
- * // { // ListDevEnvironmentsResponse
- * //   items: [ // DevEnvironmentSummaryList // required
- * //     { // DevEnvironmentSummary
- * //       spaceName: "STRING_VALUE",
- * //       projectName: "STRING_VALUE",
+ * // { // ListWorkflowsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   items: [ // WorkflowSummaries
+ * //     { // WorkflowSummary
  * //       id: "STRING_VALUE", // required
- * //       lastUpdatedTime: new Date("TIMESTAMP"), // required
- * //       creatorId: "STRING_VALUE", // required
- * //       status: "STRING_VALUE", // required
- * //       statusReason: "STRING_VALUE",
- * //       repositories: [ // DevEnvironmentRepositorySummaries // required
- * //         { // DevEnvironmentRepositorySummary
- * //           repositoryName: "STRING_VALUE", // required
- * //           branchName: "STRING_VALUE",
- * //         },
- * //       ],
- * //       alias: "STRING_VALUE",
- * //       ides: [ // Ides
- * //         { // Ide
- * //           runtime: "STRING_VALUE",
- * //           name: "STRING_VALUE",
- * //         },
- * //       ],
- * //       instanceType: "STRING_VALUE", // required
- * //       inactivityTimeoutMinutes: Number("int"), // required
- * //       persistentStorage: { // PersistentStorage
- * //         sizeInGiB: Number("int"), // required
+ * //       name: "STRING_VALUE", // required
+ * //       sourceRepositoryName: "STRING_VALUE", // required
+ * //       sourceBranchName: "STRING_VALUE", // required
+ * //       definition: { // WorkflowDefinitionSummary
+ * //         path: "STRING_VALUE", // required
  * //       },
+ * //       createdTime: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //       runMode: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
  * //     },
  * //   ],
- * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListDevEnvironmentsCommandInput - {@link ListDevEnvironmentsCommandInput}
- * @returns {@link ListDevEnvironmentsCommandOutput}
- * @see {@link ListDevEnvironmentsCommandInput} for command's `input` shape.
- * @see {@link ListDevEnvironmentsCommandOutput} for command's `response` shape.
+ * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
+ * @returns {@link ListWorkflowsCommandOutput}
+ * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
+ * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -126,9 +106,9 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
-export class ListDevEnvironmentsCommand extends $Command<
-  ListDevEnvironmentsCommandInput,
-  ListDevEnvironmentsCommandOutput,
+export class ListWorkflowsCommand extends $Command<
+  ListWorkflowsCommandInput,
+  ListWorkflowsCommandOutput,
   CodeCatalystClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -142,7 +122,7 @@ export class ListDevEnvironmentsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListDevEnvironmentsCommandInput) {
+  constructor(readonly input: ListWorkflowsCommandInput) {
     super();
   }
 
@@ -153,17 +133,15 @@ export class ListDevEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCatalystClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListDevEnvironmentsCommandInput, ListDevEnvironmentsCommandOutput> {
+  ): Handler<ListWorkflowsCommandInput, ListWorkflowsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListDevEnvironmentsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListWorkflowsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CodeCatalystClient";
-    const commandName = "ListDevEnvironmentsCommand";
+    const commandName = "ListWorkflowsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -172,7 +150,7 @@ export class ListDevEnvironmentsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CodeCatalyst",
-        operation: "ListDevEnvironments",
+        operation: "ListWorkflows",
       },
     };
     const { requestHandler } = configuration;
@@ -186,14 +164,14 @@ export class ListDevEnvironmentsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListDevEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListDevEnvironmentsCommand(input, context);
+  private serialize(input: ListWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListWorkflowsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevEnvironmentsCommandOutput> {
-    return de_ListDevEnvironmentsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowsCommandOutput> {
+    return de_ListWorkflowsCommand(output, context);
   }
 }

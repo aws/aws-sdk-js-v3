@@ -29,7 +29,7 @@ and the billing plan for the space.</p>
 </li>
 <li>
 <p>
-<a>UpdateSpace</a>, which hanges one or more values for a space.</p>
+<a>UpdateSpace</a>, which changes one or more values for a space.</p>
 </li>
 </ul>
 <p>Projects, by calling the following:</p>
@@ -128,6 +128,29 @@ where you can quickly work on the code stored in the source repositories of your
 <li>
 <p>
 <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
+</li>
+</ul>
+<p>Workflows, by calling the following:</p>
+<ul>
+<li>
+<p>
+<a>GetWorkflow</a>, which returns information about a workflow.</p>
+</li>
+<li>
+<p>
+<a>GetWorkflowRun</a>, which returns information about a specified run of a workflow.</p>
+</li>
+<li>
+<p>
+<a>ListWorkflowRuns</a>, which retrieves a list of runs of a specified workflow.</p>
+</li>
+<li>
+<p>
+<a>ListWorkflows</a>, which retrieves a list of workflows in a specified project.</p>
+</li>
+<li>
+<p>
+<a>StartWorkflowRun</a>, which starts a run of a specified workflow.</p>
 </li>
 </ul>
 <p>Security, activity, and resource management in Amazon CodeCatalyst, by calling the following:</p>
@@ -492,6 +515,22 @@ GetUserDetails
 </details>
 <details>
 <summary>
+GetWorkflow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/getworkflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getworkflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getworkflowcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetWorkflowRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/getworkflowruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getworkflowruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getworkflowruncommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListAccessTokens
 </summary>
 
@@ -556,6 +595,22 @@ ListSpaces
 </details>
 <details>
 <summary>
+ListWorkflowRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/listworkflowrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listworkflowrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listworkflowrunscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWorkflows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/listworkflowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listworkflowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listworkflowscommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartDevEnvironment
 </summary>
 
@@ -568,6 +623,14 @@ StartDevEnvironmentSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/startdevenvironmentsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/startdevenvironmentsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/startdevenvironmentsessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartWorkflowRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/startworkflowruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/startworkflowruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/startworkflowruncommandoutput.html)
 
 </details>
 <details>

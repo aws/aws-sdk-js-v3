@@ -92,6 +92,8 @@ import {
 import { GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
 import { GetUserDetailsCommandInput, GetUserDetailsCommandOutput } from "./commands/GetUserDetailsCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
 import { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "./commands/ListAccessTokensCommand";
 import {
   ListDevEnvironmentsCommandInput,
@@ -112,6 +114,8 @@ import {
   ListSourceRepositoryBranchesCommandOutput,
 } from "./commands/ListSourceRepositoryBranchesCommand";
 import { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
+import { ListWorkflowRunsCommandInput, ListWorkflowRunsCommandOutput } from "./commands/ListWorkflowRunsCommand";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
   StartDevEnvironmentCommandInput,
   StartDevEnvironmentCommandOutput,
@@ -120,6 +124,7 @@ import {
   StartDevEnvironmentSessionCommandInput,
   StartDevEnvironmentSessionCommandOutput,
 } from "./commands/StartDevEnvironmentSessionCommand";
+import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
 import { StopDevEnvironmentCommandInput, StopDevEnvironmentCommandOutput } from "./commands/StopDevEnvironmentCommand";
 import {
   StopDevEnvironmentSessionCommandInput,
@@ -164,6 +169,8 @@ export type ServiceInputTypes =
   | GetSpaceCommandInput
   | GetSubscriptionCommandInput
   | GetUserDetailsCommandInput
+  | GetWorkflowCommandInput
+  | GetWorkflowRunCommandInput
   | ListAccessTokensCommandInput
   | ListDevEnvironmentSessionsCommandInput
   | ListDevEnvironmentsCommandInput
@@ -172,8 +179,11 @@ export type ServiceInputTypes =
   | ListSourceRepositoriesCommandInput
   | ListSourceRepositoryBranchesCommandInput
   | ListSpacesCommandInput
+  | ListWorkflowRunsCommandInput
+  | ListWorkflowsCommandInput
   | StartDevEnvironmentCommandInput
   | StartDevEnvironmentSessionCommandInput
+  | StartWorkflowRunCommandInput
   | StopDevEnvironmentCommandInput
   | StopDevEnvironmentSessionCommandInput
   | UpdateDevEnvironmentCommandInput
@@ -202,6 +212,8 @@ export type ServiceOutputTypes =
   | GetSpaceCommandOutput
   | GetSubscriptionCommandOutput
   | GetUserDetailsCommandOutput
+  | GetWorkflowCommandOutput
+  | GetWorkflowRunCommandOutput
   | ListAccessTokensCommandOutput
   | ListDevEnvironmentSessionsCommandOutput
   | ListDevEnvironmentsCommandOutput
@@ -210,8 +222,11 @@ export type ServiceOutputTypes =
   | ListSourceRepositoriesCommandOutput
   | ListSourceRepositoryBranchesCommandOutput
   | ListSpacesCommandOutput
+  | ListWorkflowRunsCommandOutput
+  | ListWorkflowsCommandOutput
   | StartDevEnvironmentCommandOutput
   | StartDevEnvironmentSessionCommandOutput
+  | StartWorkflowRunCommandOutput
   | StopDevEnvironmentCommandOutput
   | StopDevEnvironmentSessionCommandOutput
   | UpdateDevEnvironmentCommandOutput
@@ -403,7 +418,7 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UpdateSpace</a>, which hanges one or more values for a space.</p>
+ *                   <a>UpdateSpace</a>, which changes one or more values for a space.</p>
  *             </li>
  *          </ul>
  *          <p>Projects, by calling the following:</p>
@@ -504,6 +519,29 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *                   <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
  *             </li>
  *          </ul>
+ *          <p>Workflows, by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflow</a>, which returns information about a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflowRun</a>, which returns information about a specified run of a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflowRuns</a>, which retrieves a list of runs of a specified workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflows</a>, which retrieves a list of workflows in a specified project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartWorkflowRun</a>, which starts a run of a specified workflow.</p>
+ *             </li>
+ *          </ul>
  *          <p>Security, activity, and resource management in Amazon CodeCatalyst, by calling the following:</p>
  *          <ul>
  *             <li>
@@ -575,8 +613,8 @@ export class CodeCatalystClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
         httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));

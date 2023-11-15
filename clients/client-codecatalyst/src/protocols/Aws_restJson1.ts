@@ -20,6 +20,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CreateAccessTokenCommandInput, CreateAccessTokenCommandOutput } from "../commands/CreateAccessTokenCommand";
 import {
@@ -59,6 +60,8 @@ import {
 import { GetSpaceCommandInput, GetSpaceCommandOutput } from "../commands/GetSpaceCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "../commands/GetSubscriptionCommand";
 import { GetUserDetailsCommandInput, GetUserDetailsCommandOutput } from "../commands/GetUserDetailsCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
+import { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "../commands/GetWorkflowRunCommand";
 import { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "../commands/ListAccessTokensCommand";
 import {
   ListDevEnvironmentsCommandInput,
@@ -79,6 +82,8 @@ import {
   ListSourceRepositoryBranchesCommandOutput,
 } from "../commands/ListSourceRepositoryBranchesCommand";
 import { ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
+import { ListWorkflowRunsCommandInput, ListWorkflowRunsCommandOutput } from "../commands/ListWorkflowRunsCommand";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
   StartDevEnvironmentCommandInput,
   StartDevEnvironmentCommandOutput,
@@ -87,6 +92,7 @@ import {
   StartDevEnvironmentSessionCommandInput,
   StartDevEnvironmentSessionCommandOutput,
 } from "../commands/StartDevEnvironmentSessionCommand";
+import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "../commands/StartWorkflowRunCommand";
 import { StopDevEnvironmentCommandInput, StopDevEnvironmentCommandOutput } from "../commands/StopDevEnvironmentCommand";
 import {
   StopDevEnvironmentSessionCommandInput,
@@ -120,6 +126,10 @@ import {
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
+  WorkflowRunSortCriteria,
+  WorkflowRunSummary,
+  WorkflowSortCriteria,
+  WorkflowSummary,
 } from "../models/models_0";
 
 /**
@@ -612,6 +622,60 @@ export const se_GetUserDetailsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetWorkflowCommand
+ */
+export const se_GetWorkflowCommand = async (
+  input: GetWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/spaces/{spaceName}/projects/{projectName}/workflows/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetWorkflowRunCommand
+ */
+export const se_GetWorkflowRunCommand = async (
+  input: GetWorkflowRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListAccessTokensCommand
  */
 export const se_ListAccessTokensCommand = async (
@@ -653,16 +717,15 @@ export const se_ListDevEnvironmentsCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/devEnvironments";
   resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
+      projectName: [],
     })
   );
   return new __HttpRequest({
@@ -892,6 +955,83 @@ export const se_ListSpacesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListWorkflowRunsCommand
+ */
+export const se_ListWorkflowRunsCommand = async (
+  input: ListWorkflowRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns";
+  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  const query: any = map({
+    workflowId: [, input.workflowId!],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sortBy: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListWorkflowsCommand
+ */
+export const se_ListWorkflowsCommand = async (
+  input: ListWorkflowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/spaces/{spaceName}/projects/{projectName}/workflows";
+  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sortBy: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StartDevEnvironmentCommand
  */
 export const se_StartDevEnvironmentCommand = async (
@@ -957,6 +1097,43 @@ export const se_StartDevEnvironmentSessionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartWorkflowRunCommand
+ */
+export const se_StartWorkflowRunCommand = async (
+  input: StartWorkflowRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns";
+  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  const query: any = map({
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2241,6 +2418,148 @@ const de_GetUserDetailsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetWorkflowCommand
+ */
+export const de_GetWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definition: _json,
+    id: __expectString,
+    lastUpdatedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    projectName: __expectString,
+    runMode: __expectString,
+    sourceBranchName: __expectString,
+    sourceRepositoryName: __expectString,
+    spaceName: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetWorkflowCommandError
+ */
+const de_GetWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codecatalyst#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codecatalyst#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codecatalyst#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codecatalyst#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetWorkflowRunCommand
+ */
+export const de_GetWorkflowRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetWorkflowRunCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    endTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    lastUpdatedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    projectName: __expectString,
+    spaceName: __expectString,
+    startTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    statusReasons: _json,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetWorkflowRunCommandError
+ */
+const de_GetWorkflowRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codecatalyst#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codecatalyst#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codecatalyst#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codecatalyst#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListAccessTokensCommand
  */
 export const de_ListAccessTokensCommand = async (
@@ -2745,6 +3064,132 @@ const de_ListSpacesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListWorkflowRunsCommand
+ */
+export const de_ListWorkflowRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowRunsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWorkflowRunsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_WorkflowRunSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowRunsCommandError
+ */
+const de_ListWorkflowRunsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codecatalyst#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codecatalyst#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codecatalyst#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codecatalyst#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowsCommand
+ */
+export const de_ListWorkflowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWorkflowsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_WorkflowSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowsCommandError
+ */
+const de_ListWorkflowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codecatalyst#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codecatalyst#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codecatalyst#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codecatalyst#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartDevEnvironmentCommand
  */
 export const de_StartDevEnvironmentCommand = async (
@@ -2841,6 +3286,71 @@ const de_StartDevEnvironmentSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDevEnvironmentSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codecatalyst#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codecatalyst#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codecatalyst#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codecatalyst#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartWorkflowRunCommand
+ */
+export const de_StartWorkflowRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWorkflowRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartWorkflowRunCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    id: __expectString,
+    projectName: __expectString,
+    spaceName: __expectString,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartWorkflowRunCommandError
+ */
+const de_StartWorkflowRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWorkflowRunCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3403,6 +3913,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_StringList omitted.
 
+// se_WorkflowRunSortCriteria omitted.
+
+// se_WorkflowRunSortCriteriaList omitted.
+
+// se_WorkflowSortCriteria omitted.
+
+// se_WorkflowSortCriteriaList omitted.
+
 /**
  * deserializeAws_restJson1AccessTokenSummaries
  */
@@ -3605,6 +4123,71 @@ const de_ListSourceRepositoryBranchesItems = (
 // de_SpaceSummary omitted.
 
 // de_UserIdentity omitted.
+
+// de_WorkflowDefinition omitted.
+
+// de_WorkflowDefinitionSummary omitted.
+
+// de_WorkflowRunStatusReason omitted.
+
+// de_WorkflowRunStatusReasons omitted.
+
+/**
+ * deserializeAws_restJson1WorkflowRunSummaries
+ */
+const de_WorkflowRunSummaries = (output: any, context: __SerdeContext): WorkflowRunSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WorkflowRunSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1WorkflowRunSummary
+ */
+const de_WorkflowRunSummary = (output: any, context: __SerdeContext): WorkflowRunSummary => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    statusReasons: _json,
+    workflowId: __expectString,
+    workflowName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1WorkflowSummaries
+ */
+const de_WorkflowSummaries = (output: any, context: __SerdeContext): WorkflowSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WorkflowSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1WorkflowSummary
+ */
+const de_WorkflowSummary = (output: any, context: __SerdeContext): WorkflowSummary => {
+  return take(output, {
+    createdTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definition: _json,
+    id: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    runMode: __expectString,
+    sourceBranchName: __expectString,
+    sourceRepositoryName: __expectString,
+    status: __expectString,
+  }) as any;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
