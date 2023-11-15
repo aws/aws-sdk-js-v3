@@ -50,8 +50,8 @@ export interface ModifyCustomDomainAssociationCommandOutput
  * // const { RedshiftClient, ModifyCustomDomainAssociationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // ModifyCustomDomainAssociationMessage
- *   CustomDomainName: "STRING_VALUE",
- *   CustomDomainCertificateArn: "STRING_VALUE",
+ *   CustomDomainName: "STRING_VALUE", // required
+ *   CustomDomainCertificateArn: "STRING_VALUE", // required
  *   ClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new ModifyCustomDomainAssociationCommand(input);
@@ -77,6 +77,9 @@ export interface ModifyCustomDomainAssociationCommandOutput
  *
  * @throws {@link CustomCnameAssociationFault} (client fault)
  *  <p>An error occurred when an attempt was made to change the custom domain association.</p>
+ *
+ * @throws {@link CustomDomainAssociationNotFoundFault} (client fault)
+ *  <p>An error occurred. The custom domain name couldn't be found.</p>
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>

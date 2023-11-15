@@ -49,6 +49,7 @@ export interface DeleteCustomDomainAssociationCommandOutput extends __MetadataBe
  * const client = new RedshiftClient(config);
  * const input = { // DeleteCustomDomainAssociationMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
+ *   CustomDomainName: "STRING_VALUE", // required
  * };
  * const command = new DeleteCustomDomainAssociationCommand(input);
  * const response = await client.send(command);
@@ -68,6 +69,9 @@ export interface DeleteCustomDomainAssociationCommandOutput extends __MetadataBe
  *
  * @throws {@link CustomCnameAssociationFault} (client fault)
  *  <p>An error occurred when an attempt was made to change the custom domain association.</p>
+ *
+ * @throws {@link CustomDomainAssociationNotFoundFault} (client fault)
+ *  <p>An error occurred. The custom domain name couldn't be found.</p>
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>

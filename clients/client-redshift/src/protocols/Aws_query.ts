@@ -5062,6 +5062,9 @@ const de_DeleteCustomDomainAssociationCommandError = async (
     case "CustomCnameAssociationFault":
     case "com.amazonaws.redshift#CustomCnameAssociationFault":
       throw await de_CustomCnameAssociationFaultRes(parsedOutput, context);
+    case "CustomDomainAssociationNotFoundFault":
+    case "com.amazonaws.redshift#CustomDomainAssociationNotFoundFault":
+      throw await de_CustomDomainAssociationNotFoundFaultRes(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
@@ -8713,6 +8716,9 @@ const de_ModifyCustomDomainAssociationCommandError = async (
     case "CustomCnameAssociationFault":
     case "com.amazonaws.redshift#CustomCnameAssociationFault":
       throw await de_CustomCnameAssociationFaultRes(parsedOutput, context);
+    case "CustomDomainAssociationNotFoundFault":
+    case "com.amazonaws.redshift#CustomDomainAssociationNotFoundFault":
+      throw await de_CustomDomainAssociationNotFoundFaultRes(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
@@ -13087,6 +13093,9 @@ const se_DeleteCustomDomainAssociationMessage = (
   const entries: any = {};
   if (input.ClusterIdentifier != null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.CustomDomainName != null) {
+    entries["CustomDomainName"] = input.CustomDomainName;
   }
   return entries;
 };

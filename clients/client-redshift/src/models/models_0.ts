@@ -7457,6 +7457,12 @@ export interface DeleteCustomDomainAssociationMessage {
    * <p>The identifier of the cluster to delete a custom domain association for.</p>
    */
   ClusterIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The custom domain name for the custom domain association.</p>
+   */
+  CustomDomainName: string | undefined;
 }
 
 /**

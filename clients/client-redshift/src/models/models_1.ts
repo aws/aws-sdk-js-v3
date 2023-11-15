@@ -3784,13 +3784,13 @@ export interface ModifyCustomDomainAssociationMessage {
    * @public
    * <p>The custom domain name for a changed custom domain association.</p>
    */
-  CustomDomainName?: string;
+  CustomDomainName: string | undefined;
 
   /**
    * @public
    * <p>The certificate Amazon Resource Name (ARN) for the changed custom domain association.</p>
    */
-  CustomDomainCertificateArn?: string;
+  CustomDomainCertificateArn: string | undefined;
 
   /**
    * @public
