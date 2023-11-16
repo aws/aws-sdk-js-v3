@@ -435,9 +435,9 @@ export interface DeleteSecurityProfileRequest {
 
   /**
    * @public
-   * <p>The expected version of the security profile. A new version is generated whenever the
-   *       security profile is updated. If you specify a value that is different from the actual version,
-   *       a <code>VersionConflictException</code> is thrown.</p>
+   * <p>The expected version of the security profile. A new version is generated whenever
+   *         the security profile is updated. If you specify a value that is different from the actual
+   *         version, a <code>VersionConflictException</code> is thrown.</p>
    */
   expectedVersion?: number;
 }
@@ -631,17 +631,18 @@ export interface DescribeAccountAuditConfigurationRequest {}
 export interface DescribeAccountAuditConfigurationResponse {
   /**
    * @public
-   * <p>The ARN of the role that grants permission to IoT to access information about your
-   *       devices, policies, certificates, and other items as required when performing an audit.</p>
-   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is
-   *       required.</p>
+   * <p>The ARN of the role that grants permission to IoT to access information
+   *             about your devices, policies, certificates, and other items as required when
+   *             performing an audit.</p>
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *             this parameter is required.</p>
    */
   roleArn?: string;
 
   /**
    * @public
-   * <p>Information about the targets to which audit notifications are sent for this
-   *       account.</p>
+   * <p>Information about the targets to which audit notifications are sent for
+   *             this account.</p>
    */
   auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>>;
 
@@ -658,8 +659,7 @@ export interface DescribeAccountAuditConfigurationResponse {
 export interface DescribeAuditFindingRequest {
   /**
    * @public
-   * <p>A unique identifier for a single audit finding. You can use this identifier to apply
-   *       mitigation actions to the finding.</p>
+   * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
    */
   findingId: string | undefined;
 }
@@ -740,15 +740,13 @@ export interface DescribeAuditMitigationActionsTaskResponse {
 
   /**
    * @public
-   * <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for
-   *       this audit mitigation actions task.</p>
+   * <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
    */
   taskStatistics?: Record<string, TaskStatisticsForAuditCheck>;
 
   /**
    * @public
-   * <p>Identifies the findings to which the mitigation actions are applied. This can be by audit
-   *       checks, by audit task, or a set of findings.</p>
+   * <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
    */
   target?: AuditMitigationActionsTaskTarget;
 
@@ -760,8 +758,7 @@ export interface DescribeAuditMitigationActionsTaskResponse {
 
   /**
    * @public
-   * <p>Specifies the mitigation actions and their parameters that are applied as part of this
-   *       task.</p>
+   * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
    */
   actionsDefinition?: MitigationAction[];
 }
@@ -895,8 +892,8 @@ export interface TaskStatistics {
 export interface DescribeAuditTaskResponse {
   /**
    * @public
-   * <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED", "FAILED", or
-   *       "CANCELED".</p>
+   * <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
+   *             "FAILED", or "CANCELED".</p>
    */
   taskStatus?: AuditTaskStatus;
 
@@ -1384,7 +1381,9 @@ export interface DescribeCertificateResponse {
 export interface DescribeCustomMetricRequest {
   /**
    * @public
-   * <p> The name of the custom metric. </p>
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
    */
   metricName: string | undefined;
 }
@@ -1395,13 +1394,17 @@ export interface DescribeCustomMetricRequest {
 export interface DescribeCustomMetricResponse {
   /**
    * @public
-   * <p> The name of the custom metric. </p>
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
    */
   metricName?: string;
 
   /**
    * @public
-   * <p> The Amazon Resource Number (ARN) of the custom metric. </p>
+   * <p>
+   *       The Amazon Resource Number (ARN) of the custom metric.
+   *     </p>
    */
   metricArn?: string;
 
@@ -1409,30 +1412,32 @@ export interface DescribeCustomMetricResponse {
    * @public
    * <p> The type of the custom metric. </p>
    *          <important>
-   *             <p>The type <code>number</code> only takes a single metric value as an input, but while
-   *         submitting the metrics value in the DeviceMetrics report, it must be passed as an array with
-   *         a single value.</p>
+   *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
    *          </important>
    */
   metricType?: CustomMetricType;
 
   /**
    * @public
-   * <p> Field represents a friendly name in the console for the custom metric; doesn't have to be
-   *       unique. Don't use this name as the metric identifier in the device metric report. Can be
-   *       updated. </p>
+   * <p>
+   *       Field represents a friendly name in the console for the custom metric; doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated.
+   *     </p>
    */
   displayName?: string;
 
   /**
    * @public
-   * <p> The creation date of the custom metric in milliseconds since epoch. </p>
+   * <p>
+   *       The creation date of the custom metric in milliseconds since epoch.
+   *     </p>
    */
   creationDate?: Date;
 
   /**
    * @public
-   * <p> The time the custom metric was last modified in milliseconds since epoch. </p>
+   * <p>
+   *       The time the custom metric was last modified in milliseconds since epoch.
+   *     </p>
    */
   lastModifiedDate?: Date;
 }
@@ -1459,7 +1464,9 @@ export interface DescribeDefaultAuthorizerResponse {
 export interface DescribeDetectMitigationActionsTaskRequest {
   /**
    * @public
-   * <p> The unique identifier of the task. </p>
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
    */
   taskId: string | undefined;
 }
@@ -1663,7 +1670,9 @@ export interface DetectMitigationActionsTaskSummary {
 export interface DescribeDetectMitigationActionsTaskResponse {
   /**
    * @public
-   * <p> The description of a task. </p>
+   * <p>
+   *       The description of a task.
+   *     </p>
    */
   taskSummary?: DetectMitigationActionsTaskSummary;
 }
@@ -1691,7 +1700,10 @@ export interface DescribeDimensionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for the dimension.</p>
+   * <p>The Amazon Resource Name
+   *       (ARN)
+   *       for
+   *       the dimension.</p>
    */
   arn?: string;
 
@@ -1703,8 +1715,7 @@ export interface DescribeDimensionResponse {
 
   /**
    * @public
-   * <p>The value or list of values used to scope the dimension. For example, for topic filters,
-   *       this is the pattern used to match the MQTT topic name.</p>
+   * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
    */
   stringValues?: string[];
 
@@ -2431,10 +2442,11 @@ export interface Job {
 
   /**
    * @public
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
+   *             job successfully completes. </p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single string.
-   *         Up to five strings are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
+   *             Up to 25  package version ARNs are allowed.</p>
    */
   destinationPackageVersions?: string[];
 }
@@ -2696,10 +2708,11 @@ export interface DescribeJobTemplateResponse {
 
   /**
    * @public
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
+   *             job successfully completes. </p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single string.
-   *         Up to five strings are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
+   *             Up to 25  package version ARNs are allowed.</p>
    */
   destinationPackageVersions?: string[];
 }
@@ -2890,8 +2903,7 @@ export interface DescribeMitigationActionResponse {
 
   /**
    * @public
-   * <p>Parameters that control how the mitigation action is applied, specific to the type of
-   *       mitigation action.</p>
+   * <p>Parameters that control how the mitigation action is applied, specific to the type of mitigation action.</p>
    */
   actionParams?: MitigationActionParams;
 
@@ -3127,35 +3139,41 @@ export interface DescribeScheduledAuditRequest {
 export interface DescribeScheduledAuditResponse {
   /**
    * @public
-   * <p>How often the scheduled audit takes place, either one of <code>DAILY</code>,
-   *         <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each
-   *       audit is determined by the system.</p>
+   * <p>How often the scheduled audit takes
+   *       place, either
+   *       one of <code>DAILY</code>,
+   *             <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
+   *       system.</p>
    */
   frequency?: AuditFrequency;
 
   /**
    * @public
-   * <p>The day of the month on which the scheduled audit takes place. This is will be
-   *         <code>1</code> through <code>31</code> or <code>LAST</code>. If days
-   *         <code>29</code>-<code>31</code> are specified, and the month does not have that many days,
-   *       the audit takes place on the <code>LAST</code> day of the month.</p>
+   * <p>The day of the month on which the scheduled audit takes place.
+   *       This is
+   *       will be <code>1</code>
+   *             through <code>31</code> or <code>LAST</code>. If days
+   *       <code>29</code>-<code>31</code>
+   *       are specified, and the month does not have that many days, the audit takes place on the <code>LAST</code>
+   *       day of the month.</p>
    */
   dayOfMonth?: string;
 
   /**
    * @public
-   * <p>The day of the week on which the scheduled audit takes place, either one of
-   *         <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>,
-   *         <code>FRI</code>, or <code>SAT</code>.</p>
+   * <p>The day of the week on which the scheduled audit takes
+   *       place,
+   *       either one of
+   *             <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.</p>
    */
   dayOfWeek?: DayOfWeek;
 
   /**
    * @public
-   * <p>Which checks are performed during the scheduled audit. Checks must be enabled for your
-   *       account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks,
-   *       including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select
-   *       which checks are enabled.)</p>
+   * <p>Which checks are performed during the scheduled audit. Checks must be
+   *             enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *             to select which checks are enabled.)</p>
    */
   targetCheckNames?: string[];
 
@@ -3178,7 +3196,8 @@ export interface DescribeScheduledAuditResponse {
 export interface DescribeSecurityProfileRequest {
   /**
    * @public
-   * <p>The name of the security profile whose information you want to get.</p>
+   * <p>The name of the security profile
+   *       whose information you want to get.</p>
    */
   securityProfileName: string | undefined;
 }
@@ -3201,15 +3220,14 @@ export interface DescribeSecurityProfileResponse {
 
   /**
    * @public
-   * <p>A description of the security profile (associated with the security profile when it was
-   *       created or updated).</p>
+   * <p>A description of the security profile (associated with the security profile
+   *         when it was created or updated).</p>
    */
   securityProfileDescription?: string;
 
   /**
    * @public
-   * <p>Specifies the behaviors that, when violated by a device (thing), cause an
-   *       alert.</p>
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
   behaviors?: Behavior[];
 
@@ -3224,27 +3242,31 @@ export interface DescribeSecurityProfileResponse {
    * @deprecated
    *
    * <p>
-   *             <i>Please use <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a>
+   *             <i>Please use
+   *           <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a>
    *         instead.</i>
    *          </p>
-   *          <p>A list of metrics whose data is retained (stored). By default, data is retained for any
-   *       metric used in the profile's <code>behaviors</code>, but it is also retained for any metric
-   *       specified here.</p>
+   *          <p>A list of metrics
+   *       whose data is retained (stored). By default, data is retained for any metric
+   *       used in the profile's <code>behaviors</code>, but
+   *       it is
+   *       also retained for any metric specified here.</p>
    */
   additionalMetricsToRetain?: string[];
 
   /**
    * @public
    * <p>A list of metrics whose data is retained (stored). By default, data is retained for any
-   *       metric used in the profile's behaviors, but it is also retained for any metric specified
-   *       here.</p>
+   *       metric used in the profile's behaviors, but
+   *       it is
+   *       also retained for any metric specified here.</p>
    */
   additionalMetricsToRetainV2?: MetricToRetain[];
 
   /**
    * @public
-   * <p>The version of the security profile. A new version is generated whenever the security
-   *       profile is updated.</p>
+   * <p>The version of the security profile. A new version is generated whenever the
+   *         security profile is updated.</p>
    */
   version?: number;
 
@@ -3847,19 +3869,25 @@ export interface EnableTopicRuleRequest {
 export interface GetBehaviorModelTrainingSummariesRequest {
   /**
    * @public
-   * <p> The name of the security profile. </p>
+   * <p>
+   *       The name of the security profile.
+   *     </p>
    */
   securityProfileName?: string;
 
   /**
    * @public
-   * <p> The maximum number of results to return at one time. The default is 10. </p>
+   * <p>
+   *       The maximum number of results to return at one time. The default is 10.
+   *     </p>
    */
   maxResults?: number;
 
   /**
    * @public
-   * <p> The token for the next set of results. </p>
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
    */
   nextToken?: string;
 }
@@ -3941,15 +3969,17 @@ export interface BehaviorModelTrainingSummary {
 export interface GetBehaviorModelTrainingSummariesResponse {
   /**
    * @public
-   * <p> A list of all ML Detect behaviors and their model status for a given Security Profile.
+   * <p>
+   *       A list of all ML Detect behaviors and their model status for a given Security Profile.
    *     </p>
    */
   summaries?: BehaviorModelTrainingSummary[];
 
   /**
    * @public
-   * <p> A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results. </p>
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
    */
   nextToken?: string;
 }
@@ -4248,9 +4278,60 @@ export type DeviceDefenderIndexingMode = (typeof DeviceDefenderIndexingMode)[key
 
 /**
  * @public
- * <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter.
- *       To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and
- *       specify your shadow names in <code>filter</code>.</p>
+ * @enum
+ */
+export const TargetFieldOrder = {
+  LatLon: "LatLon",
+  LonLat: "LonLat",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetFieldOrder = (typeof TargetFieldOrder)[keyof typeof TargetFieldOrder];
+
+/**
+ * @public
+ * <p>A geolocation target that you select to index. Each geolocation target contains a
+ *         <code>name</code> and <code>order</code> key-value pair that specifies the geolocation
+ *       target fields.</p>
+ */
+export interface GeoLocationTarget {
+  /**
+   * @public
+   * <p>The <code>name</code> of the geolocation target field. If the target field is part of a
+   *       named shadow, you must select the named shadow using the <code>namedShadow</code> filter.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The <code>order</code> of the geolocation target field. This field is optional. The
+   *       default value is <code>LatLon</code>.</p>
+   */
+  order?: TargetFieldOrder;
+}
+
+/**
+ * @public
+ * <p>Provides additional selections for named shadows and geolocation data. </p>
+ *          <p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to
+ *       be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p>
+ *          <p>To add geolocation data to your fleet indexing configuration: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If you store geolocation data in a class/unnamed shadow, set
+ *             <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your
+ *           geolocation data in <code>geoLocations</code> filter. </p>
+ *             </li>
+ *             <li>
+ *                <p>If you store geolocation data in a named shadow, set
+ *             <code>namedShadowIndexingMode</code> to be <code>ON</code>, add the shadow name in
+ *             <code>namedShadowNames</code> filter, and specify your geolocation data in
+ *             <code>geoLocations</code> filter. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html">Managing fleet
+ *             indexing</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export interface IndexingFilter {
   /**
@@ -4261,6 +4342,14 @@ export interface IndexingFilter {
    *     </p>
    */
   namedShadowNames?: string[];
+
+  /**
+   * @public
+   * <p>The list of geolocation targets that you select to index. The default maximum number of
+   *       geolocation targets for indexing is <code>1</code>. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device
+   *         Management Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  geoLocations?: GeoLocationTarget[];
 }
 
 /**
@@ -4400,9 +4489,23 @@ export interface ThingIndexingConfiguration {
 
   /**
    * @public
-   * <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter.
-   *       To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and
-   *       specify your shadow names in <code>filter</code>.</p>
+   * <p>Provides additional selections for named shadows and geolocation data. </p>
+   *          <p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to
+   *       be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p>
+   *          <p>To add geolocation data to your fleet indexing configuration: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you store geolocation data in a class/unnamed shadow, set
+   *           <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your
+   *           geolocation data in <code>geoLocations</code> filter. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you store geolocation data in a named shadow, set <code>namedShadowIndexingMode</code>
+   *           to be <code>ON</code>, add the shadow name in <code>namedShadowNames</code> filter, and
+   *           specify your geolocation data in <code>geoLocations</code> filter. For more information, see
+   *           <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html">Managing fleet indexing</a>.</p>
+   *             </li>
+   *          </ul>
    */
   filter?: IndexingFilter;
 }
@@ -5284,13 +5387,17 @@ export interface ListActiveViolationsRequest {
 
   /**
    * @public
-   * <p> The criteria for a behavior. </p>
+   * <p>
+   *       The criteria for a behavior.
+   *     </p>
    */
   behaviorCriteriaType?: BehaviorCriteriaType;
 
   /**
    * @public
-   * <p> A list of all suppressed alerts. </p>
+   * <p>
+   *       A list of all suppressed alerts.
+   *     </p>
    */
   listSuppressedAlerts?: boolean;
 
@@ -5325,8 +5432,8 @@ export interface ListActiveViolationsResponse {
 
   /**
    * @public
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results.</p>
+   * <p>A token that can be used to retrieve the next set of results,
+   *             or <code>null</code> if there are no additional results.</p>
    */
   nextToken?: string;
 }
@@ -5384,8 +5491,8 @@ export interface ListAttachedPoliciesResponse {
 export interface ListAuditFindingsRequest {
   /**
    * @public
-   * <p>A filter to limit results to the audit with the specified ID. You must specify either the
-   *       taskId or the startTime and endTime, but not both.</p>
+   * <p>A filter to limit results to the audit with the specified ID. You must
+   *             specify either the taskId or the startTime and endTime, but not both.</p>
    */
   taskId?: string;
 
@@ -5415,15 +5522,15 @@ export interface ListAuditFindingsRequest {
 
   /**
    * @public
-   * <p>A filter to limit results to those found after the specified time. You must specify either
-   *       the startTime and endTime or the taskId, but not both.</p>
+   * <p>A filter to limit results to those found after the specified time. You must
+   *             specify either the startTime and endTime or the taskId, but not both.</p>
    */
   startTime?: Date;
 
   /**
    * @public
-   * <p>A filter to limit results to those found before the specified time. You must specify
-   *       either the startTime and endTime or the taskId, but not both.</p>
+   * <p>A filter to limit results to those found before the specified time. You must
+   *             specify either the startTime and endTime or the taskId, but not both.</p>
    */
   endTime?: Date;
 
@@ -5448,8 +5555,8 @@ export interface ListAuditFindingsResponse {
 
   /**
    * @public
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results.</p>
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *             if there are no additional results.</p>
    */
   nextToken?: string;
 }
@@ -5460,8 +5567,7 @@ export interface ListAuditFindingsResponse {
 export interface ListAuditMitigationActionsExecutionsRequest {
   /**
    * @public
-   * <p>Specify this filter to limit results to actions for a specific audit mitigation actions
-   *       task.</p>
+   * <p>Specify this filter to limit results to actions for a specific audit mitigation actions task.</p>
    */
   taskId: string | undefined;
 
@@ -5473,8 +5579,7 @@ export interface ListAuditMitigationActionsExecutionsRequest {
 
   /**
    * @public
-   * <p>Specify this filter to limit results to those that were applied to a specific audit
-   *       finding.</p>
+   * <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
    */
   findingId: string | undefined;
 
@@ -5497,8 +5602,7 @@ export interface ListAuditMitigationActionsExecutionsRequest {
 export interface ListAuditMitigationActionsExecutionsResponse {
   /**
    * @public
-   * <p>A set of task execution results based on the input parameters. Details include the
-   *       mitigation action applied, start time, and task status.</p>
+   * <p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>
    */
   actionsExecutions?: AuditMitigationActionExecutionMetadata[];
 
@@ -5515,15 +5619,13 @@ export interface ListAuditMitigationActionsExecutionsResponse {
 export interface ListAuditMitigationActionsTasksRequest {
   /**
    * @public
-   * <p>Specify this filter to limit results to tasks that were applied to results for a specific
-   *       audit.</p>
+   * <p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>
    */
   auditTaskId?: string;
 
   /**
    * @public
-   * <p>Specify this filter to limit results to tasks that were applied to a specific audit
-   *       finding.</p>
+   * <p>Specify this filter to limit results to tasks that were applied to a specific audit finding.</p>
    */
   findingId?: string;
 
@@ -5547,15 +5649,13 @@ export interface ListAuditMitigationActionsTasksRequest {
 
   /**
    * @public
-   * <p>Specify this filter to limit results to tasks that began on or after a specific date and
-   *       time.</p>
+   * <p>Specify this filter to limit results to tasks that began on or after a specific date and time.</p>
    */
   startTime: Date | undefined;
 
   /**
    * @public
-   * <p>Specify this filter to limit results to tasks that were completed or canceled on or before
-   *       a specific date and time.</p>
+   * <p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>
    */
   endTime: Date | undefined;
 }
@@ -5648,9 +5748,9 @@ export interface ListAuditSuppressionsResponse {
 export interface ListAuditTasksRequest {
   /**
    * @public
-   * <p>The beginning of the time period. Audit information is retained for a limited time (90
-   *       days). Requesting a start time prior to what is retained results in an
-   *       "InvalidRequestException".</p>
+   * <p>The beginning of the time period. Audit information is retained for a
+   *               limited time (90 days). Requesting a start time prior to what is retained
+   *               results in an "InvalidRequestException".</p>
    */
   startTime: Date | undefined;
 
@@ -5663,14 +5763,14 @@ export interface ListAuditTasksRequest {
   /**
    * @public
    * <p>A filter to limit the output to the specified type of audit: can be one of
-   *       "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
+   *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
    */
   taskType?: AuditTaskType;
 
   /**
    * @public
-   * <p>A filter to limit the output to audits with the specified completion status: can be one of
-   *       "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
+   * <p>A filter to limit the output to audits with the specified completion
+   *             status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
    */
   taskStatus?: AuditTaskStatus;
 
@@ -5699,8 +5799,8 @@ export interface ListAuditTasksResponse {
 
   /**
    * @public
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results.</p>
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *             if there are no additional results.</p>
    */
   nextToken?: string;
 }
@@ -6021,13 +6121,17 @@ export interface ListCertificatesByCAResponse {
 export interface ListCustomMetricsRequest {
   /**
    * @public
-   * <p> The token for the next set of results. </p>
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
    */
   nextToken?: string;
 
   /**
    * @public
-   * <p> The maximum number of results to return at one time. The default is 25. </p>
+   * <p>
+   *       The maximum number of results to return at one time. The default is 25.
+   *     </p>
    */
   maxResults?: number;
 }
@@ -6038,14 +6142,18 @@ export interface ListCustomMetricsRequest {
 export interface ListCustomMetricsResponse {
   /**
    * @public
-   * <p> The name of the custom metric. </p>
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
    */
   metricNames?: string[];
 
   /**
    * @public
-   * <p> A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results. </p>
+   * <p>
+   *       A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> if there are no additional results.
+   *     </p>
    */
   nextToken?: string;
 }
@@ -6056,45 +6164,58 @@ export interface ListCustomMetricsResponse {
 export interface ListDetectMitigationActionsExecutionsRequest {
   /**
    * @public
-   * <p> The unique identifier of the task. </p>
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
    */
   taskId?: string;
 
   /**
    * @public
-   * <p> The unique identifier of the violation. </p>
+   * <p>
+   *       The unique identifier of the violation.
+   *     </p>
    */
   violationId?: string;
 
   /**
    * @public
-   * <p> The name of the thing whose mitigation actions are listed. </p>
+   * <p>
+   *       The name of the thing whose mitigation actions are listed.
+   *     </p>
    */
   thingName?: string;
 
   /**
    * @public
-   * <p> A filter to limit results to those found after the specified time. You must specify
-   *       either the startTime and endTime or the taskId, but not both. </p>
+   * <p>
+   *       A filter to limit results to those found after the specified time. You must
+   *       specify either the startTime and endTime or the taskId, but not both.
+   *     </p>
    */
   startTime?: Date;
 
   /**
    * @public
-   * <p> The end of the time period for which ML Detect mitigation actions executions are
-   *       returned. </p>
+   * <p>
+   *       The end of the time period for which ML Detect mitigation actions executions are returned.
+   *     </p>
    */
   endTime?: Date;
 
   /**
    * @public
-   * <p> The maximum number of results to return at one time. The default is 25. </p>
+   * <p>
+   *       The maximum number of results to return at one time. The default is 25.
+   *     </p>
    */
   maxResults?: number;
 
   /**
    * @public
-   * <p> The token for the next set of results. </p>
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
    */
   nextToken?: string;
 }
@@ -6202,14 +6323,17 @@ export interface DetectMitigationActionExecution {
 export interface ListDetectMitigationActionsExecutionsResponse {
   /**
    * @public
-   * <p> List of actions executions. </p>
+   * <p>
+   *       List of actions executions.
+   *     </p>
    */
   actionsExecutions?: DetectMitigationActionExecution[];
 
   /**
    * @public
-   * <p> A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results. </p>
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
    */
   nextToken?: string;
 }
@@ -6226,20 +6350,25 @@ export interface ListDetectMitigationActionsTasksRequest {
 
   /**
    * @public
-   * <p> The token for the next set of results. </p>
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
    */
   nextToken?: string;
 
   /**
    * @public
-   * <p> A filter to limit results to those found after the specified time. You must specify
-   *       either the startTime and endTime or the taskId, but not both. </p>
+   * <p>
+   *       A filter to limit results to those found after the specified time. You must
+   *       specify either the startTime and endTime or the taskId, but not both.
+   *     </p>
    */
   startTime: Date | undefined;
 
   /**
    * @public
-   * <p> The end of the time period for which ML Detect mitigation actions tasks are returned.
+   * <p>
+   *       The end of the time period for which ML Detect mitigation actions tasks are returned.
    *     </p>
    */
   endTime: Date | undefined;
@@ -6251,14 +6380,17 @@ export interface ListDetectMitigationActionsTasksRequest {
 export interface ListDetectMitigationActionsTasksResponse {
   /**
    * @public
-   * <p> The collection of ML Detect mitigation tasks that matched the filter criteria. </p>
+   * <p>
+   *       The collection of ML Detect mitigation tasks that matched the filter criteria.
+   *     </p>
    */
   tasks?: DetectMitigationActionsTaskSummary[];
 
   /**
    * @public
-   * <p> A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results. </p>
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
    */
   nextToken?: string;
 }
@@ -6286,15 +6418,13 @@ export interface ListDimensionsRequest {
 export interface ListDimensionsResponse {
   /**
    * @public
-   * <p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get
-   *       details for a dimension.</p>
+   * <p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.</p>
    */
   dimensionNames?: string[];
 
   /**
    * @public
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results.</p>
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>
    */
   nextToken?: string;
 }
@@ -7037,8 +7167,8 @@ export interface ListMetricValuesResponse {
 
   /**
    * @public
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if
-   *       there are no additional results.</p>
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *         if there are no additional results.</p>
    */
   nextToken?: string;
 }
@@ -7049,8 +7179,7 @@ export interface ListMetricValuesResponse {
 export interface ListMitigationActionsRequest {
   /**
    * @public
-   * <p>Specify a value to limit the result to mitigation actions with a specific action
-   *       type.</p>
+   * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
    */
   actionType?: MitigationActionType;
 
@@ -7438,56 +7567,6 @@ export interface ListPoliciesResponse {
    * <p>The descriptions of the policies.</p>
    */
   policies?: Policy[];
-
-  /**
-   * @public
-   * <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   */
-  nextMarker?: string;
-}
-
-/**
- * @public
- * <p>The input for the ListPolicyPrincipals operation.</p>
- */
-export interface ListPolicyPrincipalsRequest {
-  /**
-   * @public
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * @public
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * @public
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * @public
-   * <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-/**
- * @public
- * <p>The output from the ListPolicyPrincipals operation.</p>
- */
-export interface ListPolicyPrincipalsResponse {
-  /**
-   * @public
-   * <p>The descriptions of the principals.</p>
-   */
-  principals?: string[];
 
   /**
    * @public

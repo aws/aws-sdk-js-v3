@@ -46,7 +46,9 @@ export interface ListDetectMitigationActionsExecutionsCommandOutput
 
 /**
  * @public
- * <p> Lists mitigation actions executions for a Device Defender ML Detect Security Profile. </p>
+ * <p>
+ *       Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
+ *     </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsExecutions</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

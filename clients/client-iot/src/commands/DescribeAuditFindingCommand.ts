@@ -38,7 +38,9 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
 /**
  * @public
  * <p>Gets information about a single audit finding. Properties include the reason for
- *       noncompliance, the severity of the issue, and the start time when the audit that returned the
+ *       noncompliance, the severity of the issue,
+ *       and the start time
+ *       when the audit that returned the
  *       finding.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditFinding</a> action.</p>
  * @example

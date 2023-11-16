@@ -865,6 +865,7 @@ import {
   DetectMitigationActionsTaskTarget,
   EventType,
   Field,
+  GeoLocationTarget,
   IndexingFilter,
   Job,
   JobExecution,
@@ -24517,6 +24518,10 @@ const se_ExponentialRolloutRate = (input: ExponentialRolloutRate, context: __Ser
 
 // se_FirehoseAction omitted.
 
+// se_GeoLocationsFilter omitted.
+
+// se_GeoLocationTarget omitted.
+
 // se_HeaderList omitted.
 
 // se_HttpAction omitted.
@@ -25486,6 +25491,10 @@ const de_ExponentialRolloutRate = (output: any, context: __SerdeContext): Expone
 // de_FleetMetricNameAndArn omitted.
 
 // de_FleetMetricNameAndArnList omitted.
+
+// de_GeoLocationsFilter omitted.
+
+// de_GeoLocationTarget omitted.
 
 // de_GroupNameAndArn omitted.
 

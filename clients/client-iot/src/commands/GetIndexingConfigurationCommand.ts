@@ -70,6 +70,12 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  * //       namedShadowNames: [ // NamedShadowNamesFilter
  * //         "STRING_VALUE",
  * //       ],
+ * //       geoLocations: [ // GeoLocationsFilter
+ * //         { // GeoLocationTarget
+ * //           name: "STRING_VALUE",
+ * //           order: "LatLon" || "LonLat",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   thingGroupIndexingConfiguration: { // ThingGroupIndexingConfiguration

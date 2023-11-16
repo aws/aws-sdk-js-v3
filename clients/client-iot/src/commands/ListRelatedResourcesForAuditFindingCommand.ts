@@ -45,8 +45,8 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
 
 /**
  * @public
- * <p>The related resources of an Audit finding. The following resources can be returned from
- *       calling this API:</p>
+ * <p>The related resources of an Audit finding.
+ *       The following resources can be returned from calling this API:</p>
  *          <ul>
  *             <li>
  *                <p>DEVICE_CERTIFICATE</p>
@@ -77,10 +77,10 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  *             </li>
  *          </ul>
  *          <note>
- *             <p>This API is similar to DescribeAuditFinding's <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">RelatedResources</a> but
- *         provides pagination and is not limited to 10 resources. When calling <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">DescribeAuditFinding</a> for the intermediate CA revoked for active device
- *         certificates check, RelatedResources will not be populated. You must use this API,
- *         ListRelatedResourcesForAuditFinding, to list the certificates.</p>
+ *             <p>This API is similar to DescribeAuditFinding's <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">RelatedResources</a>
+ *       but provides pagination and is not limited to 10 resources.
+ *       When calling <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">DescribeAuditFinding</a> for the intermediate CA revoked for
+ *       active device certificates check, RelatedResources will not be populated. You must use this API, ListRelatedResourcesForAuditFinding, to list the certificates.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

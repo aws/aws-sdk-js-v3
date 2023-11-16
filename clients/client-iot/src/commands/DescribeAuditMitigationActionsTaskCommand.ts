@@ -45,9 +45,7 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
 
 /**
  * @public
- * <p>Gets information about an audit mitigation task that is used to apply mitigation actions
- *       to a set of audit findings. Properties include the actions being applied, the audit checks to
- *       which they're being applied, the task status, and aggregated task statistics.</p>
+ * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

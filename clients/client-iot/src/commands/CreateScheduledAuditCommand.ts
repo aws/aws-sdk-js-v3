@@ -37,7 +37,8 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
 
 /**
  * @public
- * <p>Creates a scheduled audit that is run at a specified time interval.</p>
+ * <p>Creates a scheduled audit that is run at a specified
+ *           time interval.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateScheduledAudit</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
