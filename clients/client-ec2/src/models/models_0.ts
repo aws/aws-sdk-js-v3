@@ -5595,6 +5595,7 @@ export interface AttachVerifiedAccessTrustProviderRequest {
 export const DeviceTrustProviderType = {
   crowdstrike: "crowdstrike",
   jamf: "jamf",
+  jumpcloud: "jumpcloud",
 } as const;
 
 /**
@@ -5724,6 +5725,14 @@ export interface DeviceOptions {
    * <p>The ID of the tenant application with the device-identity provider.</p>
    */
   TenantId?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens.
+   *       </p>
+   */
+  PublicSigningKeyUrl?: string;
 }
 
 /**

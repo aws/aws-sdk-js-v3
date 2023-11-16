@@ -67,7 +67,7 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  * //     Description: "STRING_VALUE",
  * //     TrustProviderType: "user" || "device",
  * //     UserTrustProviderType: "iam-identity-center" || "oidc",
- * //     DeviceTrustProviderType: "jamf" || "crowdstrike",
+ * //     DeviceTrustProviderType: "jamf" || "crowdstrike" || "jumpcloud",
  * //     OidcOptions: { // OidcOptions
  * //       Issuer: "STRING_VALUE",
  * //       AuthorizationEndpoint: "STRING_VALUE",
@@ -79,6 +79,7 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  * //     },
  * //     DeviceOptions: { // DeviceOptions
  * //       TenantId: "STRING_VALUE",
+ * //       PublicSigningKeyUrl: "STRING_VALUE",
  * //     },
  * //     PolicyReferenceName: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
@@ -103,7 +104,7 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  * //         Description: "STRING_VALUE",
  * //         TrustProviderType: "user" || "device",
  * //         UserTrustProviderType: "iam-identity-center" || "oidc",
- * //         DeviceTrustProviderType: "jamf" || "crowdstrike",
+ * //         DeviceTrustProviderType: "jamf" || "crowdstrike" || "jumpcloud",
  * //       },
  * //     ],
  * //     CreationTime: "STRING_VALUE",

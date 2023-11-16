@@ -65,6 +65,9 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  *     ClientSecret: "STRING_VALUE",
  *     Scope: "STRING_VALUE",
  *   },
+ *   DeviceOptions: { // ModifyVerifiedAccessTrustProviderDeviceOptions
+ *     PublicSigningKeyUrl: "STRING_VALUE",
+ *   },
  *   Description: "STRING_VALUE",
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",
@@ -81,7 +84,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * //     Description: "STRING_VALUE",
  * //     TrustProviderType: "user" || "device",
  * //     UserTrustProviderType: "iam-identity-center" || "oidc",
- * //     DeviceTrustProviderType: "jamf" || "crowdstrike",
+ * //     DeviceTrustProviderType: "jamf" || "crowdstrike" || "jumpcloud",
  * //     OidcOptions: { // OidcOptions
  * //       Issuer: "STRING_VALUE",
  * //       AuthorizationEndpoint: "STRING_VALUE",
@@ -93,6 +96,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * //     },
  * //     DeviceOptions: { // DeviceOptions
  * //       TenantId: "STRING_VALUE",
+ * //       PublicSigningKeyUrl: "STRING_VALUE",
  * //     },
  * //     PolicyReferenceName: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",

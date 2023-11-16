@@ -140,19 +140,16 @@ import {
   InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
-  InstanceNetworkInterfaceSpecification,
   InstanceStatusEvent,
   LaunchTemplateConfig,
   LockState,
   Monitoring,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
-  RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
-  SpotPlacement,
 } from "./models_4";
 import {
   InstanceFamilyCreditSpecification,
@@ -6359,6 +6356,18 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
 
 /**
  * @public
+ * <p>Modifies the configuration of the specified device-based Amazon Web Services Verified Access trust provider.</p>
+ */
+export interface ModifyVerifiedAccessTrustProviderDeviceOptions {
+  /**
+   * @public
+   * <p> The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens. </p>
+   */
+  PublicSigningKeyUrl?: string;
+}
+
+/**
+ * @public
  * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
  */
 export interface ModifyVerifiedAccessTrustProviderOidcOptions {
@@ -6420,6 +6429,13 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
    * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
    */
   OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions;
+
+  /**
+   * @public
+   * <p>The options for a device-based trust provider. This parameter is required when the
+   *          provider type is <code>device</code>.</p>
+   */
+  DeviceOptions?: ModifyVerifiedAccessTrustProviderDeviceOptions;
 
   /**
    * @public
@@ -9312,114 +9328,6 @@ export interface RequestSpotFleetResponse {
 }
 
 /**
- * @public
- * <p>Describes the launch specification for an instance.</p>
- */
-export interface RequestSpotLaunchSpecification {
-  /**
-   * @public
-   * <p>The IDs of the security groups.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * @public
-   * <p>Not supported.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * @public
-   * <p>Deprecated.</p>
-   */
-  AddressingType?: string;
-
-  /**
-   * @public
-   * <p>The block device mapping entries. You can't specify both a snapshot ID and an encryption value.
-   *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
-   *            it is not blank and its encryption status is used for the volume encryption status.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * @public
-   * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * @public
-   * <p>The IAM instance profile.</p>
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification;
-
-  /**
-   * @public
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * @public
-   * <p>The instance type. Only one instance type can be specified.</p>
-   */
-  InstanceType?: _InstanceType;
-
-  /**
-   * @public
-   * <p>The ID of the kernel.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * @public
-   * <p>The name of the key pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether basic or detailed monitoring is enabled for the instance.</p>
-   *          <p>Default: Disabled</p>
-   */
-  Monitoring?: RunInstancesMonitoringEnabled;
-
-  /**
-   * @public
-   * <p>The network interfaces. If you specify a network interface, you must specify
-   *            subnet IDs and security group IDs using the network interface.</p>
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
-
-  /**
-   * @public
-   * <p>The placement information for the instance.</p>
-   */
-  Placement?: SpotPlacement;
-
-  /**
-   * @public
-   * <p>The ID of the RAM disk.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the subnet in which to launch the instance.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * @public
-   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
-   */
-  UserData?: string;
-}
-
-/**
  * @internal
  */
 export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
@@ -9639,12 +9547,4 @@ export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetR
   ...(obj.SpotFleetRequestConfig && {
     SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
   }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });

@@ -3777,6 +3777,7 @@ import {
   ModifyVerifiedAccessInstanceLoggingConfigurationResult,
   ModifyVerifiedAccessInstanceRequest,
   ModifyVerifiedAccessInstanceResult,
+  ModifyVerifiedAccessTrustProviderDeviceOptions,
   ModifyVerifiedAccessTrustProviderOidcOptions,
   ModifyVerifiedAccessTrustProviderRequest,
   ModifyVerifiedAccessTrustProviderResult,
@@ -3874,7 +3875,6 @@ import {
   ReportInstanceStatusRequest,
   RequestSpotFleetRequest,
   RequestSpotFleetResponse,
-  RequestSpotLaunchSpecification,
   ReservedInstanceLimitPrice,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -3918,6 +3918,7 @@ import {
   PrivateDnsNameOptionsRequest,
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
+  RequestSpotLaunchSpecification,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -43953,6 +43954,9 @@ const se_CreateVerifiedAccessTrustProviderDeviceOptions = (
   if (input.TenantId != null) {
     entries["TenantId"] = input.TenantId;
   }
+  if (input.PublicSigningKeyUrl != null) {
+    entries["PublicSigningKeyUrl"] = input.PublicSigningKeyUrl;
+  }
   return entries;
 };
 
@@ -59600,6 +59604,20 @@ const se_ModifyVerifiedAccessInstanceRequest = (
 };
 
 /**
+ * serializeAws_ec2ModifyVerifiedAccessTrustProviderDeviceOptions
+ */
+const se_ModifyVerifiedAccessTrustProviderDeviceOptions = (
+  input: ModifyVerifiedAccessTrustProviderDeviceOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.PublicSigningKeyUrl != null) {
+    entries["PublicSigningKeyUrl"] = input.PublicSigningKeyUrl;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ModifyVerifiedAccessTrustProviderOidcOptions
  */
 const se_ModifyVerifiedAccessTrustProviderOidcOptions = (
@@ -59646,6 +59664,13 @@ const se_ModifyVerifiedAccessTrustProviderRequest = (
     const memberEntries = se_ModifyVerifiedAccessTrustProviderOidcOptions(input.OidcOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OidcOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DeviceOptions != null) {
+    const memberEntries = se_ModifyVerifiedAccessTrustProviderDeviceOptions(input.DeviceOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DeviceOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -75679,6 +75704,9 @@ const de_DeviceOptions = (output: any, context: __SerdeContext): DeviceOptions =
   const contents: any = {};
   if (output["tenantId"] !== undefined) {
     contents.TenantId = __expectString(output["tenantId"]);
+  }
+  if (output["publicSigningKeyUrl"] !== undefined) {
+    contents.PublicSigningKeyUrl = __expectString(output["publicSigningKeyUrl"]);
   }
   return contents;
 };

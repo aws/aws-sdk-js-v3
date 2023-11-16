@@ -64,7 +64,7 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * //         Description: "STRING_VALUE",
  * //         TrustProviderType: "user" || "device",
  * //         UserTrustProviderType: "iam-identity-center" || "oidc",
- * //         DeviceTrustProviderType: "jamf" || "crowdstrike",
+ * //         DeviceTrustProviderType: "jamf" || "crowdstrike" || "jumpcloud",
  * //       },
  * //     ],
  * //     CreationTime: "STRING_VALUE",
