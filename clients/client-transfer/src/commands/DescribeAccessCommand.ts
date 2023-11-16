@@ -62,6 +62,7 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * //       { // HomeDirectoryMapEntry
  * //         Entry: "STRING_VALUE", // required
  * //         Target: "STRING_VALUE", // required
+ * //         Type: "FILE" || "DIRECTORY",
  * //       },
  * //     ],
  * //     HomeDirectoryType: "PATH" || "LOGICAL",

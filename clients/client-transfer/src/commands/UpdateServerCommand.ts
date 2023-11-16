@@ -104,6 +104,9 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *   StructuredLogDestinations: [ // StructuredLogDestinations
  *     "STRING_VALUE",
  *   ],
+ *   S3StorageOptions: { // S3StorageOptions
+ *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
+ *   },
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);

@@ -122,6 +122,9 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * //     StructuredLogDestinations: [ // StructuredLogDestinations
  * //       "STRING_VALUE",
  * //     ],
+ * //     S3StorageOptions: { // S3StorageOptions
+ * //       DirectoryListingOptimization: "ENABLED" || "DISABLED",
+ * //     },
  * //   },
  * // };
  *

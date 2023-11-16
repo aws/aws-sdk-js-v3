@@ -111,6 +111,9 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *   StructuredLogDestinations: [ // StructuredLogDestinations
  *     "STRING_VALUE",
  *   ],
+ *   S3StorageOptions: { // S3StorageOptions
+ *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
+ *   },
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);

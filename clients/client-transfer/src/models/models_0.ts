@@ -454,6 +454,20 @@ export interface CopyStepDetails {
 
 /**
  * @public
+ * @enum
+ */
+export const MapType = {
+  DIRECTORY: "DIRECTORY",
+  FILE: "FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type MapType = (typeof MapType)[keyof typeof MapType];
+
+/**
+ * @public
  * <p>Represents an object that contains entries and targets for
  *         <code>HomeDirectoryMappings</code>.</p>
  *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
@@ -470,9 +484,20 @@ export interface HomeDirectoryMapEntry {
 
   /**
    * @public
-   * <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
+   * <p>Represents the map target that is used in a <code>HomeDirectoryMapEntry</code>.</p>
    */
   Target: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the type of mapping. Set the type to <code>FILE</code> if you want the mapping to point to a file, or <code>DIRECTORY</code> for the directory to point to a directory.</p>
+   *          <note>
+   *             <p>By default, home directory mappings have a <code>Type</code> of <code>DIRECTORY</code> when you create a Transfer Family server. You would need to explicitly
+   *         set <code>Type</code> to <code>FILE</code> if you want a mapping to have a file
+   *         target.</p>
+   *          </note>
+   */
+  Type?: MapType;
 }
 
 /**
@@ -1425,6 +1450,35 @@ export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
+ * @enum
+ */
+export const DirectoryListingOptimization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DirectoryListingOptimization =
+  (typeof DirectoryListingOptimization)[keyof typeof DirectoryListingOptimization];
+
+/**
+ * @public
+ * <p>The Amazon S3 storage options that are configured for your server.</p>
+ */
+export interface S3StorageOptions {
+  /**
+   * @public
+   * <p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>
+   *          <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>
+   *             <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>
+   */
+  DirectoryListingOptimization?: DirectoryListingOptimization;
+}
+
+/**
+ * @public
  * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
  *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
  *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when the server session disconnects
@@ -1758,6 +1812,14 @@ export interface CreateServerRequest {
    *          </p>
    */
   StructuredLogDestinations?: string[];
+
+  /**
+   * @public
+   * <p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>
+   *          <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>
+   *             <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>
+   */
+  S3StorageOptions?: S3StorageOptions;
 }
 
 /**
@@ -3790,6 +3852,14 @@ export interface DescribedServer {
    *          </p>
    */
   StructuredLogDestinations?: string[];
+
+  /**
+   * @public
+   * <p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>
+   *          <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>
+   *             <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>
+   */
+  S3StorageOptions?: S3StorageOptions;
 }
 
 /**
@@ -6385,6 +6455,14 @@ export interface UpdateServerRequest {
    *          </p>
    */
   StructuredLogDestinations?: string[];
+
+  /**
+   * @public
+   * <p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>
+   *          <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>
+   *             <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>
+   */
+  S3StorageOptions?: S3StorageOptions;
 }
 
 /**

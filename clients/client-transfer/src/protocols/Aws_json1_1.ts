@@ -171,6 +171,7 @@ import {
   ResourceExistsException,
   ResourceNotFoundException,
   S3InputFileLocation,
+  S3StorageOptions,
   S3Tag,
   SendWorkflowStepStateRequest,
   ServiceUnavailableException,
@@ -4591,6 +4592,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_S3InputFileLocation omitted.
 
+// se_S3StorageOptions omitted.
+
 // se_S3Tag omitted.
 
 // se_S3Tags omitted.
@@ -4994,6 +4997,8 @@ const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHost
 // de_S3FileLocation omitted.
 
 // de_S3InputFileLocation omitted.
+
+// de_S3StorageOptions omitted.
 
 // de_S3Tag omitted.
 

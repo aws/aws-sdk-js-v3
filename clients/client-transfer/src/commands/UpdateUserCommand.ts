@@ -55,6 +55,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *     { // HomeDirectoryMapEntry
  *       Entry: "STRING_VALUE", // required
  *       Target: "STRING_VALUE", // required
+ *       Type: "FILE" || "DIRECTORY",
  *     },
  *   ],
  *   Policy: "STRING_VALUE",
