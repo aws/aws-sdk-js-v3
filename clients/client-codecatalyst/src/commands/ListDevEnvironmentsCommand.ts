@@ -89,6 +89,7 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
  * //       persistentStorage: { // PersistentStorage
  * //         sizeInGiB: Number("int"), // required
  * //       },
+ * //       vpcConnectionName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

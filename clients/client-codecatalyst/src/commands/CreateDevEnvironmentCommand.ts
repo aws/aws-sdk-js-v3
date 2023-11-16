@@ -71,6 +71,7 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  *   persistentStorage: { // PersistentStorageConfiguration
  *     sizeInGiB: Number("int"), // required
  *   },
+ *   vpcConnectionName: "STRING_VALUE",
  * };
  * const command = new CreateDevEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -78,6 +79,7 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * //   spaceName: "STRING_VALUE", // required
  * //   projectName: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
+ * //   vpcConnectionName: "STRING_VALUE",
  * // };
  *
  * ```

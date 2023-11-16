@@ -862,6 +862,12 @@ export interface DevEnvironmentSummary {
    * <p>Information about the configuration of persistent storage for the Dev Environment.</p>
    */
   persistentStorage: PersistentStorage | undefined;
+
+  /**
+   * @public
+   * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
+   */
+  vpcConnectionName?: string;
 }
 
 /**
@@ -1156,6 +1162,12 @@ export interface CreateDevEnvironmentRequest {
    *          </note>
    */
   persistentStorage: PersistentStorageConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>The name of the connection to use connect to a Amazon VPC.</p>
+   */
+  vpcConnectionName?: string;
 }
 
 /**
@@ -1179,6 +1191,12 @@ export interface CreateDevEnvironmentResponse {
    * <p>The system-generated unique ID of the Dev Environment. </p>
    */
   id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
+   */
+  vpcConnectionName?: string;
 }
 
 /**
@@ -1331,6 +1349,12 @@ export interface GetDevEnvironmentResponse {
    * <p>Information about the amount of storage allocated to the Dev Environment.  By default, a Dev Environment is configured to have 16GB of persistent storage.</p>
    */
   persistentStorage: PersistentStorage | undefined;
+
+  /**
+   * @public
+   * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
+   */
+  vpcConnectionName?: string;
 }
 
 /**

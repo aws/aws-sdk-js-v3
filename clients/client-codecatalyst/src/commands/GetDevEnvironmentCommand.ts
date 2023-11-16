@@ -77,6 +77,7 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * //   persistentStorage: { // PersistentStorage
  * //     sizeInGiB: Number("int"), // required
  * //   },
+ * //   vpcConnectionName: "STRING_VALUE",
  * // };
  *
  * ```

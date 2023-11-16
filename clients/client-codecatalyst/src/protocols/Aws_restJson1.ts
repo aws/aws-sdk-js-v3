@@ -188,6 +188,7 @@ export const se_CreateDevEnvironmentCommand = async (
       instanceType: [],
       persistentStorage: (_) => _json(_),
       repositories: (_) => _json(_),
+      vpcConnectionName: [],
     })
   );
   return new __HttpRequest({
@@ -1401,6 +1402,7 @@ export const de_CreateDevEnvironmentCommand = async (
     id: __expectString,
     projectName: __expectString,
     spaceName: __expectString,
+    vpcConnectionName: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1983,6 +1985,7 @@ export const de_GetDevEnvironmentCommand = async (
     spaceName: __expectString,
     status: __expectString,
     statusReason: __expectString,
+    vpcConnectionName: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3993,6 +3996,7 @@ const de_DevEnvironmentSummary = (output: any, context: __SerdeContext): DevEnvi
     spaceName: __expectString,
     status: __expectString,
     statusReason: __expectString,
+    vpcConnectionName: __expectString,
   }) as any;
 };
 
