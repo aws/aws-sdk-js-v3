@@ -44,7 +44,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * <p>Updates the configuration of an existing origination phone number. You can update the
  *             opt-out list, enable or disable two-way messaging, change the TwoWayChannelArn, enable
  *             or disable self-managed opt-outs, and enable or disable deletion protection.</p>
- *         <p>If the origination phone number is associated with a pool, an Error is
+ *          <p>If the origination phone number is associated with a pool, an error is
  *             returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +56,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  *   PhoneNumberId: "STRING_VALUE", // required
  *   TwoWayEnabled: true || false,
  *   TwoWayChannelArn: "STRING_VALUE",
+ *   TwoWayChannelRole: "STRING_VALUE",
  *   SelfManagedOptOutsEnabled: true || false,
  *   OptOutListName: "STRING_VALUE",
  *   DeletionProtectionEnabled: true || false,
@@ -76,9 +77,11 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * //   MonthlyLeasingPrice: "STRING_VALUE",
  * //   TwoWayEnabled: true || false,
  * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   TwoWayChannelRole: "STRING_VALUE",
  * //   SelfManagedOptOutsEnabled: true || false,
  * //   OptOutListName: "STRING_VALUE",
  * //   DeletionProtectionEnabled: true || false,
+ * //   RegistrationId: "STRING_VALUE",
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * // };
  *

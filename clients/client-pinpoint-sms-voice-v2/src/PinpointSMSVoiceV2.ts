@@ -24,6 +24,31 @@ import {
 } from "./commands/CreateOptOutListCommand";
 import { CreatePoolCommand, CreatePoolCommandInput, CreatePoolCommandOutput } from "./commands/CreatePoolCommand";
 import {
+  CreateRegistrationAssociationCommand,
+  CreateRegistrationAssociationCommandInput,
+  CreateRegistrationAssociationCommandOutput,
+} from "./commands/CreateRegistrationAssociationCommand";
+import {
+  CreateRegistrationAttachmentCommand,
+  CreateRegistrationAttachmentCommandInput,
+  CreateRegistrationAttachmentCommandOutput,
+} from "./commands/CreateRegistrationAttachmentCommand";
+import {
+  CreateRegistrationCommand,
+  CreateRegistrationCommandInput,
+  CreateRegistrationCommandOutput,
+} from "./commands/CreateRegistrationCommand";
+import {
+  CreateRegistrationVersionCommand,
+  CreateRegistrationVersionCommandInput,
+  CreateRegistrationVersionCommandOutput,
+} from "./commands/CreateRegistrationVersionCommand";
+import {
+  CreateVerifiedDestinationNumberCommand,
+  CreateVerifiedDestinationNumberCommandInput,
+  CreateVerifiedDestinationNumberCommandOutput,
+} from "./commands/CreateVerifiedDestinationNumberCommand";
+import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -60,10 +85,30 @@ import {
 } from "./commands/DeleteOptOutListCommand";
 import { DeletePoolCommand, DeletePoolCommandInput, DeletePoolCommandOutput } from "./commands/DeletePoolCommand";
 import {
+  DeleteRegistrationAttachmentCommand,
+  DeleteRegistrationAttachmentCommandInput,
+  DeleteRegistrationAttachmentCommandOutput,
+} from "./commands/DeleteRegistrationAttachmentCommand";
+import {
+  DeleteRegistrationCommand,
+  DeleteRegistrationCommandInput,
+  DeleteRegistrationCommandOutput,
+} from "./commands/DeleteRegistrationCommand";
+import {
+  DeleteRegistrationFieldValueCommand,
+  DeleteRegistrationFieldValueCommandInput,
+  DeleteRegistrationFieldValueCommandOutput,
+} from "./commands/DeleteRegistrationFieldValueCommand";
+import {
   DeleteTextMessageSpendLimitOverrideCommand,
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteTextMessageSpendLimitOverrideCommand";
+import {
+  DeleteVerifiedDestinationNumberCommand,
+  DeleteVerifiedDestinationNumberCommandInput,
+  DeleteVerifiedDestinationNumberCommandOutput,
+} from "./commands/DeleteVerifiedDestinationNumberCommand";
 import {
   DeleteVoiceMessageSpendLimitOverrideCommand,
   DeleteVoiceMessageSpendLimitOverrideCommandInput,
@@ -110,6 +155,41 @@ import {
   DescribePoolsCommandOutput,
 } from "./commands/DescribePoolsCommand";
 import {
+  DescribeRegistrationAttachmentsCommand,
+  DescribeRegistrationAttachmentsCommandInput,
+  DescribeRegistrationAttachmentsCommandOutput,
+} from "./commands/DescribeRegistrationAttachmentsCommand";
+import {
+  DescribeRegistrationFieldDefinitionsCommand,
+  DescribeRegistrationFieldDefinitionsCommandInput,
+  DescribeRegistrationFieldDefinitionsCommandOutput,
+} from "./commands/DescribeRegistrationFieldDefinitionsCommand";
+import {
+  DescribeRegistrationFieldValuesCommand,
+  DescribeRegistrationFieldValuesCommandInput,
+  DescribeRegistrationFieldValuesCommandOutput,
+} from "./commands/DescribeRegistrationFieldValuesCommand";
+import {
+  DescribeRegistrationsCommand,
+  DescribeRegistrationsCommandInput,
+  DescribeRegistrationsCommandOutput,
+} from "./commands/DescribeRegistrationsCommand";
+import {
+  DescribeRegistrationSectionDefinitionsCommand,
+  DescribeRegistrationSectionDefinitionsCommandInput,
+  DescribeRegistrationSectionDefinitionsCommandOutput,
+} from "./commands/DescribeRegistrationSectionDefinitionsCommand";
+import {
+  DescribeRegistrationTypeDefinitionsCommand,
+  DescribeRegistrationTypeDefinitionsCommandInput,
+  DescribeRegistrationTypeDefinitionsCommandOutput,
+} from "./commands/DescribeRegistrationTypeDefinitionsCommand";
+import {
+  DescribeRegistrationVersionsCommand,
+  DescribeRegistrationVersionsCommandInput,
+  DescribeRegistrationVersionsCommandOutput,
+} from "./commands/DescribeRegistrationVersionsCommand";
+import {
   DescribeSenderIdsCommand,
   DescribeSenderIdsCommandInput,
   DescribeSenderIdsCommandOutput,
@@ -120,15 +200,30 @@ import {
   DescribeSpendLimitsCommandOutput,
 } from "./commands/DescribeSpendLimitsCommand";
 import {
+  DescribeVerifiedDestinationNumbersCommand,
+  DescribeVerifiedDestinationNumbersCommandInput,
+  DescribeVerifiedDestinationNumbersCommandOutput,
+} from "./commands/DescribeVerifiedDestinationNumbersCommand";
+import {
   DisassociateOriginationIdentityCommand,
   DisassociateOriginationIdentityCommandInput,
   DisassociateOriginationIdentityCommandOutput,
 } from "./commands/DisassociateOriginationIdentityCommand";
 import {
+  DiscardRegistrationVersionCommand,
+  DiscardRegistrationVersionCommandInput,
+  DiscardRegistrationVersionCommandOutput,
+} from "./commands/DiscardRegistrationVersionCommand";
+import {
   ListPoolOriginationIdentitiesCommand,
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
 } from "./commands/ListPoolOriginationIdentitiesCommand";
+import {
+  ListRegistrationAssociationsCommand,
+  ListRegistrationAssociationsCommandInput,
+  ListRegistrationAssociationsCommandOutput,
+} from "./commands/ListRegistrationAssociationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -141,15 +236,35 @@ import {
   PutOptedOutNumberCommandOutput,
 } from "./commands/PutOptedOutNumberCommand";
 import {
+  PutRegistrationFieldValueCommand,
+  PutRegistrationFieldValueCommandInput,
+  PutRegistrationFieldValueCommandOutput,
+} from "./commands/PutRegistrationFieldValueCommand";
+import {
   ReleasePhoneNumberCommand,
   ReleasePhoneNumberCommandInput,
   ReleasePhoneNumberCommandOutput,
 } from "./commands/ReleasePhoneNumberCommand";
 import {
+  ReleaseSenderIdCommand,
+  ReleaseSenderIdCommandInput,
+  ReleaseSenderIdCommandOutput,
+} from "./commands/ReleaseSenderIdCommand";
+import {
   RequestPhoneNumberCommand,
   RequestPhoneNumberCommandInput,
   RequestPhoneNumberCommandOutput,
 } from "./commands/RequestPhoneNumberCommand";
+import {
+  RequestSenderIdCommand,
+  RequestSenderIdCommandInput,
+  RequestSenderIdCommandOutput,
+} from "./commands/RequestSenderIdCommand";
+import {
+  SendDestinationNumberVerificationCodeCommand,
+  SendDestinationNumberVerificationCodeCommandInput,
+  SendDestinationNumberVerificationCodeCommandOutput,
+} from "./commands/SendDestinationNumberVerificationCodeCommand";
 import {
   SendTextMessageCommand,
   SendTextMessageCommandInput,
@@ -180,6 +295,11 @@ import {
   SetVoiceMessageSpendLimitOverrideCommandInput,
   SetVoiceMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetVoiceMessageSpendLimitOverrideCommand";
+import {
+  SubmitRegistrationVersionCommand,
+  SubmitRegistrationVersionCommandInput,
+  SubmitRegistrationVersionCommandOutput,
+} from "./commands/SubmitRegistrationVersionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -197,6 +317,16 @@ import {
   UpdatePhoneNumberCommandOutput,
 } from "./commands/UpdatePhoneNumberCommand";
 import { UpdatePoolCommand, UpdatePoolCommandInput, UpdatePoolCommandOutput } from "./commands/UpdatePoolCommand";
+import {
+  UpdateSenderIdCommand,
+  UpdateSenderIdCommandInput,
+  UpdateSenderIdCommandOutput,
+} from "./commands/UpdateSenderIdCommand";
+import {
+  VerifyDestinationNumberCommand,
+  VerifyDestinationNumberCommandInput,
+  VerifyDestinationNumberCommandOutput,
+} from "./commands/VerifyDestinationNumberCommand";
 import { PinpointSMSVoiceV2Client, PinpointSMSVoiceV2ClientConfig } from "./PinpointSMSVoiceV2Client";
 
 const commands = {
@@ -205,6 +335,11 @@ const commands = {
   CreateEventDestinationCommand,
   CreateOptOutListCommand,
   CreatePoolCommand,
+  CreateRegistrationCommand,
+  CreateRegistrationAssociationCommand,
+  CreateRegistrationAttachmentCommand,
+  CreateRegistrationVersionCommand,
+  CreateVerifiedDestinationNumberCommand,
   DeleteConfigurationSetCommand,
   DeleteDefaultMessageTypeCommand,
   DeleteDefaultSenderIdCommand,
@@ -213,7 +348,11 @@ const commands = {
   DeleteOptedOutNumberCommand,
   DeleteOptOutListCommand,
   DeletePoolCommand,
+  DeleteRegistrationCommand,
+  DeleteRegistrationAttachmentCommand,
+  DeleteRegistrationFieldValueCommand,
   DeleteTextMessageSpendLimitOverrideCommand,
+  DeleteVerifiedDestinationNumberCommand,
   DeleteVoiceMessageSpendLimitOverrideCommand,
   DescribeAccountAttributesCommand,
   DescribeAccountLimitsCommand,
@@ -223,26 +362,43 @@ const commands = {
   DescribeOptOutListsCommand,
   DescribePhoneNumbersCommand,
   DescribePoolsCommand,
+  DescribeRegistrationAttachmentsCommand,
+  DescribeRegistrationFieldDefinitionsCommand,
+  DescribeRegistrationFieldValuesCommand,
+  DescribeRegistrationsCommand,
+  DescribeRegistrationSectionDefinitionsCommand,
+  DescribeRegistrationTypeDefinitionsCommand,
+  DescribeRegistrationVersionsCommand,
   DescribeSenderIdsCommand,
   DescribeSpendLimitsCommand,
+  DescribeVerifiedDestinationNumbersCommand,
   DisassociateOriginationIdentityCommand,
+  DiscardRegistrationVersionCommand,
   ListPoolOriginationIdentitiesCommand,
+  ListRegistrationAssociationsCommand,
   ListTagsForResourceCommand,
   PutKeywordCommand,
   PutOptedOutNumberCommand,
+  PutRegistrationFieldValueCommand,
   ReleasePhoneNumberCommand,
+  ReleaseSenderIdCommand,
   RequestPhoneNumberCommand,
+  RequestSenderIdCommand,
+  SendDestinationNumberVerificationCodeCommand,
   SendTextMessageCommand,
   SendVoiceMessageCommand,
   SetDefaultMessageTypeCommand,
   SetDefaultSenderIdCommand,
   SetTextMessageSpendLimitOverrideCommand,
   SetVoiceMessageSpendLimitOverrideCommand,
+  SubmitRegistrationVersionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateEventDestinationCommand,
   UpdatePhoneNumberCommand,
   UpdatePoolCommand,
+  UpdateSenderIdCommand,
+  VerifyDestinationNumberCommand,
 };
 
 export interface PinpointSMSVoiceV2 {
@@ -323,6 +479,91 @@ export interface PinpointSMSVoiceV2 {
     args: CreatePoolCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRegistrationCommand}
+   */
+  createRegistration(
+    args: CreateRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRegistrationCommandOutput>;
+  createRegistration(
+    args: CreateRegistrationCommandInput,
+    cb: (err: any, data?: CreateRegistrationCommandOutput) => void
+  ): void;
+  createRegistration(
+    args: CreateRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRegistrationAssociationCommand}
+   */
+  createRegistrationAssociation(
+    args: CreateRegistrationAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRegistrationAssociationCommandOutput>;
+  createRegistrationAssociation(
+    args: CreateRegistrationAssociationCommandInput,
+    cb: (err: any, data?: CreateRegistrationAssociationCommandOutput) => void
+  ): void;
+  createRegistrationAssociation(
+    args: CreateRegistrationAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRegistrationAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRegistrationAttachmentCommand}
+   */
+  createRegistrationAttachment(
+    args: CreateRegistrationAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRegistrationAttachmentCommandOutput>;
+  createRegistrationAttachment(
+    args: CreateRegistrationAttachmentCommandInput,
+    cb: (err: any, data?: CreateRegistrationAttachmentCommandOutput) => void
+  ): void;
+  createRegistrationAttachment(
+    args: CreateRegistrationAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRegistrationAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRegistrationVersionCommand}
+   */
+  createRegistrationVersion(
+    args: CreateRegistrationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRegistrationVersionCommandOutput>;
+  createRegistrationVersion(
+    args: CreateRegistrationVersionCommandInput,
+    cb: (err: any, data?: CreateRegistrationVersionCommandOutput) => void
+  ): void;
+  createRegistrationVersion(
+    args: CreateRegistrationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRegistrationVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateVerifiedDestinationNumberCommand}
+   */
+  createVerifiedDestinationNumber(
+    args: CreateVerifiedDestinationNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedDestinationNumberCommandOutput>;
+  createVerifiedDestinationNumber(
+    args: CreateVerifiedDestinationNumberCommandInput,
+    cb: (err: any, data?: CreateVerifiedDestinationNumberCommandOutput) => void
+  ): void;
+  createVerifiedDestinationNumber(
+    args: CreateVerifiedDestinationNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedDestinationNumberCommandOutput) => void
   ): void;
 
   /**
@@ -450,6 +691,57 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DeleteRegistrationCommand}
+   */
+  deleteRegistration(
+    args: DeleteRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistrationCommandOutput>;
+  deleteRegistration(
+    args: DeleteRegistrationCommandInput,
+    cb: (err: any, data?: DeleteRegistrationCommandOutput) => void
+  ): void;
+  deleteRegistration(
+    args: DeleteRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRegistrationAttachmentCommand}
+   */
+  deleteRegistrationAttachment(
+    args: DeleteRegistrationAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistrationAttachmentCommandOutput>;
+  deleteRegistrationAttachment(
+    args: DeleteRegistrationAttachmentCommandInput,
+    cb: (err: any, data?: DeleteRegistrationAttachmentCommandOutput) => void
+  ): void;
+  deleteRegistrationAttachment(
+    args: DeleteRegistrationAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistrationAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRegistrationFieldValueCommand}
+   */
+  deleteRegistrationFieldValue(
+    args: DeleteRegistrationFieldValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistrationFieldValueCommandOutput>;
+  deleteRegistrationFieldValue(
+    args: DeleteRegistrationFieldValueCommandInput,
+    cb: (err: any, data?: DeleteRegistrationFieldValueCommandOutput) => void
+  ): void;
+  deleteRegistrationFieldValue(
+    args: DeleteRegistrationFieldValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistrationFieldValueCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTextMessageSpendLimitOverrideCommand}
    */
   deleteTextMessageSpendLimitOverride(
@@ -464,6 +756,23 @@ export interface PinpointSMSVoiceV2 {
     args: DeleteTextMessageSpendLimitOverrideCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTextMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVerifiedDestinationNumberCommand}
+   */
+  deleteVerifiedDestinationNumber(
+    args: DeleteVerifiedDestinationNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedDestinationNumberCommandOutput>;
+  deleteVerifiedDestinationNumber(
+    args: DeleteVerifiedDestinationNumberCommandInput,
+    cb: (err: any, data?: DeleteVerifiedDestinationNumberCommandOutput) => void
+  ): void;
+  deleteVerifiedDestinationNumber(
+    args: DeleteVerifiedDestinationNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedDestinationNumberCommandOutput) => void
   ): void;
 
   /**
@@ -614,6 +923,125 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DescribeRegistrationAttachmentsCommand}
+   */
+  describeRegistrationAttachments(
+    args: DescribeRegistrationAttachmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistrationAttachmentsCommandOutput>;
+  describeRegistrationAttachments(
+    args: DescribeRegistrationAttachmentsCommandInput,
+    cb: (err: any, data?: DescribeRegistrationAttachmentsCommandOutput) => void
+  ): void;
+  describeRegistrationAttachments(
+    args: DescribeRegistrationAttachmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistrationAttachmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRegistrationFieldDefinitionsCommand}
+   */
+  describeRegistrationFieldDefinitions(
+    args: DescribeRegistrationFieldDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistrationFieldDefinitionsCommandOutput>;
+  describeRegistrationFieldDefinitions(
+    args: DescribeRegistrationFieldDefinitionsCommandInput,
+    cb: (err: any, data?: DescribeRegistrationFieldDefinitionsCommandOutput) => void
+  ): void;
+  describeRegistrationFieldDefinitions(
+    args: DescribeRegistrationFieldDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistrationFieldDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRegistrationFieldValuesCommand}
+   */
+  describeRegistrationFieldValues(
+    args: DescribeRegistrationFieldValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistrationFieldValuesCommandOutput>;
+  describeRegistrationFieldValues(
+    args: DescribeRegistrationFieldValuesCommandInput,
+    cb: (err: any, data?: DescribeRegistrationFieldValuesCommandOutput) => void
+  ): void;
+  describeRegistrationFieldValues(
+    args: DescribeRegistrationFieldValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistrationFieldValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRegistrationsCommand}
+   */
+  describeRegistrations(
+    args: DescribeRegistrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistrationsCommandOutput>;
+  describeRegistrations(
+    args: DescribeRegistrationsCommandInput,
+    cb: (err: any, data?: DescribeRegistrationsCommandOutput) => void
+  ): void;
+  describeRegistrations(
+    args: DescribeRegistrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRegistrationSectionDefinitionsCommand}
+   */
+  describeRegistrationSectionDefinitions(
+    args: DescribeRegistrationSectionDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistrationSectionDefinitionsCommandOutput>;
+  describeRegistrationSectionDefinitions(
+    args: DescribeRegistrationSectionDefinitionsCommandInput,
+    cb: (err: any, data?: DescribeRegistrationSectionDefinitionsCommandOutput) => void
+  ): void;
+  describeRegistrationSectionDefinitions(
+    args: DescribeRegistrationSectionDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistrationSectionDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRegistrationTypeDefinitionsCommand}
+   */
+  describeRegistrationTypeDefinitions(
+    args: DescribeRegistrationTypeDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistrationTypeDefinitionsCommandOutput>;
+  describeRegistrationTypeDefinitions(
+    args: DescribeRegistrationTypeDefinitionsCommandInput,
+    cb: (err: any, data?: DescribeRegistrationTypeDefinitionsCommandOutput) => void
+  ): void;
+  describeRegistrationTypeDefinitions(
+    args: DescribeRegistrationTypeDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistrationTypeDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRegistrationVersionsCommand}
+   */
+  describeRegistrationVersions(
+    args: DescribeRegistrationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistrationVersionsCommandOutput>;
+  describeRegistrationVersions(
+    args: DescribeRegistrationVersionsCommandInput,
+    cb: (err: any, data?: DescribeRegistrationVersionsCommandOutput) => void
+  ): void;
+  describeRegistrationVersions(
+    args: DescribeRegistrationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistrationVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSenderIdsCommand}
    */
   describeSenderIds(
@@ -648,6 +1076,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DescribeVerifiedDestinationNumbersCommand}
+   */
+  describeVerifiedDestinationNumbers(
+    args: DescribeVerifiedDestinationNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedDestinationNumbersCommandOutput>;
+  describeVerifiedDestinationNumbers(
+    args: DescribeVerifiedDestinationNumbersCommandInput,
+    cb: (err: any, data?: DescribeVerifiedDestinationNumbersCommandOutput) => void
+  ): void;
+  describeVerifiedDestinationNumbers(
+    args: DescribeVerifiedDestinationNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedDestinationNumbersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateOriginationIdentityCommand}
    */
   disassociateOriginationIdentity(
@@ -665,6 +1110,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DiscardRegistrationVersionCommand}
+   */
+  discardRegistrationVersion(
+    args: DiscardRegistrationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DiscardRegistrationVersionCommandOutput>;
+  discardRegistrationVersion(
+    args: DiscardRegistrationVersionCommandInput,
+    cb: (err: any, data?: DiscardRegistrationVersionCommandOutput) => void
+  ): void;
+  discardRegistrationVersion(
+    args: DiscardRegistrationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DiscardRegistrationVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPoolOriginationIdentitiesCommand}
    */
   listPoolOriginationIdentities(
@@ -679,6 +1141,23 @@ export interface PinpointSMSVoiceV2 {
     args: ListPoolOriginationIdentitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPoolOriginationIdentitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRegistrationAssociationsCommand}
+   */
+  listRegistrationAssociations(
+    args: ListRegistrationAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegistrationAssociationsCommandOutput>;
+  listRegistrationAssociations(
+    args: ListRegistrationAssociationsCommandInput,
+    cb: (err: any, data?: ListRegistrationAssociationsCommandOutput) => void
+  ): void;
+  listRegistrationAssociations(
+    args: ListRegistrationAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRegistrationAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -727,6 +1206,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link PutRegistrationFieldValueCommand}
+   */
+  putRegistrationFieldValue(
+    args: PutRegistrationFieldValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRegistrationFieldValueCommandOutput>;
+  putRegistrationFieldValue(
+    args: PutRegistrationFieldValueCommandInput,
+    cb: (err: any, data?: PutRegistrationFieldValueCommandOutput) => void
+  ): void;
+  putRegistrationFieldValue(
+    args: PutRegistrationFieldValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRegistrationFieldValueCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ReleasePhoneNumberCommand}
    */
   releasePhoneNumber(
@@ -744,6 +1240,20 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link ReleaseSenderIdCommand}
+   */
+  releaseSenderId(
+    args: ReleaseSenderIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReleaseSenderIdCommandOutput>;
+  releaseSenderId(args: ReleaseSenderIdCommandInput, cb: (err: any, data?: ReleaseSenderIdCommandOutput) => void): void;
+  releaseSenderId(
+    args: ReleaseSenderIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReleaseSenderIdCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RequestPhoneNumberCommand}
    */
   requestPhoneNumber(
@@ -758,6 +1268,37 @@ export interface PinpointSMSVoiceV2 {
     args: RequestPhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RequestPhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RequestSenderIdCommand}
+   */
+  requestSenderId(
+    args: RequestSenderIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RequestSenderIdCommandOutput>;
+  requestSenderId(args: RequestSenderIdCommandInput, cb: (err: any, data?: RequestSenderIdCommandOutput) => void): void;
+  requestSenderId(
+    args: RequestSenderIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RequestSenderIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDestinationNumberVerificationCodeCommand}
+   */
+  sendDestinationNumberVerificationCode(
+    args: SendDestinationNumberVerificationCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDestinationNumberVerificationCodeCommandOutput>;
+  sendDestinationNumberVerificationCode(
+    args: SendDestinationNumberVerificationCodeCommandInput,
+    cb: (err: any, data?: SendDestinationNumberVerificationCodeCommandOutput) => void
+  ): void;
+  sendDestinationNumberVerificationCode(
+    args: SendDestinationNumberVerificationCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDestinationNumberVerificationCodeCommandOutput) => void
   ): void;
 
   /**
@@ -860,6 +1401,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link SubmitRegistrationVersionCommand}
+   */
+  submitRegistrationVersion(
+    args: SubmitRegistrationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubmitRegistrationVersionCommandOutput>;
+  submitRegistrationVersion(
+    args: SubmitRegistrationVersionCommandInput,
+    cb: (err: any, data?: SubmitRegistrationVersionCommandOutput) => void
+  ): void;
+  submitRegistrationVersion(
+    args: SubmitRegistrationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SubmitRegistrationVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -925,6 +1483,37 @@ export interface PinpointSMSVoiceV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePoolCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateSenderIdCommand}
+   */
+  updateSenderId(
+    args: UpdateSenderIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSenderIdCommandOutput>;
+  updateSenderId(args: UpdateSenderIdCommandInput, cb: (err: any, data?: UpdateSenderIdCommandOutput) => void): void;
+  updateSenderId(
+    args: UpdateSenderIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSenderIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link VerifyDestinationNumberCommand}
+   */
+  verifyDestinationNumber(
+    args: VerifyDestinationNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyDestinationNumberCommandOutput>;
+  verifyDestinationNumber(
+    args: VerifyDestinationNumberCommandInput,
+    cb: (err: any, data?: VerifyDestinationNumberCommandOutput) => void
+  ): void;
+  verifyDestinationNumber(
+    args: VerifyDestinationNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: VerifyDestinationNumberCommandOutput) => void
+  ): void;
 }
 
 /**
@@ -932,12 +1521,12 @@ export interface PinpointSMSVoiceV2 {
  * <p>Welcome to the <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i>.
  *             This guide provides information about Amazon Pinpoint SMS and Voice, version 2 API
  *             resources, including supported HTTP methods, parameters, and schemas.</p>
- *         <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with
+ *          <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with
  *             your recipients across multiple messaging channels. The Amazon Pinpoint SMS and
  *             Voice, version 2 API provides programmatic access to options that are unique to the SMS
  *             and voice channels and supplements the resources provided by the Amazon Pinpoint
  *             API.</p>
- *         <p>If you're new to Amazon Pinpoint, it's also helpful to review the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">
+ *          <p>If you're new to Amazon Pinpoint, it's also helpful to review the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">
  *                 Amazon Pinpoint Developer Guide</a>. The <i>Amazon Pinpoint
  *                 Developer Guide</i> provides tutorials, code samples, and procedures that
  *             demonstrate how to use Amazon Pinpoint features programmatically and how to integrate
@@ -945,6 +1534,25 @@ export interface PinpointSMSVoiceV2 {
  *             The guide also provides key information, such as Amazon Pinpoint integration with
  *             other Amazon Web Services services, and the quotas that apply to use of the
  *             service.</p>
+ *          <p>
+ *             <b>Regional availability</b>
+ *          </p>
+ *          <p>The <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i> is
+ *             available in several Amazon Web Services Regions and it provides an endpoint for each of
+ *             these Regions. For a list of all the Regions and endpoints where the API is currently
+ *             available, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#pinpoint_region">Amazon Web Services Service Endpoints</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/pinpoint.html">Amazon Pinpoint
+ *                 endpoints and quotas</a> in the Amazon Web Services General Reference. To
+ *             learn more about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing
+ *                     Amazon Web Services Regions</a> in the Amazon Web Services General
+ *             Reference.</p>
+ *          <p>In each Region, Amazon Web Services maintains multiple Availability Zones. These
+ *             Availability Zones are physically isolated from each other, but are united by private,
+ *             low-latency, high-throughput, and highly redundant network connections. These
+ *             Availability Zones enable us to provide very high levels of availability and redundancy,
+ *             while also minimizing latency. To learn more about the number of Availability Zones that
+ *             are available in each Region, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/">Amazon Web Services
+ *                 Global Infrastructure.</a>
+ *          </p>
  */
 export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client implements PinpointSMSVoiceV2 {}
 createAggregatedClient(commands, PinpointSMSVoiceV2);

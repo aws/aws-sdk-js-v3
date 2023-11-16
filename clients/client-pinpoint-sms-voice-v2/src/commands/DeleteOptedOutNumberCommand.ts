@@ -43,9 +43,9 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  * @public
  * <p>Deletes an existing opted out destination phone number from the specified opt-out
  *             list.</p>
- *         <p>Each destination phone number can only be deleted once every 30 days.</p>
- *         <p>If the specified destination phone number doesn't exist or if the opt-out list doesn't
- *             exist, an Error is returned.</p>
+ *          <p>Each destination phone number can only be deleted once every 30 days.</p>
+ *          <p>If the specified destination phone number doesn't exist or if the opt-out list doesn't
+ *             exist, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

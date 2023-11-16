@@ -42,8 +42,8 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
 /**
  * @public
  * <p>Creates a new opt-out list.</p>
- *         <p>If the opt-out list name already exists, an Error is returned.</p>
- *         <p>An opt-out list is a list of phone numbers that are opted out, meaning you can't send
+ *          <p>If the opt-out list name already exists, an error is returned.</p>
+ *          <p>An opt-out list is a list of phone numbers that are opted out, meaning you can't send
  *             SMS or voice messages to them. If end user replies with the keyword "STOP," an entry for
  *             the phone number is added to the opt-out list. In addition to STOP, your recipients can
  *             use any supported opt-out keyword, such as CANCEL or OPTOUT. For a list of supported

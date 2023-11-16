@@ -42,12 +42,12 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
 /**
  * @public
  * <p>Creates a new event destination in a configuration set.</p>
- *         <p>An event destination is a location where you send message events. The event options
+ *          <p>An event destination is a location where you send message events. The event options
  *             are Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example,
  *             when a message is delivered successfully, you can send information about that event to
  *             an event destination, or send notifications to endpoints that are subscribed to an
  *                 Amazon SNS topic.</p>
- *         <p>Each configuration set can contain between 0 and 5 event destinations. Each event
+ *          <p>Each configuration set can contain between 0 and 5 event destinations. Each event
  *             destination can contain a reference to a single destination, such as a CloudWatch
  *             or Kinesis Data Firehose destination.</p>
  * @example

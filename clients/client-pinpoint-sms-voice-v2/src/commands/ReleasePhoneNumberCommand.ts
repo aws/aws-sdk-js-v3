@@ -43,8 +43,8 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * @public
  * <p>Releases an existing origination phone number in your account. Once released, a phone
  *             number is no longer available for sending messages.</p>
- *         <p>If the origination phone number has deletion protection enabled or is associated with
- *             a pool, an Error is returned.</p>
+ *          <p>If the origination phone number has deletion protection enabled or is associated with
+ *             a pool, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,10 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * //   MonthlyLeasingPrice: "STRING_VALUE",
  * //   TwoWayEnabled: true || false,
  * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   TwoWayChannelRole: "STRING_VALUE",
  * //   SelfManagedOptOutsEnabled: true || false,
  * //   OptOutListName: "STRING_VALUE",
+ * //   RegistrationId: "STRING_VALUE",
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * // };
  *

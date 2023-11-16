@@ -42,12 +42,12 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
 /**
  * @public
  * <p>Describes the specified configuration sets or all in your account.</p>
- *         <p>If you specify configuration set names, the output includes information for only the
+ *          <p>If you specify configuration set names, the output includes information for only the
  *             specified configuration sets. If you specify filters, the output includes information
  *             for only those configuration sets that meet the filter criteria. If you don't specify
  *             configuration set names or filters, the output includes information for all
  *             configuration sets.</p>
- *         <p>If you specify a configuration set name that isn't valid, an error is returned.</p>
+ *          <p>If you specify a configuration set name that isn't valid, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

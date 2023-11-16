@@ -85,10 +85,12 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * //   MonthlyLeasingPrice: "STRING_VALUE",
  * //   TwoWayEnabled: true || false,
  * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   TwoWayChannelRole: "STRING_VALUE",
  * //   SelfManagedOptOutsEnabled: true || false,
  * //   OptOutListName: "STRING_VALUE",
  * //   DeletionProtectionEnabled: true || false,
  * //   PoolId: "STRING_VALUE",
+ * //   RegistrationId: "STRING_VALUE",
  * //   Tags: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required

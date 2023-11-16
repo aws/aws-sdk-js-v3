@@ -43,11 +43,11 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * @public
  * <p>Describes the specified origination phone number, or all the phone numbers in your
  *             account.</p>
- *         <p>If you specify phone number IDs, the output includes information for only the
+ *          <p>If you specify phone number IDs, the output includes information for only the
  *             specified phone numbers. If you specify filters, the output includes information for
  *             only those phone numbers that meet the filter criteria. If you don't specify phone
  *             number IDs or filters, the output includes information for all phone numbers.</p>
- *         <p>If you specify a phone number ID that isn't valid, an Error is returned.</p>
+ *          <p>If you specify a phone number ID that isn't valid, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,10 +87,12 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * //       MonthlyLeasingPrice: "STRING_VALUE", // required
  * //       TwoWayEnabled: true || false, // required
  * //       TwoWayChannelArn: "STRING_VALUE",
+ * //       TwoWayChannelRole: "STRING_VALUE",
  * //       SelfManagedOptOutsEnabled: true || false, // required
  * //       OptOutListName: "STRING_VALUE", // required
  * //       DeletionProtectionEnabled: true || false, // required
  * //       PoolId: "STRING_VALUE",
+ * //       RegistrationId: "STRING_VALUE",
  * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],

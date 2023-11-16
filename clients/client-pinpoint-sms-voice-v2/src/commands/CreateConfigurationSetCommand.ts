@@ -43,9 +43,9 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @public
  * <p>Creates a new configuration set. After you create the configuration set, you can add
  *             one or more event destinations to it.</p>
- *         <p>A configuration set is a set of rules that you apply to the SMS and voice messages
+ *          <p>A configuration set is a set of rules that you apply to the SMS and voice messages
  *             that you send.</p>
- *         <p>When you send a message, you can optionally specify a single configuration set.</p>
+ *          <p>When you send a message, you can optionally specify a single configuration set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

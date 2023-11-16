@@ -42,8 +42,8 @@ export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult,
 /**
  * @public
  * <p>Creates an opted out destination phone number in the opt-out list.</p>
- *         <p>If the destination phone number isn't valid or if the specified opt-out list doesn't
- *             exist, an Error is returned.</p>
+ *          <p>If the destination phone number isn't valid or if the specified opt-out list doesn't
+ *             exist, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

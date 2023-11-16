@@ -42,7 +42,7 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
 /**
  * @public
  * <p>Sets default sender ID on a configuration set.</p>
- *         <p>When sending a text message to a destination country that supports sender IDs, the
+ *          <p>When sending a text message to a destination country that supports sender IDs, the
  *             default sender ID on the configuration set specified will be used if no dedicated
  *             origination phone numbers or registered sender IDs are available in your account.</p>
  * @example

@@ -55,6 +55,7 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  *   PoolId: "STRING_VALUE", // required
  *   TwoWayEnabled: true || false,
  *   TwoWayChannelArn: "STRING_VALUE",
+ *   TwoWayChannelRole: "STRING_VALUE",
  *   SelfManagedOptOutsEnabled: true || false,
  *   OptOutListName: "STRING_VALUE",
  *   SharedRoutesEnabled: true || false,
@@ -69,6 +70,7 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  * //   MessageType: "STRING_VALUE",
  * //   TwoWayEnabled: true || false,
  * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   TwoWayChannelRole: "STRING_VALUE",
  * //   SelfManagedOptOutsEnabled: true || false,
  * //   OptOutListName: "STRING_VALUE",
  * //   SharedRoutesEnabled: true || false,

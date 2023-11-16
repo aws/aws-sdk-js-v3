@@ -47,7 +47,7 @@ export interface ListPoolOriginationIdentitiesCommandOutput
 /**
  * @public
  * <p>Lists all associated origination identities in your pool.</p>
- *         <p>If you specify filters, the output includes information for only those origination
+ *          <p>If you specify filters, the output includes information for only those origination
  *             identities that meet the filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +81,7 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * //       NumberCapabilities: [ // NumberCapabilityList // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       PhoneNumber: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

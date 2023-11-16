@@ -42,7 +42,7 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
 /**
  * @public
  * <p>Creates a new text message and sends it to a recipient's phone number.</p>
- *         <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
+ *          <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
  *             depends on the destination country of your messages, as well as the type of phone number
  *             (origination number) that you use to send the message. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-limitations-mps.html">Message Parts per
  *                 Second (MPS) limits</a> in the <i>Amazon Pinpoint User

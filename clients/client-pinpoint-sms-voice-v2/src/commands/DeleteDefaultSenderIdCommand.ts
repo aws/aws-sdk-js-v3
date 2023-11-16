@@ -42,7 +42,7 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
 /**
  * @public
  * <p>Deletes an existing default sender ID on a configuration set.</p>
- *         <p>A default sender ID is the identity that appears on recipients' devices when they
+ *          <p>A default sender ID is the identity that appears on recipients' devices when they
  *             receive SMS messages. Support for sender ID capabilities varies by country or
  *             region.</p>
  * @example

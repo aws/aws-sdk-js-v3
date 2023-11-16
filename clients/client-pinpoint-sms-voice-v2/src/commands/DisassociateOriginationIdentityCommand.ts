@@ -47,7 +47,7 @@ export interface DisassociateOriginationIdentityCommandOutput
 /**
  * @public
  * <p>Removes the specified origination identity from an existing pool.</p>
- *         <p>If the origination identity isn't associated with the specified pool, an Error is
+ *          <p>If the origination identity isn't associated with the specified pool, an error is
  *             returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -5,6 +5,7 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -35,6 +36,23 @@ import {
 import { CreateOptOutListCommandInput, CreateOptOutListCommandOutput } from "../commands/CreateOptOutListCommand";
 import { CreatePoolCommandInput, CreatePoolCommandOutput } from "../commands/CreatePoolCommand";
 import {
+  CreateRegistrationAssociationCommandInput,
+  CreateRegistrationAssociationCommandOutput,
+} from "../commands/CreateRegistrationAssociationCommand";
+import {
+  CreateRegistrationAttachmentCommandInput,
+  CreateRegistrationAttachmentCommandOutput,
+} from "../commands/CreateRegistrationAttachmentCommand";
+import { CreateRegistrationCommandInput, CreateRegistrationCommandOutput } from "../commands/CreateRegistrationCommand";
+import {
+  CreateRegistrationVersionCommandInput,
+  CreateRegistrationVersionCommandOutput,
+} from "../commands/CreateRegistrationVersionCommand";
+import {
+  CreateVerifiedDestinationNumberCommandInput,
+  CreateVerifiedDestinationNumberCommandOutput,
+} from "../commands/CreateVerifiedDestinationNumberCommand";
+import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "../commands/DeleteConfigurationSetCommand";
@@ -58,9 +76,22 @@ import {
 import { DeleteOptOutListCommandInput, DeleteOptOutListCommandOutput } from "../commands/DeleteOptOutListCommand";
 import { DeletePoolCommandInput, DeletePoolCommandOutput } from "../commands/DeletePoolCommand";
 import {
+  DeleteRegistrationAttachmentCommandInput,
+  DeleteRegistrationAttachmentCommandOutput,
+} from "../commands/DeleteRegistrationAttachmentCommand";
+import { DeleteRegistrationCommandInput, DeleteRegistrationCommandOutput } from "../commands/DeleteRegistrationCommand";
+import {
+  DeleteRegistrationFieldValueCommandInput,
+  DeleteRegistrationFieldValueCommandOutput,
+} from "../commands/DeleteRegistrationFieldValueCommand";
+import {
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
 } from "../commands/DeleteTextMessageSpendLimitOverrideCommand";
+import {
+  DeleteVerifiedDestinationNumberCommandInput,
+  DeleteVerifiedDestinationNumberCommandOutput,
+} from "../commands/DeleteVerifiedDestinationNumberCommand";
 import {
   DeleteVoiceMessageSpendLimitOverrideCommandInput,
   DeleteVoiceMessageSpendLimitOverrideCommandOutput,
@@ -91,27 +122,77 @@ import {
   DescribePhoneNumbersCommandOutput,
 } from "../commands/DescribePhoneNumbersCommand";
 import { DescribePoolsCommandInput, DescribePoolsCommandOutput } from "../commands/DescribePoolsCommand";
+import {
+  DescribeRegistrationAttachmentsCommandInput,
+  DescribeRegistrationAttachmentsCommandOutput,
+} from "../commands/DescribeRegistrationAttachmentsCommand";
+import {
+  DescribeRegistrationFieldDefinitionsCommandInput,
+  DescribeRegistrationFieldDefinitionsCommandOutput,
+} from "../commands/DescribeRegistrationFieldDefinitionsCommand";
+import {
+  DescribeRegistrationFieldValuesCommandInput,
+  DescribeRegistrationFieldValuesCommandOutput,
+} from "../commands/DescribeRegistrationFieldValuesCommand";
+import {
+  DescribeRegistrationsCommandInput,
+  DescribeRegistrationsCommandOutput,
+} from "../commands/DescribeRegistrationsCommand";
+import {
+  DescribeRegistrationSectionDefinitionsCommandInput,
+  DescribeRegistrationSectionDefinitionsCommandOutput,
+} from "../commands/DescribeRegistrationSectionDefinitionsCommand";
+import {
+  DescribeRegistrationTypeDefinitionsCommandInput,
+  DescribeRegistrationTypeDefinitionsCommandOutput,
+} from "../commands/DescribeRegistrationTypeDefinitionsCommand";
+import {
+  DescribeRegistrationVersionsCommandInput,
+  DescribeRegistrationVersionsCommandOutput,
+} from "../commands/DescribeRegistrationVersionsCommand";
 import { DescribeSenderIdsCommandInput, DescribeSenderIdsCommandOutput } from "../commands/DescribeSenderIdsCommand";
 import {
   DescribeSpendLimitsCommandInput,
   DescribeSpendLimitsCommandOutput,
 } from "../commands/DescribeSpendLimitsCommand";
 import {
+  DescribeVerifiedDestinationNumbersCommandInput,
+  DescribeVerifiedDestinationNumbersCommandOutput,
+} from "../commands/DescribeVerifiedDestinationNumbersCommand";
+import {
   DisassociateOriginationIdentityCommandInput,
   DisassociateOriginationIdentityCommandOutput,
 } from "../commands/DisassociateOriginationIdentityCommand";
 import {
+  DiscardRegistrationVersionCommandInput,
+  DiscardRegistrationVersionCommandOutput,
+} from "../commands/DiscardRegistrationVersionCommand";
+import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
 } from "../commands/ListPoolOriginationIdentitiesCommand";
+import {
+  ListRegistrationAssociationsCommandInput,
+  ListRegistrationAssociationsCommandOutput,
+} from "../commands/ListRegistrationAssociationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutKeywordCommandInput, PutKeywordCommandOutput } from "../commands/PutKeywordCommand";
 import { PutOptedOutNumberCommandInput, PutOptedOutNumberCommandOutput } from "../commands/PutOptedOutNumberCommand";
+import {
+  PutRegistrationFieldValueCommandInput,
+  PutRegistrationFieldValueCommandOutput,
+} from "../commands/PutRegistrationFieldValueCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
+import { ReleaseSenderIdCommandInput, ReleaseSenderIdCommandOutput } from "../commands/ReleaseSenderIdCommand";
 import { RequestPhoneNumberCommandInput, RequestPhoneNumberCommandOutput } from "../commands/RequestPhoneNumberCommand";
+import { RequestSenderIdCommandInput, RequestSenderIdCommandOutput } from "../commands/RequestSenderIdCommand";
+import {
+  SendDestinationNumberVerificationCodeCommandInput,
+  SendDestinationNumberVerificationCodeCommandOutput,
+} from "../commands/SendDestinationNumberVerificationCodeCommand";
 import { SendTextMessageCommandInput, SendTextMessageCommandOutput } from "../commands/SendTextMessageCommand";
 import { SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput } from "../commands/SendVoiceMessageCommand";
 import {
@@ -127,6 +208,10 @@ import {
   SetVoiceMessageSpendLimitOverrideCommandInput,
   SetVoiceMessageSpendLimitOverrideCommandOutput,
 } from "../commands/SetVoiceMessageSpendLimitOverrideCommand";
+import {
+  SubmitRegistrationVersionCommandInput,
+  SubmitRegistrationVersionCommandOutput,
+} from "../commands/SubmitRegistrationVersionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -135,6 +220,11 @@ import {
 } from "../commands/UpdateEventDestinationCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "../commands/UpdatePhoneNumberCommand";
 import { UpdatePoolCommandInput, UpdatePoolCommandOutput } from "../commands/UpdatePoolCommand";
+import { UpdateSenderIdCommandInput, UpdateSenderIdCommandOutput } from "../commands/UpdateSenderIdCommand";
+import {
+  VerifyDestinationNumberCommandInput,
+  VerifyDestinationNumberCommandOutput,
+} from "../commands/VerifyDestinationNumberCommand";
 import {
   AccessDeniedException,
   AssociateOriginationIdentityRequest,
@@ -149,6 +239,15 @@ import {
   CreateOptOutListResult,
   CreatePoolRequest,
   CreatePoolResult,
+  CreateRegistrationAssociationRequest,
+  CreateRegistrationAttachmentRequest,
+  CreateRegistrationAttachmentResult,
+  CreateRegistrationRequest,
+  CreateRegistrationResult,
+  CreateRegistrationVersionRequest,
+  CreateRegistrationVersionResult,
+  CreateVerifiedDestinationNumberRequest,
+  CreateVerifiedDestinationNumberResult,
   DeleteConfigurationSetRequest,
   DeleteConfigurationSetResult,
   DeleteDefaultMessageTypeRequest,
@@ -161,7 +260,14 @@ import {
   DeleteOptOutListResult,
   DeletePoolRequest,
   DeletePoolResult,
+  DeleteRegistrationAttachmentRequest,
+  DeleteRegistrationAttachmentResult,
+  DeleteRegistrationFieldValueRequest,
+  DeleteRegistrationRequest,
+  DeleteRegistrationResult,
   DeleteTextMessageSpendLimitOverrideRequest,
+  DeleteVerifiedDestinationNumberRequest,
+  DeleteVerifiedDestinationNumberResult,
   DeleteVoiceMessageSpendLimitOverrideRequest,
   DescribeAccountAttributesRequest,
   DescribeAccountLimitsRequest,
@@ -176,16 +282,32 @@ import {
   DescribePhoneNumbersResult,
   DescribePoolsRequest,
   DescribePoolsResult,
+  DescribeRegistrationAttachmentsRequest,
+  DescribeRegistrationAttachmentsResult,
+  DescribeRegistrationFieldDefinitionsRequest,
+  DescribeRegistrationFieldValuesRequest,
+  DescribeRegistrationSectionDefinitionsRequest,
+  DescribeRegistrationsRequest,
+  DescribeRegistrationsResult,
+  DescribeRegistrationTypeDefinitionsRequest,
+  DescribeRegistrationVersionsRequest,
+  DescribeRegistrationVersionsResult,
   DescribeSenderIdsRequest,
   DescribeSpendLimitsRequest,
+  DescribeVerifiedDestinationNumbersRequest,
+  DescribeVerifiedDestinationNumbersResult,
   DestinationCountryParameterKey,
   DisassociateOriginationIdentityRequest,
+  DiscardRegistrationVersionRequest,
+  DiscardRegistrationVersionResult,
   EventType,
   InternalServerException,
   KeywordFilter,
   KinesisFirehoseDestination,
   ListPoolOriginationIdentitiesRequest,
+  ListRegistrationAssociationsRequest,
   ListTagsForResourceRequest,
+  MessageType,
   NumberCapability,
   OptedOutFilter,
   OptedOutNumberInformation,
@@ -198,11 +320,24 @@ import {
   PutKeywordRequest,
   PutOptedOutNumberRequest,
   PutOptedOutNumberResult,
+  PutRegistrationFieldValueRequest,
+  RegistrationAssociationFilter,
+  RegistrationAttachmentFilter,
+  RegistrationAttachmentsInformation,
+  RegistrationFilter,
+  RegistrationInformation,
+  RegistrationTypeFilter,
+  RegistrationVersionFilter,
+  RegistrationVersionInformation,
+  RegistrationVersionStatusHistory,
   ReleasePhoneNumberRequest,
   ReleasePhoneNumberResult,
+  ReleaseSenderIdRequest,
   RequestPhoneNumberRequest,
   RequestPhoneNumberResult,
+  RequestSenderIdRequest,
   ResourceNotFoundException,
+  SendDestinationNumberVerificationCodeRequest,
   SenderIdAndCountry,
   SenderIdFilter,
   SendTextMessageRequest,
@@ -213,6 +348,8 @@ import {
   SetTextMessageSpendLimitOverrideRequest,
   SetVoiceMessageSpendLimitOverrideRequest,
   SnsDestination,
+  SubmitRegistrationVersionRequest,
+  SubmitRegistrationVersionResult,
   Tag,
   TagResourceRequest,
   ThrottlingException,
@@ -222,7 +359,12 @@ import {
   UpdatePhoneNumberResult,
   UpdatePoolRequest,
   UpdatePoolResult,
+  UpdateSenderIdRequest,
   ValidationException,
+  VerifiedDestinationNumberFilter,
+  VerifiedDestinationNumberInformation,
+  VerifyDestinationNumberRequest,
+  VerifyDestinationNumberResult,
 } from "../models/models_0";
 import { PinpointSMSVoiceV2ServiceException as __BaseException } from "../models/PinpointSMSVoiceV2ServiceException";
 
@@ -288,6 +430,71 @@ export const se_CreatePoolCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreatePool");
   let body: any;
   body = JSON.stringify(se_CreatePoolRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateRegistrationCommand
+ */
+export const se_CreateRegistrationCommand = async (
+  input: CreateRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRegistration");
+  let body: any;
+  body = JSON.stringify(se_CreateRegistrationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateRegistrationAssociationCommand
+ */
+export const se_CreateRegistrationAssociationCommand = async (
+  input: CreateRegistrationAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRegistrationAssociation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateRegistrationAttachmentCommand
+ */
+export const se_CreateRegistrationAttachmentCommand = async (
+  input: CreateRegistrationAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRegistrationAttachment");
+  let body: any;
+  body = JSON.stringify(se_CreateRegistrationAttachmentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateRegistrationVersionCommand
+ */
+export const se_CreateRegistrationVersionCommand = async (
+  input: CreateRegistrationVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRegistrationVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateVerifiedDestinationNumberCommand
+ */
+export const se_CreateVerifiedDestinationNumberCommand = async (
+  input: CreateVerifiedDestinationNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateVerifiedDestinationNumber");
+  let body: any;
+  body = JSON.stringify(se_CreateVerifiedDestinationNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -396,6 +603,45 @@ export const se_DeletePoolCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteRegistrationCommand
+ */
+export const se_DeleteRegistrationCommand = async (
+  input: DeleteRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRegistration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteRegistrationAttachmentCommand
+ */
+export const se_DeleteRegistrationAttachmentCommand = async (
+  input: DeleteRegistrationAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRegistrationAttachment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteRegistrationFieldValueCommand
+ */
+export const se_DeleteRegistrationFieldValueCommand = async (
+  input: DeleteRegistrationFieldValueCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRegistrationFieldValue");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand
  */
 export const se_DeleteTextMessageSpendLimitOverrideCommand = async (
@@ -403,6 +649,19 @@ export const se_DeleteTextMessageSpendLimitOverrideCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTextMessageSpendLimitOverride");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteVerifiedDestinationNumberCommand
+ */
+export const se_DeleteVerifiedDestinationNumberCommand = async (
+  input: DeleteVerifiedDestinationNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteVerifiedDestinationNumber");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,6 +785,97 @@ export const se_DescribePoolsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DescribeRegistrationAttachmentsCommand
+ */
+export const se_DescribeRegistrationAttachmentsCommand = async (
+  input: DescribeRegistrationAttachmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistrationAttachments");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRegistrationFieldDefinitionsCommand
+ */
+export const se_DescribeRegistrationFieldDefinitionsCommand = async (
+  input: DescribeRegistrationFieldDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistrationFieldDefinitions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRegistrationFieldValuesCommand
+ */
+export const se_DescribeRegistrationFieldValuesCommand = async (
+  input: DescribeRegistrationFieldValuesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistrationFieldValues");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRegistrationsCommand
+ */
+export const se_DescribeRegistrationsCommand = async (
+  input: DescribeRegistrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistrations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRegistrationSectionDefinitionsCommand
+ */
+export const se_DescribeRegistrationSectionDefinitionsCommand = async (
+  input: DescribeRegistrationSectionDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistrationSectionDefinitions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRegistrationTypeDefinitionsCommand
+ */
+export const se_DescribeRegistrationTypeDefinitionsCommand = async (
+  input: DescribeRegistrationTypeDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistrationTypeDefinitions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRegistrationVersionsCommand
+ */
+export const se_DescribeRegistrationVersionsCommand = async (
+  input: DescribeRegistrationVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistrationVersions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DescribeSenderIdsCommand
  */
 export const se_DescribeSenderIdsCommand = async (
@@ -552,6 +902,19 @@ export const se_DescribeSpendLimitsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DescribeVerifiedDestinationNumbersCommand
+ */
+export const se_DescribeVerifiedDestinationNumbersCommand = async (
+  input: DescribeVerifiedDestinationNumbersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeVerifiedDestinationNumbers");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DisassociateOriginationIdentityCommand
  */
 export const se_DisassociateOriginationIdentityCommand = async (
@@ -565,6 +928,19 @@ export const se_DisassociateOriginationIdentityCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DiscardRegistrationVersionCommand
+ */
+export const se_DiscardRegistrationVersionCommand = async (
+  input: DiscardRegistrationVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DiscardRegistrationVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListPoolOriginationIdentitiesCommand
  */
 export const se_ListPoolOriginationIdentitiesCommand = async (
@@ -572,6 +948,19 @@ export const se_ListPoolOriginationIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPoolOriginationIdentities");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListRegistrationAssociationsCommand
+ */
+export const se_ListRegistrationAssociationsCommand = async (
+  input: ListRegistrationAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRegistrationAssociations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -617,6 +1006,19 @@ export const se_PutOptedOutNumberCommand = async (
 };
 
 /**
+ * serializeAws_json1_0PutRegistrationFieldValueCommand
+ */
+export const se_PutRegistrationFieldValueCommand = async (
+  input: PutRegistrationFieldValueCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutRegistrationFieldValue");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ReleasePhoneNumberCommand
  */
 export const se_ReleasePhoneNumberCommand = async (
@@ -624,6 +1026,19 @@ export const se_ReleasePhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ReleasePhoneNumber");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ReleaseSenderIdCommand
+ */
+export const se_ReleaseSenderIdCommand = async (
+  input: ReleaseSenderIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ReleaseSenderId");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -639,6 +1054,32 @@ export const se_RequestPhoneNumberCommand = async (
   const headers: __HeaderBag = sharedHeaders("RequestPhoneNumber");
   let body: any;
   body = JSON.stringify(se_RequestPhoneNumberRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0RequestSenderIdCommand
+ */
+export const se_RequestSenderIdCommand = async (
+  input: RequestSenderIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RequestSenderId");
+  let body: any;
+  body = JSON.stringify(se_RequestSenderIdRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0SendDestinationNumberVerificationCodeCommand
+ */
+export const se_SendDestinationNumberVerificationCodeCommand = async (
+  input: SendDestinationNumberVerificationCodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SendDestinationNumberVerificationCode");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -721,6 +1162,19 @@ export const se_SetVoiceMessageSpendLimitOverrideCommand = async (
 };
 
 /**
+ * serializeAws_json1_0SubmitRegistrationVersionCommand
+ */
+export const se_SubmitRegistrationVersionCommand = async (
+  input: SubmitRegistrationVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SubmitRegistrationVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -780,6 +1234,32 @@ export const se_UpdatePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePool");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateSenderIdCommand
+ */
+export const se_UpdateSenderIdCommand = async (
+  input: UpdateSenderIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateSenderId");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0VerifyDestinationNumberCommand
+ */
+export const se_VerifyDestinationNumberCommand = async (
+  input: VerifyDestinationNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("VerifyDestinationNumber");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1080,6 +1560,317 @@ const de_CreatePoolCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationCommand
+ */
+export const de_CreateRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRegistrationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRegistrationResult(data, context);
+  const response: CreateRegistrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationCommandError
+ */
+const de_CreateRegistrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationAssociationCommand
+ */
+export const de_CreateRegistrationAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRegistrationAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateRegistrationAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationAssociationCommandError
+ */
+const de_CreateRegistrationAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationAttachmentCommand
+ */
+export const de_CreateRegistrationAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRegistrationAttachmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRegistrationAttachmentResult(data, context);
+  const response: CreateRegistrationAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationAttachmentCommandError
+ */
+const de_CreateRegistrationAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationVersionCommand
+ */
+export const de_CreateRegistrationVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRegistrationVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRegistrationVersionResult(data, context);
+  const response: CreateRegistrationVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationVersionCommandError
+ */
+const de_CreateRegistrationVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistrationVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateVerifiedDestinationNumberCommand
+ */
+export const de_CreateVerifiedDestinationNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedDestinationNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateVerifiedDestinationNumberCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateVerifiedDestinationNumberResult(data, context);
+  const response: CreateVerifiedDestinationNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateVerifiedDestinationNumberCommandError
+ */
+const de_CreateVerifiedDestinationNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedDestinationNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -1576,6 +2367,189 @@ const de_DeletePoolCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteRegistrationCommand
+ */
+export const de_DeleteRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRegistrationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRegistrationResult(data, context);
+  const response: DeleteRegistrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteRegistrationCommandError
+ */
+const de_DeleteRegistrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteRegistrationAttachmentCommand
+ */
+export const de_DeleteRegistrationAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistrationAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRegistrationAttachmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRegistrationAttachmentResult(data, context);
+  const response: DeleteRegistrationAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteRegistrationAttachmentCommandError
+ */
+const de_DeleteRegistrationAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistrationAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteRegistrationFieldValueCommand
+ */
+export const de_DeleteRegistrationFieldValueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistrationFieldValueCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRegistrationFieldValueCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteRegistrationFieldValueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteRegistrationFieldValueCommandError
+ */
+const de_DeleteRegistrationFieldValueCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistrationFieldValueCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand
  */
 export const de_DeleteTextMessageSpendLimitOverrideCommand = async (
@@ -1614,6 +2588,67 @@ const de_DeleteTextMessageSpendLimitOverrideCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteVerifiedDestinationNumberCommand
+ */
+export const de_DeleteVerifiedDestinationNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedDestinationNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteVerifiedDestinationNumberCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteVerifiedDestinationNumberResult(data, context);
+  const response: DeleteVerifiedDestinationNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteVerifiedDestinationNumberCommandError
+ */
+const de_DeleteVerifiedDestinationNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedDestinationNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2144,6 +3179,403 @@ const de_DescribePoolsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0DescribeRegistrationAttachmentsCommand
+ */
+export const de_DescribeRegistrationAttachmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationAttachmentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRegistrationAttachmentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRegistrationAttachmentsResult(data, context);
+  const response: DescribeRegistrationAttachmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationAttachmentsCommandError
+ */
+const de_DescribeRegistrationAttachmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationAttachmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationFieldDefinitionsCommand
+ */
+export const de_DescribeRegistrationFieldDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationFieldDefinitionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRegistrationFieldDefinitionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeRegistrationFieldDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationFieldDefinitionsCommandError
+ */
+const de_DescribeRegistrationFieldDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationFieldDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationFieldValuesCommand
+ */
+export const de_DescribeRegistrationFieldValuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationFieldValuesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRegistrationFieldValuesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeRegistrationFieldValuesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationFieldValuesCommandError
+ */
+const de_DescribeRegistrationFieldValuesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationFieldValuesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationsCommand
+ */
+export const de_DescribeRegistrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRegistrationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRegistrationsResult(data, context);
+  const response: DescribeRegistrationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationsCommandError
+ */
+const de_DescribeRegistrationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationSectionDefinitionsCommand
+ */
+export const de_DescribeRegistrationSectionDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationSectionDefinitionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRegistrationSectionDefinitionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeRegistrationSectionDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationSectionDefinitionsCommandError
+ */
+const de_DescribeRegistrationSectionDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationSectionDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationTypeDefinitionsCommand
+ */
+export const de_DescribeRegistrationTypeDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationTypeDefinitionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRegistrationTypeDefinitionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeRegistrationTypeDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationTypeDefinitionsCommandError
+ */
+const de_DescribeRegistrationTypeDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationTypeDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationVersionsCommand
+ */
+export const de_DescribeRegistrationVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRegistrationVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRegistrationVersionsResult(data, context);
+  const response: DescribeRegistrationVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationVersionsCommandError
+ */
+const de_DescribeRegistrationVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegistrationVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0DescribeSenderIdsCommand
  */
 export const de_DescribeSenderIdsCommand = async (
@@ -2257,6 +3689,64 @@ const de_DescribeSpendLimitsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0DescribeVerifiedDestinationNumbersCommand
+ */
+export const de_DescribeVerifiedDestinationNumbersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedDestinationNumbersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeVerifiedDestinationNumbersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeVerifiedDestinationNumbersResult(data, context);
+  const response: DescribeVerifiedDestinationNumbersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeVerifiedDestinationNumbersCommandError
+ */
+const de_DescribeVerifiedDestinationNumbersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedDestinationNumbersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0DisassociateOriginationIdentityCommand
  */
 export const de_DisassociateOriginationIdentityCommand = async (
@@ -2318,6 +3808,67 @@ const de_DisassociateOriginationIdentityCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0DiscardRegistrationVersionCommand
+ */
+export const de_DiscardRegistrationVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DiscardRegistrationVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DiscardRegistrationVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DiscardRegistrationVersionResult(data, context);
+  const response: DiscardRegistrationVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DiscardRegistrationVersionCommandError
+ */
+const de_DiscardRegistrationVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DiscardRegistrationVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0ListPoolOriginationIdentitiesCommand
  */
 export const de_ListPoolOriginationIdentitiesCommand = async (
@@ -2344,6 +3895,64 @@ const de_ListPoolOriginationIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoolOriginationIdentitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ListRegistrationAssociationsCommand
+ */
+export const de_ListRegistrationAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRegistrationAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListRegistrationAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListRegistrationAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListRegistrationAssociationsCommandError
+ */
+const de_ListRegistrationAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRegistrationAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2556,6 +4165,67 @@ const de_PutOptedOutNumberCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0PutRegistrationFieldValueCommand
+ */
+export const de_PutRegistrationFieldValueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRegistrationFieldValueCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutRegistrationFieldValueCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutRegistrationFieldValueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PutRegistrationFieldValueCommandError
+ */
+const de_PutRegistrationFieldValueCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRegistrationFieldValueCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0ReleasePhoneNumberCommand
  */
 export const de_ReleasePhoneNumberCommand = async (
@@ -2617,6 +4287,67 @@ const de_ReleasePhoneNumberCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0ReleaseSenderIdCommand
+ */
+export const de_ReleaseSenderIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleaseSenderIdCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ReleaseSenderIdCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ReleaseSenderIdCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ReleaseSenderIdCommandError
+ */
+const de_ReleaseSenderIdCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleaseSenderIdCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0RequestPhoneNumberCommand
  */
 export const de_RequestPhoneNumberCommand = async (
@@ -2643,6 +4374,131 @@ const de_RequestPhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestPhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0RequestSenderIdCommand
+ */
+export const de_RequestSenderIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RequestSenderIdCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RequestSenderIdCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RequestSenderIdCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0RequestSenderIdCommandError
+ */
+const de_RequestSenderIdCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RequestSenderIdCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0SendDestinationNumberVerificationCodeCommand
+ */
+export const de_SendDestinationNumberVerificationCodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendDestinationNumberVerificationCodeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_SendDestinationNumberVerificationCodeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SendDestinationNumberVerificationCodeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0SendDestinationNumberVerificationCodeCommandError
+ */
+const de_SendDestinationNumberVerificationCodeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendDestinationNumberVerificationCodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3035,6 +4891,67 @@ const de_SetVoiceMessageSpendLimitOverrideCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0SubmitRegistrationVersionCommand
+ */
+export const de_SubmitRegistrationVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitRegistrationVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_SubmitRegistrationVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SubmitRegistrationVersionResult(data, context);
+  const response: SubmitRegistrationVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0SubmitRegistrationVersionCommandError
+ */
+const de_SubmitRegistrationVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitRegistrationVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3337,6 +5254,125 @@ const de_UpdatePoolCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateSenderIdCommand
+ */
+export const de_UpdateSenderIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSenderIdCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateSenderIdCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSenderIdCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateSenderIdCommandError
+ */
+const de_UpdateSenderIdCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSenderIdCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0VerifyDestinationNumberCommand
+ */
+export const de_VerifyDestinationNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyDestinationNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_VerifyDestinationNumberCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_VerifyDestinationNumberResult(data, context);
+  const response: VerifyDestinationNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0VerifyDestinationNumberCommandError
+ */
+const de_VerifyDestinationNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyDestinationNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0AccessDeniedExceptionRes
  */
 const de_AccessDeniedExceptionRes = async (
@@ -3515,6 +5551,50 @@ const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext)
   });
 };
 
+// se_CreateRegistrationAssociationRequest omitted.
+
+/**
+ * serializeAws_json1_0CreateRegistrationAttachmentRequest
+ */
+const se_CreateRegistrationAttachmentRequest = (
+  input: CreateRegistrationAttachmentRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AttachmentBody: context.base64Encoder,
+    AttachmentUrl: [],
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Tags: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_0CreateRegistrationRequest
+ */
+const se_CreateRegistrationRequest = (input: CreateRegistrationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    RegistrationType: [],
+    Tags: _json,
+  });
+};
+
+// se_CreateRegistrationVersionRequest omitted.
+
+/**
+ * serializeAws_json1_0CreateVerifiedDestinationNumberRequest
+ */
+const se_CreateVerifiedDestinationNumberRequest = (
+  input: CreateVerifiedDestinationNumberRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DestinationPhoneNumber: [],
+    Tags: _json,
+  });
+};
+
 // se_DeleteConfigurationSetRequest omitted.
 
 // se_DeleteDefaultMessageTypeRequest omitted.
@@ -3531,7 +5611,15 @@ const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext)
 
 // se_DeletePoolRequest omitted.
 
+// se_DeleteRegistrationAttachmentRequest omitted.
+
+// se_DeleteRegistrationFieldValueRequest omitted.
+
+// se_DeleteRegistrationRequest omitted.
+
 // se_DeleteTextMessageSpendLimitOverrideRequest omitted.
+
+// se_DeleteVerifiedDestinationNumberRequest omitted.
 
 // se_DeleteVoiceMessageSpendLimitOverrideRequest omitted.
 
@@ -3551,11 +5639,29 @@ const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext)
 
 // se_DescribePoolsRequest omitted.
 
+// se_DescribeRegistrationAttachmentsRequest omitted.
+
+// se_DescribeRegistrationFieldDefinitionsRequest omitted.
+
+// se_DescribeRegistrationFieldValuesRequest omitted.
+
+// se_DescribeRegistrationSectionDefinitionsRequest omitted.
+
+// se_DescribeRegistrationsRequest omitted.
+
+// se_DescribeRegistrationTypeDefinitionsRequest omitted.
+
+// se_DescribeRegistrationVersionsRequest omitted.
+
 // se_DescribeSenderIdsRequest omitted.
 
 // se_DescribeSpendLimitsRequest omitted.
 
+// se_DescribeVerifiedDestinationNumbersRequest omitted.
+
 // se_DestinationCountryParameters omitted.
+
+// se_DestinationPhoneNumberList omitted.
 
 /**
  * serializeAws_json1_0DisassociateOriginationIdentityRequest
@@ -3572,7 +5678,11 @@ const se_DisassociateOriginationIdentityRequest = (
   });
 };
 
+// se_DiscardRegistrationVersionRequest omitted.
+
 // se_EventTypeList omitted.
+
+// se_FieldPathList omitted.
 
 // se_FilterValueList omitted.
 
@@ -3586,7 +5696,11 @@ const se_DisassociateOriginationIdentityRequest = (
 
 // se_ListPoolOriginationIdentitiesRequest omitted.
 
+// se_ListRegistrationAssociationsRequest omitted.
+
 // se_ListTagsForResourceRequest omitted.
+
+// se_MessageTypeList omitted.
 
 // se_NonEmptyTagList omitted.
 
@@ -3620,7 +5734,39 @@ const se_DisassociateOriginationIdentityRequest = (
 
 // se_PutOptedOutNumberRequest omitted.
 
+// se_PutRegistrationFieldValueRequest omitted.
+
+// se_RegistrationAssociationFilter omitted.
+
+// se_RegistrationAssociationFilterList omitted.
+
+// se_RegistrationAttachmentFilter omitted.
+
+// se_RegistrationAttachmentFilterList omitted.
+
+// se_RegistrationAttachmentIdList omitted.
+
+// se_RegistrationFilter omitted.
+
+// se_RegistrationFilterList omitted.
+
+// se_RegistrationIdList omitted.
+
+// se_RegistrationTypeFilter omitted.
+
+// se_RegistrationTypeFilterList omitted.
+
+// se_RegistrationTypeList omitted.
+
+// se_RegistrationVersionFilter omitted.
+
+// se_RegistrationVersionFilterList omitted.
+
+// se_RegistrationVersionNumberList omitted.
+
 // se_ReleasePhoneNumberRequest omitted.
+
+// se_ReleaseSenderIdRequest omitted.
 
 /**
  * serializeAws_json1_0RequestPhoneNumberRequest
@@ -3639,6 +5785,26 @@ const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context:
     Tags: _json,
   });
 };
+
+/**
+ * serializeAws_json1_0RequestSenderIdRequest
+ */
+const se_RequestSenderIdRequest = (input: RequestSenderIdRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DeletionProtectionEnabled: [],
+    IsoCountryCode: [],
+    MessageTypes: _json,
+    SenderId: [],
+    Tags: _json,
+  });
+};
+
+// se_SectionPathList omitted.
+
+// se_SelectChoiceList omitted.
+
+// se_SendDestinationNumberVerificationCodeRequest omitted.
 
 // se_SenderIdAndCountry omitted.
 
@@ -3662,6 +5828,8 @@ const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context:
 
 // se_SnsDestination omitted.
 
+// se_SubmitRegistrationVersionRequest omitted.
+
 // se_Tag omitted.
 
 // se_TagKeyList omitted.
@@ -3677,6 +5845,16 @@ const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context:
 // se_UpdatePhoneNumberRequest omitted.
 
 // se_UpdatePoolRequest omitted.
+
+// se_UpdateSenderIdRequest omitted.
+
+// se_VerifiedDestinationNumberFilter omitted.
+
+// se_VerifiedDestinationNumberFilterList omitted.
+
+// se_VerifiedDestinationNumberIdList omitted.
+
+// se_VerifyDestinationNumberRequest omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -3762,7 +5940,72 @@ const de_CreatePoolResult = (output: any, context: __SerdeContext): CreatePoolRe
     Status: __expectString,
     Tags: _json,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
+  }) as any;
+};
+
+// de_CreateRegistrationAssociationResult omitted.
+
+/**
+ * deserializeAws_json1_0CreateRegistrationAttachmentResult
+ */
+const de_CreateRegistrationAttachmentResult = (
+  output: any,
+  context: __SerdeContext
+): CreateRegistrationAttachmentResult => {
+  return take(output, {
+    AttachmentStatus: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RegistrationAttachmentArn: __expectString,
+    RegistrationAttachmentId: __expectString,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationResult
+ */
+const de_CreateRegistrationResult = (output: any, context: __SerdeContext): CreateRegistrationResult => {
+  return take(output, {
+    AdditionalAttributes: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CurrentVersionNumber: __expectLong,
+    RegistrationArn: __expectString,
+    RegistrationId: __expectString,
+    RegistrationStatus: __expectString,
+    RegistrationType: __expectString,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0CreateRegistrationVersionResult
+ */
+const de_CreateRegistrationVersionResult = (output: any, context: __SerdeContext): CreateRegistrationVersionResult => {
+  return take(output, {
+    RegistrationArn: __expectString,
+    RegistrationId: __expectString,
+    RegistrationVersionStatus: __expectString,
+    RegistrationVersionStatusHistory: (_: any) => de_RegistrationVersionStatusHistory(_, context),
+    VersionNumber: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0CreateVerifiedDestinationNumberResult
+ */
+const de_CreateVerifiedDestinationNumberResult = (
+  output: any,
+  context: __SerdeContext
+): CreateVerifiedDestinationNumberResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationPhoneNumber: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    VerifiedDestinationNumberArn: __expectString,
+    VerifiedDestinationNumberId: __expectString,
   }) as any;
 };
 
@@ -3826,11 +6069,62 @@ const de_DeletePoolResult = (output: any, context: __SerdeContext): DeletePoolRe
     SharedRoutesEnabled: __expectBoolean,
     Status: __expectString,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0DeleteRegistrationAttachmentResult
+ */
+const de_DeleteRegistrationAttachmentResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteRegistrationAttachmentResult => {
+  return take(output, {
+    AttachmentStatus: __expectString,
+    AttachmentUploadErrorReason: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RegistrationAttachmentArn: __expectString,
+    RegistrationAttachmentId: __expectString,
+  }) as any;
+};
+
+// de_DeleteRegistrationFieldValueResult omitted.
+
+/**
+ * deserializeAws_json1_0DeleteRegistrationResult
+ */
+const de_DeleteRegistrationResult = (output: any, context: __SerdeContext): DeleteRegistrationResult => {
+  return take(output, {
+    AdditionalAttributes: _json,
+    ApprovedVersionNumber: __expectLong,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CurrentVersionNumber: __expectLong,
+    LatestDeniedVersionNumber: __expectLong,
+    RegistrationArn: __expectString,
+    RegistrationId: __expectString,
+    RegistrationStatus: __expectString,
+    RegistrationType: __expectString,
+  }) as any;
+};
+
 // de_DeleteTextMessageSpendLimitOverrideResult omitted.
+
+/**
+ * deserializeAws_json1_0DeleteVerifiedDestinationNumberResult
+ */
+const de_DeleteVerifiedDestinationNumberResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteVerifiedDestinationNumberResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationPhoneNumber: __expectString,
+    VerifiedDestinationNumberArn: __expectString,
+    VerifiedDestinationNumberId: __expectString,
+  }) as any;
+};
 
 // de_DeleteVoiceMessageSpendLimitOverrideResult omitted.
 
@@ -3892,11 +6186,86 @@ const de_DescribePoolsResult = (output: any, context: __SerdeContext): DescribeP
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0DescribeRegistrationAttachmentsResult
+ */
+const de_DescribeRegistrationAttachmentsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeRegistrationAttachmentsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    RegistrationAttachments: (_: any) => de_RegistrationAttachmentsInformationList(_, context),
+  }) as any;
+};
+
+// de_DescribeRegistrationFieldDefinitionsResult omitted.
+
+// de_DescribeRegistrationFieldValuesResult omitted.
+
+// de_DescribeRegistrationSectionDefinitionsResult omitted.
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationsResult
+ */
+const de_DescribeRegistrationsResult = (output: any, context: __SerdeContext): DescribeRegistrationsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Registrations: (_: any) => de_RegistrationInformationList(_, context),
+  }) as any;
+};
+
+// de_DescribeRegistrationTypeDefinitionsResult omitted.
+
+/**
+ * deserializeAws_json1_0DescribeRegistrationVersionsResult
+ */
+const de_DescribeRegistrationVersionsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeRegistrationVersionsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    RegistrationArn: __expectString,
+    RegistrationId: __expectString,
+    RegistrationVersions: (_: any) => de_RegistrationVersionInformationList(_, context),
+  }) as any;
+};
+
 // de_DescribeSenderIdsResult omitted.
 
 // de_DescribeSpendLimitsResult omitted.
 
+/**
+ * deserializeAws_json1_0DescribeVerifiedDestinationNumbersResult
+ */
+const de_DescribeVerifiedDestinationNumbersResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVerifiedDestinationNumbersResult => {
+  return take(output, {
+    NextToken: __expectString,
+    VerifiedDestinationNumbers: (_: any) => de_VerifiedDestinationNumberInformationList(_, context),
+  }) as any;
+};
+
 // de_DisassociateOriginationIdentityResult omitted.
+
+/**
+ * deserializeAws_json1_0DiscardRegistrationVersionResult
+ */
+const de_DiscardRegistrationVersionResult = (
+  output: any,
+  context: __SerdeContext
+): DiscardRegistrationVersionResult => {
+  return take(output, {
+    RegistrationArn: __expectString,
+    RegistrationId: __expectString,
+    RegistrationVersionStatus: __expectString,
+    RegistrationVersionStatusHistory: (_: any) => de_RegistrationVersionStatusHistory(_, context),
+    VersionNumber: __expectLong,
+  }) as any;
+};
 
 // de_EventDestination omitted.
 
@@ -3913,6 +6282,8 @@ const de_DescribePoolsResult = (output: any, context: __SerdeContext): DescribeP
 // de_KinesisFirehoseDestination omitted.
 
 // de_ListPoolOriginationIdentitiesResult omitted.
+
+// de_ListRegistrationAssociationsResult omitted.
 
 // de_ListTagsForResourceResult omitted.
 
@@ -3987,9 +6358,11 @@ const de_PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneN
     PhoneNumberArn: __expectString,
     PhoneNumberId: __expectString,
     PoolId: __expectString,
+    RegistrationId: __expectString,
     SelfManagedOptOutsEnabled: __expectBoolean,
     Status: __expectString,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
   }) as any;
 };
@@ -4021,6 +6394,7 @@ const de_PoolInformation = (output: any, context: __SerdeContext): PoolInformati
     SharedRoutesEnabled: __expectBoolean,
     Status: __expectString,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
   }) as any;
 };
@@ -4052,6 +6426,144 @@ const de_PutOptedOutNumberResult = (output: any, context: __SerdeContext): PutOp
   }) as any;
 };
 
+// de_PutRegistrationFieldValueResult omitted.
+
+// de_RegistrationAssociationMetadata omitted.
+
+// de_RegistrationAssociationMetadataList omitted.
+
+/**
+ * deserializeAws_json1_0RegistrationAttachmentsInformation
+ */
+const de_RegistrationAttachmentsInformation = (
+  output: any,
+  context: __SerdeContext
+): RegistrationAttachmentsInformation => {
+  return take(output, {
+    AttachmentStatus: __expectString,
+    AttachmentUploadErrorReason: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RegistrationAttachmentArn: __expectString,
+    RegistrationAttachmentId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RegistrationAttachmentsInformationList
+ */
+const de_RegistrationAttachmentsInformationList = (
+  output: any,
+  context: __SerdeContext
+): RegistrationAttachmentsInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RegistrationAttachmentsInformation(entry, context);
+    });
+  return retVal;
+};
+
+// de_RegistrationDeniedReasonInformation omitted.
+
+// de_RegistrationDeniedReasonInformationList omitted.
+
+// de_RegistrationFieldDefinition omitted.
+
+// de_RegistrationFieldDefinitionList omitted.
+
+// de_RegistrationFieldDisplayHints omitted.
+
+// de_RegistrationFieldValueInformation omitted.
+
+// de_RegistrationFieldValueInformationList omitted.
+
+/**
+ * deserializeAws_json1_0RegistrationInformation
+ */
+const de_RegistrationInformation = (output: any, context: __SerdeContext): RegistrationInformation => {
+  return take(output, {
+    AdditionalAttributes: _json,
+    ApprovedVersionNumber: __expectLong,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CurrentVersionNumber: __expectLong,
+    LatestDeniedVersionNumber: __expectLong,
+    RegistrationArn: __expectString,
+    RegistrationId: __expectString,
+    RegistrationStatus: __expectString,
+    RegistrationType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RegistrationInformationList
+ */
+const de_RegistrationInformationList = (output: any, context: __SerdeContext): RegistrationInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RegistrationInformation(entry, context);
+    });
+  return retVal;
+};
+
+// de_RegistrationSectionDefinition omitted.
+
+// de_RegistrationSectionDefinitionList omitted.
+
+// de_RegistrationSectionDisplayHints omitted.
+
+// de_RegistrationTypeDefinition omitted.
+
+// de_RegistrationTypeDefinitionList omitted.
+
+// de_RegistrationTypeDisplayHints omitted.
+
+/**
+ * deserializeAws_json1_0RegistrationVersionInformation
+ */
+const de_RegistrationVersionInformation = (output: any, context: __SerdeContext): RegistrationVersionInformation => {
+  return take(output, {
+    DeniedReasons: _json,
+    RegistrationVersionStatus: __expectString,
+    RegistrationVersionStatusHistory: (_: any) => de_RegistrationVersionStatusHistory(_, context),
+    VersionNumber: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RegistrationVersionInformationList
+ */
+const de_RegistrationVersionInformationList = (
+  output: any,
+  context: __SerdeContext
+): RegistrationVersionInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RegistrationVersionInformation(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RegistrationVersionStatusHistory
+ */
+const de_RegistrationVersionStatusHistory = (
+  output: any,
+  context: __SerdeContext
+): RegistrationVersionStatusHistory => {
+  return take(output, {
+    ApprovedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ArchivedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeniedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DiscardedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DraftTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReviewingTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RevokedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SubmittedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 /**
  * deserializeAws_json1_0ReleasePhoneNumberResult
  */
@@ -4067,12 +6579,16 @@ const de_ReleasePhoneNumberResult = (output: any, context: __SerdeContext): Rele
     PhoneNumber: __expectString,
     PhoneNumberArn: __expectString,
     PhoneNumberId: __expectString,
+    RegistrationId: __expectString,
     SelfManagedOptOutsEnabled: __expectBoolean,
     Status: __expectString,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
   }) as any;
 };
+
+// de_ReleaseSenderIdResult omitted.
 
 /**
  * deserializeAws_json1_0RequestPhoneNumberResult
@@ -4091,15 +6607,29 @@ const de_RequestPhoneNumberResult = (output: any, context: __SerdeContext): Requ
     PhoneNumberArn: __expectString,
     PhoneNumberId: __expectString,
     PoolId: __expectString,
+    RegistrationId: __expectString,
     SelfManagedOptOutsEnabled: __expectBoolean,
     Status: __expectString,
     Tags: _json,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
   }) as any;
 };
 
+// de_RequestSenderIdResult omitted.
+
 // de_ResourceNotFoundException omitted.
+
+// de_SelectChoiceList omitted.
+
+// de_SelectOptionDescription omitted.
+
+// de_SelectOptionDescriptionsList omitted.
+
+// de_SelectValidation omitted.
+
+// de_SendDestinationNumberVerificationCodeResult omitted.
 
 // de_SenderIdInformation omitted.
 
@@ -4125,11 +6655,34 @@ const de_RequestPhoneNumberResult = (output: any, context: __SerdeContext): Requ
 
 // de_SpendLimitList omitted.
 
+// de_StringList omitted.
+
+// de_StringMap omitted.
+
+/**
+ * deserializeAws_json1_0SubmitRegistrationVersionResult
+ */
+const de_SubmitRegistrationVersionResult = (output: any, context: __SerdeContext): SubmitRegistrationVersionResult => {
+  return take(output, {
+    RegistrationArn: __expectString,
+    RegistrationId: __expectString,
+    RegistrationVersionStatus: __expectString,
+    RegistrationVersionStatusHistory: (_: any) => de_RegistrationVersionStatusHistory(_, context),
+    VersionNumber: __expectLong,
+  }) as any;
+};
+
+// de_SupportedAssociation omitted.
+
+// de_SupportedAssociationList omitted.
+
 // de_Tag omitted.
 
 // de_TagList omitted.
 
 // de_TagResourceResult omitted.
+
+// de_TextValidation omitted.
 
 // de_ThrottlingException omitted.
 
@@ -4153,9 +6706,11 @@ const de_UpdatePhoneNumberResult = (output: any, context: __SerdeContext): Updat
     PhoneNumber: __expectString,
     PhoneNumberArn: __expectString,
     PhoneNumberId: __expectString,
+    RegistrationId: __expectString,
     SelfManagedOptOutsEnabled: __expectBoolean,
     Status: __expectString,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
   }) as any;
 };
@@ -4175,15 +6730,62 @@ const de_UpdatePoolResult = (output: any, context: __SerdeContext): UpdatePoolRe
     SharedRoutesEnabled: __expectBoolean,
     Status: __expectString,
     TwoWayChannelArn: __expectString,
+    TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
   }) as any;
 };
+
+// de_UpdateSenderIdResult omitted.
 
 // de_ValidationException omitted.
 
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFieldList omitted.
+
+/**
+ * deserializeAws_json1_0VerifiedDestinationNumberInformation
+ */
+const de_VerifiedDestinationNumberInformation = (
+  output: any,
+  context: __SerdeContext
+): VerifiedDestinationNumberInformation => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationPhoneNumber: __expectString,
+    Status: __expectString,
+    VerifiedDestinationNumberArn: __expectString,
+    VerifiedDestinationNumberId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0VerifiedDestinationNumberInformationList
+ */
+const de_VerifiedDestinationNumberInformationList = (
+  output: any,
+  context: __SerdeContext
+): VerifiedDestinationNumberInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VerifiedDestinationNumberInformation(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0VerifyDestinationNumberResult
+ */
+const de_VerifyDestinationNumberResult = (output: any, context: __SerdeContext): VerifyDestinationNumberResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationPhoneNumber: __expectString,
+    Status: __expectString,
+    VerifiedDestinationNumberArn: __expectString,
+    VerifiedDestinationNumberId: __expectString,
+  }) as any;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

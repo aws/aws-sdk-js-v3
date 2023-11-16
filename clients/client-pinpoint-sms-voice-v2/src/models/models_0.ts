@@ -87,6 +87,10 @@ export const AccountLimitName = {
   OPT_OUT_LISTS: "OPT_OUT_LISTS",
   PHONE_NUMBERS: "PHONE_NUMBERS",
   POOLS: "POOLS",
+  REGISTRATIONS: "REGISTRATIONS",
+  REGISTRATION_ATTACHMENTS: "REGISTRATION_ATTACHMENTS",
+  SENDER_IDS: "SENDER_IDS",
+  VERIFIED_DESTINATION_NUMBERS: "VERIFIED_DESTINATION_NUMBERS",
 } as const;
 
 /**
@@ -196,25 +200,37 @@ export interface AssociateOriginationIdentityResult {
  * @enum
  */
 export const ConflictExceptionReason = {
+  CREATE_REGISTRATION_VERSION_NOT_ALLOWED: "CREATE_REGISTRATION_VERSION_NOT_ALLOWED",
   DELETION_PROTECTION_ENABLED: "DELETION_PROTECTION_ENABLED",
   DESTINATION_PHONE_NUMBER_NOT_VERIFIED: "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
   DESTINATION_PHONE_NUMBER_OPTED_OUT: "DESTINATION_PHONE_NUMBER_OPTED_OUT",
+  DISASSOCIATE_REGISTRATION_NOT_ALLOWED: "DISASSOCIATE_REGISTRATION_NOT_ALLOWED",
+  DISCARD_REGISTRATION_VERSION_NOT_ALLOWED: "DISCARD_REGISTRATION_VERSION_NOT_ALLOWED",
+  EDIT_REGISTRATION_FIELD_VALUES_NOT_ALLOWED: "EDIT_REGISTRATION_FIELD_VALUES_NOT_ALLOWED",
   EVENT_DESTINATION_MISMATCH: "EVENT_DESTINATION_MISMATCH",
   KEYWORD_MISMATCH: "KEYWORD_MISMATCH",
   LAST_PHONE_NUMBER: "LAST_PHONE_NUMBER",
   MESSAGE_TYPE_MISMATCH: "MESSAGE_TYPE_MISMATCH",
   NO_ORIGINATION_IDENTITIES_FOUND: "NO_ORIGINATION_IDENTITIES_FOUND",
+  NUMBER_CAPABILITIES_MISMATCH: "NUMBER_CAPABILITIES_MISMATCH",
   OPT_OUT_LIST_MISMATCH: "OPT_OUT_LIST_MISMATCH",
   PHONE_NUMBER_ASSOCIATED_TO_POOL: "PHONE_NUMBER_ASSOCIATED_TO_POOL",
+  PHONE_NUMBER_ASSOCIATED_TO_REGISTRATION: "PHONE_NUMBER_ASSOCIATED_TO_REGISTRATION",
   PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL: "PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL",
   PHONE_NUMBER_NOT_IN_REGISTRATION_REGION: "PHONE_NUMBER_NOT_IN_REGISTRATION_REGION",
+  REGISTRATION_ALREADY_SUBMITTED: "REGISTRATION_ALREADY_SUBMITTED",
+  REGISTRATION_NOT_COMPLETE: "REGISTRATION_NOT_COMPLETE",
   RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
   RESOURCE_DELETION_NOT_ALLOWED: "RESOURCE_DELETION_NOT_ALLOWED",
   RESOURCE_MODIFICATION_NOT_ALLOWED: "RESOURCE_MODIFICATION_NOT_ALLOWED",
   RESOURCE_NOT_ACTIVE: "RESOURCE_NOT_ACTIVE",
   RESOURCE_NOT_EMPTY: "RESOURCE_NOT_EMPTY",
   SELF_MANAGED_OPT_OUTS_MISMATCH: "SELF_MANAGED_OPT_OUTS_MISMATCH",
+  SENDER_ID_ASSOCIATED_TO_POOL: "SENDER_ID_ASSOCIATED_TO_POOL",
+  SUBMIT_REGISTRATION_VERSION_NOT_ALLOWED: "SUBMIT_REGISTRATION_VERSION_NOT_ALLOWED",
   TWO_WAY_CONFIG_MISMATCH: "TWO_WAY_CONFIG_MISMATCH",
+  VERIFICATION_ALREADY_COMPLETE: "VERIFICATION_ALREADY_COMPLETE",
+  VERIFICATION_CODE_EXPIRED: "VERIFICATION_CODE_EXPIRED",
 } as const;
 
 /**
@@ -236,7 +252,9 @@ export const ResourceType = {
   PHONE_NUMBER: "phone-number",
   POOL: "pool",
   REGISTRATION: "registration",
+  REGISTRATION_ATTACHMENT: "registration-attachment",
   SENDER_ID: "sender-id",
+  VERIFIED_DESTINATION_NUMBER: "verified-destination-number",
 } as const;
 
 /**
@@ -359,6 +377,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @enum
  */
 export const ServiceQuotaExceededExceptionReason = {
+  ASSOCIATIONS_PER_REGISTRATION: "ASSOCIATIONS_PER_REGISTRATION",
   CONFIGURATION_SETS_PER_ACCOUNT: "CONFIGURATION_SETS_PER_ACCOUNT",
   DAILY_DESTINATION_CALL_LIMIT: "DAILY_DESTINATION_CALL_LIMIT",
   EVENT_DESTINATIONS_PER_CONFIGURATION_SET: "EVENT_DESTINATIONS_PER_CONFIGURATION_SET",
@@ -371,7 +390,14 @@ export const ServiceQuotaExceededExceptionReason = {
   PHONE_NUMBERS_PER_ACCOUNT: "PHONE_NUMBERS_PER_ACCOUNT",
   PHONE_NUMBERS_PER_REGISTRATION: "PHONE_NUMBERS_PER_REGISTRATION",
   POOLS_PER_ACCOUNT: "POOLS_PER_ACCOUNT",
+  REGISTRATIONS_PER_ACCOUNT: "REGISTRATIONS_PER_ACCOUNT",
+  REGISTRATION_ATTACHMENTS_CREATED_PER_DAY: "REGISTRATION_ATTACHMENTS_CREATED_PER_DAY",
+  REGISTRATION_ATTACHMENTS_PER_ACCOUNT: "REGISTRATION_ATTACHMENTS_PER_ACCOUNT",
+  REGISTRATION_VERSIONS_CREATED_PER_DAY: "REGISTRATION_VERSIONS_CREATED_PER_DAY",
+  SENDER_IDS_PER_ACCOUNT: "SENDER_IDS_PER_ACCOUNT",
   TAGS_PER_RESOURCE: "TAGS_PER_RESOURCE",
+  VERIFICATION_ATTEMPTS_PER_DAY: "VERIFICATION_ATTEMPTS_PER_DAY",
+  VERIFIED_DESTINATION_NUMBERS_PER_ACCOUNT: "VERIFIED_DESTINATION_NUMBERS_PER_ACCOUNT",
 } as const;
 
 /**
@@ -458,6 +484,7 @@ export interface ValidationExceptionField {
  * @enum
  */
 export const ValidationExceptionReason = {
+  ATTACHMENT_TYPE_NOT_SUPPORTED: "ATTACHMENT_TYPE_NOT_SUPPORTED",
   CANNOT_ADD_OPTED_OUT_NUMBER: "CANNOT_ADD_OPTED_OUT_NUMBER",
   CANNOT_PARSE: "CANNOT_PARSE",
   COUNTRY_CODE_MISMATCH: "COUNTRY_CODE_MISMATCH",
@@ -468,20 +495,33 @@ export const ValidationExceptionReason = {
   INVALID_IDENTITY_FOR_DESTINATION_COUNTRY: "INVALID_IDENTITY_FOR_DESTINATION_COUNTRY",
   INVALID_NEXT_TOKEN: "INVALID_NEXT_TOKEN",
   INVALID_PARAMETER: "INVALID_PARAMETER",
+  INVALID_REGISTRATION_ASSOCIATION: "INVALID_REGISTRATION_ASSOCIATION",
+  INVALID_REQUEST: "INVALID_REQUEST",
+  MAXIMUM_SIZE_EXCEEDED: "MAXIMUM_SIZE_EXCEEDED",
   MISSING_PARAMETER: "MISSING_PARAMETER",
   OTHER: "OTHER",
   PARAMETERS_CANNOT_BE_USED_TOGETHER: "PARAMETERS_CANNOT_BE_USED_TOGETHER",
   PHONE_NUMBER_CANNOT_BE_OPTED_IN: "PHONE_NUMBER_CANNOT_BE_OPTED_IN",
   PHONE_NUMBER_CANNOT_BE_RELEASED: "PHONE_NUMBER_CANNOT_BE_RELEASED",
   PRICE_OVER_THRESHOLD: "PRICE_OVER_THRESHOLD",
+  REGISTRATION_FIELD_CANNOT_BE_DELETED: "REGISTRATION_FIELD_CANNOT_BE_DELETED",
   REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT: "REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT",
+  RESOURCE_NOT_ACCESSIBLE: "RESOURCE_NOT_ACCESSIBLE",
   SENDER_ID_NOT_REGISTERED: "SENDER_ID_NOT_REGISTERED",
   SENDER_ID_NOT_SUPPORTED: "SENDER_ID_NOT_SUPPORTED",
+  SENDER_ID_REQUIRES_REGISTRATION: "SENDER_ID_REQUIRES_REGISTRATION",
+  TWO_WAY_CHANNEL_NOT_PRESENT: "TWO_WAY_CHANNEL_NOT_PRESENT",
   TWO_WAY_NOT_ENABLED: "TWO_WAY_NOT_ENABLED",
   TWO_WAY_NOT_SUPPORTED_IN_COUNTRY: "TWO_WAY_NOT_SUPPORTED_IN_COUNTRY",
   TWO_WAY_NOT_SUPPORTED_IN_REGION: "TWO_WAY_NOT_SUPPORTED_IN_REGION",
   TWO_WAY_TOPIC_NOT_PRESENT: "TWO_WAY_TOPIC_NOT_PRESENT",
   UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+  UNKNOWN_REGISTRATION_FIELD: "UNKNOWN_REGISTRATION_FIELD",
+  UNKNOWN_REGISTRATION_SECTION: "UNKNOWN_REGISTRATION_SECTION",
+  UNKNOWN_REGISTRATION_TYPE: "UNKNOWN_REGISTRATION_TYPE",
+  UNKNOWN_REGISTRATION_VERSION: "UNKNOWN_REGISTRATION_VERSION",
+  VERIFICATION_CODE_MISMATCH: "VERIFICATION_CODE_MISMATCH",
+  VOICE_CAPABILITY_NOT_AVAILABLE: "VOICE_CAPABILITY_NOT_AVAILABLE",
 } as const;
 
 /**
@@ -523,6 +563,36 @@ export class ValidationException extends __BaseException {
     this.Fields = opts.Fields;
   }
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentStatus = {
+  DELETED: "DELETED",
+  UPLOAD_COMPLETE: "UPLOAD_COMPLETE",
+  UPLOAD_FAILED: "UPLOAD_FAILED",
+  UPLOAD_IN_PROGRESS: "UPLOAD_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentUploadErrorReason = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentUploadErrorReason =
+  (typeof AttachmentUploadErrorReason)[keyof typeof AttachmentUploadErrorReason];
 
 /**
  * @public
@@ -596,7 +666,7 @@ export type MessageType = (typeof MessageType)[keyof typeof MessageType];
  * @public
  * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with an Kinesis Data Firehose event
  *             destination.</p>
- *         <p>Event destinations, such as Kinesis Data Firehose, are associated with configuration
+ *          <p>Event destinations, such as Kinesis Data Firehose, are associated with configuration
  *             sets, which enable you to publish message sending events.</p>
  */
 export interface KinesisFirehoseDestination {
@@ -668,10 +738,8 @@ export interface SnsDestination {
 /**
  * @public
  * <p>Contains information about an event destination.</p>
- *         <p>Event destinations are associated with configuration sets, which enable you to publish
- *             message sending events to
- *             Amazon
- *                 CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS.</p>
+ *          <p>Event destinations are associated with configuration sets, which enable you to publish
+ *             message sending events to CloudWatch, Kinesis Data Firehose,or Amazon SNS.</p>
  */
 export interface EventDestination {
   /**
@@ -689,6 +757,9 @@ export interface EventDestination {
   /**
    * @public
    * <p>An array of event types that determine which events to log.</p>
+   *          <note>
+   *             <p>The <code>TEXT_SENT</code> event type is not supported.</p>
+   *          </note>
    */
   MatchingEventTypes: EventType[] | undefined;
 
@@ -854,6 +925,9 @@ export interface CreateEventDestinationRequest {
    * @public
    * <p>An array of event types that determine which events to log. If "ALL" is used, then
    *                 Amazon Pinpoint logs every event type.</p>
+   *          <note>
+   *             <p>The <code>TEXT_SENT</code> event type is not supported.</p>
+   *          </note>
    */
   MatchingEventTypes: EventType[] | undefined;
 
@@ -1047,16 +1121,16 @@ export interface CreatePoolResult {
   /**
    * @public
    * <p>The current status of the pool.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>CREATING: The pool is currently being created and isn't yet available for
+   *                <p>CREATING: The pool is currently being created and isn't yet available for
    *                     use.</p>
    *             </li>
    *             <li>
-   *                 <p>ACTIVE: The pool is active and available for use.</p>
+   *                <p>ACTIVE: The pool is active and available for use.</p>
    *             </li>
    *             <li>
-   *                 <p>DELETING: The pool is being deleted.</p>
+   *                <p>DELETING: The pool is being deleted.</p>
    *             </li>
    *          </ul>
    */
@@ -1080,6 +1154,12 @@ export interface CreatePoolResult {
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    */
   TwoWayChannelArn?: string;
+
+  /**
+   * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
 
   /**
    * @public
@@ -1121,6 +1201,539 @@ export interface CreatePoolResult {
    * <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistrationRequest {
+  /**
+   * @public
+   * <p>The type of registration form to create. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the registration.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don't specify a client token, a randomly generated token is used for the
+   *             request to ensure idempotency.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationStatus = {
+  CLOSED: "CLOSED",
+  COMPLETE: "COMPLETE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  PROVISIONING: "PROVISIONING",
+  REQUIRES_UPDATES: "REQUIRES_UPDATES",
+  REVIEWING: "REVIEWING",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
+
+/**
+ * @public
+ */
+export interface CreateRegistrationResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of registration form to create. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>: The registration has been deleted.</p>
+   *             </li>
+   *          </ul>
+   */
+  RegistrationStatus: RegistrationStatus | undefined;
+
+  /**
+   * @public
+   * <p>The current version number of the registration.</p>
+   */
+  CurrentVersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>Metadata about a given registration which is specific to that registration type.</p>
+   */
+  AdditionalAttributes?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the registration.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The time when the registration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistrationAssociationRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the origination identity. For example this could be a <b>PhoneNumberId</b> or <b>SenderId</b>.</p>
+   */
+  ResourceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistrationAssociationResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the origination identity that is associated with the registration. </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the origination identity. For example this could be a <b>PhoneNumberId</b> or <b>SenderId</b>.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The registration type or origination identity type.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode?: string;
+
+  /**
+   * @public
+   * <p>The phone number associated with the registration in E.164 format.</p>
+   */
+  PhoneNumber?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistrationAttachmentRequest {
+  /**
+   * @public
+   * <p>The registration file to upload. The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG.</p>
+   */
+  AttachmentBody?: Uint8Array;
+
+  /**
+   * @public
+   * <p>A URL to the required registration file.  For example, you can provide the S3 object URL.</p>
+   */
+  AttachmentUrl?: string;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the registration attachment.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don't specify a client token, a randomly generated token is used for the
+   *             request to ensure idempotency.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistrationAttachmentResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration attachment.</p>
+   */
+  RegistrationAttachmentArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration attachment. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> The attachment has been deleted..</p>
+   *             </li>
+   *          </ul>
+   */
+  AttachmentStatus: AttachmentStatus | undefined;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the registration attachment.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The time when the registration attachment was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistrationVersionRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationVersionStatus = {
+  APPROVED: "APPROVED",
+  ARCHIVED: "ARCHIVED",
+  DENIED: "DENIED",
+  DISCARDED: "DISCARDED",
+  DRAFT: "DRAFT",
+  REVIEWING: "REVIEWING",
+  REVOKED: "REVOKED",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationVersionStatus = (typeof RegistrationVersionStatus)[keyof typeof RegistrationVersionStatus];
+
+/**
+ * @public
+ * <p>The <b>RegistrationVersionStatusHistory</b> object contains the time stamps for when the reservations status changes.</p>
+ */
+export interface RegistrationVersionStatusHistory {
+  /**
+   * @public
+   * <p>The time when the registration was in the draft state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  DraftTimestamp: Date | undefined;
+
+  /**
+   * @public
+   * <p>The time when the registration was in the submitted state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  SubmittedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time when the registration was in the reviewing state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  ReviewingTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time when the registration was in the approved state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  ApprovedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time when the registration was in the discarded state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  DiscardedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time when the registration was in the denied state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  DeniedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time when the registration was in the revoked state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  RevokedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time when the registration was in the archived state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  ArchivedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistrationVersionResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The new version number of the registration.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPROVED</code>: Your registration has been approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *             </li>
+   *          </ul>
+   */
+  RegistrationVersionStatus: RegistrationVersionStatus | undefined;
+
+  /**
+   * @public
+   * <p>A <b>RegistrationVersionStatusHistory</b> object that contains timestamps for the registration.</p>
+   */
+  RegistrationVersionStatusHistory: RegistrationVersionStatusHistory | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVerifiedDestinationNumberRequest {
+  /**
+   * @public
+   * <p>The verified destination phone number, in E.164 format.</p>
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the destination number.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don't specify a client token, a randomly generated token is used for the
+   *             request to ensure idempotency.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationStatus = {
+  PENDING: "PENDING",
+  VERIFIED: "VERIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
+
+/**
+ * @public
+ */
+export interface CreateVerifiedDestinationNumberResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>The verified destination phone number, in E.164 format.</p>
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the verified destination phone number.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The phone number hasn't been verified yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERIFIED</code>: The phone number is verified and can receive messages.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: VerificationStatus | undefined;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the destination number.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The time when the verified phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
 }
 
 /**
@@ -1481,16 +2094,16 @@ export interface DeletePoolResult {
   /**
    * @public
    * <p>The current status of the pool.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>CREATING: The pool is currently being created and isn't yet available for
+   *                <p>CREATING: The pool is currently being created and isn't yet available for
    *                     use.</p>
    *             </li>
    *             <li>
-   *                 <p>ACTIVE: The pool is active and available for use.</p>
+   *                <p>ACTIVE: The pool is active and available for use.</p>
    *             </li>
    *             <li>
-   *                 <p>DELETING: The pool is being deleted.</p>
+   *                <p>DELETING: The pool is being deleted.</p>
    *             </li>
    *          </ul>
    */
@@ -1514,6 +2127,12 @@ export interface DeletePoolResult {
    * <p>The Amazon Resource Name (ARN) of the TwoWayChannel.</p>
    */
   TwoWayChannelArn?: string;
+
+  /**
+   * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
 
   /**
    * @public
@@ -1547,6 +2166,239 @@ export interface DeletePoolResult {
 /**
  * @public
  */
+export interface DeleteRegistrationRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistrationResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>: The registration has been deleted.</p>
+   *             </li>
+   *          </ul>
+   */
+  RegistrationStatus: RegistrationStatus | undefined;
+
+  /**
+   * @public
+   * <p>The current version number of the registration.</p>
+   */
+  CurrentVersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The version number of the registration that was approved.</p>
+   */
+  ApprovedVersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The latest version number of the registration that was denied.</p>
+   */
+  LatestDeniedVersionNumber?: number;
+
+  /**
+   * @public
+   * <p>Metadata about a given registration which is specific to that registration type.</p>
+   */
+  AdditionalAttributes?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The time when the registration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistrationAttachmentRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistrationAttachmentResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration attachment.</p>
+   */
+  RegistrationAttachmentArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration attachment. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> The attachment has been deleted..</p>
+   *             </li>
+   *          </ul>
+   */
+  AttachmentStatus: AttachmentStatus | undefined;
+
+  /**
+   * @public
+   * <p>The error message if the upload failed.</p>
+   */
+  AttachmentUploadErrorReason?: AttachmentUploadErrorReason;
+
+  /**
+   * @public
+   * <p>The time when the registration attachment was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistrationFieldValueRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The path to the registration form field. You can use <a>DescribeRegistrationFieldDefinitions</a> for a list of <b>FieldPaths</b>.</p>
+   */
+  FieldPath: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistrationFieldValueResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version number of the registration.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The path to the registration form field.</p>
+   */
+  FieldPath: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of values for the form field.</p>
+   */
+  SelectChoices?: string[];
+
+  /**
+   * @public
+   * <p>The text data for a free form field.</p>
+   */
+  TextValue?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId?: string;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTextMessageSpendLimitOverrideRequest {}
 
 /**
@@ -1558,6 +2410,46 @@ export interface DeleteTextMessageSpendLimitOverrideResult {
    * <p>The current monthly limit, in US dollars.</p>
    */
   MonthlyLimit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVerifiedDestinationNumberRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVerifiedDestinationNumberResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>The verified destination phone number, in E.164 format.</p>
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>The time when the destination phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
 }
 
 /**
@@ -2025,6 +2917,7 @@ export const PhoneNumberFilterName = {
   OPT_OUT_LIST_NAME: "opt-out-list-name",
   SELF_MANAGED_OPT_OUTS_ENABLED: "self-managed-opt-outs-enabled",
   STATUS: "status",
+  TWO_WAY_CHANNEL_ARN: "two-way-channel-arn",
   TWO_WAY_ENABLED: "two-way-enabled",
 } as const;
 
@@ -2103,6 +2996,7 @@ export type NumberCapability = (typeof NumberCapability)[keyof typeof NumberCapa
 export const NumberType = {
   LONG_CODE: "LONG_CODE",
   SHORT_CODE: "SHORT_CODE",
+  SIMULATOR: "SIMULATOR",
   TEN_DLC: "TEN_DLC",
   TOLL_FREE: "TOLL_FREE",
 } as const;
@@ -2131,7 +3025,7 @@ export type NumberStatus = (typeof NumberStatus)[keyof typeof NumberStatus];
 
 /**
  * @public
- * <p>The information for a phone number in an Amazon Web Services account.</p>
+ * <p>The information for a phone number, in E.164 format, in an Amazon Web Services account.</p>
  */
 export interface PhoneNumberInformation {
   /**
@@ -2207,6 +3101,12 @@ export interface PhoneNumberInformation {
 
   /**
    * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
+
+  /**
+   * @public
    * <p>When set to false an end recipient sends a message that begins with HELP or STOP to
    *             one of your dedicated numbers, Amazon Pinpoint automatically replies with a
    *             customizable message and adds the end recipient to the OptOutList. When set to true
@@ -2233,6 +3133,12 @@ export interface PhoneNumberInformation {
    * <p>The unique identifier of the pool associated with the phone number.</p>
    */
   PoolId?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId?: string;
 
   /**
    * @public
@@ -2271,6 +3177,7 @@ export const PoolFilterName = {
   SELF_MANAGED_OPT_OUTS_ENABLED: "self-managed-opt-outs-enabled",
   SHARED_ROUTES_ENABLED: "shared-routes-enabled",
   STATUS: "status",
+  TWO_WAY_CHANNEL_ARN: "two-way-channel-arn",
   TWO_WAY_ENABLED: "two-way-enabled",
 } as const;
 
@@ -2374,6 +3281,12 @@ export interface PoolInformation {
 
   /**
    * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
+
+  /**
+   * @public
    * <p>When set to false, an end recipient sends a message that begins with HELP or STOP to
    *             one of your dedicated numbers, Amazon Pinpoint automatically replies with a
    *             customizable message and adds the end recipient to the OptOutList. When set to true
@@ -2392,7 +3305,7 @@ export interface PoolInformation {
   /**
    * @public
    * <p>Allows you to enable shared routes on your pool.</p>
-   *         <p>By default, this is set to <code>False</code>. If you set this value to
+   *          <p>By default, this is set to <code>False</code>. If you set this value to
    *                 <code>True</code>, your messages are sent using phone numbers or sender IDs
    *             (depending on the country) that are shared with other Amazon Pinpoint users. In some
    *             countries, such as the United States, senders aren't allowed to use shared routes and
@@ -2435,9 +3348,1241 @@ export interface DescribePoolsResult {
  * @public
  * @enum
  */
+export const RegistrationAttachmentFilterName = {
+  ATTACHMENT_STATUS: "attachment-status",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationAttachmentFilterName =
+  (typeof RegistrationAttachmentFilterName)[keyof typeof RegistrationAttachmentFilterName];
+
+/**
+ * @public
+ * <p>The filter definition for filtering registration attachments that meets a specified criteria.</p>
+ */
+export interface RegistrationAttachmentFilter {
+  /**
+   * @public
+   * <p>The name of the attribute to filter on.</p>
+   */
+  Name: RegistrationAttachmentFilterName | undefined;
+
+  /**
+   * @public
+   * <p>An array of values to filter on.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationAttachmentsRequest {
+  /**
+   * @public
+   * <p>The unique identifier of registration attachments to find. This is an array of <b>RegistrationAttachmentId</b>.</p>
+   */
+  RegistrationAttachmentIds?: string[];
+
+  /**
+   * @public
+   * <p>An array of RegistrationAttachmentFilter objects to filter the results.</p>
+   */
+  Filters?: RegistrationAttachmentFilter[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides information on the specified registration attachments.</p>
+ */
+export interface RegistrationAttachmentsInformation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration attachment.</p>
+   */
+  RegistrationAttachmentArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration attachment. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> The attachment has been deleted..</p>
+   *             </li>
+   *          </ul>
+   */
+  AttachmentStatus: AttachmentStatus | undefined;
+
+  /**
+   * @public
+   * <p>A description of why the upload didn't successfully complete.</p>
+   */
+  AttachmentUploadErrorReason?: AttachmentUploadErrorReason;
+
+  /**
+   * @public
+   * <p>The time when the registration attachment was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationAttachmentsResult {
+  /**
+   * @public
+   * <p>An array of <b>RegistrationAttachments</b> objects that contain the details for the requested registration attachments. </p>
+   */
+  RegistrationAttachments: RegistrationAttachmentsInformation[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationFieldDefinitionsRequest {
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>The path to the section of the registration.</p>
+   */
+  SectionPath?: string;
+
+  /**
+   * @public
+   * <p>An array of paths to the registration form field.</p>
+   */
+  FieldPaths?: string[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A description of each select option.</p>
+ */
+export interface SelectOptionDescription {
+  /**
+   * @public
+   * <p>The value of the option.</p>
+   */
+  Option: string | undefined;
+
+  /**
+   * @public
+   * <p>The title of the select option.</p>
+   */
+  Title?: string;
+
+  /**
+   * @public
+   * <p>A description of the option meaning.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>Provides help information on the registration field.</p>
+ */
+export interface RegistrationFieldDisplayHints {
+  /**
+   * @public
+   * <p>The title of the display hint.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p>A short description of the display hint.</p>
+   */
+  ShortDescription: string | undefined;
+
+  /**
+   * @public
+   * <p>A full description of the display hint.</p>
+   */
+  LongDescription?: string;
+
+  /**
+   * @public
+   * <p>The title of the document the display hint is associated with.</p>
+   */
+  DocumentationTitle?: string;
+
+  /**
+   * @public
+   * <p>The link to the document the display hint is associated with.</p>
+   */
+  DocumentationLink?: string;
+
+  /**
+   * @public
+   * <p>An array of SelectOptionDescription objects.</p>
+   */
+  SelectOptionDescriptions?: SelectOptionDescription[];
+
+  /**
+   * @public
+   * <p>The validation rules for the text field.</p>
+   */
+  TextValidationDescription?: string;
+
+  /**
+   * @public
+   * <p>Example text of what the value of a field should contain.</p>
+   */
+  ExampleTextValue?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldRequirement = {
+  CONDITIONAL: "CONDITIONAL",
+  OPTIONAL: "OPTIONAL",
+  REQUIRED: "REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldRequirement = (typeof FieldRequirement)[keyof typeof FieldRequirement];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldType = {
+  ATTACHMENT: "ATTACHMENT",
+  SELECT: "SELECT",
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldType = (typeof FieldType)[keyof typeof FieldType];
+
+/**
+ * @public
+ * <p>Validation rules for a select field.</p>
+ */
+export interface SelectValidation {
+  /**
+   * @public
+   * <p>The minimum number of choices for the select.</p>
+   */
+  MinChoices: number | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of choices for the select.</p>
+   */
+  MaxChoices: number | undefined;
+
+  /**
+   * @public
+   * <p>An array of strings for the possible selection options. </p>
+   */
+  Options: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Validation rules for a text field.</p>
+ */
+export interface TextValidation {
+  /**
+   * @public
+   * <p>The minimum number of characters for the text field.</p>
+   */
+  MinLength: number | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of characters for the text field.</p>
+   */
+  MaxLength: number | undefined;
+
+  /**
+   * @public
+   * <p>The regular expression used to validate the text field.</p>
+   */
+  Pattern: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides a description of the specified field.</p>
+ */
+export interface RegistrationFieldDefinition {
+  /**
+   * @public
+   * <p>The section path of the field.</p>
+   */
+  SectionPath: string | undefined;
+
+  /**
+   * @public
+   * <p>The path to the registration form field. You can use <a>DescribeRegistrationFieldDefinitions</a> for a list of <b>FieldPaths</b>.</p>
+   */
+  FieldPath: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of field.</p>
+   */
+  FieldType: FieldType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies if the field for the registration form is required, conditional or optional.</p>
+   */
+  FieldRequirement: FieldRequirement | undefined;
+
+  /**
+   * @public
+   * <p>The validation rules for a select field.</p>
+   */
+  SelectValidation?: SelectValidation;
+
+  /**
+   * @public
+   * <p>The validation rules for a text field.</p>
+   */
+  TextValidation?: TextValidation;
+
+  /**
+   * @public
+   * <p>An array of RegistrationFieldDisplayHints objects for the field.</p>
+   */
+  DisplayHints: RegistrationFieldDisplayHints | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationFieldDefinitionsResult {
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of RegistrationFieldDefinitions objects that contain the details for the requested fields. </p>
+   */
+  RegistrationFieldDefinitions: RegistrationFieldDefinition[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationFieldValuesRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version number of the registration.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The path to the section of the registration.</p>
+   */
+  SectionPath?: string;
+
+  /**
+   * @public
+   * <p>An array of paths to the registration form field.</p>
+   */
+  FieldPaths?: string[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides the values of the specified field.</p>
+ */
+export interface RegistrationFieldValueInformation {
+  /**
+   * @public
+   * <p>The path to the registration form field. You can use <a>DescribeRegistrationFieldDefinitions</a> for a list of <b>FieldPaths</b>.</p>
+   */
+  FieldPath: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of values for the form field.</p>
+   */
+  SelectChoices?: string[];
+
+  /**
+   * @public
+   * <p>The text data for a free form field.</p>
+   */
+  TextValue?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId?: string;
+
+  /**
+   * @public
+   * <p>A description of why the registration was denied.</p>
+   */
+  DeniedReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationFieldValuesResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The current version of the registration.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>An array of RegistrationFieldValues objects that contain the values for the requested registration. </p>
+   */
+  RegistrationFieldValues: RegistrationFieldValueInformation[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationFilterName = {
+  REGISTRATION_STATUS: "registration-status",
+  REGISTRATION_TYPE: "registration-type",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationFilterName = (typeof RegistrationFilterName)[keyof typeof RegistrationFilterName];
+
+/**
+ * @public
+ * <p>The filter definition for filtering registrations that meets a specified criteria.</p>
+ */
+export interface RegistrationFilter {
+  /**
+   * @public
+   * <p>The name of the attribute to filter on.</p>
+   */
+  Name: RegistrationFilterName | undefined;
+
+  /**
+   * @public
+   * <p>An array of values to filter on.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationsRequest {
+  /**
+   * @public
+   * <p>An array of unique identifiers for each registration.</p>
+   */
+  RegistrationIds?: string[];
+
+  /**
+   * @public
+   * <p>An array of RegistrationFilter objects to filter the results.</p>
+   */
+  Filters?: RegistrationFilter[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides information about the requested registration.</p>
+ */
+export interface RegistrationInformation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>: The registration has been deleted.</p>
+   *             </li>
+   *          </ul>
+   */
+  RegistrationStatus: RegistrationStatus | undefined;
+
+  /**
+   * @public
+   * <p>The current version number of the registration.</p>
+   */
+  CurrentVersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The version number of the registration that was approved.</p>
+   */
+  ApprovedVersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The latest version number of the registration that was denied.</p>
+   */
+  LatestDeniedVersionNumber?: number;
+
+  /**
+   * @public
+   * <p>Metadata about a given registration which is specific to that registration type.</p>
+   */
+  AdditionalAttributes?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The time when the registration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationsResult {
+  /**
+   * @public
+   * <p>An array of RegistrationInformation objects.</p>
+   */
+  Registrations: RegistrationInformation[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationSectionDefinitionsRequest {
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of paths for the registration form section.</p>
+   */
+  SectionPaths?: string[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides help information on the registration section.</p>
+ */
+export interface RegistrationSectionDisplayHints {
+  /**
+   * @public
+   * <p>The title of the display hint.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p>A short description of the display hint.</p>
+   */
+  ShortDescription: string | undefined;
+
+  /**
+   * @public
+   * <p>A full description of the display hint.</p>
+   */
+  LongDescription?: string;
+
+  /**
+   * @public
+   * <p>The title of the document the display hint is associated with.</p>
+   */
+  DocumentationTitle?: string;
+
+  /**
+   * @public
+   * <p>The link to the document the display hint is associated with.</p>
+   */
+  DocumentationLink?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information on the specified section definition.</p>
+ */
+export interface RegistrationSectionDefinition {
+  /**
+   * @public
+   * <p>The path to the section of the registration.</p>
+   */
+  SectionPath: string | undefined;
+
+  /**
+   * @public
+   * <p>The path to the section of the registration.</p>
+   */
+  DisplayHints: RegistrationSectionDisplayHints | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationSectionDefinitionsResult {
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of  RegistrationSectionDefinition objects.</p>
+   */
+  RegistrationSectionDefinitions: RegistrationSectionDefinition[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationTypeFilterName = {
+  SUPPORTED_ASSOCIATION_ISO_COUNTRY_CODE: "supported-association-iso-country-code",
+  SUPPORTED_ASSOCIATION_RESOURCE_TYPE: "supported-association-resource-type",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationTypeFilterName = (typeof RegistrationTypeFilterName)[keyof typeof RegistrationTypeFilterName];
+
+/**
+ * @public
+ * <p>The filter definition for filtering registration types that meets a specified criteria.</p>
+ */
+export interface RegistrationTypeFilter {
+  /**
+   * @public
+   * <p>The name of the attribute to filter on.</p>
+   */
+  Name: RegistrationTypeFilterName | undefined;
+
+  /**
+   * @public
+   * <p>An array of values to filter on.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationTypeDefinitionsRequest {
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationTypes?: string[];
+
+  /**
+   * @public
+   * <p>An array of RegistrationFilter objects to filter the results.</p>
+   */
+  Filters?: RegistrationTypeFilter[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides help information on the registration type.</p>
+ */
+export interface RegistrationTypeDisplayHints {
+  /**
+   * @public
+   * <p>The title of the display hint.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p>A short description of the display hint.</p>
+   */
+  ShortDescription?: string;
+
+  /**
+   * @public
+   * <p>A full description of the display hint.</p>
+   */
+  LongDescription?: string;
+
+  /**
+   * @public
+   * <p>The title of the document the display hint is associated with.</p>
+   */
+  DocumentationTitle?: string;
+
+  /**
+   * @public
+   * <p>The link to the document the display hint is associated with.</p>
+   */
+  DocumentationLink?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationAssociationBehavior = {
+  ASSOCIATE_AFTER_COMPLETE: "ASSOCIATE_AFTER_COMPLETE",
+  ASSOCIATE_BEFORE_SUBMIT: "ASSOCIATE_BEFORE_SUBMIT",
+  ASSOCIATE_ON_APPROVAL: "ASSOCIATE_ON_APPROVAL",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationAssociationBehavior =
+  (typeof RegistrationAssociationBehavior)[keyof typeof RegistrationAssociationBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationDisassociationBehavior = {
+  DELETE_REGISTRATION_DISASSOCIATES: "DELETE_REGISTRATION_DISASSOCIATES",
+  DISASSOCIATE_ALL_ALLOWS_DELETE_REGISTRATION: "DISASSOCIATE_ALL_ALLOWS_DELETE_REGISTRATION",
+  DISASSOCIATE_ALL_CLOSES_REGISTRATION: "DISASSOCIATE_ALL_CLOSES_REGISTRATION",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationDisassociationBehavior =
+  (typeof RegistrationDisassociationBehavior)[keyof typeof RegistrationDisassociationBehavior];
+
+/**
+ * @public
+ * <p>The processing rules for when a registration can be associated with an origination identity and disassociated from an origination identity.</p>
+ */
+export interface SupportedAssociation {
+  /**
+   * @public
+   * <p>Defines the behavior of when an origination identity and registration can be associated with each other.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode?: string;
+
+  /**
+   * @public
+   * <p>The association behavior.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATE_BEFORE_SUBMIT</code> The origination identity has to be supplied when creating a registration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATE_ON_APPROVAL</code> This applies to all short code registrations. The short code will be automatically provisioned once the registration is approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATE_AFTER_COMPLETE</code> This applies to phone number registrations when you must complete a registration first, then associate one or more phone numbers later. For example 10DLC campaigns and long codes. </p>
+   *             </li>
+   *          </ul>
+   */
+  AssociationBehavior: RegistrationAssociationBehavior | undefined;
+
+  /**
+   * @public
+   * <p>The disassociation behavior.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISASSOCIATE_ALL_CLOSES_REGISTRATION</code> All origination identities must be disassociated from the registration before the registration can be closed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISASSOCIATE_ALL_ALLOWS_DELETE_REGISTRATION</code> All origination identities must be disassociated from the registration before the registration can be deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_REGISTRATION_DISASSOCIATES</code> The registration can be deleted and all origination identities will be disasscoiated.</p>
+   *             </li>
+   *          </ul>
+   */
+  DisassociationBehavior: RegistrationDisassociationBehavior | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides information on the supported registration type.</p>
+ */
+export interface RegistrationTypeDefinition {
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>The supported association behavior for the registration type.</p>
+   */
+  SupportedAssociations?: SupportedAssociation[];
+
+  /**
+   * @public
+   * <p>Provides help information on the registration.</p>
+   */
+  DisplayHints: RegistrationTypeDisplayHints | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationTypeDefinitionsResult {
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationTypeDefinitions: RegistrationTypeDefinition[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationVersionFilterName = {
+  REGISTRATION_VERSION_STATUS: "registration-version-status",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationVersionFilterName =
+  (typeof RegistrationVersionFilterName)[keyof typeof RegistrationVersionFilterName];
+
+/**
+ * @public
+ * <p>The filter definition for filtering registration versions that meets a specified criteria.</p>
+ */
+export interface RegistrationVersionFilter {
+  /**
+   * @public
+   * <p>The name of the attribute to filter on.</p>
+   */
+  Name: RegistrationVersionFilterName | undefined;
+
+  /**
+   * @public
+   * <p>An array of values to filter on.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationVersionsRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of registration version numbers.</p>
+   */
+  VersionNumbers?: number[];
+
+  /**
+   * @public
+   * <p>An array of RegistrationVersionFilter objects to filter the results.</p>
+   */
+  Filters?: RegistrationVersionFilter[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides the reason a registration was rejected.</p>
+ */
+export interface RegistrationDeniedReasonInformation {
+  /**
+   * @public
+   * <p>The reason a registration was rejected.</p>
+   */
+  Reason: string | undefined;
+
+  /**
+   * @public
+   * <p>A short description of the rejection reason.</p>
+   */
+  ShortDescription: string | undefined;
+
+  /**
+   * @public
+   * <p>A long description of the rejection reason.</p>
+   */
+  LongDescription?: string;
+
+  /**
+   * @public
+   * <p>The title of the document.</p>
+   */
+  DocumentationTitle?: string;
+
+  /**
+   * @public
+   * <p>The link to the document.</p>
+   */
+  DocumentationLink?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the specified version of the registration.</p>
+ */
+export interface RegistrationVersionInformation {
+  /**
+   * @public
+   * <p>The version number of the registration.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPROVED</code>: Your registration has been approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *             </li>
+   *          </ul>
+   */
+  RegistrationVersionStatus: RegistrationVersionStatus | undefined;
+
+  /**
+   * @public
+   * <p>The <b>RegistrationVersionStatusHistory</b> object contains the time stamps for when the reservations status changes.</p>
+   */
+  RegistrationVersionStatusHistory: RegistrationVersionStatusHistory | undefined;
+
+  /**
+   * @public
+   * <p>An array of RegistrationDeniedReasonInformation objects. </p>
+   */
+  DeniedReasons?: RegistrationDeniedReasonInformation[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegistrationVersionsResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of RegistrationVersions objects.</p>
+   */
+  RegistrationVersions: RegistrationVersionInformation[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const SenderIdFilterName = {
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
   ISO_COUNTRY_CODE: "iso-country-code",
   MESSAGE_TYPE: "message-type",
+  REGISTERED: "registered",
   SENDER_ID: "sender-id",
 } as const;
 
@@ -2553,6 +4698,24 @@ export interface SenderIdInformation {
    * <p>The monthly leasing price, in US dollars.</p>
    */
   MonthlyLeasingPrice: string | undefined;
+
+  /**
+   * @public
+   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>True if the sender ID is registered.</p>
+   */
+  Registered: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId?: string;
 }
 
 /**
@@ -2668,6 +4831,138 @@ export interface DescribeSpendLimitsResult {
  * @public
  * @enum
  */
+export const VerifiedDestinationNumberFilterName = {
+  STATUS: "status",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedDestinationNumberFilterName =
+  (typeof VerifiedDestinationNumberFilterName)[keyof typeof VerifiedDestinationNumberFilterName];
+
+/**
+ * @public
+ * <p>The filter definition for filtering verified destination phone numbers that meets a specified criteria.</p>
+ */
+export interface VerifiedDestinationNumberFilter {
+  /**
+   * @public
+   * <p>The name of the attribute to filter on.</p>
+   */
+  Name: VerifiedDestinationNumberFilterName | undefined;
+
+  /**
+   * @public
+   * <p>An array of values to filter on.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedDestinationNumbersRequest {
+  /**
+   * @public
+   * <p>An array of VerifiedDestinationNumberid to retreive.</p>
+   */
+  VerifiedDestinationNumberIds?: string[];
+
+  /**
+   * @public
+   * <p>An array of verified destination phone number, in E.164 format.</p>
+   */
+  DestinationPhoneNumbers?: string[];
+
+  /**
+   * @public
+   * <p>An array of VerifiedDestinationNumberFilter objects to filter the results.</p>
+   */
+  Filters?: VerifiedDestinationNumberFilter[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides information about the requested verified destintion phone number.</p>
+ */
+export interface VerifiedDestinationNumberInformation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>The verified destination phone number, in E.164 format.</p>
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the verified destination phone number.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The phone number hasn't been verified yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERIFIED</code>: The phone number is verified and can receive messages.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: VerificationStatus | undefined;
+
+  /**
+   * @public
+   * <p>The time when the destination phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedDestinationNumbersResult {
+  /**
+   * @public
+   * <p>An array of VerifiedDestinationNumberInformation objects</p>
+   */
+  VerifiedDestinationNumbers: VerifiedDestinationNumberInformation[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DestinationCountryParameterKey = {
   IN_ENTITY_ID: "IN_ENTITY_ID",
   IN_TEMPLATE_ID: "IN_TEMPLATE_ID",
@@ -2750,6 +5045,111 @@ export interface DisassociateOriginationIdentityResult {
    */
   IsoCountryCode?: string;
 }
+
+/**
+ * @public
+ */
+export interface DiscardRegistrationVersionRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DiscardRegistrationVersionResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version number of the registration.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration version.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPROVED</code>: Your registration has been approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *             </li>
+   *          </ul>
+   */
+  RegistrationVersionStatus: RegistrationVersionStatus | undefined;
+
+  /**
+   * @public
+   * <p>The <b>RegistrationVersionStatusHistory</b> object contains the time stamps for when the reservations status changes.</p>
+   */
+  RegistrationVersionStatusHistory: RegistrationVersionStatusHistory | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LanguageCode = {
+  DE_DE: "DE_DE",
+  EN_GB: "EN_GB",
+  EN_US: "EN_US",
+  ES_419: "ES_419",
+  ES_ES: "ES_ES",
+  FR_CA: "FR_CA",
+  FR_FR: "FR_FR",
+  IT_IT: "IT_IT",
+  JA_JP: "JA_JP",
+  KO_KR: "KO_KR",
+  PT_BR: "PT_BR",
+  ZH_CN: "ZH_CN",
+  ZH_TW: "ZH_TW",
+} as const;
+
+/**
+ * @public
+ */
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * @public
@@ -2846,6 +5246,12 @@ export interface OriginationIdentityMetadata {
    *             both.</p>
    */
   NumberCapabilities: NumberCapability[] | undefined;
+
+  /**
+   * @public
+   * <p>The phone number in E.164 format.</p>
+   */
+  PhoneNumber?: string;
 }
 
 /**
@@ -2874,6 +5280,142 @@ export interface ListPoolOriginationIdentitiesResult {
    * @public
    * <p>The token to be used for the next set of paginated results. If this field is empty
    *             then there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationAssociationFilterName = {
+  ISO_COUNTRY_CODE: "iso-country-code",
+  RESOURCE_TYPE: "resource-type",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationAssociationFilterName =
+  (typeof RegistrationAssociationFilterName)[keyof typeof RegistrationAssociationFilterName];
+
+/**
+ * @public
+ * <p>The filter definition for filtering registrations that meets a specified criteria.</p>
+ */
+export interface RegistrationAssociationFilter {
+  /**
+   * @public
+   * <p>The name of the attribute to filter on.</p>
+   */
+  Name: RegistrationAssociationFilterName | undefined;
+
+  /**
+   * @public
+   * <p>An array of values to filter for.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegistrationAssociationsRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of RegistrationAssociationFilter to apply to the results that are returned.</p>
+   */
+  Filters?: RegistrationAssociationFilter[];
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per each request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Metadata for the origination identity that is associated with the registration.</p>
+ */
+export interface RegistrationAssociationMetadata {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the origination identity that is associated with the registration. </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the origination identity. For example this could be a <b>PhoneNumberId</b> or <b>SenderId</b>.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The origination identity type.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode?: string;
+
+  /**
+   * @public
+   * <p>The phone number associated with the registration in E.164 format.</p>
+   */
+  PhoneNumber?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRegistrationAssociationsResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
+   *             action.</p>
+   */
+  RegistrationType: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of RegistrationAssociationMetadata objects.</p>
+   */
+  RegistrationAssociations: RegistrationAssociationMetadata[] | undefined;
+
+  /**
+   * @public
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
    */
   NextToken?: string;
 }
@@ -2928,23 +5470,23 @@ export interface PutKeywordRequest {
   /**
    * @public
    * <p>The message associated with the keyword.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p>
-   *             </li>
-   *             <li>
-   *                 <p>OPT_OUT: Keeps the recipient from receiving future messages.</p>
-   *             </li>
-   *             <li>
-   *                 <p>OPT_IN: The recipient wants to receive future messages.</p>
-   *             </li>
-   *          </ul>
    */
   KeywordMessage: string | undefined;
 
   /**
    * @public
    * <p>The action to perform for the new keyword when it is received.</p>
+   *          <ul>
+   *             <li>
+   *                <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p>
+   *             </li>
+   *             <li>
+   *                <p>OPT_OUT: Keeps the recipient from receiving future messages.</p>
+   *             </li>
+   *             <li>
+   *                <p>OPT_IN: The recipient wants to receive future messages.</p>
+   *             </li>
+   *          </ul>
    */
   KeywordAction?: KeywordAction;
 }
@@ -3040,6 +5582,88 @@ export interface PutOptedOutNumberResult {
 /**
  * @public
  */
+export interface PutRegistrationFieldValueRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The path to the registration form field. You can use <a>DescribeRegistrationFieldDefinitions</a> for a list of <b>FieldPaths</b>.</p>
+   */
+  FieldPath: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of values for the form field.</p>
+   */
+  SelectChoices?: string[];
+
+  /**
+   * @public
+   * <p>The text data for a free form field.</p>
+   */
+  TextValue?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutRegistrationFieldValueResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version number of the registration.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The path to the registration form field. You can use <a>DescribeRegistrationFieldDefinitions</a> for a list of <b>FieldPaths</b>.</p>
+   */
+  FieldPath: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of values for the form field.</p>
+   */
+  SelectChoices?: string[];
+
+  /**
+   * @public
+   * <p>The text data for a free form field.</p>
+   */
+  TextValue?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration attachment.</p>
+   */
+  RegistrationAttachmentId?: string;
+}
+
+/**
+ * @public
+ */
 export interface ReleasePhoneNumberRequest {
   /**
    * @public
@@ -3123,6 +5747,12 @@ export interface ReleasePhoneNumberResult {
 
   /**
    * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
+
+  /**
+   * @public
    * <p>By default this is set to false. When an end recipient sends a message that begins
    *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
@@ -3139,9 +5769,81 @@ export interface ReleasePhoneNumberResult {
 
   /**
    * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId?: string;
+
+  /**
+   * @public
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseSenderIdRequest {
+  /**
+   * @public
+   * <p>The sender ID to release.</p>
+   */
+  SenderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseSenderIdResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) associated with the SenderId.</p>
+   */
+  SenderIdArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The sender ID that was released.</p>
+   */
+  SenderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
+   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
+   *             time-sensitive.</p>
+   */
+  MessageTypes: MessageType[] | undefined;
+
+  /**
+   * @public
+   * <p>The monthly price, in US dollars, to lease the sender ID.</p>
+   */
+  MonthlyLeasingPrice: string | undefined;
+
+  /**
+   * @public
+   * <p>True if the sender ID is registered.</p>
+   */
+  Registered: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId?: string;
 }
 
 /**
@@ -3150,6 +5852,7 @@ export interface ReleasePhoneNumberResult {
  */
 export const RequestableNumberType = {
   LONG_CODE: "LONG_CODE",
+  SIMULATOR: "SIMULATOR",
   TEN_DLC: "TEN_DLC",
   TOLL_FREE: "TOLL_FREE",
 } as const;
@@ -3193,7 +5896,7 @@ export interface RequestPhoneNumberRequest {
   /**
    * @public
    * <p>The name of the OptOutList to associate with the phone number. You can use the
-   *             OutOutListName or OptPutListArn.</p>
+   *             OptOutListName or OptOutListArn.</p>
    */
   OptOutListName?: string;
 
@@ -3310,6 +6013,12 @@ export interface RequestPhoneNumberResult {
 
   /**
    * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
+
+  /**
+   * @public
    * <p>By default this is set to false. When an end recipient sends a message that begins
    *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
@@ -3339,6 +6048,12 @@ export interface RequestPhoneNumberResult {
 
   /**
    * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId?: string;
+
+  /**
+   * @public
    * <p>An array of key and value pair tags that are associated with the phone number.</p>
    */
   Tags?: Tag[];
@@ -3348,6 +6063,184 @@ export interface RequestPhoneNumberResult {
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface RequestSenderIdRequest {
+  /**
+   * @public
+   * <p>The sender ID string to request.</p>
+   */
+  SenderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
+   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
+   *             time-sensitive.</p>
+   */
+  MessageTypes?: MessageType[];
+
+  /**
+   * @public
+   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+   */
+  DeletionProtectionEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the sender ID.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don't specify a client token, a randomly generated token is used for the
+   *             request to ensure idempotency.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface RequestSenderIdResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) associated with the SenderId.</p>
+   */
+  SenderIdArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The sender ID that was requested.</p>
+   */
+  SenderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
+   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
+   *             time-sensitive.</p>
+   */
+  MessageTypes: MessageType[] | undefined;
+
+  /**
+   * @public
+   * <p>The monthly price, in US dollars, to lease the sender ID.</p>
+   */
+  MonthlyLeasingPrice: string | undefined;
+
+  /**
+   * @public
+   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>True if the sender ID is registered.</p>
+   */
+  Registered: boolean | undefined;
+
+  /**
+   * @public
+   * <p>An array of tags (key and value pairs) to associate with the sender ID.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationChannel = {
+  TEXT: "TEXT",
+  VOICE: "VOICE",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationChannel = (typeof VerificationChannel)[keyof typeof VerificationChannel];
+
+/**
+ * @public
+ */
+export interface SendDestinationNumberVerificationCodeRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>Choose to send the verification code as an SMS or voice message.</p>
+   */
+  VerificationChannel: VerificationChannel | undefined;
+
+  /**
+   * @public
+   * <p>Choose the language to use for the message.</p>
+   */
+  LanguageCode?: LanguageCode;
+
+  /**
+   * @public
+   * <p>The origination identity of the message. This can be either the PhoneNumber,
+   *             PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   */
+  OriginationIdentity?: string;
+
+  /**
+   * @public
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
+   *             or ConfigurationSetArn.</p>
+   */
+  ConfigurationSetName?: string;
+
+  /**
+   * @public
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event
+   *             destination.</p>
+   */
+  Context?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>This field is used for any country-specific registration requirements. Currently, this
+   *             setting is only used when you send messages to recipients in India using a sender ID.
+   *             For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>.
+   *         </p>
+   */
+  DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>>;
+}
+
+/**
+ * @public
+ */
+export interface SendDestinationNumberVerificationCodeResult {
+  /**
+   * @public
+   * <p>The unique identifier for the message.</p>
+   */
+  MessageId: string | undefined;
 }
 
 /**
@@ -3376,7 +6269,6 @@ export interface SendTextMessageRequest {
   /**
    * @public
    * <p>The type of message. Valid values are
-   *             TRANSACTIONAL
    *             for messages that are critical or time-sensitive and PROMOTIONAL for messages that
    *             aren't critical or time-sensitive.</p>
    */
@@ -3556,13 +6448,13 @@ export interface SendVoiceMessageRequest {
    * @public
    * <p>Specifies if the MessageBody field contains text or <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">speech synthesis
    *                 markup language (SSML)</a>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>TEXT: This is the default value. When used the maximum character limit is
+   *                <p>TEXT: This is the default value. When used the maximum character limit is
    *                     3000.</p>
    *             </li>
    *             <li>
-   *                 <p>SSML: When used the maximum character limit is 6000 including SSML
+   *                <p>SSML: When used the maximum character limit is 6000 including SSML
    *                     tagging.</p>
    *             </li>
    *          </ul>
@@ -3756,6 +6648,86 @@ export interface SetVoiceMessageSpendLimitOverrideResult {
 /**
  * @public
  */
+export interface SubmitRegistrationVersionRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitRegistrationVersionResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the registration.</p>
+   */
+  RegistrationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version number of the registration.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>The status of the registration version.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPROVED</code>: Your registration has been approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *             </li>
+   *          </ul>
+   */
+  RegistrationVersionStatus: RegistrationVersionStatus | undefined;
+
+  /**
+   * @public
+   * <p>The <b>RegistrationVersionStatusHistory</b> object contains the time stamps for when the reservations status changes.</p>
+   */
+  RegistrationVersionStatusHistory: RegistrationVersionStatusHistory | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * @public
@@ -3823,6 +6795,9 @@ export interface UpdateEventDestinationRequest {
   /**
    * @public
    * <p>An array of event types that determine which events to log.</p>
+   *          <note>
+   *             <p>The <code>TEXT_SENT</code> event type is not supported.</p>
+   *          </note>
    */
   MatchingEventTypes?: EventType[];
 
@@ -3894,6 +6869,12 @@ export interface UpdatePhoneNumberRequest {
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    */
   TwoWayChannelArn?: string;
+
+  /**
+   * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
 
   /**
    * @public
@@ -3996,6 +6977,12 @@ export interface UpdatePhoneNumberResult {
 
   /**
    * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
+
+  /**
+   * @public
    * <p>This is true if self managed opt-out are enabled.</p>
    */
   SelfManagedOptOutsEnabled?: boolean;
@@ -4011,6 +6998,12 @@ export interface UpdatePhoneNumberResult {
    * <p>When set to true the phone number can't be deleted.</p>
    */
   DeletionProtectionEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId?: string;
 
   /**
    * @public
@@ -4042,6 +7035,12 @@ export interface UpdatePoolRequest {
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    */
   TwoWayChannelArn?: string;
+
+  /**
+   * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
 
   /**
    * @public
@@ -4116,6 +7115,12 @@ export interface UpdatePoolResult {
 
   /**
    * @public
+   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   */
+  TwoWayChannelRole?: string;
+
+  /**
+   * @public
    * <p>When an end recipient sends a message that begins with HELP or STOP to one of your
    *             dedicated numbers, Amazon Pinpoint automatically replies with a customizable message
    *             and adds the end recipient to the OptOutList. When set to true you're responsible for
@@ -4147,4 +7152,134 @@ export interface UpdatePoolResult {
    * <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSenderIdRequest {
+  /**
+   * @public
+   * <p>The sender ID to update.</p>
+   */
+  SenderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * @public
+   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+   */
+  DeletionProtectionEnabled?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSenderIdResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) associated with the SenderId.</p>
+   */
+  SenderIdArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The sender ID that was updated.</p>
+   */
+  SenderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
+   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
+   *             time-sensitive.</p>
+   */
+  MessageTypes: MessageType[] | undefined;
+
+  /**
+   * @public
+   * <p>The monthly price, in US dollars, to lease the sender ID.</p>
+   */
+  MonthlyLeasingPrice: string | undefined;
+
+  /**
+   * @public
+   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>True if the sender ID is registered..</p>
+   */
+  Registered: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the registration.</p>
+   */
+  RegistrationId?: string;
+}
+
+/**
+ * @public
+ */
+export interface VerifyDestinationNumberRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the verififed destination phone number.</p>
+   */
+  VerifiedDestinationNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>The verification code that was received by the verified destination phone number.</p>
+   */
+  VerificationCode: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VerifyDestinationNumberResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the verified destination phone number.</p>
+   */
+  VerifiedDestinationNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>The phone number in E.164 format.</p>
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>The status for being able to send messages to the phone number.</p>
+   */
+  Status: VerificationStatus | undefined;
+
+  /**
+   * @public
+   * <p>The time when the destination phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  CreatedTimestamp: Date | undefined;
 }

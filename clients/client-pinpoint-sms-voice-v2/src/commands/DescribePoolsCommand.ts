@@ -43,12 +43,12 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  * @public
  * <p>Retrieves the specified pools or all pools associated with your Amazon Web Services
  *             account.</p>
- *         <p>If you specify pool IDs, the output includes information for only the specified pools.
+ *          <p>If you specify pool IDs, the output includes information for only the specified pools.
  *             If you specify filters, the output includes information for only those pools that meet
  *             the filter criteria. If you don't specify pool IDs or filters, the output includes
  *             information for all pools.</p>
- *         <p>If you specify a pool ID that isn't valid, an Error is returned.</p>
- *         <p>A pool is a collection of phone numbers and SenderIds. A pool can include one or more
+ *          <p>If you specify a pool ID that isn't valid, an error is returned.</p>
+ *          <p>A pool is a collection of phone numbers and SenderIds. A pool can include one or more
  *             phone numbers and SenderIds that are associated with your Amazon Web Services
  *             account.</p>
  * @example
@@ -83,6 +83,7 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  * //       MessageType: "STRING_VALUE", // required
  * //       TwoWayEnabled: true || false, // required
  * //       TwoWayChannelArn: "STRING_VALUE",
+ * //       TwoWayChannelRole: "STRING_VALUE",
  * //       SelfManagedOptOutsEnabled: true || false, // required
  * //       OptOutListName: "STRING_VALUE", // required
  * //       SharedRoutesEnabled: true || false, // required

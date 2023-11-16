@@ -44,7 +44,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * <p>Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your
  *             account. The description for a quota includes the quota name, current usage toward that
  *             quota, and the quota's maximum value.</p>
- *         <p>When you establish an Amazon Web Services account, the account has initial quotas on
+ *          <p>When you establish an Amazon Web Services account, the account has initial quotas on
  *             the maximum number of configuration sets, opt-out lists, phone numbers, and pools that
  *             you can create in a given Region. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/quotas.html">
  *                 Amazon Pinpoint quotas </a> in the <i>Amazon Pinpoint Developer

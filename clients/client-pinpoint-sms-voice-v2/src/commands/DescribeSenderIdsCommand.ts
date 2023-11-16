@@ -42,11 +42,11 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
 /**
  * @public
  * <p>Describes the specified SenderIds or all SenderIds associated with your Amazon Web Services account.</p>
- *         <p>If you specify SenderIds, the output includes information for only the specified
+ *          <p>If you specify SenderIds, the output includes information for only the specified
  *             SenderIds. If you specify filters, the output includes information for only those
  *             SenderIds that meet the filter criteria. If you don't specify SenderIds or filters, the
  *             output includes information for all SenderIds.</p>
- *         <p>f you specify a sender ID that isn't valid, an Error is returned.</p>
+ *          <p>f you specify a sender ID that isn't valid, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +83,9 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * //         "STRING_VALUE",
  * //       ],
  * //       MonthlyLeasingPrice: "STRING_VALUE", // required
+ * //       DeletionProtectionEnabled: true || false, // required
+ * //       Registered: true || false, // required
+ * //       RegistrationId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

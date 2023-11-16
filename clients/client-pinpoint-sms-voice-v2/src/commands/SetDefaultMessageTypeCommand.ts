@@ -42,7 +42,7 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
 /**
  * @public
  * <p>Sets the default message type on a configuration set.</p>
- *         <p>Choose the category of SMS messages that you plan to send from this account. If you
+ *          <p>Choose the category of SMS messages that you plan to send from this account. If you
  *             send account-related messages or time-sensitive messages such as one-time passcodes,
  *             choose <b>Transactional</b>. If you plan to send messages that
  *             contain marketing material or other promotional content, choose <b>Promotional</b>. This setting applies to your entire Amazon Web Services

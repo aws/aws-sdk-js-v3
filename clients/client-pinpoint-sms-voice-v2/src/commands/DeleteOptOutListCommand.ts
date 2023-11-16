@@ -43,8 +43,8 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * @public
  * <p>Deletes an existing opt-out list. All opted out phone numbers in the opt-out list are
  *             deleted.</p>
- *         <p>If the specified opt-out list name doesn't exist or is in-use by an origination phone
- *             number or pool, an Error is returned.</p>
+ *          <p>If the specified opt-out list name doesn't exist or is in-use by an origination phone
+ *             number or pool, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
