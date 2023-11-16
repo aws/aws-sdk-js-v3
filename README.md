@@ -1,7 +1,3 @@
-## New API Documentation
-
-We are excited to announce the [API documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) for AWS SDK for JavaScript v3. If you have any feedback, please open a [documentation issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose)
-
 # AWS SDK for JavaScript v3
 
 ![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMmtFajZWQmNUbEhidnBKN1VncjRrNVI3d0JUcFpGWUd3STh4T3N3Rnljc1BMaEIrYm9HU2t4YTV1RlE1YmlnUG9XM3luY0Ftc2tBc0xTeVFJMkVOa24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IlBDMDl6UEROK1dlU1h1OWciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
