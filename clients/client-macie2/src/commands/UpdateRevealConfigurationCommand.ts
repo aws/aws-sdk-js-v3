@@ -49,6 +49,10 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  *     kmsKeyId: "STRING_VALUE",
  *     status: "ENABLED" || "DISABLED", // required
  *   },
+ *   retrievalConfiguration: { // UpdateRetrievalConfiguration
+ *     retrievalMode: "CALLER_CREDENTIALS" || "ASSUME_ROLE", // required
+ *     roleName: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateRevealConfigurationCommand(input);
  * const response = await client.send(command);
@@ -56,6 +60,11 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  * //   configuration: { // RevealConfiguration
  * //     kmsKeyId: "STRING_VALUE",
  * //     status: "ENABLED" || "DISABLED", // required
+ * //   },
+ * //   retrievalConfiguration: { // RetrievalConfiguration
+ * //     externalId: "STRING_VALUE",
+ * //     retrievalMode: "CALLER_CREDENTIALS" || "ASSUME_ROLE", // required
+ * //     roleName: "STRING_VALUE",
  * //   },
  * // };
  *

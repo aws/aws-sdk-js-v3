@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { ListFindingsFiltersRequest, ListFindingsFiltersResponse } from "../models/models_0";
+import { ListFindingsFiltersRequest, ListFindingsFiltersResponse } from "../models/models_1";
 import { de_ListFindingsFiltersCommand, se_ListFindingsFiltersCommand } from "../protocols/Aws_restJson1";
 
 /**

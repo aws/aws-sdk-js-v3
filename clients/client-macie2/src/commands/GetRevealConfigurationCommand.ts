@@ -52,6 +52,11 @@ export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurat
  * //     kmsKeyId: "STRING_VALUE",
  * //     status: "ENABLED" || "DISABLED", // required
  * //   },
+ * //   retrievalConfiguration: { // RetrievalConfiguration
+ * //     externalId: "STRING_VALUE",
+ * //     retrievalMode: "CALLER_CREDENTIALS" || "ASSUME_ROLE", // required
+ * //     roleName: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

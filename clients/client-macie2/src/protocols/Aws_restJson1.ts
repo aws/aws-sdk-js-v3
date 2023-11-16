@@ -342,6 +342,7 @@ import {
   ResourceProfileArtifact,
   ResourcesAffected,
   ResourceStatistics,
+  RetrievalConfiguration,
   RevealConfiguration,
   S3Bucket,
   S3BucketCriteriaForJob,
@@ -401,6 +402,7 @@ import {
   SearchResourcesBucketCriteria,
   SearchResourcesCriteriaBlock,
   SearchResourcesSortCriteria,
+  UpdateRetrievalConfiguration,
 } from "../models/models_1";
 
 /**
@@ -2606,6 +2608,7 @@ export const se_UpdateRevealConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       configuration: [, (_) => se_RevealConfiguration(_, context), `configuration`],
+      retrievalConfiguration: [, (_) => se_UpdateRetrievalConfiguration(_, context), `retrievalConfiguration`],
     })
   );
   return new __HttpRequest({
@@ -5358,6 +5361,7 @@ export const de_GetRevealConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configuration: [, (_) => de_RevealConfiguration(_, context), `configuration`],
+    retrievalConfiguration: [, (_) => de_RetrievalConfiguration(_, context), `retrievalConfiguration`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -7501,6 +7505,7 @@ export const de_UpdateRevealConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configuration: [, (_) => de_RevealConfiguration(_, context), `configuration`],
+    retrievalConfiguration: [, (_) => de_RetrievalConfiguration(_, context), `retrievalConfiguration`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -8382,6 +8387,16 @@ const se_TagValuePair = (input: TagValuePair, context: __SerdeContext): any => {
   return take(input, {
     key: [, , `key`],
     value: [, , `value`],
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateRetrievalConfiguration
+ */
+const se_UpdateRetrievalConfiguration = (input: UpdateRetrievalConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    retrievalMode: [, , `retrievalMode`],
+    roleName: [, , `roleName`],
   });
 };
 
@@ -9805,6 +9820,17 @@ const de_ResourceStatistics = (output: any, context: __SerdeContext): ResourceSt
     totalItemsSkippedInvalidEncryption: [, __expectLong, `totalItemsSkippedInvalidEncryption`],
     totalItemsSkippedInvalidKms: [, __expectLong, `totalItemsSkippedInvalidKms`],
     totalItemsSkippedPermissionDenied: [, __expectLong, `totalItemsSkippedPermissionDenied`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RetrievalConfiguration
+ */
+const de_RetrievalConfiguration = (output: any, context: __SerdeContext): RetrievalConfiguration => {
+  return take(output, {
+    externalId: [, __expectString, `externalId`],
+    retrievalMode: [, __expectString, `retrievalMode`],
+    roleName: [, __expectString, `roleName`],
   }) as any;
 };
 

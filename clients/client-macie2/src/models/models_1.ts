@@ -9,6 +9,7 @@ import {
   FindingCriteria,
   FindingPublishingFrequency,
   FindingsFilterAction,
+  FindingsFilterListItem,
   Invitation,
   JobStatus,
   MacieStatus,
@@ -17,6 +18,8 @@ import {
   Member,
   OrderBy,
   ResourceProfileArtifact,
+  RetrievalConfiguration,
+  RetrievalMode,
   RevealConfiguration,
   SearchResourcesCriteria,
   SecurityHubConfiguration,
@@ -25,6 +28,40 @@ import {
   SensitivityInspectionTemplatesEntry,
   SuppressDataIdentifier,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListFindingsFiltersRequest {
+  /**
+   * @public
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsFiltersResponse {
+  /**
+   * @public
+   * <p>An array of objects, one for each filter that's associated with the account.</p>
+   */
+  findingsFilterListItems?: FindingsFilterListItem[];
+
+  /**
+   * @public
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -843,13 +880,37 @@ export interface UpdateResourceProfileDetectionsResponse {}
 
 /**
  * @public
+ * <p>Specifies the access method and settings to use when retrieving occurrences of sensitive data reported by findings. If your request specifies an Identity and Access Management (IAM) role to assume when retrieving the sensitive data, Amazon Macie verifies that the role exists and the attached policies are configured correctly. If there's an issue, Macie returns an error. For information about addressing the issue, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-retrieve-sd.html">Retrieving sensitive data samples with findings</a> in the <i>Amazon Macie User Guide</i>.</p>
+ */
+export interface UpdateRetrievalConfiguration {
+  /**
+   * @public
+   * <p>The access method to use when retrieving sensitive data from affected S3 objects. Valid values are: ASSUME_ROLE, assume an IAM role that is in the affected Amazon Web Services account and delegates access to Amazon Macie; and, CALLER_CREDENTIALS, use the credentials of the IAM user who requests the sensitive data. If you specify ASSUME_ROLE, also specify the name of an existing IAM role for Macie to assume (roleName).</p> <important><p>If you change this value from ASSUME_ROLE to CALLER_CREDENTIALS for an existing configuration, Macie permanently deletes the external ID and role name currently specified for the configuration. These settings can't be recovered after they're deleted.</p></important>
+   */
+  retrievalMode: RetrievalMode | undefined;
+
+  /**
+   * @public
+   * <p>The name of the IAM role that is in the affected Amazon Web Services account and Amazon Macie is allowed to assume when retrieving sensitive data from affected S3 objects for the account. The trust and permissions policies for the role must meet all requirements for Macie to assume the role.</p>
+   */
+  roleName?: string;
+}
+
+/**
+ * @public
  */
 export interface UpdateRevealConfigurationRequest {
   /**
    * @public
-   * <p>The new configuration settings and the status of the configuration for the account.</p>
+   * <p>The KMS key to use to encrypt the sensitive data, and the status of the configuration for the Amazon Macie account.</p>
    */
   configuration: RevealConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>The access method and settings to use to retrieve the sensitive data.</p>
+   */
+  retrievalConfiguration?: UpdateRetrievalConfiguration;
 }
 
 /**
@@ -858,9 +919,15 @@ export interface UpdateRevealConfigurationRequest {
 export interface UpdateRevealConfigurationResponse {
   /**
    * @public
-   * <p>The new configuration settings and the status of the configuration for the account.</p>
+   * <p>The KMS key to use to encrypt the sensitive data, and the status of the configuration for the Amazon Macie account.</p>
    */
   configuration?: RevealConfiguration;
+
+  /**
+   * @public
+   * <p>The access method and settings to use to retrieve the sensitive data.</p>
+   */
+  retrievalConfiguration?: RetrievalConfiguration;
 }
 
 /**
@@ -887,7 +954,7 @@ export interface UpdateSensitivityInspectionTemplateRequest {
 
   /**
    * @public
-   * <p>The allow lists, custom data identifiers, and managed data identifiers to include (use) when analyzing data.</p>
+   * <p>The allow lists, custom data identifiers, and managed data identifiers to explicitly include (use) when analyzing data.</p>
    */
   includes?: SensitivityInspectionTemplateIncludes;
 }

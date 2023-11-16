@@ -849,7 +849,7 @@ export interface CustomDataIdentifierSummary {
 export interface DetectedDataDetails {
   /**
    * @public
-   * <p>An occurrence of the specified type of sensitive data. Each occurrence can contain 1-128 characters.</p>
+   * <p>An occurrence of the specified type of sensitive data. Each occurrence contains 1-128 characters.</p>
    */
   value: string | undefined;
 }
@@ -1023,7 +1023,7 @@ export interface Page {
 export interface _Record {
   /**
    * @public
-   * <p>The path, as a JSONPath expression, to the sensitive data. For an Avro object container or Parquet file, this is the path to the field in the record (recordIndex) that contains the data. For a JSON or JSON Lines file, this is the path to the field or array that contains the data. If the data is a value in an array, the path also indicates which value contains the data.</p> <p>If Amazon Macie detects sensitive data in the name of any element in the path, Macie omits this field. If the name of an element exceeds 20 characters, Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
+   * <p>The path, as a JSONPath expression, to the sensitive data. For an Avro object container or Parquet file, this is the path to the field in the record (recordIndex) that contains the data. For a JSON or JSON Lines file, this is the path to the field or array that contains the data. If the data is a value in an array, the path also indicates which value contains the data.</p> <p>If Amazon Macie detects sensitive data in the name of any element in the path, Macie omits this field. If the name of an element exceeds 240 characters, Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
    */
   jsonPath?: string;
 
@@ -2337,7 +2337,7 @@ export type ScopeFilterKey = (typeof ScopeFilterKey)[keyof typeof ScopeFilterKey
 export interface SimpleScopeTerm {
   /**
    * @public
-   * <p>The operator to use in the condition. Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - EQ (equals) or NE (not equals)</p></li> <li><p>OBJECT_KEY - STARTS_WITH</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - Any operator except CONTAINS</p></li> <li><p>OBJECT_SIZE - Any operator except CONTAINS</p></li></ul>
+   * <p>The operator to use in the condition. Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - EQ (equals) or NE (not equals)</p></li> <li><p>OBJECT_KEY - STARTS_WITH</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - EQ (equals), GT (greater than), GTE (greater than or equals), LT (less than), LTE (less than or equals), or NE (not equals)</p></li> <li><p>OBJECT_SIZE - EQ (equals), GT (greater than), GTE (greater than or equals), LT (less than), LTE (less than or equals), or NE (not equals)</p></li></ul>
    */
   comparator?: JobComparator;
 
@@ -2349,7 +2349,7 @@ export interface SimpleScopeTerm {
 
   /**
    * @public
-   * <p>An array that lists the values to use in the condition. If the value for the key property is OBJECT_EXTENSION or OBJECT_KEY, this array can specify multiple values and Amazon Macie uses OR logic to join the values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - A string that represents the file name extension of an object. For example: docx or pdf</p></li> <li><p>OBJECT_KEY - A string that represents the key prefix (folder name or path) of an object. For example: logs or awslogs/eventlogs. This value applies a condition to objects whose keys (names) begin with the specified value.</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - The date and time (in UTC and extended ISO 8601 format) when an object was created or last changed, whichever is latest. For example: 2020-09-28T14:31:13Z</p></li> <li><p>OBJECT_SIZE - An integer that represents the storage size (in bytes) of an object.</p></li></ul> <p>Macie doesn't support use of wildcard characters in these values. Also, string values are case sensitive.</p>
+   * <p>An array that lists the values to use in the condition. If the value for the key property is OBJECT_EXTENSION or OBJECT_KEY, this array can specify multiple values and Amazon Macie uses OR logic to join the values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - A string that represents the file name extension of an object. For example: docx or pdf</p></li> <li><p>OBJECT_KEY - A string that represents the key prefix (folder name or path) of an object. For example: logs or awslogs/eventlogs. This value applies a condition to objects whose keys (names) begin with the specified value.</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - The date and time (in UTC and extended ISO 8601 format) when an object was created or last changed, whichever is latest. For example: 2023-09-24T14:31:13Z</p></li> <li><p>OBJECT_SIZE - An integer that represents the storage size (in bytes) of an object.</p></li></ul> <p>Macie doesn't support use of wildcard characters in these values. Also, string values are case sensitive.</p>
    */
   values?: string[];
 }
@@ -3023,9 +3023,15 @@ export interface SuppressDataIdentifier {
  * @enum
  */
 export const UnavailabilityReasonCode = {
+  ACCOUNT_NOT_IN_ORGANIZATION: "ACCOUNT_NOT_IN_ORGANIZATION",
   INVALID_CLASSIFICATION_RESULT: "INVALID_CLASSIFICATION_RESULT",
+  INVALID_RESULT_SIGNATURE: "INVALID_RESULT_SIGNATURE",
+  MEMBER_ROLE_TOO_PERMISSIVE: "MEMBER_ROLE_TOO_PERMISSIVE",
+  MISSING_GET_MEMBER_PERMISSION: "MISSING_GET_MEMBER_PERMISSION",
   OBJECT_EXCEEDS_SIZE_QUOTA: "OBJECT_EXCEEDS_SIZE_QUOTA",
   OBJECT_UNAVAILABLE: "OBJECT_UNAVAILABLE",
+  RESULT_NOT_SIGNED: "RESULT_NOT_SIGNED",
+  ROLE_TOO_PERMISSIVE: "ROLE_TOO_PERMISSIVE",
   UNSUPPORTED_FINDING_TYPE: "UNSUPPORTED_FINDING_TYPE",
   UNSUPPORTED_OBJECT_TYPE: "UNSUPPORTED_OBJECT_TYPE",
 } as const;
@@ -3872,7 +3878,7 @@ export interface S3Destination {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encryption of the results. This must be the ARN of an existing, symmetric encryption KMS key that's in the same Amazon Web Services Region as the bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encryption of the results. This must be the ARN of an existing, symmetric encryption KMS key that's enabled in the same Amazon Web Services Region as the bucket.</p>
    */
   kmsKeyArn: string | undefined;
 }
@@ -4150,7 +4156,7 @@ export interface CreateClassificationJobRequest {
 
   /**
    * @public
-   * <p>The selection type to apply when determining which managed data identifiers the job uses to analyze data. Valid values are:</p> <ul><li><p>ALL - Use all managed data identifiers. If you specify this value, don't specify any values for the managedDataIdentifierIds property.</p></li> <li><p>EXCLUDE - Use all managed data identifiers except the ones specified by the managedDataIdentifierIds property.</p></li> <li><p>INCLUDE - Use only the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>NONE - Don't use any managed data identifiers. If you specify this value, specify at least one value for the customDataIdentifierIds property and don't specify any values for the managedDataIdentifierIds property.</p></li> <li><p>RECOMMENDED (default) - Use the recommended set of managed data identifiers. If you specify this value, don't specify any values for the managedDataIdentifierIds property.</p></li></ul> <p>If you don't specify a value for this property, the job uses the recommended set of managed data identifiers.</p> <p>If the job is a recurring job and you specify ALL or EXCLUDE, each job run automatically uses new managed data identifiers that are released. If you specify RECOMMENDED for a recurring job, each job run automatically uses all the managed data identifiers that are in the recommended set when the run starts.</p> <p>For information about individual managed data identifiers or to determine which ones are in the recommended set, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> and <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-mdis-recommended.html">Recommended managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.</p>
+   * <p>The selection type to apply when determining which managed data identifiers the job uses to analyze data. Valid values are:</p> <ul><li><p>ALL - Use all managed data identifiers. If you specify this value, don't specify any values for the managedDataIdentifierIds property.</p></li> <li><p>EXCLUDE - Use all managed data identifiers except the ones specified by the managedDataIdentifierIds property.</p></li> <li><p>INCLUDE - Use only the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>NONE - Don't use any managed data identifiers. If you specify this value, specify at least one value for the customDataIdentifierIds property and don't specify any values for the managedDataIdentifierIds property.</p></li> <li><p>RECOMMENDED (default) - Use the recommended set of managed data identifiers. If you specify this value, don't specify any values for the managedDataIdentifierIds property.</p></li></ul> <p>If you don't specify a value for this property, the job uses the recommended set of managed data identifiers.</p> <p>If the job is a recurring job and you specify ALL or EXCLUDE, each job run automatically uses new managed data identifiers that are released. If you don't specify a value for this property or you specify RECOMMENDED for a recurring job, each job run automatically uses all the managed data identifiers that are in the recommended set when the run starts.</p> <p>For information about individual managed data identifiers or to determine which ones are in the recommended set, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> and <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-mdis-recommended.html">Recommended managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.</p>
    */
   managedDataIdentifierSelector?: ManagedDataIdentifierSelector;
 
@@ -5668,7 +5674,7 @@ export interface GetMacieSessionResponse {
 
   /**
    * @public
-   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status or configuration settings for the Amazon Macie account.</p>
    */
   updatedAt?: Date;
 }
@@ -5807,7 +5813,7 @@ export interface ResourceStatistics {
 
   /**
    * @public
-   * <p>The total number of objects that Amazon Macie wasn't able to analyze in the bucket due to an object-level issue or error. For example, the object is a malformed file. This value includes objects that Macie wasn't able to analyze for reasons reported by other statistics in the ResourceStatistics object.</p>
+   * <p>The total number of objects that Amazon Macie wasn't able to analyze in the bucket due to an object-level issue or error. For example, an object is a malformed file. This value includes objects that Macie wasn't able to analyze for reasons reported by other statistics in the ResourceStatistics object.</p>
    */
   totalItemsSkipped?: number;
 
@@ -5880,12 +5886,12 @@ export type RevealStatus = (typeof RevealStatus)[keyof typeof RevealStatus];
 
 /**
  * @public
- * <p>Specifies the configuration settings for retrieving occurrences of sensitive data reported by findings, and the status of the configuration for an Amazon Macie account. When you enable the configuration for the first time, your request must specify an Key Management Service (KMS) key. Otherwise, an error occurs. Macie uses the specified key to encrypt the sensitive data that you retrieve.</p>
+ * <p>Specifies the status of the Amazon Macie configuration for retrieving occurrences of sensitive data reported by findings, and the Key Management Service (KMS) key to use to encrypt sensitive data that's retrieved. When you enable the configuration for the first time, your request must specify an KMS key. Otherwise, an error occurs.</p>
  */
 export interface RevealConfiguration {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN), ID, or alias of the KMS key to use to encrypt sensitive data that's retrieved. The key must be an existing, customer managed, symmetric encryption key that's in the same Amazon Web Services Region as the Amazon Macie account.</p> <p>If this value specifies an alias, it must include the following prefix: alias/. If this value specifies a key that's owned by another Amazon Web Services account, it must specify the ARN of the key or the ARN of the key's alias.</p>
+   * <p>The Amazon Resource Name (ARN), ID, or alias of the KMS key to use to encrypt sensitive data that's retrieved. The key must be an existing, customer managed, symmetric encryption key that's enabled in the same Amazon Web Services Region as the Amazon Macie account.</p> <p>If this value specifies an alias, it must include the following prefix: alias/. If this value specifies a key that's owned by another Amazon Web Services account, it must specify the ARN of the key or the ARN of the key's alias.</p>
    */
   kmsKeyId?: string;
 
@@ -5898,13 +5904,57 @@ export interface RevealConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const RetrievalMode = {
+  ASSUME_ROLE: "ASSUME_ROLE",
+  CALLER_CREDENTIALS: "CALLER_CREDENTIALS",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrievalMode = (typeof RetrievalMode)[keyof typeof RetrievalMode];
+
+/**
+ * @public
+ * <p>Provides information about the access method and settings that are used to retrieve occurrences of sensitive data reported by findings.</p>
+ */
+export interface RetrievalConfiguration {
+  /**
+   * @public
+   * <p>The external ID to specify in the trust policy for the IAM role to assume when retrieving sensitive data from affected S3 objects (roleName). The trust policy must include an sts:ExternalId condition that requires this ID.</p> <p>This ID is a unique alphanumeric string that Amazon Macie generates automatically after you configure it to assume a role. This value is null if the value for retrievalMode is CALLER_CREDENTIALS.</p>
+   */
+  externalId?: string;
+
+  /**
+   * @public
+   * <p>The access method that's used when retrieving sensitive data from affected S3 objects. Valid values are: ASSUME_ROLE, assume an IAM role that is in the affected Amazon Web Services account and delegates access to Amazon Macie (roleName); and, CALLER_CREDENTIALS, use the credentials of the IAM user who requests the sensitive data.</p>
+   */
+  retrievalMode: RetrievalMode | undefined;
+
+  /**
+   * @public
+   * <p>The name of the IAM role that is in the affected Amazon Web Services account and Amazon Macie is allowed to assume when retrieving sensitive data from affected S3 objects for the account. This value is null if the value for retrievalMode is CALLER_CREDENTIALS.</p>
+   */
+  roleName?: string;
+}
+
+/**
+ * @public
  */
 export interface GetRevealConfigurationResponse {
   /**
    * @public
-   * <p>The current configuration settings and the status of the configuration for the account.</p>
+   * <p>The KMS key that's used to encrypt the sensitive data, and the status of the configuration for the Amazon Macie account.</p>
    */
   configuration?: RevealConfiguration;
+
+  /**
+   * @public
+   * <p>The access method and settings that are used to retrieve the sensitive data.</p>
+   */
+  retrievalConfiguration?: RetrievalConfiguration;
 }
 
 /**
@@ -5999,7 +6049,7 @@ export interface GetSensitiveDataOccurrencesAvailabilityResponse {
 
   /**
    * @public
-   * <p>Specifies why occurrences of sensitive data can't be retrieved for the finding. Possible values are:</p> <ul><li><p>INVALID_CLASSIFICATION_RESULT - Amazon Macie can't verify the location of the sensitive data to retrieve. There isn't a corresponding sensitive data discovery result for the finding. Or the sensitive data discovery result specified by the classificationDetails.detailedResultsLocation field of the finding isn't available, is malformed or corrupted, or uses an unsupported storage format.</p></li> <li><p>OBJECT_EXCEEDS_SIZE_QUOTA - The storage size of the affected S3 object exceeds the size quota for retrieving occurrences of sensitive data.</p></li> <li><p>OBJECT_UNAVAILABLE - The affected S3 object isn't available. The object might have been renamed, moved, or deleted. Or the object was changed after Macie created the finding.</p></li> <li><p>UNSUPPORTED_FINDING_TYPE - The specified finding isn't a sensitive data finding.</p></li> <li><p>UNSUPPORTED_OBJECT_TYPE - The affected S3 object uses a file or storage format that Macie doesn't support for retrieving occurrences of sensitive data.</p></li></ul> <p>This value is null if sensitive data can be retrieved for the finding.</p>
+   * <p>Specifies why occurrences of sensitive data can't be retrieved for the finding. Possible values are:</p> <ul><li><p>ACCOUNT_NOT_IN_ORGANIZATION - The affected account isn't currently part of your organization. Or the account is part of your organization but Macie isn't currently enabled for the account. You're not allowed to access the affected S3 object by using Macie.</p></li> <li><p>INVALID_CLASSIFICATION_RESULT - There isn't a corresponding sensitive data discovery result for the finding. Or the corresponding sensitive data discovery result isn't available, is malformed or corrupted, or uses an unsupported storage format. Macie can't verify the location of the sensitive data to retrieve.</p></li> <li><p>INVALID_RESULT_SIGNATURE - The corresponding sensitive data discovery result is stored in an S3 object that wasn't signed by Macie. Macie can't verify the integrity and authenticity of the sensitive data discovery result. Therefore, Macie can't verify the location of the sensitive data to retrieve.</p></li> <li><p>MEMBER_ROLE_TOO_PERMISSIVE - The affected member account is configured to retrieve occurrences of sensitive data by using an IAM role whose trust or permissions policy doesn't meet Macie requirements for restricting access to the role. Or the role's trust policy doesn't specify the correct external ID. Macie can't assume the role to retrieve the sensitive data.</p></li> <li><p>MISSING_GET_MEMBER_PERMISSION - You're not allowed to retrieve information about the association between your account and the affected account. Macie can't determine whether you’re allowed to access the affected S3 object as the delegated Macie administrator for the affected account.</p></li> <li><p>OBJECT_EXCEEDS_SIZE_QUOTA - The storage size of the affected S3 object exceeds the size quota for retrieving occurrences of sensitive data from this type of file.</p></li> <li><p>OBJECT_UNAVAILABLE - The affected S3 object isn't available. The object was renamed, moved, or deleted. Or the object was changed after Macie created the finding.</p></li> <li><p>RESULT_NOT_SIGNED - The corresponding sensitive data discovery result is stored in an S3 object that hasn't been signed. Macie can't verify the integrity and authenticity of the sensitive data discovery result. Therefore, Macie can't verify the location of the sensitive data to retrieve.</p></li> <li><p>ROLE_TOO_PERMISSIVE - Your account is configured to retrieve occurrences of sensitive data by using an IAM role whose trust or permissions policy doesn't meet Macie requirements for restricting access to the role. Macie can’t assume the role to retrieve the sensitive data.</p></li> <li><p>UNSUPPORTED_FINDING_TYPE - The specified finding isn't a sensitive data finding.</p></li> <li><p>UNSUPPORTED_OBJECT_TYPE - The affected S3 object uses a file or storage format that Macie doesn't support for retrieving occurrences of sensitive data.</p></li></ul> <p>This value is null if sensitive data can be retrieved for the finding.</p>
    */
   reasons?: UnavailabilityReasonCode[];
 }
@@ -6069,7 +6119,7 @@ export interface GetSensitivityInspectionTemplateResponse {
 
   /**
    * @public
-   * <p>The allow lists, custom data identifiers, and managed data identifiers that are included (used) when analyzing data.</p>
+   * <p>The allow lists, custom data identifiers, and managed data identifiers that are explicitly included (used) when analyzing data.</p>
    */
   includes?: SensitivityInspectionTemplateIncludes;
 
@@ -6458,40 +6508,6 @@ export interface ListFindingsResponse {
    * <p>An array of strings, where each string is the unique identifier for a finding that matches the filter criteria specified in the request.</p>
    */
   findingIds?: string[];
-
-  /**
-   * @public
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFindingsFiltersRequest {
-  /**
-   * @public
-   * <p>The maximum number of items to include in each page of a paginated response.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFindingsFiltersResponse {
-  /**
-   * @public
-   * <p>An array of objects, one for each filter that's associated with the account.</p>
-   */
-  findingsFilterListItems?: FindingsFilterListItem[];
 
   /**
    * @public
