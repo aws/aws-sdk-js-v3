@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./BatchGetIncidentFindingsCommand";
 export * from "./CreateReplicationSetCommand";
 export * from "./CreateResponsePlanCommand";
 export * from "./CreateTimelineEventCommand";
@@ -12,6 +13,7 @@ export * from "./GetReplicationSetCommand";
 export * from "./GetResourcePoliciesCommand";
 export * from "./GetResponsePlanCommand";
 export * from "./GetTimelineEventCommand";
+export * from "./ListIncidentFindingsCommand";
 export * from "./ListIncidentRecordsCommand";
 export * from "./ListRelatedItemsCommand";
 export * from "./ListReplicationSetsCommand";

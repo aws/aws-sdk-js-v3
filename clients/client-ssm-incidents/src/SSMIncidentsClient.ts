@@ -51,6 +51,10 @@ import {
 } from "@smithy/types";
 
 import {
+  BatchGetIncidentFindingsCommandInput,
+  BatchGetIncidentFindingsCommandOutput,
+} from "./commands/BatchGetIncidentFindingsCommand";
+import {
   CreateReplicationSetCommandInput,
   CreateReplicationSetCommandOutput,
 } from "./commands/CreateReplicationSetCommand";
@@ -84,6 +88,10 @@ import {
 } from "./commands/GetResourcePoliciesCommand";
 import { GetResponsePlanCommandInput, GetResponsePlanCommandOutput } from "./commands/GetResponsePlanCommand";
 import { GetTimelineEventCommandInput, GetTimelineEventCommandOutput } from "./commands/GetTimelineEventCommand";
+import {
+  ListIncidentFindingsCommandInput,
+  ListIncidentFindingsCommandOutput,
+} from "./commands/ListIncidentFindingsCommand";
 import {
   ListIncidentRecordsCommandInput,
   ListIncidentRecordsCommandOutput,
@@ -136,6 +144,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchGetIncidentFindingsCommandInput
   | CreateReplicationSetCommandInput
   | CreateResponsePlanCommandInput
   | CreateTimelineEventCommandInput
@@ -149,6 +158,7 @@ export type ServiceInputTypes =
   | GetResourcePoliciesCommandInput
   | GetResponsePlanCommandInput
   | GetTimelineEventCommandInput
+  | ListIncidentFindingsCommandInput
   | ListIncidentRecordsCommandInput
   | ListRelatedItemsCommandInput
   | ListReplicationSetsCommandInput
@@ -170,6 +180,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchGetIncidentFindingsCommandOutput
   | CreateReplicationSetCommandOutput
   | CreateResponsePlanCommandOutput
   | CreateTimelineEventCommandOutput
@@ -183,6 +194,7 @@ export type ServiceOutputTypes =
   | GetResourcePoliciesCommandOutput
   | GetResponsePlanCommandOutput
   | GetTimelineEventCommandOutput
+  | ListIncidentFindingsCommandOutput
   | ListIncidentRecordsCommandOutput
   | ListRelatedItemsCommandOutput
   | ListReplicationSetsCommandOutput

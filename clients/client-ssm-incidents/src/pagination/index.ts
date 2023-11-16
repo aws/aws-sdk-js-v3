@@ -1,6 +1,7 @@
 export * from "./GetResourcePoliciesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListIncidentFindingsPaginator";
 export * from "./ListIncidentRecordsPaginator";
 export * from "./ListRelatedItemsPaginator";
 export * from "./ListReplicationSetsPaginator";

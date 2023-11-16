@@ -26,6 +26,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  BatchGetIncidentFindingsCommandInput,
+  BatchGetIncidentFindingsCommandOutput,
+} from "../commands/BatchGetIncidentFindingsCommand";
+import {
   CreateReplicationSetCommandInput,
   CreateReplicationSetCommandOutput,
 } from "../commands/CreateReplicationSetCommand";
@@ -59,6 +63,10 @@ import {
 } from "../commands/GetResourcePoliciesCommand";
 import { GetResponsePlanCommandInput, GetResponsePlanCommandOutput } from "../commands/GetResponsePlanCommand";
 import { GetTimelineEventCommandInput, GetTimelineEventCommandOutput } from "../commands/GetTimelineEventCommand";
+import {
+  ListIncidentFindingsCommandInput,
+  ListIncidentFindingsCommandOutput,
+} from "../commands/ListIncidentFindingsCommand";
 import {
   ListIncidentRecordsCommandInput,
   ListIncidentRecordsCommandOutput,
@@ -102,6 +110,8 @@ import {
   AddRegionAction,
   AttributeValueList,
   ChatChannel,
+  CloudFormationStackUpdate,
+  CodeDeployDeployment,
   Condition,
   ConflictException,
   DeleteRegionAction,
@@ -110,6 +120,9 @@ import {
   EventReference,
   EventSummary,
   Filter,
+  Finding,
+  FindingDetails,
+  FindingSummary,
   IncidentRecord,
   IncidentRecordSummary,
   IncidentTemplate,
@@ -136,6 +149,37 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { SSMIncidentsServiceException as __BaseException } from "../models/SSMIncidentsServiceException";
+
+/**
+ * serializeAws_restJson1BatchGetIncidentFindingsCommand
+ */
+export const se_BatchGetIncidentFindingsCommand = async (
+  input: BatchGetIncidentFindingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batchGetIncidentFindings";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      findingIds: (_) => _json(_),
+      incidentRecordArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1CreateReplicationSetCommand
@@ -518,6 +562,37 @@ export const se_GetTimelineEventCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListIncidentFindingsCommand
+ */
+export const se_ListIncidentFindingsCommand = async (
+  input: ListIncidentFindingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listIncidentFindings";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      incidentRecordArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1029,6 +1104,66 @@ export const se_UpdateTimelineEventCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+/**
+ * deserializeAws_restJson1BatchGetIncidentFindingsCommand
+ */
+export const de_BatchGetIncidentFindingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetIncidentFindingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetIncidentFindingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: _json,
+    findings: (_) => de_FindingList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetIncidentFindingsCommandError
+ */
+const de_BatchGetIncidentFindingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetIncidentFindingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmincidents#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmincidents#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmincidents#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmincidents#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmincidents#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1756,6 +1891,66 @@ const de_GetTimelineEventCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTimelineEventCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmincidents#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmincidents#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmincidents#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmincidents#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmincidents#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListIncidentFindingsCommand
+ */
+export const de_ListIncidentFindingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIncidentFindingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIncidentFindingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    findings: (_) => de_FindingSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIncidentFindingsCommandError
+ */
+const de_ListIncidentFindingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIncidentFindingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2918,6 +3113,8 @@ const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
     });
 };
 
+// se_FindingIdList omitted.
+
 // se_IncidentTemplate omitted.
 
 // se_IntegerList omitted.
@@ -2986,9 +3183,36 @@ const se_TriggerDetails = (input: TriggerDetails, context: __SerdeContext): any 
 
 // de_AutomationExecutionSet omitted.
 
+// de_BatchGetIncidentFindingsError omitted.
+
+// de_BatchGetIncidentFindingsErrorList omitted.
+
 // de_ChatbotSnsConfigurationSet omitted.
 
 // de_ChatChannel omitted.
+
+/**
+ * deserializeAws_restJson1CloudFormationStackUpdate
+ */
+const de_CloudFormationStackUpdate = (output: any, context: __SerdeContext): CloudFormationStackUpdate => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stackArn: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CodeDeployDeployment
+ */
+const de_CodeDeployDeployment = (output: any, context: __SerdeContext): CodeDeployDeployment => {
+  return take(output, {
+    deploymentGroupArn: __expectString,
+    deploymentId: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 // de_DynamicSsmParameters omitted.
 
@@ -3024,6 +3248,69 @@ const de_EventSummaryList = (output: any, context: __SerdeContext): EventSummary
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_EventSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1Finding
+ */
+const de_Finding = (output: any, context: __SerdeContext): Finding => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    details: (_: any) => de_FindingDetails(__expectUnion(_), context),
+    id: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FindingDetails
+ */
+const de_FindingDetails = (output: any, context: __SerdeContext): FindingDetails => {
+  if (output.cloudFormationStackUpdate != null) {
+    return {
+      cloudFormationStackUpdate: de_CloudFormationStackUpdate(output.cloudFormationStackUpdate, context),
+    };
+  }
+  if (output.codeDeployDeployment != null) {
+    return {
+      codeDeployDeployment: de_CodeDeployDeployment(output.codeDeployDeployment, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1FindingList
+ */
+const de_FindingList = (output: any, context: __SerdeContext): Finding[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Finding(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1FindingSummary
+ */
+const de_FindingSummary = (output: any, context: __SerdeContext): FindingSummary => {
+  return take(output, {
+    id: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FindingSummaryList
+ */
+const de_FindingSummaryList = (output: any, context: __SerdeContext): FindingSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FindingSummary(entry, context);
     });
   return retVal;
 };

@@ -212,6 +212,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchGetIncidentFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/classes/batchgetincidentfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/interfaces/batchgetincidentfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/interfaces/batchgetincidentfindingscommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateReplicationSet
 </summary>
 
@@ -312,6 +320,14 @@ GetTimelineEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/classes/gettimelineeventcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/interfaces/gettimelineeventcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/interfaces/gettimelineeventcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListIncidentFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/classes/listincidentfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/interfaces/listincidentfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-incidents/interfaces/listincidentfindingscommandoutput.html)
 
 </details>
 <details>

@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { ListIncidentFindingsInput, ListIncidentFindingsOutput } from "../models/models_0";
+import { de_ListIncidentFindingsCommand, se_ListIncidentFindingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -25,42 +25,51 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link ListIncidentFindingsCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface ListIncidentFindingsCommandInput extends ListIncidentFindingsInput {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link ListIncidentFindingsCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface ListIncidentFindingsCommandOutput extends ListIncidentFindingsOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the tags that are attached to the specified response plan or incident.</p>
+ * <p>Retrieves a list of the IDs of findings, plus their last modified times, that have been
+ *       identified for a specified incident. A finding represents a recent application environment
+ *       change made by an CloudFormation stack creation or update or an CodeDeploy
+ *       deployment that can be investigated as a potential cause of the incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, ListTagsForResourceCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, ListIncidentFindingsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
+ * // const { SSMIncidentsClient, ListIncidentFindingsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // ListIncidentFindingsInput
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new ListIncidentFindingsCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * // { // ListIncidentFindingsOutput
+ * //   findings: [ // FindingSummaryList // required
+ * //     { // FindingSummary
+ * //       id: "STRING_VALUE", // required
+ * //       lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param ListIncidentFindingsCommandInput - {@link ListIncidentFindingsCommandInput}
+ * @returns {@link ListIncidentFindingsCommandOutput}
+ * @see {@link ListIncidentFindingsCommandInput} for command's `input` shape.
+ * @see {@link ListIncidentFindingsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,9 +93,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
-export class ListTagsForResourceCommand extends $Command<
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+export class ListIncidentFindingsCommand extends $Command<
+  ListIncidentFindingsCommandInput,
+  ListIncidentFindingsCommandOutput,
   SSMIncidentsClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +110,7 @@ export class ListTagsForResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListTagsForResourceCommandInput) {
+  constructor(readonly input: ListIncidentFindingsCommandInput) {
     super();
   }
 
@@ -112,17 +121,17 @@ export class ListTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMIncidentsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+  ): Handler<ListIncidentFindingsCommandInput, ListIncidentFindingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListIncidentFindingsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSMIncidentsClient";
-    const commandName = "ListTagsForResourceCommand";
+    const commandName = "ListIncidentFindingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -131,7 +140,7 @@ export class ListTagsForResourceCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SSMIncidents",
-        operation: "ListTagsForResource",
+        operation: "ListIncidentFindings",
       },
     };
     const { requestHandler } = configuration;
@@ -145,14 +154,14 @@ export class ListTagsForResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTagsForResourceCommand(input, context);
+  private serialize(input: ListIncidentFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListIncidentFindingsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return de_ListTagsForResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncidentFindingsCommandOutput> {
+    return de_ListIncidentFindingsCommand(output, context);
   }
 }

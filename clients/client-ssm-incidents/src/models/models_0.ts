@@ -293,6 +293,359 @@ export namespace AutomationExecution {
 
 /**
  * @public
+ */
+export interface BatchGetIncidentFindingsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the incident for which you want to view finding
+   *       details.</p>
+   */
+  incidentRecordArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of IDs of findings for which you want to view details.</p>
+   */
+  findingIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Details about an error returned for a <a>BatchGetIncidentFindings</a>
+ *       operation.</p>
+ */
+export interface BatchGetIncidentFindingsError {
+  /**
+   * @public
+   * <p>The ID of a specified finding for which an error was returned for a
+   *         <code>BatchGetIncidentFindings</code> operation.</p>
+   */
+  findingId: string | undefined;
+
+  /**
+   * @public
+   * <p>The code associated with an error that was returned for a
+   *         <code>BatchGetIncidentFindings</code> operation.</p>
+   */
+  code: string | undefined;
+
+  /**
+   * @public
+   * <p>The description for an error that was returned for a <code>BatchGetIncidentFindings</code>
+   *       operation.</p>
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about an CloudFormation stack creation or update that occurred around
+ *       the time of an incident and could be a potential cause of the incident.</p>
+ */
+export interface CloudFormationStackUpdate {
+  /**
+   * @public
+   * <p>The timestamp for when the CloudFormation stack creation or update began.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp for when the CloudFormation stack creation or update ended. Not reported
+   *       for deployments that are still in progress.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the CloudFormation stack involved in the
+   *       update.</p>
+   */
+  stackArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about a CodeDeploy deployment that occurred around the time of an
+ *       incident and could be a possible cause of the incident.</p>
+ */
+export interface CodeDeployDeployment {
+  /**
+   * @public
+   * <p>The timestamp for when the CodeDeploy deployment began.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp for when the CodeDeploy deployment ended. Not reported for
+   *       deployments that are still in progress.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the CodeDeploy deployment group associated with
+   *       the deployment.</p>
+   */
+  deploymentGroupArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the CodeDeploy deployment.</p>
+   */
+  deploymentId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Extended textual information about the finding.</p>
+ */
+export type FindingDetails =
+  | FindingDetails.CloudFormationStackUpdateMember
+  | FindingDetails.CodeDeployDeploymentMember
+  | FindingDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FindingDetails {
+  /**
+   * @public
+   * <p>Information about the CodeDeploy deployment associated with the finding.</p>
+   */
+  export interface CodeDeployDeploymentMember {
+    codeDeployDeployment: CodeDeployDeployment;
+    cloudFormationStackUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Information about the CloudFormation stack creation or update associated with the
+   *       finding.</p>
+   */
+  export interface CloudFormationStackUpdateMember {
+    codeDeployDeployment?: never;
+    cloudFormationStackUpdate: CloudFormationStackUpdate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    codeDeployDeployment?: never;
+    cloudFormationStackUpdate?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    codeDeployDeployment: (value: CodeDeployDeployment) => T;
+    cloudFormationStackUpdate: (value: CloudFormationStackUpdate) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FindingDetails, visitor: Visitor<T>): T => {
+    if (value.codeDeployDeployment !== undefined) return visitor.codeDeployDeployment(value.codeDeployDeployment);
+    if (value.cloudFormationStackUpdate !== undefined)
+      return visitor.cloudFormationStackUpdate(value.cloudFormationStackUpdate);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Information about a specific CodeDeploy deployment or CloudFormation
+ *       stack creation or update that occurred around the time of a reported incident. These
+ *       activities can be investigated as a potential cause of the incident.</p>
+ */
+export interface Finding {
+  /**
+   * @public
+   * <p>The ID assigned to the finding.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp for when a finding was created.</p>
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp for when the finding was most recently updated with additional
+   *       information.</p>
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Details about the finding.</p>
+   */
+  details?: FindingDetails;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetIncidentFindingsOutput {
+  /**
+   * @public
+   * <p>Information about the requested findings.</p>
+   */
+  findings: Finding[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of errors encountered during the operation.</p>
+   */
+  errors: BatchGetIncidentFindingsError[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  INCIDENT_RECORD: "INCIDENT_RECORD",
+  REPLICATION_SET: "REPLICATION_SET",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+  RESPONSE_PLAN: "RESPONSE_PLAN",
+  TIMELINE_EVENT: "TIMELINE_EVENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * <p>Request references a resource which doesn't exist. </p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * The identifier for the requested resource
+   */
+  resourceIdentifier?: string;
+
+  /**
+   * @public
+   * The resource type
+   */
+  resourceType?: ResourceType;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceIdentifier = opts.resourceIdentifier;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceCode = {
+  SSM_INCIDENTS: "ssm-incidents",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * Originating service code
+   */
+  serviceCode: ServiceCode | undefined;
+
+  /**
+   * @public
+   * Originating quota code
+   */
+  quotaCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * @public
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *       service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>Used to remove the chat channel from an incident record or response plan.</p>
  */
 export interface EmptyChatChannel {}
@@ -428,23 +781,6 @@ export namespace Condition {
 
 /**
  * @public
- * @enum
- */
-export const ResourceType = {
-  INCIDENT_RECORD: "INCIDENT_RECORD",
-  REPLICATION_SET: "REPLICATION_SET",
-  RESOURCE_POLICY: "RESOURCE_POLICY",
-  RESPONSE_PLAN: "RESPONSE_PLAN",
-  TIMELINE_EVENT: "TIMELINE_EVENT",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
  * <p>Updating or deleting a resource causes an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -535,40 +871,6 @@ export interface CreateReplicationSetOutput {
 
 /**
  * @public
- * <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ServiceCode = {
-  SSM_INCIDENTS: "ssm-incidents",
-} as const;
-
-/**
- * @public
- */
-export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];
-
-/**
- * @public
  * <p>Request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -612,61 +914,6 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.resourceType = opts.resourceType;
     this.serviceCode = opts.serviceCode;
     this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * @public
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * Originating service code
-   */
-  serviceCode: ServiceCode | undefined;
-
-  /**
-   * @public
-   * Originating quota code
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * @public
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -722,7 +969,32 @@ export interface IncidentTemplate {
 
   /**
    * @public
-   * <p>The impact of the incident on your customers and applications. </p>
+   * <p>The impact of the incident on your customers and applications.</p>
+   *          <p class="title">
+   *             <b>Supported impact codes</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>1</code> - Critical</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2</code> - High</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>3</code> - Medium</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>4</code> - Low</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>5</code> - No Impact</p>
+   *             </li>
+   *          </ul>
    */
   impact: number | undefined;
 
@@ -735,8 +1007,18 @@ export interface IncidentTemplate {
 
   /**
    * @public
-   * <p>Used to stop Incident Manager from creating multiple incident records for the same incident.
-   *     </p>
+   * <p>The string Incident Manager uses to prevent the same root cause from creating multiple
+   *       incidents in the same account.</p>
+   *          <p>A deduplication string is a term or phrase the system uses to check for duplicate
+   *       incidents. If you specify a deduplication string, Incident Manager searches for open incidents that
+   *       contain the same string in the <code>dedupeString</code> field when it creates the incident.
+   *       If a duplicate is detected, Incident Manager deduplicates the newer incident into the existing
+   *       incident.</p>
+   *          <note>
+   *             <p>By default, Incident Manager automatically deduplicates multiple incidents created by the
+   *         same Amazon CloudWatch alarm or Amazon EventBridge event. You don't have to enter
+   *         your own deduplication string to prevent duplication for these resource types.</p>
+   *          </note>
    */
   dedupeString?: string;
 
@@ -905,40 +1187,6 @@ export interface CreateResponsePlanOutput {
 
 /**
  * @public
- * <p>Request references a resource which doesn't exist. </p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * The identifier for the requested resource
-   */
-  resourceIdentifier?: string;
-
-  /**
-   * @public
-   * The resource type
-   */
-  resourceType?: ResourceType;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceIdentifier = opts.resourceIdentifier;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
  * <p>An item referenced in a <code>TimelineEvent</code> that is involved in or somehow
  *       associated with an incident. You can specify an Amazon Resource Name (ARN) for an Amazon Web Services resource or a <code>RelatedItem</code> ID.</p>
  */
@@ -1014,14 +1262,17 @@ export interface CreateTimelineEventInput {
 
   /**
    * @public
-   * <p>The time that the event occurred.</p>
+   * <p>The timestamp for when the event occurred.</p>
    */
   eventTime: Date | undefined;
 
   /**
    * @public
-   * <p>The type of event. You can create timeline events of type <code>Custom
-   *       Event</code>.</p>
+   * <p>The type of event. You can create timeline events of type <code>Custom Event</code> and
+   *         <code>Note</code>.</p>
+   *          <p>To make a Note-type event appear on the <i>Incident notes</i> panel in the
+   *       console, specify <code>eventType</code> as <code>Note</code>and enter the Amazon Resource Name
+   *       (ARN) of the incident as the value for <code>eventReference</code>.</p>
    */
   eventType: string | undefined;
 
@@ -1184,19 +1435,20 @@ export interface EventSummary {
 
   /**
    * @public
-   * <p>The time that the event occurred.</p>
+   * <p>The timestamp for when the event occurred.</p>
    */
   eventTime: Date | undefined;
 
   /**
    * @public
-   * <p>The time that the timeline event was last updated.</p>
+   * <p>The timestamp for when the timeline event was last updated.</p>
    */
   eventUpdatedTime: Date | undefined;
 
   /**
    * @public
-   * <p>The type of event. The timeline event must be <code>Custom Event</code>.</p>
+   * <p>The type of event. The timeline event must be <code>Custom Event</code> or
+   *         <code>Note</code>.</p>
    */
   eventType: string | undefined;
 
@@ -1224,6 +1476,24 @@ export interface Filter {
    *       integer.</p>
    */
   condition: Condition | undefined;
+}
+
+/**
+ * @public
+ * <p>Identifying information about the finding.</p>
+ */
+export interface FindingSummary {
+  /**
+   * @public
+   * <p>The ID of the finding.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp for when the finding was last updated.</p>
+   */
+  lastModifiedTime: Date | undefined;
 }
 
 /**
@@ -1317,24 +1587,49 @@ export interface IncidentRecord {
   /**
    * @public
    * <p>The impact of the incident on customers and applications.</p>
+   *          <p class="title">
+   *             <b>Supported impact codes</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>1</code> - Critical</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2</code> - High</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>3</code> - Medium</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>4</code> - Low</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>5</code> - No Impact</p>
+   *             </li>
+   *          </ul>
    */
   impact: number | undefined;
 
   /**
    * @public
-   * <p>The time that Incident Manager created the incident record.</p>
+   * <p>The timestamp for when Incident Manager created the incident record.</p>
    */
   creationTime: Date | undefined;
 
   /**
    * @public
-   * <p>The time at which the incident was resolved. This appears as a timeline event.</p>
+   * <p>The timestamp for when the incident was resolved. This appears as a timeline event.</p>
    */
   resolvedTime?: Date;
 
   /**
    * @public
-   * <p>The time at which the incident was most recently modified.</p>
+   * <p>The timestamp for when the incident was most recently modified.</p>
    */
   lastModifiedTime: Date | undefined;
 
@@ -1452,7 +1747,7 @@ export interface RegionInfo {
 
   /**
    * @public
-   * <p>The most recent date and time that Incident Manager updated the Amazon Web Services Region's status.</p>
+   * <p>The timestamp for when Incident Manager updated the status of the Amazon Web Services Region.</p>
    */
   statusUpdateDateTime: Date | undefined;
 }
@@ -1577,7 +1872,8 @@ export interface GetResourcePoliciesInput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token for the next set of items to return. (You received this token from a
+   *       previous call.)</p>
    */
   nextToken?: string;
 }
@@ -1619,7 +1915,8 @@ export interface GetResourcePoliciesOutput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token to use when requesting the next set of items. If there are no
+   *       additional items to return, the string is null.</p>
    */
   nextToken?: string;
 }
@@ -1727,20 +2024,20 @@ export interface TimelineEvent {
 
   /**
    * @public
-   * <p>The time that the event occurred.</p>
+   * <p>The timestamp for when the event occurred.</p>
    */
   eventTime: Date | undefined;
 
   /**
    * @public
-   * <p>The time that the timeline event was last updated.</p>
+   * <p>The timestamp for when the timeline event was last updated.</p>
    */
   eventUpdatedTime: Date | undefined;
 
   /**
    * @public
    * <p>The type of event that occurred. Currently Incident Manager supports only the <code>Custom
-   *         Event</code> type.</p>
+   *         Event</code> and <code>Note</code> types.</p>
    */
   eventType: string | undefined;
 
@@ -1800,13 +2097,13 @@ export interface IncidentRecordSummary {
 
   /**
    * @public
-   * <p>The time the incident was created.</p>
+   * <p>The timestamp for when the incident was created.</p>
    */
   creationTime: Date | undefined;
 
   /**
    * @public
-   * <p>The time the incident was resolved.</p>
+   * <p>The timestamp for when the incident was resolved.</p>
    */
   resolvedTime?: Date;
 
@@ -1979,6 +2276,50 @@ export interface ItemIdentifier {
 /**
  * @public
  */
+export interface ListIncidentFindingsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the incident for which you want to view associated
+   *       findings.</p>
+   */
+  incidentRecordArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of findings to retrieve per call.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The pagination token for the next set of items to return. (You received this token from a
+   *       previous call.)</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIncidentFindingsOutput {
+  /**
+   * @public
+   * <p>A list of findings that represent deployments that might be the potential cause of the
+   *       incident.</p>
+   */
+  findings: FindingSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination token to use when requesting the next set of items. If there are no
+   *       additional items to return, the string is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListIncidentRecordsInput {
   /**
    * @public
@@ -2031,7 +2372,8 @@ export interface ListIncidentRecordsInput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token for the next set of items to return. (You received this token from a
+   *       previous call.)</p>
    */
   nextToken?: string;
 }
@@ -2048,7 +2390,8 @@ export interface ListIncidentRecordsOutput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token to use when requesting the next set of items. If there are no
+   *       additional items to return, the string is null.</p>
    */
   nextToken?: string;
 }
@@ -2072,7 +2415,8 @@ export interface ListRelatedItemsInput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token for the next set of items to return. (You received this token from a
+   *       previous call.)</p>
    */
   nextToken?: string;
 }
@@ -2116,7 +2460,8 @@ export interface ListRelatedItemsOutput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token to use when requesting the next set of items. If there are no
+   *       additional items to return, the string is null.</p>
    */
   nextToken?: string;
 }
@@ -2133,7 +2478,8 @@ export interface ListReplicationSetsInput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token for the next set of items to return. (You received this token from a
+   *       previous call.)</p>
    */
   nextToken?: string;
 }
@@ -2150,7 +2496,8 @@ export interface ListReplicationSetsOutput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token to use when requesting the next set of items. If there are no
+   *       additional items to return, the string is null.</p>
    */
   nextToken?: string;
 }
@@ -2167,7 +2514,8 @@ export interface ListResponsePlansInput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token for the next set of items to return. (You received this token from a
+   *       previous call.)</p>
    */
   nextToken?: string;
 }
@@ -2208,7 +2556,8 @@ export interface ListResponsePlansOutput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token to use when requesting the next set of items. If there are no
+   *       additional items to return, the string is null.</p>
    */
   nextToken?: string;
 }
@@ -2219,7 +2568,7 @@ export interface ListResponsePlansOutput {
 export interface ListTagsForResourceRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the response plan.</p>
+   * <p>The Amazon Resource Name (ARN) of the response plan or incident.</p>
    */
   resourceArn: string | undefined;
 }
@@ -2230,7 +2579,7 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   /**
    * @public
-   * <p>A list of tags for the response plan.</p>
+   * <p>A list of tags for the response plan or incident.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -2277,6 +2626,11 @@ export interface ListTimelineEventsInput {
    * <p>Filters the timeline events based on the provided conditional values. You can filter
    *       timeline events with the following keys:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>eventReference</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>eventTime</code>
@@ -2326,7 +2680,8 @@ export interface ListTimelineEventsInput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token for the next set of items to return. (You received this token from a
+   *       previous call.)</p>
    */
   nextToken?: string;
 }
@@ -2343,7 +2698,8 @@ export interface ListTimelineEventsOutput {
 
   /**
    * @public
-   * <p>The pagination token to continue to the next page of results.</p>
+   * <p>The pagination token to use when requesting the next set of items. If there are no
+   *       additional items to return, the string is null.</p>
    */
   nextToken?: string;
 }
@@ -2452,7 +2808,7 @@ export interface TriggerDetails {
 
   /**
    * @public
-   * <p>The time that the incident was detected.</p>
+   * <p>The timestamp for when the incident was detected.</p>
    */
   timestamp: Date | undefined;
 
@@ -2492,32 +2848,28 @@ export interface StartIncidentInput {
    * <p>Defines the impact to the customers. Providing an impact overwrites the impact provided by
    *       a response plan.</p>
    *          <p class="title">
-   *             <b>Possible impacts:</b>
+   *             <b>Supported impact codes</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>1</code> - Critical impact, this typically relates to full application failure
-   *           that impacts many to all customers. </p>
+   *                   <code>1</code> - Critical</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>2</code> - High impact, partial application failure with impact to many
-   *           customers.</p>
+   *                   <code>2</code> - High</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>3</code> - Medium impact, the application is providing reduced service to
-   *           customers.</p>
+   *                   <code>3</code> - Medium</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>4</code> - Low impact, customer might aren't impacted by the problem yet.</p>
+   *                   <code>4</code> - Low</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>5</code> - No impact, customers aren't currently impacted but urgent action is
-   *           needed to avoid impact.</p>
+   *                   <code>5</code> - No Impact</p>
    *             </li>
    *          </ul>
    */
@@ -2655,32 +3007,28 @@ export interface UpdateIncidentRecordInput {
    * <p>Defines the impact of the incident to customers and applications. If you provide an impact
    *       for an incident, it overwrites the impact provided by the response plan.</p>
    *          <p class="title">
-   *             <b>Possible impacts:</b>
+   *             <b>Supported impact codes</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>1</code> - Critical impact, full application failure that impacts many to all
-   *           customers. </p>
+   *                   <code>1</code> - Critical</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>2</code> - High impact, partial application failure with impact to many
-   *           customers.</p>
+   *                   <code>2</code> - High</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>3</code> - Medium impact, the application is providing reduced service to
-   *           customers.</p>
+   *                   <code>3</code> - Medium</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>4</code> - Low impact, customer aren't impacted by the problem yet.</p>
+   *                   <code>4</code> - Low</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>5</code> - No impact, customers aren't currently impacted but urgent action is
-   *           needed to avoid impact.</p>
+   *                   <code>5</code> - No Impact</p>
    *             </li>
    *          </ul>
    */
@@ -2863,28 +3211,28 @@ export interface UpdateResponsePlanInput {
    * <p>Defines the impact to the customers. Providing an impact overwrites the impact provided by
    *       a response plan.</p>
    *          <p class="title">
-   *             <b>Possible impacts:</b>
+   *             <b>Supported impact codes</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>5</code> - Severe impact</p>
+   *                   <code>1</code> - Critical</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>4</code> - High impact</p>
+   *                   <code>2</code> - High</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>3</code> - Medium impact</p>
+   *                   <code>3</code> - Medium</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>2</code> - Low impact</p>
+   *                   <code>4</code> - Low</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>1</code> - No impact</p>
+   *                   <code>5</code> - No Impact</p>
    *             </li>
    *          </ul>
    */
@@ -2978,13 +3326,14 @@ export interface UpdateTimelineEventInput {
 
   /**
    * @public
-   * <p>The time that the event occurred.</p>
+   * <p>The timestamp for when the event occurred.</p>
    */
   eventTime?: Date;
 
   /**
    * @public
-   * <p>The type of event. You can update events of type <code>Custom Event</code>.</p>
+   * <p>The type of event. You can update events of type <code>Custom Event</code> and
+   *         <code>Note</code>.</p>
    */
   eventType?: string;
 
