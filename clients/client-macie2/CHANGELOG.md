@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
+
+
+### Features
+
+* **client-macie2:** This release adds support for configuring Macie to assume an IAM role when retrieving sample occurrences of sensitive data reported by findings. ([473c3e9](https://github.com/aws/aws-sdk-js-v3/commit/473c3e9d078c21ed2fe314590785298c408498b6))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-macie2

@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
+
+
+### Features
+
+* **client-codecatalyst:** This release includes updates to the Dev Environment APIs to include an optional vpcConnectionName parameter that supports using Dev Environments with Amazon VPC. ([815747d](https://github.com/aws/aws-sdk-js-v3/commit/815747d0d00af54e0e0c9b3cc799cccbf7f5c980))
+* **client-dlm:** This release adds support for Amazon Data Lifecycle Manager default policies for EBS snapshots and EBS-backed AMIs. ([50f4cd8](https://github.com/aws/aws-sdk-js-v3/commit/50f4cd84ecbe5307449e37856a56e59b109d2e5f))
+* **client-ec2:** Enable use of tenant-specific PublicSigningKeyUrl from device trust providers and onboard jumpcloud as a new device trust provider. ([9e1a837](https://github.com/aws/aws-sdk-js-v3/commit/9e1a8373e3df5bac1de43327eb9ecb0063882ad1))
+* **client-fsx:** Enables customers to update their PerUnitStorageThroughput on their Lustre file systems. ([20b417d](https://github.com/aws/aws-sdk-js-v3/commit/20b417d7668abfa8f6f53ca2ed449ec8df0bf0ab))
+* **client-glue:** Introduces new column statistics APIs to support statistics generation for tables within the Glue Data Catalog. ([de24311](https://github.com/aws/aws-sdk-js-v3/commit/de2431129916aaf4af5c49dbf33e16437e4b281c))
+* **client-imagebuilder:** This release adds the Image Lifecycle Management feature to automate the process of deprecating, disabling and deleting outdated images and their associated resources. ([9fbb42b](https://github.com/aws/aws-sdk-js-v3/commit/9fbb42bfed56b1467b3945d854231f6578c990a4))
+* **client-iot:** GA release the ability to index and search devices based on their GeoLocation data. With GeoQueries you can narrow your search to retrieve devices located in the desired geographic boundary. ([458186a](https://github.com/aws/aws-sdk-js-v3/commit/458186a164ddbb10cc21c43627f49d97aeaf8e08))
+* **client-ivs-realtime:** This release introduces server side composition and recording for stages. ([4e07828](https://github.com/aws/aws-sdk-js-v3/commit/4e07828dae7ebe8d291dea5b608ff697b4d2cfb2))
+* **client-kafka:** Added a new API response field which determines if there is an action required from the customer regarding their cluster. ([de549d0](https://github.com/aws/aws-sdk-js-v3/commit/de549d0c8d6494a62e02c72e723c1da13c1e8c2a))
+* **client-lambda:** Adds support for logging configuration in Lambda Functions. Customers will have more control how their function logs are captured and to which cloud watch log group they are delivered also. ([3640ab6](https://github.com/aws/aws-sdk-js-v3/commit/3640ab611a1f2eb224f524a6db92d653e1993fa1))
+* **client-macie2:** This release adds support for configuring Macie to assume an IAM role when retrieving sample occurrences of sensitive data reported by findings. ([473c3e9](https://github.com/aws/aws-sdk-js-v3/commit/473c3e9d078c21ed2fe314590785298c408498b6))
+* **client-mediapackage:** DRM_TOP_LEVEL_COMPACT allows placing content protection elements at the MPD level and referenced at the AdaptationSet level ([a72102a](https://github.com/aws/aws-sdk-js-v3/commit/a72102a04f5949b492419eae909165cf9265e65f))
+* **client-pinpoint-sms-voice-v2:** Amazon Pinpoint now offers additional operations as part of version 2 of the SMS and voice APIs. This release includes 26 new APIs to create and manage phone number registrations, add verified destination numbers, and request sender IDs. ([8f6ad5b](https://github.com/aws/aws-sdk-js-v3/commit/8f6ad5be8c71ba645534dbffb3ac5e305cddf345))
+* **client-polly:** Add new engine - long-form - dedicated for longer content, such as news articles, training materials, or marketing videos. ([367e933](https://github.com/aws/aws-sdk-js-v3/commit/367e933587f67349c5a69f98fd3cd515759caef1))
+* **client-quicksight:** Custom permission support for QuickSight roles; Three new datasources STARBURST, TRINO, BIGQUERY; Lenient mode changes the default behavior to allow for exporting and importing with certain UI allowed errors, Support for permissions and tags export and import. ([ff5bef6](https://github.com/aws/aws-sdk-js-v3/commit/ff5bef6227e9461b2a51e7ecb068d1cbdb3d18a6))
+* **client-sagemaker:** Amazon SageMaker Studio now supports Trainium instance types - trn1.2xlarge, trn1.32xlarge, trn1n.32xlarge. ([e1f639f](https://github.com/aws/aws-sdk-js-v3/commit/e1f639fd556d8c7c01d63128d1c4ba6a52e3f0ce))
+* **client-ssm-incidents:** Introduces new APIs ListIncidentFindings and BatchGetIncidentFindings to use findings related to an incident. ([a0cc50f](https://github.com/aws/aws-sdk-js-v3/commit/a0cc50f7e01ab3565aee63d0857d538900d52c67))
+* **client-ssm:** This release introduces the ability to filter automation execution steps which have parent steps. In addition, runbook variable information is returned by GetAutomationExecution and parent step information is returned by the DescribeAutomationStepExecutions API. ([35113ae](https://github.com/aws/aws-sdk-js-v3/commit/35113ae0981456900f458ed78e48a5c039e575c1))
+* **client-sso-admin:** Instances bound to a single AWS account, API operations for managing instances and applications, and assignments to applications are now supported. Trusted identity propagation is also supported, with new API operations for managing trusted token issuers and application grants and scopes. ([e9e1aaa](https://github.com/aws/aws-sdk-js-v3/commit/e9e1aaa4c901cf900e91ffdb0a4cf510941a485c))
+* **client-transfer:** Introduced S3StorageOptions for servers to enable directory listing optimizations and added Type fields to logical directory mappings. ([95a1b14](https://github.com/aws/aws-sdk-js-v3/commit/95a1b148b3d949b7f97922207e11f89081601483))
+* **clients:** update client endpoints as of 2023-11-16 ([67e6b88](https://github.com/aws/aws-sdk-js-v3/commit/67e6b887f568d69be8a9deeaae8c74d942b155af))
+
+
+
+
+
 # [3.452.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.451.0...v3.452.0) (2023-11-15)
 
 

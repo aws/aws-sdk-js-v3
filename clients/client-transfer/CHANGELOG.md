@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
+
+
+### Features
+
+* **client-transfer:** Introduced S3StorageOptions for servers to enable directory listing optimizations and added Type fields to logical directory mappings. ([95a1b14](https://github.com/aws/aws-sdk-js-v3/commit/95a1b148b3d949b7f97922207e11f89081601483))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
+
+
+### Features
+
+* **client-ssm-incidents:** Introduces new APIs ListIncidentFindings and BatchGetIncidentFindings to use findings related to an incident. ([a0cc50f](https://github.com/aws/aws-sdk-js-v3/commit/a0cc50f7e01ab3565aee63d0857d538900d52c67))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm-incidents
