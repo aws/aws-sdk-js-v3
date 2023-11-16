@@ -542,6 +542,24 @@ export interface AmazonManagedKafkaEventSourceConfig {
  * @public
  * @enum
  */
+export const ApplicationLogLevel = {
+  Debug: "DEBUG",
+  Error: "ERROR",
+  Fatal: "FATAL",
+  Info: "INFO",
+  Trace: "TRACE",
+  Warn: "WARN",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationLogLevel = (typeof ApplicationLogLevel)[keyof typeof ApplicationLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const Architecture = {
   arm64: "arm64",
   x86_64: "x86_64",
@@ -1558,8 +1576,8 @@ export interface Environment {
 
 /**
  * @public
- * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
- *   number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+ * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any
+ *       whole number between 512 and 10,240 MB.</p>
  */
 export interface EphemeralStorage {
   /**
@@ -1612,6 +1630,69 @@ export interface ImageConfig {
    * <p>Specifies the working directory.</p>
    */
   WorkingDirectory?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LogFormat = {
+  Json: "JSON",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type LogFormat = (typeof LogFormat)[keyof typeof LogFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const SystemLogLevel = {
+  Debug: "DEBUG",
+  Info: "INFO",
+  Warn: "WARN",
+} as const;
+
+/**
+ * @public
+ */
+export type SystemLogLevel = (typeof SystemLogLevel)[keyof typeof SystemLogLevel];
+
+/**
+ * @public
+ * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+ */
+export interface LoggingConfig {
+  /**
+   * @public
+   * <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between
+   *     plain text and structured JSON.</p>
+   */
+  LogFormat?: LogFormat;
+
+  /**
+   * @public
+   * <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the
+   *     selected level and lower.</p>
+   */
+  ApplicationLogLevel?: ApplicationLogLevel;
+
+  /**
+   * @public
+   * <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the
+   *       selected level and lower.</p>
+   */
+  SystemLogLevel?: SystemLogLevel;
+
+  /**
+   * @public
+   * <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default
+   *       log group named <code>/aws/lambda/<function name></code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
+   */
+  LogGroup?: string;
 }
 
 /**
@@ -1928,7 +2009,7 @@ export interface CreateFunctionRequest {
   /**
    * @public
    * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
-   *       number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   *       number between 512 and 10,240 MB.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
@@ -1937,6 +2018,12 @@ export interface CreateFunctionRequest {
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
    */
   SnapStart?: SnapStart;
+
+  /**
+   * @public
+   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 }
 
 /**
@@ -2459,8 +2546,8 @@ export interface FunctionConfiguration {
 
   /**
    * @public
-   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
-   *   number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   * <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any
+   *       whole number between 512 and 10,240 MB.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
@@ -2476,6 +2563,12 @@ export interface FunctionConfiguration {
    * <p>The ARN of the runtime and any errors that occured.</p>
    */
   RuntimeVersionConfig?: RuntimeVersionConfig;
+
+  /**
+   * @public
+   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 }
 
 /**
@@ -7002,7 +7095,7 @@ export interface UpdateFunctionConfigurationRequest {
   /**
    * @public
    * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
-   *       number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   *       number between 512 and 10,240 MB.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
@@ -7011,6 +7104,12 @@ export interface UpdateFunctionConfigurationRequest {
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
    */
   SnapStart?: SnapStart;
+
+  /**
+   * @public
+   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 }
 
 /**

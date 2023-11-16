@@ -268,6 +268,7 @@ import {
   KMSInvalidStateException,
   KMSNotFoundException,
   LayerVersionContentInput,
+  LoggingConfig,
   OnFailure,
   OnSuccess,
   PolicyLengthExceededException,
@@ -548,6 +549,7 @@ export const se_CreateFunctionCommand = async (
       ImageConfig: (_) => _json(_),
       KMSKeyArn: [],
       Layers: (_) => _json(_),
+      LoggingConfig: (_) => _json(_),
       MemorySize: [],
       PackageType: [],
       Publish: [],
@@ -2614,6 +2616,7 @@ export const se_UpdateFunctionConfigurationCommand = async (
       ImageConfig: (_) => _json(_),
       KMSKeyArn: [],
       Layers: (_) => _json(_),
+      LoggingConfig: (_) => _json(_),
       MemorySize: [],
       RevisionId: [],
       Role: [],
@@ -3087,6 +3090,7 @@ export const de_CreateFunctionCommand = async (
     LastUpdateStatusReason: __expectString,
     LastUpdateStatusReasonCode: __expectString,
     Layers: _json,
+    LoggingConfig: _json,
     MasterArn: __expectString,
     MemorySize: __expectInt32,
     PackageType: __expectString,
@@ -4243,6 +4247,7 @@ export const de_GetFunctionConfigurationCommand = async (
     LastUpdateStatusReason: __expectString,
     LastUpdateStatusReasonCode: __expectString,
     Layers: _json,
+    LoggingConfig: _json,
     MasterArn: __expectString,
     MemorySize: __expectInt32,
     PackageType: __expectString,
@@ -5882,6 +5887,7 @@ export const de_PublishVersionCommand = async (
     LastUpdateStatusReason: __expectString,
     LastUpdateStatusReasonCode: __expectString,
     Layers: _json,
+    LoggingConfig: _json,
     MasterArn: __expectString,
     MemorySize: __expectInt32,
     PackageType: __expectString,
@@ -6719,6 +6725,7 @@ export const de_UpdateFunctionCodeCommand = async (
     LastUpdateStatusReason: __expectString,
     LastUpdateStatusReasonCode: __expectString,
     Layers: _json,
+    LoggingConfig: _json,
     MasterArn: __expectString,
     MemorySize: __expectInt32,
     PackageType: __expectString,
@@ -6827,6 +6834,7 @@ export const de_UpdateFunctionConfigurationCommand = async (
     LastUpdateStatusReason: __expectString,
     LastUpdateStatusReasonCode: __expectString,
     Layers: _json,
+    LoggingConfig: _json,
     MasterArn: __expectString,
     MemorySize: __expectInt32,
     PackageType: __expectString,
@@ -7958,6 +7966,8 @@ const se_LayerVersionContentInput = (input: LayerVersionContentInput, context: _
   });
 };
 
+// se_LoggingConfig omitted.
+
 // se_OnFailure omitted.
 
 // se_OnSuccess omitted.
@@ -8205,6 +8215,8 @@ const de_FunctionEventInvokeConfigList = (output: any, context: __SerdeContext):
 // de_LayerVersionsList omitted.
 
 // de_LayerVersionsListItem omitted.
+
+// de_LoggingConfig omitted.
 
 // de_OnFailure omitted.
 

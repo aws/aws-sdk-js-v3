@@ -155,6 +155,12 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *   SnapStart: { // SnapStart
  *     ApplyOn: "PublishedVersions" || "None",
  *   },
+ *   LoggingConfig: { // LoggingConfig
+ *     LogFormat: "JSON" || "Text",
+ *     ApplicationLogLevel: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ *     LogGroup: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
@@ -253,6 +259,12 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //       ErrorCode: "STRING_VALUE",
  * //       Message: "STRING_VALUE",
  * //     },
+ * //   },
+ * //   LoggingConfig: { // LoggingConfig
+ * //     LogFormat: "JSON" || "Text",
+ * //     ApplicationLogLevel: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //     LogGroup: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -163,6 +163,12 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //           Message: "STRING_VALUE",
  * //         },
  * //       },
+ * //       LoggingConfig: { // LoggingConfig
+ * //         LogFormat: "JSON" || "Text",
+ * //         ApplicationLogLevel: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ * //         SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //         LogGroup: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

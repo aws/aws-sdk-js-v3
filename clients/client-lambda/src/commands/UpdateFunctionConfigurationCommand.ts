@@ -117,6 +117,12 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *   SnapStart: { // SnapStart
  *     ApplyOn: "PublishedVersions" || "None",
  *   },
+ *   LoggingConfig: { // LoggingConfig
+ *     LogFormat: "JSON" || "Text",
+ *     ApplicationLogLevel: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ *     LogGroup: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateFunctionConfigurationCommand(input);
  * const response = await client.send(command);
@@ -215,6 +221,12 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * //       ErrorCode: "STRING_VALUE",
  * //       Message: "STRING_VALUE",
  * //     },
+ * //   },
+ * //   LoggingConfig: { // LoggingConfig
+ * //     LogFormat: "JSON" || "Text",
+ * //     ApplicationLogLevel: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //     LogGroup: "STRING_VALUE",
  * //   },
  * // };
  *
