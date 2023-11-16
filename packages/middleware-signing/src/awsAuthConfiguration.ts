@@ -5,7 +5,6 @@ import {
   AwsCredentialIdentity,
   ChecksumConstructor,
   HashConstructor,
-  Logger,
   MemoizedProvider,
   Provider,
   RegionInfo,
@@ -80,7 +79,6 @@ interface SigV4PreviouslyResolved {
   region: string | Provider<string>;
   sha256: ChecksumConstructor | HashConstructor;
   signingName: string;
-  logger?: Logger;
 }
 
 export interface SigV4AuthResolvedConfig {
