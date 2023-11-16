@@ -831,6 +831,22 @@ GetColumnStatisticsForTable
 </details>
 <details>
 <summary>
+GetColumnStatisticsTaskRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/getcolumnstatisticstaskruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/getcolumnstatisticstaskruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/getcolumnstatisticstaskruncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetColumnStatisticsTaskRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/getcolumnstatisticstaskrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/getcolumnstatisticstaskrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/getcolumnstatisticstaskrunscommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetConnection
 </summary>
 
@@ -1311,6 +1327,14 @@ ListBlueprints
 </details>
 <details>
 <summary>
+ListColumnStatisticsTaskRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/listcolumnstatisticstaskrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/listcolumnstatisticstaskrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/listcolumnstatisticstaskrunscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListCrawlers
 </summary>
 
@@ -1551,6 +1575,14 @@ StartBlueprintRun
 </details>
 <details>
 <summary>
+StartColumnStatisticsTaskRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/startcolumnstatisticstaskruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/startcolumnstatisticstaskruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/startcolumnstatisticstaskruncommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartCrawler
 </summary>
 
@@ -1635,6 +1667,14 @@ StartWorkflowRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/startworkflowruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/startworkflowruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/startworkflowruncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopColumnStatisticsTaskRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/classes/stopcolumnstatisticstaskruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/stopcolumnstatisticstaskruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-glue/interfaces/stopcolumnstatisticstaskruncommandoutput.html)
 
 </details>
 <details>

@@ -195,6 +195,14 @@ import {
   GetColumnStatisticsForTableCommandInput,
   GetColumnStatisticsForTableCommandOutput,
 } from "../commands/GetColumnStatisticsForTableCommand";
+import {
+  GetColumnStatisticsTaskRunCommandInput,
+  GetColumnStatisticsTaskRunCommandOutput,
+} from "../commands/GetColumnStatisticsTaskRunCommand";
+import {
+  GetColumnStatisticsTaskRunsCommandInput,
+  GetColumnStatisticsTaskRunsCommandOutput,
+} from "../commands/GetColumnStatisticsTaskRunsCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
 import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "../commands/GetConnectionsCommand";
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "../commands/GetCrawlerCommand";
@@ -312,6 +320,10 @@ import {
   ImportCatalogToGlueCommandOutput,
 } from "../commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "../commands/ListBlueprintsCommand";
+import {
+  ListColumnStatisticsTaskRunsCommandInput,
+  ListColumnStatisticsTaskRunsCommandOutput,
+} from "../commands/ListColumnStatisticsTaskRunsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "../commands/ListCrawlersCommand";
 import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "../commands/ListCrawlsCommand";
 import {
@@ -378,6 +390,10 @@ import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from ".
 import { RunStatementCommandInput, RunStatementCommandOutput } from "../commands/RunStatementCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "../commands/SearchTablesCommand";
 import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "../commands/StartBlueprintRunCommand";
+import {
+  StartColumnStatisticsTaskRunCommandInput,
+  StartColumnStatisticsTaskRunCommandOutput,
+} from "../commands/StartColumnStatisticsTaskRunCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "../commands/StartCrawlerCommand";
 import {
   StartCrawlerScheduleCommandInput,
@@ -410,6 +426,10 @@ import {
 } from "../commands/StartMLLabelingSetGenerationTaskRunCommand";
 import { StartTriggerCommandInput, StartTriggerCommandOutput } from "../commands/StartTriggerCommand";
 import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "../commands/StartWorkflowRunCommand";
+import {
+  StopColumnStatisticsTaskRunCommandInput,
+  StopColumnStatisticsTaskRunCommandOutput,
+} from "../commands/StopColumnStatisticsTaskRunCommand";
 import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "../commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommandInput,
@@ -697,6 +717,7 @@ import {
   ColumnImportance,
   ColumnStatistics,
   ColumnStatisticsData,
+  ColumnStatisticsTaskRun,
   ConditionCheckFailureException,
   ConflictException,
   Connection,
@@ -783,6 +804,10 @@ import {
   GetColumnStatisticsForPartitionResponse,
   GetColumnStatisticsForTableRequest,
   GetColumnStatisticsForTableResponse,
+  GetColumnStatisticsTaskRunRequest,
+  GetColumnStatisticsTaskRunResponse,
+  GetColumnStatisticsTaskRunsRequest,
+  GetColumnStatisticsTaskRunsResponse,
   GetConnectionRequest,
   GetConnectionResponse,
   GetConnectionsFilter,
@@ -851,8 +876,6 @@ import {
   GetSessionRequest,
   GetSessionResponse,
   GetStatementRequest,
-  GetStatementResponse,
-  GetTableRequest,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
@@ -876,7 +899,6 @@ import {
   Segment,
   Session,
   SessionCommand,
-  Statement,
   StringColumnStatisticsData,
   TableIdentifier,
   TableInput,
@@ -896,6 +918,9 @@ import {
   BatchGetJobsResponse,
   CodeGenConfigurationNode,
   ColumnStatisticsError,
+  ColumnStatisticsTaskNotRunningException,
+  ColumnStatisticsTaskRunningException,
+  ColumnStatisticsTaskStoppingException,
   ConcurrentRunsExceededException,
   CrawlerHistory,
   CrawlerNotRunningException,
@@ -913,8 +938,10 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetStatementResponse,
   GetTableOptimizerRequest,
   GetTableOptimizerResponse,
+  GetTableRequest,
   GetTableResponse,
   GetTablesRequest,
   GetTablesResponse,
@@ -948,6 +975,7 @@ import {
   Job,
   JobUpdate,
   ListBlueprintsRequest,
+  ListColumnStatisticsTaskRunsRequest,
   ListCrawlersRequest,
   ListCrawlsRequest,
   ListCrawlsResponse,
@@ -997,6 +1025,7 @@ import {
   SearchTablesResponse,
   SortCriterion,
   StartBlueprintRunRequest,
+  StartColumnStatisticsTaskRunRequest,
   StartCrawlerRequest,
   StartCrawlerScheduleRequest,
   StartDataQualityRuleRecommendationRunRequest,
@@ -1008,6 +1037,8 @@ import {
   StartMLLabelingSetGenerationTaskRunRequest,
   StartTriggerRequest,
   StartWorkflowRunRequest,
+  Statement,
+  StopColumnStatisticsTaskRunRequest,
   StopCrawlerRequest,
   StopCrawlerScheduleRequest,
   StopSessionRequest,
@@ -2066,6 +2097,32 @@ export const se_GetColumnStatisticsForTableCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetColumnStatisticsTaskRunCommand
+ */
+export const se_GetColumnStatisticsTaskRunCommand = async (
+  input: GetColumnStatisticsTaskRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetColumnStatisticsTaskRun");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetColumnStatisticsTaskRunsCommand
+ */
+export const se_GetColumnStatisticsTaskRunsCommand = async (
+  input: GetColumnStatisticsTaskRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetColumnStatisticsTaskRuns");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetConnectionCommand
  */
 export const se_GetConnectionCommand = async (
@@ -2843,6 +2900,19 @@ export const se_ListBlueprintsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListColumnStatisticsTaskRunsCommand
+ */
+export const se_ListColumnStatisticsTaskRunsCommand = async (
+  input: ListColumnStatisticsTaskRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListColumnStatisticsTaskRuns");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListCrawlersCommand
  */
 export const se_ListCrawlersCommand = async (
@@ -3233,6 +3303,19 @@ export const se_StartBlueprintRunCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartColumnStatisticsTaskRunCommand
+ */
+export const se_StartColumnStatisticsTaskRunCommand = async (
+  input: StartColumnStatisticsTaskRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartColumnStatisticsTaskRun");
+  let body: any;
+  body = JSON.stringify(se_StartColumnStatisticsTaskRunRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartCrawlerCommand
  */
 export const se_StartCrawlerCommand = async (
@@ -3370,6 +3453,19 @@ export const se_StartWorkflowRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartWorkflowRun");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopColumnStatisticsTaskRunCommand
+ */
+export const se_StopColumnStatisticsTaskRunCommand = async (
+  input: StopColumnStatisticsTaskRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopColumnStatisticsTaskRun");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8178,6 +8274,104 @@ const de_GetColumnStatisticsForTableCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetColumnStatisticsTaskRunCommand
+ */
+export const de_GetColumnStatisticsTaskRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetColumnStatisticsTaskRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetColumnStatisticsTaskRunCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetColumnStatisticsTaskRunResponse(data, context);
+  const response: GetColumnStatisticsTaskRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetColumnStatisticsTaskRunCommandError
+ */
+const de_GetColumnStatisticsTaskRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetColumnStatisticsTaskRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetColumnStatisticsTaskRunsCommand
+ */
+export const de_GetColumnStatisticsTaskRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetColumnStatisticsTaskRunsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetColumnStatisticsTaskRunsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetColumnStatisticsTaskRunsResponse(data, context);
+  const response: GetColumnStatisticsTaskRunsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetColumnStatisticsTaskRunsCommandError
+ */
+const de_GetColumnStatisticsTaskRunsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetColumnStatisticsTaskRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetConnectionCommand
  */
 export const de_GetConnectionCommand = async (
@@ -11550,6 +11744,52 @@ const de_ListBlueprintsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListColumnStatisticsTaskRunsCommand
+ */
+export const de_ListColumnStatisticsTaskRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListColumnStatisticsTaskRunsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListColumnStatisticsTaskRunsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListColumnStatisticsTaskRunsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListColumnStatisticsTaskRunsCommandError
+ */
+const de_ListColumnStatisticsTaskRunsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListColumnStatisticsTaskRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListCrawlersCommand
  */
 export const de_ListCrawlersCommand = async (
@@ -13209,6 +13449,67 @@ const de_StartBlueprintRunCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1StartColumnStatisticsTaskRunCommand
+ */
+export const de_StartColumnStatisticsTaskRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartColumnStatisticsTaskRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartColumnStatisticsTaskRunCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartColumnStatisticsTaskRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartColumnStatisticsTaskRunCommandError
+ */
+const de_StartColumnStatisticsTaskRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartColumnStatisticsTaskRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ColumnStatisticsTaskRunningException":
+    case "com.amazonaws.glue#ColumnStatisticsTaskRunningException":
+      throw await de_ColumnStatisticsTaskRunningExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartCrawlerCommand
  */
 export const de_StartCrawlerCommand = async (
@@ -13836,6 +14137,61 @@ const de_StartWorkflowRunCommandError = async (
     case "ResourceNumberLimitExceededException":
     case "com.amazonaws.glue#ResourceNumberLimitExceededException":
       throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StopColumnStatisticsTaskRunCommand
+ */
+export const de_StopColumnStatisticsTaskRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopColumnStatisticsTaskRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StopColumnStatisticsTaskRunCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopColumnStatisticsTaskRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopColumnStatisticsTaskRunCommandError
+ */
+const de_StopColumnStatisticsTaskRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopColumnStatisticsTaskRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ColumnStatisticsTaskNotRunningException":
+    case "com.amazonaws.glue#ColumnStatisticsTaskNotRunningException":
+      throw await de_ColumnStatisticsTaskNotRunningExceptionRes(parsedOutput, context);
+    case "ColumnStatisticsTaskStoppingException":
+    case "com.amazonaws.glue#ColumnStatisticsTaskStoppingException":
+      throw await de_ColumnStatisticsTaskStoppingExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -15576,6 +15932,54 @@ const de_AlreadyExistsExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ColumnStatisticsTaskNotRunningExceptionRes
+ */
+const de_ColumnStatisticsTaskNotRunningExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ColumnStatisticsTaskNotRunningException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ColumnStatisticsTaskNotRunningException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ColumnStatisticsTaskRunningExceptionRes
+ */
+const de_ColumnStatisticsTaskRunningExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ColumnStatisticsTaskRunningException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ColumnStatisticsTaskRunningException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ColumnStatisticsTaskStoppingExceptionRes
+ */
+const de_ColumnStatisticsTaskStoppingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ColumnStatisticsTaskStoppingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ColumnStatisticsTaskStoppingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ConcurrentModificationExceptionRes
  */
 const de_ConcurrentModificationExceptionRes = async (
@@ -16367,6 +16771,8 @@ const se_CodeGenConfigurationNodes = (
 
 // se_ColumnList omitted.
 
+// se_ColumnNameList omitted.
+
 /**
  * serializeAws_json1_1ColumnStatistics
  */
@@ -16932,6 +17338,10 @@ const se_FindMatchesParameters = (input: FindMatchesParameters, context: __Serde
 
 // se_GetColumnStatisticsForTableRequest omitted.
 
+// se_GetColumnStatisticsTaskRunRequest omitted.
+
+// se_GetColumnStatisticsTaskRunsRequest omitted.
+
 // se_GetConnectionRequest omitted.
 
 // se_GetConnectionsFilter omitted.
@@ -17262,6 +17672,8 @@ const se_KinesisStreamingSourceOptions = (input: KinesisStreamingSourceOptions, 
 // se_LineageConfiguration omitted.
 
 // se_ListBlueprintsRequest omitted.
+
+// se_ListColumnStatisticsTaskRunsRequest omitted.
 
 // se_ListCrawlersRequest omitted.
 
@@ -17669,6 +18081,24 @@ const se_Spigot = (input: Spigot, context: __SerdeContext): any => {
 
 // se_StartBlueprintRunRequest omitted.
 
+/**
+ * serializeAws_json1_1StartColumnStatisticsTaskRunRequest
+ */
+const se_StartColumnStatisticsTaskRunRequest = (
+  input: StartColumnStatisticsTaskRunRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    CatalogID: [],
+    ColumnNameList: _json,
+    DatabaseName: [],
+    Role: [],
+    SampleSize: __serializeFloat,
+    SecurityConfiguration: [],
+    TableName: [],
+  });
+};
+
 // se_StartCrawlerRequest omitted.
 
 // se_StartCrawlerScheduleRequest omitted.
@@ -17707,6 +18137,8 @@ const se_StartJobRunRequest = (input: StartJobRunRequest, context: __SerdeContex
 // se_StartTriggerRequest omitted.
 
 // se_StartWorkflowRunRequest omitted.
+
+// se_StopColumnStatisticsTaskRunRequest omitted.
 
 // se_StopCrawlerRequest omitted.
 
@@ -18491,6 +18923,8 @@ const de_ColumnImportanceList = (output: any, context: __SerdeContext): ColumnIm
 
 // de_ColumnList omitted.
 
+// de_ColumnNameList omitted.
+
 // de_ColumnRowFilter omitted.
 
 // de_ColumnRowFilterList omitted.
@@ -18556,6 +18990,52 @@ const de_ColumnStatisticsList = (output: any, context: __SerdeContext): ColumnSt
     });
   return retVal;
 };
+
+// de_ColumnStatisticsTaskNotRunningException omitted.
+
+/**
+ * deserializeAws_json1_1ColumnStatisticsTaskRun
+ */
+const de_ColumnStatisticsTaskRun = (output: any, context: __SerdeContext): ColumnStatisticsTaskRun => {
+  return take(output, {
+    CatalogID: __expectString,
+    ColumnNameList: _json,
+    ColumnStatisticsTaskRunId: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomerId: __expectString,
+    DPUSeconds: __limitedParseDouble,
+    DatabaseName: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorMessage: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NumberOfWorkers: __expectInt32,
+    Role: __expectString,
+    SampleSize: __limitedParseDouble,
+    SecurityConfiguration: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TableName: __expectString,
+    WorkerType: __expectString,
+  }) as any;
+};
+
+// de_ColumnStatisticsTaskRunIdList omitted.
+
+// de_ColumnStatisticsTaskRunningException omitted.
+
+/**
+ * deserializeAws_json1_1ColumnStatisticsTaskRunsList
+ */
+const de_ColumnStatisticsTaskRunsList = (output: any, context: __SerdeContext): ColumnStatisticsTaskRun[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ColumnStatisticsTaskRun(entry, context);
+    });
+  return retVal;
+};
+
+// de_ColumnStatisticsTaskStoppingException omitted.
 
 // de_ColumnValueStringList omitted.
 
@@ -19526,6 +20006,31 @@ const de_GetColumnStatisticsForTableResponse = (
 };
 
 /**
+ * deserializeAws_json1_1GetColumnStatisticsTaskRunResponse
+ */
+const de_GetColumnStatisticsTaskRunResponse = (
+  output: any,
+  context: __SerdeContext
+): GetColumnStatisticsTaskRunResponse => {
+  return take(output, {
+    ColumnStatisticsTaskRun: (_: any) => de_ColumnStatisticsTaskRun(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetColumnStatisticsTaskRunsResponse
+ */
+const de_GetColumnStatisticsTaskRunsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetColumnStatisticsTaskRunsResponse => {
+  return take(output, {
+    ColumnStatisticsTaskRuns: (_: any) => de_ColumnStatisticsTaskRunsList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetConnectionResponse
  */
 const de_GetConnectionResponse = (output: any, context: __SerdeContext): GetConnectionResponse => {
@@ -20386,6 +20891,8 @@ const de_LastCrawlInfo = (output: any, context: __SerdeContext): LastCrawlInfo =
 
 // de_ListBlueprintsResponse omitted.
 
+// de_ListColumnStatisticsTaskRunsResponse omitted.
+
 // de_ListCrawlersResponse omitted.
 
 /**
@@ -20973,6 +21480,8 @@ const de_Spigot = (output: any, context: __SerdeContext): Spigot => {
 
 // de_StartBlueprintRunResponse omitted.
 
+// de_StartColumnStatisticsTaskRunResponse omitted.
+
 // de_StartCrawlerResponse omitted.
 
 // de_StartCrawlerScheduleResponse omitted.
@@ -21027,6 +21536,8 @@ const de_StatementList = (output: any, context: __SerdeContext): Statement[] => 
 // de_StatementOutput omitted.
 
 // de_StatementOutputData omitted.
+
+// de_StopColumnStatisticsTaskRunResponse omitted.
 
 // de_StopCrawlerResponse omitted.
 

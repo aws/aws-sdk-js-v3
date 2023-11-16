@@ -129,7 +129,6 @@ import {
   SchemaVersionStatus,
   Segment,
   Session,
-  Statement,
   TableIdentifier,
   TableInput,
   TransformFilterCriteria,
@@ -137,6 +136,175 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>The code execution output in JSON format.</p>
+ */
+export interface StatementOutputData {
+  /**
+   * @public
+   * <p>The code execution output in text format.</p>
+   */
+  TextPlain?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StatementState = {
+  AVAILABLE: "AVAILABLE",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type StatementState = (typeof StatementState)[keyof typeof StatementState];
+
+/**
+ * @public
+ * <p>The code execution output in JSON format.</p>
+ */
+export interface StatementOutput {
+  /**
+   * @public
+   * <p>The code execution output.</p>
+   */
+  Data?: StatementOutputData;
+
+  /**
+   * @public
+   * <p>The execution count of the output.</p>
+   */
+  ExecutionCount?: number;
+
+  /**
+   * @public
+   * <p>The status of the code execution output.</p>
+   */
+  Status?: StatementState;
+
+  /**
+   * @public
+   * <p>The name of the error in the output.</p>
+   */
+  ErrorName?: string;
+
+  /**
+   * @public
+   * <p>The error value of the output.</p>
+   */
+  ErrorValue?: string;
+
+  /**
+   * @public
+   * <p>The traceback of the output.</p>
+   */
+  Traceback?: string[];
+}
+
+/**
+ * @public
+ * <p>The statement or request for a particular action to occur in a session.</p>
+ */
+export interface Statement {
+  /**
+   * @public
+   * <p>The ID of the statement.</p>
+   */
+  Id?: number;
+
+  /**
+   * @public
+   * <p>The execution code of the statement.</p>
+   */
+  Code?: string;
+
+  /**
+   * @public
+   * <p>The state while request is actioned.</p>
+   */
+  State?: StatementState;
+
+  /**
+   * @public
+   * <p>The output in JSON.</p>
+   */
+  Output?: StatementOutput;
+
+  /**
+   * @public
+   * <p>The code execution progress.</p>
+   */
+  Progress?: number;
+
+  /**
+   * @public
+   * <p>The unix time and date that the job definition was started.</p>
+   */
+  StartedOn?: number;
+
+  /**
+   * @public
+   * <p>The unix time and date that the job definition was completed.</p>
+   */
+  CompletedOn?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetStatementResponse {
+  /**
+   * @public
+   * <p>Returns the statement.</p>
+   */
+  Statement?: Statement;
+}
+
+/**
+ * @public
+ */
+export interface GetTableRequest {
+  /**
+   * @public
+   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.
+   *       For Hive compatibility, this name is entirely lowercase.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table for which to retrieve the definition. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The transaction ID at which to read the table contents. </p>
+   */
+  TransactionId?: string;
+
+  /**
+   * @public
+   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
+   */
+  QueryAsOfTime?: Date;
+}
 
 /**
  * @public
@@ -1389,6 +1557,40 @@ export interface ListBlueprintsResponse {
   /**
    * @public
    * <p>A continuation token, if not all blueprint names have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListColumnStatisticsTaskRunsRequest {
+  /**
+   * @public
+   * <p>The maximum size of the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListColumnStatisticsTaskRunsResponse {
+  /**
+   * @public
+   * <p>A list of column statistics task run IDs.</p>
+   */
+  ColumnStatisticsTaskRunIds?: string[];
+
+  /**
+   * @public
+   * <p>A continuation token, if not all task run IDs have yet been returned.</p>
    */
   NextToken?: string;
 }
@@ -3627,6 +3829,90 @@ export interface StartBlueprintRunResponse {
 
 /**
  * @public
+ * <p>An exception thrown when you try to start another job while running a column stats generation job.</p>
+ */
+export class ColumnStatisticsTaskRunningException extends __BaseException {
+  readonly name: "ColumnStatisticsTaskRunningException" = "ColumnStatisticsTaskRunningException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ColumnStatisticsTaskRunningException, __BaseException>) {
+    super({
+      name: "ColumnStatisticsTaskRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ColumnStatisticsTaskRunningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartColumnStatisticsTaskRunRequest {
+  /**
+   * @public
+   * <p>The name of the database where the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table to generate statistics.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of the column names to generate statistics. If none is supplied, all column names for the table will be used by default.</p>
+   */
+  ColumnNameList?: string[];
+
+  /**
+   * @public
+   * <p>The IAM role that the service assumes to generate statistics.</p>
+   */
+  Role: string | undefined;
+
+  /**
+   * @public
+   * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
+   */
+  SampleSize?: number;
+
+  /**
+   * @public
+   * <p>The ID of the Data Catalog where the table reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogID?: string;
+
+  /**
+   * @public
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
+   */
+  SecurityConfiguration?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartColumnStatisticsTaskRunResponse {
+  /**
+   * @public
+   * <p>The identifier for the column statistics task run.</p>
+   */
+  ColumnStatisticsTaskRunId?: string;
+}
+
+/**
+ * @public
  */
 export interface StartCrawlerRequest {
   /**
@@ -4162,6 +4448,80 @@ export interface StartWorkflowRunResponse {
    */
   RunId?: string;
 }
+
+/**
+ * @public
+ * <p>An exception thrown when you try to stop a task run when there is no task running.</p>
+ */
+export class ColumnStatisticsTaskNotRunningException extends __BaseException {
+  readonly name: "ColumnStatisticsTaskNotRunningException" = "ColumnStatisticsTaskNotRunningException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ColumnStatisticsTaskNotRunningException, __BaseException>) {
+    super({
+      name: "ColumnStatisticsTaskNotRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ColumnStatisticsTaskNotRunningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>An exception thrown when you try to stop a task run.</p>
+ */
+export class ColumnStatisticsTaskStoppingException extends __BaseException {
+  readonly name: "ColumnStatisticsTaskStoppingException" = "ColumnStatisticsTaskStoppingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ColumnStatisticsTaskStoppingException, __BaseException>) {
+    super({
+      name: "ColumnStatisticsTaskStoppingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ColumnStatisticsTaskStoppingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StopColumnStatisticsTaskRunRequest {
+  /**
+   * @public
+   * <p>The name of the database where the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopColumnStatisticsTaskRunResponse {}
 
 /**
  * @public

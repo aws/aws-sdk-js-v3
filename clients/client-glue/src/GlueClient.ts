@@ -221,6 +221,14 @@ import {
   GetColumnStatisticsForTableCommandInput,
   GetColumnStatisticsForTableCommandOutput,
 } from "./commands/GetColumnStatisticsForTableCommand";
+import {
+  GetColumnStatisticsTaskRunCommandInput,
+  GetColumnStatisticsTaskRunCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunCommand";
+import {
+  GetColumnStatisticsTaskRunsCommandInput,
+  GetColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunsCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
@@ -338,6 +346,10 @@ import {
   ImportCatalogToGlueCommandOutput,
 } from "./commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
+import {
+  ListColumnStatisticsTaskRunsCommandInput,
+  ListColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/ListColumnStatisticsTaskRunsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
 import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
 import {
@@ -404,6 +416,10 @@ import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from ".
 import { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
 import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "./commands/StartBlueprintRunCommand";
+import {
+  StartColumnStatisticsTaskRunCommandInput,
+  StartColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StartColumnStatisticsTaskRunCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
 import {
   StartCrawlerScheduleCommandInput,
@@ -436,6 +452,10 @@ import {
 } from "./commands/StartMLLabelingSetGenerationTaskRunCommand";
 import { StartTriggerCommandInput, StartTriggerCommandOutput } from "./commands/StartTriggerCommand";
 import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
+import {
+  StopColumnStatisticsTaskRunCommandInput,
+  StopColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StopColumnStatisticsTaskRunCommand";
 import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommandInput,
@@ -585,6 +605,8 @@ export type ServiceInputTypes =
   | GetClassifiersCommandInput
   | GetColumnStatisticsForPartitionCommandInput
   | GetColumnStatisticsForTableCommandInput
+  | GetColumnStatisticsTaskRunCommandInput
+  | GetColumnStatisticsTaskRunsCommandInput
   | GetConnectionCommandInput
   | GetConnectionsCommandInput
   | GetCrawlerCommandInput
@@ -645,6 +667,7 @@ export type ServiceInputTypes =
   | GetWorkflowRunsCommandInput
   | ImportCatalogToGlueCommandInput
   | ListBlueprintsCommandInput
+  | ListColumnStatisticsTaskRunsCommandInput
   | ListCrawlersCommandInput
   | ListCrawlsCommandInput
   | ListCustomEntityTypesCommandInput
@@ -675,6 +698,7 @@ export type ServiceInputTypes =
   | RunStatementCommandInput
   | SearchTablesCommandInput
   | StartBlueprintRunCommandInput
+  | StartColumnStatisticsTaskRunCommandInput
   | StartCrawlerCommandInput
   | StartCrawlerScheduleCommandInput
   | StartDataQualityRuleRecommendationRunCommandInput
@@ -686,6 +710,7 @@ export type ServiceInputTypes =
   | StartMLLabelingSetGenerationTaskRunCommandInput
   | StartTriggerCommandInput
   | StartWorkflowRunCommandInput
+  | StopColumnStatisticsTaskRunCommandInput
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
   | StopSessionCommandInput
@@ -798,6 +823,8 @@ export type ServiceOutputTypes =
   | GetClassifiersCommandOutput
   | GetColumnStatisticsForPartitionCommandOutput
   | GetColumnStatisticsForTableCommandOutput
+  | GetColumnStatisticsTaskRunCommandOutput
+  | GetColumnStatisticsTaskRunsCommandOutput
   | GetConnectionCommandOutput
   | GetConnectionsCommandOutput
   | GetCrawlerCommandOutput
@@ -858,6 +885,7 @@ export type ServiceOutputTypes =
   | GetWorkflowRunsCommandOutput
   | ImportCatalogToGlueCommandOutput
   | ListBlueprintsCommandOutput
+  | ListColumnStatisticsTaskRunsCommandOutput
   | ListCrawlersCommandOutput
   | ListCrawlsCommandOutput
   | ListCustomEntityTypesCommandOutput
@@ -888,6 +916,7 @@ export type ServiceOutputTypes =
   | RunStatementCommandOutput
   | SearchTablesCommandOutput
   | StartBlueprintRunCommandOutput
+  | StartColumnStatisticsTaskRunCommandOutput
   | StartCrawlerCommandOutput
   | StartCrawlerScheduleCommandOutput
   | StartDataQualityRuleRecommendationRunCommandOutput
@@ -899,6 +928,7 @@ export type ServiceOutputTypes =
   | StartMLLabelingSetGenerationTaskRunCommandOutput
   | StartTriggerCommandOutput
   | StartWorkflowRunCommandOutput
+  | StopColumnStatisticsTaskRunCommandOutput
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
   | StopSessionCommandOutput

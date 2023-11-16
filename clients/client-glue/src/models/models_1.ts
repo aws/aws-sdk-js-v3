@@ -4219,6 +4219,205 @@ export interface GetColumnStatisticsForTableResponse {
 /**
  * @public
  */
+export interface GetColumnStatisticsTaskRunRequest {
+  /**
+   * @public
+   * <p>The identifier for the particular column statistics task run.</p>
+   */
+  ColumnStatisticsTaskRunId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnStatisticsState = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnStatisticsState = (typeof ColumnStatisticsState)[keyof typeof ColumnStatisticsState];
+
+/**
+ * @public
+ * <p>The object that shows the details of the column stats run.</p>
+ */
+export interface ColumnStatisticsTaskRun {
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  CustomerId?: string;
+
+  /**
+   * @public
+   * <p>The identifier for the particular column statistics task run.</p>
+   */
+  ColumnStatisticsTaskRunId?: string;
+
+  /**
+   * @public
+   * <p>The database where the table resides.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table for which column statistics is generated.</p>
+   */
+  TableName?: string;
+
+  /**
+   * @public
+   * <p>A list of the column names. If none is supplied, all column names for the table will be used by default.</p>
+   */
+  ColumnNameList?: string[];
+
+  /**
+   * @public
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogID?: string;
+
+  /**
+   * @public
+   * <p>The IAM role that the service assumes to generate statistics.</p>
+   */
+  Role?: string;
+
+  /**
+   * @public
+   * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
+   */
+  SampleSize?: number;
+
+  /**
+   * @public
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   * @public
+   * <p>The number of workers used to generate column statistics. The job is preconfigured to autoscale up to 25 instances.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * @public
+   * <p>The type of workers being used for generating stats. The default is <code>g.1x</code>.</p>
+   */
+  WorkerType?: string;
+
+  /**
+   * @public
+   * <p>The status of the task run.</p>
+   */
+  Status?: ColumnStatisticsState;
+
+  /**
+   * @public
+   * <p>The time that this task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The last point in time when this task was modified.</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * @public
+   * <p>The start time of the task.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The end time of the task.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>The error message for the job.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * @public
+   * <p>The calculated DPU usage in seconds for all autoscaled workers.</p>
+   */
+  DPUSeconds?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunResponse {
+  /**
+   * @public
+   * <p>A <code>ColumnStatisticsTaskRun</code> object representing the details of the column stats run.</p>
+   */
+  ColumnStatisticsTaskRun?: ColumnStatisticsTaskRun;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunsRequest {
+  /**
+   * @public
+   * <p>The name of the database where the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum size of the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunsResponse {
+  /**
+   * @public
+   * <p>A list of column statistics task runs.</p>
+   */
+  ColumnStatisticsTaskRuns?: ColumnStatisticsTaskRun[];
+
+  /**
+   * @public
+   * <p>A continuation token, if not all task runs have yet been returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetConnectionRequest {
   /**
    * @public
@@ -7908,173 +8107,4 @@ export interface GetStatementRequest {
    * <p>The origin of the request.</p>
    */
   RequestOrigin?: string;
-}
-
-/**
- * @public
- * <p>The code execution output in JSON format.</p>
- */
-export interface StatementOutputData {
-  /**
-   * @public
-   * <p>The code execution output in text format.</p>
-   */
-  TextPlain?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const StatementState = {
-  AVAILABLE: "AVAILABLE",
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  ERROR: "ERROR",
-  RUNNING: "RUNNING",
-  WAITING: "WAITING",
-} as const;
-
-/**
- * @public
- */
-export type StatementState = (typeof StatementState)[keyof typeof StatementState];
-
-/**
- * @public
- * <p>The code execution output in JSON format.</p>
- */
-export interface StatementOutput {
-  /**
-   * @public
-   * <p>The code execution output.</p>
-   */
-  Data?: StatementOutputData;
-
-  /**
-   * @public
-   * <p>The execution count of the output.</p>
-   */
-  ExecutionCount?: number;
-
-  /**
-   * @public
-   * <p>The status of the code execution output.</p>
-   */
-  Status?: StatementState;
-
-  /**
-   * @public
-   * <p>The name of the error in the output.</p>
-   */
-  ErrorName?: string;
-
-  /**
-   * @public
-   * <p>The error value of the output.</p>
-   */
-  ErrorValue?: string;
-
-  /**
-   * @public
-   * <p>The traceback of the output.</p>
-   */
-  Traceback?: string[];
-}
-
-/**
- * @public
- * <p>The statement or request for a particular action to occur in a session.</p>
- */
-export interface Statement {
-  /**
-   * @public
-   * <p>The ID of the statement.</p>
-   */
-  Id?: number;
-
-  /**
-   * @public
-   * <p>The execution code of the statement.</p>
-   */
-  Code?: string;
-
-  /**
-   * @public
-   * <p>The state while request is actioned.</p>
-   */
-  State?: StatementState;
-
-  /**
-   * @public
-   * <p>The output in JSON.</p>
-   */
-  Output?: StatementOutput;
-
-  /**
-   * @public
-   * <p>The code execution progress.</p>
-   */
-  Progress?: number;
-
-  /**
-   * @public
-   * <p>The unix time and date that the job definition was started.</p>
-   */
-  StartedOn?: number;
-
-  /**
-   * @public
-   * <p>The unix time and date that the job definition was completed.</p>
-   */
-  CompletedOn?: number;
-}
-
-/**
- * @public
- */
-export interface GetStatementResponse {
-  /**
-   * @public
-   * <p>Returns the statement.</p>
-   */
-  Statement?: Statement;
-}
-
-/**
- * @public
- */
-export interface GetTableRequest {
-  /**
-   * @public
-   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The name of the database in the catalog in which the table resides.
-   *       For Hive compatibility, this name is entirely lowercase.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the table for which to retrieve the definition. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The transaction ID at which to read the table contents. </p>
-   */
-  TransactionId?: string;
-
-  /**
-   * @public
-   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
-   */
-  QueryAsOfTime?: Date;
 }

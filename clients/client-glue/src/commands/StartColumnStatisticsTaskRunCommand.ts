@@ -15,9 +15,11 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetStatementRequest } from "../models/models_1";
-import { GetStatementResponse } from "../models/models_2";
-import { de_GetStatementCommand, se_GetStatementCommand } from "../protocols/Aws_json1_1";
+import { StartColumnStatisticsTaskRunRequest, StartColumnStatisticsTaskRunResponse } from "../models/models_2";
+import {
+  de_StartColumnStatisticsTaskRunCommand,
+  se_StartColumnStatisticsTaskRunCommand,
+} from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -26,74 +28,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetStatementCommand}.
+ * The input for {@link StartColumnStatisticsTaskRunCommand}.
  */
-export interface GetStatementCommandInput extends GetStatementRequest {}
+export interface StartColumnStatisticsTaskRunCommandInput extends StartColumnStatisticsTaskRunRequest {}
 /**
  * @public
  *
- * The output of {@link GetStatementCommand}.
+ * The output of {@link StartColumnStatisticsTaskRunCommand}.
  */
-export interface GetStatementCommandOutput extends GetStatementResponse, __MetadataBearer {}
+export interface StartColumnStatisticsTaskRunCommandOutput
+  extends StartColumnStatisticsTaskRunResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves the statement.</p>
+ * <p>Starts a column statistics task run, for a specified table and columns.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartColumnStatisticsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, StartColumnStatisticsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = { // GetStatementRequest
- *   SessionId: "STRING_VALUE", // required
- *   Id: Number("int"), // required
- *   RequestOrigin: "STRING_VALUE",
+ * const input = { // StartColumnStatisticsTaskRunRequest
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   ColumnNameList: [ // ColumnNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Role: "STRING_VALUE", // required
+ *   SampleSize: Number("double"),
+ *   CatalogID: "STRING_VALUE",
+ *   SecurityConfiguration: "STRING_VALUE",
  * };
- * const command = new GetStatementCommand(input);
+ * const command = new StartColumnStatisticsTaskRunCommand(input);
  * const response = await client.send(command);
- * // { // GetStatementResponse
- * //   Statement: { // Statement
- * //     Id: Number("int"),
- * //     Code: "STRING_VALUE",
- * //     State: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
- * //     Output: { // StatementOutput
- * //       Data: { // StatementOutputData
- * //         TextPlain: "STRING_VALUE",
- * //       },
- * //       ExecutionCount: Number("int"),
- * //       Status: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
- * //       ErrorName: "STRING_VALUE",
- * //       ErrorValue: "STRING_VALUE",
- * //       Traceback: [ // OrchestrationStringList
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //     Progress: Number("double"),
- * //     StartedOn: Number("long"),
- * //     CompletedOn: Number("long"),
- * //   },
+ * // { // StartColumnStatisticsTaskRunResponse
+ * //   ColumnStatisticsTaskRunId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetStatementCommandInput - {@link GetStatementCommandInput}
- * @returns {@link GetStatementCommandOutput}
- * @see {@link GetStatementCommandInput} for command's `input` shape.
- * @see {@link GetStatementCommandOutput} for command's `response` shape.
+ * @param StartColumnStatisticsTaskRunCommandInput - {@link StartColumnStatisticsTaskRunCommandInput}
+ * @returns {@link StartColumnStatisticsTaskRunCommandOutput}
+ * @see {@link StartColumnStatisticsTaskRunCommandInput} for command's `input` shape.
+ * @see {@link StartColumnStatisticsTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access to a resource was denied.</p>
  *
+ * @throws {@link ColumnStatisticsTaskRunningException} (client fault)
+ *  <p>An exception thrown when you try to start another job while running a column stats generation job.</p>
+ *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
- *
- * @throws {@link IllegalSessionStateException} (client fault)
- *  <p>The session is in an invalid state to perform a requested operation.</p>
- *
- * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
@@ -101,13 +89,16 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
-export class GetStatementCommand extends $Command<
-  GetStatementCommandInput,
-  GetStatementCommandOutput,
+export class StartColumnStatisticsTaskRunCommand extends $Command<
+  StartColumnStatisticsTaskRunCommandInput,
+  StartColumnStatisticsTaskRunCommandOutput,
   GlueClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -122,7 +113,7 @@ export class GetStatementCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetStatementCommandInput) {
+  constructor(readonly input: StartColumnStatisticsTaskRunCommandInput) {
     super();
   }
 
@@ -133,15 +124,17 @@ export class GetStatementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetStatementCommandInput, GetStatementCommandOutput> {
+  ): Handler<StartColumnStatisticsTaskRunCommandInput, StartColumnStatisticsTaskRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetStatementCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartColumnStatisticsTaskRunCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GlueClient";
-    const commandName = "GetStatementCommand";
+    const commandName = "StartColumnStatisticsTaskRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,7 +143,7 @@ export class GetStatementCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSGlue",
-        operation: "GetStatement",
+        operation: "StartColumnStatisticsTaskRun",
       },
     };
     const { requestHandler } = configuration;
@@ -164,14 +157,17 @@ export class GetStatementCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetStatementCommand(input, context);
+  private serialize(input: StartColumnStatisticsTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartColumnStatisticsTaskRunCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatementCommandOutput> {
-    return de_GetStatementCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<StartColumnStatisticsTaskRunCommandOutput> {
+    return de_StartColumnStatisticsTaskRunCommand(output, context);
   }
 }

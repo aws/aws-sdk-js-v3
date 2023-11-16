@@ -377,6 +377,16 @@ import {
   GetColumnStatisticsForTableCommandOutput,
 } from "./commands/GetColumnStatisticsForTableCommand";
 import {
+  GetColumnStatisticsTaskRunCommand,
+  GetColumnStatisticsTaskRunCommandInput,
+  GetColumnStatisticsTaskRunCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunCommand";
+import {
+  GetColumnStatisticsTaskRunsCommand,
+  GetColumnStatisticsTaskRunsCommandInput,
+  GetColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunsCommand";
+import {
   GetConnectionCommand,
   GetConnectionCommandInput,
   GetConnectionCommandOutput,
@@ -605,6 +615,11 @@ import {
   ListBlueprintsCommandOutput,
 } from "./commands/ListBlueprintsCommand";
 import {
+  ListColumnStatisticsTaskRunsCommand,
+  ListColumnStatisticsTaskRunsCommandInput,
+  ListColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/ListColumnStatisticsTaskRunsCommand";
+import {
   ListCrawlersCommand,
   ListCrawlersCommandInput,
   ListCrawlersCommandOutput,
@@ -743,6 +758,11 @@ import {
   StartBlueprintRunCommandOutput,
 } from "./commands/StartBlueprintRunCommand";
 import {
+  StartColumnStatisticsTaskRunCommand,
+  StartColumnStatisticsTaskRunCommandInput,
+  StartColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StartColumnStatisticsTaskRunCommand";
+import {
   StartCrawlerCommand,
   StartCrawlerCommandInput,
   StartCrawlerCommandOutput,
@@ -793,6 +813,11 @@ import {
   StartWorkflowRunCommandInput,
   StartWorkflowRunCommandOutput,
 } from "./commands/StartWorkflowRunCommand";
+import {
+  StopColumnStatisticsTaskRunCommand,
+  StopColumnStatisticsTaskRunCommandInput,
+  StopColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StopColumnStatisticsTaskRunCommand";
 import { StopCrawlerCommand, StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommand,
@@ -995,6 +1020,8 @@ const commands = {
   GetClassifiersCommand,
   GetColumnStatisticsForPartitionCommand,
   GetColumnStatisticsForTableCommand,
+  GetColumnStatisticsTaskRunCommand,
+  GetColumnStatisticsTaskRunsCommand,
   GetConnectionCommand,
   GetConnectionsCommand,
   GetCrawlerCommand,
@@ -1055,6 +1082,7 @@ const commands = {
   GetWorkflowRunsCommand,
   ImportCatalogToGlueCommand,
   ListBlueprintsCommand,
+  ListColumnStatisticsTaskRunsCommand,
   ListCrawlersCommand,
   ListCrawlsCommand,
   ListCustomEntityTypesCommand,
@@ -1085,6 +1113,7 @@ const commands = {
   RunStatementCommand,
   SearchTablesCommand,
   StartBlueprintRunCommand,
+  StartColumnStatisticsTaskRunCommand,
   StartCrawlerCommand,
   StartCrawlerScheduleCommand,
   StartDataQualityRuleRecommendationRunCommand,
@@ -1096,6 +1125,7 @@ const commands = {
   StartMLLabelingSetGenerationTaskRunCommand,
   StartTriggerCommand,
   StartWorkflowRunCommand,
+  StopColumnStatisticsTaskRunCommand,
   StopCrawlerCommand,
   StopCrawlerScheduleCommand,
   StopSessionCommand,
@@ -2314,6 +2344,40 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetColumnStatisticsTaskRunCommand}
+   */
+  getColumnStatisticsTaskRun(
+    args: GetColumnStatisticsTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsTaskRunCommandOutput>;
+  getColumnStatisticsTaskRun(
+    args: GetColumnStatisticsTaskRunCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+  getColumnStatisticsTaskRun(
+    args: GetColumnStatisticsTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetColumnStatisticsTaskRunsCommand}
+   */
+  getColumnStatisticsTaskRuns(
+    args: GetColumnStatisticsTaskRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsTaskRunsCommandOutput>;
+  getColumnStatisticsTaskRuns(
+    args: GetColumnStatisticsTaskRunsCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+  getColumnStatisticsTaskRuns(
+    args: GetColumnStatisticsTaskRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetConnectionCommand}
    */
   getConnection(args: GetConnectionCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectionCommandOutput>;
@@ -3154,6 +3218,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListColumnStatisticsTaskRunsCommand}
+   */
+  listColumnStatisticsTaskRuns(
+    args: ListColumnStatisticsTaskRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListColumnStatisticsTaskRunsCommandOutput>;
+  listColumnStatisticsTaskRuns(
+    args: ListColumnStatisticsTaskRunsCommandInput,
+    cb: (err: any, data?: ListColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+  listColumnStatisticsTaskRuns(
+    args: ListColumnStatisticsTaskRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCrawlersCommand}
    */
   listCrawlers(args: ListCrawlersCommandInput, options?: __HttpHandlerOptions): Promise<ListCrawlersCommandOutput>;
@@ -3604,6 +3685,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StartColumnStatisticsTaskRunCommand}
+   */
+  startColumnStatisticsTaskRun(
+    args: StartColumnStatisticsTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartColumnStatisticsTaskRunCommandOutput>;
+  startColumnStatisticsTaskRun(
+    args: StartColumnStatisticsTaskRunCommandInput,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+  startColumnStatisticsTaskRun(
+    args: StartColumnStatisticsTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartCrawlerCommand}
    */
   startCrawler(args: StartCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StartCrawlerCommandOutput>;
@@ -3770,6 +3868,23 @@ export interface Glue {
     args: StartWorkflowRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartWorkflowRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopColumnStatisticsTaskRunCommand}
+   */
+  stopColumnStatisticsTaskRun(
+    args: StopColumnStatisticsTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopColumnStatisticsTaskRunCommandOutput>;
+  stopColumnStatisticsTaskRun(
+    args: StopColumnStatisticsTaskRunCommandInput,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+  stopColumnStatisticsTaskRun(
+    args: StopColumnStatisticsTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunCommandOutput) => void
   ): void;
 
   /**

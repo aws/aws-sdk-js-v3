@@ -2,6 +2,8 @@ export * from "./GetBlueprintRunsPaginator";
 
 export * from "./GetClassifiersPaginator";
 
+export * from "./GetColumnStatisticsTaskRunsPaginator";
+
 export * from "./GetConnectionsPaginator";
 
 export * from "./GetCrawlerMetricsPaginator";
@@ -15,10 +17,9 @@ export * from "./GetDevEndpointsPaginator";
 export * from "./GetJobRunsPaginator";
 
 export * from "./GetJobsPaginator";
-
-export * from "./GetMLTaskRunsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetMLTaskRunsPaginator";
 export * from "./GetMLTransformsPaginator";
 export * from "./GetPartitionIndexesPaginator";
 export * from "./GetPartitionsPaginator";
@@ -31,6 +32,7 @@ export * from "./GetUnfilteredPartitionsMetadataPaginator";
 export * from "./GetUserDefinedFunctionsPaginator";
 export * from "./GetWorkflowRunsPaginator";
 export * from "./ListBlueprintsPaginator";
+export * from "./ListColumnStatisticsTaskRunsPaginator";
 export * from "./ListCrawlersPaginator";
 export * from "./ListCustomEntityTypesPaginator";
 export * from "./ListDataQualityResultsPaginator";
