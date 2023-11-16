@@ -3113,7 +3113,7 @@ export interface CreateOpsItemRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insights</code>
+   *                   <code>/aws/insight</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -5610,6 +5610,7 @@ export const AutomationExecutionStatus = {
   CHANGE_CALENDAR_OVERRIDE_REJECTED: "ChangeCalendarOverrideRejected",
   COMPLETED_WITH_FAILURE: "CompletedWithFailure",
   COMPLETED_WITH_SUCCESS: "CompletedWithSuccess",
+  EXITED: "Exited",
   FAILED: "Failed",
   INPROGRESS: "InProgress",
   PENDING: "Pending",
@@ -6048,6 +6049,9 @@ export class AutomationExecutionNotFoundException extends __BaseException {
  */
 export const StepExecutionFilterKey = {
   ACTION: "Action",
+  PARENT_STEP_EXECUTION_ID: "ParentStepExecutionId",
+  PARENT_STEP_ITERATION: "ParentStepIteration",
+  PARENT_STEP_ITERATOR_VALUE: "ParentStepIteratorValue",
   START_TIME_AFTER: "StartTimeAfter",
   START_TIME_BEFORE: "StartTimeBefore",
   STEP_EXECUTION_ID: "StepExecutionId",
@@ -6067,8 +6071,7 @@ export type StepExecutionFilterKey = (typeof StepExecutionFilterKey)[keyof typeo
 export interface StepExecutionFilter {
   /**
    * @public
-   * <p>One or more keys to limit the results. Valid filter keys include the following: StepName,
-   *    Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.</p>
+   * <p>One or more keys to limit the results.</p>
    */
   Key: StepExecutionFilterKey | undefined;
 
@@ -6141,6 +6144,42 @@ export interface FailureDetails {
    * <p>Detailed information about the Automation step failure.</p>
    */
   Details?: Record<string, string[]>;
+}
+
+/**
+ * @public
+ * <p>A detailed status of the parent step.</p>
+ */
+export interface ParentStepDetails {
+  /**
+   * @public
+   * <p>The unique ID of a step execution.</p>
+   */
+  StepExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The name of the step.</p>
+   */
+  StepName?: string;
+
+  /**
+   * @public
+   * <p>The name of the automation action.</p>
+   */
+  Action?: string;
+
+  /**
+   * @public
+   * <p>The current repetition of the loop represented by an integer.</p>
+   */
+  Iteration?: number;
+
+  /**
+   * @public
+   * <p>The current value of the specified iterator in the loop.</p>
+   */
+  IteratorValue?: string;
 }
 
 /**
@@ -6294,6 +6333,12 @@ export interface StepExecution {
    * <p>The CloudWatch alarms that were invoked by the automation.</p>
    */
   TriggeredAlarms?: AlarmStateInformation[];
+
+  /**
+   * @public
+   * <p>Information about the parent step.</p>
+   */
+  ParentStepDetails?: ParentStepDetails;
 }
 
 /**
@@ -7659,6 +7704,8 @@ export interface DescribeInstancePatchesRequest {
    *                <p>Sample values: <code>Installed</code> | <code>InstalledOther</code> |
    *       <code>InstalledPendingReboot</code>
    *                </p>
+   *                <p>For lists of all <code>State</code> values, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html">Understanding
+   *       patch compliance state values</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -9310,140 +9357,6 @@ export interface MaintenanceWindowTaskParameterValueExpression {
 }
 
 /**
- * @public
- * <p>Information about a task defined for a maintenance window.</p>
- */
-export interface MaintenanceWindowTask {
-  /**
-   * @public
-   * <p>The ID of the maintenance window where the task is registered.</p>
-   */
-  WindowId?: string;
-
-  /**
-   * @public
-   * <p>The task ID.</p>
-   */
-  WindowTaskId?: string;
-
-  /**
-   * @public
-   * <p>The resource that the task uses during execution. For <code>RUN_COMMAND</code> and
-   *     <code>AUTOMATION</code> task types, <code>TaskArn</code> is the Amazon Web Services Systems Manager (SSM document) name or
-   *    ARN. For <code>LAMBDA</code> tasks, it's the function name or ARN. For
-   *     <code>STEP_FUNCTIONS</code> tasks, it's the state machine ARN.</p>
-   */
-  TaskArn?: string;
-
-  /**
-   * @public
-   * <p>The type of task.</p>
-   */
-  Type?: MaintenanceWindowTaskType;
-
-  /**
-   * @public
-   * <p>The targets (either managed nodes or tags). Managed nodes are specified using
-   *     <code>Key=instanceids,Values=<instanceid1>,<instanceid2></code>. Tags are specified
-   *    using <code>Key=<tag name>,Values=<tag value></code>.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * @public
-   * <p>The parameters that should be passed to the task when it is run.</p>
-   *          <note>
-   *             <p>
-   *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
-   *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
-   *       about how Systems Manager handles these options for the supported maintenance window task
-   *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
-
-  /**
-   * @public
-   * <p>The priority of the task in the maintenance window. The lower the number, the higher the
-   *    priority. Tasks that have the same priority are scheduled in parallel.</p>
-   */
-  Priority?: number;
-
-  /**
-   * @public
-   * <p>Information about an S3 bucket to write task-level logs to.</p>
-   *          <note>
-   *             <p>
-   *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
-   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
-   *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
-   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  LoggingInfo?: LoggingInfo;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service
-   * (Amazon SNS) notifications for maintenance window Run Command tasks.</p>
-   */
-  ServiceRoleArn?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of targets this task can be run for, in parallel.</p>
-   *          <note>
-   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
-   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
-   *      task</a> You must provide a value in all other cases.</p>
-   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
-   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
-   *     affect the running of your task.</p>
-   *          </note>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
-   *          <note>
-   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
-   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
-   *      task</a> You must provide a value in all other cases.</p>
-   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
-   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
-   *     affect the running of your task.</p>
-   *          </note>
-   */
-  MaxErrors?: string;
-
-  /**
-   * @public
-   * <p>The task name.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>A description of the task.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The specification for whether tasks should continue to run after the cutoff time specified
-   *    in the maintenance windows is reached. </p>
-   */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
-
-  /**
-   * @public
-   * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
-   */
-  AlarmConfiguration?: AlarmConfiguration;
-}
-
-/**
  * @internal
  */
 export const CreateAssociationRequestFilterSensitiveLog = (obj: CreateAssociationRequest): any => ({
@@ -9638,13 +9551,4 @@ export const MaintenanceWindowTaskParameterValueExpressionFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Values && { Values: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowTaskFilterSensitiveLog = (obj: MaintenanceWindowTask): any => ({
-  ...obj,
-  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });

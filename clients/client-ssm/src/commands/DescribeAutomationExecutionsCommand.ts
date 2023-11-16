@@ -69,7 +69,7 @@ export interface DescribeAutomationExecutionsCommandOutput
  * //       AutomationExecutionId: "STRING_VALUE",
  * //       DocumentName: "STRING_VALUE",
  * //       DocumentVersion: "STRING_VALUE",
- * //       AutomationExecutionStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure",
+ * //       AutomationExecutionStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure" || "Exited",
  * //       ExecutionStartTime: new Date("TIMESTAMP"),
  * //       ExecutionEndTime: new Date("TIMESTAMP"),
  * //       ExecutedBy: "STRING_VALUE",

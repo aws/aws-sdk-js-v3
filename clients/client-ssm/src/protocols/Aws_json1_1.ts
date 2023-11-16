@@ -13445,6 +13445,7 @@ const de_AutomationExecution = (output: any, context: __SerdeContext): Automatio
     TargetParameterName: __expectString,
     Targets: _json,
     TriggeredAlarms: _json,
+    Variables: _json,
   }) as any;
 };
 
@@ -15433,6 +15434,8 @@ const de_ParameterMetadataList = (output: any, context: __SerdeContext): Paramet
 
 // de_ParameterVersionNotFound omitted.
 
+// de_ParentStepDetails omitted.
+
 /**
  * deserializeAws_json1_1Patch
  */
@@ -15821,6 +15824,7 @@ const de_StepExecution = (output: any, context: __SerdeContext): StepExecution =
     OnFailure: __expectString,
     Outputs: _json,
     OverriddenParameters: _json,
+    ParentStepDetails: _json,
     Response: __expectString,
     ResponseCode: __expectString,
     StepExecutionId: __expectString,

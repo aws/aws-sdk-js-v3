@@ -20,9 +20,7 @@ import {
   LoggingInfo,
   MaintenanceWindowExecutionStatus,
   MaintenanceWindowResourceType,
-  MaintenanceWindowTask,
   MaintenanceWindowTaskCutoffBehavior,
-  MaintenanceWindowTaskFilterSensitiveLog,
   MaintenanceWindowTaskParameterValueExpression,
   MaintenanceWindowTaskType,
   MetadataValue,
@@ -50,6 +48,140 @@ import {
   TargetLocation,
 } from "./models_0";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * @public
+ * <p>Information about a task defined for a maintenance window.</p>
+ */
+export interface MaintenanceWindowTask {
+  /**
+   * @public
+   * <p>The ID of the maintenance window where the task is registered.</p>
+   */
+  WindowId?: string;
+
+  /**
+   * @public
+   * <p>The task ID.</p>
+   */
+  WindowTaskId?: string;
+
+  /**
+   * @public
+   * <p>The resource that the task uses during execution. For <code>RUN_COMMAND</code> and
+   *     <code>AUTOMATION</code> task types, <code>TaskArn</code> is the Amazon Web Services Systems Manager (SSM document) name or
+   *    ARN. For <code>LAMBDA</code> tasks, it's the function name or ARN. For
+   *     <code>STEP_FUNCTIONS</code> tasks, it's the state machine ARN.</p>
+   */
+  TaskArn?: string;
+
+  /**
+   * @public
+   * <p>The type of task.</p>
+   */
+  Type?: MaintenanceWindowTaskType;
+
+  /**
+   * @public
+   * <p>The targets (either managed nodes or tags). Managed nodes are specified using
+   *     <code>Key=instanceids,Values=<instanceid1>,<instanceid2></code>. Tags are specified
+   *    using <code>Key=<tag name>,Values=<tag value></code>.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * @public
+   * <p>The parameters that should be passed to the task when it is run.</p>
+   *          <note>
+   *             <p>
+   *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
+   *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
+   *       about how Systems Manager handles these options for the supported maintenance window task
+   *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *          </note>
+   */
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
+
+  /**
+   * @public
+   * <p>The priority of the task in the maintenance window. The lower the number, the higher the
+   *    priority. Tasks that have the same priority are scheduled in parallel.</p>
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * <p>Information about an S3 bucket to write task-level logs to.</p>
+   *          <note>
+   *             <p>
+   *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
+   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
+   *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
+   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *          </note>
+   */
+  LoggingInfo?: LoggingInfo;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service
+   * (Amazon SNS) notifications for maintenance window Run Command tasks.</p>
+   */
+  ServiceRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of targets this task can be run for, in parallel.</p>
+   *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
+   *          </note>
+   */
+  MaxConcurrency?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
+   *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
+   *          </note>
+   */
+  MaxErrors?: string;
+
+  /**
+   * @public
+   * <p>The task name.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description of the task.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The specification for whether tasks should continue to run after the cutoff time specified
+   *    in the maintenance windows is reached. </p>
+   */
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
+
+  /**
+   * @public
+   * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+}
 
 /**
  * @public
@@ -367,7 +499,7 @@ export interface OpsItemSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insights</code>
+   *                   <code>/aws/insight</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -1663,6 +1795,12 @@ export interface AutomationExecution {
    * <p>The name of the Change Manager change request.</p>
    */
   ChangeRequestName?: string;
+
+  /**
+   * @public
+   * <p>Variables defined for the automation.</p>
+   */
+  Variables?: Record<string, string[]>;
 }
 
 /**
@@ -3770,7 +3908,7 @@ export interface OpsItem {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insights</code>
+   *                   <code>/aws/insight</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -10737,15 +10875,13 @@ export interface TerminateSessionRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface TerminateSessionResponse {
-  /**
-   * @public
-   * <p>The ID of the session that has been terminated.</p>
-   */
-  SessionId?: string;
-}
+export const MaintenanceWindowTaskFilterSensitiveLog = (obj: MaintenanceWindowTask): any => ({
+  ...obj,
+  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

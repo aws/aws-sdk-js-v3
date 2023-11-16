@@ -56,7 +56,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //     DocumentVersion: "STRING_VALUE",
  * //     ExecutionStartTime: new Date("TIMESTAMP"),
  * //     ExecutionEndTime: new Date("TIMESTAMP"),
- * //     AutomationExecutionStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure",
+ * //     AutomationExecutionStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure" || "Exited",
  * //     StepExecutions: [ // StepExecutionList
  * //       { // StepExecution
  * //         StepName: "STRING_VALUE",
@@ -66,7 +66,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //         MaxAttempts: Number("int"),
  * //         ExecutionStartTime: new Date("TIMESTAMP"),
  * //         ExecutionEndTime: new Date("TIMESTAMP"),
- * //         StepStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure",
+ * //         StepStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure" || "Exited",
  * //         ResponseCode: "STRING_VALUE",
  * //         Inputs: { // NormalStringMap
  * //           "<keys>": "STRING_VALUE",
@@ -132,6 +132,13 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //             State: "UNKNOWN" || "ALARM", // required
  * //           },
  * //         ],
+ * //         ParentStepDetails: { // ParentStepDetails
+ * //           StepExecutionId: "STRING_VALUE",
+ * //           StepName: "STRING_VALUE",
+ * //           Action: "STRING_VALUE",
+ * //           Iteration: Number("int"),
+ * //           IteratorValue: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     StepExecutionsTruncated: true || false,
@@ -236,6 +243,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //     OpsItemId: "STRING_VALUE",
  * //     AssociationId: "STRING_VALUE",
  * //     ChangeRequestName: "STRING_VALUE",
+ * //     Variables: "<AutomationParameterMap>",
  * //   },
  * // };
  *

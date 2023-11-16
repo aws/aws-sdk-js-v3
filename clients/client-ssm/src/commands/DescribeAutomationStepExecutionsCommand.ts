@@ -54,7 +54,7 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  *   AutomationExecutionId: "STRING_VALUE", // required
  *   Filters: [ // StepExecutionFilterList
  *     { // StepExecutionFilter
- *       Key: "StartTimeBefore" || "StartTimeAfter" || "StepExecutionStatus" || "StepExecutionId" || "StepName" || "Action", // required
+ *       Key: "StartTimeBefore" || "StartTimeAfter" || "StepExecutionStatus" || "StepExecutionId" || "StepName" || "Action" || "ParentStepExecutionId" || "ParentStepIteration" || "ParentStepIteratorValue", // required
  *       Values: [ // StepExecutionFilterValueList // required
  *         "STRING_VALUE",
  *       ],
@@ -76,7 +76,7 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * //       MaxAttempts: Number("int"),
  * //       ExecutionStartTime: new Date("TIMESTAMP"),
  * //       ExecutionEndTime: new Date("TIMESTAMP"),
- * //       StepStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure",
+ * //       StepStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure" || "Exited",
  * //       ResponseCode: "STRING_VALUE",
  * //       Inputs: { // NormalStringMap
  * //         "<keys>": "STRING_VALUE",
@@ -142,6 +142,13 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * //           State: "UNKNOWN" || "ALARM", // required
  * //         },
  * //       ],
+ * //       ParentStepDetails: { // ParentStepDetails
+ * //         StepExecutionId: "STRING_VALUE",
+ * //         StepName: "STRING_VALUE",
+ * //         Action: "STRING_VALUE",
+ * //         Iteration: Number("int"),
+ * //         IteratorValue: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

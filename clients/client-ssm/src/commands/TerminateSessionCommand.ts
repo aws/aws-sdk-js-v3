@@ -14,7 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1";
+import { TerminateSessionRequest } from "../models/models_1";
+import { TerminateSessionResponse } from "../models/models_2";
 import { de_TerminateSessionCommand, se_TerminateSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

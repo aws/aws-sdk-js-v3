@@ -46,6 +46,17 @@ import { SSMServiceException as __BaseException } from "./SSMServiceException";
 /**
  * @public
  */
+export interface TerminateSessionResponse {
+  /**
+   * @public
+   * <p>The ID of the session that has been terminated.</p>
+   */
+  SessionId?: string;
+}
+
+/**
+ * @public
+ */
 export interface UnlabelParameterVersionRequest {
   /**
    * @public
@@ -1794,47 +1805,36 @@ export interface UpdateServiceSettingRequest {
    *    values for each setting.</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role: The name of an IAM role</code>
+   *                <p>For <code>/ssm/managed-instance/default-ec2-instance-management-role</code>, enter the
+   *      name of an IAM role. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/automation/customer-script-log-destination</code>, enter <code>CloudWatch</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/automation/customer-script-log-group-name</code>, enter the name of an
+   *       Amazon CloudWatch Logs log group.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/documents/console/public-sharing-permission</code>, enter
+   *       <code>Enable</code> or <code>Disable</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/managed-instance/activation-tier</code>, enter <code>standard</code> or
+   *       <code>advanced</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p> For <code>/ssm/opsinsights/opscenter</code>, enter <code>Enabled</code> or
+   *       <code>Disabled</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/parameter-store/default-parameter-tier</code>, enter <code>Standard</code>,
+   *       <code>Advanced</code>, or <code>Intelligent-Tiering</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-group-name</code>: The name of an Amazon CloudWatch Logs log group</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/documents/console/public-sharing-permission</code>: <code>Enable</code> or
-   *       <code>Disable</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>: <code>standard</code> or
-   *       <code>advanced</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/opsinsights/opscenter</code>: <code>Enabled</code> or <code>Disabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/default-parameter-tier</code>: <code>Standard</code>,
-   *       <code>Advanced</code>, <code>Intelligent-Tiering</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>: <code>true</code> or
-   *       <code>false</code>
-   *                </p>
+   *                <p>For <code>/ssm/parameter-store/high-throughput-enabled</code>, enter <code>true</code> or
+   *       <code>false</code>.</p>
    *             </li>
    *          </ul>
    */
