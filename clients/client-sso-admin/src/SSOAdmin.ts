@@ -18,20 +18,65 @@ import {
   CreateAccountAssignmentCommandOutput,
 } from "./commands/CreateAccountAssignmentCommand";
 import {
+  CreateApplicationAssignmentCommand,
+  CreateApplicationAssignmentCommandInput,
+  CreateApplicationAssignmentCommandOutput,
+} from "./commands/CreateApplicationAssignmentCommand";
+import {
+  CreateApplicationCommand,
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import {
   CreateInstanceAccessControlAttributeConfigurationCommand,
   CreateInstanceAccessControlAttributeConfigurationCommandInput,
   CreateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/CreateInstanceAccessControlAttributeConfigurationCommand";
+import {
+  CreateInstanceCommand,
+  CreateInstanceCommandInput,
+  CreateInstanceCommandOutput,
+} from "./commands/CreateInstanceCommand";
 import {
   CreatePermissionSetCommand,
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
 } from "./commands/CreatePermissionSetCommand";
 import {
+  CreateTrustedTokenIssuerCommand,
+  CreateTrustedTokenIssuerCommandInput,
+  CreateTrustedTokenIssuerCommandOutput,
+} from "./commands/CreateTrustedTokenIssuerCommand";
+import {
   DeleteAccountAssignmentCommand,
   DeleteAccountAssignmentCommandInput,
   DeleteAccountAssignmentCommandOutput,
 } from "./commands/DeleteAccountAssignmentCommand";
+import {
+  DeleteApplicationAccessScopeCommand,
+  DeleteApplicationAccessScopeCommandInput,
+  DeleteApplicationAccessScopeCommandOutput,
+} from "./commands/DeleteApplicationAccessScopeCommand";
+import {
+  DeleteApplicationAssignmentCommand,
+  DeleteApplicationAssignmentCommandInput,
+  DeleteApplicationAssignmentCommandOutput,
+} from "./commands/DeleteApplicationAssignmentCommand";
+import {
+  DeleteApplicationAuthenticationMethodCommand,
+  DeleteApplicationAuthenticationMethodCommandInput,
+  DeleteApplicationAuthenticationMethodCommandOutput,
+} from "./commands/DeleteApplicationAuthenticationMethodCommand";
+import {
+  DeleteApplicationCommand,
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import {
+  DeleteApplicationGrantCommand,
+  DeleteApplicationGrantCommandInput,
+  DeleteApplicationGrantCommandOutput,
+} from "./commands/DeleteApplicationGrantCommand";
 import {
   DeleteInlinePolicyFromPermissionSetCommand,
   DeleteInlinePolicyFromPermissionSetCommandInput,
@@ -43,6 +88,11 @@ import {
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
 import {
+  DeleteInstanceCommand,
+  DeleteInstanceCommandInput,
+  DeleteInstanceCommandOutput,
+} from "./commands/DeleteInstanceCommand";
+import {
   DeletePermissionsBoundaryFromPermissionSetCommand,
   DeletePermissionsBoundaryFromPermissionSetCommandInput,
   DeletePermissionsBoundaryFromPermissionSetCommandOutput,
@@ -52,6 +102,11 @@ import {
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
 } from "./commands/DeletePermissionSetCommand";
+import {
+  DeleteTrustedTokenIssuerCommand,
+  DeleteTrustedTokenIssuerCommandInput,
+  DeleteTrustedTokenIssuerCommandOutput,
+} from "./commands/DeleteTrustedTokenIssuerCommand";
 import {
   DescribeAccountAssignmentCreationStatusCommand,
   DescribeAccountAssignmentCreationStatusCommandInput,
@@ -63,10 +118,30 @@ import {
   DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentDeletionStatusCommand";
 import {
+  DescribeApplicationAssignmentCommand,
+  DescribeApplicationAssignmentCommandInput,
+  DescribeApplicationAssignmentCommandOutput,
+} from "./commands/DescribeApplicationAssignmentCommand";
+import {
+  DescribeApplicationCommand,
+  DescribeApplicationCommandInput,
+  DescribeApplicationCommandOutput,
+} from "./commands/DescribeApplicationCommand";
+import {
+  DescribeApplicationProviderCommand,
+  DescribeApplicationProviderCommandInput,
+  DescribeApplicationProviderCommandOutput,
+} from "./commands/DescribeApplicationProviderCommand";
+import {
   DescribeInstanceAccessControlAttributeConfigurationCommand,
   DescribeInstanceAccessControlAttributeConfigurationCommandInput,
   DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
+import {
+  DescribeInstanceCommand,
+  DescribeInstanceCommandInput,
+  DescribeInstanceCommandOutput,
+} from "./commands/DescribeInstanceCommand";
 import {
   DescribePermissionSetCommand,
   DescribePermissionSetCommandInput,
@@ -78,6 +153,11 @@ import {
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  DescribeTrustedTokenIssuerCommand,
+  DescribeTrustedTokenIssuerCommandInput,
+  DescribeTrustedTokenIssuerCommandOutput,
+} from "./commands/DescribeTrustedTokenIssuerCommand";
+import {
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
@@ -87,6 +167,26 @@ import {
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
 } from "./commands/DetachManagedPolicyFromPermissionSetCommand";
+import {
+  GetApplicationAccessScopeCommand,
+  GetApplicationAccessScopeCommandInput,
+  GetApplicationAccessScopeCommandOutput,
+} from "./commands/GetApplicationAccessScopeCommand";
+import {
+  GetApplicationAssignmentConfigurationCommand,
+  GetApplicationAssignmentConfigurationCommandInput,
+  GetApplicationAssignmentConfigurationCommandOutput,
+} from "./commands/GetApplicationAssignmentConfigurationCommand";
+import {
+  GetApplicationAuthenticationMethodCommand,
+  GetApplicationAuthenticationMethodCommandInput,
+  GetApplicationAuthenticationMethodCommandOutput,
+} from "./commands/GetApplicationAuthenticationMethodCommand";
+import {
+  GetApplicationGrantCommand,
+  GetApplicationGrantCommandInput,
+  GetApplicationGrantCommandOutput,
+} from "./commands/GetApplicationGrantCommand";
 import {
   GetInlinePolicyForPermissionSetCommand,
   GetInlinePolicyForPermissionSetCommandInput,
@@ -113,10 +213,50 @@ import {
   ListAccountAssignmentsCommandOutput,
 } from "./commands/ListAccountAssignmentsCommand";
 import {
+  ListAccountAssignmentsForPrincipalCommand,
+  ListAccountAssignmentsForPrincipalCommandInput,
+  ListAccountAssignmentsForPrincipalCommandOutput,
+} from "./commands/ListAccountAssignmentsForPrincipalCommand";
+import {
   ListAccountsForProvisionedPermissionSetCommand,
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "./commands/ListAccountsForProvisionedPermissionSetCommand";
+import {
+  ListApplicationAccessScopesCommand,
+  ListApplicationAccessScopesCommandInput,
+  ListApplicationAccessScopesCommandOutput,
+} from "./commands/ListApplicationAccessScopesCommand";
+import {
+  ListApplicationAssignmentsCommand,
+  ListApplicationAssignmentsCommandInput,
+  ListApplicationAssignmentsCommandOutput,
+} from "./commands/ListApplicationAssignmentsCommand";
+import {
+  ListApplicationAssignmentsForPrincipalCommand,
+  ListApplicationAssignmentsForPrincipalCommandInput,
+  ListApplicationAssignmentsForPrincipalCommandOutput,
+} from "./commands/ListApplicationAssignmentsForPrincipalCommand";
+import {
+  ListApplicationAuthenticationMethodsCommand,
+  ListApplicationAuthenticationMethodsCommandInput,
+  ListApplicationAuthenticationMethodsCommandOutput,
+} from "./commands/ListApplicationAuthenticationMethodsCommand";
+import {
+  ListApplicationGrantsCommand,
+  ListApplicationGrantsCommandInput,
+  ListApplicationGrantsCommandOutput,
+} from "./commands/ListApplicationGrantsCommand";
+import {
+  ListApplicationProvidersCommand,
+  ListApplicationProvidersCommandInput,
+  ListApplicationProvidersCommandOutput,
+} from "./commands/ListApplicationProvidersCommand";
+import {
+  ListApplicationsCommand,
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+} from "./commands/ListApplicationsCommand";
 import {
   ListCustomerManagedPolicyReferencesInPermissionSetCommand,
   ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
@@ -153,10 +293,35 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTrustedTokenIssuersCommand,
+  ListTrustedTokenIssuersCommandInput,
+  ListTrustedTokenIssuersCommandOutput,
+} from "./commands/ListTrustedTokenIssuersCommand";
+import {
   ProvisionPermissionSetCommand,
   ProvisionPermissionSetCommandInput,
   ProvisionPermissionSetCommandOutput,
 } from "./commands/ProvisionPermissionSetCommand";
+import {
+  PutApplicationAccessScopeCommand,
+  PutApplicationAccessScopeCommandInput,
+  PutApplicationAccessScopeCommandOutput,
+} from "./commands/PutApplicationAccessScopeCommand";
+import {
+  PutApplicationAssignmentConfigurationCommand,
+  PutApplicationAssignmentConfigurationCommandInput,
+  PutApplicationAssignmentConfigurationCommandOutput,
+} from "./commands/PutApplicationAssignmentConfigurationCommand";
+import {
+  PutApplicationAuthenticationMethodCommand,
+  PutApplicationAuthenticationMethodCommandInput,
+  PutApplicationAuthenticationMethodCommandOutput,
+} from "./commands/PutApplicationAuthenticationMethodCommand";
+import {
+  PutApplicationGrantCommand,
+  PutApplicationGrantCommandInput,
+  PutApplicationGrantCommandOutput,
+} from "./commands/PutApplicationGrantCommand";
 import {
   PutInlinePolicyToPermissionSetCommand,
   PutInlinePolicyToPermissionSetCommandInput,
@@ -174,41 +339,84 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateApplicationCommand,
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import {
   UpdateInstanceAccessControlAttributeConfigurationCommand,
   UpdateInstanceAccessControlAttributeConfigurationCommandInput,
   UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
 import {
+  UpdateInstanceCommand,
+  UpdateInstanceCommandInput,
+  UpdateInstanceCommandOutput,
+} from "./commands/UpdateInstanceCommand";
+import {
   UpdatePermissionSetCommand,
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
 } from "./commands/UpdatePermissionSetCommand";
+import {
+  UpdateTrustedTokenIssuerCommand,
+  UpdateTrustedTokenIssuerCommandInput,
+  UpdateTrustedTokenIssuerCommandOutput,
+} from "./commands/UpdateTrustedTokenIssuerCommand";
 import { SSOAdminClient, SSOAdminClientConfig } from "./SSOAdminClient";
 
 const commands = {
   AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
   AttachManagedPolicyToPermissionSetCommand,
   CreateAccountAssignmentCommand,
+  CreateApplicationCommand,
+  CreateApplicationAssignmentCommand,
+  CreateInstanceCommand,
   CreateInstanceAccessControlAttributeConfigurationCommand,
   CreatePermissionSetCommand,
+  CreateTrustedTokenIssuerCommand,
   DeleteAccountAssignmentCommand,
+  DeleteApplicationCommand,
+  DeleteApplicationAccessScopeCommand,
+  DeleteApplicationAssignmentCommand,
+  DeleteApplicationAuthenticationMethodCommand,
+  DeleteApplicationGrantCommand,
   DeleteInlinePolicyFromPermissionSetCommand,
+  DeleteInstanceCommand,
   DeleteInstanceAccessControlAttributeConfigurationCommand,
   DeletePermissionsBoundaryFromPermissionSetCommand,
   DeletePermissionSetCommand,
+  DeleteTrustedTokenIssuerCommand,
   DescribeAccountAssignmentCreationStatusCommand,
   DescribeAccountAssignmentDeletionStatusCommand,
+  DescribeApplicationCommand,
+  DescribeApplicationAssignmentCommand,
+  DescribeApplicationProviderCommand,
+  DescribeInstanceCommand,
   DescribeInstanceAccessControlAttributeConfigurationCommand,
   DescribePermissionSetCommand,
   DescribePermissionSetProvisioningStatusCommand,
+  DescribeTrustedTokenIssuerCommand,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
   DetachManagedPolicyFromPermissionSetCommand,
+  GetApplicationAccessScopeCommand,
+  GetApplicationAssignmentConfigurationCommand,
+  GetApplicationAuthenticationMethodCommand,
+  GetApplicationGrantCommand,
   GetInlinePolicyForPermissionSetCommand,
   GetPermissionsBoundaryForPermissionSetCommand,
   ListAccountAssignmentCreationStatusCommand,
   ListAccountAssignmentDeletionStatusCommand,
   ListAccountAssignmentsCommand,
+  ListAccountAssignmentsForPrincipalCommand,
   ListAccountsForProvisionedPermissionSetCommand,
+  ListApplicationAccessScopesCommand,
+  ListApplicationAssignmentsCommand,
+  ListApplicationAssignmentsForPrincipalCommand,
+  ListApplicationAuthenticationMethodsCommand,
+  ListApplicationGrantsCommand,
+  ListApplicationProvidersCommand,
+  ListApplicationsCommand,
   ListCustomerManagedPolicyReferencesInPermissionSetCommand,
   ListInstancesCommand,
   ListManagedPoliciesInPermissionSetCommand,
@@ -216,13 +424,21 @@ const commands = {
   ListPermissionSetsCommand,
   ListPermissionSetsProvisionedToAccountCommand,
   ListTagsForResourceCommand,
+  ListTrustedTokenIssuersCommand,
   ProvisionPermissionSetCommand,
+  PutApplicationAccessScopeCommand,
+  PutApplicationAssignmentConfigurationCommand,
+  PutApplicationAuthenticationMethodCommand,
+  PutApplicationGrantCommand,
   PutInlinePolicyToPermissionSetCommand,
   PutPermissionsBoundaryToPermissionSetCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateApplicationCommand,
+  UpdateInstanceCommand,
   UpdateInstanceAccessControlAttributeConfigurationCommand,
   UpdatePermissionSetCommand,
+  UpdateTrustedTokenIssuerCommand,
 };
 
 export interface SSOAdmin {
@@ -278,6 +494,54 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateApplicationAssignmentCommand}
+   */
+  createApplicationAssignment(
+    args: CreateApplicationAssignmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationAssignmentCommandOutput>;
+  createApplicationAssignment(
+    args: CreateApplicationAssignmentCommandInput,
+    cb: (err: any, data?: CreateApplicationAssignmentCommandOutput) => void
+  ): void;
+  createApplicationAssignment(
+    args: CreateApplicationAssignmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInstanceCommand}
+   */
+  createInstance(
+    args: CreateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceCommandOutput>;
+  createInstance(args: CreateInstanceCommandInput, cb: (err: any, data?: CreateInstanceCommandOutput) => void): void;
+  createInstance(
+    args: CreateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateInstanceAccessControlAttributeConfigurationCommand}
    */
   createInstanceAccessControlAttributeConfiguration(
@@ -312,6 +576,23 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link CreateTrustedTokenIssuerCommand}
+   */
+  createTrustedTokenIssuer(
+    args: CreateTrustedTokenIssuerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrustedTokenIssuerCommandOutput>;
+  createTrustedTokenIssuer(
+    args: CreateTrustedTokenIssuerCommandInput,
+    cb: (err: any, data?: CreateTrustedTokenIssuerCommandOutput) => void
+  ): void;
+  createTrustedTokenIssuer(
+    args: CreateTrustedTokenIssuerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrustedTokenIssuerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAccountAssignmentCommand}
    */
   deleteAccountAssignment(
@@ -329,6 +610,91 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationAccessScopeCommand}
+   */
+  deleteApplicationAccessScope(
+    args: DeleteApplicationAccessScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationAccessScopeCommandOutput>;
+  deleteApplicationAccessScope(
+    args: DeleteApplicationAccessScopeCommandInput,
+    cb: (err: any, data?: DeleteApplicationAccessScopeCommandOutput) => void
+  ): void;
+  deleteApplicationAccessScope(
+    args: DeleteApplicationAccessScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationAccessScopeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationAssignmentCommand}
+   */
+  deleteApplicationAssignment(
+    args: DeleteApplicationAssignmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationAssignmentCommandOutput>;
+  deleteApplicationAssignment(
+    args: DeleteApplicationAssignmentCommandInput,
+    cb: (err: any, data?: DeleteApplicationAssignmentCommandOutput) => void
+  ): void;
+  deleteApplicationAssignment(
+    args: DeleteApplicationAssignmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationAuthenticationMethodCommand}
+   */
+  deleteApplicationAuthenticationMethod(
+    args: DeleteApplicationAuthenticationMethodCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationAuthenticationMethodCommandOutput>;
+  deleteApplicationAuthenticationMethod(
+    args: DeleteApplicationAuthenticationMethodCommandInput,
+    cb: (err: any, data?: DeleteApplicationAuthenticationMethodCommandOutput) => void
+  ): void;
+  deleteApplicationAuthenticationMethod(
+    args: DeleteApplicationAuthenticationMethodCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationAuthenticationMethodCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationGrantCommand}
+   */
+  deleteApplicationGrant(
+    args: DeleteApplicationGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationGrantCommandOutput>;
+  deleteApplicationGrant(
+    args: DeleteApplicationGrantCommandInput,
+    cb: (err: any, data?: DeleteApplicationGrantCommandOutput) => void
+  ): void;
+  deleteApplicationGrant(
+    args: DeleteApplicationGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationGrantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteInlinePolicyFromPermissionSetCommand}
    */
   deleteInlinePolicyFromPermissionSet(
@@ -343,6 +709,20 @@ export interface SSOAdmin {
     args: DeleteInlinePolicyFromPermissionSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInlinePolicyFromPermissionSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInstanceCommand}
+   */
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceCommandOutput>;
+  deleteInstance(args: DeleteInstanceCommandInput, cb: (err: any, data?: DeleteInstanceCommandOutput) => void): void;
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): void;
 
   /**
@@ -397,6 +777,23 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link DeleteTrustedTokenIssuerCommand}
+   */
+  deleteTrustedTokenIssuer(
+    args: DeleteTrustedTokenIssuerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrustedTokenIssuerCommandOutput>;
+  deleteTrustedTokenIssuer(
+    args: DeleteTrustedTokenIssuerCommandInput,
+    cb: (err: any, data?: DeleteTrustedTokenIssuerCommandOutput) => void
+  ): void;
+  deleteTrustedTokenIssuer(
+    args: DeleteTrustedTokenIssuerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTrustedTokenIssuerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeAccountAssignmentCreationStatusCommand}
    */
   describeAccountAssignmentCreationStatus(
@@ -428,6 +825,74 @@ export interface SSOAdmin {
     args: DescribeAccountAssignmentDeletionStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountAssignmentDeletionStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationCommand}
+   */
+  describeApplication(
+    args: DescribeApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationCommandOutput>;
+  describeApplication(
+    args: DescribeApplicationCommandInput,
+    cb: (err: any, data?: DescribeApplicationCommandOutput) => void
+  ): void;
+  describeApplication(
+    args: DescribeApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationAssignmentCommand}
+   */
+  describeApplicationAssignment(
+    args: DescribeApplicationAssignmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationAssignmentCommandOutput>;
+  describeApplicationAssignment(
+    args: DescribeApplicationAssignmentCommandInput,
+    cb: (err: any, data?: DescribeApplicationAssignmentCommandOutput) => void
+  ): void;
+  describeApplicationAssignment(
+    args: DescribeApplicationAssignmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationProviderCommand}
+   */
+  describeApplicationProvider(
+    args: DescribeApplicationProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationProviderCommandOutput>;
+  describeApplicationProvider(
+    args: DescribeApplicationProviderCommandInput,
+    cb: (err: any, data?: DescribeApplicationProviderCommandOutput) => void
+  ): void;
+  describeApplicationProvider(
+    args: DescribeApplicationProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceCommand}
+   */
+  describeInstance(
+    args: DescribeInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceCommandOutput>;
+  describeInstance(
+    args: DescribeInstanceCommandInput,
+    cb: (err: any, data?: DescribeInstanceCommandOutput) => void
+  ): void;
+  describeInstance(
+    args: DescribeInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceCommandOutput) => void
   ): void;
 
   /**
@@ -482,6 +947,23 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link DescribeTrustedTokenIssuerCommand}
+   */
+  describeTrustedTokenIssuer(
+    args: DescribeTrustedTokenIssuerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrustedTokenIssuerCommandOutput>;
+  describeTrustedTokenIssuer(
+    args: DescribeTrustedTokenIssuerCommandInput,
+    cb: (err: any, data?: DescribeTrustedTokenIssuerCommandOutput) => void
+  ): void;
+  describeTrustedTokenIssuer(
+    args: DescribeTrustedTokenIssuerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrustedTokenIssuerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}
    */
   detachCustomerManagedPolicyReferenceFromPermissionSet(
@@ -513,6 +995,74 @@ export interface SSOAdmin {
     args: DetachManagedPolicyFromPermissionSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetachManagedPolicyFromPermissionSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationAccessScopeCommand}
+   */
+  getApplicationAccessScope(
+    args: GetApplicationAccessScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationAccessScopeCommandOutput>;
+  getApplicationAccessScope(
+    args: GetApplicationAccessScopeCommandInput,
+    cb: (err: any, data?: GetApplicationAccessScopeCommandOutput) => void
+  ): void;
+  getApplicationAccessScope(
+    args: GetApplicationAccessScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationAccessScopeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationAssignmentConfigurationCommand}
+   */
+  getApplicationAssignmentConfiguration(
+    args: GetApplicationAssignmentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationAssignmentConfigurationCommandOutput>;
+  getApplicationAssignmentConfiguration(
+    args: GetApplicationAssignmentConfigurationCommandInput,
+    cb: (err: any, data?: GetApplicationAssignmentConfigurationCommandOutput) => void
+  ): void;
+  getApplicationAssignmentConfiguration(
+    args: GetApplicationAssignmentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationAssignmentConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationAuthenticationMethodCommand}
+   */
+  getApplicationAuthenticationMethod(
+    args: GetApplicationAuthenticationMethodCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationAuthenticationMethodCommandOutput>;
+  getApplicationAuthenticationMethod(
+    args: GetApplicationAuthenticationMethodCommandInput,
+    cb: (err: any, data?: GetApplicationAuthenticationMethodCommandOutput) => void
+  ): void;
+  getApplicationAuthenticationMethod(
+    args: GetApplicationAuthenticationMethodCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationAuthenticationMethodCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationGrantCommand}
+   */
+  getApplicationGrant(
+    args: GetApplicationGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationGrantCommandOutput>;
+  getApplicationGrant(
+    args: GetApplicationGrantCommandInput,
+    cb: (err: any, data?: GetApplicationGrantCommandOutput) => void
+  ): void;
+  getApplicationGrant(
+    args: GetApplicationGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationGrantCommandOutput) => void
   ): void;
 
   /**
@@ -601,6 +1151,23 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link ListAccountAssignmentsForPrincipalCommand}
+   */
+  listAccountAssignmentsForPrincipal(
+    args: ListAccountAssignmentsForPrincipalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountAssignmentsForPrincipalCommandOutput>;
+  listAccountAssignmentsForPrincipal(
+    args: ListAccountAssignmentsForPrincipalCommandInput,
+    cb: (err: any, data?: ListAccountAssignmentsForPrincipalCommandOutput) => void
+  ): void;
+  listAccountAssignmentsForPrincipal(
+    args: ListAccountAssignmentsForPrincipalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccountAssignmentsForPrincipalCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccountsForProvisionedPermissionSetCommand}
    */
   listAccountsForProvisionedPermissionSet(
@@ -615,6 +1182,125 @@ export interface SSOAdmin {
     args: ListAccountsForProvisionedPermissionSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAccountsForProvisionedPermissionSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationAccessScopesCommand}
+   */
+  listApplicationAccessScopes(
+    args: ListApplicationAccessScopesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationAccessScopesCommandOutput>;
+  listApplicationAccessScopes(
+    args: ListApplicationAccessScopesCommandInput,
+    cb: (err: any, data?: ListApplicationAccessScopesCommandOutput) => void
+  ): void;
+  listApplicationAccessScopes(
+    args: ListApplicationAccessScopesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationAccessScopesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationAssignmentsCommand}
+   */
+  listApplicationAssignments(
+    args: ListApplicationAssignmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationAssignmentsCommandOutput>;
+  listApplicationAssignments(
+    args: ListApplicationAssignmentsCommandInput,
+    cb: (err: any, data?: ListApplicationAssignmentsCommandOutput) => void
+  ): void;
+  listApplicationAssignments(
+    args: ListApplicationAssignmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationAssignmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationAssignmentsForPrincipalCommand}
+   */
+  listApplicationAssignmentsForPrincipal(
+    args: ListApplicationAssignmentsForPrincipalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationAssignmentsForPrincipalCommandOutput>;
+  listApplicationAssignmentsForPrincipal(
+    args: ListApplicationAssignmentsForPrincipalCommandInput,
+    cb: (err: any, data?: ListApplicationAssignmentsForPrincipalCommandOutput) => void
+  ): void;
+  listApplicationAssignmentsForPrincipal(
+    args: ListApplicationAssignmentsForPrincipalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationAssignmentsForPrincipalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationAuthenticationMethodsCommand}
+   */
+  listApplicationAuthenticationMethods(
+    args: ListApplicationAuthenticationMethodsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationAuthenticationMethodsCommandOutput>;
+  listApplicationAuthenticationMethods(
+    args: ListApplicationAuthenticationMethodsCommandInput,
+    cb: (err: any, data?: ListApplicationAuthenticationMethodsCommandOutput) => void
+  ): void;
+  listApplicationAuthenticationMethods(
+    args: ListApplicationAuthenticationMethodsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationAuthenticationMethodsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationGrantsCommand}
+   */
+  listApplicationGrants(
+    args: ListApplicationGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationGrantsCommandOutput>;
+  listApplicationGrants(
+    args: ListApplicationGrantsCommandInput,
+    cb: (err: any, data?: ListApplicationGrantsCommandOutput) => void
+  ): void;
+  listApplicationGrants(
+    args: ListApplicationGrantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationGrantsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationProvidersCommand}
+   */
+  listApplicationProviders(
+    args: ListApplicationProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationProvidersCommandOutput>;
+  listApplicationProviders(
+    args: ListApplicationProvidersCommandInput,
+    cb: (err: any, data?: ListApplicationProvidersCommandOutput) => void
+  ): void;
+  listApplicationProviders(
+    args: ListApplicationProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationProvidersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -731,6 +1417,23 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link ListTrustedTokenIssuersCommand}
+   */
+  listTrustedTokenIssuers(
+    args: ListTrustedTokenIssuersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrustedTokenIssuersCommandOutput>;
+  listTrustedTokenIssuers(
+    args: ListTrustedTokenIssuersCommandInput,
+    cb: (err: any, data?: ListTrustedTokenIssuersCommandOutput) => void
+  ): void;
+  listTrustedTokenIssuers(
+    args: ListTrustedTokenIssuersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrustedTokenIssuersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ProvisionPermissionSetCommand}
    */
   provisionPermissionSet(
@@ -745,6 +1448,74 @@ export interface SSOAdmin {
     args: ProvisionPermissionSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvisionPermissionSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutApplicationAccessScopeCommand}
+   */
+  putApplicationAccessScope(
+    args: PutApplicationAccessScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutApplicationAccessScopeCommandOutput>;
+  putApplicationAccessScope(
+    args: PutApplicationAccessScopeCommandInput,
+    cb: (err: any, data?: PutApplicationAccessScopeCommandOutput) => void
+  ): void;
+  putApplicationAccessScope(
+    args: PutApplicationAccessScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutApplicationAccessScopeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutApplicationAssignmentConfigurationCommand}
+   */
+  putApplicationAssignmentConfiguration(
+    args: PutApplicationAssignmentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutApplicationAssignmentConfigurationCommandOutput>;
+  putApplicationAssignmentConfiguration(
+    args: PutApplicationAssignmentConfigurationCommandInput,
+    cb: (err: any, data?: PutApplicationAssignmentConfigurationCommandOutput) => void
+  ): void;
+  putApplicationAssignmentConfiguration(
+    args: PutApplicationAssignmentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutApplicationAssignmentConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutApplicationAuthenticationMethodCommand}
+   */
+  putApplicationAuthenticationMethod(
+    args: PutApplicationAuthenticationMethodCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutApplicationAuthenticationMethodCommandOutput>;
+  putApplicationAuthenticationMethod(
+    args: PutApplicationAuthenticationMethodCommandInput,
+    cb: (err: any, data?: PutApplicationAuthenticationMethodCommandOutput) => void
+  ): void;
+  putApplicationAuthenticationMethod(
+    args: PutApplicationAuthenticationMethodCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutApplicationAuthenticationMethodCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutApplicationGrantCommand}
+   */
+  putApplicationGrant(
+    args: PutApplicationGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutApplicationGrantCommandOutput>;
+  putApplicationGrant(
+    args: PutApplicationGrantCommandInput,
+    cb: (err: any, data?: PutApplicationGrantCommandOutput) => void
+  ): void;
+  putApplicationGrant(
+    args: PutApplicationGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutApplicationGrantCommandOutput) => void
   ): void;
 
   /**
@@ -804,6 +1575,37 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link UpdateApplicationCommand}
+   */
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInstanceCommand}
+   */
+  updateInstance(
+    args: UpdateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceCommandOutput>;
+  updateInstance(args: UpdateInstanceCommandInput, cb: (err: any, data?: UpdateInstanceCommandOutput) => void): void;
+  updateInstance(
+    args: UpdateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateInstanceAccessControlAttributeConfigurationCommand}
    */
   updateInstanceAccessControlAttributeConfiguration(
@@ -836,29 +1638,50 @@ export interface SSOAdmin {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePermissionSetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateTrustedTokenIssuerCommand}
+   */
+  updateTrustedTokenIssuer(
+    args: UpdateTrustedTokenIssuerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrustedTokenIssuerCommandOutput>;
+  updateTrustedTokenIssuer(
+    args: UpdateTrustedTokenIssuerCommandInput,
+    cb: (err: any, data?: UpdateTrustedTokenIssuerCommandOutput) => void
+  ): void;
+  updateTrustedTokenIssuer(
+    args: UpdateTrustedTokenIssuerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTrustedTokenIssuerCommandOutput) => void
+  ): void;
 }
 
 /**
  * @public
- * <p>IAM Identity Center (successor to Single Sign-On) helps you securely create, or connect, your workforce identities and manage their
- *       access centrally across Amazon Web Services accounts and applications. IAM Identity Center is the recommended
- *       approach for workforce authentication and authorization in Amazon Web Services, for organizations of any size
- *       and type.</p>
+ * <p>IAM Identity Center (successor to Single Sign-On) helps you securely create, or connect, your workforce identities and manage
+ *             their access centrally across Amazon Web Services accounts and applications. IAM Identity Center is the recommended
+ *             approach for workforce authentication and authorization in Amazon Web Services, for organizations of
+ *             any size and type.</p>
  *          <note>
- *             <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API namespaces.</p>
+ *             <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API
+ *                 namespaces.</p>
  *          </note>
- *          <p>This reference guide provides information on single sign-on operations which could be used for
- *       access management of Amazon Web Services accounts. For information about IAM Identity Center features, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
- *         Guide</a>.</p>
+ *          <p>This reference guide provides information on single sign-on operations which could be
+ *             used for access management of Amazon Web Services accounts. For information about IAM Identity Center features, see
+ *             the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center
+ *                 User Guide</a>.</p>
  *          <p>Many operations in the IAM Identity Center APIs rely on identifiers for users and groups, known as
- *       principals. For more information about how to work with principals and principal IDs in IAM Identity Center,
- *       see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Identity Store API
- *         Reference</a>.</p>
+ *             principals. For more information about how to work with principals and principal IDs in
+ *             IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Identity Store API
+ *                 Reference</a>.</p>
  *          <note>
- *             <p>Amazon Web Services provides SDKs that consist of libraries and sample code for various programming
- *         languages and platforms (Java, Ruby, .Net, iOS, Android, and more). The SDKs provide a
- *         convenient way to create programmatic access to IAM Identity Center and other Amazon Web Services services. For more
- *         information about the Amazon Web Services SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+ *             <p>Amazon Web Services provides SDKs that consist of libraries and sample code for various
+ *                 programming languages and platforms (Java, Ruby, .Net, iOS, Android, and more). The
+ *                 SDKs provide a convenient way to create programmatic access to IAM Identity Center and other Amazon Web Services
+ *                 services. For more information about the Amazon Web Services SDKs, including how to download and
+ *                 install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
+ *                     Services</a>.</p>
  *          </note>
  */
 export class SSOAdmin extends SSOAdminClient implements SSOAdmin {}
