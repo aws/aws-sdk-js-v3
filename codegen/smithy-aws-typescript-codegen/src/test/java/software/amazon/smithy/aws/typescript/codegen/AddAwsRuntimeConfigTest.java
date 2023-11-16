@@ -95,8 +95,6 @@ public class AddAwsRuntimeConfigTest {
 
         // Check config files
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("useDualstackEndpoint:")));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("useDualstackEndpoint:")));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("useFipsEndpoint:")));

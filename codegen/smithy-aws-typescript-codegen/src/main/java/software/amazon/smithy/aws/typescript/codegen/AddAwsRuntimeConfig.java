@@ -94,11 +94,13 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.writeDocs("Enables FIPS compatible endpoints.")
                     .write("useFipsEndpoint?: boolean | __Provider<boolean>;\n");
         }
-        if (isSigV4Service(settings, model)) {
-            writer.writeDocs(isAwsService(settings, model)
-                                ? "The AWS region to which this client will send requests"
-                                : "The AWS region to use as signing region for AWS Auth")
-                    .write("region?: string | __Provider<string>;\n");
+        if (!settings.getExperimentalIdentityAndAuth()) {
+            if (isSigV4Service(settings, model)) {
+                writer.writeDocs(isAwsService(settings, model)
+                                    ? "The AWS region to which this client will send requests"
+                                    : "The AWS region to use as signing region for AWS Auth")
+                        .write("region?: string | __Provider<string>;\n");
+            }
         }
     }
 
@@ -111,18 +113,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     ) {
         ServiceShape service = settings.getService(model);
         Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap();
-        if (target.equals(LanguageTarget.SHARED)) {
-            String serviceId = service.getTrait(ServiceTrait.class)
-                    .map(ServiceTrait::getSdkId)
-                    .orElse(null);
-            if (serviceId != null) {
-                runtimeConfigs.put("serviceId", writer -> {
-                    writer.write("$S", serviceId);
-                });
-            } else {
-                LOGGER.info("Cannot generate a service ID for the client because no aws.api#Service "
-                        + "trait was found on " + service.getId());
-            }
+        if (isAwsService(service) && target.equals(LanguageTarget.SHARED)) {
+            String serviceId = service.expectTrait(ServiceTrait.class).getSdkId();
+            runtimeConfigs.put("serviceId", writer -> writer.write("$S", serviceId));
+        } else {
+            LOGGER.info("Cannot generate a service ID for the client because no aws.api#Service "
+                + "trait was found on " + service.getId());
         }
         runtimeConfigs.putAll(getDefaultConfig(target, settings, model));
         runtimeConfigs.putAll(getEndpointConfigWriters(target, settings, model));
@@ -130,8 +126,14 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     }
 
     @Override
-    public List<ExtensionConfigurationInterface> getExtensionConfigurationInterfaces() {
-        return List.of(new AwsRegionExtensionConfiguration());
+    public List<ExtensionConfigurationInterface> getExtensionConfigurationInterfaces(
+        Model model,
+        TypeScriptSettings settings
+    ) {
+        if (isAwsService(settings, model)) {
+            return List.of(new AwsRegionExtensionConfiguration());
+        }
+        return Collections.emptyList();
     }
 
     @Override
@@ -141,7 +143,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         TypeScriptSettings settings,
         Model model
     ) {
-        if (target.equals(LanguageTarget.NODE)) {
+        if (isAwsService(settings, model) && target.equals(LanguageTarget.NODE)) {
             writer.addDependency(AwsDependency.AWS_SDK_CORE);
             writer.addImport("emitWarningIfUnsupportedVersion", "awsCheckVersion", AwsDependency.AWS_SDK_CORE);
             writer.write("awsCheckVersion(process.version);");
@@ -153,7 +155,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             TypeScriptSettings settings,
             Model model
     ) {
-        if (!isSigV4Service(settings, model)) {
+        if (!isSigV4Service(settings, model) || !isAwsService(settings, model)) {
             return Collections.emptyMap();
         }
         switch (target) {
