@@ -177,6 +177,7 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * //         ZookeeperConnectString: "STRING_VALUE",
  * //         ZookeeperConnectStringTls: "STRING_VALUE",
  * //         StorageMode: "LOCAL" || "TIERED",
+ * //         CustomerActionStatus: "CRITICAL_ACTION_REQUIRED" || "ACTION_RECOMMENDED" || "NONE",
  * //       },
  * //       Serverless: { // Serverless
  * //         VpcConfigs: [ // __listOfVpcConfig // required

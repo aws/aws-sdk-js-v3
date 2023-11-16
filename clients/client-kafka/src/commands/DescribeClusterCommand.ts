@@ -171,6 +171,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //     ZookeeperConnectString: "STRING_VALUE",
  * //     ZookeeperConnectStringTls: "STRING_VALUE",
  * //     StorageMode: "LOCAL" || "TIERED",
+ * //     CustomerActionStatus: "CRITICAL_ACTION_REQUIRED" || "ACTION_RECOMMENDED" || "NONE",
  * //   },
  * // };
  *

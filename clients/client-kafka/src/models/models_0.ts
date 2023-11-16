@@ -443,6 +443,21 @@ export interface BrokerSoftwareInfo {
 
 /**
  * @public
+ * @enum
+ */
+export const CustomerActionStatus = {
+  ACTION_RECOMMENDED: "ACTION_RECOMMENDED",
+  CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomerActionStatus = (typeof CustomerActionStatus)[keyof typeof CustomerActionStatus];
+
+/**
+ * @public
  * <p>The data-volume encryption details.</p>
  */
 export interface EncryptionAtRest {
@@ -707,6 +722,12 @@ export interface Provisioned {
    * <p>This controls storage mode for supported storage tiers.</p>
    */
   StorageMode?: StorageMode;
+
+  /**
+   * @public
+   * <p>Determines if there is an action required from the customer.</p>
+   */
+  CustomerActionStatus?: CustomerActionStatus;
 }
 
 /**
@@ -1031,6 +1052,12 @@ export interface ClusterInfo {
    * <p>This controls storage mode for supported storage tiers.</p>
    */
   StorageMode?: StorageMode;
+
+  /**
+   * @public
+   * <p>Determines if there is an action required from the customer.</p>
+   */
+  CustomerActionStatus?: CustomerActionStatus;
 }
 
 /**

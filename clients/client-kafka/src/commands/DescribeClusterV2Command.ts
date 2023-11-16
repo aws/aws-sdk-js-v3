@@ -173,6 +173,7 @@ export interface DescribeClusterV2CommandOutput extends DescribeClusterV2Respons
  * //       ZookeeperConnectString: "STRING_VALUE",
  * //       ZookeeperConnectStringTls: "STRING_VALUE",
  * //       StorageMode: "LOCAL" || "TIERED",
+ * //       CustomerActionStatus: "CRITICAL_ACTION_REQUIRED" || "ACTION_RECOMMENDED" || "NONE",
  * //     },
  * //     Serverless: { // Serverless
  * //       VpcConfigs: [ // __listOfVpcConfig // required
