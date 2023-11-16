@@ -1779,6 +1779,12 @@ export interface StoppingCondition {
    *             in total, not each individual attempt.</p>
    */
   MaxWaitTimeInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The maximum pending time in seconds.</p>
+   */
+  MaxPendingTimeInSeconds?: number;
 }
 
 /**
@@ -4061,6 +4067,9 @@ export const AppInstanceType = {
   ML_T3_MICRO: "ml.t3.micro",
   ML_T3_SMALL: "ml.t3.small",
   ML_T3_XLARGE: "ml.t3.xlarge",
+  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
+  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
   SYSTEM: "system",
 } as const;
 

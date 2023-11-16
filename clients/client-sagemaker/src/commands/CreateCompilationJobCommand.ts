@@ -106,6 +106,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *   StoppingCondition: { // StoppingCondition
  *     MaxRuntimeInSeconds: Number("int"),
  *     MaxWaitTimeInSeconds: Number("int"),
+ *     MaxPendingTimeInSeconds: Number("int"),
  *   },
  *   Tags: [ // TagList
  *     { // Tag

@@ -60,6 +60,7 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
  * //   StoppingCondition: { // StoppingCondition
  * //     MaxRuntimeInSeconds: Number("int"),
  * //     MaxWaitTimeInSeconds: Number("int"),
+ * //     MaxPendingTimeInSeconds: Number("int"),
  * //   },
  * //   InferenceImage: "STRING_VALUE",
  * //   ModelPackageVersionArn: "STRING_VALUE",

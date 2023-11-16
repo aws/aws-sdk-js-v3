@@ -6523,7 +6523,7 @@ export interface ModelPackageSummary {
    * @public
    * <p>The name of the model package.</p>
    */
-  ModelPackageName: string | undefined;
+  ModelPackageName?: string;
 
   /**
    * @public

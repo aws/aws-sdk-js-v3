@@ -2444,6 +2444,13 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
+   * <p>The ARN of the associated Amazon Web Services Single Sign-On application
+   *         for this Domain.</p>
+   */
+  SingleSignOnApplicationArn?: string;
+
+  /**
+   * @public
    * <p>The status.</p>
    */
   Status?: DomainStatus;

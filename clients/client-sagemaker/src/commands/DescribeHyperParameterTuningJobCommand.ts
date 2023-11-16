@@ -234,6 +234,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //     StoppingCondition: { // StoppingCondition
  * //       MaxRuntimeInSeconds: Number("int"),
  * //       MaxWaitTimeInSeconds: Number("int"),
+ * //       MaxPendingTimeInSeconds: Number("int"),
  * //     },
  * //     EnableNetworkIsolation: true || false,
  * //     EnableInterContainerTrafficEncryption: true || false,
@@ -378,6 +379,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //       StoppingCondition: {
  * //         MaxRuntimeInSeconds: Number("int"),
  * //         MaxWaitTimeInSeconds: Number("int"),
+ * //         MaxPendingTimeInSeconds: Number("int"),
  * //       },
  * //       EnableNetworkIsolation: true || false,
  * //       EnableInterContainerTrafficEncryption: true || false,

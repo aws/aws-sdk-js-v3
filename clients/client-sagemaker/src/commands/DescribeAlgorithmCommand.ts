@@ -220,6 +220,7 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //           StoppingCondition: { // StoppingCondition
  * //             MaxRuntimeInSeconds: Number("int"),
  * //             MaxWaitTimeInSeconds: Number("int"),
+ * //             MaxPendingTimeInSeconds: Number("int"),
  * //           },
  * //         },
  * //         TransformJobDefinition: { // TransformJobDefinition

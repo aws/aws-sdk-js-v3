@@ -156,6 +156,7 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //   StoppingCondition: { // StoppingCondition
  * //     MaxRuntimeInSeconds: Number("int"),
  * //     MaxWaitTimeInSeconds: Number("int"),
+ * //     MaxPendingTimeInSeconds: Number("int"),
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   TrainingStartTime: new Date("TIMESTAMP"),

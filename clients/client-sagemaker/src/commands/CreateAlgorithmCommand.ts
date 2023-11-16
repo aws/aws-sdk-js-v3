@@ -213,6 +213,7 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *           StoppingCondition: { // StoppingCondition
  *             MaxRuntimeInSeconds: Number("int"),
  *             MaxWaitTimeInSeconds: Number("int"),
+ *             MaxPendingTimeInSeconds: Number("int"),
  *           },
  *         },
  *         TransformJobDefinition: { // TransformJobDefinition

@@ -23396,6 +23396,7 @@ const de_DescribeDomainResponse = (output: any, context: __SerdeContext): Descri
     KmsKeyId: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SecurityGroupIdForDomainBoundary: __expectString,
+    SingleSignOnApplicationArn: __expectString,
     SingleSignOnManagedApplicationInstanceId: __expectString,
     Status: __expectString,
     SubnetIds: _json,

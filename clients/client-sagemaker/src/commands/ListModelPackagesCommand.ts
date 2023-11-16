@@ -61,7 +61,7 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * // { // ListModelPackagesOutput
  * //   ModelPackageSummaryList: [ // ModelPackageSummaryList // required
  * //     { // ModelPackageSummary
- * //       ModelPackageName: "STRING_VALUE", // required
+ * //       ModelPackageName: "STRING_VALUE",
  * //       ModelPackageGroupName: "STRING_VALUE",
  * //       ModelPackageVersion: Number("int"),
  * //       ModelPackageArn: "STRING_VALUE", // required

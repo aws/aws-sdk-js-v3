@@ -210,6 +210,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         StoppingCondition: { // StoppingCondition
  * //           MaxRuntimeInSeconds: Number("int"),
  * //           MaxWaitTimeInSeconds: Number("int"),
+ * //           MaxPendingTimeInSeconds: Number("int"),
  * //         },
  * //         CreationTime: new Date("TIMESTAMP"),
  * //         TrainingStartTime: new Date("TIMESTAMP"),
@@ -568,6 +569,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             StoppingCondition: {
  * //               MaxRuntimeInSeconds: Number("int"),
  * //               MaxWaitTimeInSeconds: Number("int"),
+ * //               MaxPendingTimeInSeconds: Number("int"),
  * //             },
  * //             CreationTime: new Date("TIMESTAMP"),
  * //             TrainingStartTime: new Date("TIMESTAMP"),

@@ -240,6 +240,7 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *     StoppingCondition: { // StoppingCondition
  *       MaxRuntimeInSeconds: Number("int"),
  *       MaxWaitTimeInSeconds: Number("int"),
+ *       MaxPendingTimeInSeconds: Number("int"),
  *     },
  *     EnableNetworkIsolation: true || false,
  *     EnableInterContainerTrafficEncryption: true || false,
@@ -384,6 +385,7 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *       StoppingCondition: {
  *         MaxRuntimeInSeconds: Number("int"),
  *         MaxWaitTimeInSeconds: Number("int"),
+ *         MaxPendingTimeInSeconds: Number("int"),
  *       },
  *       EnableNetworkIsolation: true || false,
  *       EnableInterContainerTrafficEncryption: true || false,
