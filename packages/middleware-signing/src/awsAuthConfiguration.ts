@@ -24,27 +24,7 @@ const CREDENTIAL_EXPIRE_WINDOW = 300000;
 /**
  * @public
  */
-export interface AwsAuthInputConfig {
-  /**
-   * The credentials used to sign requests.
-   */
-  credentials?: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
-
-  /**
-   * The signer to use when signing requests.
-   */
-  signer?: RequestSigner | ((authScheme?: AuthScheme) => Promise<RequestSigner>);
-
-  /**
-   * Whether to escape request path when signing the request.
-   */
-  signingEscapePath?: boolean;
-
-  /**
-   * An offset value in milliseconds to apply to all signing times.
-   */
-  systemClockOffset?: number;
-
+export interface AwsAuthInputConfig extends SigV4AuthInputConfig {
   /**
    * The region where you want to sign your request against. This
    * can be different to the region in the endpoint.
@@ -85,14 +65,12 @@ export interface SigV4AuthInputConfig {
   systemClockOffset?: number;
 }
 
-interface PreviouslyResolved {
-  credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
-  region: string | Provider<string>;
-  regionInfoProvider?: RegionInfoProvider;
+interface AwsSigV4PreviouslyResolved extends Omit<SigV4PreviouslyResolved, "signingName"> {
+  // Note that signingName is optional is AWS SDK SigV4, unlike generic SigV4
   signingName?: string;
+  regionInfoProvider?: RegionInfoProvider;
   defaultSigningName?: string;
   serviceId: string;
-  sha256: ChecksumConstructor | HashConstructor;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
@@ -100,12 +78,12 @@ interface PreviouslyResolved {
 interface SigV4PreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
-  signingName: string;
   sha256: ChecksumConstructor | HashConstructor;
+  signingName: string;
   logger?: Logger;
 }
 
-export interface AwsAuthResolvedConfig {
+export interface SigV4AuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.credentials}
    * This provider MAY memoize the loaded credentials for certain period.
@@ -126,10 +104,10 @@ export interface AwsAuthResolvedConfig {
   systemClockOffset: number;
 }
 
-export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig {}
+export interface AwsAuthResolvedConfig extends SigV4AuthResolvedConfig {}
 
 export const resolveAwsAuthConfig = <T>(
-  input: T & AwsAuthInputConfig & PreviouslyResolved
+  input: T & AwsAuthInputConfig & AwsSigV4PreviouslyResolved
 ): T & AwsAuthResolvedConfig => {
   const normalizedCreds = input.credentials
     ? normalizeCredentialProvider(input.credentials)
