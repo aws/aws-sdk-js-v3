@@ -128,6 +128,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>PerUnitStorageThroughput</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>StorageCapacity</code>
  *                </p>
  *             </li>
@@ -291,6 +296,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     PerUnitStorageThroughput: Number("int"),
  *   },
  *   OntapConfiguration: { // UpdateFileSystemOntapConfiguration
  *     AutomaticBackupRetentionDays: Number("int"),

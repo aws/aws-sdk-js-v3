@@ -9200,6 +9200,28 @@ export interface UpdateFileSystemLustreConfiguration {
    *             try to access your file system as a root user.</p>
    */
   RootSquashConfiguration?: LustreRootSquashConfiguration;
+
+  /**
+   * @public
+   * <p>The throughput of an Amazon FSx for Lustre Persistent SSD-based file system,
+   *             measured in megabytes per second per tebibyte (MB/s/TiB). You can increase or decrease
+   *             your file system's throughput. Valid values depend on the deployment type of the file
+   *             system, as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>PERSISTENT_1</code> SSD-based deployment types, valid values
+   *                 are 50, 100, and 200 MB/s/TiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>PERSISTENT_2</code> SSD-based deployment types, valid values
+   *                 are 125, 250, 500, and 1000 MB/s/TiB.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-throughput-capacity.html">
+   *                 Managing throughput capacity</a>.</p>
+   */
+  PerUnitStorageThroughput?: number;
 }
 
 /**
@@ -9332,7 +9354,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
    *          <ul>
    *             <li>
    *                <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,
-   *                 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>
+   *                 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</p>
    *             </li>
    *             <li>
    *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
@@ -9978,7 +10000,7 @@ export interface AdministrativeAction {
    *                         <code>COMPLETED</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
    *                         storage capacity</a> in the <i>Amazon FSx for Windows
    *                         File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage
-   *                         and throughput capacity</a> in the <i>Amazon FSx for
+   *                         capacity</a> in the <i>Amazon FSx for
    *                             Lustre User Guide</i>, and
    *                     <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
    *                             Guide</i>.</p>
