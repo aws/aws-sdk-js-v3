@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ListImagePipelineImagesRequest, ListImagePipelineImagesResponse } from "../models/models_0";
-import { de_ListImagePipelineImagesCommand, se_ListImagePipelineImagesCommand } from "../protocols/Aws_restJson1";
+import { ListLifecyclePoliciesRequest, ListLifecyclePoliciesResponse } from "../models/models_0";
+import { de_ListLifecyclePoliciesCommand, se_ListLifecyclePoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,27 +25,26 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListImagePipelineImagesCommand}.
+ * The input for {@link ListLifecyclePoliciesCommand}.
  */
-export interface ListImagePipelineImagesCommandInput extends ListImagePipelineImagesRequest {}
+export interface ListLifecyclePoliciesCommandInput extends ListLifecyclePoliciesRequest {}
 /**
  * @public
  *
- * The output of {@link ListImagePipelineImagesCommand}.
+ * The output of {@link ListLifecyclePoliciesCommand}.
  */
-export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineImagesResponse, __MetadataBearer {}
+export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a list of images created by the specified pipeline.</p>
+ * <p>Get a list of lifecycle policies in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListImagePipelineImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListImagePipelineImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListLifecyclePoliciesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, ListLifecyclePoliciesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = { // ListImagePipelineImagesRequest
- *   imagePipelineArn: "STRING_VALUE", // required
+ * const input = { // ListLifecyclePoliciesRequest
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",
@@ -57,54 +56,23 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListImagePipelineImagesCommand(input);
+ * const command = new ListLifecyclePoliciesCommand(input);
  * const response = await client.send(command);
- * // { // ListImagePipelineImagesResponse
- * //   requestId: "STRING_VALUE",
- * //   imageSummaryList: [ // ImageSummaryList
- * //     { // ImageSummary
+ * // { // ListLifecyclePoliciesResponse
+ * //   lifecyclePolicySummaryList: [ // LifecyclePolicySummaryList
+ * //     { // LifecyclePolicySummary
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       type: "AMI" || "DOCKER",
- * //       version: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
- * //       osVersion: "STRING_VALUE",
- * //       state: { // ImageState
- * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
- * //         reason: "STRING_VALUE",
- * //       },
- * //       owner: "STRING_VALUE",
- * //       dateCreated: "STRING_VALUE",
- * //       outputResources: { // OutputResources
- * //         amis: [ // AmiList
- * //           { // Ami
- * //             region: "STRING_VALUE",
- * //             image: "STRING_VALUE",
- * //             name: "STRING_VALUE",
- * //             description: "STRING_VALUE",
- * //             state: {
- * //               status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
- * //               reason: "STRING_VALUE",
- * //             },
- * //             accountId: "STRING_VALUE",
- * //           },
- * //         ],
- * //         containers: [ // ContainerList
- * //           { // Container
- * //             region: "STRING_VALUE",
- * //             imageUris: [ // StringList
- * //               "STRING_VALUE",
- * //             ],
- * //           },
- * //         ],
- * //       },
+ * //       description: "STRING_VALUE",
+ * //       status: "DISABLED" || "ENABLED",
+ * //       executionRole: "STRING_VALUE",
+ * //       resourceType: "AMI_IMAGE" || "CONTAINER_IMAGE",
+ * //       dateCreated: new Date("TIMESTAMP"),
+ * //       dateUpdated: new Date("TIMESTAMP"),
+ * //       dateLastRun: new Date("TIMESTAMP"),
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
- * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
- * //       deprecationTime: new Date("TIMESTAMP"),
- * //       lifecycleExecutionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -112,10 +80,10 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  *
  * ```
  *
- * @param ListImagePipelineImagesCommandInput - {@link ListImagePipelineImagesCommandInput}
- * @returns {@link ListImagePipelineImagesCommandOutput}
- * @see {@link ListImagePipelineImagesCommandInput} for command's `input` shape.
- * @see {@link ListImagePipelineImagesCommandOutput} for command's `response` shape.
+ * @param ListLifecyclePoliciesCommandInput - {@link ListLifecyclePoliciesCommandInput}
+ * @returns {@link ListLifecyclePoliciesCommandOutput}
+ * @see {@link ListLifecyclePoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListLifecyclePoliciesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
@@ -135,9 +103,6 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>You have requested an action that that the service doesn't support.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>At least one of the resources referenced by your request does not exist.</p>
- *
  * @throws {@link ServiceException} (server fault)
  *  <p>This exception is thrown when the service encounters an unrecoverable
  * 			exception.</p>
@@ -149,9 +114,9 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
-export class ListImagePipelineImagesCommand extends $Command<
-  ListImagePipelineImagesCommandInput,
-  ListImagePipelineImagesCommandOutput,
+export class ListLifecyclePoliciesCommand extends $Command<
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -166,7 +131,7 @@ export class ListImagePipelineImagesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListImagePipelineImagesCommandInput) {
+  constructor(readonly input: ListLifecyclePoliciesCommandInput) {
     super();
   }
 
@@ -177,17 +142,17 @@ export class ListImagePipelineImagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListImagePipelineImagesCommandInput, ListImagePipelineImagesCommandOutput> {
+  ): Handler<ListLifecyclePoliciesCommandInput, ListLifecyclePoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListImagePipelineImagesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListLifecyclePoliciesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ImagebuilderClient";
-    const commandName = "ListImagePipelineImagesCommand";
+    const commandName = "ListLifecyclePoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -196,7 +161,7 @@ export class ListImagePipelineImagesCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "imagebuilder",
-        operation: "ListImagePipelineImages",
+        operation: "ListLifecyclePolicies",
       },
     };
     const { requestHandler } = configuration;
@@ -210,14 +175,14 @@ export class ListImagePipelineImagesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListImagePipelineImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListImagePipelineImagesCommand(input, context);
+  private serialize(input: ListLifecyclePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListLifecyclePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagePipelineImagesCommandOutput> {
-    return de_ListImagePipelineImagesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLifecyclePoliciesCommandOutput> {
+    return de_ListLifecyclePoliciesCommand(output, context);
   }
 }

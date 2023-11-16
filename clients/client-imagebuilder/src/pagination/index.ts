@@ -13,5 +13,8 @@ export * from "./ListImageScanFindingAggregationsPaginator";
 export * from "./ListImageScanFindingsPaginator";
 export * from "./ListImagesPaginator";
 export * from "./ListInfrastructureConfigurationsPaginator";
+export * from "./ListLifecycleExecutionResourcesPaginator";
+export * from "./ListLifecycleExecutionsPaginator";
+export * from "./ListLifecyclePoliciesPaginator";
 export * from "./ListWorkflowExecutionsPaginator";
 export * from "./ListWorkflowStepExecutionsPaginator";

@@ -8,6 +8,11 @@ import {
   CancelImageCreationCommandOutput,
 } from "./commands/CancelImageCreationCommand";
 import {
+  CancelLifecycleExecutionCommand,
+  CancelLifecycleExecutionCommandInput,
+  CancelLifecycleExecutionCommandOutput,
+} from "./commands/CancelLifecycleExecutionCommand";
+import {
   CreateComponentCommand,
   CreateComponentCommandInput,
   CreateComponentCommandOutput,
@@ -39,6 +44,11 @@ import {
   CreateInfrastructureConfigurationCommandOutput,
 } from "./commands/CreateInfrastructureConfigurationCommand";
 import {
+  CreateLifecyclePolicyCommand,
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput,
+} from "./commands/CreateLifecyclePolicyCommand";
+import {
   DeleteComponentCommand,
   DeleteComponentCommandInput,
   DeleteComponentCommandOutput,
@@ -69,6 +79,11 @@ import {
   DeleteInfrastructureConfigurationCommandInput,
   DeleteInfrastructureConfigurationCommandOutput,
 } from "./commands/DeleteInfrastructureConfigurationCommand";
+import {
+  DeleteLifecyclePolicyCommand,
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
+} from "./commands/DeleteLifecyclePolicyCommand";
 import {
   GetComponentCommand,
   GetComponentCommandInput,
@@ -120,6 +135,16 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
+import {
+  GetLifecycleExecutionCommand,
+  GetLifecycleExecutionCommandInput,
+  GetLifecycleExecutionCommandOutput,
+} from "./commands/GetLifecycleExecutionCommand";
+import {
+  GetLifecyclePolicyCommand,
+  GetLifecyclePolicyCommandInput,
+  GetLifecyclePolicyCommandOutput,
+} from "./commands/GetLifecyclePolicyCommand";
 import {
   GetWorkflowExecutionCommand,
   GetWorkflowExecutionCommandInput,
@@ -202,6 +227,21 @@ import {
   ListInfrastructureConfigurationsCommandOutput,
 } from "./commands/ListInfrastructureConfigurationsCommand";
 import {
+  ListLifecycleExecutionResourcesCommand,
+  ListLifecycleExecutionResourcesCommandInput,
+  ListLifecycleExecutionResourcesCommandOutput,
+} from "./commands/ListLifecycleExecutionResourcesCommand";
+import {
+  ListLifecycleExecutionsCommand,
+  ListLifecycleExecutionsCommandInput,
+  ListLifecycleExecutionsCommandOutput,
+} from "./commands/ListLifecycleExecutionsCommand";
+import {
+  ListLifecyclePoliciesCommand,
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
+} from "./commands/ListLifecyclePoliciesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -241,6 +281,11 @@ import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput,
 } from "./commands/StartImagePipelineExecutionCommand";
+import {
+  StartResourceStateUpdateCommand,
+  StartResourceStateUpdateCommandInput,
+  StartResourceStateUpdateCommandOutput,
+} from "./commands/StartResourceStateUpdateCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -262,10 +307,16 @@ import {
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
 } from "./commands/UpdateInfrastructureConfigurationCommand";
+import {
+  UpdateLifecyclePolicyCommand,
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput,
+} from "./commands/UpdateLifecyclePolicyCommand";
 import { ImagebuilderClient, ImagebuilderClientConfig } from "./ImagebuilderClient";
 
 const commands = {
   CancelImageCreationCommand,
+  CancelLifecycleExecutionCommand,
   CreateComponentCommand,
   CreateContainerRecipeCommand,
   CreateDistributionConfigurationCommand,
@@ -273,6 +324,7 @@ const commands = {
   CreateImagePipelineCommand,
   CreateImageRecipeCommand,
   CreateInfrastructureConfigurationCommand,
+  CreateLifecyclePolicyCommand,
   DeleteComponentCommand,
   DeleteContainerRecipeCommand,
   DeleteDistributionConfigurationCommand,
@@ -280,6 +332,7 @@ const commands = {
   DeleteImagePipelineCommand,
   DeleteImageRecipeCommand,
   DeleteInfrastructureConfigurationCommand,
+  DeleteLifecyclePolicyCommand,
   GetComponentCommand,
   GetComponentPolicyCommand,
   GetContainerRecipeCommand,
@@ -291,6 +344,8 @@ const commands = {
   GetImageRecipeCommand,
   GetImageRecipePolicyCommand,
   GetInfrastructureConfigurationCommand,
+  GetLifecycleExecutionCommand,
+  GetLifecyclePolicyCommand,
   GetWorkflowExecutionCommand,
   GetWorkflowStepExecutionCommand,
   ImportComponentCommand,
@@ -308,6 +363,9 @@ const commands = {
   ListImageScanFindingAggregationsCommand,
   ListImageScanFindingsCommand,
   ListInfrastructureConfigurationsCommand,
+  ListLifecycleExecutionResourcesCommand,
+  ListLifecycleExecutionsCommand,
+  ListLifecyclePoliciesCommand,
   ListTagsForResourceCommand,
   ListWorkflowExecutionsCommand,
   ListWorkflowStepExecutionsCommand,
@@ -316,11 +374,13 @@ const commands = {
   PutImagePolicyCommand,
   PutImageRecipePolicyCommand,
   StartImagePipelineExecutionCommand,
+  StartResourceStateUpdateCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDistributionConfigurationCommand,
   UpdateImagePipelineCommand,
   UpdateInfrastructureConfigurationCommand,
+  UpdateLifecyclePolicyCommand,
 };
 
 export interface Imagebuilder {
@@ -339,6 +399,23 @@ export interface Imagebuilder {
     args: CancelImageCreationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelImageCreationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelLifecycleExecutionCommand}
+   */
+  cancelLifecycleExecution(
+    args: CancelLifecycleExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelLifecycleExecutionCommandOutput>;
+  cancelLifecycleExecution(
+    args: CancelLifecycleExecutionCommandInput,
+    cb: (err: any, data?: CancelLifecycleExecutionCommandOutput) => void
+  ): void;
+  cancelLifecycleExecution(
+    args: CancelLifecycleExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelLifecycleExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -452,6 +529,23 @@ export interface Imagebuilder {
   ): void;
 
   /**
+   * @see {@link CreateLifecyclePolicyCommand}
+   */
+  createLifecyclePolicy(
+    args: CreateLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLifecyclePolicyCommandOutput>;
+  createLifecyclePolicy(
+    args: CreateLifecyclePolicyCommandInput,
+    cb: (err: any, data?: CreateLifecyclePolicyCommandOutput) => void
+  ): void;
+  createLifecyclePolicy(
+    args: CreateLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLifecyclePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteComponentCommand}
    */
   deleteComponent(
@@ -559,6 +653,23 @@ export interface Imagebuilder {
     args: DeleteInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLifecyclePolicyCommand}
+   */
+  deleteLifecyclePolicy(
+    args: DeleteLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLifecyclePolicyCommandOutput>;
+  deleteLifecyclePolicy(
+    args: DeleteLifecyclePolicyCommandInput,
+    cb: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
+  ): void;
+  deleteLifecyclePolicy(
+    args: DeleteLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -728,6 +839,40 @@ export interface Imagebuilder {
     args: GetInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLifecycleExecutionCommand}
+   */
+  getLifecycleExecution(
+    args: GetLifecycleExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLifecycleExecutionCommandOutput>;
+  getLifecycleExecution(
+    args: GetLifecycleExecutionCommandInput,
+    cb: (err: any, data?: GetLifecycleExecutionCommandOutput) => void
+  ): void;
+  getLifecycleExecution(
+    args: GetLifecycleExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLifecycleExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLifecyclePolicyCommand}
+   */
+  getLifecyclePolicy(
+    args: GetLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLifecyclePolicyCommandOutput>;
+  getLifecyclePolicy(
+    args: GetLifecyclePolicyCommandInput,
+    cb: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
+  ): void;
+  getLifecyclePolicy(
+    args: GetLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1002,6 +1147,57 @@ export interface Imagebuilder {
   ): void;
 
   /**
+   * @see {@link ListLifecycleExecutionResourcesCommand}
+   */
+  listLifecycleExecutionResources(
+    args: ListLifecycleExecutionResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLifecycleExecutionResourcesCommandOutput>;
+  listLifecycleExecutionResources(
+    args: ListLifecycleExecutionResourcesCommandInput,
+    cb: (err: any, data?: ListLifecycleExecutionResourcesCommandOutput) => void
+  ): void;
+  listLifecycleExecutionResources(
+    args: ListLifecycleExecutionResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLifecycleExecutionResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLifecycleExecutionsCommand}
+   */
+  listLifecycleExecutions(
+    args: ListLifecycleExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLifecycleExecutionsCommandOutput>;
+  listLifecycleExecutions(
+    args: ListLifecycleExecutionsCommandInput,
+    cb: (err: any, data?: ListLifecycleExecutionsCommandOutput) => void
+  ): void;
+  listLifecycleExecutions(
+    args: ListLifecycleExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLifecycleExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLifecyclePoliciesCommand}
+   */
+  listLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLifecyclePoliciesCommandOutput>;
+  listLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    cb: (err: any, data?: ListLifecyclePoliciesCommandOutput) => void
+  ): void;
+  listLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLifecyclePoliciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1135,6 +1331,23 @@ export interface Imagebuilder {
   ): void;
 
   /**
+   * @see {@link StartResourceStateUpdateCommand}
+   */
+  startResourceStateUpdate(
+    args: StartResourceStateUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartResourceStateUpdateCommandOutput>;
+  startResourceStateUpdate(
+    args: StartResourceStateUpdateCommandInput,
+    cb: (err: any, data?: StartResourceStateUpdateCommandOutput) => void
+  ): void;
+  startResourceStateUpdate(
+    args: StartResourceStateUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartResourceStateUpdateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1205,6 +1418,23 @@ export interface Imagebuilder {
     args: UpdateInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLifecyclePolicyCommand}
+   */
+  updateLifecyclePolicy(
+    args: UpdateLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLifecyclePolicyCommandOutput>;
+  updateLifecyclePolicy(
+    args: UpdateLifecyclePolicyCommandInput,
+    cb: (err: any, data?: UpdateLifecyclePolicyCommandOutput) => void
+  ): void;
+  updateLifecyclePolicy(
+    args: UpdateLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLifecyclePolicyCommandOutput) => void
   ): void;
 }
 

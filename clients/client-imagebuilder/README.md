@@ -216,6 +216,14 @@ CancelImageCreation
 </details>
 <details>
 <summary>
+CancelLifecycleExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/cancellifecycleexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/cancellifecycleexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/cancellifecycleexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateComponent
 </summary>
 
@@ -272,6 +280,14 @@ CreateInfrastructureConfiguration
 </details>
 <details>
 <summary>
+CreateLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createlifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createlifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createlifecyclepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteComponent
 </summary>
 
@@ -324,6 +340,14 @@ DeleteInfrastructureConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deleteinfrastructureconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteinfrastructureconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteinfrastructureconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deletelifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletelifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletelifecyclepolicycommandoutput.html)
 
 </details>
 <details>
@@ -412,6 +436,22 @@ GetInfrastructureConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getinfrastructureconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getinfrastructureconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getinfrastructureconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetLifecycleExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getlifecycleexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecycleexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecycleexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getlifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecyclepolicycommandoutput.html)
 
 </details>
 <details>
@@ -552,6 +592,30 @@ ListInfrastructureConfigurations
 </details>
 <details>
 <summary>
+ListLifecycleExecutionResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listlifecycleexecutionresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLifecycleExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listlifecycleexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLifecyclePolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listlifecyclepoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecyclepoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecyclepoliciescommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -616,6 +680,14 @@ StartImagePipelineExecution
 </details>
 <details>
 <summary>
+StartResourceStateUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/startresourcestateupdatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/startresourcestateupdatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/startresourcestateupdatecommandoutput.html)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -652,5 +724,13 @@ UpdateInfrastructureConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/updateinfrastructureconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updateinfrastructureconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updateinfrastructureconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/updatelifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updatelifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updatelifecyclepolicycommandoutput.html)
 
 </details>

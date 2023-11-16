@@ -70,7 +70,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       platform: "Windows" || "Linux",
  * //       osVersion: "STRING_VALUE",
  * //       state: { // ImageState
- * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //         reason: "STRING_VALUE",
  * //       },
  * //       owner: "STRING_VALUE",
@@ -83,7 +83,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //             name: "STRING_VALUE",
  * //             description: "STRING_VALUE",
  * //             state: {
- * //               status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //               status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //               reason: "STRING_VALUE",
  * //             },
  * //             accountId: "STRING_VALUE",
@@ -103,6 +103,8 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       },
  * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
+ * //       deprecationTime: new Date("TIMESTAMP"),
+ * //       lifecycleExecutionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

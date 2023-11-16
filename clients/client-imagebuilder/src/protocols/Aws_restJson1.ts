@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -28,6 +29,10 @@ import {
   CancelImageCreationCommandInput,
   CancelImageCreationCommandOutput,
 } from "../commands/CancelImageCreationCommand";
+import {
+  CancelLifecycleExecutionCommandInput,
+  CancelLifecycleExecutionCommandOutput,
+} from "../commands/CancelLifecycleExecutionCommand";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "../commands/CreateComponentCommand";
 import {
   CreateContainerRecipeCommandInput,
@@ -47,6 +52,10 @@ import {
   CreateInfrastructureConfigurationCommandInput,
   CreateInfrastructureConfigurationCommandOutput,
 } from "../commands/CreateInfrastructureConfigurationCommand";
+import {
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput,
+} from "../commands/CreateLifecyclePolicyCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
 import {
   DeleteContainerRecipeCommandInput,
@@ -66,6 +75,10 @@ import {
   DeleteInfrastructureConfigurationCommandInput,
   DeleteInfrastructureConfigurationCommandOutput,
 } from "../commands/DeleteInfrastructureConfigurationCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
+} from "../commands/DeleteLifecyclePolicyCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
 import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "../commands/GetComponentPolicyCommand";
 import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "../commands/GetContainerRecipeCommand";
@@ -89,6 +102,11 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "../commands/GetInfrastructureConfigurationCommand";
+import {
+  GetLifecycleExecutionCommandInput,
+  GetLifecycleExecutionCommandOutput,
+} from "../commands/GetLifecycleExecutionCommand";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand";
 import {
   GetWorkflowExecutionCommandInput,
   GetWorkflowExecutionCommandOutput,
@@ -137,6 +155,18 @@ import {
   ListInfrastructureConfigurationsCommandOutput,
 } from "../commands/ListInfrastructureConfigurationsCommand";
 import {
+  ListLifecycleExecutionResourcesCommandInput,
+  ListLifecycleExecutionResourcesCommandOutput,
+} from "../commands/ListLifecycleExecutionResourcesCommand";
+import {
+  ListLifecycleExecutionsCommandInput,
+  ListLifecycleExecutionsCommandOutput,
+} from "../commands/ListLifecycleExecutionsCommand";
+import {
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
+} from "../commands/ListLifecyclePoliciesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -162,6 +192,10 @@ import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput,
 } from "../commands/StartImagePipelineExecutionCommand";
+import {
+  StartResourceStateUpdateCommandInput,
+  StartResourceStateUpdateCommandOutput,
+} from "../commands/StartResourceStateUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -176,6 +210,10 @@ import {
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
 } from "../commands/UpdateInfrastructureConfigurationCommand";
+import {
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput,
+} from "../commands/UpdateLifecyclePolicyCommand";
 import { ImagebuilderServiceException as __BaseException } from "../models/ImagebuilderServiceException";
 import {
   AdditionalInstanceConfiguration,
@@ -196,9 +234,11 @@ import {
   Filter,
   ForbiddenException,
   IdempotentParameterMismatchException,
+  Image,
   ImageScanFinding,
   ImageScanFindingsFilter,
   ImageScanningConfiguration,
+  ImageSummary,
   ImageTestsConfiguration,
   InspectorScoreDetails,
   InstanceBlockDeviceMapping,
@@ -212,12 +252,27 @@ import {
   InvalidVersionNumberException,
   LaunchPermissionConfiguration,
   LaunchTemplateConfiguration,
+  LifecycleExecution,
+  LifecyclePolicy,
+  LifecyclePolicyDetail,
+  LifecyclePolicyDetailAction,
+  LifecyclePolicyDetailActionIncludeResources,
+  LifecyclePolicyDetailExclusionRules,
+  LifecyclePolicyDetailExclusionRulesAmis,
+  LifecyclePolicyDetailExclusionRulesAmisLastLaunched,
+  LifecyclePolicyDetailFilter,
+  LifecyclePolicyResourceSelection,
+  LifecyclePolicyResourceSelectionRecipe,
+  LifecyclePolicySummary,
   Logging,
   PackageVulnerabilityDetails,
   ResourceAlreadyExistsException,
   ResourceDependencyException,
   ResourceInUseException,
   ResourceNotFoundException,
+  ResourceState,
+  ResourceStateUpdateExclusionRules,
+  ResourceStateUpdateIncludeResources,
   S3ExportConfiguration,
   S3Logs,
   Schedule,
@@ -245,6 +300,37 @@ export const se_CancelImageCreationCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imageBuildVersionArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CancelLifecycleExecutionCommand
+ */
+export const se_CancelLifecycleExecutionCommand = async (
+  input: CancelLifecycleExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelLifecycleExecution";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      lifecycleExecutionId: [],
     })
   );
   return new __HttpRequest({
@@ -535,6 +621,43 @@ export const se_CreateInfrastructureConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateLifecyclePolicyCommand
+ */
+export const se_CreateLifecyclePolicyCommand = async (
+  input: CreateLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLifecyclePolicy";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      executionRole: [],
+      name: [],
+      policyDetails: (_) => _json(_),
+      resourceSelection: (_) => _json(_),
+      resourceType: [],
+      status: [],
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteComponentCommand
  */
 export const se_DeleteComponentCommand = async (
@@ -710,6 +833,32 @@ export const se_DeleteInfrastructureConfigurationCommand = async (
       ,
       __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
     ],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteLifecyclePolicyCommand
+ */
+export const se_DeleteLifecyclePolicyCommand = async (
+  input: DeleteLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLifecyclePolicy";
+  const query: any = map({
+    lifecyclePolicyArn: [, __expectNonNull(input.lifecyclePolicyArn!, `lifecyclePolicyArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1005,6 +1154,58 @@ export const se_GetInfrastructureConfigurationCommand = async (
       ,
       __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
     ],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetLifecycleExecutionCommand
+ */
+export const se_GetLifecycleExecutionCommand = async (
+  input: GetLifecycleExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLifecycleExecution";
+  const query: any = map({
+    lifecycleExecutionId: [, __expectNonNull(input.lifecycleExecutionId!, `lifecycleExecutionId`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetLifecyclePolicyCommand
+ */
+export const se_GetLifecyclePolicyCommand = async (
+  input: GetLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLifecyclePolicy";
+  const query: any = map({
+    lifecyclePolicyArn: [, __expectNonNull(input.lifecyclePolicyArn!, `lifecyclePolicyArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1566,6 +1767,102 @@ export const se_ListInfrastructureConfigurationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListLifecycleExecutionResourcesCommand
+ */
+export const se_ListLifecycleExecutionResourcesCommand = async (
+  input: ListLifecycleExecutionResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLifecycleExecutionResources";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      lifecycleExecutionId: [],
+      maxResults: [],
+      nextToken: [],
+      parentResourceId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListLifecycleExecutionsCommand
+ */
+export const se_ListLifecycleExecutionsCommand = async (
+  input: ListLifecycleExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLifecycleExecutions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resourceArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListLifecyclePoliciesCommand
+ */
+export const se_ListLifecyclePoliciesCommand = async (
+  input: ListLifecyclePoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLifecyclePolicies";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -1805,6 +2102,42 @@ export const se_StartImagePipelineExecutionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartResourceStateUpdateCommand
+ */
+export const se_StartResourceStateUpdateCommand = async (
+  input: StartResourceStateUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartResourceStateUpdate";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      exclusionRules: (_) => _json(_),
+      executionRole: [],
+      includeResources: (_) => _json(_),
+      resourceArn: [],
+      state: (_) => _json(_),
+      updateAt: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -1980,6 +2313,42 @@ export const se_UpdateInfrastructureConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateLifecyclePolicyCommand
+ */
+export const se_UpdateLifecyclePolicyCommand = async (
+  input: UpdateLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLifecyclePolicy";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      executionRole: [],
+      lifecyclePolicyArn: [],
+      policyDetails: (_) => _json(_),
+      resourceSelection: (_) => _json(_),
+      resourceType: [],
+      status: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * deserializeAws_restJson1CancelImageCreationCommand
  */
 export const de_CancelImageCreationCommand = async (
@@ -2009,6 +2378,74 @@ const de_CancelImageCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelImageCreationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CancelLifecycleExecutionCommand
+ */
+export const de_CancelLifecycleExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLifecycleExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CancelLifecycleExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelLifecycleExecutionCommandError
+ */
+const de_CancelLifecycleExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLifecycleExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2591,6 +3028,81 @@ const de_CreateInfrastructureConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLifecyclePolicyCommand
+ */
+export const de_CreateLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    lifecyclePolicyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLifecyclePolicyCommandError
+ */
+const de_CreateLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteComponentCommand
  */
 export const de_DeleteComponentCommand = async (
@@ -3053,6 +3565,71 @@ const de_DeleteInfrastructureConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteLifecyclePolicyCommand
+ */
+export const de_DeleteLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLifecyclePolicyCommandError
+ */
+const de_DeleteLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
+      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetComponentCommand
  */
 export const de_GetComponentCommand = async (
@@ -3382,7 +3959,7 @@ export const de_GetImageCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    image: _json,
+    image: (_) => de_Image(_, context),
     requestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -3711,6 +4288,130 @@ const de_GetInfrastructureConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInfrastructureConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetLifecycleExecutionCommand
+ */
+export const de_GetLifecycleExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecycleExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetLifecycleExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecution: (_) => de_LifecycleExecution(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLifecycleExecutionCommandError
+ */
+const de_GetLifecycleExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecycleExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetLifecyclePolicyCommand
+ */
+export const de_GetLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicy: (_) => de_LifecyclePolicy(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLifecyclePolicyCommandError
+ */
+const de_GetLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4311,7 +5012,7 @@ export const de_ListImageBuildVersionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    imageSummaryList: _json,
+    imageSummaryList: (_) => de_ImageSummaryList(_, context),
     nextToken: __expectString,
     requestId: __expectString,
   });
@@ -4448,7 +5149,7 @@ export const de_ListImagePipelineImagesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    imageSummaryList: _json,
+    imageSummaryList: (_) => de_ImageSummaryList(_, context),
     nextToken: __expectString,
     requestId: __expectString,
   });
@@ -4869,6 +5570,206 @@ const de_ListInfrastructureConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInfrastructureConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListLifecycleExecutionResourcesCommand
+ */
+export const de_ListLifecycleExecutionResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLifecycleExecutionResourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutionId: __expectString,
+    lifecycleExecutionState: _json,
+    nextToken: __expectString,
+    resources: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLifecycleExecutionResourcesCommandError
+ */
+const de_ListLifecycleExecutionResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListLifecycleExecutionsCommand
+ */
+export const de_ListLifecycleExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLifecycleExecutionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutions: (_) => de_LifecycleExecutionsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLifecycleExecutionsCommandError
+ */
+const de_ListLifecycleExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListLifecyclePoliciesCommand
+ */
+export const de_ListLifecyclePoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecyclePoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLifecyclePoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicySummaryList: (_) => de_LifecyclePolicySummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLifecyclePoliciesCommandError
+ */
+const de_ListLifecyclePoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecyclePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5449,6 +6350,78 @@ const de_StartImagePipelineExecutionCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartResourceStateUpdateCommand
+ */
+export const de_StartResourceStateUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceStateUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartResourceStateUpdateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutionId: __expectString,
+    resourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartResourceStateUpdateCommandError
+ */
+const de_StartResourceStateUpdateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceStateUpdateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -5737,6 +6710,77 @@ const de_UpdateInfrastructureConfigurationCommandError = async (
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateLifecyclePolicyCommand
+ */
+export const de_UpdateLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateLifecyclePolicyCommandError
+ */
+const de_UpdateLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
@@ -6159,6 +7203,28 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_LicenseConfigurationArnList omitted.
 
+// se_LifecyclePolicyDetail omitted.
+
+// se_LifecyclePolicyDetailAction omitted.
+
+// se_LifecyclePolicyDetailActionIncludeResources omitted.
+
+// se_LifecyclePolicyDetailExclusionRules omitted.
+
+// se_LifecyclePolicyDetailExclusionRulesAmis omitted.
+
+// se_LifecyclePolicyDetailExclusionRulesAmisLastLaunched omitted.
+
+// se_LifecyclePolicyDetailFilter omitted.
+
+// se_LifecyclePolicyDetails omitted.
+
+// se_LifecyclePolicyResourceSelection omitted.
+
+// se_LifecyclePolicyResourceSelectionRecipe omitted.
+
+// se_LifecyclePolicyResourceSelectionRecipes omitted.
+
 // se_Logging omitted.
 
 // se_OrganizationalUnitArnList omitted.
@@ -6166,6 +7232,12 @@ const de_ServiceUnavailableExceptionRes = async (
 // se_OrganizationArnList omitted.
 
 // se_OsVersionList omitted.
+
+// se_ResourceState omitted.
+
+// se_ResourceStateUpdateExclusionRules omitted.
+
+// se_ResourceStateUpdateIncludeResources omitted.
 
 // se_ResourceTagMap omitted.
 
@@ -6299,7 +7371,37 @@ const de_CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => 
 
 // de_FastLaunchSnapshotConfiguration omitted.
 
-// de_Image omitted.
+/**
+ * deserializeAws_restJson1Image
+ */
+const de_Image = (output: any, context: __SerdeContext): Image => {
+  return take(output, {
+    arn: __expectString,
+    buildType: __expectString,
+    containerRecipe: _json,
+    dateCreated: __expectString,
+    deprecationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    distributionConfiguration: _json,
+    enhancedImageMetadataEnabled: __expectBoolean,
+    imageRecipe: _json,
+    imageScanningConfiguration: _json,
+    imageSource: __expectString,
+    imageTestsConfiguration: _json,
+    infrastructureConfiguration: _json,
+    lifecycleExecutionId: __expectString,
+    name: __expectString,
+    osVersion: __expectString,
+    outputResources: _json,
+    platform: __expectString,
+    scanState: _json,
+    sourcePipelineArn: __expectString,
+    sourcePipelineName: __expectString,
+    state: _json,
+    tags: _json,
+    type: __expectString,
+    version: __expectString,
+  }) as any;
+};
 
 // de_ImageAggregation omitted.
 
@@ -6363,9 +7465,40 @@ const de_ImageScanFindingsList = (output: any, context: __SerdeContext): ImageSc
 
 // de_ImageState omitted.
 
-// de_ImageSummary omitted.
+/**
+ * deserializeAws_restJson1ImageSummary
+ */
+const de_ImageSummary = (output: any, context: __SerdeContext): ImageSummary => {
+  return take(output, {
+    arn: __expectString,
+    buildType: __expectString,
+    dateCreated: __expectString,
+    deprecationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageSource: __expectString,
+    lifecycleExecutionId: __expectString,
+    name: __expectString,
+    osVersion: __expectString,
+    outputResources: _json,
+    owner: __expectString,
+    platform: __expectString,
+    state: _json,
+    tags: _json,
+    type: __expectString,
+    version: __expectString,
+  }) as any;
+};
 
-// de_ImageSummaryList omitted.
+/**
+ * deserializeAws_restJson1ImageSummaryList
+ */
+const de_ImageSummaryList = (output: any, context: __SerdeContext): ImageSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_ImageTestsConfiguration omitted.
 
@@ -6405,6 +7538,120 @@ const de_InspectorScoreDetails = (output: any, context: __SerdeContext): Inspect
 // de_LaunchTemplateConfigurationList omitted.
 
 // de_LicenseConfigurationArnList omitted.
+
+/**
+ * deserializeAws_restJson1LifecycleExecution
+ */
+const de_LifecycleExecution = (output: any, context: __SerdeContext): LifecycleExecution => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lifecycleExecutionId: __expectString,
+    lifecyclePolicyArn: __expectString,
+    resourcesImpactedSummary: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    state: _json,
+  }) as any;
+};
+
+// de_LifecycleExecutionResource omitted.
+
+// de_LifecycleExecutionResourceAction omitted.
+
+// de_LifecycleExecutionResourceList omitted.
+
+// de_LifecycleExecutionResourcesImpactedSummary omitted.
+
+// de_LifecycleExecutionResourceState omitted.
+
+/**
+ * deserializeAws_restJson1LifecycleExecutionsList
+ */
+const de_LifecycleExecutionsList = (output: any, context: __SerdeContext): LifecycleExecution[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LifecycleExecution(entry, context);
+    });
+  return retVal;
+};
+
+// de_LifecycleExecutionSnapshotResource omitted.
+
+// de_LifecycleExecutionSnapshotResourceList omitted.
+
+// de_LifecycleExecutionState omitted.
+
+/**
+ * deserializeAws_restJson1LifecyclePolicy
+ */
+const de_LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
+  return take(output, {
+    arn: __expectString,
+    dateCreated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateLastRun: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    executionRole: __expectString,
+    name: __expectString,
+    policyDetails: _json,
+    resourceSelection: _json,
+    resourceType: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+// de_LifecyclePolicyDetail omitted.
+
+// de_LifecyclePolicyDetailAction omitted.
+
+// de_LifecyclePolicyDetailActionIncludeResources omitted.
+
+// de_LifecyclePolicyDetailExclusionRules omitted.
+
+// de_LifecyclePolicyDetailExclusionRulesAmis omitted.
+
+// de_LifecyclePolicyDetailExclusionRulesAmisLastLaunched omitted.
+
+// de_LifecyclePolicyDetailFilter omitted.
+
+// de_LifecyclePolicyDetails omitted.
+
+// de_LifecyclePolicyResourceSelection omitted.
+
+// de_LifecyclePolicyResourceSelectionRecipe omitted.
+
+// de_LifecyclePolicyResourceSelectionRecipes omitted.
+
+/**
+ * deserializeAws_restJson1LifecyclePolicySummary
+ */
+const de_LifecyclePolicySummary = (output: any, context: __SerdeContext): LifecyclePolicySummary => {
+  return take(output, {
+    arn: __expectString,
+    dateCreated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateLastRun: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    executionRole: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LifecyclePolicySummaryList
+ */
+const de_LifecyclePolicySummaryList = (output: any, context: __SerdeContext): LifecyclePolicySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LifecyclePolicySummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_Logging omitted.
 

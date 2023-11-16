@@ -54,6 +54,10 @@ import {
   CancelImageCreationCommandInput,
   CancelImageCreationCommandOutput,
 } from "./commands/CancelImageCreationCommand";
+import {
+  CancelLifecycleExecutionCommandInput,
+  CancelLifecycleExecutionCommandOutput,
+} from "./commands/CancelLifecycleExecutionCommand";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
 import {
   CreateContainerRecipeCommandInput,
@@ -73,6 +77,10 @@ import {
   CreateInfrastructureConfigurationCommandInput,
   CreateInfrastructureConfigurationCommandOutput,
 } from "./commands/CreateInfrastructureConfigurationCommand";
+import {
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput,
+} from "./commands/CreateLifecyclePolicyCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
 import {
   DeleteContainerRecipeCommandInput,
@@ -92,6 +100,10 @@ import {
   DeleteInfrastructureConfigurationCommandInput,
   DeleteInfrastructureConfigurationCommandOutput,
 } from "./commands/DeleteInfrastructureConfigurationCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
+} from "./commands/DeleteLifecyclePolicyCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
 import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "./commands/GetComponentPolicyCommand";
 import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "./commands/GetContainerRecipeCommand";
@@ -115,6 +127,11 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
+import {
+  GetLifecycleExecutionCommandInput,
+  GetLifecycleExecutionCommandOutput,
+} from "./commands/GetLifecycleExecutionCommand";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
 import {
   GetWorkflowExecutionCommandInput,
   GetWorkflowExecutionCommandOutput,
@@ -163,6 +180,18 @@ import {
   ListInfrastructureConfigurationsCommandOutput,
 } from "./commands/ListInfrastructureConfigurationsCommand";
 import {
+  ListLifecycleExecutionResourcesCommandInput,
+  ListLifecycleExecutionResourcesCommandOutput,
+} from "./commands/ListLifecycleExecutionResourcesCommand";
+import {
+  ListLifecycleExecutionsCommandInput,
+  ListLifecycleExecutionsCommandOutput,
+} from "./commands/ListLifecycleExecutionsCommand";
+import {
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
+} from "./commands/ListLifecyclePoliciesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -188,6 +217,10 @@ import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput,
 } from "./commands/StartImagePipelineExecutionCommand";
+import {
+  StartResourceStateUpdateCommandInput,
+  StartResourceStateUpdateCommandOutput,
+} from "./commands/StartResourceStateUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -202,6 +235,10 @@ import {
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
 } from "./commands/UpdateInfrastructureConfigurationCommand";
+import {
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput,
+} from "./commands/UpdateLifecyclePolicyCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -218,6 +255,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CancelImageCreationCommandInput
+  | CancelLifecycleExecutionCommandInput
   | CreateComponentCommandInput
   | CreateContainerRecipeCommandInput
   | CreateDistributionConfigurationCommandInput
@@ -225,6 +263,7 @@ export type ServiceInputTypes =
   | CreateImagePipelineCommandInput
   | CreateImageRecipeCommandInput
   | CreateInfrastructureConfigurationCommandInput
+  | CreateLifecyclePolicyCommandInput
   | DeleteComponentCommandInput
   | DeleteContainerRecipeCommandInput
   | DeleteDistributionConfigurationCommandInput
@@ -232,6 +271,7 @@ export type ServiceInputTypes =
   | DeleteImagePipelineCommandInput
   | DeleteImageRecipeCommandInput
   | DeleteInfrastructureConfigurationCommandInput
+  | DeleteLifecyclePolicyCommandInput
   | GetComponentCommandInput
   | GetComponentPolicyCommandInput
   | GetContainerRecipeCommandInput
@@ -243,6 +283,8 @@ export type ServiceInputTypes =
   | GetImageRecipeCommandInput
   | GetImageRecipePolicyCommandInput
   | GetInfrastructureConfigurationCommandInput
+  | GetLifecycleExecutionCommandInput
+  | GetLifecyclePolicyCommandInput
   | GetWorkflowExecutionCommandInput
   | GetWorkflowStepExecutionCommandInput
   | ImportComponentCommandInput
@@ -260,6 +302,9 @@ export type ServiceInputTypes =
   | ListImageScanFindingsCommandInput
   | ListImagesCommandInput
   | ListInfrastructureConfigurationsCommandInput
+  | ListLifecycleExecutionResourcesCommandInput
+  | ListLifecycleExecutionsCommandInput
+  | ListLifecyclePoliciesCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkflowExecutionsCommandInput
   | ListWorkflowStepExecutionsCommandInput
@@ -268,17 +313,20 @@ export type ServiceInputTypes =
   | PutImagePolicyCommandInput
   | PutImageRecipePolicyCommandInput
   | StartImagePipelineExecutionCommandInput
+  | StartResourceStateUpdateCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDistributionConfigurationCommandInput
   | UpdateImagePipelineCommandInput
-  | UpdateInfrastructureConfigurationCommandInput;
+  | UpdateInfrastructureConfigurationCommandInput
+  | UpdateLifecyclePolicyCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CancelImageCreationCommandOutput
+  | CancelLifecycleExecutionCommandOutput
   | CreateComponentCommandOutput
   | CreateContainerRecipeCommandOutput
   | CreateDistributionConfigurationCommandOutput
@@ -286,6 +334,7 @@ export type ServiceOutputTypes =
   | CreateImagePipelineCommandOutput
   | CreateImageRecipeCommandOutput
   | CreateInfrastructureConfigurationCommandOutput
+  | CreateLifecyclePolicyCommandOutput
   | DeleteComponentCommandOutput
   | DeleteContainerRecipeCommandOutput
   | DeleteDistributionConfigurationCommandOutput
@@ -293,6 +342,7 @@ export type ServiceOutputTypes =
   | DeleteImagePipelineCommandOutput
   | DeleteImageRecipeCommandOutput
   | DeleteInfrastructureConfigurationCommandOutput
+  | DeleteLifecyclePolicyCommandOutput
   | GetComponentCommandOutput
   | GetComponentPolicyCommandOutput
   | GetContainerRecipeCommandOutput
@@ -304,6 +354,8 @@ export type ServiceOutputTypes =
   | GetImageRecipeCommandOutput
   | GetImageRecipePolicyCommandOutput
   | GetInfrastructureConfigurationCommandOutput
+  | GetLifecycleExecutionCommandOutput
+  | GetLifecyclePolicyCommandOutput
   | GetWorkflowExecutionCommandOutput
   | GetWorkflowStepExecutionCommandOutput
   | ImportComponentCommandOutput
@@ -321,6 +373,9 @@ export type ServiceOutputTypes =
   | ListImageScanFindingsCommandOutput
   | ListImagesCommandOutput
   | ListInfrastructureConfigurationsCommandOutput
+  | ListLifecycleExecutionResourcesCommandOutput
+  | ListLifecycleExecutionsCommandOutput
+  | ListLifecyclePoliciesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkflowExecutionsCommandOutput
   | ListWorkflowStepExecutionsCommandOutput
@@ -329,11 +384,13 @@ export type ServiceOutputTypes =
   | PutImagePolicyCommandOutput
   | PutImageRecipePolicyCommandOutput
   | StartImagePipelineExecutionCommandOutput
+  | StartResourceStateUpdateCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDistributionConfigurationCommandOutput
   | UpdateImagePipelineCommandOutput
-  | UpdateInfrastructureConfigurationCommandOutput;
+  | UpdateInfrastructureConfigurationCommandOutput
+  | UpdateLifecyclePolicyCommandOutput;
 
 /**
  * @public

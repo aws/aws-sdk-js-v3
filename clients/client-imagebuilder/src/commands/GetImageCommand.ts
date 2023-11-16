@@ -60,7 +60,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //     enhancedImageMetadataEnabled: true || false,
  * //     osVersion: "STRING_VALUE",
  * //     state: { // ImageState
- * //       status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //       status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //       reason: "STRING_VALUE",
  * //     },
  * //     imageRecipe: { // ImageRecipe
@@ -300,7 +300,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //           name: "STRING_VALUE",
  * //           description: "STRING_VALUE",
  * //           state: {
- * //             status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //             status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //             reason: "STRING_VALUE",
  * //           },
  * //           accountId: "STRING_VALUE",
@@ -327,6 +327,8 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //         containerTags: "<StringList>",
  * //       },
  * //     },
+ * //     deprecationTime: new Date("TIMESTAMP"),
+ * //     lifecycleExecutionId: "STRING_VALUE",
  * //   },
  * // };
  *
