@@ -192,6 +192,44 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *         ],
  *       },
  *     ],
+ *     PolicyLanguage: "SIMPLIFIED" || "STANDARD",
+ *     ResourceType: "VOLUME" || "INSTANCE",
+ *     CreateInterval: Number("int"),
+ *     RetainInterval: Number("int"),
+ *     CopyTags: true || false,
+ *     CrossRegionCopyTargets: [ // CrossRegionCopyTargetList
+ *       { // CrossRegionCopyTarget
+ *         TargetRegion: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ExtendDeletion: true || false,
+ *     Exclusions: { // Exclusions
+ *       ExcludeBootVolumes: true || false,
+ *       ExcludeVolumeTypes: [ // ExcludeVolumeTypesList
+ *         "STRING_VALUE",
+ *       ],
+ *       ExcludeTags: [ // ExcludeTagsList
+ *         "<Tag>",
+ *       ],
+ *     },
+ *   },
+ *   CreateInterval: Number("int"),
+ *   RetainInterval: Number("int"),
+ *   CopyTags: true || false,
+ *   ExtendDeletion: true || false,
+ *   CrossRegionCopyTargets: [
+ *     {
+ *       TargetRegion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Exclusions: {
+ *     ExcludeBootVolumes: true || false,
+ *     ExcludeVolumeTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ExcludeTags: [
+ *       "<Tag>",
+ *     ],
  *   },
  * };
  * const command = new UpdateLifecyclePolicyCommand(input);

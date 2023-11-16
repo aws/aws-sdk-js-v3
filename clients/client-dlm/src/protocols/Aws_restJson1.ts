@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -54,10 +55,12 @@ import {
   CrossRegionCopyDeprecateRule,
   CrossRegionCopyRetainRule,
   CrossRegionCopyRule,
+  CrossRegionCopyTarget,
   DeprecateRule,
   EncryptionConfiguration,
   EventParameters,
   EventSource,
+  Exclusions,
   FastRestoreRule,
   InternalServerException,
   InvalidRequestException,
@@ -91,9 +94,16 @@ export const se_CreateLifecyclePolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CopyTags: [],
+      CreateInterval: [],
+      CrossRegionCopyTargets: (_) => _json(_),
+      DefaultPolicy: [],
       Description: [],
+      Exclusions: (_) => _json(_),
       ExecutionRoleArn: [],
+      ExtendDeletion: [],
       PolicyDetails: (_) => _json(_),
+      RetainInterval: [],
       State: [],
       Tags: (_) => _json(_),
     })
@@ -151,6 +161,7 @@ export const se_GetLifecyclePoliciesCommand = async (
     ],
     targetTags: [() => input.TargetTags !== void 0, () => (input.TargetTags! || []).map((_entry) => _entry as any)],
     tagsToAdd: [() => input.TagsToAdd !== void 0, () => (input.TagsToAdd! || []).map((_entry) => _entry as any)],
+    defaultPolicyType: [, input.DefaultPolicyType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -287,9 +298,15 @@ export const se_UpdateLifecyclePolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CopyTags: [],
+      CreateInterval: [],
+      CrossRegionCopyTargets: (_) => _json(_),
       Description: [],
+      Exclusions: (_) => _json(_),
       ExecutionRoleArn: [],
+      ExtendDeletion: [],
       PolicyDetails: (_) => _json(_),
+      RetainInterval: [],
       State: [],
     })
   );
@@ -832,6 +849,10 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_CrossRegionCopyRules omitted.
 
+// se_CrossRegionCopyTarget omitted.
+
+// se_CrossRegionCopyTargetList omitted.
+
 // se_DeprecateRule omitted.
 
 // se_EncryptionConfiguration omitted.
@@ -841,6 +862,12 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_EventSource omitted.
 
 // se_ExcludeDataVolumeTagList omitted.
+
+// se_ExcludeTagsList omitted.
+
+// se_ExcludeVolumeTypesList omitted.
+
+// se_Exclusions omitted.
 
 // se_FastRestoreRule omitted.
 
@@ -910,6 +937,10 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // de_CrossRegionCopyRules omitted.
 
+// de_CrossRegionCopyTarget omitted.
+
+// de_CrossRegionCopyTargetList omitted.
+
 // de_DeprecateRule omitted.
 
 // de_EncryptionConfiguration omitted.
@@ -920,6 +951,12 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // de_ExcludeDataVolumeTagList omitted.
 
+// de_ExcludeTagsList omitted.
+
+// de_ExcludeVolumeTypesList omitted.
+
+// de_Exclusions omitted.
+
 // de_FastRestoreRule omitted.
 
 /**
@@ -929,6 +966,7 @@ const de_LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePoli
   return take(output, {
     DateCreated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     DateModified: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DefaultPolicy: __expectBoolean,
     Description: __expectString,
     ExecutionRoleArn: __expectString,
     PolicyArn: __expectString,

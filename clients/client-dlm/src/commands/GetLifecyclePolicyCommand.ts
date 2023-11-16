@@ -199,11 +199,32 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * //           ],
  * //         },
  * //       ],
+ * //       PolicyLanguage: "SIMPLIFIED" || "STANDARD",
+ * //       ResourceType: "VOLUME" || "INSTANCE",
+ * //       CreateInterval: Number("int"),
+ * //       RetainInterval: Number("int"),
+ * //       CopyTags: true || false,
+ * //       CrossRegionCopyTargets: [ // CrossRegionCopyTargetList
+ * //         { // CrossRegionCopyTarget
+ * //           TargetRegion: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ExtendDeletion: true || false,
+ * //       Exclusions: { // Exclusions
+ * //         ExcludeBootVolumes: true || false,
+ * //         ExcludeVolumeTypes: [ // ExcludeVolumeTypesList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ExcludeTags: [ // ExcludeTagsList
+ * //           "<Tag>",
+ * //         ],
+ * //       },
  * //     },
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     PolicyArn: "STRING_VALUE",
+ * //     DefaultPolicy: true || false,
  * //   },
  * // };
  *

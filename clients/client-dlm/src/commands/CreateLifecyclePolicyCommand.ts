@@ -37,8 +37,30 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
 
 /**
  * @public
- * <p>Creates a policy to manage the lifecycle of the specified Amazon Web Services resources. You can
- * 			create up to 100 lifecycle policies.</p>
+ * <p>Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager supports the following policy types:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Custom EBS snapshot policy</p>
+ *             </li>
+ *             <li>
+ *                <p>Custom EBS-backed AMI policy</p>
+ *             </li>
+ *             <li>
+ *                <p>Cross-account copy event policy</p>
+ *             </li>
+ *             <li>
+ *                <p>Default policy for EBS snapshots</p>
+ *             </li>
+ *             <li>
+ *                <p>Default policy for EBS-backed AMIs</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html">
+ * 			Default policies vs custom policies</a>.</p>
+ *          <important>
+ *             <p>If you create a default policy, you can specify the request parameters either in
+ * 				the request body, or in the PolicyDetails request structure, but not both.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -190,9 +212,48 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  *         ],
  *       },
  *     ],
+ *     PolicyLanguage: "SIMPLIFIED" || "STANDARD",
+ *     ResourceType: "VOLUME" || "INSTANCE",
+ *     CreateInterval: Number("int"),
+ *     RetainInterval: Number("int"),
+ *     CopyTags: true || false,
+ *     CrossRegionCopyTargets: [ // CrossRegionCopyTargetList
+ *       { // CrossRegionCopyTarget
+ *         TargetRegion: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ExtendDeletion: true || false,
+ *     Exclusions: { // Exclusions
+ *       ExcludeBootVolumes: true || false,
+ *       ExcludeVolumeTypes: [ // ExcludeVolumeTypesList
+ *         "STRING_VALUE",
+ *       ],
+ *       ExcludeTags: [ // ExcludeTagsList
+ *         "<Tag>",
+ *       ],
+ *     },
  *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DefaultPolicy: "VOLUME" || "INSTANCE",
+ *   CreateInterval: Number("int"),
+ *   RetainInterval: Number("int"),
+ *   CopyTags: true || false,
+ *   ExtendDeletion: true || false,
+ *   CrossRegionCopyTargets: [
+ *     {
+ *       TargetRegion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Exclusions: {
+ *     ExcludeBootVolumes: true || false,
+ *     ExcludeVolumeTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ExcludeTags: [
+ *       "<Tag>",
+ *     ],
  *   },
  * };
  * const command = new CreateLifecyclePolicyCommand(input);

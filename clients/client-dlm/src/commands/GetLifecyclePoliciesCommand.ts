@@ -59,6 +59,7 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  *   TagsToAdd: [ // TagsToAddFilterList
  *     "STRING_VALUE",
  *   ],
+ *   DefaultPolicyType: "VOLUME" || "INSTANCE" || "ALL",
  * };
  * const command = new GetLifecyclePoliciesCommand(input);
  * const response = await client.send(command);
@@ -72,6 +73,7 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
+ * //       DefaultPolicy: true || false,
  * //     },
  * //   ],
  * // };
