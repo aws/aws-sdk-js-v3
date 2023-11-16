@@ -122,7 +122,7 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
  * //       },
  * //     },
  * //     IncludeIframeOnlyStream: true || false,
- * //     ManifestLayout: "FULL" || "COMPACT",
+ * //     ManifestLayout: "FULL" || "COMPACT" || "DRM_TOP_LEVEL_COMPACT",
  * //     ManifestWindowSeconds: Number("int"),
  * //     MinBufferTimeSeconds: Number("int"),
  * //     MinUpdatePeriodSeconds: Number("int"),

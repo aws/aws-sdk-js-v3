@@ -760,6 +760,7 @@ export interface DashEncryption {
  */
 export const ManifestLayout = {
   COMPACT: "COMPACT",
+  DRM_TOP_LEVEL_COMPACT: "DRM_TOP_LEVEL_COMPACT",
   FULL: "FULL",
 } as const;
 
@@ -855,7 +856,7 @@ export interface DashPackage {
 
   /**
    * @public
-   * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+   * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level. When set to DRM_TOP_LEVEL_COMPACT, content protection elements are placed the MPD level and referenced at the AdaptationSet level.
    */
   ManifestLayout?: ManifestLayout;
 
