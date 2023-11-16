@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListUserGroupsRequest, ListUserGroupsResponse } from "../models/models_4";
-import { de_ListUserGroupsCommand, se_ListUserGroupsCommand } from "../protocols/Aws_restJson1";
+import { ListRoleMembershipsRequest, ListRoleMembershipsResponse } from "../models/models_3";
+import { de_ListRoleMembershipsCommand, se_ListRoleMembershipsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -25,42 +25,37 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListUserGroupsCommand}.
+ * The input for {@link ListRoleMembershipsCommand}.
  */
-export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
+export interface ListRoleMembershipsCommandInput extends ListRoleMembershipsRequest {}
 /**
  * @public
  *
- * The output of {@link ListUserGroupsCommand}.
+ * The output of {@link ListRoleMembershipsCommand}.
  */
-export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
+export interface ListRoleMembershipsCommandOutput extends ListRoleMembershipsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
+ * <p>Lists all groups that are associated with a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListUserGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListUserGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListRoleMembershipsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, ListRoleMembershipsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListUserGroupsRequest
- *   UserName: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ * const input = { // ListRoleMembershipsRequest
+ *   Role: "ADMIN" || "AUTHOR" || "READER", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
  * };
- * const command = new ListUserGroupsCommand(input);
+ * const command = new ListRoleMembershipsCommand(input);
  * const response = await client.send(command);
- * // { // ListUserGroupsResponse
- * //   GroupList: [ // GroupList
- * //     { // Group
- * //       Arn: "STRING_VALUE",
- * //       GroupName: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       PrincipalId: "STRING_VALUE",
- * //     },
+ * // { // ListRoleMembershipsResponse
+ * //   MembersList: [ // GroupsList
+ * //     "STRING_VALUE",
  * //   ],
  * //   NextToken: "STRING_VALUE",
  * //   RequestId: "STRING_VALUE",
@@ -69,10 +64,10 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  *
  * ```
  *
- * @param ListUserGroupsCommandInput - {@link ListUserGroupsCommandInput}
- * @returns {@link ListUserGroupsCommandOutput}
- * @see {@link ListUserGroupsCommandInput} for command's `input` shape.
- * @see {@link ListUserGroupsCommandOutput} for command's `response` shape.
+ * @param ListRoleMembershipsCommandInput - {@link ListRoleMembershipsCommandInput}
+ * @returns {@link ListRoleMembershipsCommandOutput}
+ * @see {@link ListRoleMembershipsCommandInput} for command's `input` shape.
+ * @see {@link ListRoleMembershipsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,8 +79,14 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value isn't valid.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
  *
  * @throws {@link PreconditionNotMetException} (client fault)
  *  <p>One or more preconditions aren't met.</p>
@@ -103,9 +104,9 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class ListUserGroupsCommand extends $Command<
-  ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput,
+export class ListRoleMembershipsCommand extends $Command<
+  ListRoleMembershipsCommandInput,
+  ListRoleMembershipsCommandOutput,
   QuickSightClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -120,7 +121,7 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListUserGroupsCommandInput) {
+  constructor(readonly input: ListRoleMembershipsCommandInput) {
     super();
   }
 
@@ -131,17 +132,17 @@ export class ListUserGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListUserGroupsCommandInput, ListUserGroupsCommandOutput> {
+  ): Handler<ListRoleMembershipsCommandInput, ListRoleMembershipsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListUserGroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListRoleMembershipsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListUserGroupsCommand";
+    const commandName = "ListRoleMembershipsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,7 +151,7 @@ export class ListUserGroupsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "QuickSight_20180401",
-        operation: "ListUserGroups",
+        operation: "ListRoleMemberships",
       },
     };
     const { requestHandler } = configuration;
@@ -164,14 +165,14 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListUserGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUserGroupsCommand(input, context);
+  private serialize(input: ListRoleMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListRoleMembershipsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserGroupsCommandOutput> {
-    return de_ListUserGroupsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoleMembershipsCommandOutput> {
+    return de_ListRoleMembershipsCommand(output, context);
   }
 }

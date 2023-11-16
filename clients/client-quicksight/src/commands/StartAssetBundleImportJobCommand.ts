@@ -211,6 +211,10 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Port: Number("int"), // required
  *             Catalog: "STRING_VALUE", // required
  *           },
+ *           BigQueryParameters: { // BigQueryParameters
+ *             ProjectId: "STRING_VALUE", // required
+ *             DataSetRegion: "STRING_VALUE",
+ *           },
  *         },
  *         VpcConnectionProperties: { // VpcConnectionProperties
  *           VpcConnectionArn: "STRING_VALUE", // required
@@ -253,6 +257,152 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *     ],
  *   },
  *   FailureAction: "DO_NOTHING" || "ROLLBACK",
+ *   OverridePermissions: { // AssetBundleImportJobOverridePermissions
+ *     DataSources: [ // AssetBundleImportJobDataSourceOverridePermissionsList
+ *       { // AssetBundleImportJobDataSourceOverridePermissions
+ *         DataSourceIds: [ // AssetBundleRestrictiveResourceIdList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: { // AssetBundleResourcePermissions
+ *           Principals: [ // AssetBundlePrincipalList // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // ActionList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     DataSets: [ // AssetBundleImportJobDataSetOverridePermissionsList
+ *       { // AssetBundleImportJobDataSetOverridePermissions
+ *         DataSetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Themes: [ // AssetBundleImportJobThemeOverridePermissionsList
+ *       { // AssetBundleImportJobThemeOverridePermissions
+ *         ThemeIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Analyses: [ // AssetBundleImportJobAnalysisOverridePermissionsList
+ *       { // AssetBundleImportJobAnalysisOverridePermissions
+ *         AnalysisIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Dashboards: [ // AssetBundleImportJobDashboardOverridePermissionsList
+ *       { // AssetBundleImportJobDashboardOverridePermissions
+ *         DashboardIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         LinkSharingConfiguration: { // AssetBundleResourceLinkSharingConfiguration
+ *           Permissions: "<AssetBundleResourcePermissions>",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   OverrideTags: { // AssetBundleImportJobOverrideTags
+ *     VPCConnections: [ // AssetBundleImportJobVPCConnectionOverrideTagsList
+ *       { // AssetBundleImportJobVPCConnectionOverrideTags
+ *         VPCConnectionIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // TagList // required
+ *           { // Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     DataSources: [ // AssetBundleImportJobDataSourceOverrideTagsList
+ *       { // AssetBundleImportJobDataSourceOverrideTags
+ *         DataSourceIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     DataSets: [ // AssetBundleImportJobDataSetOverrideTagsList
+ *       { // AssetBundleImportJobDataSetOverrideTags
+ *         DataSetIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Themes: [ // AssetBundleImportJobThemeOverrideTagsList
+ *       { // AssetBundleImportJobThemeOverrideTags
+ *         ThemeIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Analyses: [ // AssetBundleImportJobAnalysisOverrideTagsList
+ *       { // AssetBundleImportJobAnalysisOverrideTags
+ *         AnalysisIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Dashboards: [ // AssetBundleImportJobDashboardOverrideTagsList
+ *       { // AssetBundleImportJobDashboardOverrideTags
+ *         DashboardIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: "<TagList>", // required
+ *       },
+ *     ],
+ *   },
+ *   OverrideValidationStrategy: { // AssetBundleImportJobOverrideValidationStrategy
+ *     StrictModeForAllResources: true || false,
+ *   },
  * };
  * const command = new StartAssetBundleImportJobCommand(input);
  * const response = await client.send(command);

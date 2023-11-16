@@ -52,7 +52,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSourceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS", // required
+ *   Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY", // required
  *   DataSourceParameters: { // DataSourceParameters Union: only one key present
  *     AmazonElasticsearchParameters: { // AmazonElasticsearchParameters
  *       Domain: "STRING_VALUE", // required
@@ -175,6 +175,10 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Catalog: "STRING_VALUE", // required
+ *     },
+ *     BigQueryParameters: { // BigQueryParameters
+ *       ProjectId: "STRING_VALUE", // required
+ *       DataSetRegion: "STRING_VALUE",
  *     },
  *   },
  *   Credentials: { // DataSourceCredentials
@@ -304,6 +308,10 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             Catalog: "STRING_VALUE", // required
+ *           },
+ *           BigQueryParameters: {
+ *             ProjectId: "STRING_VALUE", // required
+ *             DataSetRegion: "STRING_VALUE",
  *           },
  *         },
  *       ],

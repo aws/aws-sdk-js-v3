@@ -4631,6 +4631,16 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *   FolderArns: [ // FolderArnList
  *     "STRING_VALUE",
  *   ],
+ *   LinkSharingConfiguration: { // LinkSharingConfiguration
+ *     Permissions: [
+ *       {
+ *         Principal: "STRING_VALUE", // required
+ *         Actions: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);

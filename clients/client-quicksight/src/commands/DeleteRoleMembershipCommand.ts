@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListUserGroupsRequest, ListUserGroupsResponse } from "../models/models_4";
-import { de_ListUserGroupsCommand, se_ListUserGroupsCommand } from "../protocols/Aws_restJson1";
+import { DeleteRoleMembershipRequest, DeleteRoleMembershipResponse } from "../models/models_3";
+import { de_DeleteRoleMembershipCommand, se_DeleteRoleMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -25,54 +25,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListUserGroupsCommand}.
+ * The input for {@link DeleteRoleMembershipCommand}.
  */
-export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
+export interface DeleteRoleMembershipCommandInput extends DeleteRoleMembershipRequest {}
 /**
  * @public
  *
- * The output of {@link ListUserGroupsCommand}.
+ * The output of {@link DeleteRoleMembershipCommand}.
  */
-export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
+export interface DeleteRoleMembershipCommandOutput extends DeleteRoleMembershipResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
+ * <p>Removes a group from a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListUserGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListUserGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteRoleMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DeleteRoleMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListUserGroupsRequest
- *   UserName: "STRING_VALUE", // required
+ * const input = { // DeleteRoleMembershipRequest
+ *   MemberName: "STRING_VALUE", // required
+ *   Role: "ADMIN" || "AUTHOR" || "READER", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
- * const command = new ListUserGroupsCommand(input);
+ * const command = new DeleteRoleMembershipCommand(input);
  * const response = await client.send(command);
- * // { // ListUserGroupsResponse
- * //   GroupList: [ // GroupList
- * //     { // Group
- * //       Arn: "STRING_VALUE",
- * //       GroupName: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       PrincipalId: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * // { // DeleteRoleMembershipResponse
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param ListUserGroupsCommandInput - {@link ListUserGroupsCommandInput}
- * @returns {@link ListUserGroupsCommandOutput}
- * @see {@link ListUserGroupsCommandInput} for command's `input` shape.
- * @see {@link ListUserGroupsCommandOutput} for command's `response` shape.
+ * @param DeleteRoleMembershipCommandInput - {@link DeleteRoleMembershipCommandInput}
+ * @returns {@link DeleteRoleMembershipCommandOutput}
+ * @see {@link DeleteRoleMembershipCommandInput} for command's `input` shape.
+ * @see {@link DeleteRoleMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -103,9 +93,9 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class ListUserGroupsCommand extends $Command<
-  ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput,
+export class DeleteRoleMembershipCommand extends $Command<
+  DeleteRoleMembershipCommandInput,
+  DeleteRoleMembershipCommandOutput,
   QuickSightClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -120,7 +110,7 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListUserGroupsCommandInput) {
+  constructor(readonly input: DeleteRoleMembershipCommandInput) {
     super();
   }
 
@@ -131,17 +121,17 @@ export class ListUserGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListUserGroupsCommandInput, ListUserGroupsCommandOutput> {
+  ): Handler<DeleteRoleMembershipCommandInput, DeleteRoleMembershipCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListUserGroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteRoleMembershipCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListUserGroupsCommand";
+    const commandName = "DeleteRoleMembershipCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,7 +140,7 @@ export class ListUserGroupsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "QuickSight_20180401",
-        operation: "ListUserGroups",
+        operation: "DeleteRoleMembership",
       },
     };
     const { requestHandler } = configuration;
@@ -164,14 +154,14 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListUserGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUserGroupsCommand(input, context);
+  private serialize(input: DeleteRoleMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteRoleMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserGroupsCommandOutput> {
-    return de_ListUserGroupsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoleMembershipCommandOutput> {
+    return de_DeleteRoleMembershipCommand(output, context);
   }
 }

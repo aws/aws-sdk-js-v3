@@ -242,7 +242,7 @@ export interface AssetBundleExportJobAnalysisOverrideProperties {
    * @public
    * <p>The ARN of the specific <code>Analysis</code> resource whose override properties are configured in this structure.</p>
    */
-  Arn?: string;
+  Arn: string | undefined;
 
   /**
    * @public
@@ -274,7 +274,7 @@ export interface AssetBundleExportJobDashboardOverrideProperties {
    * @public
    * <p>The ARN of the specific <code>Dashboard</code> resource whose override properties are configured in this structure.</p>
    */
-  Arn?: string;
+  Arn: string | undefined;
 
   /**
    * @public
@@ -306,7 +306,7 @@ export interface AssetBundleExportJobDataSetOverrideProperties {
    * @public
    * <p>The ARN of the specific <code>DataSet</code> resource whose override properties are configured in this structure.</p>
    */
-  Arn?: string;
+  Arn: string | undefined;
 
   /**
    * @public
@@ -354,7 +354,7 @@ export interface AssetBundleExportJobDataSourceOverrideProperties {
    * @public
    * <p>The ARN of the specific <code>DataSource</code> resource whose override properties are configured in this structure.</p>
    */
-  Arn?: string;
+  Arn: string | undefined;
 
   /**
    * @public
@@ -386,7 +386,7 @@ export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
    * @public
    * <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
    */
-  Arn?: string;
+  Arn: string | undefined;
 
   /**
    * @public
@@ -430,7 +430,7 @@ export interface AssetBundleExportJobThemeOverrideProperties {
    * @public
    * <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
    */
-  Arn?: string;
+  Arn: string | undefined;
 
   /**
    * @public
@@ -464,7 +464,7 @@ export interface AssetBundleExportJobVPCConnectionOverrideProperties {
    * @public
    * <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
    */
-  Arn?: string;
+  Arn: string | undefined;
 
   /**
    * @public
@@ -621,6 +621,48 @@ export interface AssetBundleExportJobSummary {
    * <p>The format for the export job.</p>
    */
   ExportFormat?: AssetBundleExportFormat;
+
+  /**
+   * @public
+   * <p>The flag that determines the inclusion of permissions associated with each resource ARN.</p>
+   */
+  IncludePermissions?: boolean;
+
+  /**
+   * @public
+   * <p>The flag that determines the inclusion of tags associated with each resource ARN.</p>
+   */
+  IncludeTags?: boolean;
+}
+
+/**
+ * @public
+ * <p>The option to relax the validation that is required to export each asset. When <code>StrictModeForAllResource</code> is set to true, validation is skipped for specific UI errors.</p>
+ */
+export interface AssetBundleExportJobValidationStrategy {
+  /**
+   * @public
+   * <p>A Boolean value that indicates whether to export resources under strict or lenient mode.</p>
+   */
+  StrictModeForAllResources?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes a warning that occurred during an Asset Bundle export job.</p>
+ */
+export interface AssetBundleExportJobWarning {
+  /**
+   * @public
+   * <p>The ARN of the resource whose processing caused a warning.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A description of the warning.</p>
+   */
+  Message?: string;
 }
 
 /**
@@ -658,6 +700,79 @@ export interface AssetBundleImportJobAnalysisOverrideParameters {
 
 /**
  * @public
+ * <p>A structure that contains the permissions for the resource that you want to override in an asset bundle import job.</p>
+ */
+export interface AssetBundleResourcePermissions {
+  /**
+   * @public
+   * <p>A list of principals to grant permissions on.</p>
+   */
+  Principals: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of IAM actions to grant permissions on.</p>
+   */
+  Actions: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of permissions to be applied to a list of analysis IDs.</p>
+ */
+export interface AssetBundleImportJobAnalysisOverridePermissions {
+  /**
+   * @public
+   * <p>A list of analysis IDs that you want to apply overrides to. You can use <code>*</code> to override all analyses in this asset bundle.</p>
+   */
+  AnalysisIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of permissions for the analyses that you want to apply overrides to.</p>
+   */
+  Permissions: AssetBundleResourcePermissions | undefined;
+}
+
+/**
+ * @public
+ * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+ *             resource.</p>
+ */
+export interface Tag {
+  /**
+   * @public
+   * <p>Tag key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * @public
+   * <p>Tag value.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of tags to be assigned to a list of analysis IDs.</p>
+ */
+export interface AssetBundleImportJobAnalysisOverrideTags {
+  /**
+   * @public
+   * <p>A list of analysis IDs that you want to apply overrides to. You can use <code>*</code> to override all analyses in this asset bundle.</p>
+   */
+  AnalysisIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags for the analyses that you want to apply overrides to.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
  * <p>The override parameters for a single dashboard that is being imported.</p>
  */
 export interface AssetBundleImportJobDashboardOverrideParameters {
@@ -676,6 +791,60 @@ export interface AssetBundleImportJobDashboardOverrideParameters {
 
 /**
  * @public
+ * <p>A structure that contains the configuration of a shared link to an Amazon QuickSight dashboard.</p>
+ */
+export interface AssetBundleResourceLinkSharingConfiguration {
+  /**
+   * @public
+   * <p>A list of link sharing permissions for the dashboards that you want to apply overrides to.</p>
+   */
+  Permissions?: AssetBundleResourcePermissions;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of permissions to be applied to a list of dashboard IDs.</p>
+ */
+export interface AssetBundleImportJobDashboardOverridePermissions {
+  /**
+   * @public
+   * <p>A list of dashboard IDs that you want to apply overrides to. You can use <code>*</code> to override all dashboards in this asset bundle.</p>
+   */
+  DashboardIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of permissions for the dashboards that you want to apply overrides to.</p>
+   */
+  Permissions?: AssetBundleResourcePermissions;
+
+  /**
+   * @public
+   * <p>A structure that contains the link sharing configurations that you want to apply overrides to.</p>
+   */
+  LinkSharingConfiguration?: AssetBundleResourceLinkSharingConfiguration;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of tags to be assigned to a list of dashboard IDs.</p>
+ */
+export interface AssetBundleImportJobDashboardOverrideTags {
+  /**
+   * @public
+   * <p>A list of dashboard IDs that you want to apply overrides to. You can use <code>*</code> to override all dashboards in this asset bundle.</p>
+   */
+  DashboardIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags for the dashboards that you want to apply overrides to.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
  * <p>The override parameters for a single dataset that is being imported.</p>
  */
 export interface AssetBundleImportJobDataSetOverrideParameters {
@@ -690,6 +859,42 @@ export interface AssetBundleImportJobDataSetOverrideParameters {
    * <p>A new name for the dataset.</p>
    */
   Name?: string;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of permissions to be applied to a list of dataset IDs.</p>
+ */
+export interface AssetBundleImportJobDataSetOverridePermissions {
+  /**
+   * @public
+   * <p>A list of dataset IDs that you want to apply overrides to. You can use <code>*</code> to override all datasets in this asset bundle.</p>
+   */
+  DataSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of permissions for the datasets that you want to apply overrides to.</p>
+   */
+  Permissions: AssetBundleResourcePermissions | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of tags to be assigned to a list of dataset IDs.</p>
+ */
+export interface AssetBundleImportJobDataSetOverrideTags {
+  /**
+   * @public
+   * <p>A list of dataset IDs that you want to apply overrides to. You can use <code>*</code> to override all datasets in this asset bundle.</p>
+   */
+  DataSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags for the datasets that you want to apply overrides to.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 /**
@@ -804,6 +1009,24 @@ export interface AwsIotAnalyticsParameters {
    * <p>Dataset name.</p>
    */
   DataSetName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters that are required to connect to a Google BigQuery data source.</p>
+ */
+export interface BigQueryParameters {
+  /**
+   * @public
+   * <p>The Google Cloud Platform project ID where your datasource was created.</p>
+   */
+  ProjectId: string | undefined;
+
+  /**
+   * @public
+   * <p>The storage location where you create a Google BigQuery data source.</p>
+   */
+  DataSetRegion?: string;
 }
 
 /**
@@ -1306,6 +1529,7 @@ export type DataSourceParameters =
   | DataSourceParameters.AuroraParametersMember
   | DataSourceParameters.AuroraPostgreSqlParametersMember
   | DataSourceParameters.AwsIotAnalyticsParametersMember
+  | DataSourceParameters.BigQueryParametersMember
   | DataSourceParameters.DatabricksParametersMember
   | DataSourceParameters.ExasolParametersMember
   | DataSourceParameters.JiraParametersMember
@@ -1361,6 +1585,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1394,6 +1619,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1427,6 +1653,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1460,6 +1687,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1493,6 +1721,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1526,6 +1755,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1559,6 +1789,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1592,6 +1823,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1625,6 +1857,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1658,6 +1891,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1691,6 +1925,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1724,6 +1959,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1757,6 +1993,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1790,6 +2027,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1823,6 +2061,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1856,6 +2095,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1889,6 +2129,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1922,6 +2163,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1955,6 +2197,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -1988,6 +2231,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -2021,6 +2265,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -2054,6 +2299,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -2087,6 +2333,7 @@ export namespace DataSourceParameters {
     DatabricksParameters: DatabricksParameters;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -2120,6 +2367,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters: StarburstParameters;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown?: never;
   }
 
@@ -2153,6 +2401,41 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters: TrinoParameters;
+    BigQueryParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The parameters that are required to connect to a Google BigQuery data source.</p>
+   */
+  export interface BigQueryParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters: BigQueryParameters;
     $unknown?: never;
   }
 
@@ -2185,6 +2468,7 @@ export namespace DataSourceParameters {
     DatabricksParameters?: never;
     StarburstParameters?: never;
     TrinoParameters?: never;
+    BigQueryParameters?: never;
     $unknown: [string, any];
   }
 
@@ -2214,6 +2498,7 @@ export namespace DataSourceParameters {
     DatabricksParameters: (value: DatabricksParameters) => T;
     StarburstParameters: (value: StarburstParameters) => T;
     TrinoParameters: (value: TrinoParameters) => T;
+    BigQueryParameters: (value: BigQueryParameters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2247,6 +2532,7 @@ export namespace DataSourceParameters {
     if (value.DatabricksParameters !== undefined) return visitor.DatabricksParameters(value.DatabricksParameters);
     if (value.StarburstParameters !== undefined) return visitor.StarburstParameters(value.StarburstParameters);
     if (value.TrinoParameters !== undefined) return visitor.TrinoParameters(value.TrinoParameters);
+    if (value.BigQueryParameters !== undefined) return visitor.BigQueryParameters(value.BigQueryParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2319,6 +2605,42 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
    * <p>An optional structure that provides the credentials to be used to create the imported data source.</p>
    */
   Credentials?: AssetBundleImportJobDataSourceCredentials;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of permissions to be applied to a list of data source IDs.</p>
+ */
+export interface AssetBundleImportJobDataSourceOverridePermissions {
+  /**
+   * @public
+   * <p>A list of data source IDs that you want to apply overrides to. You can use <code>*</code> to override all data sources in this asset bundle.</p>
+   */
+  DataSourceIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of permissions for the data source that you want to apply overrides to.</p>
+   */
+  Permissions: AssetBundleResourcePermissions | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of tags to be assigned to a list of data source IDs.</p>
+ */
+export interface AssetBundleImportJobDataSourceOverrideTags {
+  /**
+   * @public
+   * <p>A list of data source IDs that you want to apply overrides to. You can use <code>*</code> to override all data sources in this asset bundle.</p>
+   */
+  DataSourceIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags for the data source that you want to apply overrides to.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 /**
@@ -2497,6 +2819,150 @@ export interface AssetBundleImportJobOverrideParameters {
    * <p>A list of overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
    */
   Dashboards?: AssetBundleImportJobDashboardOverrideParameters[];
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of permissions to be applied to a list of theme IDs.</p>
+ */
+export interface AssetBundleImportJobThemeOverridePermissions {
+  /**
+   * @public
+   * <p>A list of theme IDs that you want to apply overrides to. You can use <code>*</code> to override all themes in this asset bundle.</p>
+   */
+  ThemeIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of permissions for the themes that you want to apply overrides to.</p>
+   */
+  Permissions: AssetBundleResourcePermissions | undefined;
+}
+
+/**
+ * @public
+ * <p>A structure that contains the override permission configurations that modify the permissions for specified resources before the resource is imported.</p>
+ */
+export interface AssetBundleImportJobOverridePermissions {
+  /**
+   * @public
+   * <p>A list of permissions overrides for any <code>DataSource</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  DataSources?: AssetBundleImportJobDataSourceOverridePermissions[];
+
+  /**
+   * @public
+   * <p>A list of permissions overrides for any <code>DataSet</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  DataSets?: AssetBundleImportJobDataSetOverridePermissions[];
+
+  /**
+   * @public
+   * <p>A list of permissions overrides for any <code>Theme</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Themes?: AssetBundleImportJobThemeOverridePermissions[];
+
+  /**
+   * @public
+   * <p>A list of permissions overrides for any <code>Analysis</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Analyses?: AssetBundleImportJobAnalysisOverridePermissions[];
+
+  /**
+   * @public
+   * <p>A list of permissions overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Dashboards?: AssetBundleImportJobDashboardOverridePermissions[];
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of tags to be assigned to a list of theme IDs.</p>
+ */
+export interface AssetBundleImportJobThemeOverrideTags {
+  /**
+   * @public
+   * <p>A list of theme IDs that you want to apply overrides to. You can use <code>*</code> to override all themes in this asset bundle.</p>
+   */
+  ThemeIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags for the themes that you want to apply overrides to.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that contains a list of tags to be assigned to a list of VPC connection IDs.</p>
+ */
+export interface AssetBundleImportJobVPCConnectionOverrideTags {
+  /**
+   * @public
+   * <p>A list of VPC connection IDs that you want to apply overrides to. You can use <code>*</code> to override all VPC connections in this asset bundle.</p>
+   */
+  VPCConnectionIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags for the VPC connections that you want to apply overrides to.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * <p>A structure that contains the override tag configuration that modify the tags that are assigned to specified resources before the resource is imported.</p>
+ */
+export interface AssetBundleImportJobOverrideTags {
+  /**
+   * @public
+   * <p>A list of tag overrides for any <code>VPCConnection</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  VPCConnections?: AssetBundleImportJobVPCConnectionOverrideTags[];
+
+  /**
+   * @public
+   * <p>A list of tag overrides for any <code>DataSource</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  DataSources?: AssetBundleImportJobDataSourceOverrideTags[];
+
+  /**
+   * @public
+   * <p>A list of tag overrides for any <code>DataSet</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  DataSets?: AssetBundleImportJobDataSetOverrideTags[];
+
+  /**
+   * @public
+   * <p>A list of tag overrides for any <code>Theme</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Themes?: AssetBundleImportJobThemeOverrideTags[];
+
+  /**
+   * @public
+   * <p>A list of tag overrides for any <code>Analysis</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Analyses?: AssetBundleImportJobAnalysisOverrideTags[];
+
+  /**
+   * @public
+   * <p>A list of tag overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Dashboards?: AssetBundleImportJobDashboardOverrideTags[];
+}
+
+/**
+ * @public
+ * <p>An optional parameter that overrides the validation strategy for all analyses and dashboards before the resource is imported.</p>
+ */
+export interface AssetBundleImportJobOverrideValidationStrategy {
+  /**
+   * @public
+   * <p>A Boolean value that indicates whether to import all analyses and dashboards under strict or lenient mode.</p>
+   */
+  StrictModeForAllResources?: boolean;
 }
 
 /**
@@ -3382,25 +3848,6 @@ export type ConstantType = (typeof ConstantType)[keyof typeof ConstantType];
 
 /**
  * @public
- * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
- *             resource.</p>
- */
-export interface Tag {
-  /**
-   * @public
-   * <p>Tag key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * @public
-   * <p>Tag value.</p>
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
  */
 export interface CreateAccountCustomizationRequest {
   /**
@@ -3549,9 +3996,10 @@ export interface CreateAccountSubscriptionRequest {
 
   /**
    * @public
-   * <p>The method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are <code>IAM_AND_QUICKSIGHT</code>, <code>IAM_ONLY</code>, and <code>ACTIVE_DIRECTORY</code>.</p>
+   * <p>The method that you want to use to authenticate your Amazon QuickSight account.</p>
    *          <p>If you choose <code>ACTIVE_DIRECTORY</code>, provide an <code>ActiveDirectoryName</code>
    *             and an <code>AdminGroup</code> associated with your Active Directory.</p>
+   *          <p>If you choose <code>IAM_IDENTITY_CENTER</code>, provide an <code>AdminGroup</code> associated with your IAM Identity Center account.</p>
    */
   AuthenticationMethod: AuthenticationMethodOption | undefined;
 
@@ -3595,28 +4043,22 @@ export interface CreateAccountSubscriptionRequest {
 
   /**
    * @public
-   * <p>The admin group associated with your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account. For more information about using
-   *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
-   *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
-   *                 User Guide.</p>
+   * <p>The admin group associated with your Active Directory or IAM Identity Center account. This field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Amazon QuickSight account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>
    */
   AdminGroup?: string[];
 
   /**
    * @public
-   * <p>The author group associated with your Active Directory. For more information about using
-   *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
-   *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
-   *                 User Guide.</p>
+   * <p>The author group associated with your Active Directory or IAM Identity Center account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>
    */
   AuthorGroup?: string[];
 
   /**
    * @public
-   * <p>The reader group associated with your Active Direcrtory. For more information about
-   *             using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
-   *                     Amazon QuickSight Enterprise Edition</a> in the <i>Amazon QuickSight
-   *                 User Guide</i>.</p>
+   * <p>The reader group associated with your Active Directory or IAM Identity Center account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>
    */
   ReaderGroup?: string[];
 
@@ -3892,7 +4334,7 @@ export type ValidationStrategyMode = (typeof ValidationStrategyMode)[keyof typeo
 export interface ValidationStrategy {
   /**
    * @public
-   * <p>The mode of validation for the asset to be creaed or updated. When you set this value to <code>STRICT</code>, strict validation for every error is enforced. When you set this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</p>
+   * <p>The mode of validation for the asset to be created or updated. When you set this value to <code>STRICT</code>, strict validation for every error is enforced. When you set this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</p>
    */
   Mode: ValidationStrategyMode | undefined;
 }
@@ -4378,6 +4820,18 @@ export interface DashboardVersionDefinition {
 
 /**
  * @public
+ * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
+ */
+export interface LinkSharingConfiguration {
+  /**
+   * @public
+   * <p>A structure that contains the permissions of a shareable link.</p>
+   */
+  Permissions?: ResourcePermission[];
+}
+
+/**
+ * @public
  * <p>Dashboard source template.</p>
  */
 export interface DashboardSourceTemplate {
@@ -4537,6 +4991,12 @@ export interface CreateDashboardRequest {
    * <p>When you create the dashboard, Amazon QuickSight adds the dashboard to these folders.</p>
    */
   FolderArns?: string[];
+
+  /**
+   * @public
+   * <p>A structure that contains the permissions of a shareable link to the dashboard.</p>
+   */
+  LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
 /**
@@ -5940,6 +6400,7 @@ export const DataSourceType = {
   AURORA: "AURORA",
   AURORA_POSTGRESQL: "AURORA_POSTGRESQL",
   AWS_IOT_ANALYTICS: "AWS_IOT_ANALYTICS",
+  BIGQUERY: "BIGQUERY",
   DATABRICKS: "DATABRICKS",
   EXASOL: "EXASOL",
   GITHUB: "GITHUB",
@@ -5956,8 +6417,10 @@ export const DataSourceType = {
   SNOWFLAKE: "SNOWFLAKE",
   SPARK: "SPARK",
   SQLSERVER: "SQLSERVER",
+  STARBURST: "STARBURST",
   TERADATA: "TERADATA",
   TIMESTREAM: "TIMESTREAM",
+  TRINO: "TRINO",
   TWITTER: "TWITTER",
 } as const;
 
@@ -6983,6 +7446,67 @@ export interface CreateRefreshScheduleResponse {
    * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
    */
   Arn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Role = {
+  ADMIN: "ADMIN",
+  AUTHOR: "AUTHOR",
+  READER: "READER",
+} as const;
+
+/**
+ * @public
+ */
+export type Role = (typeof Role)[keyof typeof Role];
+
+/**
+ * @public
+ */
+export interface CreateRoleMembershipRequest {
+  /**
+   * @public
+   * <p>The name of the group that you want to add to the role.</p>
+   */
+  MemberName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace that the role belongs to.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * @public
+   * <p>The role that you want to add a group to.</p>
+   */
+  Role: Role | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRoleMembershipResponse {
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
 }
 
 /**
@@ -8429,737 +8953,6 @@ export const NamedFilterType = {
 export type NamedFilterType = (typeof NamedFilterType)[keyof typeof NamedFilterType];
 
 /**
- * @public
- * @enum
- */
-export const NamedFilterAggType = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  NO_AGGREGATION: "NO_AGGREGATION",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type NamedFilterAggType = (typeof NamedFilterAggType)[keyof typeof NamedFilterAggType];
-
-/**
- * @public
- * <p>A structure that represents a singular filter constant, used in filters to specify a single value to match against.</p>
- */
-export interface TopicSingularFilterConstant {
-  /**
-   * @public
-   * <p>The type of the singular filter constant. Valid values for this structure are <code>SINGULAR</code>.</p>
-   */
-  ConstantType?: ConstantType;
-
-  /**
-   * @public
-   * <p>The value of the singular filter constant.</p>
-   */
-  SingularConstant?: string;
-}
-
-/**
- * @public
- * <p>A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.</p>
- */
-export interface TopicNumericEqualityFilter {
-  /**
-   * @public
-   * <p>The constant used in a numeric equality filter.</p>
-   */
-  Constant?: TopicSingularFilterConstant;
-
-  /**
-   * @public
-   * <p>An aggregation function that specifies how to calculate the value of a numeric field for
-   *          a topic. Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
-   *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
-   *             <code>MEDIAN</code>, <code>MIN</code>, <code>STDEV</code>, <code>STDEVP</code>,
-   *             <code>VAR</code>,
-   *          and <code>VARP</code>.</p>
-   */
-  Aggregation?: NamedFilterAggType;
-}
-
-/**
- * @public
- * <p>A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.</p>
- */
-export interface TopicNumericRangeFilter {
-  /**
-   * @public
-   * <p>A Boolean value that indicates whether the endpoints of the numeric range are included in the filter.
-   *          If set to true, topics whose numeric field value is equal to the endpoint values will be
-   *          included in the filter. If set to false, topics whose numeric field value is equal to the
-   *          endpoint values will be excluded from the filter.</p>
-   */
-  Inclusive?: boolean;
-
-  /**
-   * @public
-   * <p>The constant used in a
-   *          numeric range filter.</p>
-   */
-  Constant?: TopicRangeFilterConstant;
-
-  /**
-   * @public
-   * <p>An aggregation function that specifies how to calculate the value of a numeric field for
-   *          a topic, Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
-   *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
-   *             <code>MEDIAN</code>, <code>MIN</code>, <code>STDEV</code>, <code>STDEVP</code>,
-   *             <code>VAR</code>,
-   *          and <code>VARP</code>.</p>
-   */
-  Aggregation?: NamedFilterAggType;
-}
-
-/**
- * @public
- * @enum
- */
-export const TopicRelativeDateFilterFunction = {
-  LAST: "LAST",
-  NEXT: "NEXT",
-  NOW: "NOW",
-  PREVIOUS: "PREVIOUS",
-  THIS: "THIS",
-} as const;
-
-/**
- * @public
- */
-export type TopicRelativeDateFilterFunction =
-  (typeof TopicRelativeDateFilterFunction)[keyof typeof TopicRelativeDateFilterFunction];
-
-/**
- * @public
- * <p>A structure that represents a relative date filter.</p>
- */
-export interface TopicRelativeDateFilter {
-  /**
-   * @public
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
-   */
-  TimeGranularity?: TopicTimeGranularity;
-
-  /**
-   * @public
-   * <p>The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are <code>BEFORE</code>, <code>AFTER</code>, and <code>BETWEEN</code>.</p>
-   */
-  RelativeDateFilterFunction?: TopicRelativeDateFilterFunction;
-
-  /**
-   * @public
-   * <p>The constant used in a
-   *          relative date filter.</p>
-   */
-  Constant?: TopicSingularFilterConstant;
-}
-
-/**
- * @public
- * <p>A structure that represents a filter used to select items for a topic.</p>
- */
-export interface TopicFilter {
-  /**
-   * @public
-   * <p>A description of the filter used to select items for a topic.</p>
-   */
-  FilterDescription?: string;
-
-  /**
-   * @public
-   * <p>The class of the filter. Valid values for this structure are
-   *             <code>ENFORCED_VALUE_FILTER</code>,
-   *          <code>CONDITIONAL_VALUE_FILTER</code>,
-   *          and <code>NAMED_VALUE_FILTER</code>.</p>
-   */
-  FilterClass?: FilterClass;
-
-  /**
-   * @public
-   * <p>The name of the filter.</p>
-   */
-  FilterName: string | undefined;
-
-  /**
-   * @public
-   * <p>The other names or aliases for the filter.</p>
-   */
-  FilterSynonyms?: string[];
-
-  /**
-   * @public
-   * <p>The name of the field that the filter operates on.</p>
-   */
-  OperandFieldName: string | undefined;
-
-  /**
-   * @public
-   * <p>The type of the filter. Valid values for this structure are
-   *          <code>CATEGORY_FILTER</code>, <code>NUMERIC_EQUALITY_FILTER</code>,
-   *             <code>NUMERIC_RANGE_FILTER</code>,
-   *          <code>DATE_RANGE_FILTER</code>,
-   *          and <code>RELATIVE_DATE_FILTER</code>.</p>
-   */
-  FilterType?: NamedFilterType;
-
-  /**
-   * @public
-   * <p>The category filter that is associated with this filter.</p>
-   */
-  CategoryFilter?: TopicCategoryFilter;
-
-  /**
-   * @public
-   * <p>The numeric equality filter.</p>
-   */
-  NumericEqualityFilter?: TopicNumericEqualityFilter;
-
-  /**
-   * @public
-   * <p>The numeric range filter.</p>
-   */
-  NumericRangeFilter?: TopicNumericRangeFilter;
-
-  /**
-   * @public
-   * <p>The date range filter.</p>
-   */
-  DateRangeFilter?: TopicDateRangeFilter;
-
-  /**
-   * @public
-   * <p>The relative date filter.</p>
-   */
-  RelativeDateFilter?: TopicRelativeDateFilter;
-}
-
-/**
- * @public
- * @enum
- */
-export const NamedEntityAggType = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  CUSTOM: "CUSTOM",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  PERCENTILE: "PERCENTILE",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type NamedEntityAggType = (typeof NamedEntityAggType)[keyof typeof NamedEntityAggType];
-
-/**
- * @public
- * <p>A structure that represents a metric.</p>
- */
-export interface NamedEntityDefinitionMetric {
-  /**
-   * @public
-   * <p>The aggregation of a named entity. Valid values for this structure are <code>SUM</code>,
-   *             <code>MIN</code>, <code>MAX</code>, <code>COUNT</code>, <code>AVERAGE</code>,
-   *             <code>DISTINCT_COUNT</code>, <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
-   *             <code>VARP</code>, <code>PERCENTILE</code>,
-   *          <code>MEDIAN</code>,
-   *          and <code>CUSTOM</code>.</p>
-   */
-  Aggregation?: NamedEntityAggType;
-
-  /**
-   * @public
-   * <p>The additional parameters for an aggregation function.</p>
-   */
-  AggregationFunctionParameters?: Record<string, string>;
-}
-
-/**
- * @public
- * @enum
- */
-export const PropertyRole = {
-  ID: "ID",
-  PRIMARY: "PRIMARY",
-} as const;
-
-/**
- * @public
- */
-export type PropertyRole = (typeof PropertyRole)[keyof typeof PropertyRole];
-
-/**
- * @public
- * @enum
- */
-export const PropertyUsage = {
-  DIMENSION: "DIMENSION",
-  INHERIT: "INHERIT",
-  MEASURE: "MEASURE",
-} as const;
-
-/**
- * @public
- */
-export type PropertyUsage = (typeof PropertyUsage)[keyof typeof PropertyUsage];
-
-/**
- * @public
- * <p>A structure that represents a named entity.</p>
- */
-export interface NamedEntityDefinition {
-  /**
-   * @public
-   * <p>The name of the entity.</p>
-   */
-  FieldName?: string;
-
-  /**
-   * @public
-   * <p>The property name to be used for the named entity.</p>
-   */
-  PropertyName?: string;
-
-  /**
-   * @public
-   * <p>The property role. Valid values for this structure are <code>PRIMARY</code> and <code>ID</code>.</p>
-   */
-  PropertyRole?: PropertyRole;
-
-  /**
-   * @public
-   * <p>The property usage. Valid values for this structure are <code>INHERIT</code>,
-   *             <code>DIMENSION</code>,
-   *          and <code>MEASURE</code>.</p>
-   */
-  PropertyUsage?: PropertyUsage;
-
-  /**
-   * @public
-   * <p>The definition of a metric.</p>
-   */
-  Metric?: NamedEntityDefinitionMetric;
-}
-
-/**
- * @public
- * <p>A structure that represents a semantic entity type.</p>
- */
-export interface SemanticEntityType {
-  /**
-   * @public
-   * <p>The semantic entity type name.</p>
-   */
-  TypeName?: string;
-
-  /**
-   * @public
-   * <p>The semantic entity sub type name.</p>
-   */
-  SubTypeName?: string;
-
-  /**
-   * @public
-   * <p>The semantic entity type parameters.</p>
-   */
-  TypeParameters?: Record<string, string>;
-}
-
-/**
- * @public
- * <p>A structure that represents a named entity.</p>
- */
-export interface TopicNamedEntity {
-  /**
-   * @public
-   * <p>The name of the named entity.</p>
-   */
-  EntityName: string | undefined;
-
-  /**
-   * @public
-   * <p>The description of the named entity.</p>
-   */
-  EntityDescription?: string;
-
-  /**
-   * @public
-   * <p>The other
-   *          names or aliases for the named entity.</p>
-   */
-  EntitySynonyms?: string[];
-
-  /**
-   * @public
-   * <p>The type of named entity that a topic represents.</p>
-   */
-  SemanticEntityType?: SemanticEntityType;
-
-  /**
-   * @public
-   * <p>The definition of a named entity.</p>
-   */
-  Definition?: NamedEntityDefinition[];
-}
-
-/**
- * @public
- * <p>A structure that represents a dataset.</p>
- */
-export interface DatasetMetadata {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DatasetArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the dataset.</p>
-   */
-  DatasetName?: string;
-
-  /**
-   * @public
-   * <p>The description of the dataset.</p>
-   */
-  DatasetDescription?: string;
-
-  /**
-   * @public
-   * <p>The definition of a data aggregation.</p>
-   */
-  DataAggregation?: DataAggregation;
-
-  /**
-   * @public
-   * <p>The list of filter definitions.</p>
-   */
-  Filters?: TopicFilter[];
-
-  /**
-   * @public
-   * <p>The list of column definitions.</p>
-   */
-  Columns?: TopicColumn[];
-
-  /**
-   * @public
-   * <p>The list of calculated field definitions.</p>
-   */
-  CalculatedFields?: TopicCalculatedField[];
-
-  /**
-   * @public
-   * <p>The list of named entities definitions.</p>
-   */
-  NamedEntities?: TopicNamedEntity[];
-}
-
-/**
- * @public
- * <p>A structure that describes the details of a topic, such as its name, description, and associated data sets.</p>
- */
-export interface TopicDetails {
-  /**
-   * @public
-   * <p>The name of the topic.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The description of the topic.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The data sets that the topic is associated with.</p>
-   */
-  DataSets?: DatasetMetadata[];
-}
-
-/**
- * @public
- */
-export interface CreateTopicRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that you want to create a topic in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId: string | undefined;
-
-  /**
-   * @public
-   * <p>The definition of a topic to create.</p>
-   */
-  Topic: TopicDetails | undefined;
-
-  /**
-   * @public
-   * <p>Contains a map of the key-value pairs for the resource tag or tags that are assigned to
-   *          the dataset.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateTopicResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region
-   *          for each Amazon Web Services account.</p>
-   */
-  TopicId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
-   */
-  RefreshArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const TopicScheduleType = {
-  DAILY: "DAILY",
-  HOURLY: "HOURLY",
-  MONTHLY: "MONTHLY",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type TopicScheduleType = (typeof TopicScheduleType)[keyof typeof TopicScheduleType];
-
-/**
- * @public
- * <p>A structure that represents a topic refresh schedule.</p>
- */
-export interface TopicRefreshSchedule {
-  /**
-   * @public
-   * <p>A Boolean value that controls whether to schedule is enabled.</p>
-   */
-  IsEnabled: boolean | undefined;
-
-  /**
-   * @public
-   * <p>A Boolean value that controls whether to schedule runs at the same schedule that is specified in
-   *          SPICE dataset.</p>
-   */
-  BasedOnSpiceSchedule: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The starting date and time for the refresh schedule.</p>
-   */
-  StartingAt?: Date;
-
-  /**
-   * @public
-   * <p>The timezone that you want the refresh schedule to use.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * @public
-   * <p>The time of day when the refresh should run, for
-   *          example, Monday-Sunday.</p>
-   */
-  RepeatAt?: string;
-
-  /**
-   * @public
-   * <p>The type of refresh schedule. Valid values for this structure are <code>HOURLY</code>,
-   *             <code>DAILY</code>,
-   *          <code>WEEKLY</code>,
-   *          and <code>MONTHLY</code>.</p>
-   */
-  TopicScheduleType?: TopicScheduleType;
-}
-
-/**
- * @public
- */
-export interface CreateTopicRefreshScheduleRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the topic
-   *          you're creating a refresh schedule for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DatasetArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the dataset.</p>
-   */
-  DatasetName?: string;
-
-  /**
-   * @public
-   * <p>The definition of a refresh schedule.</p>
-   */
-  RefreshSchedule: TopicRefreshSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTopicRefreshScheduleResponse {
-  /**
-   * @public
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   */
-  TopicArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DatasetArn?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface CreateVPCConnectionRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the account where you want to create a new VPC
-   * 			connection.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the VPC connection that
-   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   */
-  VPCConnectionId: string | undefined;
-
-  /**
-   * @public
-   * <p>The display name for the VPC connection.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of subnet IDs for the VPC connection.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>A list of security group IDs for the VPC connection.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
-   */
-  DnsResolvers?: string[];
-
-  /**
-   * @public
-   * <p>The IAM role to associate with the VPC connection.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A map of the key-value pairs for the resource tag or tags assigned to the VPC
-   * 			connection.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
  * @internal
  */
 export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
@@ -9230,6 +9023,14 @@ export const AssetBundleImportJobOverrideParametersFilterSensitiveLog = (
  * @internal
  */
 export const AssetBundleImportSourceFilterSensitiveLog = (obj: AssetBundleImportSource): any => ({
+  ...obj,
+  ...(obj.Body && { Body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssetBundleImportSourceDescriptionFilterSensitiveLog = (obj: AssetBundleImportSourceDescription): any => ({
   ...obj,
   ...(obj.Body && { Body: SENSITIVE_STRING }),
 });
@@ -9505,79 +9306,4 @@ export const TopicRangeFilterConstantFilterSensitiveLog = (obj: TopicRangeFilter
 export const TopicDateRangeFilterFilterSensitiveLog = (obj: TopicDateRangeFilter): any => ({
   ...obj,
   ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicSingularFilterConstantFilterSensitiveLog = (obj: TopicSingularFilterConstant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicNumericEqualityFilterFilterSensitiveLog = (obj: TopicNumericEqualityFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicNumericRangeFilterFilterSensitiveLog = (obj: TopicNumericRangeFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicRelativeDateFilterFilterSensitiveLog = (obj: TopicRelativeDateFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicFilterFilterSensitiveLog = (obj: TopicFilter): any => ({
-  ...obj,
-  ...(obj.CategoryFilter && { CategoryFilter: TopicCategoryFilterFilterSensitiveLog(obj.CategoryFilter) }),
-  ...(obj.NumericEqualityFilter && {
-    NumericEqualityFilter: TopicNumericEqualityFilterFilterSensitiveLog(obj.NumericEqualityFilter),
-  }),
-  ...(obj.NumericRangeFilter && {
-    NumericRangeFilter: TopicNumericRangeFilterFilterSensitiveLog(obj.NumericRangeFilter),
-  }),
-  ...(obj.DateRangeFilter && { DateRangeFilter: TopicDateRangeFilterFilterSensitiveLog(obj.DateRangeFilter) }),
-  ...(obj.RelativeDateFilter && {
-    RelativeDateFilter: TopicRelativeDateFilterFilterSensitiveLog(obj.RelativeDateFilter),
-  }),
-});
-
-/**
- * @internal
- */
-export const DatasetMetadataFilterSensitiveLog = (obj: DatasetMetadata): any => ({
-  ...obj,
-  ...(obj.Filters && { Filters: obj.Filters.map((item) => TopicFilterFilterSensitiveLog(item)) }),
-  ...(obj.Columns && { Columns: obj.Columns.map((item) => TopicColumnFilterSensitiveLog(item)) }),
-  ...(obj.CalculatedFields && {
-    CalculatedFields: obj.CalculatedFields.map((item) => TopicCalculatedFieldFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const TopicDetailsFilterSensitiveLog = (obj: TopicDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTopicRequestFilterSensitiveLog = (obj: CreateTopicRequest): any => ({
-  ...obj,
 });

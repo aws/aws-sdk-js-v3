@@ -175,6 +175,10 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Port: Number("int"), // required
  *       Catalog: "STRING_VALUE", // required
  *     },
+ *     BigQueryParameters: { // BigQueryParameters
+ *       ProjectId: "STRING_VALUE", // required
+ *       DataSetRegion: "STRING_VALUE",
+ *     },
  *   },
  *   Credentials: { // DataSourceCredentials
  *     CredentialPair: { // CredentialPair
@@ -303,6 +307,10 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             Catalog: "STRING_VALUE", // required
+ *           },
+ *           BigQueryParameters: {
+ *             ProjectId: "STRING_VALUE", // required
+ *             DataSetRegion: "STRING_VALUE",
  *           },
  *         },
  *       ],

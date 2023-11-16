@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListUserGroupsRequest, ListUserGroupsResponse } from "../models/models_4";
-import { de_ListUserGroupsCommand, se_ListUserGroupsCommand } from "../protocols/Aws_restJson1";
+import { DescribeRoleCustomPermissionRequest, DescribeRoleCustomPermissionResponse } from "../models/models_3";
+import {
+  de_DescribeRoleCustomPermissionCommand,
+  se_DescribeRoleCustomPermissionCommand,
+} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -25,54 +28,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListUserGroupsCommand}.
+ * The input for {@link DescribeRoleCustomPermissionCommand}.
  */
-export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
+export interface DescribeRoleCustomPermissionCommandInput extends DescribeRoleCustomPermissionRequest {}
 /**
  * @public
  *
- * The output of {@link ListUserGroupsCommand}.
+ * The output of {@link DescribeRoleCustomPermissionCommand}.
  */
-export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
+export interface DescribeRoleCustomPermissionCommandOutput
+  extends DescribeRoleCustomPermissionResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
+ * <p>Describes all custom permissions that are  mapped to a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListUserGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListUserGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeRoleCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeRoleCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListUserGroupsRequest
- *   UserName: "STRING_VALUE", // required
+ * const input = { // DescribeRoleCustomPermissionRequest
+ *   Role: "ADMIN" || "AUTHOR" || "READER", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
- * const command = new ListUserGroupsCommand(input);
+ * const command = new DescribeRoleCustomPermissionCommand(input);
  * const response = await client.send(command);
- * // { // ListUserGroupsResponse
- * //   GroupList: [ // GroupList
- * //     { // Group
- * //       Arn: "STRING_VALUE",
- * //       GroupName: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       PrincipalId: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * // { // DescribeRoleCustomPermissionResponse
+ * //   CustomPermissionsName: "STRING_VALUE",
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param ListUserGroupsCommandInput - {@link ListUserGroupsCommandInput}
- * @returns {@link ListUserGroupsCommandOutput}
- * @see {@link ListUserGroupsCommandInput} for command's `input` shape.
- * @see {@link ListUserGroupsCommandOutput} for command's `response` shape.
+ * @param DescribeRoleCustomPermissionCommandInput - {@link DescribeRoleCustomPermissionCommandInput}
+ * @returns {@link DescribeRoleCustomPermissionCommandOutput}
+ * @see {@link DescribeRoleCustomPermissionCommandInput} for command's `input` shape.
+ * @see {@link DescribeRoleCustomPermissionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -103,9 +98,9 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class ListUserGroupsCommand extends $Command<
-  ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput,
+export class DescribeRoleCustomPermissionCommand extends $Command<
+  DescribeRoleCustomPermissionCommandInput,
+  DescribeRoleCustomPermissionCommandOutput,
   QuickSightClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -120,7 +115,7 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListUserGroupsCommandInput) {
+  constructor(readonly input: DescribeRoleCustomPermissionCommandInput) {
     super();
   }
 
@@ -131,17 +126,17 @@ export class ListUserGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListUserGroupsCommandInput, ListUserGroupsCommandOutput> {
+  ): Handler<DescribeRoleCustomPermissionCommandInput, DescribeRoleCustomPermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListUserGroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeRoleCustomPermissionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListUserGroupsCommand";
+    const commandName = "DescribeRoleCustomPermissionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,7 +145,7 @@ export class ListUserGroupsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "QuickSight_20180401",
-        operation: "ListUserGroups",
+        operation: "DescribeRoleCustomPermission",
       },
     };
     const { requestHandler } = configuration;
@@ -164,14 +159,17 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListUserGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUserGroupsCommand(input, context);
+  private serialize(input: DescribeRoleCustomPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeRoleCustomPermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserGroupsCommandOutput> {
-    return de_ListUserGroupsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeRoleCustomPermissionCommandOutput> {
+    return de_DescribeRoleCustomPermissionCommand(output, context);
   }
 }

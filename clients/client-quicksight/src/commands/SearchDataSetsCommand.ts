@@ -14,8 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { SearchDataSetsRequest } from "../models/models_3";
-import { SearchDataSetsResponse } from "../models/models_4";
+import { SearchDataSetsRequest, SearchDataSetsResponse } from "../models/models_4";
 import { de_SearchDataSetsCommand, se_SearchDataSetsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

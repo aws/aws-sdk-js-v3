@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListUsersRequest, ListUsersResponse } from "../models/models_3";
+import { ListUsersRequest, ListUsersResponse } from "../models/models_4";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

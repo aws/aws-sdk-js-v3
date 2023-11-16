@@ -604,43 +604,6 @@ export interface AnalysisError {
 
 /**
  * @public
- * @enum
- */
-export const DayOfTheWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfTheWeek = (typeof DayOfTheWeek)[keyof typeof DayOfTheWeek];
-
-/**
- * @public
- * <p>An array of analysis level configurations.</p>
- */
-export interface AssetOptions {
-  /**
-   * @public
-   * <p>Determines the timezone for the analysis.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * @public
-   * <p>Determines the week start day for an analysis.</p>
-   */
-  WeekStart?: DayOfTheWeek;
-}
-
-/**
- * @public
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
  *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
  *             contains at least one sheet. Each sheet contains at least one visualization widget, for
@@ -745,12 +708,6 @@ export interface Analysis {
    * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
    */
   Sheets?: Sheet[];
-
-  /**
-   * @public
-   * <p>An array of analysis level configurations.</p>
-   */
-  Options?: AssetOptions;
 }
 
 /**
@@ -2673,6 +2630,43 @@ export interface FilterGroup {
    *          </ul>
    */
   CrossDataset: CrossDatasetTypes | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DayOfTheWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfTheWeek = (typeof DayOfTheWeek)[keyof typeof DayOfTheWeek];
+
+/**
+ * @public
+ * <p>An array of analysis level configurations.</p>
+ */
+export interface AssetOptions {
+  /**
+   * @public
+   * <p>Determines the timezone for the analysis.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * @public
+   * <p>Determines the week start day for an analysis.</p>
+   */
+  WeekStart?: DayOfTheWeek;
 }
 
 /**

@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTopicRefreshSchedulesRequest, ListTopicRefreshSchedulesResponse } from "../models/models_3";
+import { ListTopicRefreshSchedulesRequest, ListTopicRefreshSchedulesResponse } from "../models/models_4";
 import { de_ListTopicRefreshSchedulesCommand, se_ListTopicRefreshSchedulesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

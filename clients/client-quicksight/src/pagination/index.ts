@@ -18,6 +18,7 @@ export * from "./ListIAMPolicyAssignmentsForUserPaginator";
 export * from "./ListIAMPolicyAssignmentsPaginator";
 export * from "./ListIngestionsPaginator";
 export * from "./ListNamespacesPaginator";
+export * from "./ListRoleMembershipsPaginator";
 export * from "./ListTemplateAliasesPaginator";
 export * from "./ListTemplateVersionsPaginator";
 export * from "./ListTemplatesPaginator";

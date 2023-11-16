@@ -14,8 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { CreateVPCConnectionRequest } from "../models/models_2";
-import { CreateVPCConnectionResponse } from "../models/models_3";
+import { CreateVPCConnectionRequest, CreateVPCConnectionResponse } from "../models/models_3";
 import { de_CreateVPCConnectionCommand, se_CreateVPCConnectionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

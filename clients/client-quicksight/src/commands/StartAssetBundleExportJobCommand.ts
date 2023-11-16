@@ -60,7 +60,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *     },
  *     VPCConnections: [ // AssetBundleExportJobVPCConnectionOverridePropertiesList
  *       { // AssetBundleExportJobVPCConnectionOverrideProperties
- *         Arn: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobVPCConnectionPropertyToOverrideList // required
  *           "Name" || "DnsResolvers" || "RoleArn",
  *         ],
@@ -68,7 +68,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *     ],
  *     RefreshSchedules: [ // AssetBundleExportJobRefreshScheduleOverridePropertiesList
  *       { // AssetBundleExportJobRefreshScheduleOverrideProperties
- *         Arn: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobRefreshSchedulePropertyToOverrideList // required
  *           "StartAfterDateTime",
  *         ],
@@ -76,7 +76,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *     ],
  *     DataSources: [ // AssetBundleExportJobDataSourceOverridePropertiesList
  *       { // AssetBundleExportJobDataSourceOverrideProperties
- *         Arn: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobDataSourcePropertyToOverrideList // required
  *           "Name" || "DisableSsl" || "SecretArn" || "Username" || "Password" || "Domain" || "WorkGroup" || "Host" || "Port" || "Database" || "DataSetName" || "Catalog" || "InstanceId" || "ClusterId" || "ManifestFileLocation" || "Warehouse" || "RoleArn",
  *         ],
@@ -84,7 +84,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *     ],
  *     DataSets: [ // AssetBundleExportJobDataSetOverridePropertiesList
  *       { // AssetBundleExportJobDataSetOverrideProperties
- *         Arn: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobDataSetPropertyToOverrideList // required
  *           "Name",
  *         ],
@@ -92,7 +92,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *     ],
  *     Themes: [ // AssetBundleExportJobThemeOverridePropertiesList
  *       { // AssetBundleExportJobThemeOverrideProperties
- *         Arn: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobThemePropertyToOverrideList // required
  *           "Name",
  *         ],
@@ -100,7 +100,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *     ],
  *     Analyses: [ // AssetBundleExportJobAnalysisOverridePropertiesList
  *       { // AssetBundleExportJobAnalysisOverrideProperties
- *         Arn: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobAnalysisPropertyToOverrideList // required
  *           "Name",
  *         ],
@@ -108,12 +108,17 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *     ],
  *     Dashboards: [ // AssetBundleExportJobDashboardOverridePropertiesList
  *       { // AssetBundleExportJobDashboardOverrideProperties
- *         Arn: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobDashboardPropertyToOverrideList // required
  *           "Name",
  *         ],
  *       },
  *     ],
+ *   },
+ *   IncludePermissions: true || false,
+ *   IncludeTags: true || false,
+ *   ValidationStrategy: { // AssetBundleExportJobValidationStrategy
+ *     StrictModeForAllResources: true || false,
  *   },
  * };
  * const command = new StartAssetBundleExportJobCommand(input);

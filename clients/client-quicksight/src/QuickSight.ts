@@ -74,6 +74,11 @@ import {
   CreateRefreshScheduleCommandOutput,
 } from "./commands/CreateRefreshScheduleCommand";
 import {
+  CreateRoleMembershipCommand,
+  CreateRoleMembershipCommandInput,
+  CreateRoleMembershipCommandOutput,
+} from "./commands/CreateRoleMembershipCommand";
+import {
   CreateTemplateAliasCommand,
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
@@ -166,6 +171,16 @@ import {
   DeleteRefreshScheduleCommandInput,
   DeleteRefreshScheduleCommandOutput,
 } from "./commands/DeleteRefreshScheduleCommand";
+import {
+  DeleteRoleCustomPermissionCommand,
+  DeleteRoleCustomPermissionCommandInput,
+  DeleteRoleCustomPermissionCommandOutput,
+} from "./commands/DeleteRoleCustomPermissionCommand";
+import {
+  DeleteRoleMembershipCommand,
+  DeleteRoleMembershipCommandInput,
+  DeleteRoleMembershipCommandOutput,
+} from "./commands/DeleteRoleMembershipCommand";
 import {
   DeleteTemplateAliasCommand,
   DeleteTemplateAliasCommandInput,
@@ -340,6 +355,11 @@ import {
   DescribeRefreshScheduleCommandOutput,
 } from "./commands/DescribeRefreshScheduleCommand";
 import {
+  DescribeRoleCustomPermissionCommand,
+  DescribeRoleCustomPermissionCommandInput,
+  DescribeRoleCustomPermissionCommandOutput,
+} from "./commands/DescribeRoleCustomPermissionCommand";
+import {
   DescribeTemplateAliasCommand,
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -496,6 +516,11 @@ import {
   ListRefreshSchedulesCommandInput,
   ListRefreshSchedulesCommandOutput,
 } from "./commands/ListRefreshSchedulesCommand";
+import {
+  ListRoleMembershipsCommand,
+  ListRoleMembershipsCommandInput,
+  ListRoleMembershipsCommandOutput,
+} from "./commands/ListRoleMembershipsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -697,6 +722,11 @@ import {
   UpdateRefreshScheduleCommandOutput,
 } from "./commands/UpdateRefreshScheduleCommand";
 import {
+  UpdateRoleCustomPermissionCommand,
+  UpdateRoleCustomPermissionCommandInput,
+  UpdateRoleCustomPermissionCommandOutput,
+} from "./commands/UpdateRoleCustomPermissionCommand";
+import {
   UpdateTemplateAliasCommand,
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -757,6 +787,7 @@ const commands = {
   CreateIngestionCommand,
   CreateNamespaceCommand,
   CreateRefreshScheduleCommand,
+  CreateRoleMembershipCommand,
   CreateTemplateCommand,
   CreateTemplateAliasCommand,
   CreateThemeCommand,
@@ -778,6 +809,8 @@ const commands = {
   DeleteIAMPolicyAssignmentCommand,
   DeleteNamespaceCommand,
   DeleteRefreshScheduleCommand,
+  DeleteRoleCustomPermissionCommand,
+  DeleteRoleMembershipCommand,
   DeleteTemplateCommand,
   DeleteTemplateAliasCommand,
   DeleteThemeCommand,
@@ -815,6 +848,7 @@ const commands = {
   DescribeIpRestrictionCommand,
   DescribeNamespaceCommand,
   DescribeRefreshScheduleCommand,
+  DescribeRoleCustomPermissionCommand,
   DescribeTemplateCommand,
   DescribeTemplateAliasCommand,
   DescribeTemplateDefinitionCommand,
@@ -848,6 +882,7 @@ const commands = {
   ListIngestionsCommand,
   ListNamespacesCommand,
   ListRefreshSchedulesCommand,
+  ListRoleMembershipsCommand,
   ListTagsForResourceCommand,
   ListTemplateAliasesCommand,
   ListTemplatesCommand,
@@ -892,6 +927,7 @@ const commands = {
   UpdateIpRestrictionCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateRefreshScheduleCommand,
+  UpdateRoleCustomPermissionCommand,
   UpdateTemplateCommand,
   UpdateTemplateAliasCommand,
   UpdateTemplatePermissionsCommand,
@@ -1126,6 +1162,23 @@ export interface QuickSight {
     args: CreateRefreshScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRoleMembershipCommand}
+   */
+  createRoleMembership(
+    args: CreateRoleMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRoleMembershipCommandOutput>;
+  createRoleMembership(
+    args: CreateRoleMembershipCommandInput,
+    cb: (err: any, data?: CreateRoleMembershipCommandOutput) => void
+  ): void;
+  createRoleMembership(
+    args: CreateRoleMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRoleMembershipCommandOutput) => void
   ): void;
 
   /**
@@ -1441,6 +1494,40 @@ export interface QuickSight {
     args: DeleteRefreshScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRoleCustomPermissionCommand}
+   */
+  deleteRoleCustomPermission(
+    args: DeleteRoleCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoleCustomPermissionCommandOutput>;
+  deleteRoleCustomPermission(
+    args: DeleteRoleCustomPermissionCommandInput,
+    cb: (err: any, data?: DeleteRoleCustomPermissionCommandOutput) => void
+  ): void;
+  deleteRoleCustomPermission(
+    args: DeleteRoleCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRoleCustomPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRoleMembershipCommand}
+   */
+  deleteRoleMembership(
+    args: DeleteRoleMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoleMembershipCommandOutput>;
+  deleteRoleMembership(
+    args: DeleteRoleMembershipCommandInput,
+    cb: (err: any, data?: DeleteRoleMembershipCommandOutput) => void
+  ): void;
+  deleteRoleMembership(
+    args: DeleteRoleMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRoleMembershipCommandOutput) => void
   ): void;
 
   /**
@@ -2040,6 +2127,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeRoleCustomPermissionCommand}
+   */
+  describeRoleCustomPermission(
+    args: DescribeRoleCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRoleCustomPermissionCommandOutput>;
+  describeRoleCustomPermission(
+    args: DescribeRoleCustomPermissionCommandInput,
+    cb: (err: any, data?: DescribeRoleCustomPermissionCommandOutput) => void
+  ): void;
+  describeRoleCustomPermission(
+    args: DescribeRoleCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRoleCustomPermissionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTemplateCommand}
    */
   describeTemplate(
@@ -2544,6 +2648,23 @@ export interface QuickSight {
     args: ListRefreshSchedulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRefreshSchedulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRoleMembershipsCommand}
+   */
+  listRoleMemberships(
+    args: ListRoleMembershipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoleMembershipsCommandOutput>;
+  listRoleMemberships(
+    args: ListRoleMembershipsCommandInput,
+    cb: (err: any, data?: ListRoleMembershipsCommandOutput) => void
+  ): void;
+  listRoleMemberships(
+    args: ListRoleMembershipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoleMembershipsCommandOutput) => void
   ): void;
 
   /**
@@ -3202,6 +3323,23 @@ export interface QuickSight {
     args: UpdateRefreshScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRoleCustomPermissionCommand}
+   */
+  updateRoleCustomPermission(
+    args: UpdateRoleCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoleCustomPermissionCommandOutput>;
+  updateRoleCustomPermission(
+    args: UpdateRoleCustomPermissionCommandInput,
+    cb: (err: any, data?: UpdateRoleCustomPermissionCommandOutput) => void
+  ): void;
+  updateRoleCustomPermission(
+    args: UpdateRoleCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoleCustomPermissionCommandOutput) => void
   ): void;
 
   /**

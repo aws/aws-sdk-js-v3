@@ -84,6 +84,10 @@ import {
   CreateRefreshScheduleCommandOutput,
 } from "./commands/CreateRefreshScheduleCommand";
 import {
+  CreateRoleMembershipCommandInput,
+  CreateRoleMembershipCommandOutput,
+} from "./commands/CreateRoleMembershipCommand";
+import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
 } from "./commands/CreateTemplateAliasCommand";
@@ -134,6 +138,14 @@ import {
   DeleteRefreshScheduleCommandInput,
   DeleteRefreshScheduleCommandOutput,
 } from "./commands/DeleteRefreshScheduleCommand";
+import {
+  DeleteRoleCustomPermissionCommandInput,
+  DeleteRoleCustomPermissionCommandOutput,
+} from "./commands/DeleteRoleCustomPermissionCommand";
+import {
+  DeleteRoleMembershipCommandInput,
+  DeleteRoleMembershipCommandOutput,
+} from "./commands/DeleteRoleMembershipCommand";
 import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -244,6 +256,10 @@ import {
   DescribeRefreshScheduleCommandOutput,
 } from "./commands/DescribeRefreshScheduleCommand";
 import {
+  DescribeRoleCustomPermissionCommandInput,
+  DescribeRoleCustomPermissionCommandOutput,
+} from "./commands/DescribeRoleCustomPermissionCommand";
+import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
 } from "./commands/DescribeTemplateAliasCommand";
@@ -330,6 +346,10 @@ import {
   ListRefreshSchedulesCommandInput,
   ListRefreshSchedulesCommandOutput,
 } from "./commands/ListRefreshSchedulesCommand";
+import {
+  ListRoleMembershipsCommandInput,
+  ListRoleMembershipsCommandOutput,
+} from "./commands/ListRoleMembershipsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -435,6 +455,10 @@ import {
   UpdateRefreshScheduleCommandOutput,
 } from "./commands/UpdateRefreshScheduleCommand";
 import {
+  UpdateRoleCustomPermissionCommandInput,
+  UpdateRoleCustomPermissionCommandOutput,
+} from "./commands/UpdateRoleCustomPermissionCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
@@ -493,6 +517,7 @@ export type ServiceInputTypes =
   | CreateIngestionCommandInput
   | CreateNamespaceCommandInput
   | CreateRefreshScheduleCommandInput
+  | CreateRoleMembershipCommandInput
   | CreateTemplateAliasCommandInput
   | CreateTemplateCommandInput
   | CreateThemeAliasCommandInput
@@ -514,6 +539,8 @@ export type ServiceInputTypes =
   | DeleteIAMPolicyAssignmentCommandInput
   | DeleteNamespaceCommandInput
   | DeleteRefreshScheduleCommandInput
+  | DeleteRoleCustomPermissionCommandInput
+  | DeleteRoleMembershipCommandInput
   | DeleteTemplateAliasCommandInput
   | DeleteTemplateCommandInput
   | DeleteThemeAliasCommandInput
@@ -551,6 +578,7 @@ export type ServiceInputTypes =
   | DescribeIpRestrictionCommandInput
   | DescribeNamespaceCommandInput
   | DescribeRefreshScheduleCommandInput
+  | DescribeRoleCustomPermissionCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplateDefinitionCommandInput
@@ -584,6 +612,7 @@ export type ServiceInputTypes =
   | ListIngestionsCommandInput
   | ListNamespacesCommandInput
   | ListRefreshSchedulesCommandInput
+  | ListRoleMembershipsCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
@@ -628,6 +657,7 @@ export type ServiceInputTypes =
   | UpdateIpRestrictionCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateRefreshScheduleCommandInput
+  | UpdateRoleCustomPermissionCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -659,6 +689,7 @@ export type ServiceOutputTypes =
   | CreateIngestionCommandOutput
   | CreateNamespaceCommandOutput
   | CreateRefreshScheduleCommandOutput
+  | CreateRoleMembershipCommandOutput
   | CreateTemplateAliasCommandOutput
   | CreateTemplateCommandOutput
   | CreateThemeAliasCommandOutput
@@ -680,6 +711,8 @@ export type ServiceOutputTypes =
   | DeleteIAMPolicyAssignmentCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteRefreshScheduleCommandOutput
+  | DeleteRoleCustomPermissionCommandOutput
+  | DeleteRoleMembershipCommandOutput
   | DeleteTemplateAliasCommandOutput
   | DeleteTemplateCommandOutput
   | DeleteThemeAliasCommandOutput
@@ -717,6 +750,7 @@ export type ServiceOutputTypes =
   | DescribeIpRestrictionCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeRefreshScheduleCommandOutput
+  | DescribeRoleCustomPermissionCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplateDefinitionCommandOutput
@@ -750,6 +784,7 @@ export type ServiceOutputTypes =
   | ListIngestionsCommandOutput
   | ListNamespacesCommandOutput
   | ListRefreshSchedulesCommandOutput
+  | ListRoleMembershipsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
@@ -794,6 +829,7 @@ export type ServiceOutputTypes =
   | UpdateIpRestrictionCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateRefreshScheduleCommandOutput
+  | UpdateRoleCustomPermissionCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput

@@ -60,6 +60,8 @@ export interface ListAssetBundleExportJobsCommandOutput extends ListAssetBundleE
  * //       AssetBundleExportJobId: "STRING_VALUE",
  * //       IncludeAllDependencies: true || false,
  * //       ExportFormat: "CLOUDFORMATION_JSON" || "QUICKSIGHT_JSON",
+ * //       IncludePermissions: true || false,
+ * //       IncludeTags: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

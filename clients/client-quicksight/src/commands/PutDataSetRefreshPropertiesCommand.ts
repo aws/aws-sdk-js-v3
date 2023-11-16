@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutDataSetRefreshPropertiesRequest, PutDataSetRefreshPropertiesResponse } from "../models/models_3";
+import { PutDataSetRefreshPropertiesRequest, PutDataSetRefreshPropertiesResponse } from "../models/models_4";
 import {
   de_PutDataSetRefreshPropertiesCommand,
   se_PutDataSetRefreshPropertiesCommand,

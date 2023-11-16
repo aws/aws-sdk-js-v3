@@ -61,6 +61,10 @@ import {
   CreateRefreshScheduleCommandOutput,
 } from "../commands/CreateRefreshScheduleCommand";
 import {
+  CreateRoleMembershipCommandInput,
+  CreateRoleMembershipCommandOutput,
+} from "../commands/CreateRoleMembershipCommand";
+import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
 } from "../commands/CreateTemplateAliasCommand";
@@ -111,6 +115,14 @@ import {
   DeleteRefreshScheduleCommandInput,
   DeleteRefreshScheduleCommandOutput,
 } from "../commands/DeleteRefreshScheduleCommand";
+import {
+  DeleteRoleCustomPermissionCommandInput,
+  DeleteRoleCustomPermissionCommandOutput,
+} from "../commands/DeleteRoleCustomPermissionCommand";
+import {
+  DeleteRoleMembershipCommandInput,
+  DeleteRoleMembershipCommandOutput,
+} from "../commands/DeleteRoleMembershipCommand";
 import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -221,6 +233,10 @@ import {
   DescribeRefreshScheduleCommandOutput,
 } from "../commands/DescribeRefreshScheduleCommand";
 import {
+  DescribeRoleCustomPermissionCommandInput,
+  DescribeRoleCustomPermissionCommandOutput,
+} from "../commands/DescribeRoleCustomPermissionCommand";
+import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
 } from "../commands/DescribeTemplateAliasCommand";
@@ -307,6 +323,10 @@ import {
   ListRefreshSchedulesCommandInput,
   ListRefreshSchedulesCommandOutput,
 } from "../commands/ListRefreshSchedulesCommand";
+import {
+  ListRoleMembershipsCommandInput,
+  ListRoleMembershipsCommandOutput,
+} from "../commands/ListRoleMembershipsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -411,6 +431,10 @@ import {
   UpdateRefreshScheduleCommandInput,
   UpdateRefreshScheduleCommandOutput,
 } from "../commands/UpdateRefreshScheduleCommand";
+import {
+  UpdateRoleCustomPermissionCommandInput,
+  UpdateRoleCustomPermissionCommandOutput,
+} from "../commands/UpdateRoleCustomPermissionCommand";
 import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -937,26 +961,44 @@ import {
   AssetBundleExportJobSummary,
   AssetBundleExportJobThemeOverrideProperties,
   AssetBundleExportJobThemePropertyToOverride,
+  AssetBundleExportJobValidationStrategy,
   AssetBundleExportJobVPCConnectionOverrideProperties,
   AssetBundleExportJobVPCConnectionPropertyToOverride,
   AssetBundleImportJobAnalysisOverrideParameters,
+  AssetBundleImportJobAnalysisOverridePermissions,
+  AssetBundleImportJobAnalysisOverrideTags,
   AssetBundleImportJobDashboardOverrideParameters,
+  AssetBundleImportJobDashboardOverridePermissions,
+  AssetBundleImportJobDashboardOverrideTags,
   AssetBundleImportJobDataSetOverrideParameters,
+  AssetBundleImportJobDataSetOverridePermissions,
+  AssetBundleImportJobDataSetOverrideTags,
   AssetBundleImportJobDataSourceCredentialPair,
   AssetBundleImportJobDataSourceCredentials,
   AssetBundleImportJobDataSourceOverrideParameters,
+  AssetBundleImportJobDataSourceOverridePermissions,
+  AssetBundleImportJobDataSourceOverrideTags,
   AssetBundleImportJobOverrideParameters,
+  AssetBundleImportJobOverridePermissions,
+  AssetBundleImportJobOverrideTags,
+  AssetBundleImportJobOverrideValidationStrategy,
   AssetBundleImportJobRefreshScheduleOverrideParameters,
   AssetBundleImportJobResourceIdOverrideConfiguration,
   AssetBundleImportJobSummary,
   AssetBundleImportJobThemeOverrideParameters,
+  AssetBundleImportJobThemeOverridePermissions,
+  AssetBundleImportJobThemeOverrideTags,
   AssetBundleImportJobVPCConnectionOverrideParameters,
+  AssetBundleImportJobVPCConnectionOverrideTags,
   AssetBundleImportSource,
+  AssetBundleResourceLinkSharingConfiguration,
+  AssetBundleResourcePermissions,
   AthenaParameters,
   AuroraParameters,
   AuroraPostgreSqlParameters,
   AuthorSpecifiedAggregation,
   AwsIotAnalyticsParameters,
+  BigQueryParameters,
   BookmarksConfigurations,
   BorderStyle,
   CalculatedColumn,
@@ -989,7 +1031,6 @@ import {
   DataPointMenuLabelOption,
   DataPointTooltipOption,
   DataSetConfiguration,
-  DatasetMetadata,
   DatasetParameter,
   DataSetSchema,
   DataSetUsageConfiguration,
@@ -1022,14 +1063,13 @@ import {
   JoinInstruction,
   JoinKeyProperties,
   LimitExceededException,
+  LinkSharingConfiguration,
   LogicalTable,
   LogicalTableSource,
   ManifestFileLocation,
   MarginStyle,
   MariaDbParameters,
   MySqlParameters,
-  NamedEntityDefinition,
-  NamedEntityDefinitionMetric,
   NegativeFormat,
   NewDefaultValues,
   OracleParameters,
@@ -1058,7 +1098,6 @@ import {
   S3Parameters,
   S3Source,
   ScheduleRefreshOnEntity,
-  SemanticEntityType,
   SemanticType,
   ServiceNowParameters,
   SheetControlsOption,
@@ -1091,15 +1130,7 @@ import {
   TopicCategoryFilterConstant,
   TopicColumn,
   TopicDateRangeFilter,
-  TopicDetails,
-  TopicFilter,
-  TopicNamedEntity,
-  TopicNumericEqualityFilter,
-  TopicNumericRangeFilter,
   TopicRangeFilterConstant,
-  TopicRefreshSchedule,
-  TopicRelativeDateFilter,
-  TopicSingularFilterConstant,
   TransformOperation,
   TrinoParameters,
   TwitterParameters,
@@ -1120,6 +1151,7 @@ import {
   DashboardVersion,
   DashboardVersionSummary,
   DataSet,
+  DatasetMetadata,
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
@@ -1137,6 +1169,8 @@ import {
   InvalidNextTokenException,
   InvalidRequestException,
   LookbackWindow,
+  NamedEntityDefinition,
+  NamedEntityDefinitionMetric,
   QuickSightUserNotFoundException,
   RefreshConfiguration,
   RegisteredUserConsoleFeatureConfigurations,
@@ -1146,6 +1180,7 @@ import {
   RegisteredUserEmbeddingExperienceConfiguration,
   RegisteredUserQSearchBarEmbeddingConfiguration,
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  SemanticEntityType,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
   SnapshotConfiguration,
@@ -1157,15 +1192,26 @@ import {
   TemplateVersion,
   TemplateVersionSummary,
   Theme,
-  ThemeSummary,
   ThemeVersion,
-  ThemeVersionSummary,
-  TopicRefreshScheduleSummary,
+  TopicDetails,
+  TopicFilter,
+  TopicNamedEntity,
+  TopicNumericEqualityFilter,
+  TopicNumericRangeFilter,
+  TopicRefreshSchedule,
+  TopicRelativeDateFilter,
+  TopicSingularFilterConstant,
   UnsupportedPricingPlanException,
   VPCConnection,
-  VPCConnectionSummary,
 } from "../models/models_3";
-import { SnapshotAnonymousUser, SnapshotUserConfiguration } from "../models/models_4";
+import {
+  SnapshotAnonymousUser,
+  SnapshotUserConfiguration,
+  ThemeSummary,
+  ThemeVersionSummary,
+  TopicRefreshScheduleSummary,
+  VPCConnectionSummary,
+} from "../models/models_4";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
 /**
@@ -1372,6 +1418,7 @@ export const se_CreateDashboardCommand = async (
       DashboardPublishOptions: (_) => _json(_),
       Definition: (_) => se_DashboardVersionDefinition(_, context),
       FolderArns: (_) => _json(_),
+      LinkSharingConfiguration: (_) => _json(_),
       Name: [],
       Parameters: (_) => se__Parameters(_, context),
       Permissions: (_) => _json(_),
@@ -1800,6 +1847,41 @@ export const se_CreateRefreshScheduleCommand = async (
       Schedule: (_) => se_RefreshSchedule(_, context),
     })
   );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateRoleMembershipCommand
+ */
+export const se_CreateRoleMembershipCommand = async (
+  input: CreateRoleMembershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "MemberName", () => input.MemberName!, "{MemberName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2594,6 +2676,75 @@ export const se_DeleteRefreshScheduleCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteRoleCustomPermissionCommand
+ */
+export const se_DeleteRoleCustomPermissionCommand = async (
+  input: DeleteRoleCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteRoleMembershipCommand
+ */
+export const se_DeleteRoleMembershipCommand = async (
+  input: DeleteRoleMembershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "MemberName", () => input.MemberName!, "{MemberName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -3921,6 +4072,40 @@ export const se_DescribeRefreshScheduleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeRoleCustomPermissionCommand
+ */
+export const se_DescribeRoleCustomPermissionCommand = async (
+  input: DescribeRoleCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeTemplateCommand
  */
 export const se_DescribeTemplateCommand = async (
@@ -5147,6 +5332,45 @@ export const se_ListRefreshSchedulesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListRoleMembershipsCommand
+ */
+export const se_ListRoleMembershipsCommand = async (
+  input: ListRoleMembershipsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -5976,7 +6200,10 @@ export const se_StartAssetBundleExportJobCommand = async (
       CloudFormationOverridePropertyConfiguration: (_) => _json(_),
       ExportFormat: [],
       IncludeAllDependencies: [],
+      IncludePermissions: [],
+      IncludeTags: [],
       ResourceArns: (_) => _json(_),
+      ValidationStrategy: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -6019,6 +6246,9 @@ export const se_StartAssetBundleImportJobCommand = async (
       AssetBundleImportSource: (_) => se_AssetBundleImportSource(_, context),
       FailureAction: [],
       OverrideParameters: (_) => se_AssetBundleImportJobOverrideParameters(_, context),
+      OverridePermissions: (_) => _json(_),
+      OverrideTags: (_) => _json(_),
+      OverrideValidationStrategy: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -6902,6 +7132,47 @@ export const se_UpdateRefreshScheduleCommand = async (
   body = JSON.stringify(
     take(input, {
       Schedule: (_) => se_RefreshSchedule(_, context),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateRoleCustomPermissionCommand
+ */
+export const se_UpdateRoleCustomPermissionCommand = async (
+  input: UpdateRoleCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CustomPermissionsName: [],
     })
   );
   return new __HttpRequest({
@@ -8492,6 +8763,74 @@ const de_CreateRefreshScheduleCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateRoleMembershipCommand
+ */
+export const de_CreateRoleMembershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRoleMembershipCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateRoleMembershipCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRoleMembershipCommandError
+ */
+const de_CreateRoleMembershipCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRoleMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateTemplateCommand
  */
 export const de_CreateTemplateCommand = async (
@@ -9958,6 +10297,140 @@ const de_DeleteRefreshScheduleCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteRoleCustomPermissionCommand
+ */
+export const de_DeleteRoleCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRoleCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteRoleCustomPermissionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRoleCustomPermissionCommandError
+ */
+const de_DeleteRoleCustomPermissionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRoleCustomPermissionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteRoleMembershipCommand
+ */
+export const de_DeleteRoleMembershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRoleMembershipCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteRoleMembershipCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRoleMembershipCommandError
+ */
+const de_DeleteRoleMembershipCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRoleMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteTemplateCommand
  */
 export const de_DeleteTemplateCommand = async (
@@ -11012,9 +11485,13 @@ export const de_DescribeAssetBundleExportJobCommand = async (
     Errors: _json,
     ExportFormat: __expectString,
     IncludeAllDependencies: __expectBoolean,
+    IncludePermissions: __expectBoolean,
+    IncludeTags: __expectBoolean,
     JobStatus: __expectString,
     RequestId: __expectString,
     ResourceArns: _json,
+    ValidationStrategy: _json,
+    Warnings: _json,
   });
   Object.assign(contents, doc);
   map(contents, {
@@ -11079,6 +11556,9 @@ export const de_DescribeAssetBundleImportJobCommand = async (
     FailureAction: __expectString,
     JobStatus: __expectString,
     OverrideParameters: (_) => de_AssetBundleImportJobOverrideParameters(_, context),
+    OverridePermissions: _json,
+    OverrideTags: _json,
+    OverrideValidationStrategy: _json,
     RequestId: __expectString,
     RollbackErrors: _json,
   });
@@ -12464,6 +12944,73 @@ const de_DescribeRefreshScheduleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeRoleCustomPermissionCommand
+ */
+export const de_DescribeRoleCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRoleCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeRoleCustomPermissionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomPermissionsName: __expectString,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeRoleCustomPermissionCommandError
+ */
+const de_DescribeRoleCustomPermissionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRoleCustomPermissionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -14729,6 +15276,82 @@ const de_ListRefreshSchedulesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRoleMembershipsCommand
+ */
+export const de_ListRoleMembershipsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoleMembershipsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRoleMembershipsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MembersList: _json,
+    NextToken: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRoleMembershipsCommandError
+ */
+const de_ListRoleMembershipsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoleMembershipsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -17783,6 +18406,72 @@ const de_UpdateRefreshScheduleCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateRoleCustomPermissionCommand
+ */
+export const de_UpdateRoleCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoleCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRoleCustomPermissionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRoleCustomPermissionCommandError
+ */
+const de_UpdateRoleCustomPermissionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoleCustomPermissionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateTemplateCommand
  */
 export const de_UpdateTemplateCommand = async (
@@ -19128,6 +19817,8 @@ const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): 
 
 // se_AssetBundleExportJobThemePropertyToOverrideList omitted.
 
+// se_AssetBundleExportJobValidationStrategy omitted.
+
 // se_AssetBundleExportJobVPCConnectionOverrideProperties omitted.
 
 // se_AssetBundleExportJobVPCConnectionOverridePropertiesList omitted.
@@ -19138,13 +19829,37 @@ const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): 
 
 // se_AssetBundleImportJobAnalysisOverrideParametersList omitted.
 
+// se_AssetBundleImportJobAnalysisOverridePermissions omitted.
+
+// se_AssetBundleImportJobAnalysisOverridePermissionsList omitted.
+
+// se_AssetBundleImportJobAnalysisOverrideTags omitted.
+
+// se_AssetBundleImportJobAnalysisOverrideTagsList omitted.
+
 // se_AssetBundleImportJobDashboardOverrideParameters omitted.
 
 // se_AssetBundleImportJobDashboardOverrideParametersList omitted.
 
+// se_AssetBundleImportJobDashboardOverridePermissions omitted.
+
+// se_AssetBundleImportJobDashboardOverridePermissionsList omitted.
+
+// se_AssetBundleImportJobDashboardOverrideTags omitted.
+
+// se_AssetBundleImportJobDashboardOverrideTagsList omitted.
+
 // se_AssetBundleImportJobDataSetOverrideParameters omitted.
 
 // se_AssetBundleImportJobDataSetOverrideParametersList omitted.
+
+// se_AssetBundleImportJobDataSetOverridePermissions omitted.
+
+// se_AssetBundleImportJobDataSetOverridePermissionsList omitted.
+
+// se_AssetBundleImportJobDataSetOverrideTags omitted.
+
+// se_AssetBundleImportJobDataSetOverrideTagsList omitted.
 
 // se_AssetBundleImportJobDataSourceCredentialPair omitted.
 
@@ -19153,6 +19868,14 @@ const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): 
 // se_AssetBundleImportJobDataSourceOverrideParameters omitted.
 
 // se_AssetBundleImportJobDataSourceOverrideParametersList omitted.
+
+// se_AssetBundleImportJobDataSourceOverridePermissions omitted.
+
+// se_AssetBundleImportJobDataSourceOverridePermissionsList omitted.
+
+// se_AssetBundleImportJobDataSourceOverrideTags omitted.
+
+// se_AssetBundleImportJobDataSourceOverrideTagsList omitted.
 
 /**
  * serializeAws_restJson1AssetBundleImportJobOverrideParameters
@@ -19172,6 +19895,12 @@ const se_AssetBundleImportJobOverrideParameters = (
     VPCConnections: _json,
   });
 };
+
+// se_AssetBundleImportJobOverridePermissions omitted.
+
+// se_AssetBundleImportJobOverrideTags omitted.
+
+// se_AssetBundleImportJobOverrideValidationStrategy omitted.
 
 /**
  * serializeAws_restJson1AssetBundleImportJobRefreshScheduleOverrideParameters
@@ -19207,9 +19936,21 @@ const se_AssetBundleImportJobRefreshScheduleOverrideParametersList = (
 
 // se_AssetBundleImportJobThemeOverrideParametersList omitted.
 
+// se_AssetBundleImportJobThemeOverridePermissions omitted.
+
+// se_AssetBundleImportJobThemeOverridePermissionsList omitted.
+
+// se_AssetBundleImportJobThemeOverrideTags omitted.
+
+// se_AssetBundleImportJobThemeOverrideTagsList omitted.
+
 // se_AssetBundleImportJobVPCConnectionOverrideParameters omitted.
 
 // se_AssetBundleImportJobVPCConnectionOverrideParametersList omitted.
+
+// se_AssetBundleImportJobVPCConnectionOverrideTags omitted.
+
+// se_AssetBundleImportJobVPCConnectionOverrideTagsList omitted.
 
 /**
  * serializeAws_restJson1AssetBundleImportSource
@@ -19221,7 +19962,15 @@ const se_AssetBundleImportSource = (input: AssetBundleImportSource, context: __S
   });
 };
 
+// se_AssetBundlePrincipalList omitted.
+
 // se_AssetBundleResourceArns omitted.
+
+// se_AssetBundleResourceLinkSharingConfiguration omitted.
+
+// se_AssetBundleResourcePermissions omitted.
+
+// se_AssetBundleRestrictiveResourceIdList omitted.
 
 // se_AssetOptions omitted.
 
@@ -19400,6 +20149,8 @@ const se_BarChartVisual = (input: BarChartVisual, context: __SerdeContext): any 
     VisualId: [],
   });
 };
+
+// se_BigQueryParameters omitted.
 
 // se_BinCountOptions omitted.
 
@@ -21527,6 +22278,8 @@ const se_LineSeriesAxisDisplayOptions = (input: LineSeriesAxisDisplayOptions, co
     MissingDataConfigurations: _json,
   });
 };
+
+// se_LinkSharingConfiguration omitted.
 
 // se_ListControlDisplayOptions omitted.
 
@@ -23730,7 +24483,6 @@ const de_Analysis = (output: any, context: __SerdeContext): Analysis => {
     Errors: _json,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
-    Options: _json,
     Sheets: _json,
     Status: __expectString,
     ThemeArn: __expectString,
@@ -23871,6 +24623,8 @@ const de_AssetBundleExportJobSummary = (output: any, context: __SerdeContext): A
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ExportFormat: __expectString,
     IncludeAllDependencies: __expectBoolean,
+    IncludePermissions: __expectBoolean,
+    IncludeTags: __expectBoolean,
     JobStatus: __expectString,
   }) as any;
 };
@@ -23893,23 +24647,53 @@ const de_AssetBundleExportJobSummaryList = (output: any, context: __SerdeContext
 
 // de_AssetBundleExportJobThemePropertyToOverrideList omitted.
 
+// de_AssetBundleExportJobValidationStrategy omitted.
+
 // de_AssetBundleExportJobVPCConnectionOverrideProperties omitted.
 
 // de_AssetBundleExportJobVPCConnectionOverridePropertiesList omitted.
 
 // de_AssetBundleExportJobVPCConnectionPropertyToOverrideList omitted.
 
+// de_AssetBundleExportJobWarning omitted.
+
+// de_AssetBundleExportJobWarningList omitted.
+
 // de_AssetBundleImportJobAnalysisOverrideParameters omitted.
 
 // de_AssetBundleImportJobAnalysisOverrideParametersList omitted.
+
+// de_AssetBundleImportJobAnalysisOverridePermissions omitted.
+
+// de_AssetBundleImportJobAnalysisOverridePermissionsList omitted.
+
+// de_AssetBundleImportJobAnalysisOverrideTags omitted.
+
+// de_AssetBundleImportJobAnalysisOverrideTagsList omitted.
 
 // de_AssetBundleImportJobDashboardOverrideParameters omitted.
 
 // de_AssetBundleImportJobDashboardOverrideParametersList omitted.
 
+// de_AssetBundleImportJobDashboardOverridePermissions omitted.
+
+// de_AssetBundleImportJobDashboardOverridePermissionsList omitted.
+
+// de_AssetBundleImportJobDashboardOverrideTags omitted.
+
+// de_AssetBundleImportJobDashboardOverrideTagsList omitted.
+
 // de_AssetBundleImportJobDataSetOverrideParameters omitted.
 
 // de_AssetBundleImportJobDataSetOverrideParametersList omitted.
+
+// de_AssetBundleImportJobDataSetOverridePermissions omitted.
+
+// de_AssetBundleImportJobDataSetOverridePermissionsList omitted.
+
+// de_AssetBundleImportJobDataSetOverrideTags omitted.
+
+// de_AssetBundleImportJobDataSetOverrideTagsList omitted.
 
 // de_AssetBundleImportJobDataSourceCredentialPair omitted.
 
@@ -23918,6 +24702,14 @@ const de_AssetBundleExportJobSummaryList = (output: any, context: __SerdeContext
 // de_AssetBundleImportJobDataSourceOverrideParameters omitted.
 
 // de_AssetBundleImportJobDataSourceOverrideParametersList omitted.
+
+// de_AssetBundleImportJobDataSourceOverridePermissions omitted.
+
+// de_AssetBundleImportJobDataSourceOverridePermissionsList omitted.
+
+// de_AssetBundleImportJobDataSourceOverrideTags omitted.
+
+// de_AssetBundleImportJobDataSourceOverrideTagsList omitted.
 
 // de_AssetBundleImportJobError omitted.
 
@@ -23941,6 +24733,12 @@ const de_AssetBundleImportJobOverrideParameters = (
     VPCConnections: _json,
   }) as any;
 };
+
+// de_AssetBundleImportJobOverridePermissions omitted.
+
+// de_AssetBundleImportJobOverrideTags omitted.
+
+// de_AssetBundleImportJobOverrideValidationStrategy omitted.
 
 /**
  * deserializeAws_restJson1AssetBundleImportJobRefreshScheduleOverrideParameters
@@ -24002,13 +24800,33 @@ const de_AssetBundleImportJobSummaryList = (output: any, context: __SerdeContext
 
 // de_AssetBundleImportJobThemeOverrideParametersList omitted.
 
+// de_AssetBundleImportJobThemeOverridePermissions omitted.
+
+// de_AssetBundleImportJobThemeOverridePermissionsList omitted.
+
+// de_AssetBundleImportJobThemeOverrideTags omitted.
+
+// de_AssetBundleImportJobThemeOverrideTagsList omitted.
+
 // de_AssetBundleImportJobVPCConnectionOverrideParameters omitted.
 
 // de_AssetBundleImportJobVPCConnectionOverrideParametersList omitted.
 
+// de_AssetBundleImportJobVPCConnectionOverrideTags omitted.
+
+// de_AssetBundleImportJobVPCConnectionOverrideTagsList omitted.
+
 // de_AssetBundleImportSourceDescription omitted.
 
+// de_AssetBundlePrincipalList omitted.
+
 // de_AssetBundleResourceArns omitted.
+
+// de_AssetBundleResourceLinkSharingConfiguration omitted.
+
+// de_AssetBundleResourcePermissions omitted.
+
+// de_AssetBundleRestrictiveResourceIdList omitted.
 
 // de_AssetOptions omitted.
 
@@ -24187,6 +25005,8 @@ const de_BarChartVisual = (output: any, context: __SerdeContext): BarChartVisual
     VisualId: __expectString,
   }) as any;
 };
+
+// de_BigQueryParameters omitted.
 
 // de_BinCountOptions omitted.
 
@@ -24721,7 +25541,6 @@ const de_DashboardVersion = (output: any, context: __SerdeContext): DashboardVer
     DataSetArns: _json,
     Description: __expectString,
     Errors: _json,
-    Options: _json,
     Sheets: _json,
     SourceEntityArn: __expectString,
     Status: __expectString,
@@ -26071,6 +26890,8 @@ const de_GradientStopList = (output: any, context: __SerdeContext): GradientStop
 // de_GroupMember omitted.
 
 // de_GroupMemberList omitted.
+
+// de_GroupsList omitted.
 
 /**
  * deserializeAws_restJson1GrowthRateComputation
@@ -28195,7 +29016,6 @@ const de_TemplateVersion = (output: any, context: __SerdeContext): TemplateVersi
     DataSetConfigurations: _json,
     Description: __expectString,
     Errors: _json,
-    Options: _json,
     Sheets: _json,
     SourceEntityArn: __expectString,
     Status: __expectString,

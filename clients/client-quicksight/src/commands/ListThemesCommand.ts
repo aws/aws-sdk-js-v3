@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListThemesRequest, ListThemesResponse } from "../models/models_3";
+import { ListThemesRequest, ListThemesResponse } from "../models/models_4";
 import { de_ListThemesCommand, se_ListThemesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

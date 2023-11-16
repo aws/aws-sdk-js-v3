@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListUserGroupsRequest, ListUserGroupsResponse } from "../models/models_4";
-import { de_ListUserGroupsCommand, se_ListUserGroupsCommand } from "../protocols/Aws_restJson1";
+import { CreateRoleMembershipRequest, CreateRoleMembershipResponse } from "../models/models_2";
+import { de_CreateRoleMembershipCommand, se_CreateRoleMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -25,54 +25,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListUserGroupsCommand}.
+ * The input for {@link CreateRoleMembershipCommand}.
  */
-export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
+export interface CreateRoleMembershipCommandInput extends CreateRoleMembershipRequest {}
 /**
  * @public
  *
- * The output of {@link ListUserGroupsCommand}.
+ * The output of {@link CreateRoleMembershipCommand}.
  */
-export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
+export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
+ * <p>Use <code>CreateRoleMembership</code> to add an existing Amazon QuickSight group to an existing role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListUserGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListUserGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateRoleMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, CreateRoleMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListUserGroupsRequest
- *   UserName: "STRING_VALUE", // required
+ * const input = { // CreateRoleMembershipRequest
+ *   MemberName: "STRING_VALUE", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Role: "ADMIN" || "AUTHOR" || "READER", // required
  * };
- * const command = new ListUserGroupsCommand(input);
+ * const command = new CreateRoleMembershipCommand(input);
  * const response = await client.send(command);
- * // { // ListUserGroupsResponse
- * //   GroupList: [ // GroupList
- * //     { // Group
- * //       Arn: "STRING_VALUE",
- * //       GroupName: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       PrincipalId: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * // { // CreateRoleMembershipResponse
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param ListUserGroupsCommandInput - {@link ListUserGroupsCommandInput}
- * @returns {@link ListUserGroupsCommandOutput}
- * @see {@link ListUserGroupsCommandInput} for command's `input` shape.
- * @see {@link ListUserGroupsCommandOutput} for command's `response` shape.
+ * @param CreateRoleMembershipCommandInput - {@link CreateRoleMembershipCommandInput}
+ * @returns {@link CreateRoleMembershipCommandOutput}
+ * @see {@link CreateRoleMembershipCommandInput} for command's `input` shape.
+ * @see {@link CreateRoleMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -103,9 +93,9 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class ListUserGroupsCommand extends $Command<
-  ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput,
+export class CreateRoleMembershipCommand extends $Command<
+  CreateRoleMembershipCommandInput,
+  CreateRoleMembershipCommandOutput,
   QuickSightClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -120,7 +110,7 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListUserGroupsCommandInput) {
+  constructor(readonly input: CreateRoleMembershipCommandInput) {
     super();
   }
 
@@ -131,17 +121,17 @@ export class ListUserGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListUserGroupsCommandInput, ListUserGroupsCommandOutput> {
+  ): Handler<CreateRoleMembershipCommandInput, CreateRoleMembershipCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListUserGroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateRoleMembershipCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListUserGroupsCommand";
+    const commandName = "CreateRoleMembershipCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,7 +140,7 @@ export class ListUserGroupsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "QuickSight_20180401",
-        operation: "ListUserGroups",
+        operation: "CreateRoleMembership",
       },
     };
     const { requestHandler } = configuration;
@@ -164,14 +154,14 @@ export class ListUserGroupsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListUserGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUserGroupsCommand(input, context);
+  private serialize(input: CreateRoleMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateRoleMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserGroupsCommandOutput> {
-    return de_ListUserGroupsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoleMembershipCommandOutput> {
+    return de_CreateRoleMembershipCommand(output, context);
   }
 }

@@ -57,7 +57,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //       Arn: "STRING_VALUE",
  * //       DataSourceId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS",
+ * //       Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY",
  * //       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
@@ -184,6 +184,10 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           Port: Number("int"), // required
  * //           Catalog: "STRING_VALUE", // required
  * //         },
+ * //         BigQueryParameters: { // BigQueryParameters
+ * //           ProjectId: "STRING_VALUE", // required
+ * //           DataSetRegion: "STRING_VALUE",
+ * //         },
  * //       },
  * //       AlternateDataSourceParameters: [ // DataSourceParametersList
  * //         {//  Union: only one key present
@@ -308,6 +312,10 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //             Host: "STRING_VALUE", // required
  * //             Port: Number("int"), // required
  * //             Catalog: "STRING_VALUE", // required
+ * //           },
+ * //           BigQueryParameters: {
+ * //             ProjectId: "STRING_VALUE", // required
+ * //             DataSetRegion: "STRING_VALUE",
  * //           },
  * //         },
  * //       ],

@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeAssetBundleExportJobRequest, DescribeAssetBundleExportJobResponse } from "../models/models_3";
+import {
+  DescribeAssetBundleExportJobRequest,
+  DescribeAssetBundleExportJobResponse,
+  DescribeAssetBundleExportJobResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   de_DescribeAssetBundleExportJobCommand,
   se_DescribeAssetBundleExportJobCommand,
@@ -82,7 +86,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     },
  * //     VPCConnections: [ // AssetBundleExportJobVPCConnectionOverridePropertiesList
  * //       { // AssetBundleExportJobVPCConnectionOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobVPCConnectionPropertyToOverrideList // required
  * //           "Name" || "DnsResolvers" || "RoleArn",
  * //         ],
@@ -90,7 +94,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     RefreshSchedules: [ // AssetBundleExportJobRefreshScheduleOverridePropertiesList
  * //       { // AssetBundleExportJobRefreshScheduleOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobRefreshSchedulePropertyToOverrideList // required
  * //           "StartAfterDateTime",
  * //         ],
@@ -98,7 +102,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     DataSources: [ // AssetBundleExportJobDataSourceOverridePropertiesList
  * //       { // AssetBundleExportJobDataSourceOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDataSourcePropertyToOverrideList // required
  * //           "Name" || "DisableSsl" || "SecretArn" || "Username" || "Password" || "Domain" || "WorkGroup" || "Host" || "Port" || "Database" || "DataSetName" || "Catalog" || "InstanceId" || "ClusterId" || "ManifestFileLocation" || "Warehouse" || "RoleArn",
  * //         ],
@@ -106,7 +110,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     DataSets: [ // AssetBundleExportJobDataSetOverridePropertiesList
  * //       { // AssetBundleExportJobDataSetOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDataSetPropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -114,7 +118,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     Themes: [ // AssetBundleExportJobThemeOverridePropertiesList
  * //       { // AssetBundleExportJobThemeOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobThemePropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -122,7 +126,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     Analyses: [ // AssetBundleExportJobAnalysisOverridePropertiesList
  * //       { // AssetBundleExportJobAnalysisOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobAnalysisPropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -130,7 +134,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     Dashboards: [ // AssetBundleExportJobDashboardOverridePropertiesList
  * //       { // AssetBundleExportJobDashboardOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDashboardPropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -139,6 +143,17 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
+ * //   IncludePermissions: true || false,
+ * //   IncludeTags: true || false,
+ * //   ValidationStrategy: { // AssetBundleExportJobValidationStrategy
+ * //     StrictModeForAllResources: true || false,
+ * //   },
+ * //   Warnings: [ // AssetBundleExportJobWarningList
+ * //     { // AssetBundleExportJobWarning
+ * //       Arn: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -209,7 +224,7 @@ export class DescribeAssetBundleExportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeAssetBundleExportJobResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "QuickSight_20180401",
         operation: "DescribeAssetBundleExportJob",
