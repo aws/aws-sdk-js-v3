@@ -17,11 +17,20 @@
  *                <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
  *             </li>
  *             <li>
- *                <p>A <i>participant object</i> represents participants
- *           (people) in the stage and contains information about them. When a token is created, it
- *           includes a participant ID; when a participant uses that token to join a stage, the
- *           participant is associated with that participant ID There is a 1:1 mapping between
- *           participant tokens and participants.</p>
+ *                <p>A <i>participant object</i> represents participants (people) in the stage and
+ *           contains information about them. When a token is created, it includes a participant ID;
+ *           when a participant uses that token to join a stage, the participant is associated with
+ *           that participant ID. There is a 1:1 mapping between participant tokens and
+ *           participants.</p>
+ *             </li>
+ *             <li>
+ *                <p>Server-side composition: The <i>composition</i> process composites participants
+ *           of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+ *           Composition endpoints support this process.</p>
+ *             </li>
+ *             <li>
+ *                <p>Server-side composition: A <i>composition</i> controls the look of the outputs,
+ *           including how participants are positioned in the video.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -104,6 +113,80 @@
  *             <li>
  *                <p>
  *                   <a>UpdateStage</a> — Updates a stage’s configuration.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Composition Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetComposition</a> — Gets information about the specified
+ *           Composition resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListCompositions</a> — Gets summary information about all
+ *           Compositions in your account, in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartComposition</a> — Starts a Composition from a stage based on
+ *           the configuration provided in the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StopComposition</a> — Stops and deletes a Composition resource.
+ *           Any broadcast from the Composition resource is stopped.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>EncoderConfiguration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
+ *           resource. Ensures that no Compositions are using this template; otherwise, returns an
+ *           error.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetEncoderConfiguration</a> — Gets information about the specified
+ *           EncoderConfiguration resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListEncoderConfigurations</a> — Gets summary information about all
+ *           EncoderConfigurations in your account, in the AWS region where the API request is
+ *           processed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>StorageConfiguration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
+ * 		recording to Amazon S3.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
+ * 		account, in the AWS region where the API request is processed.</p>
  *             </li>
  *          </ul>
  *          <p>

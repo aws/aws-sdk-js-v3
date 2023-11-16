@@ -22,11 +22,20 @@ including errors.
 <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
 </li>
 <li>
-<p>A <i>participant object</i> represents participants
-(people) in the stage and contains information about them. When a token is created, it
-includes a participant ID; when a participant uses that token to join a stage, the
-participant is associated with that participant ID There is a 1:1 mapping between
-participant tokens and participants.</p>
+<p>A <i>participant object</i> represents participants (people) in the stage and
+contains information about them. When a token is created, it includes a participant ID;
+when a participant uses that token to join a stage, the participant is associated with
+that participant ID. There is a 1:1 mapping between participant tokens and
+participants.</p>
+</li>
+<li>
+<p>Server-side composition: The <i>composition</i> process composites participants
+of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+Composition endpoints support this process.</p>
+</li>
+<li>
+<p>Server-side composition: A <i>composition</i> controls the look of the outputs,
+including how participants are positioned in the video.</p>
 </li>
 </ul>
 <p>
@@ -109,6 +118,80 @@ session.</p>
 <li>
 <p>
 <a>UpdateStage</a> — Updates a stage’s configuration.</p>
+</li>
+</ul>
+<p>
+<b>Composition Endpoints</b>
+</p>
+<ul>
+<li>
+<p>
+<a>GetComposition</a> — Gets information about the specified
+Composition resource.</p>
+</li>
+<li>
+<p>
+<a>ListCompositions</a> — Gets summary information about all
+Compositions in your account, in the AWS region where the API request is processed.</p>
+</li>
+<li>
+<p>
+<a>StartComposition</a> — Starts a Composition from a stage based on
+the configuration provided in the request.</p>
+</li>
+<li>
+<p>
+<a>StopComposition</a> — Stops and deletes a Composition resource.
+Any broadcast from the Composition resource is stopped.</p>
+</li>
+</ul>
+<p>
+<b>EncoderConfiguration Endpoints</b>
+</p>
+<ul>
+<li>
+<p>
+<a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
+</li>
+<li>
+<p>
+<a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
+resource. Ensures that no Compositions are using this template; otherwise, returns an
+error.</p>
+</li>
+<li>
+<p>
+<a>GetEncoderConfiguration</a> — Gets information about the specified
+EncoderConfiguration resource.</p>
+</li>
+<li>
+<p>
+<a>ListEncoderConfigurations</a> — Gets summary information about all
+EncoderConfigurations in your account, in the AWS region where the API request is
+processed.</p>
+</li>
+</ul>
+<p>
+<b>StorageConfiguration Endpoints</b>
+</p>
+<ul>
+<li>
+<p>
+<a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
+recording to Amazon S3.</p>
+</li>
+<li>
+<p>
+<a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
+</li>
+<li>
+<p>
+<a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
+</li>
+<li>
+<p>
+<a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
+account, in the AWS region where the API request is processed.</p>
 </li>
 </ul>
 <p>
@@ -329,6 +412,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateEncoderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/createencoderconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createencoderconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createencoderconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateParticipantToken
 </summary>
 
@@ -345,6 +436,22 @@ CreateStage
 </details>
 <details>
 <summary>
+CreateStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/createstorageconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createstorageconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createstorageconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteEncoderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/deleteencoderconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/deleteencoderconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/deleteencoderconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteStage
 </summary>
 
@@ -353,10 +460,34 @@ DeleteStage
 </details>
 <details>
 <summary>
+DeleteStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/deletestorageconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/deletestorageconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/deletestorageconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DisconnectParticipant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/disconnectparticipantcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/disconnectparticipantcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/disconnectparticipantcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetComposition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/getcompositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getcompositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getcompositioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetEncoderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/getencoderconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getencoderconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getencoderconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -381,6 +512,30 @@ GetStageSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/getstagesessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstagesessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstagesessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/getstorageconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstorageconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstorageconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCompositions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/listcompositionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listcompositionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listcompositionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEncoderConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/listencoderconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listencoderconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listencoderconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -417,10 +572,34 @@ ListStageSessions
 </details>
 <details>
 <summary>
+ListStorageConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/liststorageconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/liststorageconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/liststorageconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartComposition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/startcompositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/startcompositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/startcompositioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopComposition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/stopcompositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/stopcompositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/stopcompositioncommandoutput.html)
 
 </details>
 <details>

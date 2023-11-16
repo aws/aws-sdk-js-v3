@@ -3,17 +3,47 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateEncoderConfigurationCommand,
+  CreateEncoderConfigurationCommandInput,
+  CreateEncoderConfigurationCommandOutput,
+} from "./commands/CreateEncoderConfigurationCommand";
+import {
   CreateParticipantTokenCommand,
   CreateParticipantTokenCommandInput,
   CreateParticipantTokenCommandOutput,
 } from "./commands/CreateParticipantTokenCommand";
 import { CreateStageCommand, CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import {
+  CreateStorageConfigurationCommand,
+  CreateStorageConfigurationCommandInput,
+  CreateStorageConfigurationCommandOutput,
+} from "./commands/CreateStorageConfigurationCommand";
+import {
+  DeleteEncoderConfigurationCommand,
+  DeleteEncoderConfigurationCommandInput,
+  DeleteEncoderConfigurationCommandOutput,
+} from "./commands/DeleteEncoderConfigurationCommand";
 import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import {
+  DeleteStorageConfigurationCommand,
+  DeleteStorageConfigurationCommandInput,
+  DeleteStorageConfigurationCommandOutput,
+} from "./commands/DeleteStorageConfigurationCommand";
 import {
   DisconnectParticipantCommand,
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
+import {
+  GetCompositionCommand,
+  GetCompositionCommandInput,
+  GetCompositionCommandOutput,
+} from "./commands/GetCompositionCommand";
+import {
+  GetEncoderConfigurationCommand,
+  GetEncoderConfigurationCommandInput,
+  GetEncoderConfigurationCommandOutput,
+} from "./commands/GetEncoderConfigurationCommand";
 import {
   GetParticipantCommand,
   GetParticipantCommandInput,
@@ -25,6 +55,21 @@ import {
   GetStageSessionCommandInput,
   GetStageSessionCommandOutput,
 } from "./commands/GetStageSessionCommand";
+import {
+  GetStorageConfigurationCommand,
+  GetStorageConfigurationCommandInput,
+  GetStorageConfigurationCommandOutput,
+} from "./commands/GetStorageConfigurationCommand";
+import {
+  ListCompositionsCommand,
+  ListCompositionsCommandInput,
+  ListCompositionsCommandOutput,
+} from "./commands/ListCompositionsCommand";
+import {
+  ListEncoderConfigurationsCommand,
+  ListEncoderConfigurationsCommandInput,
+  ListEncoderConfigurationsCommandOutput,
+} from "./commands/ListEncoderConfigurationsCommand";
 import {
   ListParticipantEventsCommand,
   ListParticipantEventsCommandInput,
@@ -42,10 +87,25 @@ import {
   ListStageSessionsCommandOutput,
 } from "./commands/ListStageSessionsCommand";
 import {
+  ListStorageConfigurationsCommand,
+  ListStorageConfigurationsCommandInput,
+  ListStorageConfigurationsCommandOutput,
+} from "./commands/ListStorageConfigurationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartCompositionCommand,
+  StartCompositionCommandInput,
+  StartCompositionCommandOutput,
+} from "./commands/StartCompositionCommand";
+import {
+  StopCompositionCommand,
+  StopCompositionCommandInput,
+  StopCompositionCommandOutput,
+} from "./commands/StopCompositionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -56,24 +116,53 @@ import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput }
 import { IVSRealTimeClient, IVSRealTimeClientConfig } from "./IVSRealTimeClient";
 
 const commands = {
+  CreateEncoderConfigurationCommand,
   CreateParticipantTokenCommand,
   CreateStageCommand,
+  CreateStorageConfigurationCommand,
+  DeleteEncoderConfigurationCommand,
   DeleteStageCommand,
+  DeleteStorageConfigurationCommand,
   DisconnectParticipantCommand,
+  GetCompositionCommand,
+  GetEncoderConfigurationCommand,
   GetParticipantCommand,
   GetStageCommand,
   GetStageSessionCommand,
+  GetStorageConfigurationCommand,
+  ListCompositionsCommand,
+  ListEncoderConfigurationsCommand,
   ListParticipantEventsCommand,
   ListParticipantsCommand,
   ListStagesCommand,
   ListStageSessionsCommand,
+  ListStorageConfigurationsCommand,
   ListTagsForResourceCommand,
+  StartCompositionCommand,
+  StopCompositionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateStageCommand,
 };
 
 export interface IVSRealTime {
+  /**
+   * @see {@link CreateEncoderConfigurationCommand}
+   */
+  createEncoderConfiguration(
+    args: CreateEncoderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEncoderConfigurationCommandOutput>;
+  createEncoderConfiguration(
+    args: CreateEncoderConfigurationCommandInput,
+    cb: (err: any, data?: CreateEncoderConfigurationCommandOutput) => void
+  ): void;
+  createEncoderConfiguration(
+    args: CreateEncoderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEncoderConfigurationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateParticipantTokenCommand}
    */
@@ -103,6 +192,40 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link CreateStorageConfigurationCommand}
+   */
+  createStorageConfiguration(
+    args: CreateStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStorageConfigurationCommandOutput>;
+  createStorageConfiguration(
+    args: CreateStorageConfigurationCommandInput,
+    cb: (err: any, data?: CreateStorageConfigurationCommandOutput) => void
+  ): void;
+  createStorageConfiguration(
+    args: CreateStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStorageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEncoderConfigurationCommand}
+   */
+  deleteEncoderConfiguration(
+    args: DeleteEncoderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEncoderConfigurationCommandOutput>;
+  deleteEncoderConfiguration(
+    args: DeleteEncoderConfigurationCommandInput,
+    cb: (err: any, data?: DeleteEncoderConfigurationCommandOutput) => void
+  ): void;
+  deleteEncoderConfiguration(
+    args: DeleteEncoderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEncoderConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteStageCommand}
    */
   deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
@@ -111,6 +234,23 @@ export interface IVSRealTime {
     args: DeleteStageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteStageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStorageConfigurationCommand}
+   */
+  deleteStorageConfiguration(
+    args: DeleteStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStorageConfigurationCommandOutput>;
+  deleteStorageConfiguration(
+    args: DeleteStorageConfigurationCommandInput,
+    cb: (err: any, data?: DeleteStorageConfigurationCommandOutput) => void
+  ): void;
+  deleteStorageConfiguration(
+    args: DeleteStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStorageConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -128,6 +268,37 @@ export interface IVSRealTime {
     args: DisconnectParticipantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisconnectParticipantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCompositionCommand}
+   */
+  getComposition(
+    args: GetCompositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCompositionCommandOutput>;
+  getComposition(args: GetCompositionCommandInput, cb: (err: any, data?: GetCompositionCommandOutput) => void): void;
+  getComposition(
+    args: GetCompositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCompositionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEncoderConfigurationCommand}
+   */
+  getEncoderConfiguration(
+    args: GetEncoderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEncoderConfigurationCommandOutput>;
+  getEncoderConfiguration(
+    args: GetEncoderConfigurationCommandInput,
+    cb: (err: any, data?: GetEncoderConfigurationCommandOutput) => void
+  ): void;
+  getEncoderConfiguration(
+    args: GetEncoderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEncoderConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -167,6 +338,57 @@ export interface IVSRealTime {
     args: GetStageSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetStageSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStorageConfigurationCommand}
+   */
+  getStorageConfiguration(
+    args: GetStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStorageConfigurationCommandOutput>;
+  getStorageConfiguration(
+    args: GetStorageConfigurationCommandInput,
+    cb: (err: any, data?: GetStorageConfigurationCommandOutput) => void
+  ): void;
+  getStorageConfiguration(
+    args: GetStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStorageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCompositionsCommand}
+   */
+  listCompositions(
+    args: ListCompositionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCompositionsCommandOutput>;
+  listCompositions(
+    args: ListCompositionsCommandInput,
+    cb: (err: any, data?: ListCompositionsCommandOutput) => void
+  ): void;
+  listCompositions(
+    args: ListCompositionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCompositionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEncoderConfigurationsCommand}
+   */
+  listEncoderConfigurations(
+    args: ListEncoderConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEncoderConfigurationsCommandOutput>;
+  listEncoderConfigurations(
+    args: ListEncoderConfigurationsCommandInput,
+    cb: (err: any, data?: ListEncoderConfigurationsCommandOutput) => void
+  ): void;
+  listEncoderConfigurations(
+    args: ListEncoderConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEncoderConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -232,6 +454,23 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link ListStorageConfigurationsCommand}
+   */
+  listStorageConfigurations(
+    args: ListStorageConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStorageConfigurationsCommandOutput>;
+  listStorageConfigurations(
+    args: ListStorageConfigurationsCommandInput,
+    cb: (err: any, data?: ListStorageConfigurationsCommandOutput) => void
+  ): void;
+  listStorageConfigurations(
+    args: ListStorageConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStorageConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -246,6 +485,37 @@ export interface IVSRealTime {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCompositionCommand}
+   */
+  startComposition(
+    args: StartCompositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCompositionCommandOutput>;
+  startComposition(
+    args: StartCompositionCommandInput,
+    cb: (err: any, data?: StartCompositionCommandOutput) => void
+  ): void;
+  startComposition(
+    args: StartCompositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCompositionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopCompositionCommand}
+   */
+  stopComposition(
+    args: StopCompositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopCompositionCommandOutput>;
+  stopComposition(args: StopCompositionCommandInput, cb: (err: any, data?: StopCompositionCommandOutput) => void): void;
+  stopComposition(
+    args: StopCompositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopCompositionCommandOutput) => void
   ): void;
 
   /**
@@ -300,11 +570,20 @@ export interface IVSRealTime {
  *                <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
  *             </li>
  *             <li>
- *                <p>A <i>participant object</i> represents participants
- *           (people) in the stage and contains information about them. When a token is created, it
- *           includes a participant ID; when a participant uses that token to join a stage, the
- *           participant is associated with that participant ID There is a 1:1 mapping between
- *           participant tokens and participants.</p>
+ *                <p>A <i>participant object</i> represents participants (people) in the stage and
+ *           contains information about them. When a token is created, it includes a participant ID;
+ *           when a participant uses that token to join a stage, the participant is associated with
+ *           that participant ID. There is a 1:1 mapping between participant tokens and
+ *           participants.</p>
+ *             </li>
+ *             <li>
+ *                <p>Server-side composition: The <i>composition</i> process composites participants
+ *           of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+ *           Composition endpoints support this process.</p>
+ *             </li>
+ *             <li>
+ *                <p>Server-side composition: A <i>composition</i> controls the look of the outputs,
+ *           including how participants are positioned in the video.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -387,6 +666,80 @@ export interface IVSRealTime {
  *             <li>
  *                <p>
  *                   <a>UpdateStage</a> — Updates a stage’s configuration.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Composition Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetComposition</a> — Gets information about the specified
+ *           Composition resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListCompositions</a> — Gets summary information about all
+ *           Compositions in your account, in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartComposition</a> — Starts a Composition from a stage based on
+ *           the configuration provided in the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StopComposition</a> — Stops and deletes a Composition resource.
+ *           Any broadcast from the Composition resource is stopped.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>EncoderConfiguration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
+ *           resource. Ensures that no Compositions are using this template; otherwise, returns an
+ *           error.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetEncoderConfiguration</a> — Gets information about the specified
+ *           EncoderConfiguration resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListEncoderConfigurations</a> — Gets summary information about all
+ *           EncoderConfigurations in your account, in the AWS region where the API request is
+ *           processed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>StorageConfiguration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
+ * 		recording to Amazon S3.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
+ * 		account, in the AWS region where the API request is processed.</p>
  *             </li>
  *          </ul>
  *          <p>
