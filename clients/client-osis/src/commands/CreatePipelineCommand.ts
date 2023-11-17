@@ -63,6 +63,12 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   BufferOptions: { // BufferOptions
+ *     PersistentBufferEnabled: true || false, // required
+ *   },
+ *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ *     KmsKeyArn: "STRING_VALUE", // required
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -108,6 +114,24 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * //         },
  * //       },
  * //     ],
+ * //     BufferOptions: { // BufferOptions
+ * //       PersistentBufferEnabled: true || false, // required
+ * //     },
+ * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ * //       KmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //     ServiceVpcEndpoints: [ // ServiceVpcEndpointsList
+ * //       { // ServiceVpcEndpoint
+ * //         ServiceName: "OPENSEARCH_SERVERLESS",
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -131,6 +155,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>You attempted to create a resource that already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You attempted to access or delete a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>

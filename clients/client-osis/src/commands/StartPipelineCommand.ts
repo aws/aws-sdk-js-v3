@@ -85,6 +85,24 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * //         },
  * //       },
  * //     ],
+ * //     BufferOptions: { // BufferOptions
+ * //       PersistentBufferEnabled: true || false, // required
+ * //     },
+ * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ * //       KmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //     ServiceVpcEndpoints: [ // ServiceVpcEndpointsList
+ * //       { // ServiceVpcEndpoint
+ * //         ServiceName: "OPENSEARCH_SERVERLESS",
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

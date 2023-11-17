@@ -25,6 +25,32 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * <p>Options that specify the configuration of a persistent buffer.
+ *    To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.</p>
+ */
+export interface BufferOptions {
+  /**
+   * @public
+   * <p>Whether persistent buffering should be enabled.</p>
+   */
+  PersistentBufferEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>Options to control how OpenSearch encrypts all data-at-rest.</p>
+ */
+export interface EncryptionAtRestOptions {
+  /**
+   * @public
+   * <p>The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion.
+   *    By default, data is encrypted using an AWS owned key.</p>
+   */
+  KmsKeyArn: string | undefined;
+}
+
+/**
+ * @public
  * <p>The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch.</p>
  */
 export interface CloudWatchLogDestination {
@@ -144,9 +170,52 @@ export interface CreatePipelineRequest {
 
   /**
    * @public
+   * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
+   */
+  BufferOptions?: BufferOptions;
+
+  /**
+   * @public
+   * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
+   */
+  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+
+  /**
+   * @public
    * <p>List of tags to add to the pipeline upon creation.</p>
    */
   Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointServiceName = {
+  OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEndpointServiceName = (typeof VpcEndpointServiceName)[keyof typeof VpcEndpointServiceName];
+
+/**
+ * @public
+ * <p>A container for information about VPC endpoints that were created to other services</p>
+ */
+export interface ServiceVpcEndpoint {
+  /**
+   * @public
+   * <p>The name of the service for which a VPC endpoint was created.</p>
+   */
+  ServiceName?: VpcEndpointServiceName;
+
+  /**
+   * @public
+   * <p>The ID of the VPC endpoint that was created.</p>
+   */
+  VpcEndpointId?: string;
 }
 
 /**
@@ -285,6 +354,31 @@ export interface Pipeline {
    * <p>The VPC interface endpoints that have access to the pipeline.</p>
    */
   VpcEndpoints?: VpcEndpoint[];
+
+  /**
+   * @public
+   * <p>Options that specify the configuration of a persistent buffer.
+   *    To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.</p>
+   */
+  BufferOptions?: BufferOptions;
+
+  /**
+   * @public
+   * <p>Options to control how OpenSearch encrypts all data-at-rest.</p>
+   */
+  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+
+  /**
+   * @public
+   * <p>A list of VPC endpoints that OpenSearch Ingestion has created to other AWS services.</p>
+   */
+  ServiceVpcEndpoints?: ServiceVpcEndpoint[];
+
+  /**
+   * @public
+   * <p>A list of tags associated with the given pipeline.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -361,6 +455,26 @@ export class ResourceAlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * <p>You attempted to access or delete a resource that does not exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>An exception for missing or invalid input fields.</p>
  */
 export class ValidationException extends __BaseException {
@@ -414,26 +528,6 @@ export interface DeletePipelineRequest {
  * @public
  */
 export interface DeletePipelineResponse {}
-
-/**
- * @public
- * <p>You attempted to access or delete a resource that does not exist.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 /**
  * @public
@@ -732,6 +826,12 @@ export interface PipelineSummary {
    * <p>The date and time when the pipeline was last updated.</p>
    */
   LastUpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>A list of tags associated with the given pipeline.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -898,6 +998,18 @@ export interface UpdatePipelineRequest {
    * <p>Key-value pairs to configure log publishing.</p>
    */
   LogPublishingOptions?: LogPublishingOptions;
+
+  /**
+   * @public
+   * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
+   */
+  BufferOptions?: BufferOptions;
+
+  /**
+   * @public
+   * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
+   */
+  EncryptionAtRestOptions?: EncryptionAtRestOptions;
 }
 
 /**

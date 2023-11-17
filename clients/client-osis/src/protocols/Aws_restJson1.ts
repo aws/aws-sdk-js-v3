@@ -51,10 +51,12 @@ import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "../comm
 import { ValidatePipelineCommandInput, ValidatePipelineCommandOutput } from "../commands/ValidatePipelineCommand";
 import {
   AccessDeniedException,
+  BufferOptions,
   ChangeProgressStage,
   ChangeProgressStatus,
   CloudWatchLogDestination,
   ConflictException,
+  EncryptionAtRestOptions,
   InternalException,
   InvalidPaginationTokenException,
   LimitExceededException,
@@ -85,6 +87,8 @@ export const se_CreatePipelineCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      BufferOptions: (_) => _json(_),
+      EncryptionAtRestOptions: (_) => _json(_),
       LogPublishingOptions: (_) => _json(_),
       MaxUnits: [],
       MinUnits: [],
@@ -471,6 +475,8 @@ export const se_UpdatePipelineCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      BufferOptions: (_) => _json(_),
+      EncryptionAtRestOptions: (_) => _json(_),
       LogPublishingOptions: (_) => _json(_),
       MaxUnits: [],
       MinUnits: [],
@@ -564,6 +570,9 @@ const de_CreatePipelineCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.osis#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.osis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.osis#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1459,7 +1468,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_BufferOptions omitted.
+
 // se_CloudWatchLogDestination omitted.
+
+// se_EncryptionAtRestOptions omitted.
 
 // se_LogPublishingOptions omitted.
 
@@ -1474,6 +1487,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagList omitted.
 
 // se_VpcOptions omitted.
+
+// de_BufferOptions omitted.
 
 /**
  * deserializeAws_restJson1ChangeProgressStage
@@ -1525,6 +1540,8 @@ const de_ChangeProgressStatusList = (output: any, context: __SerdeContext): Chan
 
 // de_CloudWatchLogDestination omitted.
 
+// de_EncryptionAtRestOptions omitted.
+
 // de_IngestEndpointUrlsList omitted.
 
 // de_LogPublishingOptions omitted.
@@ -1534,7 +1551,9 @@ const de_ChangeProgressStatusList = (output: any, context: __SerdeContext): Chan
  */
 const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
   return take(output, {
+    BufferOptions: _json,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionAtRestOptions: _json,
     IngestEndpointUrls: _json,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LogPublishingOptions: _json,
@@ -1543,8 +1562,10 @@ const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
     PipelineArn: __expectString,
     PipelineConfigurationBody: __expectString,
     PipelineName: __expectString,
+    ServiceVpcEndpoints: _json,
     Status: __expectString,
     StatusReason: _json,
+    Tags: _json,
     VpcEndpoints: _json,
   }) as any;
 };
@@ -1570,6 +1591,7 @@ const de_PipelineSummary = (output: any, context: __SerdeContext): PipelineSumma
     PipelineName: __expectString,
     Status: __expectString,
     StatusReason: _json,
+    Tags: _json,
   }) as any;
 };
 
@@ -1586,6 +1608,10 @@ const de_PipelineSummaryList = (output: any, context: __SerdeContext): PipelineS
 };
 
 // de_SecurityGroupIds omitted.
+
+// de_ServiceVpcEndpoint omitted.
+
+// de_ServiceVpcEndpointsList omitted.
 
 // de_SubnetIds omitted.
 

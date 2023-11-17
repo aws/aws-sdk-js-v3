@@ -65,6 +65,12 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * //       MaxUnits: Number("int"),
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

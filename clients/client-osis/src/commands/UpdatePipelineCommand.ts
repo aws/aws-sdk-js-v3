@@ -55,6 +55,12 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  *       LogGroup: "STRING_VALUE", // required
  *     },
  *   },
+ *   BufferOptions: { // BufferOptions
+ *     PersistentBufferEnabled: true || false, // required
+ *   },
+ *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ *     KmsKeyArn: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
@@ -92,6 +98,24 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //       },
+ * //     ],
+ * //     BufferOptions: { // BufferOptions
+ * //       PersistentBufferEnabled: true || false, // required
+ * //     },
+ * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ * //       KmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //     ServiceVpcEndpoints: [ // ServiceVpcEndpointsList
+ * //       { // ServiceVpcEndpoint
+ * //         ServiceName: "OPENSEARCH_SERVERLESS",
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
  * //   },
