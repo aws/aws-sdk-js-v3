@@ -63,6 +63,8 @@ export interface PutApplicationGrantCommandOutput extends __MetadataBearer {}
  *         },
  *       ],
  *     },
+ *     RefreshToken: {},
+ *     TokenExchange: {},
  *   },
  * };
  * const command = new PutApplicationGrantCommand(input);

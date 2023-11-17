@@ -986,12 +986,12 @@ export interface GetApplicationGrantRequest {
 
 /**
  * @public
- * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+ * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Authorization Code Grant.</p>
  */
 export interface AuthorizationCodeGrant {
   /**
    * @public
-   * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+   * <p>A list of URIs that are valid locations to redirect a user's browser after the user is authorized.</p>
    */
   RedirectUris?: string[];
 }
@@ -1018,21 +1018,38 @@ export interface AuthorizedTokenIssuer {
 
 /**
  * @public
- * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+ * <p>A structure that defines configuration settings for an application that supports the JWT Bearer Token Authorization Grant.</p>
  */
 export interface JwtBearerGrant {
   /**
    * @public
-   * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+   * <p>A list of allowed token issuers trusted by the Identity Center instances for this application.</p>
    */
   AuthorizedTokenIssuers?: AuthorizedTokenIssuer[];
 }
 
 /**
  * @public
- * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+ * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Refresh Token Grant.</p>
  */
-export type Grant = Grant.AuthorizationCodeMember | Grant.JwtBearerMember | Grant.$UnknownMember;
+export interface RefreshTokenGrant {}
+
+/**
+ * @public
+ * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Token Exchange Grant.</p>
+ */
+export interface TokenExchangeGrant {}
+
+/**
+ * @public
+ * <p>The Grant union represents the set of possible configuration options for the selected grant type. Exactly one member of the union must be specified, and must match the grant type selected.</p>
+ */
+export type Grant =
+  | Grant.AuthorizationCodeMember
+  | Grant.JwtBearerMember
+  | Grant.RefreshTokenMember
+  | Grant.TokenExchangeMember
+  | Grant.$UnknownMember;
 
 /**
  * @public
@@ -1040,21 +1057,49 @@ export type Grant = Grant.AuthorizationCodeMember | Grant.JwtBearerMember | Gran
 export namespace Grant {
   /**
    * @public
-   * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+   * <p>Configuration options for the <code>authorization_code</code> grant type.</p>
    */
   export interface AuthorizationCodeMember {
     AuthorizationCode: AuthorizationCodeGrant;
     JwtBearer?: never;
+    RefreshToken?: never;
+    TokenExchange?: never;
     $unknown?: never;
   }
 
   /**
    * @public
-   * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code> grant type.</p>
    */
   export interface JwtBearerMember {
     AuthorizationCode?: never;
     JwtBearer: JwtBearerGrant;
+    RefreshToken?: never;
+    TokenExchange?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Configuration options for the <code>refresh_token</code> grant type.</p>
+   */
+  export interface RefreshTokenMember {
+    AuthorizationCode?: never;
+    JwtBearer?: never;
+    RefreshToken: RefreshTokenGrant;
+    TokenExchange?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:token-exchange</code> grant type.</p>
+   */
+  export interface TokenExchangeMember {
+    AuthorizationCode?: never;
+    JwtBearer?: never;
+    RefreshToken?: never;
+    TokenExchange: TokenExchangeGrant;
     $unknown?: never;
   }
 
@@ -1064,18 +1109,24 @@ export namespace Grant {
   export interface $UnknownMember {
     AuthorizationCode?: never;
     JwtBearer?: never;
+    RefreshToken?: never;
+    TokenExchange?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     AuthorizationCode: (value: AuthorizationCodeGrant) => T;
     JwtBearer: (value: JwtBearerGrant) => T;
+    RefreshToken: (value: RefreshTokenGrant) => T;
+    TokenExchange: (value: TokenExchangeGrant) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: Grant, visitor: Visitor<T>): T => {
     if (value.AuthorizationCode !== undefined) return visitor.AuthorizationCode(value.AuthorizationCode);
     if (value.JwtBearer !== undefined) return visitor.JwtBearer(value.JwtBearer);
+    if (value.RefreshToken !== undefined) return visitor.RefreshToken(value.RefreshToken);
+    if (value.TokenExchange !== undefined) return visitor.TokenExchange(value.TokenExchange);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1114,18 +1165,18 @@ export interface ListApplicationGrantsRequest {
 
 /**
  * @public
- * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+ * <p>A structure that defines a single grant and its configuration.</p>
  */
 export interface GrantItem {
   /**
    * @public
-   * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+   * <p>The type of the selected grant.</p>
    */
   GrantType: GrantType | undefined;
 
   /**
    * @public
-   * <p>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</p>
+   * <p>The configuration structure for the selected grant.</p>
    */
   Grant: Grant | undefined;
 }
@@ -4102,7 +4153,7 @@ export interface UntagResourceResponse {}
 
 /**
  * @public
- * <p/>
+ * <p>A structure that describes the options for the access portal associated with an application that can be updated.</p>
  */
 export interface UpdateApplicationPortalOptions {
   /**

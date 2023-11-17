@@ -390,12 +390,14 @@ import {
   PutApplicationGrantRequest,
   PutInlinePolicyToPermissionSetRequest,
   PutPermissionsBoundaryToPermissionSetRequest,
+  RefreshTokenGrant,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   SignInOptions,
   Tag,
   TagResourceRequest,
   ThrottlingException,
+  TokenExchangeGrant,
   TrustedTokenIssuerConfiguration,
   TrustedTokenIssuerUpdateConfiguration,
   UntagResourceRequest,
@@ -6036,6 +6038,8 @@ const se_PutApplicationAuthenticationMethodRequest = (
 
 // se_RedirectUris omitted.
 
+// se_RefreshTokenGrant omitted.
+
 // se_ScopeTargets omitted.
 
 // se_SignInOptions omitted.
@@ -6047,6 +6051,8 @@ const se_PutApplicationAuthenticationMethodRequest = (
 // se_TagList omitted.
 
 // se_TagResourceRequest omitted.
+
+// se_TokenExchangeGrant omitted.
 
 // se_TokenIssuerAudiences omitted.
 
@@ -6633,6 +6639,8 @@ const de_ProvisionPermissionSetResponse = (output: any, context: __SerdeContext)
 
 // de_RedirectUris omitted.
 
+// de_RefreshTokenGrant omitted.
+
 // de_ResourceNotFoundException omitted.
 
 // de_ResourceServerConfig omitted.
@@ -6658,6 +6666,8 @@ const de_ProvisionPermissionSetResponse = (output: any, context: __SerdeContext)
 // de_TagResourceResponse omitted.
 
 // de_ThrottlingException omitted.
+
+// de_TokenExchangeGrant omitted.
 
 // de_TokenIssuerAudiences omitted.
 

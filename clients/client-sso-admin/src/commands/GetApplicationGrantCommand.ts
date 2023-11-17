@@ -67,6 +67,8 @@ export interface GetApplicationGrantCommandOutput extends GetApplicationGrantRes
  * //         },
  * //       ],
  * //     },
+ * //     RefreshToken: {},
+ * //     TokenExchange: {},
  * //   },
  * // };
  *

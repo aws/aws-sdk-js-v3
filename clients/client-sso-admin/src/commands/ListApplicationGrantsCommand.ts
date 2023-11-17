@@ -70,6 +70,8 @@ export interface ListApplicationGrantsCommandOutput extends ListApplicationGrant
  * //             },
  * //           ],
  * //         },
+ * //         RefreshToken: {},
+ * //         TokenExchange: {},
  * //       },
  * //     },
  * //   ],
