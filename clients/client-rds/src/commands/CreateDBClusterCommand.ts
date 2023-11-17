@@ -106,6 +106,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
  *     InterconnectSubnetId: "STRING_VALUE",
  *     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *     ReplicaMode: "open-read-only" || "mounted",
  *   },
  *   DeletionProtection: true || false,
  *   GlobalClusterIdentifier: "STRING_VALUE",
@@ -176,6 +177,14 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
  * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
  * //         DBInstanceIdentifier: "STRING_VALUE",
@@ -224,6 +233,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
  * //       InterconnectSubnetId: "STRING_VALUE",
  * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
  * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
@@ -272,6 +282,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       RdsCustomClusterConfiguration: {
  * //         InterconnectSubnetId: "STRING_VALUE",
  * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
  * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
@@ -356,6 +367,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link InvalidDBSubnetGroupFault} (client fault)
+ *  <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
+ *             cross-region read replica of the same source instance.</p>
+ *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
  *  <p>The DB subnet group cannot be deleted because it's in use.</p>
  *
@@ -371,6 +386,9 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The request would result in the user exceeding the allowed amount of storage

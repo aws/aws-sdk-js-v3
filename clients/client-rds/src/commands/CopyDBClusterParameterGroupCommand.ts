@@ -38,6 +38,10 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
 /**
  * @public
  * <p>Copies the specified DB cluster parameter group.</p>
+ *          <note>
+ *             <p>You can't copy a default DB cluster parameter group. Instead, create a new custom DB cluster parameter group, which copies
+ *                 the default parameters and values for the specified DB cluster parameter group family.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

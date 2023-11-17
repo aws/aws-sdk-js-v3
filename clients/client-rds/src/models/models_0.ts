@@ -4175,6 +4175,20 @@ export class Ec2ImagePropertiesNotSupportedFault extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ReplicaMode = {
+  MOUNTED: "mounted",
+  OPEN_READ_ONLY: "open-read-only",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicaMode = (typeof ReplicaMode)[keyof typeof ReplicaMode];
+
+/**
+ * @public
  * <p>Reserved for future use.</p>
  */
 export interface RdsCustomClusterConfiguration {
@@ -4189,6 +4203,12 @@ export interface RdsCustomClusterConfiguration {
    * <p>Reserved for future use.</p>
    */
   TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  ReplicaMode?: ReplicaMode;
 }
 
 /**
@@ -5480,6 +5500,36 @@ export interface ServerlessV2ScalingConfigurationInfo {
 
 /**
  * @public
+ * <p>Reserved for future use.</p>
+ */
+export interface DBClusterStatusInfo {
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  StatusType?: string;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  Normal?: boolean;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
  * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
  *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
  *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
@@ -5669,6 +5719,12 @@ export interface DBCluster {
    *             cluster.</p>
    */
   ReadReplicaIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  StatusInfos?: DBClusterStatusInfo[];
 
   /**
    * @public
@@ -6198,6 +6254,27 @@ export class InsufficientStorageClusterCapacityFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InsufficientStorageClusterCapacityFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
+ *             cross-region read replica of the same source instance.</p>
+ */
+export class InvalidDBSubnetGroupFault extends __BaseException {
+  readonly name: "InvalidDBSubnetGroupFault" = "InvalidDBSubnetGroupFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBSubnetGroupFault, __BaseException>) {
+    super({
+      name: "InvalidDBSubnetGroupFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBSubnetGroupFault.prototype);
   }
 }
 
@@ -8554,20 +8631,6 @@ export interface PendingModifiedValues {
 
 /**
  * @public
- * @enum
- */
-export const ReplicaMode = {
-  MOUNTED: "mounted",
-  OPEN_READ_ONLY: "open-read-only",
-} as const;
-
-/**
- * @public
- */
-export type ReplicaMode = (typeof ReplicaMode)[keyof typeof ReplicaMode];
-
-/**
- * @public
  * <p>Provides a list of status information for a DB instance.</p>
  */
 export interface DBInstanceStatusInfo {
@@ -10075,27 +10138,6 @@ export class DBSubnetGroupNotAllowedFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DBSubnetGroupNotAllowedFault.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
- *             cross-region read replica of the same source instance.</p>
- */
-export class InvalidDBSubnetGroupFault extends __BaseException {
-  readonly name: "InvalidDBSubnetGroupFault" = "InvalidDBSubnetGroupFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBSubnetGroupFault, __BaseException>) {
-    super({
-      name: "InvalidDBSubnetGroupFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBSubnetGroupFault.prototype);
   }
 }
 
@@ -14035,24 +14077,6 @@ export interface DescribeCertificatesMessage {
    *         up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DBClusterAutomatedBackupMessage {
-  /**
-   * @public
-   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only
-   *             records beyond the marker, up to <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DBClusterAutomatedBackup</code> backups.</p>
-   */
-  DBClusterAutomatedBackups?: DBClusterAutomatedBackup[];
 }
 
 /**

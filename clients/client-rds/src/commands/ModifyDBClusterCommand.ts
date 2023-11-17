@@ -157,6 +157,14 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
  * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
  * //         DBInstanceIdentifier: "STRING_VALUE",
@@ -205,6 +213,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
  * //       InterconnectSubnetId: "STRING_VALUE",
  * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
  * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
@@ -253,6 +262,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       RdsCustomClusterConfiguration: {
  * //         InterconnectSubnetId: "STRING_VALUE",
  * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
  * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
@@ -333,6 +343,9 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
  *  <p>The DB subnet group doesn't cover all Availability Zones after it's
  *             created because of users' change.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The request would result in the user exceeding the allowed amount of storage

@@ -38,6 +38,10 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
 /**
  * @public
  * <p>Copies the specified DB parameter group.</p>
+ *          <note>
+ *             <p>You can't copy a default DB parameter group. Instead, create a new custom DB parameter group, which copies the default
+ *                 parameters and values for the specified DB parameter group family.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -10,6 +10,7 @@ import {
   BlueGreenDeployment,
   Certificate,
   DBCluster,
+  DBClusterAutomatedBackup,
   DBClusterBacktrack,
   DBClusterEndpoint,
   DBClusterParameterGroup,
@@ -43,6 +44,24 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * @public
+ */
+export interface DBClusterAutomatedBackupMessage {
+  /**
+   * @public
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only
+   *             records beyond the marker, up to <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DBClusterAutomatedBackup</code> backups.</p>
+   */
+  DBClusterAutomatedBackups?: DBClusterAutomatedBackup[];
+}
 
 /**
  * @public

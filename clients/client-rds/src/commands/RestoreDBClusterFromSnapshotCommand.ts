@@ -117,6 +117,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
  *     InterconnectSubnetId: "STRING_VALUE",
  *     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *     ReplicaMode: "open-read-only" || "mounted",
  *   },
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
@@ -159,6 +160,14 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //     ReplicationSourceIdentifier: "STRING_VALUE",
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
+ * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
  * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
@@ -208,6 +217,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
  * //       InterconnectSubnetId: "STRING_VALUE",
  * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
  * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
@@ -256,6 +266,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //       RdsCustomClusterConfiguration: {
  * //         InterconnectSubnetId: "STRING_VALUE",
  * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
  * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",

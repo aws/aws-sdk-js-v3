@@ -154,6 +154,14 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
  * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
  * //         DBInstanceIdentifier: "STRING_VALUE",
@@ -202,6 +210,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
  * //       InterconnectSubnetId: "STRING_VALUE",
  * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
  * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
@@ -250,6 +259,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //       RdsCustomClusterConfiguration: {
  * //         InterconnectSubnetId: "STRING_VALUE",
  * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
  * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",

@@ -601,7 +601,6 @@ import {
   DBCluster,
   DBClusterAlreadyExistsFault,
   DBClusterAutomatedBackup,
-  DBClusterAutomatedBackupMessage,
   DBClusterAutomatedBackupNotFoundFault,
   DBClusterAutomatedBackupQuotaExceededFault,
   DBClusterBacktrack,
@@ -621,6 +620,7 @@ import {
   DBClusterSnapshot,
   DBClusterSnapshotAlreadyExistsFault,
   DBClusterSnapshotNotFoundFault,
+  DBClusterStatusInfo,
   DBEngineVersion,
   DBInstance,
   DBInstanceAlreadyExistsFault,
@@ -807,6 +807,7 @@ import {
   CloudwatchLogsExportConfiguration,
   ConnectionPoolConfiguration,
   ConnectionPoolConfigurationInfo,
+  DBClusterAutomatedBackupMessage,
   DBClusterBacktrackMessage,
   DBClusterBacktrackNotFoundFault,
   DBClusterCapacityInfo,
@@ -4534,6 +4535,9 @@ const de_CreateDBClusterCommandError = async (
     case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
+    case "InvalidDBSubnetGroupFault":
+    case "com.amazonaws.rds#InvalidDBSubnetGroupFault":
+      throw await de_InvalidDBSubnetGroupFaultRes(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
       throw await de_InvalidDBSubnetGroupStateFaultRes(parsedOutput, context);
@@ -4549,6 +4553,9 @@ const de_CreateDBClusterCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "OptionGroupNotFoundFault":
+    case "com.amazonaws.rds#OptionGroupNotFoundFault":
+      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
@@ -9060,6 +9067,9 @@ const de_ModifyDBClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "OptionGroupNotFoundFault":
+    case "com.amazonaws.rds#OptionGroupNotFoundFault":
+      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
@@ -18797,6 +18807,9 @@ const se_RdsCustomClusterConfiguration = (input: RdsCustomClusterConfiguration, 
   if (input.TransitGatewayMulticastDomainId != null) {
     entries["TransitGatewayMulticastDomainId"] = input.TransitGatewayMulticastDomainId;
   }
+  if (input.ReplicaMode != null) {
+    entries["ReplicaMode"] = input.ReplicaMode;
+  }
   return entries;
 };
 
@@ -21308,6 +21321,14 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
       context
     );
   }
+  if (output.StatusInfos === "") {
+    contents.StatusInfos = [];
+  } else if (output["StatusInfos"] !== undefined && output["StatusInfos"]["DBClusterStatusInfo"] !== undefined) {
+    contents.StatusInfos = de_DBClusterStatusInfoList(
+      __getArrayIfSingleItem(output["StatusInfos"]["DBClusterStatusInfo"]),
+      context
+    );
+  }
   if (output.DBClusterMembers === "") {
     contents.DBClusterMembers = [];
   } else if (output["DBClusterMembers"] !== undefined && output["DBClusterMembers"]["DBClusterMember"] !== undefined) {
@@ -22340,6 +22361,37 @@ const de_DBClusterSnapshotNotFoundFault = (output: any, context: __SerdeContext)
     contents.message = __expectString(output["message"]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryDBClusterStatusInfo
+ */
+const de_DBClusterStatusInfo = (output: any, context: __SerdeContext): DBClusterStatusInfo => {
+  const contents: any = {};
+  if (output["StatusType"] !== undefined) {
+    contents.StatusType = __expectString(output["StatusType"]);
+  }
+  if (output["Normal"] !== undefined) {
+    contents.Normal = __parseBoolean(output["Normal"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBClusterStatusInfoList
+ */
+const de_DBClusterStatusInfoList = (output: any, context: __SerdeContext): DBClusterStatusInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DBClusterStatusInfo(entry, context);
+    });
 };
 
 /**
@@ -27317,6 +27369,9 @@ const de_RdsCustomClusterConfiguration = (output: any, context: __SerdeContext):
   }
   if (output["TransitGatewayMulticastDomainId"] !== undefined) {
     contents.TransitGatewayMulticastDomainId = __expectString(output["TransitGatewayMulticastDomainId"]);
+  }
+  if (output["ReplicaMode"] !== undefined) {
+    contents.ReplicaMode = __expectString(output["ReplicaMode"]);
   }
   return contents;
 };
