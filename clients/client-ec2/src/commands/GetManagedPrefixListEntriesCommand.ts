@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResult } from "../models/models_5";
+import { GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResult } from "../models/models_6";
 import { de_GetManagedPrefixListEntriesCommand, se_GetManagedPrefixListEntriesCommand } from "../protocols/Aws_ec2";
 
 /**

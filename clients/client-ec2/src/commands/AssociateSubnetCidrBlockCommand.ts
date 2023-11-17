@@ -38,7 +38,7 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
 /**
  * @public
  * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
- *             block with your subnet. An IPv6 CIDR block must have a prefix length of /64.</p>
+ *             block with your subnet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,8 +46,10 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * // const { EC2Client, AssociateSubnetCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateSubnetCidrBlockRequest
- *   Ipv6CidrBlock: "STRING_VALUE", // required
+ *   Ipv6CidrBlock: "STRING_VALUE",
  *   SubnetId: "STRING_VALUE", // required
+ *   Ipv6IpamPoolId: "STRING_VALUE",
+ *   Ipv6NetmaskLength: Number("int"),
  * };
  * const command = new AssociateSubnetCidrBlockCommand(input);
  * const response = await client.send(command);

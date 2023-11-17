@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_4";
+import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_5";
 import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_ec2";
 
 /**

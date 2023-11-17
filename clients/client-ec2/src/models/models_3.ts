@@ -13,7 +13,6 @@ import {
   AllocationState,
   AllowsMultipleInstanceTypes,
   AssociationStatus,
-  AttachmentStatus,
   AutoPlacement,
   BundleTask,
   BundleTaskFilterSensitiveLog,
@@ -21,7 +20,6 @@ import {
   CapacityReservation,
   CapacityReservationFleetState,
   CapacityReservationTenancy,
-  CarrierGateway,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   FleetCapacityReservation,
@@ -41,6 +39,7 @@ import {
 import {
   AttributeValue,
   BlockDeviceMapping,
+  CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
@@ -50,7 +49,6 @@ import {
   DestinationFileFormat,
   DhcpOptions,
   DiskImageFormat,
-  Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ExportTask,
   FleetCapacityReservationUsageStrategy,
@@ -87,6 +85,187 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteNatGatewayResult {
+  /**
+   * @public
+   * <p>The ID of the NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkAclRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the network ACL.</p>
+   */
+  NetworkAclId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkAclEntryRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether the rule is an egress rule.</p>
+   */
+  Egress: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the network ACL.</p>
+   */
+  NetworkAclId: string | undefined;
+
+  /**
+   * @public
+   * <p>The rule number of the entry to delete.</p>
+   */
+  RuleNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAccessScopeRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAccessScopeResult {
+  /**
+   * @public
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAccessScopeAnalysisRequest {
+  /**
+   * @public
+   * <p>The ID of the Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysisId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAccessScopeAnalysisResult {
+  /**
+   * @public
+   * <p>The ID of the Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysisId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAnalysisRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the network insights analysis.</p>
+   */
+  NetworkInsightsAnalysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAnalysisResult {
+  /**
+   * @public
+   * <p>The ID of the network insights analysis.</p>
+   */
+  NetworkInsightsAnalysisId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsPathRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsPathResult {
+  /**
+   * @public
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId?: string;
+}
 
 /**
  * @public
@@ -1354,6 +1533,90 @@ export interface DeprovisionByoipCidrResult {
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
+}
+
+/**
+ * @public
+ */
+export interface DeprovisionIpamByoasnRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The IPAM ID.</p>
+   */
+  IpamId: string | undefined;
+
+  /**
+   * @public
+   * <p>An ASN.</p>
+   */
+  Asn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AsnState = {
+  deprovisioned: "deprovisioned",
+  failed_deprovision: "failed-deprovision",
+  failed_provision: "failed-provision",
+  pending_deprovision: "pending-deprovision",
+  pending_provision: "pending-provision",
+  provisioned: "provisioned",
+} as const;
+
+/**
+ * @public
+ */
+export type AsnState = (typeof AsnState)[keyof typeof AsnState];
+
+/**
+ * @public
+ * <p>The Autonomous System Number (ASN) and BYOIP CIDR association.</p>
+ */
+export interface Byoasn {
+  /**
+   * @public
+   * <p>A public 2-byte or 4-byte ASN.</p>
+   */
+  Asn?: string;
+
+  /**
+   * @public
+   * <p>An IPAM ID.</p>
+   */
+  IpamId?: string;
+
+  /**
+   * @public
+   * <p>The status message.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>The provisioning state of the BYOASN.</p>
+   */
+  State?: AsnState;
+}
+
+/**
+ * @public
+ */
+export interface DeprovisionIpamByoasnResult {
+  /**
+   * @public
+   * <p>An ASN and BYOIP CIDR association.</p>
+   */
+  Byoasn?: Byoasn;
 }
 
 /**
@@ -9096,554 +9359,6 @@ export interface DescribeImportSnapshotTasksRequest {
 }
 
 /**
- * @public
- * <p>Details about the import snapshot task.</p>
- */
-export interface SnapshotTaskDetail {
-  /**
-   * @public
-   * <p>The description of the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The size of the disk in the snapshot, in GiB.</p>
-   */
-  DiskImageSize?: number;
-
-  /**
-   * @public
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * @public
-   * <p>The format of the disk image from which the snapshot is created.</p>
-   */
-  Format?: string;
-
-  /**
-   * @public
-   * <p>The identifier for the KMS key that was used to create the encrypted snapshot.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * @public
-   * <p>The percentage of completion for the import snapshot task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * @public
-   * <p>The snapshot ID of the disk being imported.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * @public
-   * <p>A brief status for the import snapshot task.</p>
-   */
-  Status?: string;
-
-  /**
-   * @public
-   * <p>A detailed status message for the import snapshot task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * @public
-   * <p>The URL of the disk image from which the snapshot is created.</p>
-   */
-  Url?: string;
-
-  /**
-   * @public
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   */
-  UserBucket?: UserBucketDetails;
-}
-
-/**
- * @public
- * <p>Describes an import snapshot task.</p>
- */
-export interface ImportSnapshotTask {
-  /**
-   * @public
-   * <p>A description of the import snapshot task.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The ID of the import snapshot task.</p>
-   */
-  ImportTaskId?: string;
-
-  /**
-   * @public
-   * <p>Describes an import snapshot task.</p>
-   */
-  SnapshotTaskDetail?: SnapshotTaskDetail;
-
-  /**
-   * @public
-   * <p>The tags for the import snapshot task.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface DescribeImportSnapshotTasksResult {
-  /**
-   * @public
-   * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
-   *    previous 7 days.</p>
-   */
-  ImportSnapshotTasks?: ImportSnapshotTask[];
-
-  /**
-   * @public
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceAttributeName = {
-  blockDeviceMapping: "blockDeviceMapping",
-  disableApiStop: "disableApiStop",
-  disableApiTermination: "disableApiTermination",
-  ebsOptimized: "ebsOptimized",
-  enaSupport: "enaSupport",
-  enclaveOptions: "enclaveOptions",
-  groupSet: "groupSet",
-  instanceInitiatedShutdownBehavior: "instanceInitiatedShutdownBehavior",
-  instanceType: "instanceType",
-  kernel: "kernel",
-  productCodes: "productCodes",
-  ramdisk: "ramdisk",
-  rootDeviceName: "rootDeviceName",
-  sourceDestCheck: "sourceDestCheck",
-  sriovNetSupport: "sriovNetSupport",
-  userData: "userData",
-} as const;
-
-/**
- * @public
- */
-export type InstanceAttributeName = (typeof InstanceAttributeName)[keyof typeof InstanceAttributeName];
-
-/**
- * @public
- */
-export interface DescribeInstanceAttributeRequest {
-  /**
-   * @public
-   * <p>The instance attribute.</p>
-   *          <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
-   */
-  Attribute: InstanceAttributeName | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
- */
-export interface EbsInstanceBlockDevice {
-  /**
-   * @public
-   * <p>The time stamp when the attachment initiated.</p>
-   */
-  AttachTime?: Date;
-
-  /**
-   * @public
-   * <p>Indicates whether the volume is deleted on instance termination.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * @public
-   * <p>The attachment state.</p>
-   */
-  Status?: AttachmentStatus;
-
-  /**
-   * @public
-   * <p>The ID of the EBS volume.</p>
-   */
-  VolumeId?: string;
-}
-
-/**
- * @public
- * <p>Describes a block device mapping.</p>
- */
-export interface InstanceBlockDeviceMapping {
-  /**
-   * @public
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * @public
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   */
-  Ebs?: EbsInstanceBlockDevice;
-}
-
-/**
- * @public
- * <p>Describes a value for a resource attribute that is a Boolean value.</p>
- */
-export interface AttributeBooleanValue {
-  /**
-   * @public
-   * <p>The attribute value. The valid values are <code>true</code> or <code>false</code>.</p>
-   */
-  Value?: boolean;
-}
-
-/**
- * @public
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
- *             Enclaves.</p>
- */
-export interface EnclaveOptions {
-  /**
-   * @public
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web Services Nitro
-   *             Enclaves.</p>
-   */
-  Enabled?: boolean;
-}
-
-/**
- * @public
- * <p>Describes an instance attribute.</p>
- */
-export interface InstanceAttribute {
-  /**
-   * @public
-   * <p>The security groups associated with the instance.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * @public
-   * <p>The block device mapping of the instance.</p>
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
-
-  /**
-   * @public
-   * <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon
-   *             EC2 console, CLI, or API; otherwise, you can.</p>
-   */
-  DisableApiTermination?: AttributeBooleanValue;
-
-  /**
-   * @public
-   * <p>Indicates whether enhanced networking with ENA is enabled.</p>
-   */
-  EnaSupport?: AttributeBooleanValue;
-
-  /**
-   * @public
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
-   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
-   */
-  EnclaveOptions?: EnclaveOptions;
-
-  /**
-   * @public
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O.</p>
-   */
-  EbsOptimized?: AttributeBooleanValue;
-
-  /**
-   * @public
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue;
-
-  /**
-   * @public
-   * <p>The instance type.</p>
-   */
-  InstanceType?: AttributeValue;
-
-  /**
-   * @public
-   * <p>The kernel ID.</p>
-   */
-  KernelId?: AttributeValue;
-
-  /**
-   * @public
-   * <p>A list of product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * @public
-   * <p>The RAM disk ID.</p>
-   */
-  RamdiskId?: AttributeValue;
-
-  /**
-   * @public
-   * <p>The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: AttributeValue;
-
-  /**
-   * @public
-   * <p>Enable or disable source/destination checks, which ensure that the instance is either
-   *             the source or the destination of any traffic that it receives. If the value is
-   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
-   *             disabled. The default value is <code>true</code>. You must disable source/destination
-   *             checks if the instance runs services such as network address translation, routing, or
-   *             firewalls.</p>
-   */
-  SourceDestCheck?: AttributeBooleanValue;
-
-  /**
-   * @public
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface
-   *             is enabled.</p>
-   */
-  SriovNetSupport?: AttributeValue;
-
-  /**
-   * @public
-   * <p>The user data.</p>
-   */
-  UserData?: AttributeValue;
-
-  /**
-   * @public
-   * <p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to
-   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
-   */
-  DisableApiStop?: AttributeBooleanValue;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceConnectEndpointsRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> |
-   *                     <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance
-   *                     Connect Endpoint was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources
-   *                     that have a tag with a specific value, regardless of tag key.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect
-   *                     Endpoint was created.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>One or more EC2 Instance Connect Endpoint IDs.</p>
-   */
-  InstanceConnectEndpointIds?: string[];
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceConnectEndpointsResult {
-  /**
-   * @public
-   * <p>Information about the EC2 Instance Connect Endpoints.</p>
-   */
-  InstanceConnectEndpoints?: Ec2InstanceConnectEndpoint[];
-
-  /**
-   * @public
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceCreditSpecificationsRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The instance IDs.</p>
-   *          <p>Default: Describes all your instances.</p>
-   *          <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * @public
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   *          <p>You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
- */
-export interface InstanceCreditSpecification {
-  /**
-   * @public
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * @public
-   * <p>The credit option for CPU usage of the instance.</p>
-   *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
-   *          </p>
-   */
-  CpuCredits?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceCreditSpecificationsResult {
-  /**
-   * @public
-   * <p>Information about the credit option for CPU usage of an instance.</p>
-   */
-  InstanceCreditSpecifications?: InstanceCreditSpecification[];
-
-  /**
-   * @public
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
  * @internal
  */
 export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
@@ -9737,30 +9452,4 @@ export const ImportImageTaskFilterSensitiveLog = (obj: ImportImageTask): any => 
  */
 export const DescribeImportImageTasksResultFilterSensitiveLog = (obj: DescribeImportImageTasksResult): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotTaskDetailFilterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
-  ...obj,
-  ...(obj.Url && { Url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotTaskFilterSensitiveLog = (obj: ImportSnapshotTask): any => ({
-  ...obj,
-  ...(obj.SnapshotTaskDetail && { SnapshotTaskDetail: SnapshotTaskDetailFilterSensitiveLog(obj.SnapshotTaskDetail) }),
-});
-
-/**
- * @internal
- */
-export const DescribeImportSnapshotTasksResultFilterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
-  ...obj,
-  ...(obj.ImportSnapshotTasks && {
-    ImportSnapshotTasks: obj.ImportSnapshotTasks.map((item) => ImportSnapshotTaskFilterSensitiveLog(item)),
-  }),
 });

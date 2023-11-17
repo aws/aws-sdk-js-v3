@@ -205,6 +205,11 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *           EnaSrdUdpEnabled: true || false,
  *         },
  *       },
+ *       ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ *         TcpEstablishedTimeout: Number("int"),
+ *         UdpStreamTimeout: Number("int"),
+ *         UdpTimeout: Number("int"),
+ *       },
  *     },
  *   ],
  *   PrivateIpAddress: "STRING_VALUE",
@@ -447,6 +452,11 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //               Ipv6Prefix: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           ConnectionTrackingConfiguration: { // ConnectionTrackingSpecificationResponse
+ * //             TcpEstablishedTimeout: Number("int"),
+ * //             UdpStreamTimeout: Number("int"),
+ * //             UdpTimeout: Number("int"),
+ * //           },
  * //         },
  * //       ],
  * //       OutpostArn: "STRING_VALUE",

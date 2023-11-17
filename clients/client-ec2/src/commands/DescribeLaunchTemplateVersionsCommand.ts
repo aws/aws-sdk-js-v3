@@ -161,6 +161,11 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //                 EnaSrdUdpEnabled: true || false,
  * //               },
  * //             },
+ * //             ConnectionTrackingSpecification: { // ConnectionTrackingSpecification
+ * //               TcpEstablishedTimeout: Number("int"),
+ * //               UdpTimeout: Number("int"),
+ * //               UdpStreamTimeout: Number("int"),
+ * //             },
  * //           },
  * //         ],
  * //         ImageId: "STRING_VALUE",

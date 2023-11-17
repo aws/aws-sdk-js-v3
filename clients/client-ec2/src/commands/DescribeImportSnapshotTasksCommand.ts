@@ -15,11 +15,11 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeImportSnapshotTasksRequest } from "../models/models_3";
 import {
-  DescribeImportSnapshotTasksRequest,
   DescribeImportSnapshotTasksResult,
   DescribeImportSnapshotTasksResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_DescribeImportSnapshotTasksCommand, se_DescribeImportSnapshotTasksCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -18,7 +18,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteNetworkInsightsAccessScopeAnalysisRequest,
   DeleteNetworkInsightsAccessScopeAnalysisResult,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DeleteNetworkInsightsAccessScopeAnalysisCommand,
   se_DeleteNetworkInsightsAccessScopeAnalysisCommand,

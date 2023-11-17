@@ -78,6 +78,8 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * //     DefaultResourceDiscoveryId: "STRING_VALUE",
  * //     DefaultResourceDiscoveryAssociationId: "STRING_VALUE",
  * //     ResourceDiscoveryAssociationCount: Number("int"),
+ * //     StateMessage: "STRING_VALUE",
+ * //     Tier: "free" || "advanced",
  * //   },
  * // };
  *

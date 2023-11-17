@@ -97,6 +97,10 @@ import {
   AssociateInstanceEventWindowCommandOutput,
 } from "../commands/AssociateInstanceEventWindowCommand";
 import {
+  AssociateIpamByoasnCommandInput,
+  AssociateIpamByoasnCommandOutput,
+} from "../commands/AssociateIpamByoasnCommand";
+import {
   AssociateIpamResourceDiscoveryCommandInput,
   AssociateIpamResourceDiscoveryCommandOutput,
 } from "../commands/AssociateIpamResourceDiscoveryCommand";
@@ -695,6 +699,10 @@ import {
   DeprovisionByoipCidrCommandOutput,
 } from "../commands/DeprovisionByoipCidrCommand";
 import {
+  DeprovisionIpamByoasnCommandInput,
+  DeprovisionIpamByoasnCommandOutput,
+} from "../commands/DeprovisionIpamByoasnCommand";
+import {
   DeprovisionIpamPoolCidrCommandInput,
   DeprovisionIpamPoolCidrCommandOutput,
 } from "../commands/DeprovisionIpamPoolCidrCommand";
@@ -909,6 +917,7 @@ import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
 } from "../commands/DescribeInternetGatewaysCommand";
+import { DescribeIpamByoasnCommandInput, DescribeIpamByoasnCommandOutput } from "../commands/DescribeIpamByoasnCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "../commands/DescribeIpamPoolsCommand";
 import {
   DescribeIpamResourceDiscoveriesCommandInput,
@@ -1337,6 +1346,10 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "../commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamByoasnCommandInput,
+  DisassociateIpamByoasnCommandOutput,
+} from "../commands/DisassociateIpamByoasnCommand";
+import {
   DisassociateIpamResourceDiscoveryCommandInput,
   DisassociateIpamResourceDiscoveryCommandOutput,
 } from "../commands/DisassociateIpamResourceDiscoveryCommand";
@@ -1510,6 +1523,10 @@ import {
   GetIpamDiscoveredAccountsCommandInput,
   GetIpamDiscoveredAccountsCommandOutput,
 } from "../commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredPublicAddressesCommandInput,
+  GetIpamDiscoveredPublicAddressesCommandOutput,
+} from "../commands/GetIpamDiscoveredPublicAddressesCommand";
 import {
   GetIpamDiscoveredResourceCidrsCommandInput,
   GetIpamDiscoveredResourceCidrsCommandOutput,
@@ -1865,6 +1882,10 @@ import {
 } from "../commands/MoveByoipCidrToIpamCommand";
 import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "../commands/ProvisionByoipCidrCommand";
 import {
+  ProvisionIpamByoasnCommandInput,
+  ProvisionIpamByoasnCommandOutput,
+} from "../commands/ProvisionIpamByoasnCommand";
+import {
   ProvisionIpamPoolCidrCommandInput,
   ProvisionIpamPoolCidrCommandOutput,
 } from "../commands/ProvisionIpamPoolCidrCommand";
@@ -2139,6 +2160,7 @@ import {
   AnalysisSecurityGroupRule,
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
+  AsnAssociation,
   AssignedPrivateIpAddress,
   AssignIpv6AddressesRequest,
   AssignIpv6AddressesResult,
@@ -2157,6 +2179,8 @@ import {
   AssociateIamInstanceProfileResult,
   AssociateInstanceEventWindowRequest,
   AssociateInstanceEventWindowResult,
+  AssociateIpamByoasnRequest,
+  AssociateIpamByoasnResult,
   AssociateIpamResourceDiscoveryRequest,
   AssociateIpamResourceDiscoveryResult,
   AssociateNatGatewayAddressRequest,
@@ -2223,7 +2247,6 @@ import {
   CapacityAllocation,
   CapacityReservation,
   CapacityReservationFleetCancellationState,
-  CarrierGateway,
   CidrBlock,
   ClientVpnAuthorizationRuleStatus,
   ConfirmProductInstanceRequest,
@@ -2239,9 +2262,7 @@ import {
   CreateCapacityReservationRequest,
   CreateCapacityReservationResult,
   CreateCarrierGatewayRequest,
-  CreateCarrierGatewayResult,
   DeviceOptions,
-  DirectoryServiceAuthenticationRequest,
   EnaSrdSpecification,
   EnaSrdUdpSpecification,
   Explanation,
@@ -2334,6 +2355,7 @@ import {
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
+  CarrierGateway,
   CertificateAuthenticationRequest,
   ClientConnectOptions,
   ClientLoginBannerOptions,
@@ -2343,7 +2365,11 @@ import {
   CoipCidr,
   CoipPool,
   ConnectionLogOptions,
+  ConnectionTrackingConfiguration,
+  ConnectionTrackingSpecification,
+  ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
+  CreateCarrierGatewayResult,
   CreateClientVpnEndpointRequest,
   CreateClientVpnEndpointResult,
   CreateClientVpnRouteRequest,
@@ -2412,16 +2438,14 @@ import {
   CreateNetworkInsightsAccessScopeResult,
   CreateNetworkInsightsPathRequest,
   CreateNetworkInsightsPathResult,
-  CreateNetworkInterfacePermissionRequest,
-  CreateNetworkInterfacePermissionResult,
   CreateNetworkInterfaceRequest,
-  CreateNetworkInterfaceResult,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
   DestinationOptionsRequest,
   DhcpConfiguration,
   DhcpOptions,
+  DirectoryServiceAuthenticationRequest,
   EbsBlockDevice,
   Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
@@ -2455,12 +2479,13 @@ import {
   Ipam,
   IpamOperatingRegion,
   IpamPool,
+  IpamPoolSourceResource,
+  IpamPoolSourceResourceRequest,
   IpamResourceDiscovery,
   IpamResourceTag,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv4PrefixSpecificationResponse,
-  Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationRequest,
   Ipv6PrefixSpecificationResponse,
   KeyPair,
@@ -2524,15 +2549,11 @@ import {
   NetworkInsightsAccessScope,
   NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
-  NetworkInterface,
   NetworkInterfaceAssociation,
   NetworkInterfaceAttachment,
   NetworkInterfaceCount,
   NetworkInterfaceCountRequest,
   NetworkInterfaceIpv6Address,
-  NetworkInterfacePermission,
-  NetworkInterfacePermissionState,
-  NetworkInterfacePrivateIpAddress,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
   PathFilter,
@@ -2563,6 +2584,9 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateNetworkInterfacePermissionRequest,
+  CreateNetworkInterfacePermissionResult,
+  CreateNetworkInterfaceResult,
   CreatePlacementGroupRequest,
   CreatePlacementGroupResult,
   CreatePublicIpv4PoolRequest,
@@ -2708,17 +2732,6 @@ import {
   DeleteManagedPrefixListRequest,
   DeleteManagedPrefixListResult,
   DeleteNatGatewayRequest,
-  DeleteNatGatewayResult,
-  DeleteNetworkAclEntryRequest,
-  DeleteNetworkAclRequest,
-  DeleteNetworkInsightsAccessScopeAnalysisRequest,
-  DeleteNetworkInsightsAccessScopeAnalysisResult,
-  DeleteNetworkInsightsAccessScopeRequest,
-  DeleteNetworkInsightsAccessScopeResult,
-  DeleteNetworkInsightsAnalysisRequest,
-  DeleteNetworkInsightsAnalysisResult,
-  DeleteNetworkInsightsPathRequest,
-  DeleteNetworkInsightsPathResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2726,7 +2739,12 @@ import {
   IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
   InstanceSpecification,
+  Ipv6PrefixSpecification,
   LastError,
+  NetworkInterface,
+  NetworkInterfacePermission,
+  NetworkInterfacePermissionState,
+  NetworkInterfacePrivateIpAddress,
   Phase1DHGroupNumbersListValue,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsListValue,
@@ -2805,11 +2823,11 @@ import {
 } from "../models/models_2";
 import {
   AssociatedTargetNetwork,
-  AttributeBooleanValue,
   AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
   AvailableCapacity,
+  Byoasn,
   CapacityBlockOffering,
   CapacityReservationFleet,
   CapacityReservationOptions,
@@ -2825,6 +2843,17 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteNatGatewayResult,
+  DeleteNetworkAclEntryRequest,
+  DeleteNetworkAclRequest,
+  DeleteNetworkInsightsAccessScopeAnalysisRequest,
+  DeleteNetworkInsightsAccessScopeAnalysisResult,
+  DeleteNetworkInsightsAccessScopeRequest,
+  DeleteNetworkInsightsAccessScopeResult,
+  DeleteNetworkInsightsAnalysisRequest,
+  DeleteNetworkInsightsAnalysisResult,
+  DeleteNetworkInsightsPathRequest,
+  DeleteNetworkInsightsPathResult,
   DeleteNetworkInterfacePermissionRequest,
   DeleteNetworkInterfacePermissionResult,
   DeleteNetworkInterfaceRequest,
@@ -2896,6 +2925,8 @@ import {
   DeleteVpnGatewayRequest,
   DeprovisionByoipCidrRequest,
   DeprovisionByoipCidrResult,
+  DeprovisionIpamByoasnRequest,
+  DeprovisionIpamByoasnResult,
   DeprovisionIpamPoolCidrRequest,
   DeprovisionIpamPoolCidrResult,
   DeprovisionPublicIpv4PoolCidrRequest,
@@ -3000,20 +3031,12 @@ import {
   DescribeImportImageTasksRequest,
   DescribeImportImageTasksResult,
   DescribeImportSnapshotTasksRequest,
-  DescribeImportSnapshotTasksResult,
-  DescribeInstanceAttributeRequest,
-  DescribeInstanceConnectEndpointsRequest,
-  DescribeInstanceConnectEndpointsResult,
-  DescribeInstanceCreditSpecificationsRequest,
-  DescribeInstanceCreditSpecificationsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
-  EbsInstanceBlockDevice,
   ElasticGpuHealth,
   ElasticGpus,
-  EnclaveOptions,
   EventInformation,
   ExportImageTask,
   ExportTaskS3Location,
@@ -3043,12 +3066,8 @@ import {
   ImportImageTask,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
-  ImportSnapshotTask,
   ImportVolumeTaskDetails,
-  InstanceAttribute,
-  InstanceBlockDeviceMapping,
   InstanceCapacity,
-  InstanceCreditSpecification,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
@@ -3058,7 +3077,6 @@ import {
   PciId,
   ProductCode,
   SnapshotDetail,
-  SnapshotTaskDetail,
   SpotOptions,
   Subscription,
   SuccessfulQueuedPurchaseDeletion,
@@ -3071,12 +3089,20 @@ import {
 } from "../models/models_3";
 import {
   ArchitectureType,
+  AttributeBooleanValue,
   BootModeType,
   CapacityReservationSpecificationResponse,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
+  ConnectionTrackingSpecificationResponse,
   CpuOptions,
   CreateVolumePermission,
+  DescribeImportSnapshotTasksResult,
+  DescribeInstanceAttributeRequest,
+  DescribeInstanceConnectEndpointsRequest,
+  DescribeInstanceConnectEndpointsResult,
+  DescribeInstanceCreditSpecificationsRequest,
+  DescribeInstanceCreditSpecificationsResult,
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceEventWindowsRequest,
@@ -3093,6 +3119,8 @@ import {
   DescribeInstanceTypesResult,
   DescribeInternetGatewaysRequest,
   DescribeInternetGatewaysResult,
+  DescribeIpamByoasnRequest,
+  DescribeIpamByoasnResult,
   DescribeIpamPoolsRequest,
   DescribeIpamPoolsResult,
   DescribeIpamResourceDiscoveriesRequest,
@@ -3203,27 +3231,14 @@ import {
   DescribeStoreImageTasksResult,
   DescribeSubnetsRequest,
   DescribeSubnetsResult,
-  DescribeTagsRequest,
-  DescribeTagsResult,
-  DescribeTrafficMirrorFiltersRequest,
-  DescribeTrafficMirrorFiltersResult,
-  DescribeTrafficMirrorSessionsRequest,
-  DescribeTrafficMirrorSessionsResult,
-  DescribeTrafficMirrorTargetsRequest,
-  DescribeTrafficMirrorTargetsResult,
-  DescribeTransitGatewayAttachmentsRequest,
-  DescribeTransitGatewayAttachmentsResult,
-  DescribeTransitGatewayConnectPeersRequest,
-  DescribeTransitGatewayConnectPeersResult,
-  DescribeTransitGatewayConnectsRequest,
-  DescribeTransitGatewayConnectsResult,
-  DescribeTransitGatewayMulticastDomainsRequest,
   DiskInfo,
   EbsInfo,
+  EbsInstanceBlockDevice,
   EbsOptimizedInfo,
   EfaInfo,
   ElasticGpuAssociation,
   ElasticInferenceAcceleratorAssociation,
+  EnclaveOptions,
   FpgaDeviceInfo,
   FpgaDeviceMemoryInfo,
   FpgaInfo,
@@ -3232,12 +3247,16 @@ import {
   GpuInfo,
   HibernationOptions,
   HistoryRecord,
+  ImportSnapshotTask,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   InferenceDeviceMemoryInfo,
   Instance,
   InstanceAttachmentEnaSrdSpecification,
   InstanceAttachmentEnaSrdUdpSpecification,
+  InstanceAttribute,
+  InstanceBlockDeviceMapping,
+  InstanceCreditSpecification,
   InstanceIpv4Prefix,
   InstanceIpv6Prefix,
   InstanceMaintenanceOptions,
@@ -3304,6 +3323,7 @@ import {
   SecurityGroupReference,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
+  SnapshotTaskDetail,
   SnapshotTierStatus,
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
@@ -3320,11 +3340,8 @@ import {
   StaleSecurityGroup,
   StoreImageTaskResult,
   SupportedAdditionalProcessorFeature,
-  TagDescription,
   TargetGroup,
   TargetGroupsConfig,
-  TransitGatewayAttachment,
-  TransitGatewayAttachmentAssociation,
   UsageClassType,
   VCpuInfo,
 } from "../models/models_4";
@@ -3337,6 +3354,21 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeTagsRequest,
+  DescribeTagsResult,
+  DescribeTrafficMirrorFiltersRequest,
+  DescribeTrafficMirrorFiltersResult,
+  DescribeTrafficMirrorSessionsRequest,
+  DescribeTrafficMirrorSessionsResult,
+  DescribeTrafficMirrorTargetsRequest,
+  DescribeTrafficMirrorTargetsResult,
+  DescribeTransitGatewayAttachmentsRequest,
+  DescribeTransitGatewayAttachmentsResult,
+  DescribeTransitGatewayConnectPeersRequest,
+  DescribeTransitGatewayConnectPeersResult,
+  DescribeTransitGatewayConnectsRequest,
+  DescribeTransitGatewayConnectsResult,
+  DescribeTransitGatewayMulticastDomainsRequest,
   DescribeTransitGatewayMulticastDomainsResult,
   DescribeTransitGatewayPeeringAttachmentsRequest,
   DescribeTransitGatewayPeeringAttachmentsResult,
@@ -3446,6 +3478,8 @@ import {
   DisassociateIamInstanceProfileResult,
   DisassociateInstanceEventWindowRequest,
   DisassociateInstanceEventWindowResult,
+  DisassociateIpamByoasnRequest,
+  DisassociateIpamByoasnResult,
   DisassociateIpamResourceDiscoveryRequest,
   DisassociateIpamResourceDiscoveryResult,
   DisassociateNatGatewayAddressRequest,
@@ -3546,12 +3580,63 @@ import {
   GetIpamAddressHistoryResult,
   GetIpamDiscoveredAccountsRequest,
   GetIpamDiscoveredAccountsResult,
+  GetIpamDiscoveredPublicAddressesRequest,
+  GetIpamDiscoveredPublicAddressesResult,
   GetIpamDiscoveredResourceCidrsRequest,
   GetIpamDiscoveredResourceCidrsResult,
   GetIpamPoolAllocationsRequest,
   GetIpamPoolAllocationsResult,
   GetIpamPoolCidrsRequest,
   GetIpamPoolCidrsResult,
+  InstanceEventWindowDisassociationRequest,
+  InstanceFamilyCreditSpecification,
+  InstanceTypeInfoFromInstanceRequirements,
+  InstanceUsage,
+  IntegrateServices,
+  IpamAddressHistoryRecord,
+  IpamDiscoveredAccount,
+  IpamDiscoveredPublicAddress,
+  IpamDiscoveredResourceCidr,
+  IpamDiscoveryFailureReason,
+  IpamPublicAddressSecurityGroup,
+  IpamPublicAddressTag,
+  IpamPublicAddressTags,
+  Ipv6CidrAssociation,
+  MetricPoint,
+  PrivateDnsDetails,
+  Purchase,
+  ServiceDetail,
+  TagDescription,
+  TransitGatewayAttachment,
+  TransitGatewayAttachmentAssociation,
+  TransitGatewayPropagation,
+  VerifiedAccessInstanceLoggingConfiguration,
+  VerifiedAccessLogCloudWatchLogsDestination,
+  VerifiedAccessLogDeliveryStatus,
+  VerifiedAccessLogKinesisDataFirehoseDestination,
+  VerifiedAccessLogs,
+  VerifiedAccessLogS3Destination,
+  VolumeModification,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
+  VolumeStatusDetails,
+  VolumeStatusEvent,
+  VolumeStatusInfo,
+  VolumeStatusItem,
+  VpcClassicLink,
+  VpcEndpointConnection,
+} from "../models/models_5";
+import {
+  AsnAuthorizationContext,
+  BlobAttributeValue,
+  CapacityReservationSpecification,
+  CidrAuthorizationContext,
+  ClientData,
+  CreateVolumePermissionModifications,
+  DiskImage,
+  DiskImageDetail,
+  DnsServersOptionsModifyStructure,
+  EbsInstanceBlockDeviceSpecification,
   GetIpamResourceCidrsRequest,
   GetIpamResourceCidrsResult,
   GetLaunchTemplateDataRequest,
@@ -3572,55 +3657,6 @@ import {
   GetSecurityGroupsForVpcResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
-  InstanceEventWindowDisassociationRequest,
-  InstanceFamilyCreditSpecification,
-  InstanceTypeInfoFromInstanceRequirements,
-  InstanceUsage,
-  IntegrateServices,
-  IpamAddressHistoryRecord,
-  IpamDiscoveredAccount,
-  IpamDiscoveredResourceCidr,
-  IpamDiscoveryFailureReason,
-  IpamResourceCidr,
-  Ipv6CidrAssociation,
-  MetricPoint,
-  PrefixListAssociation,
-  PrefixListEntry,
-  PrivateDnsDetails,
-  Purchase,
-  ReservationValue,
-  ReservedInstanceReservationValue,
-  SecurityGroupForVpc,
-  ServiceDetail,
-  TargetConfiguration,
-  TargetReservationValue,
-  TransitGatewayPropagation,
-  VerifiedAccessInstanceLoggingConfiguration,
-  VerifiedAccessLogCloudWatchLogsDestination,
-  VerifiedAccessLogDeliveryStatus,
-  VerifiedAccessLogKinesisDataFirehoseDestination,
-  VerifiedAccessLogs,
-  VerifiedAccessLogS3Destination,
-  VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
-  VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
-  VpcClassicLink,
-  VpcEndpointConnection,
-} from "../models/models_5";
-import {
-  BlobAttributeValue,
-  CapacityReservationSpecification,
-  CidrAuthorizationContext,
-  ClientData,
-  CreateVolumePermissionModifications,
-  DiskImage,
-  DiskImageDetail,
-  DnsServersOptionsModifyStructure,
-  EbsInstanceBlockDeviceSpecification,
   GetSnapshotBlockPublicAccessStateRequest,
   GetSnapshotBlockPublicAccessStateResult,
   GetSpotPlacementScoresRequest,
@@ -3672,6 +3708,7 @@ import {
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
   IpamCidrAuthorizationContext,
+  IpamResourceCidr,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
@@ -3817,8 +3854,12 @@ import {
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
+  PrefixListAssociation,
+  PrefixListEntry,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
+  ProvisionIpamByoasnRequest,
+  ProvisionIpamByoasnResult,
   ProvisionIpamPoolCidrRequest,
   ProvisionIpamPoolCidrResult,
   ProvisionPublicIpv4PoolCidrRequest,
@@ -3842,46 +3883,20 @@ import {
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
-  RejectTransitGatewayMulticastDomainAssociationsRequest,
-  RejectTransitGatewayMulticastDomainAssociationsResult,
-  RejectTransitGatewayPeeringAttachmentRequest,
-  RejectTransitGatewayPeeringAttachmentResult,
-  RejectTransitGatewayVpcAttachmentRequest,
-  RejectTransitGatewayVpcAttachmentResult,
-  RejectVpcEndpointConnectionsRequest,
-  RejectVpcEndpointConnectionsResult,
-  RejectVpcPeeringConnectionRequest,
-  RejectVpcPeeringConnectionResult,
-  ReleaseAddressRequest,
-  ReleaseHostsRequest,
-  ReleaseHostsResult,
-  ReleaseIpamPoolAllocationRequest,
-  ReleaseIpamPoolAllocationResult,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
-  ReplaceIamInstanceProfileAssociationRequest,
-  ReplaceIamInstanceProfileAssociationResult,
-  ReplaceNetworkAclAssociationRequest,
-  ReplaceNetworkAclAssociationResult,
-  ReplaceNetworkAclEntryRequest,
-  ReplaceRouteRequest,
-  ReplaceRouteTableAssociationRequest,
-  ReplaceRouteTableAssociationResult,
-  ReplaceTransitGatewayRouteRequest,
-  ReplaceTransitGatewayRouteResult,
-  ReplaceVpnTunnelRequest,
-  ReplaceVpnTunnelResult,
-  ReportInstanceReasonCodes,
-  ReportInstanceStatusRequest,
-  RequestSpotFleetRequest,
-  RequestSpotFleetResponse,
+  ReservationValue,
   ReservedInstanceLimitPrice,
+  ReservedInstanceReservationValue,
+  SecurityGroupForVpc,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
   SpotPlacementScore,
   SuccessfulInstanceCreditSpecificationItem,
+  TargetConfiguration,
+  TargetReservationValue,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
   TransitGatewayAttachmentPropagation,
@@ -3916,6 +3931,37 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RejectTransitGatewayMulticastDomainAssociationsRequest,
+  RejectTransitGatewayMulticastDomainAssociationsResult,
+  RejectTransitGatewayPeeringAttachmentRequest,
+  RejectTransitGatewayPeeringAttachmentResult,
+  RejectTransitGatewayVpcAttachmentRequest,
+  RejectTransitGatewayVpcAttachmentResult,
+  RejectVpcEndpointConnectionsRequest,
+  RejectVpcEndpointConnectionsResult,
+  RejectVpcPeeringConnectionRequest,
+  RejectVpcPeeringConnectionResult,
+  ReleaseAddressRequest,
+  ReleaseHostsRequest,
+  ReleaseHostsResult,
+  ReleaseIpamPoolAllocationRequest,
+  ReleaseIpamPoolAllocationResult,
+  ReplaceIamInstanceProfileAssociationRequest,
+  ReplaceIamInstanceProfileAssociationResult,
+  ReplaceNetworkAclAssociationRequest,
+  ReplaceNetworkAclAssociationResult,
+  ReplaceNetworkAclEntryRequest,
+  ReplaceRouteRequest,
+  ReplaceRouteTableAssociationRequest,
+  ReplaceRouteTableAssociationResult,
+  ReplaceTransitGatewayRouteRequest,
+  ReplaceTransitGatewayRouteResult,
+  ReplaceVpnTunnelRequest,
+  ReplaceVpnTunnelResult,
+  ReportInstanceReasonCodes,
+  ReportInstanceStatusRequest,
+  RequestSpotFleetRequest,
+  RequestSpotFleetResponse,
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
@@ -4351,6 +4397,23 @@ export const se_AssociateInstanceEventWindowCommand = async (
   body = buildFormUrlencodedString({
     ...se_AssociateInstanceEventWindowRequest(input, context),
     Action: "AssociateInstanceEventWindow",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2AssociateIpamByoasnCommand
+ */
+export const se_AssociateIpamByoasnCommand = async (
+  input: AssociateIpamByoasnCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_AssociateIpamByoasnRequest(input, context),
+    Action: "AssociateIpamByoasn",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7587,6 +7650,23 @@ export const se_DeprovisionByoipCidrCommand = async (
 };
 
 /**
+ * serializeAws_ec2DeprovisionIpamByoasnCommand
+ */
+export const se_DeprovisionIpamByoasnCommand = async (
+  input: DeprovisionIpamByoasnCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeprovisionIpamByoasnRequest(input, context),
+    Action: "DeprovisionIpamByoasn",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DeprovisionIpamPoolCidrCommand
  */
 export const se_DeprovisionIpamPoolCidrCommand = async (
@@ -8635,6 +8715,23 @@ export const se_DescribeInternetGatewaysCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeInternetGatewaysRequest(input, context),
     Action: "DescribeInternetGateways",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeIpamByoasnCommand
+ */
+export const se_DescribeIpamByoasnCommand = async (
+  input: DescribeIpamByoasnCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeIpamByoasnRequest(input, context),
+    Action: "DescribeIpamByoasn",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10647,6 +10744,23 @@ export const se_DisassociateInstanceEventWindowCommand = async (
 };
 
 /**
+ * serializeAws_ec2DisassociateIpamByoasnCommand
+ */
+export const se_DisassociateIpamByoasnCommand = async (
+  input: DisassociateIpamByoasnCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisassociateIpamByoasnRequest(input, context),
+    Action: "DisassociateIpamByoasn",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DisassociateIpamResourceDiscoveryCommand
  */
 export const se_DisassociateIpamResourceDiscoveryCommand = async (
@@ -11457,6 +11571,23 @@ export const se_GetIpamDiscoveredAccountsCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetIpamDiscoveredAccountsRequest(input, context),
     Action: "GetIpamDiscoveredAccounts",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetIpamDiscoveredPublicAddressesCommand
+ */
+export const se_GetIpamDiscoveredPublicAddressesCommand = async (
+  input: GetIpamDiscoveredPublicAddressesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetIpamDiscoveredPublicAddressesRequest(input, context),
+    Action: "GetIpamDiscoveredPublicAddresses",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13242,6 +13373,23 @@ export const se_ProvisionByoipCidrCommand = async (
   body = buildFormUrlencodedString({
     ...se_ProvisionByoipCidrRequest(input, context),
     Action: "ProvisionByoipCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ProvisionIpamByoasnCommand
+ */
+export const se_ProvisionIpamByoasnCommand = async (
+  input: ProvisionIpamByoasnCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ProvisionIpamByoasnRequest(input, context),
+    Action: "ProvisionIpamByoasn",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -15176,6 +15324,46 @@ const de_AssociateInstanceEventWindowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateInstanceEventWindowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2AssociateIpamByoasnCommand
+ */
+export const de_AssociateIpamByoasnCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIpamByoasnCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_AssociateIpamByoasnCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssociateIpamByoasnResult(data, context);
+  const response: AssociateIpamByoasnCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2AssociateIpamByoasnCommandError
+ */
+const de_AssociateIpamByoasnCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIpamByoasnCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -22715,6 +22903,46 @@ const de_DeprovisionByoipCidrCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2DeprovisionIpamByoasnCommand
+ */
+export const de_DeprovisionIpamByoasnCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionIpamByoasnCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeprovisionIpamByoasnCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeprovisionIpamByoasnResult(data, context);
+  const response: DeprovisionIpamByoasnCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeprovisionIpamByoasnCommandError
+ */
+const de_DeprovisionIpamByoasnCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionIpamByoasnCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2DeprovisionIpamPoolCidrCommand
  */
 export const de_DeprovisionIpamPoolCidrCommand = async (
@@ -25178,6 +25406,46 @@ const de_DescribeInternetGatewaysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInternetGatewaysCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamByoasnCommand
+ */
+export const de_DescribeIpamByoasnCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamByoasnCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeIpamByoasnCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeIpamByoasnResult(data, context);
+  const response: DescribeIpamByoasnCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamByoasnCommandError
+ */
+const de_DescribeIpamByoasnCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamByoasnCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -29897,6 +30165,46 @@ const de_DisassociateInstanceEventWindowCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2DisassociateIpamByoasnCommand
+ */
+export const de_DisassociateIpamByoasnCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIpamByoasnCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisassociateIpamByoasnCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisassociateIpamByoasnResult(data, context);
+  const response: DisassociateIpamByoasnCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DisassociateIpamByoasnCommandError
+ */
+const de_DisassociateIpamByoasnCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIpamByoasnCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2DisassociateIpamResourceDiscoveryCommand
  */
 export const de_DisassociateIpamResourceDiscoveryCommand = async (
@@ -31794,6 +32102,46 @@ const de_GetIpamDiscoveredAccountsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIpamDiscoveredAccountsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2GetIpamDiscoveredPublicAddressesCommand
+ */
+export const de_GetIpamDiscoveredPublicAddressesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamDiscoveredPublicAddressesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetIpamDiscoveredPublicAddressesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetIpamDiscoveredPublicAddressesResult(data, context);
+  const response: GetIpamDiscoveredPublicAddressesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetIpamDiscoveredPublicAddressesCommandError
+ */
+const de_GetIpamDiscoveredPublicAddressesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamDiscoveredPublicAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -35981,6 +36329,46 @@ const de_ProvisionByoipCidrCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2ProvisionIpamByoasnCommand
+ */
+export const de_ProvisionIpamByoasnCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionIpamByoasnCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ProvisionIpamByoasnCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ProvisionIpamByoasnResult(data, context);
+  const response: ProvisionIpamByoasnCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ProvisionIpamByoasnCommandError
+ */
+const de_ProvisionIpamByoasnCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionIpamByoasnCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2ProvisionIpamPoolCidrCommand
  */
 export const de_ProvisionIpamPoolCidrCommand = async (
@@ -38955,6 +39343,9 @@ const se_AdvertiseByoipCidrRequest = (input: AdvertiseByoipCidrRequest, context:
   if (input.Cidr != null) {
     entries["Cidr"] = input.Cidr;
   }
+  if (input.Asn != null) {
+    entries["Asn"] = input.Asn;
+  }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
@@ -39081,6 +39472,16 @@ const se_AllocateIpamPoolCidrRequest = (input: AllocateIpamPoolCidrRequest, cont
   if (input.PreviewNextCidr != null) {
     entries["PreviewNextCidr"] = input.PreviewNextCidr;
   }
+  if (input.AllowedCidrs != null) {
+    const memberEntries = se_IpamPoolAllocationAllowedCidrs(input.AllowedCidrs, context);
+    if (input.AllowedCidrs?.length === 0) {
+      entries.AllowedCidr = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllowedCidr.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input.DisallowedCidrs != null) {
     const memberEntries = se_IpamPoolAllocationDisallowedCidrs(input.DisallowedCidrs, context);
     if (input.DisallowedCidrs?.length === 0) {
@@ -39200,6 +39601,20 @@ const se_ArnList = (input: string[], context: __SerdeContext): any => {
     }
     entries[`Item.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2AsnAuthorizationContext
+ */
+const se_AsnAuthorizationContext = (input: AsnAuthorizationContext, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Message != null) {
+    entries["Message"] = input.Message;
+  }
+  if (input.Signature != null) {
+    entries["Signature"] = input.Signature;
   }
   return entries;
 };
@@ -39465,6 +39880,23 @@ const se_AssociateInstanceEventWindowRequest = (
 };
 
 /**
+ * serializeAws_ec2AssociateIpamByoasnRequest
+ */
+const se_AssociateIpamByoasnRequest = (input: AssociateIpamByoasnRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Asn != null) {
+    entries["Asn"] = input.Asn;
+  }
+  if (input.Cidr != null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2AssociateIpamResourceDiscoveryRequest
  */
 const se_AssociateIpamResourceDiscoveryRequest = (
@@ -39567,6 +39999,12 @@ const se_AssociateSubnetCidrBlockRequest = (input: AssociateSubnetCidrBlockReque
   }
   if (input.SubnetId != null) {
     entries["SubnetId"] = input.SubnetId;
+  }
+  if (input.Ipv6IpamPoolId != null) {
+    entries["Ipv6IpamPoolId"] = input.Ipv6IpamPoolId;
+  }
+  if (input.Ipv6NetmaskLength != null) {
+    entries["Ipv6NetmaskLength"] = input.Ipv6NetmaskLength;
   }
   return entries;
 };
@@ -40801,6 +41239,26 @@ const se_ConnectionNotificationIdsList = (input: string[], context: __SerdeConte
 };
 
 /**
+ * serializeAws_ec2ConnectionTrackingSpecificationRequest
+ */
+const se_ConnectionTrackingSpecificationRequest = (
+  input: ConnectionTrackingSpecificationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TcpEstablishedTimeout != null) {
+    entries["TcpEstablishedTimeout"] = input.TcpEstablishedTimeout;
+  }
+  if (input.UdpStreamTimeout != null) {
+    entries["UdpStreamTimeout"] = input.UdpStreamTimeout;
+  }
+  if (input.UdpTimeout != null) {
+    entries["UdpTimeout"] = input.UdpTimeout;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ConversionIdStringList
  */
 const se_ConversionIdStringList = (input: string[], context: __SerdeContext): any => {
@@ -41848,6 +42306,13 @@ const se_CreateIpamPoolRequest = (input: CreateIpamPoolRequest, context: __Serde
   if (input.PublicIpSource != null) {
     entries["PublicIpSource"] = input.PublicIpSource;
   }
+  if (input.SourceResource != null) {
+    const memberEntries = se_IpamPoolSourceResourceRequest(input.SourceResource, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourceResource.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -41887,6 +42352,9 @@ const se_CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext)
   }
   if (input.ClientToken != null) {
     entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.Tier != null) {
+    entries["Tier"] = input.Tier;
   }
   return entries;
 };
@@ -42603,6 +43071,13 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   if (input.EnablePrimaryIpv6 != null) {
     entries["EnablePrimaryIpv6"] = input.EnablePrimaryIpv6;
   }
+  if (input.ConnectionTrackingSpecification != null) {
+    const memberEntries = se_ConnectionTrackingSpecificationRequest(input.ConnectionTrackingSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConnectionTrackingSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -43060,6 +43535,18 @@ const se_CreateSubnetRequest = (input: CreateSubnetRequest, context: __SerdeCont
   }
   if (input.Ipv6Native != null) {
     entries["Ipv6Native"] = input.Ipv6Native;
+  }
+  if (input.Ipv4IpamPoolId != null) {
+    entries["Ipv4IpamPoolId"] = input.Ipv4IpamPoolId;
+  }
+  if (input.Ipv4NetmaskLength != null) {
+    entries["Ipv4NetmaskLength"] = input.Ipv4NetmaskLength;
+  }
+  if (input.Ipv6IpamPoolId != null) {
+    entries["Ipv6IpamPoolId"] = input.Ipv6IpamPoolId;
+  }
+  if (input.Ipv6NetmaskLength != null) {
+    entries["Ipv6NetmaskLength"] = input.Ipv6NetmaskLength;
   }
   return entries;
 };
@@ -44868,6 +45355,9 @@ const se_DeleteIpamPoolRequest = (input: DeleteIpamPoolRequest, context: __Serde
   if (input.IpamPoolId != null) {
     entries["IpamPoolId"] = input.IpamPoolId;
   }
+  if (input.Cascade != null) {
+    entries["Cascade"] = input.Cascade;
+  }
   return entries;
 };
 
@@ -45932,6 +46422,23 @@ const se_DeprovisionByoipCidrRequest = (input: DeprovisionByoipCidrRequest, cont
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeprovisionIpamByoasnRequest
+ */
+const se_DeprovisionIpamByoasnRequest = (input: DeprovisionIpamByoasnRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamId != null) {
+    entries["IpamId"] = input.IpamId;
+  }
+  if (input.Asn != null) {
+    entries["Asn"] = input.Asn;
   }
   return entries;
 };
@@ -47983,6 +48490,23 @@ const se_DescribeInternetGatewaysRequest = (input: DescribeInternetGatewaysReque
   }
   if (input.MaxResults != null) {
     entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeIpamByoasnRequest
+ */
+const se_DescribeIpamByoasnRequest = (input: DescribeIpamByoasnRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -51963,6 +52487,23 @@ const se_DisassociateInstanceEventWindowRequest = (
 };
 
 /**
+ * serializeAws_ec2DisassociateIpamByoasnRequest
+ */
+const se_DisassociateIpamByoasnRequest = (input: DisassociateIpamByoasnRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Asn != null) {
+    entries["Asn"] = input.Asn;
+  }
+  if (input.Cidr != null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DisassociateIpamResourceDiscoveryRequest
  */
 const se_DisassociateIpamResourceDiscoveryRequest = (
@@ -53761,6 +54302,42 @@ const se_GetIpamDiscoveredAccountsRequest = (input: GetIpamDiscoveredAccountsReq
   }
   if (input.DiscoveryRegion != null) {
     entries["DiscoveryRegion"] = input.DiscoveryRegion;
+  }
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetIpamDiscoveredPublicAddressesRequest
+ */
+const se_GetIpamDiscoveredPublicAddressesRequest = (
+  input: GetIpamDiscoveredPublicAddressesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryId != null) {
+    entries["IpamResourceDiscoveryId"] = input.IpamResourceDiscoveryId;
+  }
+  if (input.AddressRegion != null) {
+    entries["AddressRegion"] = input.AddressRegion;
   }
   if (input.Filters != null) {
     const memberEntries = se_FilterList(input.Filters, context);
@@ -55696,6 +56273,13 @@ const se_InstanceNetworkInterfaceSpecification = (
       entries[loc] = value;
     });
   }
+  if (input.ConnectionTrackingSpecification != null) {
+    const memberEntries = se_ConnectionTrackingSpecificationRequest(input.ConnectionTrackingSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConnectionTrackingSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -56218,6 +56802,22 @@ const se_IpamCidrAuthorizationContext = (input: IpamCidrAuthorizationContext, co
 };
 
 /**
+ * serializeAws_ec2IpamPoolAllocationAllowedCidrs
+ */
+const se_IpamPoolAllocationAllowedCidrs = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2IpamPoolAllocationDisallowedCidrs
  */
 const se_IpamPoolAllocationDisallowedCidrs = (input: string[], context: __SerdeContext): any => {
@@ -56229,6 +56829,26 @@ const se_IpamPoolAllocationDisallowedCidrs = (input: string[], context: __SerdeC
     }
     entries[`Item.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2IpamPoolSourceResourceRequest
+ */
+const se_IpamPoolSourceResourceRequest = (input: IpamPoolSourceResourceRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ResourceId != null) {
+    entries["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceType != null) {
+    entries["ResourceType"] = input.ResourceType;
+  }
+  if (input.ResourceRegion != null) {
+    entries["ResourceRegion"] = input.ResourceRegion;
+  }
+  if (input.ResourceOwner != null) {
+    entries["ResourceOwner"] = input.ResourceOwner;
   }
   return entries;
 };
@@ -57051,6 +57671,13 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
     const memberEntries = se_EnaSrdSpecificationRequest(input.EnaSrdSpecification, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnaSrdSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ConnectionTrackingSpecification != null) {
+    const memberEntries = se_ConnectionTrackingSpecificationRequest(input.ConnectionTrackingSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConnectionTrackingSpecification.${key}`;
       entries[loc] = value;
     });
   }
@@ -58550,6 +59177,9 @@ const se_ModifyIpamRequest = (input: ModifyIpamRequest, context: __SerdeContext)
       entries[loc] = value;
     });
   }
+  if (input.Tier != null) {
+    entries["Tier"] = input.Tier;
+  }
   return entries;
 };
 
@@ -58785,6 +59415,13 @@ const se_ModifyNetworkInterfaceAttributeRequest = (
   }
   if (input.EnablePrimaryIpv6 != null) {
     entries["EnablePrimaryIpv6"] = input.EnablePrimaryIpv6;
+  }
+  if (input.ConnectionTrackingSpecification != null) {
+    const memberEntries = se_ConnectionTrackingSpecificationRequest(input.ConnectionTrackingSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConnectionTrackingSpecification.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -61414,6 +62051,30 @@ const se_ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequest, context:
   }
   if (input.MultiRegion != null) {
     entries["MultiRegion"] = input.MultiRegion;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ProvisionIpamByoasnRequest
+ */
+const se_ProvisionIpamByoasnRequest = (input: ProvisionIpamByoasnRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamId != null) {
+    entries["IpamId"] = input.IpamId;
+  }
+  if (input.Asn != null) {
+    entries["Asn"] = input.Asn;
+  }
+  if (input.AsnAuthorizationContext != null) {
+    const memberEntries = se_AsnAuthorizationContext(input.AsnAuthorizationContext, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AsnAuthorizationContext.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -67849,6 +68510,37 @@ const de_ArnList = (output: any, context: __SerdeContext): string[] => {
 };
 
 /**
+ * deserializeAws_ec2AsnAssociation
+ */
+const de_AsnAssociation = (output: any, context: __SerdeContext): AsnAssociation => {
+  const contents: any = {};
+  if (output["asn"] !== undefined) {
+    contents.Asn = __expectString(output["asn"]);
+  }
+  if (output["cidr"] !== undefined) {
+    contents.Cidr = __expectString(output["cidr"]);
+  }
+  if (output["statusMessage"] !== undefined) {
+    contents.StatusMessage = __expectString(output["statusMessage"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2AsnAssociationSet
+ */
+const de_AsnAssociationSet = (output: any, context: __SerdeContext): AsnAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AsnAssociation(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2AssignedPrivateIpAddress
  */
 const de_AssignedPrivateIpAddress = (output: any, context: __SerdeContext): AssignedPrivateIpAddress => {
@@ -68080,6 +68772,17 @@ const de_AssociateInstanceEventWindowResult = (
   const contents: any = {};
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = de_InstanceEventWindow(output["instanceEventWindow"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2AssociateIpamByoasnResult
+ */
+const de_AssociateIpamByoasnResult = (output: any, context: __SerdeContext): AssociateIpamByoasnResult => {
+  const contents: any = {};
+  if (output["asnAssociation"] !== undefined) {
+    contents.AsnAssociation = de_AsnAssociation(output["asnAssociation"], context);
   }
   return contents;
 };
@@ -68670,6 +69373,37 @@ const de_BundleTaskList = (output: any, context: __SerdeContext): BundleTask[] =
 };
 
 /**
+ * deserializeAws_ec2Byoasn
+ */
+const de_Byoasn = (output: any, context: __SerdeContext): Byoasn => {
+  const contents: any = {};
+  if (output["asn"] !== undefined) {
+    contents.Asn = __expectString(output["asn"]);
+  }
+  if (output["ipamId"] !== undefined) {
+    contents.IpamId = __expectString(output["ipamId"]);
+  }
+  if (output["statusMessage"] !== undefined) {
+    contents.StatusMessage = __expectString(output["statusMessage"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ByoasnSet
+ */
+const de_ByoasnSet = (output: any, context: __SerdeContext): Byoasn[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Byoasn(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2ByoipCidr
  */
 const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
@@ -68679,6 +69413,14 @@ const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   }
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
+  }
+  if (output.asnAssociationSet === "") {
+    contents.AsnAssociations = [];
+  } else if (output["asnAssociationSet"] !== undefined && output["asnAssociationSet"]["item"] !== undefined) {
+    contents.AsnAssociations = de_AsnAssociationSet(
+      __getArrayIfSingleItem(output["asnAssociationSet"]["item"]),
+      context
+    );
   }
   if (output["statusMessage"] !== undefined) {
     contents.StatusMessage = __expectString(output["statusMessage"]);
@@ -70043,6 +70785,80 @@ const de_ConnectionNotificationSet = (output: any, context: __SerdeContext): Con
     .map((entry: any) => {
       return de_ConnectionNotification(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2ConnectionTrackingConfiguration
+ */
+const de_ConnectionTrackingConfiguration = (output: any, context: __SerdeContext): ConnectionTrackingConfiguration => {
+  const contents: any = {};
+  if (output["tcpEstablishedTimeout"] !== undefined) {
+    contents.TcpEstablishedTimeout = __strictParseInt32(output["tcpEstablishedTimeout"]) as number;
+  }
+  if (output["udpStreamTimeout"] !== undefined) {
+    contents.UdpStreamTimeout = __strictParseInt32(output["udpStreamTimeout"]) as number;
+  }
+  if (output["udpTimeout"] !== undefined) {
+    contents.UdpTimeout = __strictParseInt32(output["udpTimeout"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ConnectionTrackingSpecification
+ */
+const de_ConnectionTrackingSpecification = (output: any, context: __SerdeContext): ConnectionTrackingSpecification => {
+  const contents: any = {};
+  if (output["tcpEstablishedTimeout"] !== undefined) {
+    contents.TcpEstablishedTimeout = __strictParseInt32(output["tcpEstablishedTimeout"]) as number;
+  }
+  if (output["udpTimeout"] !== undefined) {
+    contents.UdpTimeout = __strictParseInt32(output["udpTimeout"]) as number;
+  }
+  if (output["udpStreamTimeout"] !== undefined) {
+    contents.UdpStreamTimeout = __strictParseInt32(output["udpStreamTimeout"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ConnectionTrackingSpecificationRequest
+ */
+const de_ConnectionTrackingSpecificationRequest = (
+  output: any,
+  context: __SerdeContext
+): ConnectionTrackingSpecificationRequest => {
+  const contents: any = {};
+  if (output["TcpEstablishedTimeout"] !== undefined) {
+    contents.TcpEstablishedTimeout = __strictParseInt32(output["TcpEstablishedTimeout"]) as number;
+  }
+  if (output["UdpStreamTimeout"] !== undefined) {
+    contents.UdpStreamTimeout = __strictParseInt32(output["UdpStreamTimeout"]) as number;
+  }
+  if (output["UdpTimeout"] !== undefined) {
+    contents.UdpTimeout = __strictParseInt32(output["UdpTimeout"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ConnectionTrackingSpecificationResponse
+ */
+const de_ConnectionTrackingSpecificationResponse = (
+  output: any,
+  context: __SerdeContext
+): ConnectionTrackingSpecificationResponse => {
+  const contents: any = {};
+  if (output["tcpEstablishedTimeout"] !== undefined) {
+    contents.TcpEstablishedTimeout = __strictParseInt32(output["tcpEstablishedTimeout"]) as number;
+  }
+  if (output["udpStreamTimeout"] !== undefined) {
+    contents.UdpStreamTimeout = __strictParseInt32(output["udpStreamTimeout"]) as number;
+  }
+  if (output["udpTimeout"] !== undefined) {
+    contents.UdpTimeout = __strictParseInt32(output["udpTimeout"]) as number;
+  }
+  return contents;
 };
 
 /**
@@ -72412,6 +73228,17 @@ const de_DeprovisionedAddressSet = (output: any, context: __SerdeContext): strin
 };
 
 /**
+ * deserializeAws_ec2DeprovisionIpamByoasnResult
+ */
+const de_DeprovisionIpamByoasnResult = (output: any, context: __SerdeContext): DeprovisionIpamByoasnResult => {
+  const contents: any = {};
+  if (output["byoasn"] !== undefined) {
+    contents.Byoasn = de_Byoasn(output["byoasn"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DeprovisionIpamPoolCidrResult
  */
 const de_DeprovisionIpamPoolCidrResult = (output: any, context: __SerdeContext): DeprovisionIpamPoolCidrResult => {
@@ -73695,6 +74522,22 @@ const de_DescribeInternetGatewaysResult = (output: any, context: __SerdeContext)
       __getArrayIfSingleItem(output["internetGatewaySet"]["item"]),
       context
     );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamByoasnResult
+ */
+const de_DescribeIpamByoasnResult = (output: any, context: __SerdeContext): DescribeIpamByoasnResult => {
+  const contents: any = {};
+  if (output.byoasnSet === "") {
+    contents.Byoasns = [];
+  } else if (output["byoasnSet"] !== undefined && output["byoasnSet"]["item"] !== undefined) {
+    contents.Byoasns = de_ByoasnSet(__getArrayIfSingleItem(output["byoasnSet"]["item"]), context);
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -76222,6 +77065,17 @@ const de_DisassociateInstanceEventWindowResult = (
   const contents: any = {};
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = de_InstanceEventWindow(output["instanceEventWindow"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DisassociateIpamByoasnResult
+ */
+const de_DisassociateIpamByoasnResult = (output: any, context: __SerdeContext): DisassociateIpamByoasnResult => {
+  const contents: any = {};
+  if (output["asnAssociation"] !== undefined) {
+    contents.AsnAssociation = de_AsnAssociation(output["asnAssociation"], context);
   }
   return contents;
 };
@@ -78766,6 +79620,34 @@ const de_GetIpamDiscoveredAccountsResult = (output: any, context: __SerdeContext
       __getArrayIfSingleItem(output["ipamDiscoveredAccountSet"]["item"]),
       context
     );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetIpamDiscoveredPublicAddressesResult
+ */
+const de_GetIpamDiscoveredPublicAddressesResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamDiscoveredPublicAddressesResult => {
+  const contents: any = {};
+  if (output.ipamDiscoveredPublicAddressSet === "") {
+    contents.IpamDiscoveredPublicAddresses = [];
+  } else if (
+    output["ipamDiscoveredPublicAddressSet"] !== undefined &&
+    output["ipamDiscoveredPublicAddressSet"]["item"] !== undefined
+  ) {
+    contents.IpamDiscoveredPublicAddresses = de_IpamDiscoveredPublicAddressSet(
+      __getArrayIfSingleItem(output["ipamDiscoveredPublicAddressSet"]["item"]),
+      context
+    );
+  }
+  if (output["oldestSampleTime"] !== undefined) {
+    contents.OldestSampleTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["oldestSampleTime"]));
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -81430,6 +82312,12 @@ const de_InstanceNetworkInterface = (output: any, context: __SerdeContext): Inst
   } else if (output["ipv6PrefixSet"] !== undefined && output["ipv6PrefixSet"]["item"] !== undefined) {
     contents.Ipv6Prefixes = de_InstanceIpv6PrefixList(__getArrayIfSingleItem(output["ipv6PrefixSet"]["item"]), context);
   }
+  if (output["connectionTrackingConfiguration"] !== undefined) {
+    contents.ConnectionTrackingConfiguration = de_ConnectionTrackingSpecificationResponse(
+      output["connectionTrackingConfiguration"],
+      context
+    );
+  }
   return contents;
 };
 
@@ -81591,6 +82479,12 @@ const de_InstanceNetworkInterfaceSpecification = (
   }
   if (output["EnaSrdSpecification"] !== undefined) {
     contents.EnaSrdSpecification = de_EnaSrdSpecificationRequest(output["EnaSrdSpecification"], context);
+  }
+  if (output["ConnectionTrackingSpecification"] !== undefined) {
+    contents.ConnectionTrackingSpecification = de_ConnectionTrackingSpecificationRequest(
+      output["ConnectionTrackingSpecification"],
+      context
+    );
   }
   return contents;
 };
@@ -82374,6 +83268,12 @@ const de_Ipam = (output: any, context: __SerdeContext): Ipam => {
       output["resourceDiscoveryAssociationCount"]
     ) as number;
   }
+  if (output["stateMessage"] !== undefined) {
+    contents.StateMessage = __expectString(output["stateMessage"]);
+  }
+  if (output["tier"] !== undefined) {
+    contents.Tier = __expectString(output["tier"]);
+  }
   return contents;
 };
 
@@ -82464,6 +83364,87 @@ const de_IpamDiscoveredAccountSet = (output: any, context: __SerdeContext): Ipam
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_IpamDiscoveredAccount(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamDiscoveredPublicAddress
+ */
+const de_IpamDiscoveredPublicAddress = (output: any, context: __SerdeContext): IpamDiscoveredPublicAddress => {
+  const contents: any = {};
+  if (output["ipamResourceDiscoveryId"] !== undefined) {
+    contents.IpamResourceDiscoveryId = __expectString(output["ipamResourceDiscoveryId"]);
+  }
+  if (output["addressRegion"] !== undefined) {
+    contents.AddressRegion = __expectString(output["addressRegion"]);
+  }
+  if (output["address"] !== undefined) {
+    contents.Address = __expectString(output["address"]);
+  }
+  if (output["addressOwnerId"] !== undefined) {
+    contents.AddressOwnerId = __expectString(output["addressOwnerId"]);
+  }
+  if (output["addressAllocationId"] !== undefined) {
+    contents.AddressAllocationId = __expectString(output["addressAllocationId"]);
+  }
+  if (output["associationStatus"] !== undefined) {
+    contents.AssociationStatus = __expectString(output["associationStatus"]);
+  }
+  if (output["addressType"] !== undefined) {
+    contents.AddressType = __expectString(output["addressType"]);
+  }
+  if (output["service"] !== undefined) {
+    contents.Service = __expectString(output["service"]);
+  }
+  if (output["serviceResource"] !== undefined) {
+    contents.ServiceResource = __expectString(output["serviceResource"]);
+  }
+  if (output["vpcId"] !== undefined) {
+    contents.VpcId = __expectString(output["vpcId"]);
+  }
+  if (output["subnetId"] !== undefined) {
+    contents.SubnetId = __expectString(output["subnetId"]);
+  }
+  if (output["publicIpv4PoolId"] !== undefined) {
+    contents.PublicIpv4PoolId = __expectString(output["publicIpv4PoolId"]);
+  }
+  if (output["networkInterfaceId"] !== undefined) {
+    contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
+  }
+  if (output["networkInterfaceDescription"] !== undefined) {
+    contents.NetworkInterfaceDescription = __expectString(output["networkInterfaceDescription"]);
+  }
+  if (output["instanceId"] !== undefined) {
+    contents.InstanceId = __expectString(output["instanceId"]);
+  }
+  if (output["tags"] !== undefined) {
+    contents.Tags = de_IpamPublicAddressTags(output["tags"], context);
+  }
+  if (output["networkBorderGroup"] !== undefined) {
+    contents.NetworkBorderGroup = __expectString(output["networkBorderGroup"]);
+  }
+  if (output.securityGroupSet === "") {
+    contents.SecurityGroups = [];
+  } else if (output["securityGroupSet"] !== undefined && output["securityGroupSet"]["item"] !== undefined) {
+    contents.SecurityGroups = de_IpamPublicAddressSecurityGroupList(
+      __getArrayIfSingleItem(output["securityGroupSet"]["item"]),
+      context
+    );
+  }
+  if (output["sampleTime"] !== undefined) {
+    contents.SampleTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["sampleTime"]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamDiscoveredPublicAddressSet
+ */
+const de_IpamDiscoveredPublicAddressSet = (output: any, context: __SerdeContext): IpamDiscoveredPublicAddress[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamDiscoveredPublicAddress(entry, context);
     });
 };
 
@@ -82638,6 +83619,9 @@ const de_IpamPool = (output: any, context: __SerdeContext): IpamPool => {
   if (output["publicIpSource"] !== undefined) {
     contents.PublicIpSource = __expectString(output["publicIpSource"]);
   }
+  if (output["sourceResource"] !== undefined) {
+    contents.SourceResource = de_IpamPoolSourceResource(output["sourceResource"], context);
+  }
   return contents;
 };
 
@@ -82738,6 +83722,92 @@ const de_IpamPoolSet = (output: any, context: __SerdeContext): IpamPool[] => {
     .map((entry: any) => {
       return de_IpamPool(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2IpamPoolSourceResource
+ */
+const de_IpamPoolSourceResource = (output: any, context: __SerdeContext): IpamPoolSourceResource => {
+  const contents: any = {};
+  if (output["resourceId"] !== undefined) {
+    contents.ResourceId = __expectString(output["resourceId"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output["resourceRegion"] !== undefined) {
+    contents.ResourceRegion = __expectString(output["resourceRegion"]);
+  }
+  if (output["resourceOwner"] !== undefined) {
+    contents.ResourceOwner = __expectString(output["resourceOwner"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPublicAddressSecurityGroup
+ */
+const de_IpamPublicAddressSecurityGroup = (output: any, context: __SerdeContext): IpamPublicAddressSecurityGroup => {
+  const contents: any = {};
+  if (output["groupName"] !== undefined) {
+    contents.GroupName = __expectString(output["groupName"]);
+  }
+  if (output["groupId"] !== undefined) {
+    contents.GroupId = __expectString(output["groupId"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPublicAddressSecurityGroupList
+ */
+const de_IpamPublicAddressSecurityGroupList = (
+  output: any,
+  context: __SerdeContext
+): IpamPublicAddressSecurityGroup[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPublicAddressSecurityGroup(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamPublicAddressTag
+ */
+const de_IpamPublicAddressTag = (output: any, context: __SerdeContext): IpamPublicAddressTag => {
+  const contents: any = {};
+  if (output["key"] !== undefined) {
+    contents.Key = __expectString(output["key"]);
+  }
+  if (output["value"] !== undefined) {
+    contents.Value = __expectString(output["value"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPublicAddressTagList
+ */
+const de_IpamPublicAddressTagList = (output: any, context: __SerdeContext): IpamPublicAddressTag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPublicAddressTag(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamPublicAddressTags
+ */
+const de_IpamPublicAddressTags = (output: any, context: __SerdeContext): IpamPublicAddressTags => {
+  const contents: any = {};
+  if (output.eipTagSet === "") {
+    contents.EipTags = [];
+  } else if (output["eipTagSet"] !== undefined && output["eipTagSet"]["item"] !== undefined) {
+    contents.EipTags = de_IpamPublicAddressTagList(__getArrayIfSingleItem(output["eipTagSet"]["item"]), context);
+  }
+  return contents;
 };
 
 /**
@@ -83982,6 +85052,12 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   }
   if (output["enaSrdSpecification"] !== undefined) {
     contents.EnaSrdSpecification = de_LaunchTemplateEnaSrdSpecification(output["enaSrdSpecification"], context);
+  }
+  if (output["connectionTrackingSpecification"] !== undefined) {
+    contents.ConnectionTrackingSpecification = de_ConnectionTrackingSpecification(
+      output["connectionTrackingSpecification"],
+      context
+    );
   }
   return contents;
 };
@@ -86380,6 +87456,12 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
+  if (output["connectionTrackingConfiguration"] !== undefined) {
+    contents.ConnectionTrackingConfiguration = de_ConnectionTrackingConfiguration(
+      output["connectionTrackingConfiguration"],
+      context
+    );
+  }
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -87793,6 +88875,17 @@ const de_ProvisionedBandwidth = (output: any, context: __SerdeContext): Provisio
   }
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ProvisionIpamByoasnResult
+ */
+const de_ProvisionIpamByoasnResult = (output: any, context: __SerdeContext): ProvisionIpamByoasnResult => {
+  const contents: any = {};
+  if (output["byoasn"] !== undefined) {
+    contents.Byoasn = de_Byoasn(output["byoasn"], context);
   }
   return contents;
 };

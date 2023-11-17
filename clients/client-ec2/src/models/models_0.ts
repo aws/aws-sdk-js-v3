@@ -2939,11 +2939,65 @@ export interface AdvertiseByoipCidrRequest {
 
   /**
    * @public
+   * <p>The public 2-byte or 4-byte ASN that you want to advertise.</p>
+   */
+  Asn?: string;
+
+  /**
+   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AsnAssociationState = {
+  associated: "associated",
+  disassociated: "disassociated",
+  failed_association: "failed-association",
+  failed_disassociation: "failed-disassociation",
+  pending_association: "pending-association",
+  pending_disassociation: "pending-disassociation",
+} as const;
+
+/**
+ * @public
+ */
+export type AsnAssociationState = (typeof AsnAssociationState)[keyof typeof AsnAssociationState];
+
+/**
+ * @public
+ * <p>An Autonomous System Number (ASN) and BYOIP CIDR association.</p>
+ */
+export interface AsnAssociation {
+  /**
+   * @public
+   * <p>The association's ASN.</p>
+   */
+  Asn?: string;
+
+  /**
+   * @public
+   * <p>The association's CIDR.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * @public
+   * <p>The association's status message.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>The association's state.</p>
+   */
+  State?: AsnAssociationState;
 }
 
 /**
@@ -2983,6 +3037,12 @@ export interface ByoipCidr {
    * <p>The description of the address range.</p>
    */
   Description?: string;
+
+  /**
+   * @public
+   * <p>The BYOIP CIDR associations with ASNs.</p>
+   */
+  AsnAssociations?: AsnAssociation[];
 
   /**
    * @public
@@ -3371,6 +3431,12 @@ export interface AllocateIpamPoolCidrRequest {
 
   /**
    * @public
+   * <p>Include a particular CIDR range that can be returned by the pool. Allowed CIDRs are only allowed if using netmask length for allocation.</p>
+   */
+  AllowedCidrs?: string[];
+
+  /**
+   * @public
    * <p>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs are only allowed if using netmask length for allocation.</p>
    */
   DisallowedCidrs?: string[];
@@ -3384,6 +3450,7 @@ export const IpamPoolAllocationResourceType = {
   custom: "custom",
   ec2_public_ipv4_pool: "ec2-public-ipv4-pool",
   ipam_pool: "ipam-pool",
+  subnet: "subnet",
   vpc: "vpc",
 } as const;
 
@@ -4428,6 +4495,42 @@ export interface AssociateInstanceEventWindowResult {
 /**
  * @public
  */
+export interface AssociateIpamByoasnRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>A public 2-byte or 4-byte ASN.</p>
+   */
+  Asn: string | undefined;
+
+  /**
+   * @public
+   * <p>The BYOIP CIDR you want to associate with an ASN.</p>
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateIpamByoasnResult {
+  /**
+   * @public
+   * <p>The ASN and BYOIP CIDR association.</p>
+   */
+  AsnAssociation?: AsnAssociation;
+}
+
+/**
+ * @public
+ */
 export interface AssociateIpamResourceDiscoveryRequest {
   /**
    * @public
@@ -4771,16 +4874,27 @@ export interface AssociateRouteTableResult {
 export interface AssociateSubnetCidrBlockRequest {
   /**
    * @public
-   * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
-   *             length.</p>
+   * <p>The IPv6 CIDR block for your subnet.</p>
    */
-  Ipv6CidrBlock: string | undefined;
+  Ipv6CidrBlock?: string;
 
   /**
    * @public
    * <p>The ID of your subnet.</p>
    */
   SubnetId: string | undefined;
+
+  /**
+   * @public
+   * <p>An IPv6 IPAM pool ID.</p>
+   */
+  Ipv6IpamPoolId?: string;
+
+  /**
+   * @public
+   * <p>An IPv6 netmask length.</p>
+   */
+  Ipv6NetmaskLength?: number;
 }
 
 /**
@@ -5124,11 +5238,7 @@ export type InterfaceProtocolType = (typeof InterfaceProtocolType)[keyof typeof 
 
 /**
  * @public
- * <note>
- *             <p>Currently available in <b>limited preview only</b>.
- *                 If you are interested in using this feature, contact your account manager.</p>
- *          </note>
- *          <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ * <p>Information about an association between a branch network interface with a trunk network interface.</p>
  */
 export interface TrunkInterfaceAssociation {
   /**
@@ -5199,7 +5309,8 @@ export interface AssociateTrunkInterfaceResult {
 export interface AssociateVpcCidrBlockRequest {
   /**
    * @public
-   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</p>
+   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You
+   *             cannot specify the range of IPv6 addresses or the size of the CIDR block.</p>
    */
   AmazonProvidedIpv6CidrBlock?: boolean;
 
@@ -9563,81 +9674,6 @@ export interface CreateCarrierGatewayRequest {
    *                 idempotency</a>.</p>
    */
   ClientToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const CarrierGatewayState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type CarrierGatewayState = (typeof CarrierGatewayState)[keyof typeof CarrierGatewayState];
-
-/**
- * @public
- * <p>Describes a carrier gateway.</p>
- */
-export interface CarrierGateway {
-  /**
-   * @public
-   * <p>The ID of the carrier gateway.</p>
-   */
-  CarrierGatewayId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the VPC associated with the carrier gateway.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * @public
-   * <p>The state of the carrier gateway.</p>
-   */
-  State?: CarrierGatewayState;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * @public
-   * <p>The tags assigned to the carrier gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateCarrierGatewayResult {
-  /**
-   * @public
-   * <p>Information about the carrier gateway.</p>
-   */
-  CarrierGateway?: CarrierGateway;
-}
-
-/**
- * @public
- * <p>Describes the Active Directory to be used for client authentication.</p>
- */
-export interface DirectoryServiceAuthenticationRequest {
-  /**
-   * @public
-   * <p>The ID of the Active Directory to be used for authentication.</p>
-   */
-  DirectoryId?: string;
 }
 
 /**

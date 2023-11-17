@@ -133,6 +133,11 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *             EnaSrdUdpEnabled: true || false,
  *           },
  *         },
+ *         ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ *           TcpEstablishedTimeout: Number("int"),
+ *           UdpStreamTimeout: Number("int"),
+ *           UdpTimeout: Number("int"),
+ *         },
  *       },
  *     ],
  *     ImageId: "STRING_VALUE",

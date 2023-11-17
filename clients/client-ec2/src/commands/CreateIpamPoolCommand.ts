@@ -78,6 +78,12 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  *   ClientToken: "STRING_VALUE",
  *   AwsService: "ec2",
  *   PublicIpSource: "amazon" || "byoip",
+ *   SourceResource: { // IpamPoolSourceResourceRequest
+ *     ResourceId: "STRING_VALUE",
+ *     ResourceType: "vpc",
+ *     ResourceRegion: "STRING_VALUE",
+ *     ResourceOwner: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateIpamPoolCommand(input);
  * const response = await client.send(command);
@@ -116,6 +122,12 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * //     ],
  * //     AwsService: "ec2",
  * //     PublicIpSource: "amazon" || "byoip",
+ * //     SourceResource: { // IpamPoolSourceResource
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "vpc",
+ * //       ResourceRegion: "STRING_VALUE",
+ * //       ResourceOwner: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

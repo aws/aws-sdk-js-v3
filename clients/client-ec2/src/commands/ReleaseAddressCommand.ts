@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReleaseAddressRequest } from "../models/models_6";
+import { ReleaseAddressRequest } from "../models/models_7";
 import { de_ReleaseAddressCommand, se_ReleaseAddressCommand } from "../protocols/Aws_ec2";
 
 /**

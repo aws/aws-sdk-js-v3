@@ -108,6 +108,11 @@ import {
   AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
 import {
+  AssociateIpamByoasnCommand,
+  AssociateIpamByoasnCommandInput,
+  AssociateIpamByoasnCommandOutput,
+} from "./commands/AssociateIpamByoasnCommand";
+import {
   AssociateIpamResourceDiscoveryCommand,
   AssociateIpamResourceDiscoveryCommandInput,
   AssociateIpamResourceDiscoveryCommandOutput,
@@ -1014,6 +1019,11 @@ import {
   DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
 import {
+  DeprovisionIpamByoasnCommand,
+  DeprovisionIpamByoasnCommandInput,
+  DeprovisionIpamByoasnCommandOutput,
+} from "./commands/DeprovisionIpamByoasnCommand";
+import {
   DeprovisionIpamPoolCidrCommand,
   DeprovisionIpamPoolCidrCommandInput,
   DeprovisionIpamPoolCidrCommandOutput,
@@ -1323,6 +1333,11 @@ import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
+import {
+  DescribeIpamByoasnCommand,
+  DescribeIpamByoasnCommandInput,
+  DescribeIpamByoasnCommandOutput,
+} from "./commands/DescribeIpamByoasnCommand";
 import {
   DescribeIpamPoolsCommand,
   DescribeIpamPoolsCommandInput,
@@ -1914,6 +1929,11 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamByoasnCommand,
+  DisassociateIpamByoasnCommandInput,
+  DisassociateIpamByoasnCommandOutput,
+} from "./commands/DisassociateIpamByoasnCommand";
+import {
   DisassociateIpamResourceDiscoveryCommand,
   DisassociateIpamResourceDiscoveryCommandInput,
   DisassociateIpamResourceDiscoveryCommandOutput,
@@ -2145,6 +2165,11 @@ import {
   GetIpamDiscoveredAccountsCommandInput,
   GetIpamDiscoveredAccountsCommandOutput,
 } from "./commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredPublicAddressesCommand,
+  GetIpamDiscoveredPublicAddressesCommandInput,
+  GetIpamDiscoveredPublicAddressesCommandOutput,
+} from "./commands/GetIpamDiscoveredPublicAddressesCommand";
 import {
   GetIpamDiscoveredResourceCidrsCommand,
   GetIpamDiscoveredResourceCidrsCommandInput,
@@ -2655,6 +2680,11 @@ import {
   ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand";
 import {
+  ProvisionIpamByoasnCommand,
+  ProvisionIpamByoasnCommandInput,
+  ProvisionIpamByoasnCommandOutput,
+} from "./commands/ProvisionIpamByoasnCommand";
+import {
   ProvisionIpamPoolCidrCommand,
   ProvisionIpamPoolCidrCommandInput,
   ProvisionIpamPoolCidrCommandOutput,
@@ -3003,6 +3033,7 @@ const commands = {
   AssociateEnclaveCertificateIamRoleCommand,
   AssociateIamInstanceProfileCommand,
   AssociateInstanceEventWindowCommand,
+  AssociateIpamByoasnCommand,
   AssociateIpamResourceDiscoveryCommand,
   AssociateNatGatewayAddressCommand,
   AssociateRouteTableCommand,
@@ -3193,6 +3224,7 @@ const commands = {
   DeleteVpnConnectionRouteCommand,
   DeleteVpnGatewayCommand,
   DeprovisionByoipCidrCommand,
+  DeprovisionIpamByoasnCommand,
   DeprovisionIpamPoolCidrCommand,
   DeprovisionPublicIpv4PoolCidrCommand,
   DeregisterImageCommand,
@@ -3255,6 +3287,7 @@ const commands = {
   DescribeInstanceTypeOfferingsCommand,
   DescribeInstanceTypesCommand,
   DescribeInternetGatewaysCommand,
+  DescribeIpamByoasnCommand,
   DescribeIpamPoolsCommand,
   DescribeIpamResourceDiscoveriesCommand,
   DescribeIpamResourceDiscoveryAssociationsCommand,
@@ -3373,6 +3406,7 @@ const commands = {
   DisassociateEnclaveCertificateIamRoleCommand,
   DisassociateIamInstanceProfileCommand,
   DisassociateInstanceEventWindowCommand,
+  DisassociateIpamByoasnCommand,
   DisassociateIpamResourceDiscoveryCommand,
   DisassociateNatGatewayAddressCommand,
   DisassociateRouteTableCommand,
@@ -3421,6 +3455,7 @@ const commands = {
   GetInstanceUefiDataCommand,
   GetIpamAddressHistoryCommand,
   GetIpamDiscoveredAccountsCommand,
+  GetIpamDiscoveredPublicAddressesCommand,
   GetIpamDiscoveredResourceCidrsCommand,
   GetIpamPoolAllocationsCommand,
   GetIpamPoolCidrsCommand,
@@ -3526,6 +3561,7 @@ const commands = {
   MoveAddressToVpcCommand,
   MoveByoipCidrToIpamCommand,
   ProvisionByoipCidrCommand,
+  ProvisionIpamByoasnCommand,
   ProvisionIpamPoolCidrCommand,
   ProvisionPublicIpv4PoolCidrCommand,
   PurchaseCapacityBlockCommand,
@@ -3940,6 +3976,23 @@ export interface EC2 {
     args: AssociateInstanceEventWindowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateInstanceEventWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateIpamByoasnCommand}
+   */
+  associateIpamByoasn(
+    args: AssociateIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIpamByoasnCommandOutput>;
+  associateIpamByoasn(
+    args: AssociateIpamByoasnCommandInput,
+    cb: (err: any, data?: AssociateIpamByoasnCommandOutput) => void
+  ): void;
+  associateIpamByoasn(
+    args: AssociateIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIpamByoasnCommandOutput) => void
   ): void;
 
   /**
@@ -6999,6 +7052,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DeprovisionIpamByoasnCommand}
+   */
+  deprovisionIpamByoasn(
+    args: DeprovisionIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeprovisionIpamByoasnCommandOutput>;
+  deprovisionIpamByoasn(
+    args: DeprovisionIpamByoasnCommandInput,
+    cb: (err: any, data?: DeprovisionIpamByoasnCommandOutput) => void
+  ): void;
+  deprovisionIpamByoasn(
+    args: DeprovisionIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeprovisionIpamByoasnCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeprovisionIpamPoolCidrCommand}
    */
   deprovisionIpamPoolCidr(
@@ -8035,6 +8105,23 @@ export interface EC2 {
     args: DescribeInternetGatewaysCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInternetGatewaysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIpamByoasnCommand}
+   */
+  describeIpamByoasn(
+    args: DescribeIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamByoasnCommandOutput>;
+  describeIpamByoasn(
+    args: DescribeIpamByoasnCommandInput,
+    cb: (err: any, data?: DescribeIpamByoasnCommandOutput) => void
+  ): void;
+  describeIpamByoasn(
+    args: DescribeIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamByoasnCommandOutput) => void
   ): void;
 
   /**
@@ -10005,6 +10092,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisassociateIpamByoasnCommand}
+   */
+  disassociateIpamByoasn(
+    args: DisassociateIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIpamByoasnCommandOutput>;
+  disassociateIpamByoasn(
+    args: DisassociateIpamByoasnCommandInput,
+    cb: (err: any, data?: DisassociateIpamByoasnCommandOutput) => void
+  ): void;
+  disassociateIpamByoasn(
+    args: DisassociateIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIpamByoasnCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateIpamResourceDiscoveryCommand}
    */
   disassociateIpamResourceDiscovery(
@@ -10803,6 +10907,23 @@ export interface EC2 {
     args: GetIpamDiscoveredAccountsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamDiscoveredPublicAddressesCommand}
+   */
+  getIpamDiscoveredPublicAddresses(
+    args: GetIpamDiscoveredPublicAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredPublicAddressesCommandOutput>;
+  getIpamDiscoveredPublicAddresses(
+    args: GetIpamDiscoveredPublicAddressesCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredPublicAddressesCommandOutput) => void
+  ): void;
+  getIpamDiscoveredPublicAddresses(
+    args: GetIpamDiscoveredPublicAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredPublicAddressesCommandOutput) => void
   ): void;
 
   /**
@@ -12522,6 +12643,23 @@ export interface EC2 {
     args: ProvisionByoipCidrCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvisionByoipCidrCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ProvisionIpamByoasnCommand}
+   */
+  provisionIpamByoasn(
+    args: ProvisionIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProvisionIpamByoasnCommandOutput>;
+  provisionIpamByoasn(
+    args: ProvisionIpamByoasnCommandInput,
+    cb: (err: any, data?: ProvisionIpamByoasnCommandOutput) => void
+  ): void;
+  provisionIpamByoasn(
+    args: ProvisionIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProvisionIpamByoasnCommandOutput) => void
   ): void;
 
   /**

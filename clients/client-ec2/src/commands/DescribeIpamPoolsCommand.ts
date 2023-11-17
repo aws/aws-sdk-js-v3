@@ -99,6 +99,12 @@ export interface DescribeIpamPoolsCommandOutput extends DescribeIpamPoolsResult,
  * //       ],
  * //       AwsService: "ec2",
  * //       PublicIpSource: "amazon" || "byoip",
+ * //       SourceResource: { // IpamPoolSourceResource
+ * //         ResourceId: "STRING_VALUE",
+ * //         ResourceType: "vpc",
+ * //         ResourceRegion: "STRING_VALUE",
+ * //         ResourceOwner: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

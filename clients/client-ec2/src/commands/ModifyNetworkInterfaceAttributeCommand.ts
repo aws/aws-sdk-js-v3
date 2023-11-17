@@ -72,6 +72,11 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  *     },
  *   },
  *   EnablePrimaryIpv6: true || false,
+ *   ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ *     TcpEstablishedTimeout: Number("int"),
+ *     UdpStreamTimeout: Number("int"),
+ *     UdpTimeout: Number("int"),
+ *   },
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);

@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetIpamResourceCidrsRequest, GetIpamResourceCidrsResult } from "../models/models_5";
+import { GetIpamResourceCidrsRequest, GetIpamResourceCidrsResult } from "../models/models_6";
 import { de_GetIpamResourceCidrsCommand, se_GetIpamResourceCidrsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -59,7 +59,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  *   IpamScopeId: "STRING_VALUE", // required
  *   IpamPoolId: "STRING_VALUE",
  *   ResourceId: "STRING_VALUE",
- *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
  *   ResourceTag: { // RequestIpamResourceTag
  *     Key: "STRING_VALUE",
  *     Value: "STRING_VALUE",
@@ -80,7 +80,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * //       ResourceId: "STRING_VALUE",
  * //       ResourceName: "STRING_VALUE",
  * //       ResourceCidr: "STRING_VALUE",
- * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
  * //       ResourceTags: [ // IpamResourceTagList
  * //         { // IpamResourceTag
  * //           Key: "STRING_VALUE",

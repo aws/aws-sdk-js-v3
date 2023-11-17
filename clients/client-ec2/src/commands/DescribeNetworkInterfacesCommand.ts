@@ -95,6 +95,11 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //         },
  * //       },
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       ConnectionTrackingConfiguration: { // ConnectionTrackingConfiguration
+ * //         TcpEstablishedTimeout: Number("int"),
+ * //         UdpStreamTimeout: Number("int"),
+ * //         UdpTimeout: Number("int"),
+ * //       },
  * //       Description: "STRING_VALUE",
  * //       Groups: [ // GroupIdentifierList
  * //         { // GroupIdentifier

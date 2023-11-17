@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkAclRequest } from "../models/models_2";
+import { DeleteNetworkAclRequest } from "../models/models_3";
 import { de_DeleteNetworkAclCommand, se_DeleteNetworkAclCommand } from "../protocols/Aws_ec2";
 
 /**

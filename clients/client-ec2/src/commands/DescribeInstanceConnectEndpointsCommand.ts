@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeInstanceConnectEndpointsRequest, DescribeInstanceConnectEndpointsResult } from "../models/models_3";
+import { DescribeInstanceConnectEndpointsRequest, DescribeInstanceConnectEndpointsResult } from "../models/models_4";
 import {
   de_DescribeInstanceConnectEndpointsCommand,
   se_DescribeInstanceConnectEndpointsCommand,

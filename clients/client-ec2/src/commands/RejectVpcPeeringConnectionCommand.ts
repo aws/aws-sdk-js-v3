@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/models_6";
+import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/models_7";
 import { de_RejectVpcPeeringConnectionCommand, se_RejectVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
 /**

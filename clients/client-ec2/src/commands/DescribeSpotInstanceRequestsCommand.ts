@@ -180,6 +180,11 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //                 EnaSrdUdpEnabled: true || false,
  * //               },
  * //             },
+ * //             ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ * //               TcpEstablishedTimeout: Number("int"),
+ * //               UdpStreamTimeout: Number("int"),
+ * //               UdpTimeout: Number("int"),
+ * //             },
  * //           },
  * //         ],
  * //         Placement: { // SpotPlacement

@@ -74,7 +74,7 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * //       ResourceId: "STRING_VALUE",
  * //       ResourceOwnerId: "STRING_VALUE",
  * //       ResourceCidr: "STRING_VALUE",
- * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
  * //       ResourceTags: [ // IpamResourceTagList
  * //         { // IpamResourceTag
  * //           Key: "STRING_VALUE",

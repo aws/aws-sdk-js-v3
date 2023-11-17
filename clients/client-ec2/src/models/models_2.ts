@@ -3,12 +3,12 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   ApplianceModeSupportValue,
-  CarrierGateway,
   CurrencyCodeValues,
   DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
   InstanceEventWindowState,
+  Ipv4PrefixSpecification,
   Ipv6SupportValue,
   ReservedInstancesListing,
   RouteTableAssociationState,
@@ -30,12 +30,15 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  ConnectionTrackingConfiguration,
   Ec2InstanceConnectEndpoint,
   GatewayType,
+  GroupIdentifier,
   Ipam,
   IpamPool,
   IpamResourceDiscovery,
@@ -46,11 +49,404 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  NetworkInterfaceAssociation,
+  NetworkInterfaceAttachment,
+  NetworkInterfaceIpv6Address,
+  NetworkInterfaceType,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Describes the IPv6 prefix.</p>
+ */
+export interface Ipv6PrefixSpecification {
+  /**
+   * @public
+   * <p>The IPv6 prefix.</p>
+   */
+  Ipv6Prefix?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the private IPv4 address of a network interface.</p>
+ */
+export interface NetworkInterfacePrivateIpAddress {
+  /**
+   * @public
+   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
+   */
+  Association?: NetworkInterfaceAssociation;
+
+  /**
+   * @public
+   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * @public
+   * <p>The private DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * @public
+   * <p>The private IPv4 address.</p>
+   */
+  PrivateIpAddress?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceStatus = {
+  associated: "associated",
+  attaching: "attaching",
+  available: "available",
+  detaching: "detaching",
+  in_use: "in-use",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeof NetworkInterfaceStatus];
+
+/**
+ * @public
+ * <p>Describes a network interface.</p>
+ */
+export interface NetworkInterface {
+  /**
+   * @public
+   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
+   */
+  Association?: NetworkInterfaceAssociation;
+
+  /**
+   * @public
+   * <p>The network interface attachment.</p>
+   */
+  Attachment?: NetworkInterfaceAttachment;
+
+  /**
+   * @public
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingConfiguration?: ConnectionTrackingConfiguration;
+
+  /**
+   * @public
+   * <p>A description.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Any security groups for the network interface.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * @public
+   * <p>The type of network interface.</p>
+   */
+  InterfaceType?: NetworkInterfaceType;
+
+  /**
+   * @public
+   * <p>The IPv6 addresses associated with the network interface.</p>
+   */
+  Ipv6Addresses?: NetworkInterfaceIpv6Address[];
+
+  /**
+   * @public
+   * <p>The MAC address.</p>
+   */
+  MacAddress?: string;
+
+  /**
+   * @public
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * @public
+   * <p>The private DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * @public
+   * <p>The IPv4 address of the network interface within the subnet.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * @public
+   * <p>The private IPv4 addresses associated with the network interface.</p>
+   */
+  PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
+
+  /**
+   * @public
+   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecification[];
+
+  /**
+   * @public
+   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecification[];
+
+  /**
+   * @public
+   * <p>The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
+   */
+  RequesterId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
+   */
+  RequesterManaged?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   */
+  SourceDestCheck?: boolean;
+
+  /**
+   * @public
+   * <p>The status of the network interface.</p>
+   */
+  Status?: NetworkInterfaceStatus;
+
+  /**
+   * @public
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * @public
+   * <p>Any tags assigned to the network interface.</p>
+   */
+  TagSet?: Tag[];
+
+  /**
+   * @public
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
+   *             public internet. If the value is <code>true</code>, inbound traffic from the internet
+   *             is dropped and you cannot assign an elastic IP address to the network interface. The
+   *             network interface is reachable from peered VPCs and resources connected through a
+   *             transit gateway, including on-premises networks.</p>
+   */
+  DenyAllIgwTraffic?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether this is an IPv6 only network interface.</p>
+   */
+  Ipv6Native?: boolean;
+
+  /**
+   * @public
+   * <p>The IPv6 globally unique address associated with the network interface.</p>
+   */
+  Ipv6Address?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInterfaceResult {
+  /**
+   * @public
+   * <p>Information about the network interface.</p>
+   */
+  NetworkInterface?: NetworkInterface;
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InterfacePermissionType = {
+  EIP_ASSOCIATE: "EIP-ASSOCIATE",
+  INSTANCE_ATTACH: "INSTANCE-ATTACH",
+} as const;
+
+/**
+ * @public
+ */
+export type InterfacePermissionType = (typeof InterfacePermissionType)[keyof typeof InterfacePermissionType];
+
+/**
+ * @public
+ * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
+ */
+export interface CreateNetworkInterfacePermissionRequest {
+  /**
+   * @public
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Service. Currently not supported.</p>
+   */
+  AwsService?: string;
+
+  /**
+   * @public
+   * <p>The type of permission to grant.</p>
+   */
+  Permission: InterfacePermissionType | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfacePermissionStateCode = {
+  granted: "granted",
+  pending: "pending",
+  revoked: "revoked",
+  revoking: "revoking",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfacePermissionStateCode =
+  (typeof NetworkInterfacePermissionStateCode)[keyof typeof NetworkInterfacePermissionStateCode];
+
+/**
+ * @public
+ * <p>Describes the state of a network interface permission.</p>
+ */
+export interface NetworkInterfacePermissionState {
+  /**
+   * @public
+   * <p>The state of the permission.</p>
+   */
+  State?: NetworkInterfacePermissionStateCode;
+
+  /**
+   * @public
+   * <p>A status message, if applicable.</p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a permission for a network interface.</p>
+ */
+export interface NetworkInterfacePermission {
+  /**
+   * @public
+   * <p>The ID of the network interface permission.</p>
+   */
+  NetworkInterfacePermissionId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Service.</p>
+   */
+  AwsService?: string;
+
+  /**
+   * @public
+   * <p>The type of permission.</p>
+   */
+  Permission?: InterfacePermissionType;
+
+  /**
+   * @public
+   * <p>Information about the state of the permission.</p>
+   */
+  PermissionState?: NetworkInterfacePermissionState;
+}
+
+/**
+ * @public
+ * <p>Contains the output of CreateNetworkInterfacePermission.</p>
+ */
+export interface CreateNetworkInterfacePermissionResult {
+  /**
+   * @public
+   * <p>Information about the permission for the network interface.</p>
+   */
+  InterfacePermission?: NetworkInterfacePermission;
+}
 
 /**
  * @public
@@ -1670,9 +2066,8 @@ export interface CreateSubnetRequest {
 
   /**
    * @public
-   * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
-   *             /64 prefix length.</p>
-   *          <p>This parameter is required for an IPv6 only subnet.</p>
+   * <p>The IPv6 network range for the subnet, in CIDR notation. This parameter is required
+   *             for an IPv6 only subnet.</p>
    */
   Ipv6CidrBlock?: string;
 
@@ -1702,6 +2097,30 @@ export interface CreateSubnetRequest {
    * <p>Indicates whether to create an IPv6 only subnet.</p>
    */
   Ipv6Native?: boolean;
+
+  /**
+   * @public
+   * <p>An IPv4 IPAM pool ID for the subnet.</p>
+   */
+  Ipv4IpamPoolId?: string;
+
+  /**
+   * @public
+   * <p>An IPv4 netmask length for the subnet.</p>
+   */
+  Ipv4NetmaskLength?: number;
+
+  /**
+   * @public
+   * <p>An IPv6 IPAM pool ID for the subnet.</p>
+   */
+  Ipv6IpamPoolId?: string;
+
+  /**
+   * @public
+   * <p>An IPv6 netmask length for the subnet.</p>
+   */
+  Ipv6NetmaskLength?: number;
 }
 
 /**
@@ -8122,6 +8541,16 @@ export interface DeleteIpamPoolRequest {
    * <p>The ID of the pool to delete.</p>
    */
   IpamPoolId: string | undefined;
+
+  /**
+   * @public
+   * <p>Enables you to quickly delete an IPAM pool and all resources within that pool, including
+   *          provisioned CIDRs, allocations, and other pools.</p>
+   *          <important>
+   *             <p>You can only use this option to delete pools in the private scope or pools in the public scope with a source resource. A source resource is a resource used to provision CIDRs to a resource planning pool.</p>
+   *          </important>
+   */
+  Cascade?: boolean;
 }
 
 /**
@@ -8609,187 +9038,6 @@ export interface DeleteNatGatewayRequest {
    * <p>The ID of the NAT gateway.</p>
    */
   NatGatewayId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNatGatewayResult {
-  /**
-   * @public
-   * <p>The ID of the NAT gateway.</p>
-   */
-  NatGatewayId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkAclRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the network ACL.</p>
-   */
-  NetworkAclId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkAclEntryRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>Indicates whether the rule is an egress rule.</p>
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the network ACL.</p>
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * @public
-   * <p>The rule number of the entry to delete.</p>
-   */
-  RuleNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope.</p>
-   */
-  NetworkInsightsAccessScopeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeResult {
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope.</p>
-   */
-  NetworkInsightsAccessScopeId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeAnalysisRequest {
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope analysis.</p>
-   */
-  NetworkInsightsAccessScopeAnalysisId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeAnalysisResult {
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope analysis.</p>
-   */
-  NetworkInsightsAccessScopeAnalysisId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAnalysisRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAnalysisResult {
-  /**
-   * @public
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsPathRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsPathResult {
-  /**
-   * @public
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId?: string;
 }
 
 /**

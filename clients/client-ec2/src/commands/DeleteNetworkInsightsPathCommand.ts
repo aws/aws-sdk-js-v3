@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_2";
+import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_3";
 import { de_DeleteNetworkInsightsPathCommand, se_DeleteNetworkInsightsPathCommand } from "../protocols/Aws_ec2";
 
 /**

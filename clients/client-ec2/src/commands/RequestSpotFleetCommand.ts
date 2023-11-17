@@ -19,7 +19,7 @@ import {
   RequestSpotFleetRequest,
   RequestSpotFleetRequestFilterSensitiveLog,
   RequestSpotFleetResponse,
-} from "../models/models_6";
+} from "../models/models_7";
 import { de_RequestSpotFleetCommand, se_RequestSpotFleetCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -176,6 +176,11 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *               EnaSrdUdpSpecification: { // EnaSrdUdpSpecificationRequest
  *                 EnaSrdUdpEnabled: true || false,
  *               },
+ *             },
+ *             ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ *               TcpEstablishedTimeout: Number("int"),
+ *               UdpStreamTimeout: Number("int"),
+ *               UdpTimeout: Number("int"),
  *             },
  *           },
  *         ],

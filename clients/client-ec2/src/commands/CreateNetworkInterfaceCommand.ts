@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/models_1";
+import { CreateNetworkInterfaceRequest } from "../models/models_1";
+import { CreateNetworkInterfaceResult } from "../models/models_2";
 import { de_CreateNetworkInterfaceCommand, se_CreateNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -97,6 +98,11 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *   ],
  *   ClientToken: "STRING_VALUE",
  *   EnablePrimaryIpv6: true || false,
+ *   ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ *     TcpEstablishedTimeout: Number("int"),
+ *     UdpStreamTimeout: Number("int"),
+ *     UdpTimeout: Number("int"),
+ *   },
  * };
  * const command = new CreateNetworkInterfaceCommand(input);
  * const response = await client.send(command);
@@ -128,6 +134,11 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * //       },
  * //     },
  * //     AvailabilityZone: "STRING_VALUE",
+ * //     ConnectionTrackingConfiguration: { // ConnectionTrackingConfiguration
+ * //       TcpEstablishedTimeout: Number("int"),
+ * //       UdpStreamTimeout: Number("int"),
+ * //       UdpTimeout: Number("int"),
+ * //     },
  * //     Description: "STRING_VALUE",
  * //     Groups: [ // GroupIdentifierList
  * //       { // GroupIdentifier

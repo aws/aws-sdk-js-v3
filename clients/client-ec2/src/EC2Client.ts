@@ -123,6 +123,10 @@ import {
   AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
 import {
+  AssociateIpamByoasnCommandInput,
+  AssociateIpamByoasnCommandOutput,
+} from "./commands/AssociateIpamByoasnCommand";
+import {
   AssociateIpamResourceDiscoveryCommandInput,
   AssociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/AssociateIpamResourceDiscoveryCommand";
@@ -721,6 +725,10 @@ import {
   DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
 import {
+  DeprovisionIpamByoasnCommandInput,
+  DeprovisionIpamByoasnCommandOutput,
+} from "./commands/DeprovisionIpamByoasnCommand";
+import {
   DeprovisionIpamPoolCidrCommandInput,
   DeprovisionIpamPoolCidrCommandOutput,
 } from "./commands/DeprovisionIpamPoolCidrCommand";
@@ -935,6 +943,7 @@ import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
+import { DescribeIpamByoasnCommandInput, DescribeIpamByoasnCommandOutput } from "./commands/DescribeIpamByoasnCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "./commands/DescribeIpamPoolsCommand";
 import {
   DescribeIpamResourceDiscoveriesCommandInput,
@@ -1363,6 +1372,10 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamByoasnCommandInput,
+  DisassociateIpamByoasnCommandOutput,
+} from "./commands/DisassociateIpamByoasnCommand";
+import {
   DisassociateIpamResourceDiscoveryCommandInput,
   DisassociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/DisassociateIpamResourceDiscoveryCommand";
@@ -1536,6 +1549,10 @@ import {
   GetIpamDiscoveredAccountsCommandInput,
   GetIpamDiscoveredAccountsCommandOutput,
 } from "./commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredPublicAddressesCommandInput,
+  GetIpamDiscoveredPublicAddressesCommandOutput,
+} from "./commands/GetIpamDiscoveredPublicAddressesCommand";
 import {
   GetIpamDiscoveredResourceCidrsCommandInput,
   GetIpamDiscoveredResourceCidrsCommandOutput,
@@ -1891,6 +1908,10 @@ import {
 } from "./commands/MoveByoipCidrToIpamCommand";
 import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "./commands/ProvisionByoipCidrCommand";
 import {
+  ProvisionIpamByoasnCommandInput,
+  ProvisionIpamByoasnCommandOutput,
+} from "./commands/ProvisionIpamByoasnCommand";
+import {
   ProvisionIpamPoolCidrCommandInput,
   ProvisionIpamPoolCidrCommandOutput,
 } from "./commands/ProvisionIpamPoolCidrCommand";
@@ -2144,6 +2165,7 @@ export type ServiceInputTypes =
   | AssociateEnclaveCertificateIamRoleCommandInput
   | AssociateIamInstanceProfileCommandInput
   | AssociateInstanceEventWindowCommandInput
+  | AssociateIpamByoasnCommandInput
   | AssociateIpamResourceDiscoveryCommandInput
   | AssociateNatGatewayAddressCommandInput
   | AssociateRouteTableCommandInput
@@ -2334,6 +2356,7 @@ export type ServiceInputTypes =
   | DeleteVpnConnectionRouteCommandInput
   | DeleteVpnGatewayCommandInput
   | DeprovisionByoipCidrCommandInput
+  | DeprovisionIpamByoasnCommandInput
   | DeprovisionIpamPoolCidrCommandInput
   | DeprovisionPublicIpv4PoolCidrCommandInput
   | DeregisterImageCommandInput
@@ -2396,6 +2419,7 @@ export type ServiceInputTypes =
   | DescribeInstanceTypesCommandInput
   | DescribeInstancesCommandInput
   | DescribeInternetGatewaysCommandInput
+  | DescribeIpamByoasnCommandInput
   | DescribeIpamPoolsCommandInput
   | DescribeIpamResourceDiscoveriesCommandInput
   | DescribeIpamResourceDiscoveryAssociationsCommandInput
@@ -2514,6 +2538,7 @@ export type ServiceInputTypes =
   | DisassociateEnclaveCertificateIamRoleCommandInput
   | DisassociateIamInstanceProfileCommandInput
   | DisassociateInstanceEventWindowCommandInput
+  | DisassociateIpamByoasnCommandInput
   | DisassociateIpamResourceDiscoveryCommandInput
   | DisassociateNatGatewayAddressCommandInput
   | DisassociateRouteTableCommandInput
@@ -2562,6 +2587,7 @@ export type ServiceInputTypes =
   | GetInstanceUefiDataCommandInput
   | GetIpamAddressHistoryCommandInput
   | GetIpamDiscoveredAccountsCommandInput
+  | GetIpamDiscoveredPublicAddressesCommandInput
   | GetIpamDiscoveredResourceCidrsCommandInput
   | GetIpamPoolAllocationsCommandInput
   | GetIpamPoolCidrsCommandInput
@@ -2667,6 +2693,7 @@ export type ServiceInputTypes =
   | MoveAddressToVpcCommandInput
   | MoveByoipCidrToIpamCommandInput
   | ProvisionByoipCidrCommandInput
+  | ProvisionIpamByoasnCommandInput
   | ProvisionIpamPoolCidrCommandInput
   | ProvisionPublicIpv4PoolCidrCommandInput
   | PurchaseCapacityBlockCommandInput
@@ -2758,6 +2785,7 @@ export type ServiceOutputTypes =
   | AssociateEnclaveCertificateIamRoleCommandOutput
   | AssociateIamInstanceProfileCommandOutput
   | AssociateInstanceEventWindowCommandOutput
+  | AssociateIpamByoasnCommandOutput
   | AssociateIpamResourceDiscoveryCommandOutput
   | AssociateNatGatewayAddressCommandOutput
   | AssociateRouteTableCommandOutput
@@ -2948,6 +2976,7 @@ export type ServiceOutputTypes =
   | DeleteVpnConnectionRouteCommandOutput
   | DeleteVpnGatewayCommandOutput
   | DeprovisionByoipCidrCommandOutput
+  | DeprovisionIpamByoasnCommandOutput
   | DeprovisionIpamPoolCidrCommandOutput
   | DeprovisionPublicIpv4PoolCidrCommandOutput
   | DeregisterImageCommandOutput
@@ -3010,6 +3039,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceTypesCommandOutput
   | DescribeInstancesCommandOutput
   | DescribeInternetGatewaysCommandOutput
+  | DescribeIpamByoasnCommandOutput
   | DescribeIpamPoolsCommandOutput
   | DescribeIpamResourceDiscoveriesCommandOutput
   | DescribeIpamResourceDiscoveryAssociationsCommandOutput
@@ -3128,6 +3158,7 @@ export type ServiceOutputTypes =
   | DisassociateEnclaveCertificateIamRoleCommandOutput
   | DisassociateIamInstanceProfileCommandOutput
   | DisassociateInstanceEventWindowCommandOutput
+  | DisassociateIpamByoasnCommandOutput
   | DisassociateIpamResourceDiscoveryCommandOutput
   | DisassociateNatGatewayAddressCommandOutput
   | DisassociateRouteTableCommandOutput
@@ -3176,6 +3207,7 @@ export type ServiceOutputTypes =
   | GetInstanceUefiDataCommandOutput
   | GetIpamAddressHistoryCommandOutput
   | GetIpamDiscoveredAccountsCommandOutput
+  | GetIpamDiscoveredPublicAddressesCommandOutput
   | GetIpamDiscoveredResourceCidrsCommandOutput
   | GetIpamPoolAllocationsCommandOutput
   | GetIpamPoolCidrsCommandOutput
@@ -3281,6 +3313,7 @@ export type ServiceOutputTypes =
   | MoveAddressToVpcCommandOutput
   | MoveByoipCidrToIpamCommandOutput
   | ProvisionByoipCidrCommandOutput
+  | ProvisionIpamByoasnCommandOutput
   | ProvisionIpamPoolCidrCommandOutput
   | ProvisionPublicIpv4PoolCidrCommandOutput
   | PurchaseCapacityBlockCommandOutput

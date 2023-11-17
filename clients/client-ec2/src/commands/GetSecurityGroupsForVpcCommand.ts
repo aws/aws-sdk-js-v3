@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetSecurityGroupsForVpcRequest, GetSecurityGroupsForVpcResult } from "../models/models_5";
+import { GetSecurityGroupsForVpcRequest, GetSecurityGroupsForVpcResult } from "../models/models_6";
 import { de_GetSecurityGroupsForVpcCommand, se_GetSecurityGroupsForVpcCommand } from "../protocols/Aws_ec2";
 
 /**

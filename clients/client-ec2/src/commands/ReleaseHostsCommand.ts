@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReleaseHostsRequest, ReleaseHostsResult } from "../models/models_6";
+import { ReleaseHostsRequest, ReleaseHostsResult } from "../models/models_7";
 import { de_ReleaseHostsCommand, se_ReleaseHostsCommand } from "../protocols/Aws_ec2";
 
 /**

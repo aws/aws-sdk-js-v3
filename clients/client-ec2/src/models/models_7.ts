@@ -7,11 +7,18 @@ import {
   AddressAttributeName,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
+  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
   NatGatewayAddress,
+  PortRange,
+  RouteTableAssociationState,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayMulticastDomainAssociations,
+  TransitGatewayPeeringAttachment,
+  TransitGatewayVpcAttachment,
+  UnsuccessfulItem,
 } from "./models_0";
 import {
   AmdSevSnpSpecification,
@@ -19,19 +26,22 @@ import {
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   HostnameType,
+  IcmpTypeCode,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   LocalGatewayRoute,
   ManagedPrefixList,
   MarketType,
   Placement,
+  RuleAction,
   ShutdownBehavior,
   SpotInstanceType,
 } from "./models_1";
 import { SnapshotState, SSEType, TransitGatewayRoute } from "./models_2";
-import { ClientVpnConnectionStatus, Filter, InstanceAttributeName } from "./models_3";
+import { ClientVpnConnectionStatus, Filter } from "./models_3";
 import {
   HttpTokensState,
+  InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
@@ -42,11 +52,828 @@ import {
   NetworkInsightsAnalysis,
   RunInstancesMonitoringEnabled,
   SnapshotAttributeName,
+  SpotFleetRequestConfigData,
+  SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * @public
+   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * @public
+   * <p>Information about the multicast domain associations.</p>
+   */
+  Associations?: TransitGatewayMulticastDomainAssociations;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayPeeringAttachmentRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway peering attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayPeeringAttachmentResult {
+  /**
+   * @public
+   * <p>The transit gateway peering attachment.</p>
+   */
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayVpcAttachmentRequest {
+  /**
+   * @public
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RejectTransitGatewayVpcAttachmentResult {
+  /**
+   * @public
+   * <p>Information about the attachment.</p>
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcEndpointConnectionsRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the service.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The IDs of the VPC endpoints.</p>
+   */
+  VpcEndpointIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcEndpointConnectionsResult {
+  /**
+   * @public
+   * <p>Information about the endpoints that were not rejected, if applicable.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcPeeringConnectionRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectVpcPeeringConnectionResult {
+  /**
+   * @public
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseAddressRequest {
+  /**
+   * @public
+   * <p>The allocation ID. This parameter is required.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * @public
+   * <p>Deprecated.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * @public
+   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
+   *       IP addresses.</p>
+   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
+   */
+  NetworkBorderGroup?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseHostsRequest {
+  /**
+   * @public
+   * <p>The IDs of the Dedicated Hosts to release.</p>
+   */
+  HostIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseHostsResult {
+  /**
+   * @public
+   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
+   */
+  Successful?: string[];
+
+  /**
+   * @public
+   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
+   *             message.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+/**
+ * @public
+ */
+export interface ReleaseIpamPoolAllocationRequest {
+  /**
+   * @public
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * @public
+   * <p>The CIDR of the allocation you want to release.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the allocation.</p>
+   */
+  IpamPoolAllocationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseIpamPoolAllocationResult {
+  /**
+   * @public
+   * <p>Indicates if the release was successful.</p>
+   */
+  Success?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceIamInstanceProfileAssociationRequest {
+  /**
+   * @public
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the existing IAM instance profile association.</p>
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * @public
+   * <p>Information about the IAM instance profile association.</p>
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceNetworkAclAssociationRequest {
+  /**
+   * @public
+   * <p>The ID of the current association between the original network ACL and the subnet.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the new network ACL to associate with the subnet.</p>
+   */
+  NetworkAclId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceNetworkAclAssociationResult {
+  /**
+   * @public
+   * <p>The ID of the new association.</p>
+   */
+  NewAssociationId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceNetworkAclEntryRequest {
+  /**
+   * @public
+   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
+   *                 <code>172.16.0.0/24</code>).</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether to replace the egress rule.</p>
+   *          <p>Default: If no value is specified, we replace the ingress rule.</p>
+   */
+  Egress: boolean | undefined;
+
+  /**
+   * @public
+   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
+   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+   */
+  IcmpTypeCode?: IcmpTypeCode;
+
+  /**
+   * @public
+   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
+   *                 <code>2001:bd8:1234:1a00::/64</code>).</p>
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * @public
+   * <p>The ID of the ACL.</p>
+   */
+  NetworkAclId: string | undefined;
+
+  /**
+   * @public
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.
+   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+   */
+  PortRange?: PortRange;
+
+  /**
+   * @public
+   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
+   *            protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
+   *            allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
+   *            protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
+   *            codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
+   *            and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+   */
+  Protocol: string | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
+   */
+  RuleAction: RuleAction | undefined;
+
+  /**
+   * @public
+   * <p>The rule number of the entry to replace.</p>
+   */
+  RuleNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceRouteRequest {
+  /**
+   * @public
+   * <p>The IPv4 CIDR address block used for the destination match. The value that you
+   * 			provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * @public
+   * <p>The IPv6 CIDR address block used for the destination match. The value that you
+   * 			provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * @public
+   * <p>The ID of the prefix list for the route.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * @public
+   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * @public
+   * <p>The ID of an internet gateway or virtual private gateway.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * @public
+   * <p>The ID of a NAT instance in your VPC.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to reset the local route to its default target (<code>local</code>).</p>
+   */
+  LocalTarget?: boolean;
+
+  /**
+   * @public
+   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * @public
+   * <p>The ID of a transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * @public
+   * <p>[IPv4 traffic only] The ID of a carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * @public
+   * <p>The ID of a network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of a VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
+  CoreNetworkArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceRouteTableAssociationRequest {
+  /**
+   * @public
+   * <p>The association ID.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the new route table to associate with the subnet.</p>
+   */
+  RouteTableId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceRouteTableAssociationResult {
+  /**
+   * @public
+   * <p>The ID of the new association.</p>
+   */
+  NewAssociationId?: string;
+
+  /**
+   * @public
+   * <p>The state of the association.</p>
+   */
+  AssociationState?: RouteTableAssociationState;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceTransitGatewayRouteRequest {
+  /**
+   * @public
+   * <p>The CIDR range used for the destination match. Routing decisions are based on the most specific match.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether traffic matching this route is to be dropped.</p>
+   */
+  Blackhole?: boolean;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceTransitGatewayRouteResult {
+  /**
+   * @public
+   * <p>Information about the modified route.</p>
+   */
+  Route?: TransitGatewayRoute;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceVpnTunnelRequest {
+  /**
+   * @public
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * @public
+   * <p>The external IP address of the VPN tunnel.</p>
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * @public
+   * <p>Trigger pending tunnel endpoint maintenance.</p>
+   */
+  ApplyPendingMaintenance?: boolean;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceVpnTunnelResult {
+  /**
+   * @public
+   * <p>Confirmation of replace tunnel operation.</p>
+   */
+  Return?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportInstanceReasonCodes = {
+  instance_stuck_in_state: "instance-stuck-in-state",
+  not_accepting_credentials: "not-accepting-credentials",
+  other: "other",
+  password_not_available: "password-not-available",
+  performance_ebs_volume: "performance-ebs-volume",
+  performance_instance_store: "performance-instance-store",
+  performance_network: "performance-network",
+  performance_other: "performance-other",
+  unresponsive: "unresponsive",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportInstanceReasonCodes = (typeof ReportInstanceReasonCodes)[keyof typeof ReportInstanceReasonCodes];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportStatusType = {
+  impaired: "impaired",
+  ok: "ok",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportStatusType = (typeof ReportStatusType)[keyof typeof ReportStatusType];
+
+/**
+ * @public
+ */
+export interface ReportInstanceStatusRequest {
+  /**
+   * @public
+   * <p>Descriptive text about the health state of your instance.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The time at which the reported instance health state ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>The instances.</p>
+   */
+  Instances: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The reason codes that describe the health state of your instance.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-stuck-in-state</code>: My instance is stuck in a state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unresponsive</code>: My instance is unresponsive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>not-accepting-credentials</code>: My instance is not accepting my
+   *                     credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>password-not-available</code>: A password is not available for my
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>performance-network</code>: My instance is experiencing performance
+   *                     problems that I believe are network related.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>performance-instance-store</code>: My instance is experiencing performance
+   *                     problems that I believe are related to the instance stores.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>performance-ebs-volume</code>: My instance is experiencing performance
+   *                     problems that I believe are related to an EBS volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>performance-other</code>: My instance is experiencing performance
+   *                     problems.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>other</code>: [explain using the description parameter]</p>
+   *             </li>
+   *          </ul>
+   */
+  ReasonCodes: ReportInstanceReasonCodes[] | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the reported instance health state began.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The status of all instances listed.</p>
+   */
+  Status: ReportStatusType | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the parameters for RequestSpotFleet.</p>
+ */
+export interface RequestSpotFleetRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The configuration for the Spot Fleet request.</p>
+   */
+  SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the output of RequestSpotFleet.</p>
+ */
+export interface RequestSpotFleetResponse {
+  /**
+   * @public
+   * <p>The ID of the Spot Fleet request.</p>
+   */
+  SpotFleetRequestId?: string;
+}
 
 /**
  * @public
@@ -3257,6 +4084,16 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
+  ...obj,
+  ...(obj.SpotFleetRequestConfig && {
+    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
+  }),
+});
 
 /**
  * @internal

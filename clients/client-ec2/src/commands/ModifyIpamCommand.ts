@@ -59,6 +59,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  *       RegionName: "STRING_VALUE",
  *     },
  *   ],
+ *   Tier: "free" || "advanced",
  * };
  * const command = new ModifyIpamCommand(input);
  * const response = await client.send(command);
@@ -87,6 +88,8 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * //     DefaultResourceDiscoveryId: "STRING_VALUE",
  * //     DefaultResourceDiscoveryAssociationId: "STRING_VALUE",
  * //     ResourceDiscoveryAssociationCount: Number("int"),
+ * //     StateMessage: "STRING_VALUE",
+ * //     Tier: "free" || "advanced",
  * //   },
  * // };
  *

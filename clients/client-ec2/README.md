@@ -399,6 +399,14 @@ AssociateInstanceEventWindow
 </details>
 <details>
 <summary>
+AssociateIpamByoasn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/associateipambyoasncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/associateipambyoasncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/associateipambyoasncommandoutput.html)
+
+</details>
+<details>
+<summary>
 AssociateIpamResourceDiscovery
 </summary>
 
@@ -1919,6 +1927,14 @@ DeprovisionByoipCidr
 </details>
 <details>
 <summary>
+DeprovisionIpamByoasn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/deprovisionipambyoasncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/deprovisionipambyoasncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/deprovisionipambyoasncommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeprovisionIpamPoolCidr
 </summary>
 
@@ -2411,6 +2427,14 @@ DescribeInternetGateways
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/describeinternetgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describeinternetgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describeinternetgatewayscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeIpamByoasn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/describeipambyoasncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describeipambyoasncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describeipambyoasncommandoutput.html)
 
 </details>
 <details>
@@ -3359,6 +3383,14 @@ DisassociateInstanceEventWindow
 </details>
 <details>
 <summary>
+DisassociateIpamByoasn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/disassociateipambyoasncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/disassociateipambyoasncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/disassociateipambyoasncommandoutput.html)
+
+</details>
+<details>
+<summary>
 DisassociateIpamResourceDiscovery
 </summary>
 
@@ -3739,6 +3771,14 @@ GetIpamDiscoveredAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/getipamdiscoveredaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getipamdiscoveredaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getipamdiscoveredaccountscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetIpamDiscoveredPublicAddresses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/getipamdiscoveredpublicaddressescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getipamdiscoveredpublicaddressescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getipamdiscoveredpublicaddressescommandoutput.html)
 
 </details>
 <details>
@@ -4579,6 +4619,14 @@ ProvisionByoipCidr
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/provisionbyoipcidrcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/provisionbyoipcidrcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/provisionbyoipcidrcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ProvisionIpamByoasn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/provisionipambyoasncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/provisionipambyoasncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/provisionipambyoasncommandoutput.html)
 
 </details>
 <details>

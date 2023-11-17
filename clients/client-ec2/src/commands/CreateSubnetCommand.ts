@@ -46,8 +46,8 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *          <p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and
  *             a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and
  *             the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p>
- *          <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block
- *             with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p>
+ *          <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR
+ *             block with a subnet when you create it. </p>
  *          <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
  *             logical router in the middle.</p>
  *          <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
@@ -80,6 +80,10 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *   VpcId: "STRING_VALUE", // required
  *   DryRun: true || false,
  *   Ipv6Native: true || false,
+ *   Ipv4IpamPoolId: "STRING_VALUE",
+ *   Ipv4NetmaskLength: Number("int"),
+ *   Ipv6IpamPoolId: "STRING_VALUE",
+ *   Ipv6NetmaskLength: Number("int"),
  * };
  * const command = new CreateSubnetCommand(input);
  * const response = await client.send(command);

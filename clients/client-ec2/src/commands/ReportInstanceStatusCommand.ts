@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReportInstanceStatusRequest } from "../models/models_6";
+import { ReportInstanceStatusRequest } from "../models/models_7";
 import { de_ReportInstanceStatusCommand, se_ReportInstanceStatusCommand } from "../protocols/Aws_ec2";
 
 /**

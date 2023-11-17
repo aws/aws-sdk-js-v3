@@ -54,6 +54,7 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * const input = { // DeleteIpamPoolRequest
  *   DryRun: true || false,
  *   IpamPoolId: "STRING_VALUE", // required
+ *   Cascade: true || false,
  * };
  * const command = new DeleteIpamPoolCommand(input);
  * const response = await client.send(command);
@@ -92,6 +93,12 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * //     ],
  * //     AwsService: "ec2",
  * //     PublicIpSource: "amazon" || "byoip",
+ * //     SourceResource: { // IpamPoolSourceResource
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "vpc",
+ * //       ResourceRegion: "STRING_VALUE",
+ * //       ResourceOwner: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

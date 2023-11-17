@@ -19,7 +19,7 @@ import {
   GetPasswordDataRequest,
   GetPasswordDataResult,
   GetPasswordDataResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { de_GetPasswordDataCommand, se_GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
 /**

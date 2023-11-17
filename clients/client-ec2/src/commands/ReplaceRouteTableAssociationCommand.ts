@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceRouteTableAssociationRequest, ReplaceRouteTableAssociationResult } from "../models/models_6";
+import { ReplaceRouteTableAssociationRequest, ReplaceRouteTableAssociationResult } from "../models/models_7";
 import { de_ReplaceRouteTableAssociationCommand, se_ReplaceRouteTableAssociationCommand } from "../protocols/Aws_ec2";
 
 /**

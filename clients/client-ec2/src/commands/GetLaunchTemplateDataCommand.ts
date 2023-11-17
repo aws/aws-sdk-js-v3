@@ -19,7 +19,7 @@ import {
   GetLaunchTemplateDataRequest,
   GetLaunchTemplateDataResult,
   GetLaunchTemplateDataResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { de_GetLaunchTemplateDataCommand, se_GetLaunchTemplateDataCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -133,6 +133,11 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //           EnaSrdUdpSpecification: { // LaunchTemplateEnaSrdUdpSpecification
  * //             EnaSrdUdpEnabled: true || false,
  * //           },
+ * //         },
+ * //         ConnectionTrackingSpecification: { // ConnectionTrackingSpecification
+ * //           TcpEstablishedTimeout: Number("int"),
+ * //           UdpTimeout: Number("int"),
+ * //           UdpStreamTimeout: Number("int"),
  * //         },
  * //       },
  * //     ],

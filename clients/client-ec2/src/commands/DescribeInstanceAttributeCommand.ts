@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/models_3";
+import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/models_4";
 import { de_DescribeInstanceAttributeCommand, se_DescribeInstanceAttributeCommand } from "../protocols/Aws_ec2";
 
 /**

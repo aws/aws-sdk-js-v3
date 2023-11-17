@@ -135,6 +135,11 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *             EnaSrdUdpEnabled: true || false,
  *           },
  *         },
+ *         ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ *           TcpEstablishedTimeout: Number("int"),
+ *           UdpStreamTimeout: Number("int"),
+ *           UdpTimeout: Number("int"),
+ *         },
  *       },
  *     ],
  *     ImageId: "STRING_VALUE",
@@ -391,6 +396,11 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //             EnaSrdUdpSpecification: { // LaunchTemplateEnaSrdUdpSpecification
  * //               EnaSrdUdpEnabled: true || false,
  * //             },
+ * //           },
+ * //           ConnectionTrackingSpecification: { // ConnectionTrackingSpecification
+ * //             TcpEstablishedTimeout: Number("int"),
+ * //             UdpTimeout: Number("int"),
+ * //             UdpStreamTimeout: Number("int"),
  * //           },
  * //         },
  * //       ],

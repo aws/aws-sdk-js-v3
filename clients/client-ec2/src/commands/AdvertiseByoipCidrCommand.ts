@@ -56,6 +56,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * const client = new EC2Client(config);
  * const input = { // AdvertiseByoipCidrRequest
  *   Cidr: "STRING_VALUE", // required
+ *   Asn: "STRING_VALUE",
  *   DryRun: true || false,
  * };
  * const command = new AdvertiseByoipCidrCommand(input);
@@ -64,6 +65,14 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * //   ByoipCidr: { // ByoipCidr
  * //     Cidr: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
+ * //     AsnAssociations: [ // AsnAssociationSet
+ * //       { // AsnAssociation
+ * //         Asn: "STRING_VALUE",
+ * //         Cidr: "STRING_VALUE",
+ * //         StatusMessage: "STRING_VALUE",
+ * //         State: "disassociated" || "failed-disassociation" || "failed-association" || "pending-disassociation" || "pending-association" || "associated",
+ * //       },
+ * //     ],
  * //     StatusMessage: "STRING_VALUE",
  * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
  * //   },

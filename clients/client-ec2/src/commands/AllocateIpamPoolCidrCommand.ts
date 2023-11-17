@@ -56,6 +56,9 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  *   ClientToken: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   PreviewNextCidr: true || false,
+ *   AllowedCidrs: [ // IpamPoolAllocationAllowedCidrs
+ *     "STRING_VALUE",
+ *   ],
  *   DisallowedCidrs: [ // IpamPoolAllocationDisallowedCidrs
  *     "STRING_VALUE",
  *   ],
@@ -68,7 +71,7 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  * //     IpamPoolAllocationId: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     ResourceId: "STRING_VALUE",
- * //     ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom",
+ * //     ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom" || "subnet",
  * //     ResourceRegion: "STRING_VALUE",
  * //     ResourceOwner: "STRING_VALUE",
  * //   },

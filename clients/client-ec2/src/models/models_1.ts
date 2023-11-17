@@ -16,9 +16,7 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
-  DirectoryServiceAuthenticationRequest,
   InstanceEventWindow,
-  Ipv4PrefixSpecification,
   NatGatewayAddress,
   PortRange,
   Protocol,
@@ -31,6 +29,81 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const CarrierGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type CarrierGatewayState = (typeof CarrierGatewayState)[keyof typeof CarrierGatewayState];
+
+/**
+ * @public
+ * <p>Describes a carrier gateway.</p>
+ */
+export interface CarrierGateway {
+  /**
+   * @public
+   * <p>The ID of the carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the VPC associated with the carrier gateway.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The state of the carrier gateway.</p>
+   */
+  State?: CarrierGatewayState;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * @public
+   * <p>The tags assigned to the carrier gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateCarrierGatewayResult {
+  /**
+   * @public
+   * <p>Information about the carrier gateway.</p>
+   */
+  CarrierGateway?: CarrierGateway;
+}
+
+/**
+ * @public
+ * <p>Describes the Active Directory to be used for client authentication.</p>
+ */
+export interface DirectoryServiceAuthenticationRequest {
+  /**
+   * @public
+   * <p>The ID of the Active Directory to be used for authentication.</p>
+   */
+  DirectoryId?: string;
+}
 
 /**
  * @public
@@ -4892,6 +4965,20 @@ export interface CreateInternetGatewayResult {
 
 /**
  * @public
+ * @enum
+ */
+export const IpamTier = {
+  advanced: "advanced",
+  free: "free",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamTier = (typeof IpamTier)[keyof typeof IpamTier];
+
+/**
+ * @public
  */
 export interface CreateIpamRequest {
   /**
@@ -4928,6 +5015,12 @@ export interface CreateIpamRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * @public
+   * <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing > IPAM tab</a>.</p>
+   */
+  Tier?: IpamTier;
 }
 
 /**
@@ -5058,6 +5151,18 @@ export interface Ipam {
    * <p>The IPAM's resource discovery association count.</p>
    */
   ResourceDiscoveryAssociationCount?: number;
+
+  /**
+   * @public
+   * <p>The state message.</p>
+   */
+  StateMessage?: string;
+
+  /**
+   * @public
+   * <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing > IPAM tab</a>.</p>
+   */
+  Tier?: IpamTier;
 }
 
 /**
@@ -5115,6 +5220,49 @@ export const IpamPoolPublicIpSource = {
  * @public
  */
 export type IpamPoolPublicIpSource = (typeof IpamPoolPublicIpSource)[keyof typeof IpamPoolPublicIpSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamPoolSourceResourceType = {
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPoolSourceResourceType = (typeof IpamPoolSourceResourceType)[keyof typeof IpamPoolSourceResourceType];
+
+/**
+ * @public
+ * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+ */
+export interface IpamPoolSourceResourceRequest {
+  /**
+   * @public
+   * <p>The source resource ID.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The source resource type.</p>
+   */
+  ResourceType?: IpamPoolSourceResourceType;
+
+  /**
+   * @public
+   * <p>The source resource Region.</p>
+   */
+  ResourceRegion?: string;
+
+  /**
+   * @public
+   * <p>The source resource owner.</p>
+   */
+  ResourceOwner?: string;
+}
 
 /**
  * @public
@@ -5230,6 +5378,12 @@ export interface CreateIpamPoolRequest {
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   PublicIpSource?: IpamPoolPublicIpSource;
+
+  /**
+   * @public
+   * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+   */
+  SourceResource?: IpamPoolSourceResourceRequest;
 }
 
 /**
@@ -5264,6 +5418,36 @@ export const IpamScopeType = {
  * @public
  */
 export type IpamScopeType = (typeof IpamScopeType)[keyof typeof IpamScopeType];
+
+/**
+ * @public
+ * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+ */
+export interface IpamPoolSourceResource {
+  /**
+   * @public
+   * <p>The source resource ID.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The source resource type.</p>
+   */
+  ResourceType?: IpamPoolSourceResourceType;
+
+  /**
+   * @public
+   * <p>The source resource Region.</p>
+   */
+  ResourceRegion?: string;
+
+  /**
+   * @public
+   * <p>The source resource owner.</p>
+   */
+  ResourceOwner?: string;
+}
 
 /**
  * @public
@@ -5363,7 +5547,7 @@ export interface IpamPool {
 
   /**
    * @public
-   * <p>A message related to the failed creation of an IPAM pool.</p>
+   * <p>The state message.</p>
    */
   StateMessage?: string;
 
@@ -5442,6 +5626,12 @@ export interface IpamPool {
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   PublicIpSource?: IpamPoolPublicIpSource;
+
+  /**
+   * @public
+   * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+   */
+  SourceResource?: IpamPoolSourceResource;
 }
 
 /**
@@ -6567,6 +6757,37 @@ export interface LaunchTemplatesMonitoringRequest {
 
 /**
  * @public
+ * <p>A security group connection tracking specification request that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface ConnectionTrackingSpecificationRequest {
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   */
+  UdpStreamTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   */
+  UdpTimeout?: number;
+}
+
+/**
+ * @public
  * <p>Configures ENA Express for UDP network traffic from your launch template.</p>
  */
 export interface EnaSrdUdpSpecificationRequest {
@@ -6808,6 +7029,12 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
    * <p>Configure ENA Express settings for your launch template.</p>
    */
   EnaSrdSpecification?: EnaSrdSpecificationRequest;
+
+  /**
+   * @public
+   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
 }
 
 /**
@@ -7945,6 +8172,37 @@ export interface LaunchTemplatesMonitoring {
 
 /**
  * @public
+ * <p>A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface ConnectionTrackingSpecification {
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   */
+  UdpTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   */
+  UdpStreamTimeout?: number;
+}
+
+/**
+ * @public
  * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
  * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
  * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
@@ -8169,6 +8427,12 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    * <p>Contains the ENA Express settings for instances launched from your launch template.</p>
    */
   EnaSrdSpecification?: LaunchTemplateEnaSrdSpecification;
+
+  /**
+   * @public
+   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecification;
 }
 
 /**
@@ -10421,6 +10685,12 @@ export interface CreateNetworkInterfaceRequest {
    *             address.</p>
    */
   EnablePrimaryIpv6?: boolean;
+
+  /**
+   * @public
+   * <p>A connection tracking specification for the network interface.</p>
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
 }
 
 /**
@@ -10579,6 +10849,37 @@ export interface NetworkInterfaceAttachment {
 
 /**
  * @public
+ * <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface ConnectionTrackingConfiguration {
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   */
+  UdpStreamTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   */
+  UdpTimeout?: number;
+}
+
+/**
+ * @public
  * <p>Describes a security group.</p>
  */
 export interface GroupIdentifier {
@@ -10640,389 +10941,6 @@ export interface NetworkInterfaceIpv6Address {
    * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
    */
   IsPrimaryIpv6?: boolean;
-}
-
-/**
- * @public
- * <p>Describes the IPv6 prefix.</p>
- */
-export interface Ipv6PrefixSpecification {
-  /**
-   * @public
-   * <p>The IPv6 prefix.</p>
-   */
-  Ipv6Prefix?: string;
-}
-
-/**
- * @public
- * <p>Describes the private IPv4 address of a network interface.</p>
- */
-export interface NetworkInterfacePrivateIpAddress {
-  /**
-   * @public
-   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
-   */
-  Association?: NetworkInterfaceAssociation;
-
-  /**
-   * @public
-   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.</p>
-   */
-  Primary?: boolean;
-
-  /**
-   * @public
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * @public
-   * <p>The private IPv4 address.</p>
-   */
-  PrivateIpAddress?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfaceStatus = {
-  associated: "associated",
-  attaching: "attaching",
-  available: "available",
-  detaching: "detaching",
-  in_use: "in-use",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeof NetworkInterfaceStatus];
-
-/**
- * @public
- * <p>Describes a network interface.</p>
- */
-export interface NetworkInterface {
-  /**
-   * @public
-   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
-   */
-  Association?: NetworkInterfaceAssociation;
-
-  /**
-   * @public
-   * <p>The network interface attachment.</p>
-   */
-  Attachment?: NetworkInterfaceAttachment;
-
-  /**
-   * @public
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * @public
-   * <p>A description.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Any security groups for the network interface.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * @public
-   * <p>The type of network interface.</p>
-   */
-  InterfaceType?: NetworkInterfaceType;
-
-  /**
-   * @public
-   * <p>The IPv6 addresses associated with the network interface.</p>
-   */
-  Ipv6Addresses?: NetworkInterfaceIpv6Address[];
-
-  /**
-   * @public
-   * <p>The MAC address.</p>
-   */
-  MacAddress?: string;
-
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * @public
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * @public
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * @public
-   * <p>The private IPv4 addresses associated with the network interface.</p>
-   */
-  PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
-
-  /**
-   * @public
-   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
-   */
-  Ipv4Prefixes?: Ipv4PrefixSpecification[];
-
-  /**
-   * @public
-   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
-   */
-  Ipv6Prefixes?: Ipv6PrefixSpecification[];
-
-  /**
-   * @public
-   * <p>The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
-   */
-  RequesterId?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
-   */
-  RequesterManaged?: boolean;
-
-  /**
-   * @public
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * @public
-   * <p>The status of the network interface.</p>
-   */
-  Status?: NetworkInterfaceStatus;
-
-  /**
-   * @public
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * @public
-   * <p>Any tags assigned to the network interface.</p>
-   */
-  TagSet?: Tag[];
-
-  /**
-   * @public
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
-   *             public internet. If the value is <code>true</code>, inbound traffic from the internet
-   *             is dropped and you cannot assign an elastic IP address to the network interface. The
-   *             network interface is reachable from peered VPCs and resources connected through a
-   *             transit gateway, including on-premises networks.</p>
-   */
-  DenyAllIgwTraffic?: boolean;
-
-  /**
-   * @public
-   * <p>Indicates whether this is an IPv6 only network interface.</p>
-   */
-  Ipv6Native?: boolean;
-
-  /**
-   * @public
-   * <p>The IPv6 globally unique address associated with the network interface.</p>
-   */
-  Ipv6Address?: string;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInterfaceResult {
-  /**
-   * @public
-   * <p>Information about the network interface.</p>
-   */
-  NetworkInterface?: NetworkInterface;
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const InterfacePermissionType = {
-  EIP_ASSOCIATE: "EIP-ASSOCIATE",
-  INSTANCE_ATTACH: "INSTANCE-ATTACH",
-} as const;
-
-/**
- * @public
- */
-export type InterfacePermissionType = (typeof InterfacePermissionType)[keyof typeof InterfacePermissionType];
-
-/**
- * @public
- * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
- */
-export interface CreateNetworkInterfacePermissionRequest {
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Service. Currently not supported.</p>
-   */
-  AwsService?: string;
-
-  /**
-   * @public
-   * <p>The type of permission to grant.</p>
-   */
-  Permission: InterfacePermissionType | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfacePermissionStateCode = {
-  granted: "granted",
-  pending: "pending",
-  revoked: "revoked",
-  revoking: "revoking",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfacePermissionStateCode =
-  (typeof NetworkInterfacePermissionStateCode)[keyof typeof NetworkInterfacePermissionStateCode];
-
-/**
- * @public
- * <p>Describes the state of a network interface permission.</p>
- */
-export interface NetworkInterfacePermissionState {
-  /**
-   * @public
-   * <p>The state of the permission.</p>
-   */
-  State?: NetworkInterfacePermissionStateCode;
-
-  /**
-   * @public
-   * <p>A status message, if applicable.</p>
-   */
-  StatusMessage?: string;
-}
-
-/**
- * @public
- * <p>Describes a permission for a network interface.</p>
- */
-export interface NetworkInterfacePermission {
-  /**
-   * @public
-   * <p>The ID of the network interface permission.</p>
-   */
-  NetworkInterfacePermissionId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Service.</p>
-   */
-  AwsService?: string;
-
-  /**
-   * @public
-   * <p>The type of permission.</p>
-   */
-  Permission?: InterfacePermissionType;
-
-  /**
-   * @public
-   * <p>Information about the state of the permission.</p>
-   */
-  PermissionState?: NetworkInterfacePermissionState;
-}
-
-/**
- * @public
- * <p>Contains the output of CreateNetworkInterfacePermission.</p>
- */
-export interface CreateNetworkInterfacePermissionResult {
-  /**
-   * @public
-   * <p>Information about the permission for the network interface.</p>
-   */
-  InterfacePermission?: NetworkInterfacePermission;
 }
 
 /**

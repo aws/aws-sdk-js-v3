@@ -22,9 +22,6 @@ import {
   SecurityGroupRule,
   Tag,
   TagSpecification,
-  TransitGatewayAssociationState,
-  TransitGatewayAttachmentResourceType,
-  TransitGatewayAttachmentState,
   UserIdGroupPair,
 } from "./models_0";
 import {
@@ -33,6 +30,8 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  ConnectionTrackingSpecificationRequest,
+  Ec2InstanceConnectEndpoint,
   EnaSrdSpecificationRequest,
   FleetLaunchTemplateSpecification,
   FleetType,
@@ -60,10 +59,7 @@ import {
   NetworkAcl,
   NetworkInsightsAccessScope,
   NetworkInsightsPath,
-  NetworkInterface,
   NetworkInterfaceAttachment,
-  NetworkInterfacePermission,
-  NetworkInterfaceStatus,
   Placement,
   PlatformValues,
   PrivateIpAddressSpecification,
@@ -74,6 +70,9 @@ import {
   Tenancy,
 } from "./models_1";
 import {
+  NetworkInterface,
+  NetworkInterfacePermission,
+  NetworkInterfaceStatus,
   PlacementGroup,
   ReplaceRootVolumeTask,
   RouteTable,
@@ -82,28 +81,570 @@ import {
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
   StorageTier,
-  TrafficMirrorFilter,
-  TrafficMirrorSession,
-  TrafficMirrorTarget,
-  TransitGatewayConnect,
-  TransitGatewayConnectPeer,
 } from "./models_2";
 import {
   ArchitectureValues,
-  AttributeBooleanValue,
   BootModeValues,
+  Byoasn,
   DeviceType,
-  EnclaveOptions,
   EventInformation,
   Filter,
   HypervisorType,
   IdFormat,
-  InstanceBlockDeviceMapping,
   InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
+  UserBucketDetails,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Details about the import snapshot task.</p>
+ */
+export interface SnapshotTaskDetail {
+  /**
+   * @public
+   * <p>The description of the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The size of the disk in the snapshot, in GiB.</p>
+   */
+  DiskImageSize?: number;
+
+  /**
+   * @public
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * @public
+   * <p>The format of the disk image from which the snapshot is created.</p>
+   */
+  Format?: string;
+
+  /**
+   * @public
+   * <p>The identifier for the KMS key that was used to create the encrypted snapshot.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The percentage of completion for the import snapshot task.</p>
+   */
+  Progress?: string;
+
+  /**
+   * @public
+   * <p>The snapshot ID of the disk being imported.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * @public
+   * <p>A brief status for the import snapshot task.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>A detailed status message for the import snapshot task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>The URL of the disk image from which the snapshot is created.</p>
+   */
+  Url?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucketDetails;
+}
+
+/**
+ * @public
+ * <p>Describes an import snapshot task.</p>
+ */
+export interface ImportSnapshotTask {
+  /**
+   * @public
+   * <p>A description of the import snapshot task.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The ID of the import snapshot task.</p>
+   */
+  ImportTaskId?: string;
+
+  /**
+   * @public
+   * <p>Describes an import snapshot task.</p>
+   */
+  SnapshotTaskDetail?: SnapshotTaskDetail;
+
+  /**
+   * @public
+   * <p>The tags for the import snapshot task.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeImportSnapshotTasksResult {
+  /**
+   * @public
+   * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
+   *    previous 7 days.</p>
+   */
+  ImportSnapshotTasks?: ImportSnapshotTask[];
+
+  /**
+   * @public
+   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
+   *    to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceAttributeName = {
+  blockDeviceMapping: "blockDeviceMapping",
+  disableApiStop: "disableApiStop",
+  disableApiTermination: "disableApiTermination",
+  ebsOptimized: "ebsOptimized",
+  enaSupport: "enaSupport",
+  enclaveOptions: "enclaveOptions",
+  groupSet: "groupSet",
+  instanceInitiatedShutdownBehavior: "instanceInitiatedShutdownBehavior",
+  instanceType: "instanceType",
+  kernel: "kernel",
+  productCodes: "productCodes",
+  ramdisk: "ramdisk",
+  rootDeviceName: "rootDeviceName",
+  sourceDestCheck: "sourceDestCheck",
+  sriovNetSupport: "sriovNetSupport",
+  userData: "userData",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceAttributeName = (typeof InstanceAttributeName)[keyof typeof InstanceAttributeName];
+
+/**
+ * @public
+ */
+export interface DescribeInstanceAttributeRequest {
+  /**
+   * @public
+   * <p>The instance attribute.</p>
+   *          <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
+   */
+  Attribute: InstanceAttributeName | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
+ */
+export interface EbsInstanceBlockDevice {
+  /**
+   * @public
+   * <p>The time stamp when the attachment initiated.</p>
+   */
+  AttachTime?: Date;
+
+  /**
+   * @public
+   * <p>Indicates whether the volume is deleted on instance termination.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * @public
+   * <p>The attachment state.</p>
+   */
+  Status?: AttachmentStatus;
+
+  /**
+   * @public
+   * <p>The ID of the EBS volume.</p>
+   */
+  VolumeId?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a block device mapping.</p>
+ */
+export interface InstanceBlockDeviceMapping {
+  /**
+   * @public
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * @public
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   */
+  Ebs?: EbsInstanceBlockDevice;
+}
+
+/**
+ * @public
+ * <p>Describes a value for a resource attribute that is a Boolean value.</p>
+ */
+export interface AttributeBooleanValue {
+  /**
+   * @public
+   * <p>The attribute value. The valid values are <code>true</code> or <code>false</code>.</p>
+   */
+  Value?: boolean;
+}
+
+/**
+ * @public
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
+ *             Enclaves.</p>
+ */
+export interface EnclaveOptions {
+  /**
+   * @public
+   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web Services Nitro
+   *             Enclaves.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes an instance attribute.</p>
+ */
+export interface InstanceAttribute {
+  /**
+   * @public
+   * <p>The security groups associated with the instance.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * @public
+   * <p>The block device mapping of the instance.</p>
+   */
+  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
+
+  /**
+   * @public
+   * <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon
+   *             EC2 console, CLI, or API; otherwise, you can.</p>
+   */
+  DisableApiTermination?: AttributeBooleanValue;
+
+  /**
+   * @public
+   * <p>Indicates whether enhanced networking with ENA is enabled.</p>
+   */
+  EnaSupport?: AttributeBooleanValue;
+
+  /**
+   * @public
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
+   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
+   */
+  EnclaveOptions?: EnclaveOptions;
+
+  /**
+   * @public
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O.</p>
+   */
+  EbsOptimized?: AttributeBooleanValue;
+
+  /**
+   * @public
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   */
+  InstanceInitiatedShutdownBehavior?: AttributeValue;
+
+  /**
+   * @public
+   * <p>The instance type.</p>
+   */
+  InstanceType?: AttributeValue;
+
+  /**
+   * @public
+   * <p>The kernel ID.</p>
+   */
+  KernelId?: AttributeValue;
+
+  /**
+   * @public
+   * <p>A list of product codes.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * @public
+   * <p>The RAM disk ID.</p>
+   */
+  RamdiskId?: AttributeValue;
+
+  /**
+   * @public
+   * <p>The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: AttributeValue;
+
+  /**
+   * @public
+   * <p>Enable or disable source/destination checks, which ensure that the instance is either
+   *             the source or the destination of any traffic that it receives. If the value is
+   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
+   *             disabled. The default value is <code>true</code>. You must disable source/destination
+   *             checks if the instance runs services such as network address translation, routing, or
+   *             firewalls.</p>
+   */
+  SourceDestCheck?: AttributeBooleanValue;
+
+  /**
+   * @public
+   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface
+   *             is enabled.</p>
+   */
+  SriovNetSupport?: AttributeValue;
+
+  /**
+   * @public
+   * <p>The user data.</p>
+   */
+  UserData?: AttributeValue;
+
+  /**
+   * @public
+   * <p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to
+   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
+   */
+  DisableApiStop?: AttributeBooleanValue;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceConnectEndpointsRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> |
+   *                     <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance
+   *                     Connect Endpoint was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources
+   *                     that have a tag with a specific value, regardless of tag key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect
+   *                     Endpoint was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>One or more EC2 Instance Connect Endpoint IDs.</p>
+   */
+  InstanceConnectEndpointIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceConnectEndpointsResult {
+  /**
+   * @public
+   * <p>Information about the EC2 Instance Connect Endpoints.</p>
+   */
+  InstanceConnectEndpoints?: Ec2InstanceConnectEndpoint[];
+
+  /**
+   * @public
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceCreditSpecificationsRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The instance IDs.</p>
+   *          <p>Default: Describes all your instances.</p>
+   *          <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * @public
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You cannot specify this parameter and the instance IDs
+   *             parameter in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
+ */
+export interface InstanceCreditSpecification {
+  /**
+   * @public
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>The credit option for CPU usage of the instance.</p>
+   *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
+   */
+  CpuCredits?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceCreditSpecificationsResult {
+  /**
+   * @public
+   * <p>Information about the credit option for CPU usage of an instance.</p>
+   */
+  InstanceCreditSpecifications?: InstanceCreditSpecification[];
+
+  /**
+   * @public
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -1486,6 +2027,37 @@ export interface InstanceNetworkInterfaceAttachment {
 
 /**
  * @public
+ * <p>A security group connection tracking specification response that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface ConnectionTrackingSpecificationResponse {
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   */
+  UdpStreamTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   */
+  UdpTimeout?: number;
+}
+
+/**
+ * @public
  * <p>Information about an IPv4 prefix.</p>
  */
 export interface InstanceIpv4Prefix {
@@ -1653,6 +2225,12 @@ export interface InstanceNetworkInterface {
    * <p>The IPv6 delegated prefixes that are assigned to the network interface.</p>
    */
   Ipv6Prefixes?: InstanceIpv6Prefix[];
+
+  /**
+   * @public
+   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingConfiguration?: ConnectionTrackingSpecificationResponse;
 }
 
 /**
@@ -1821,7 +2399,7 @@ export interface Instance {
 
   /**
    * @public
-   * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
+   * <p>The platform. This value is <code>windows</code> for Windows instances; otherwise, it is empty.</p>
    */
   Platform?: PlatformValues;
 
@@ -4116,6 +4694,49 @@ export interface DescribeInternetGatewaysResult {
   /**
    * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpamByoasnRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpamByoasnResult {
+  /**
+   * @public
+   * <p>ASN and BYOIP CIDR associations.</p>
+   */
+  Byoasns?: Byoasn[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 }
@@ -10294,6 +10915,12 @@ export interface InstanceNetworkInterfaceSpecification {
    * 			the instance.</p>
    */
   EnaSrdSpecification?: EnaSrdSpecificationRequest;
+
+  /**
+   * @public
+   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
 }
 
 /**
@@ -12275,731 +12902,30 @@ export interface DescribeSubnetsResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeTagsRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>key</code> - The tag key.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>key-pair</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>placement-group</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of the tag. For example,
-   *                 specify "tag:Owner" for the filter name and "TeamA" for the filter value to find
-   *                 resources with the tag "Owner=TeamA".</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>value</code> - The tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of items to return for this request. This value can be between 5 and 1000.
-   *          To get the next page of items, make another request with the token returned in the output.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token returned from a previous paginated request.
-   *          Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
-}
+export const SnapshotTaskDetailFilterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
 
 /**
- * @public
- * <p>Describes a tag.</p>
+ * @internal
  */
-export interface TagDescription {
-  /**
-   * @public
-   * <p>The tag key.</p>
-   */
-  Key?: string;
-
-  /**
-   * @public
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * @public
-   * <p>The resource type.</p>
-   */
-  ResourceType?: ResourceType;
-
-  /**
-   * @public
-   * <p>The tag value.</p>
-   */
-  Value?: string;
-}
+export const ImportSnapshotTaskFilterSensitiveLog = (obj: ImportSnapshotTask): any => ({
+  ...obj,
+  ...(obj.SnapshotTaskDetail && { SnapshotTaskDetail: SnapshotTaskDetailFilterSensitiveLog(obj.SnapshotTaskDetail) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeTagsResult {
-  /**
-   * @public
-   * <p>The token to include in another request to get the next page of items.
-   *          This value is <code>null</code> when there are no more items to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The tags.</p>
-   */
-  Tags?: TagDescription[];
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorFiltersRequest {
-  /**
-   * @public
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterIds?: string[];
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code>: The Traffic Mirror filter description.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorFiltersResult {
-  /**
-   * @public
-   * <p>Information about one or more Traffic Mirror filters.</p>
-   */
-  TrafficMirrorFilters?: TrafficMirrorFilter[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorSessionsRequest {
-  /**
-   * @public
-   * <p>The ID of the Traffic Mirror session.</p>
-   */
-  TrafficMirrorSessionIds?: string[];
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code>: The Traffic Mirror session description.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>packet-length</code>: The assigned number of packets to mirror. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>session-number</code>: The assigned session number. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>traffic-mirror-session-id</code>: The ID of the Traffic Mirror session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorSessionsResult {
-  /**
-   * @public
-   * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
-   */
-  TrafficMirrorSessions?: TrafficMirrorSession[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorTargetsRequest {
-  /**
-   * @public
-   * <p>The ID of the Traffic Mirror targets.</p>
-   */
-  TrafficMirrorTargetIds?: string[];
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code>: The Traffic Mirror target description.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-load-balancer-arn</code>: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorTargetsResult {
-  /**
-   * @public
-   * <p>Information about one or more Traffic Mirror targets.</p>
-   */
-  TrafficMirrorTargets?: TrafficMirrorTarget[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayAttachmentsRequest {
-  /**
-   * @public
-   * <p>The IDs of the attachments.</p>
-   */
-  TransitGatewayAttachmentIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
-   *                <code>disassociating</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-owner-id</code> - The ID of the Amazon Web Services account that owns the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
-   *                     | <code>connect</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Describes an association.</p>
- */
-export interface TransitGatewayAttachmentAssociation {
-  /**
-   * @public
-   * <p>The ID of the route table for the transit gateway.</p>
-   */
-  TransitGatewayRouteTableId?: string;
-
-  /**
-   * @public
-   * <p>The state of the association.</p>
-   */
-  State?: TransitGatewayAssociationState;
-}
-
-/**
- * @public
- * <p>Describes an attachment between a resource and a transit gateway.</p>
- */
-export interface TransitGatewayAttachment {
-  /**
-   * @public
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
-   */
-  TransitGatewayOwnerId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that owns the resource.</p>
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * @public
-   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType;
-
-  /**
-   * @public
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * @public
-   * <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
-   */
-  State?: TransitGatewayAttachmentState;
-
-  /**
-   * @public
-   * <p>The association.</p>
-   */
-  Association?: TransitGatewayAttachmentAssociation;
-
-  /**
-   * @public
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The tags for the attachment.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayAttachmentsResult {
-  /**
-   * @public
-   * <p>Information about the attachments.</p>
-   */
-  TransitGatewayAttachments?: TransitGatewayAttachment[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayConnectPeersRequest {
-  /**
-   * @public
-   * <p>The IDs of the Connect peers.</p>
-   */
-  TransitGatewayConnectPeerIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the Connect peer (<code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> |
-   *                     <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-connect-peer-id</code> - The ID of the Connect peer.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayConnectPeersResult {
-  /**
-   * @public
-   * <p>Information about the Connect peers.</p>
-   */
-  TransitGatewayConnectPeers?: TransitGatewayConnectPeer[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayConnectsRequest {
-  /**
-   * @public
-   * <p>The IDs of the attachments.</p>
-   */
-  TransitGatewayAttachmentIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>options.protocol</code> - The tunnel protocol (<code>gre</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the attachment (<code>initiating</code> |
-   *                         <code>initiatingRequest</code> | <code>pendingAcceptance</code> |
-   *                         <code>rollingBack</code> | <code>pending</code> | <code>available</code> |
-   *                         <code>modifying</code> | <code>deleting</code> | <code>deleted</code> |
-   *                         <code>failed</code> | <code>rejected</code> | <code>rejecting</code> |
-   *                         <code>failing</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the
-   *                     Connect attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transport-transit-gateway-attachment-id</code> - The ID of the transit gateway attachment from which the Connect attachment was created.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayConnectsResult {
-  /**
-   * @public
-   * <p>Information about the Connect attachments.</p>
-   */
-  TransitGatewayConnects?: TransitGatewayConnect[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayMulticastDomainsRequest {
-  /**
-   * @public
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainIds?: string[];
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the transit gateway multicast domain. Valid values are <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-multicast-domain-id</code> - The ID of the transit gateway multicast domain.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const DescribeImportSnapshotTasksResultFilterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
+  ...obj,
+  ...(obj.ImportSnapshotTasks && {
+    ImportSnapshotTasks: obj.ImportSnapshotTasks.map((item) => ImportSnapshotTaskFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal

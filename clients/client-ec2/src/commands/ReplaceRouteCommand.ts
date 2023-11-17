@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceRouteRequest } from "../models/models_6";
+import { ReplaceRouteRequest } from "../models/models_7";
 import { de_ReplaceRouteCommand, se_ReplaceRouteCommand } from "../protocols/Aws_ec2";
 
 /**

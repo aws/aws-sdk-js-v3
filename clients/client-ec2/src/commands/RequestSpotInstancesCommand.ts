@@ -151,6 +151,11 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  *             EnaSrdUdpEnabled: true || false,
  *           },
  *         },
+ *         ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ *           TcpEstablishedTimeout: Number("int"),
+ *           UdpStreamTimeout: Number("int"),
+ *           UdpTimeout: Number("int"),
+ *         },
  *       },
  *     ],
  *     Placement: { // SpotPlacement
@@ -277,6 +282,11 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * //               EnaSrdUdpSpecification: { // EnaSrdUdpSpecificationRequest
  * //                 EnaSrdUdpEnabled: true || false,
  * //               },
+ * //             },
+ * //             ConnectionTrackingSpecification: { // ConnectionTrackingSpecificationRequest
+ * //               TcpEstablishedTimeout: Number("int"),
+ * //               UdpStreamTimeout: Number("int"),
+ * //               UdpTimeout: Number("int"),
  * //             },
  * //           },
  * //         ],
