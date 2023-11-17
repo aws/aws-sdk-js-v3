@@ -1235,7 +1235,6 @@ export interface AssociateTrafficDistributionGroupUserResponse {}
  * @enum
  */
 export const ListFlowAssociationResourceType = {
-  SMS_PHONE_NUMBER: "SMS_PHONE_NUMBER",
   VOICE_PHONE_NUMBER: "VOICE_PHONE_NUMBER",
 } as const;
 
@@ -2591,6 +2590,7 @@ export const IntegrationType = {
   VOICE_ID: "VOICE_ID",
   WISDOM_ASSISTANT: "WISDOM_ASSISTANT",
   WISDOM_KNOWLEDGE_BASE: "WISDOM_KNOWLEDGE_BASE",
+  WISDOM_QUICK_RESPONSES: "WISDOM_QUICK_RESPONSES",
 } as const;
 
 /**

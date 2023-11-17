@@ -49,7 +49,7 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  *   ResourceIds: [ // resourceArnListMaxLimit100 // required
  *     "STRING_VALUE",
  *   ],
- *   ResourceType: "SMS_PHONE_NUMBER" || "VOICE_PHONE_NUMBER",
+ *   ResourceType: "VOICE_PHONE_NUMBER",
  * };
  * const command = new BatchGetFlowAssociationCommand(input);
  * const response = await client.send(command);
@@ -58,7 +58,7 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  * //     { // FlowAssociationSummary
  * //       ResourceId: "STRING_VALUE",
  * //       FlowId: "STRING_VALUE",
- * //       ResourceType: "SMS_PHONE_NUMBER" || "VOICE_PHONE_NUMBER",
+ * //       ResourceType: "VOICE_PHONE_NUMBER",
  * //     },
  * //   ],
  * // };
