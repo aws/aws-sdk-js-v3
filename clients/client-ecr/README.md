@@ -534,9 +534,25 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdatePullThroughCacheRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/classes/updatepullthroughcacherulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/interfaces/updatepullthroughcacherulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/interfaces/updatepullthroughcacherulecommandoutput.html)
+
+</details>
+<details>
+<summary>
 UploadLayerPart
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/classes/uploadlayerpartcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/interfaces/uploadlayerpartcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/interfaces/uploadlayerpartcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ValidatePullThroughCacheRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/classes/validatepullthroughcacherulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/interfaces/validatepullthroughcacherulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ecr/interfaces/validatepullthroughcacherulecommandoutput.html)
 
 </details>

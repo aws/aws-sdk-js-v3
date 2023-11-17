@@ -136,7 +136,15 @@ import {
 } from "../commands/StartLifecyclePolicyPreviewCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdatePullThroughCacheRuleCommandInput,
+  UpdatePullThroughCacheRuleCommandOutput,
+} from "../commands/UpdatePullThroughCacheRuleCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "../commands/UploadLayerPartCommand";
+import {
+  ValidatePullThroughCacheRuleCommandInput,
+  ValidatePullThroughCacheRuleCommandOutput,
+} from "../commands/ValidatePullThroughCacheRuleCommand";
 import { ECRServiceException as __BaseException } from "../models/ECRServiceException";
 import {
   AuthorizationData,
@@ -240,6 +248,7 @@ import {
   ScanningRepositoryFilter,
   ScanNotFoundException,
   ScoreDetails,
+  SecretNotFoundException,
   ServerException,
   SetRepositoryPolicyRequest,
   StartImageScanRequest,
@@ -247,11 +256,18 @@ import {
   Tag,
   TagResourceRequest,
   TooManyTagsException,
+  UnableToAccessSecretException,
+  UnableToDecryptSecretValueException,
+  UnableToGetUpstreamImageException,
+  UnableToGetUpstreamLayerException,
   UnsupportedImageTypeException,
   UnsupportedUpstreamRegistryException,
   UntagResourceRequest,
+  UpdatePullThroughCacheRuleRequest,
+  UpdatePullThroughCacheRuleResponse,
   UploadLayerPartRequest,
   UploadNotFoundException,
+  ValidatePullThroughCacheRuleRequest,
   ValidationException,
 } from "../models/models_0";
 
@@ -776,6 +792,19 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdatePullThroughCacheRuleCommand
+ */
+export const se_UpdatePullThroughCacheRuleCommand = async (
+  input: UpdatePullThroughCacheRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdatePullThroughCacheRule");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UploadLayerPartCommand
  */
 export const se_UploadLayerPartCommand = async (
@@ -785,6 +814,19 @@ export const se_UploadLayerPartCommand = async (
   const headers: __HeaderBag = sharedHeaders("UploadLayerPart");
   let body: any;
   body = JSON.stringify(se_UploadLayerPartRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ValidatePullThroughCacheRuleCommand
+ */
+export const se_ValidatePullThroughCacheRuleCommand = async (
+  input: ValidatePullThroughCacheRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ValidatePullThroughCacheRule");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -928,12 +970,18 @@ const de_BatchGetImageCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.ecr#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
       throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "UnableToGetUpstreamImageException":
+    case "com.amazonaws.ecr#UnableToGetUpstreamImageException":
+      throw await de_UnableToGetUpstreamImageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1111,9 +1159,18 @@ const de_CreatePullThroughCacheRuleCommandError = async (
     case "PullThroughCacheRuleAlreadyExistsException":
     case "com.amazonaws.ecr#PullThroughCacheRuleAlreadyExistsException":
       throw await de_PullThroughCacheRuleAlreadyExistsExceptionRes(parsedOutput, context);
+    case "SecretNotFoundException":
+    case "com.amazonaws.ecr#SecretNotFoundException":
+      throw await de_SecretNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "UnableToAccessSecretException":
+    case "com.amazonaws.ecr#UnableToAccessSecretException":
+      throw await de_UnableToAccessSecretExceptionRes(parsedOutput, context);
+    case "UnableToDecryptSecretValueException":
+    case "com.amazonaws.ecr#UnableToDecryptSecretValueException":
+      throw await de_UnableToDecryptSecretValueExceptionRes(parsedOutput, context);
     case "UnsupportedUpstreamRegistryException":
     case "com.amazonaws.ecr#UnsupportedUpstreamRegistryException":
       throw await de_UnsupportedUpstreamRegistryExceptionRes(parsedOutput, context);
@@ -1905,6 +1962,9 @@ const de_GetDownloadUrlForLayerCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "UnableToGetUpstreamLayerException":
+    case "com.amazonaws.ecr#UnableToGetUpstreamLayerException":
+      throw await de_UnableToGetUpstreamLayerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3037,6 +3097,70 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdatePullThroughCacheRuleCommand
+ */
+export const de_UpdatePullThroughCacheRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePullThroughCacheRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdatePullThroughCacheRuleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdatePullThroughCacheRuleResponse(data, context);
+  const response: UpdatePullThroughCacheRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdatePullThroughCacheRuleCommandError
+ */
+const de_UpdatePullThroughCacheRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePullThroughCacheRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.ecr#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "PullThroughCacheRuleNotFoundException":
+    case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
+      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
+    case "SecretNotFoundException":
+    case "com.amazonaws.ecr#SecretNotFoundException":
+      throw await de_SecretNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.ecr#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    case "UnableToAccessSecretException":
+    case "com.amazonaws.ecr#UnableToAccessSecretException":
+      throw await de_UnableToAccessSecretExceptionRes(parsedOutput, context);
+    case "UnableToDecryptSecretValueException":
+    case "com.amazonaws.ecr#UnableToDecryptSecretValueException":
+      throw await de_UnableToDecryptSecretValueExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UploadLayerPartCommand
  */
 export const de_UploadLayerPartCommand = async (
@@ -3090,6 +3214,61 @@ const de_UploadLayerPartCommandError = async (
     case "UploadNotFoundException":
     case "com.amazonaws.ecr#UploadNotFoundException":
       throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ValidatePullThroughCacheRuleCommand
+ */
+export const de_ValidatePullThroughCacheRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidatePullThroughCacheRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ValidatePullThroughCacheRuleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ValidatePullThroughCacheRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ValidatePullThroughCacheRuleCommandError
+ */
+const de_ValidatePullThroughCacheRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidatePullThroughCacheRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.ecr#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "PullThroughCacheRuleNotFoundException":
+    case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
+      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.ecr#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3530,6 +3709,22 @@ const de_ScanNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1SecretNotFoundExceptionRes
+ */
+const de_SecretNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SecretNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new SecretNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServerExceptionRes
  */
 const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServerException> => {
@@ -3552,6 +3747,70 @@ const de_TooManyTagsExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1UnableToAccessSecretExceptionRes
+ */
+const de_UnableToAccessSecretExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnableToAccessSecretException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new UnableToAccessSecretException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1UnableToDecryptSecretValueExceptionRes
+ */
+const de_UnableToDecryptSecretValueExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnableToDecryptSecretValueException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new UnableToDecryptSecretValueException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1UnableToGetUpstreamImageExceptionRes
+ */
+const de_UnableToGetUpstreamImageExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnableToGetUpstreamImageException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new UnableToGetUpstreamImageException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1UnableToGetUpstreamLayerExceptionRes
+ */
+const de_UnableToGetUpstreamLayerExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnableToGetUpstreamLayerException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new UnableToGetUpstreamLayerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3755,6 +4014,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdatePullThroughCacheRuleRequest omitted.
+
 /**
  * serializeAws_json1_1UploadLayerPartRequest
  */
@@ -3768,6 +4029,8 @@ const se_UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __Ser
     uploadId: [],
   });
 };
+
+// se_ValidatePullThroughCacheRuleRequest omitted.
 
 // de_Attribute omitted.
 
@@ -3831,8 +4094,10 @@ const de_CreatePullThroughCacheRuleResponse = (
 ): CreatePullThroughCacheRuleResponse => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    credentialArn: __expectString,
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
+    upstreamRegistry: __expectString,
     upstreamRegistryUrl: __expectString,
   }) as any;
 };
@@ -3908,6 +4173,7 @@ const de_DeletePullThroughCacheRuleResponse = (
 ): DeletePullThroughCacheRuleResponse => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    credentialArn: __expectString,
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
     upstreamRegistryUrl: __expectString,
@@ -4253,8 +4519,11 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 const de_PullThroughCacheRule = (output: any, context: __SerdeContext): PullThroughCacheRule => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    credentialArn: __expectString,
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    upstreamRegistry: __expectString,
     upstreamRegistryUrl: __expectString,
   }) as any;
 };
@@ -4413,6 +4682,8 @@ const de_ScoreDetails = (output: any, context: __SerdeContext): ScoreDetails => 
   }) as any;
 };
 
+// de_SecretNotFoundException omitted.
+
 // de_ServerException omitted.
 
 // de_SetRepositoryPolicyResponse omitted.
@@ -4431,15 +4702,40 @@ const de_ScoreDetails = (output: any, context: __SerdeContext): ScoreDetails => 
 
 // de_TooManyTagsException omitted.
 
+// de_UnableToAccessSecretException omitted.
+
+// de_UnableToDecryptSecretValueException omitted.
+
+// de_UnableToGetUpstreamImageException omitted.
+
+// de_UnableToGetUpstreamLayerException omitted.
+
 // de_UnsupportedImageTypeException omitted.
 
 // de_UnsupportedUpstreamRegistryException omitted.
 
 // de_UntagResourceResponse omitted.
 
+/**
+ * deserializeAws_json1_1UpdatePullThroughCacheRuleResponse
+ */
+const de_UpdatePullThroughCacheRuleResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdatePullThroughCacheRuleResponse => {
+  return take(output, {
+    credentialArn: __expectString,
+    ecrRepositoryPrefix: __expectString,
+    registryId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_UploadLayerPartResponse omitted.
 
 // de_UploadNotFoundException omitted.
+
+// de_ValidatePullThroughCacheRuleResponse omitted.
 
 // de_ValidationException omitted.
 

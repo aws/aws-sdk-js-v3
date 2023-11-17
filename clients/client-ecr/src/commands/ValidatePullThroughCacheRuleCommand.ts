@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { DeletePullThroughCacheRuleRequest, DeletePullThroughCacheRuleResponse } from "../models/models_0";
-import { de_DeletePullThroughCacheRuleCommand, se_DeletePullThroughCacheRuleCommand } from "../protocols/Aws_json1_1";
+import { ValidatePullThroughCacheRuleRequest, ValidatePullThroughCacheRuleResponse } from "../models/models_0";
+import {
+  de_ValidatePullThroughCacheRuleCommand,
+  se_ValidatePullThroughCacheRuleCommand,
+} from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -25,45 +28,51 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeletePullThroughCacheRuleCommand}.
+ * The input for {@link ValidatePullThroughCacheRuleCommand}.
  */
-export interface DeletePullThroughCacheRuleCommandInput extends DeletePullThroughCacheRuleRequest {}
+export interface ValidatePullThroughCacheRuleCommandInput extends ValidatePullThroughCacheRuleRequest {}
 /**
  * @public
  *
- * The output of {@link DeletePullThroughCacheRuleCommand}.
+ * The output of {@link ValidatePullThroughCacheRuleCommand}.
  */
-export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThroughCacheRuleResponse, __MetadataBearer {}
+export interface ValidatePullThroughCacheRuleCommandOutput
+  extends ValidatePullThroughCacheRuleResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a pull through cache rule.</p>
+ * <p>Validates an existing pull through cache rule for an upstream registry that requires
+ *             authentication. This will retrieve the contents of the Amazon Web Services Secrets Manager secret, verify the
+ *             syntax, and then validate that authentication to the upstream registry is
+ *             successful.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, DeletePullThroughCacheRuleCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, DeletePullThroughCacheRuleCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, ValidatePullThroughCacheRuleCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, ValidatePullThroughCacheRuleCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = { // DeletePullThroughCacheRuleRequest
+ * const input = { // ValidatePullThroughCacheRuleRequest
  *   ecrRepositoryPrefix: "STRING_VALUE", // required
  *   registryId: "STRING_VALUE",
  * };
- * const command = new DeletePullThroughCacheRuleCommand(input);
+ * const command = new ValidatePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
- * // { // DeletePullThroughCacheRuleResponse
+ * // { // ValidatePullThroughCacheRuleResponse
  * //   ecrRepositoryPrefix: "STRING_VALUE",
- * //   upstreamRegistryUrl: "STRING_VALUE",
- * //   createdAt: new Date("TIMESTAMP"),
  * //   registryId: "STRING_VALUE",
+ * //   upstreamRegistryUrl: "STRING_VALUE",
  * //   credentialArn: "STRING_VALUE",
+ * //   isValid: true || false,
+ * //   failure: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DeletePullThroughCacheRuleCommandInput - {@link DeletePullThroughCacheRuleCommandInput}
- * @returns {@link DeletePullThroughCacheRuleCommandOutput}
- * @see {@link DeletePullThroughCacheRuleCommandInput} for command's `input` shape.
- * @see {@link DeletePullThroughCacheRuleCommandOutput} for command's `response` shape.
+ * @param ValidatePullThroughCacheRuleCommandInput - {@link ValidatePullThroughCacheRuleCommandInput}
+ * @returns {@link ValidatePullThroughCacheRuleCommandOutput}
+ * @see {@link ValidatePullThroughCacheRuleCommandInput} for command's `input` shape.
+ * @see {@link ValidatePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
@@ -84,9 +93,9 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
-export class DeletePullThroughCacheRuleCommand extends $Command<
-  DeletePullThroughCacheRuleCommandInput,
-  DeletePullThroughCacheRuleCommandOutput,
+export class ValidatePullThroughCacheRuleCommand extends $Command<
+  ValidatePullThroughCacheRuleCommandInput,
+  ValidatePullThroughCacheRuleCommandOutput,
   ECRClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +110,7 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeletePullThroughCacheRuleCommandInput) {
+  constructor(readonly input: ValidatePullThroughCacheRuleCommandInput) {
     super();
   }
 
@@ -112,17 +121,17 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeletePullThroughCacheRuleCommandInput, DeletePullThroughCacheRuleCommandOutput> {
+  ): Handler<ValidatePullThroughCacheRuleCommandInput, ValidatePullThroughCacheRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeletePullThroughCacheRuleCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ValidatePullThroughCacheRuleCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ECRClient";
-    const commandName = "DeletePullThroughCacheRuleCommand";
+    const commandName = "ValidatePullThroughCacheRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -131,7 +140,7 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonEC2ContainerRegistry_V20150921",
-        operation: "DeletePullThroughCacheRule",
+        operation: "ValidatePullThroughCacheRule",
       },
     };
     const { requestHandler } = configuration;
@@ -145,8 +154,8 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeletePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeletePullThroughCacheRuleCommand(input, context);
+  private serialize(input: ValidatePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ValidatePullThroughCacheRuleCommand(input, context);
   }
 
   /**
@@ -155,7 +164,7 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeletePullThroughCacheRuleCommandOutput> {
-    return de_DeletePullThroughCacheRuleCommand(output, context);
+  ): Promise<ValidatePullThroughCacheRuleCommandOutput> {
+    return de_ValidatePullThroughCacheRuleCommand(output, context);
   }
 }

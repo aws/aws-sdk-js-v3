@@ -165,7 +165,15 @@ import {
 } from "./commands/StartLifecyclePolicyPreviewCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdatePullThroughCacheRuleCommandInput,
+  UpdatePullThroughCacheRuleCommandOutput,
+} from "./commands/UpdatePullThroughCacheRuleCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
+import {
+  ValidatePullThroughCacheRuleCommandInput,
+  ValidatePullThroughCacheRuleCommandOutput,
+} from "./commands/ValidatePullThroughCacheRuleCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -221,7 +229,9 @@ export type ServiceInputTypes =
   | StartLifecyclePolicyPreviewCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UploadLayerPartCommandInput;
+  | UpdatePullThroughCacheRuleCommandInput
+  | UploadLayerPartCommandInput
+  | ValidatePullThroughCacheRuleCommandInput;
 
 /**
  * @public
@@ -267,7 +277,9 @@ export type ServiceOutputTypes =
   | StartLifecyclePolicyPreviewCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UploadLayerPartCommandOutput;
+  | UpdatePullThroughCacheRuleCommandOutput
+  | UploadLayerPartCommandOutput
+  | ValidatePullThroughCacheRuleCommandOutput;
 
 /**
  * @public

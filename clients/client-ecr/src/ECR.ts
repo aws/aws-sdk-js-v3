@@ -191,10 +191,20 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdatePullThroughCacheRuleCommand,
+  UpdatePullThroughCacheRuleCommandInput,
+  UpdatePullThroughCacheRuleCommandOutput,
+} from "./commands/UpdatePullThroughCacheRuleCommand";
+import {
   UploadLayerPartCommand,
   UploadLayerPartCommandInput,
   UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
+import {
+  ValidatePullThroughCacheRuleCommand,
+  ValidatePullThroughCacheRuleCommandInput,
+  ValidatePullThroughCacheRuleCommandOutput,
+} from "./commands/ValidatePullThroughCacheRuleCommand";
 import { ECRClient, ECRClientConfig } from "./ECRClient";
 
 const commands = {
@@ -238,7 +248,9 @@ const commands = {
   StartLifecyclePolicyPreviewCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdatePullThroughCacheRuleCommand,
   UploadLayerPartCommand,
+  ValidatePullThroughCacheRuleCommand,
 };
 
 export interface ECR {
@@ -887,6 +899,23 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link UpdatePullThroughCacheRuleCommand}
+   */
+  updatePullThroughCacheRule(
+    args: UpdatePullThroughCacheRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePullThroughCacheRuleCommandOutput>;
+  updatePullThroughCacheRule(
+    args: UpdatePullThroughCacheRuleCommandInput,
+    cb: (err: any, data?: UpdatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  updatePullThroughCacheRule(
+    args: UpdatePullThroughCacheRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UploadLayerPartCommand}
    */
   uploadLayerPart(
@@ -898,6 +927,23 @@ export interface ECR {
     args: UploadLayerPartCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UploadLayerPartCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidatePullThroughCacheRuleCommand}
+   */
+  validatePullThroughCacheRule(
+    args: ValidatePullThroughCacheRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidatePullThroughCacheRuleCommandOutput>;
+  validatePullThroughCacheRule(
+    args: ValidatePullThroughCacheRuleCommandInput,
+    cb: (err: any, data?: ValidatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  validatePullThroughCacheRule(
+    args: ValidatePullThroughCacheRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidatePullThroughCacheRuleCommandOutput) => void
   ): void;
 }
 

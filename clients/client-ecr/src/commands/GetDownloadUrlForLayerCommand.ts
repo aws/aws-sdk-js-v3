@@ -90,6 +90,10 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link UnableToGetUpstreamLayerException} (client fault)
+ *  <p>There was an issue getting the upstream layer matching the pull through cache
+ *             rule.</p>
+ *
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *

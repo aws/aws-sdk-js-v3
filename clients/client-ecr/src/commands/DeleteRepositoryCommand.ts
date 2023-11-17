@@ -37,9 +37,9 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
 
 /**
  * @public
- * <p>Deletes a repository. If the repository contains images, you must either delete all
- *             images in the repository or use the <code>force</code> option to delete the
- *             repository.</p>
+ * <p>Deletes a repository. If the repository isn't empty, you must either delete the
+ *             contents of the repository or use the <code>force</code> option to delete the repository
+ *             and have Amazon ECR delete all of its contents on your behalf.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

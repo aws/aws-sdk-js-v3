@@ -249,6 +249,9 @@ export const ImageFailureCode = {
   InvalidImageTag: "InvalidImageTag",
   KmsError: "KmsError",
   MissingDigestAndTag: "MissingDigestAndTag",
+  UpstreamAccessDenied: "UpstreamAccessDenied",
+  UpstreamTooManyRequests: "UpstreamTooManyRequests",
+  UpstreamUnavailable: "UpstreamUnavailable",
 } as const;
 
 /**
@@ -384,6 +387,50 @@ export interface BatchGetImageResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: ImageFailure[];
+}
+
+/**
+ * @public
+ * <p>The operation did not succeed because it would have exceeded a service limit for your
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
+ *             the Amazon Elastic Container Registry User Guide.</p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The image or images were unable to be pulled using the pull through cache rule. This
+ *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
+ *             for the upstream registry.</p>
+ */
+export class UnableToGetUpstreamImageException extends __BaseException {
+  readonly name: "UnableToGetUpstreamImageException" = "UnableToGetUpstreamImageException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToGetUpstreamImageException, __BaseException>) {
+    super({
+      name: "UnableToGetUpstreamImageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToGetUpstreamImageException.prototype);
+  }
 }
 
 /**
@@ -749,6 +796,24 @@ export class UploadNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const UpstreamRegistry = {
+  AzureContainerRegistry: "azure-container-registry",
+  DockerHub: "docker-hub",
+  EcrPublic: "ecr-public",
+  GitHubContainerRegistry: "github-container-registry",
+  K8s: "k8s",
+  Quay: "quay",
+} as const;
+
+/**
+ * @public
+ */
+export type UpstreamRegistry = (typeof UpstreamRegistry)[keyof typeof UpstreamRegistry];
+
+/**
+ * @public
  */
 export interface CreatePullThroughCacheRuleRequest {
   /**
@@ -760,7 +825,37 @@ export interface CreatePullThroughCacheRuleRequest {
   /**
    * @public
    * <p>The registry URL of the upstream public registry to use as the source for the pull
-   *             through cache rule.</p>
+   *             through cache rule. The following is the syntax to use for each supported upstream
+   *             registry.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon ECR Public (<code>ecr-public</code>) - <code>public.ecr.aws</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Docker Hub (<code>docker-hub</code>) -
+   *                     <code>registry-1.docker.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Quay (<code>quay</code>) - <code>quay.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Kubernetes (<code>k8s</code>) - <code>registry.k8s.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>GitHub Container Registry (<code>github-container-registry</code>) -
+   *                         <code>ghcr.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft Azure Container Registry (<code>azure-container-registry</code>) -
+   *                         <code><custom>.azurecr.io</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   upstreamRegistryUrl: string | undefined;
 
@@ -770,6 +865,19 @@ export interface CreatePullThroughCacheRuleRequest {
    *             rule for. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
+
+  /**
+   * @public
+   * <p>The name of the upstream registry.</p>
+   */
+  upstreamRegistry?: UpstreamRegistry;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate
+   *             to the upstream registry.</p>
+   */
+  credentialArn?: string;
 }
 
 /**
@@ -800,28 +908,19 @@ export interface CreatePullThroughCacheRuleResponse {
    * <p>The registry ID associated with the request.</p>
    */
   registryId?: string;
-}
 
-/**
- * @public
- * <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
   /**
-   * @internal
+   * @public
+   * <p>The name of the upstream registry associated with the pull through cache rule.</p>
    */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
+  upstreamRegistry?: UpstreamRegistry;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
 }
 
 /**
@@ -842,6 +941,69 @@ export class PullThroughCacheRuleAlreadyExistsException extends __BaseException 
       ...opts,
     });
     Object.setPrototypeOf(this, PullThroughCacheRuleAlreadyExistsException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The ARN of the secret specified in the pull through cache rule was not found. Update
+ *             the pull through cache rule with a valid secret ARN and try again.</p>
+ */
+export class SecretNotFoundException extends __BaseException {
+  readonly name: "SecretNotFoundException" = "SecretNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SecretNotFoundException, __BaseException>) {
+    super({
+      name: "SecretNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SecretNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The secret is unable to be accessed. Verify the resource permissions for the secret
+ *             and try again.</p>
+ */
+export class UnableToAccessSecretException extends __BaseException {
+  readonly name: "UnableToAccessSecretException" = "UnableToAccessSecretException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToAccessSecretException, __BaseException>) {
+    super({
+      name: "UnableToAccessSecretException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToAccessSecretException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The secret is accessible but is unable to be decrypted. Verify the resource
+ *             permisisons and try again.</p>
+ */
+export class UnableToDecryptSecretValueException extends __BaseException {
+  readonly name: "UnableToDecryptSecretValueException" = "UnableToDecryptSecretValueException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToDecryptSecretValueException, __BaseException>) {
+    super({
+      name: "UnableToDecryptSecretValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToDecryptSecretValueException.prototype);
   }
 }
 
@@ -1270,6 +1432,13 @@ export interface DeletePullThroughCacheRuleResponse {
    * <p>The registry ID associated with the request.</p>
    */
   registryId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
 }
 
 /**
@@ -1354,7 +1523,8 @@ export interface DeleteRepositoryRequest {
 
   /**
    * @public
-   * <p> If a repository contains images, forces the deletion.</p>
+   * <p>If true, deleting the repository force deletes the contents of the repository. If
+   *             false, the repository must be empty before attempting to delete it.</p>
    */
   force?: boolean;
 }
@@ -2564,6 +2734,26 @@ export interface PullThroughCacheRule {
    *             associated with.</p>
    */
   registryId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the Secrets Manager secret associated with the pull through cache rule.</p>
+   */
+  credentialArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the upstream source registry associated with the pull through cache
+   *             rule.</p>
+   */
+  upstreamRegistry?: UpstreamRegistry;
+
+  /**
+   * @public
+   * <p>The date and time, in JavaScript date format, when the pull through cache rule was
+   *             last updated.</p>
+   */
+  updatedAt?: Date;
 }
 
 /**
@@ -2907,6 +3097,27 @@ export class LayersNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LayersNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>There was an issue getting the upstream layer matching the pull through cache
+ *             rule.</p>
+ */
+export class UnableToGetUpstreamLayerException extends __BaseException {
+  readonly name: "UnableToGetUpstreamLayerException" = "UnableToGetUpstreamLayerException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToGetUpstreamLayerException, __BaseException>) {
+    super({
+      name: "UnableToGetUpstreamLayerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToGetUpstreamLayerException.prototype);
   }
 }
 
@@ -4109,6 +4320,62 @@ export interface UntagResourceResponse {}
 
 /**
  * @public
+ */
+export interface UpdatePullThroughCacheRuleRequest {
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID associated with the registry associated with the pull through
+   *             cache rule. If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+
+  /**
+   * @public
+   * <p>The repository name prefix to use when caching images from the source registry.</p>
+   */
+  ecrRepositoryPrefix: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate
+   *             to the upstream registry.</p>
+   */
+  credentialArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullThroughCacheRuleResponse {
+  /**
+   * @public
+   * <p>The Amazon ECR repository prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix?: string;
+
+  /**
+   * @public
+   * <p>The registry ID associated with the request.</p>
+   */
+  registryId?: string;
+
+  /**
+   * @public
+   * <p>The date and time, in JavaScript date format, when the pull through cache rule was
+   *             updated.</p>
+   */
+  updatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
+}
+
+/**
+ * @public
  * <p>The layer part size is not valid, or the first byte specified is not consecutive to
  *             the last byte of a previous layer part upload.</p>
  */
@@ -4227,4 +4494,69 @@ export interface UploadLayerPartResponse {
    * <p>The integer value of the last byte received in the request.</p>
    */
   lastByteReceived?: number;
+}
+
+/**
+ * @public
+ */
+export interface ValidatePullThroughCacheRuleRequest {
+  /**
+   * @public
+   * <p>The repository name prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix: string | undefined;
+
+  /**
+   * @public
+   * <p>The registry ID associated with the pull through cache rule.
+   *             If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ValidatePullThroughCacheRuleResponse {
+  /**
+   * @public
+   * <p>The Amazon ECR repository prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix?: string;
+
+  /**
+   * @public
+   * <p>The registry ID associated with the request.</p>
+   */
+  registryId?: string;
+
+  /**
+   * @public
+   * <p>The upstream registry URL associated with the pull through cache rule.</p>
+   */
+  upstreamRegistryUrl?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
+
+  /**
+   * @public
+   * <p>Whether or not the pull through cache rule was validated. If <code>true</code>, Amazon ECR
+   *             was able to reach the upstream registry and authentication was successful. If
+   *                 <code>false</code>, there was an issue and validation failed. The
+   *                 <code>failure</code> reason indicates the cause.</p>
+   */
+  isValid?: boolean;
+
+  /**
+   * @public
+   * <p>The reason the validation failed. For more details about possible causes and how to
+   *             address them, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html">Using pull through cache
+   *                 rules</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+   */
+  failure?: string;
 }
