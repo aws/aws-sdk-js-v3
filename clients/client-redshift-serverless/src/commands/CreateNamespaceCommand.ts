@@ -74,6 +74,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *   ],
  *   manageAdminPassword: true || false,
  *   adminPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   redshiftIdcApplicationArn: "STRING_VALUE",
  * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);

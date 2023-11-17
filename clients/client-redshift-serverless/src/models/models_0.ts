@@ -779,6 +779,12 @@ export interface CreateNamespaceRequest {
    *          You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
    */
   adminPasswordSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+   */
+  redshiftIdcApplicationArn?: string;
 }
 
 /**
