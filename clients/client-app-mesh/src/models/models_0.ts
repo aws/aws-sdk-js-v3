@@ -85,7 +85,6 @@ export interface FileAccessLog {
    *             <code>awslogs</code>, to export the access logs to a log storage service such as Amazon
    *          CloudWatch Logs. You can also specify a path in the Envoy container's file system to write
    *          the files to disk.</p>
-   *
    *          <note>
    *             <p>The Envoy process must have write permissions to the path that you specify here.
    *             Otherwise, Envoy fails to bootstrap properly.</p>
@@ -706,7 +705,7 @@ export interface ListMeshesInput {
    *          <note>
    *             <p>This token should be treated as an opaque identifier that is used only to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
-   *         </note>
+   *          </note>
    */
   nextToken?: string;
 
@@ -2181,7 +2180,7 @@ export interface GrpcGatewayRouteMatch {
 
   /**
    * @public
-   * <p>The port number to match from the request.</p>
+   * <p>The gateway route port to be matched on.</p>
    */
   port?: number;
 }
