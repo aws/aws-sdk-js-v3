@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-redshift:** Updated SDK for Amazon Redshift, which you can use to configure a connection with IAM Identity Center to manage access to databases. With these, you can create a connection through a managed application. You can also change a managed application, delete it, or get information about an existing one. ([b806277](https://github.com/aws/aws-sdk-js-v3/commit/b806277297ca543c58c9595a9ad9b920c8002ece))
+
+
+
+
+
 # [3.452.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.451.0...v3.452.0) (2023-11-15)
 
 

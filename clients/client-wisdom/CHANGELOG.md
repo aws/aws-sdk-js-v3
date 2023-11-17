@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-wisdom:** This release adds QuickResponse as a new Wisdom resource and Wisdom APIs for import, create, read, search, update and delete QuickResponse resources. ([acf3ac4](https://github.com/aws/aws-sdk-js-v3/commit/acf3ac4539221997cd310be4e08131fea81b77b9))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-wisdom

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-verifiedpermissions:** Adding BatchIsAuthorized API which supports multiple authorization requests against a PolicyStore ([ec2e0d5](https://github.com/aws/aws-sdk-js-v3/commit/ec2e0d51fbb34a2b462e53a0ea73a32670d539b7))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions

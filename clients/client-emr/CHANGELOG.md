@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-emr:** Launch support for IAM Identity Center Trusted Identity Propagation and workspace storage encryption using AWS KMS in EMR Studio ([6cc6bdc](https://github.com/aws/aws-sdk-js-v3/commit/6cc6bdc350964775eb7ab2c9aedaca2c0d68cf3b))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

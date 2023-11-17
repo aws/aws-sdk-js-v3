@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-osis:** Add support for enabling a persistent buffer when creating or updating an OpenSearch Ingestion pipeline. Add tags to Pipeline and PipelineSummary response models. ([26fab56](https://github.com/aws/aws-sdk-js-v3/commit/26fab565397152d9c381e2f244d4f47718fe876c))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-osis

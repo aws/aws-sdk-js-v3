@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-cloudformation:** This release adds a new flag ImportExistingResources to CreateChangeSet. Specify this parameter on a CREATE- or UPDATE-type change set to import existing resources with custom names instead of recreating them. ([9dd25ec](https://github.com/aws/aws-sdk-js-v3/commit/9dd25ecb8ee37b4231e1c1e0b0199079b5d04058))
+
+
+
+
+
 # [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

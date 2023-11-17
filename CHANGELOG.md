@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Bug Fixes
+
+* **codegen:** deserialize unions with list members ([#5498](https://github.com/aws/aws-sdk-js-v3/issues/5498)) ([69afef9](https://github.com/aws/aws-sdk-js-v3/commit/69afef9790dd2360aec072e8e6b9747fc8d97434))
+
+
+### Features
+
+* **client-app-mesh:** Change the default value of these fields from 0 to null: MaxConnections, MaxPendingRequests, MaxRequests, HealthCheckThreshold, PortNumber, and HealthCheckPolicy -> port. Users are not expected to perceive the change, except that badRequestException is thrown when required fields missing configured. ([90a90eb](https://github.com/aws/aws-sdk-js-v3/commit/90a90eb44121f91ea969ef4651900947a50221a4))
+* **client-athena:** Adding SerivicePreProcessing time metric ([6d0d449](https://github.com/aws/aws-sdk-js-v3/commit/6d0d4495da17ecd81093bb807d6e47641285d2b1))
+* **client-cloudformation:** This release adds a new flag ImportExistingResources to CreateChangeSet. Specify this parameter on a CREATE- or UPDATE-type change set to import existing resources with custom names instead of recreating them. ([9dd25ec](https://github.com/aws/aws-sdk-js-v3/commit/9dd25ecb8ee37b4231e1c1e0b0199079b5d04058))
+* **client-codepipeline:** CodePipeline now supports overriding source revisions to achieve manual re-deploy of a past revision ([9239afa](https://github.com/aws/aws-sdk-js-v3/commit/9239afa242be2f064c0dbc4f54e9584c0c23c4aa))
+* **client-codestar-connections:** This release adds support for the CloudFormation Git sync feature. Git sync enables updating a CloudFormation stack from a template stored in a Git repository. ([ae3037b](https://github.com/aws/aws-sdk-js-v3/commit/ae3037b2189b7fdcfec4ebd9668f8ffa1401b003))
+* **client-connect:** This release adds WISDOM_QUICK_RESPONSES as new IntegrationType of Connect IntegrationAssociation resource and bug fixes. ([b1c19ad](https://github.com/aws/aws-sdk-js-v3/commit/b1c19ad55e9da45dabdd85315a2a7543a9e5c7b5))
+* **client-ec2:** This release adds new features for Amazon VPC IP Address Manager (IPAM) Allowing a choice between Free and Advanced Tiers, viewing public IP address insights across regions and in Amazon Cloudwatch, use IPAM to plan your subnet IPs within a VPC and bring your own autonomous system number to IPAM. ([7a42bf1](https://github.com/aws/aws-sdk-js-v3/commit/7a42bf10ea54a082b3b4f2e0a6a9b8edefacd584))
+* **client-ecr:** Documentation and operational updates for Amazon ECR, adding support for pull through cache rules for upstream registries that require authentication. ([00d6cad](https://github.com/aws/aws-sdk-js-v3/commit/00d6cadbca85532ebb1ccf0a6653718ef97dfd9f))
+* **client-emr:** Launch support for IAM Identity Center Trusted Identity Propagation and workspace storage encryption using AWS KMS in EMR Studio ([6cc6bdc](https://github.com/aws/aws-sdk-js-v3/commit/6cc6bdc350964775eb7ab2c9aedaca2c0d68cf3b))
+* **client-eventbridge:** Introduces a new rule state ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS for matching with Get, List and Describe AWS API call events from CloudTrail. ([e581203](https://github.com/aws/aws-sdk-js-v3/commit/e581203f6b5d300c56bce3e75c67c345d2f93469))
+* **client-internetmonitor:** Adds new querying capabilities for running data queries on a monitor ([33af400](https://github.com/aws/aws-sdk-js-v3/commit/33af4000d42a034f2bcc30947f051bd06beaec7e))
+* **client-ivschat:** type & defaulting refinement to various range properties ([ceef825](https://github.com/aws/aws-sdk-js-v3/commit/ceef8258a255f27947a6ff8faa17148da803fcc9))
+* **client-ivs:** type & defaulting refinement to various range properties ([fe08f6f](https://github.com/aws/aws-sdk-js-v3/commit/fe08f6f5c1e11b3f67eeeb64abaf1c1b28771d37))
+* **client-location:** Remove default value and allow nullable for request parameters having minimum value larger than zero. ([1886fed](https://github.com/aws/aws-sdk-js-v3/commit/1886fed7645d4e1978538d7a34b2e7637eb3c1e1))
+* **client-medialive:** MediaLive has now added support for per-output static image overlay. ([02cc208](https://github.com/aws/aws-sdk-js-v3/commit/02cc208bfab4a89d29500dd924964d143019dc09))
+* **client-mgn:** Removed invalid and unnecessary default values. ([e7efd42](https://github.com/aws/aws-sdk-js-v3/commit/e7efd42df2de15ce9087323bd7fb1e22c8ab6afa))
+* **client-osis:** Add support for enabling a persistent buffer when creating or updating an OpenSearch Ingestion pipeline. Add tags to Pipeline and PipelineSummary response models. ([26fab56](https://github.com/aws/aws-sdk-js-v3/commit/26fab565397152d9c381e2f244d4f47718fe876c))
+* **client-pipes:** TargetParameters now properly supports BatchJobParameters.ArrayProperties.Size and BatchJobParameters.RetryStrategy.Attempts being optional, and EcsTaskParameters.Overrides.EphemeralStorage.SizeInGiB now properly required when setting EphemeralStorage ([03b574e](https://github.com/aws/aws-sdk-js-v3/commit/03b574e473407dd82f1874ceb39f024ae7718f34))
+* **client-rds:** This release adds support for option groups and replica enhancements to Amazon RDS Custom. ([fb8ad1a](https://github.com/aws/aws-sdk-js-v3/commit/fb8ad1a222d78af980a252144eecbb217cd23e9d))
+* **client-redshift-serverless:** Updated SDK for Amazon Redshift Serverless, which provides the ability to configure a connection with IAM Identity Center to manage user and group access to databases. ([d293ea1](https://github.com/aws/aws-sdk-js-v3/commit/d293ea1bbde855f2fc54ac963c1d3af614155ae3))
+* **client-redshift:** Updated SDK for Amazon Redshift, which you can use to configure a connection with IAM Identity Center to manage access to databases. With these, you can create a connection through a managed application. You can also change a managed application, delete it, or get information about an existing one. ([b806277](https://github.com/aws/aws-sdk-js-v3/commit/b806277297ca543c58c9595a9ad9b920c8002ece))
+* **client-s3:** Removes all default 0 values for numbers and false values for booleans ([61b32fe](https://github.com/aws/aws-sdk-js-v3/commit/61b32fe67ab5414ec88d5d5e5120c06e4a59ff18))
+* **client-sso-admin:** Improves support for configuring RefreshToken and TokenExchange grants on applications. ([f53e68f](https://github.com/aws/aws-sdk-js-v3/commit/f53e68f421b5d2037edab50b49d6edc456b73a0d))
+* **client-sso-oidc:** Adding support for `sso-oauth:CreateTokenWithIAM`. ([313f046](https://github.com/aws/aws-sdk-js-v3/commit/313f0468af7386aff51d5755648306c1f988963e))
+* **client-trustedadvisor:** AWS Trusted Advisor introduces new APIs to enable you to programmatically access Trusted Advisor best practice checks, recommendations, and prioritized recommendations. Trusted Advisor APIs enable you to integrate Trusted Advisor with your operational tools to automate your workloads. ([a1849c2](https://github.com/aws/aws-sdk-js-v3/commit/a1849c20c4a364c0ded69f3c3a00ecca963cc881))
+* **client-verifiedpermissions:** Adding BatchIsAuthorized API which supports multiple authorization requests against a PolicyStore ([ec2e0d5](https://github.com/aws/aws-sdk-js-v3/commit/ec2e0d51fbb34a2b462e53a0ea73a32670d539b7))
+* **client-wisdom:** This release adds QuickResponse as a new Wisdom resource and Wisdom APIs for import, create, read, search, update and delete QuickResponse resources. ([acf3ac4](https://github.com/aws/aws-sdk-js-v3/commit/acf3ac4539221997cd310be4e08131fea81b77b9))
+* **clients:** update client endpoints as of 2023-11-17 ([4d74018](https://github.com/aws/aws-sdk-js-v3/commit/4d740184cfd085adfdad29f2e83b23bae75ebb1d))
+
+
+
+
+
 # [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
 
 

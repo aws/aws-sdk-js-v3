@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-rds:** This release adds support for option groups and replica enhancements to Amazon RDS Custom. ([fb8ad1a](https://github.com/aws/aws-sdk-js-v3/commit/fb8ad1a222d78af980a252144eecbb217cd23e9d))
+
+
+
+
+
 # [3.452.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.451.0...v3.452.0) (2023-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

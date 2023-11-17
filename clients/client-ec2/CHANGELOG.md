@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-ec2:** This release adds new features for Amazon VPC IP Address Manager (IPAM) Allowing a choice between Free and Advanced Tiers, viewing public IP address insights across regions and in Amazon Cloudwatch, use IPAM to plan your subnet IPs within a VPC and bring your own autonomous system number to IPAM. ([7a42bf1](https://github.com/aws/aws-sdk-js-v3/commit/7a42bf10ea54a082b3b4f2e0a6a9b8edefacd584))
+
+
+
+
+
 # [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
 
 
