@@ -23,6 +23,11 @@ import {
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
 import {
+  CreateQuickResponseCommand,
+  CreateQuickResponseCommandInput,
+  CreateQuickResponseCommandOutput,
+} from "./commands/CreateQuickResponseCommand";
+import {
   CreateSessionCommand,
   CreateSessionCommandInput,
   CreateSessionCommandOutput,
@@ -43,10 +48,20 @@ import {
   DeleteContentCommandOutput,
 } from "./commands/DeleteContentCommand";
 import {
+  DeleteImportJobCommand,
+  DeleteImportJobCommandInput,
+  DeleteImportJobCommandOutput,
+} from "./commands/DeleteImportJobCommand";
+import {
   DeleteKnowledgeBaseCommand,
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import {
+  DeleteQuickResponseCommand,
+  DeleteQuickResponseCommandInput,
+  DeleteQuickResponseCommandOutput,
+} from "./commands/DeleteQuickResponseCommand";
 import {
   GetAssistantAssociationCommand,
   GetAssistantAssociationCommandInput,
@@ -64,10 +79,20 @@ import {
   GetContentSummaryCommandOutput,
 } from "./commands/GetContentSummaryCommand";
 import {
+  GetImportJobCommand,
+  GetImportJobCommandInput,
+  GetImportJobCommandOutput,
+} from "./commands/GetImportJobCommand";
+import {
   GetKnowledgeBaseCommand,
   GetKnowledgeBaseCommandInput,
   GetKnowledgeBaseCommandOutput,
 } from "./commands/GetKnowledgeBaseCommand";
+import {
+  GetQuickResponseCommand,
+  GetQuickResponseCommandInput,
+  GetQuickResponseCommandOutput,
+} from "./commands/GetQuickResponseCommand";
 import {
   GetRecommendationsCommand,
   GetRecommendationsCommandInput,
@@ -90,10 +115,20 @@ import {
   ListContentsCommandOutput,
 } from "./commands/ListContentsCommand";
 import {
+  ListImportJobsCommand,
+  ListImportJobsCommandInput,
+  ListImportJobsCommandOutput,
+} from "./commands/ListImportJobsCommand";
+import {
   ListKnowledgeBasesCommand,
   ListKnowledgeBasesCommandInput,
   ListKnowledgeBasesCommandOutput,
 } from "./commands/ListKnowledgeBasesCommand";
+import {
+  ListQuickResponsesCommand,
+  ListQuickResponsesCommandInput,
+  ListQuickResponsesCommandOutput,
+} from "./commands/ListQuickResponsesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -120,6 +155,11 @@ import {
   SearchContentCommandOutput,
 } from "./commands/SearchContentCommand";
 import {
+  SearchQuickResponsesCommand,
+  SearchQuickResponsesCommandInput,
+  SearchQuickResponsesCommandOutput,
+} from "./commands/SearchQuickResponsesCommand";
+import {
   SearchSessionsCommand,
   SearchSessionsCommandInput,
   SearchSessionsCommandOutput,
@@ -129,6 +169,11 @@ import {
   StartContentUploadCommandInput,
   StartContentUploadCommandOutput,
 } from "./commands/StartContentUploadCommand";
+import {
+  StartImportJobCommand,
+  StartImportJobCommandInput,
+  StartImportJobCommandOutput,
+} from "./commands/StartImportJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -145,6 +190,11 @@ import {
   UpdateKnowledgeBaseTemplateUriCommandInput,
   UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/UpdateKnowledgeBaseTemplateUriCommand";
+import {
+  UpdateQuickResponseCommand,
+  UpdateQuickResponseCommandInput,
+  UpdateQuickResponseCommandOutput,
+} from "./commands/UpdateQuickResponseCommand";
 import { WisdomClient, WisdomClientConfig } from "./WisdomClient";
 
 const commands = {
@@ -152,33 +202,43 @@ const commands = {
   CreateAssistantAssociationCommand,
   CreateContentCommand,
   CreateKnowledgeBaseCommand,
+  CreateQuickResponseCommand,
   CreateSessionCommand,
   DeleteAssistantCommand,
   DeleteAssistantAssociationCommand,
   DeleteContentCommand,
+  DeleteImportJobCommand,
   DeleteKnowledgeBaseCommand,
+  DeleteQuickResponseCommand,
   GetAssistantCommand,
   GetAssistantAssociationCommand,
   GetContentCommand,
   GetContentSummaryCommand,
+  GetImportJobCommand,
   GetKnowledgeBaseCommand,
+  GetQuickResponseCommand,
   GetRecommendationsCommand,
   GetSessionCommand,
   ListAssistantAssociationsCommand,
   ListAssistantsCommand,
   ListContentsCommand,
+  ListImportJobsCommand,
   ListKnowledgeBasesCommand,
+  ListQuickResponsesCommand,
   ListTagsForResourceCommand,
   NotifyRecommendationsReceivedCommand,
   QueryAssistantCommand,
   RemoveKnowledgeBaseTemplateUriCommand,
   SearchContentCommand,
+  SearchQuickResponsesCommand,
   SearchSessionsCommand,
   StartContentUploadCommand,
+  StartImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateContentCommand,
   UpdateKnowledgeBaseTemplateUriCommand,
+  UpdateQuickResponseCommand,
 };
 
 export interface Wisdom {
@@ -242,6 +302,23 @@ export interface Wisdom {
   ): void;
 
   /**
+   * @see {@link CreateQuickResponseCommand}
+   */
+  createQuickResponse(
+    args: CreateQuickResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQuickResponseCommandOutput>;
+  createQuickResponse(
+    args: CreateQuickResponseCommandInput,
+    cb: (err: any, data?: CreateQuickResponseCommandOutput) => void
+  ): void;
+  createQuickResponse(
+    args: CreateQuickResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQuickResponseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateSessionCommand}
    */
   createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
@@ -295,6 +372,20 @@ export interface Wisdom {
   ): void;
 
   /**
+   * @see {@link DeleteImportJobCommand}
+   */
+  deleteImportJob(
+    args: DeleteImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteImportJobCommandOutput>;
+  deleteImportJob(args: DeleteImportJobCommandInput, cb: (err: any, data?: DeleteImportJobCommandOutput) => void): void;
+  deleteImportJob(
+    args: DeleteImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteImportJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteKnowledgeBaseCommand}
    */
   deleteKnowledgeBase(
@@ -309,6 +400,23 @@ export interface Wisdom {
     args: DeleteKnowledgeBaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQuickResponseCommand}
+   */
+  deleteQuickResponse(
+    args: DeleteQuickResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQuickResponseCommandOutput>;
+  deleteQuickResponse(
+    args: DeleteQuickResponseCommandInput,
+    cb: (err: any, data?: DeleteQuickResponseCommandOutput) => void
+  ): void;
+  deleteQuickResponse(
+    args: DeleteQuickResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQuickResponseCommandOutput) => void
   ): void;
 
   /**
@@ -368,6 +476,17 @@ export interface Wisdom {
   ): void;
 
   /**
+   * @see {@link GetImportJobCommand}
+   */
+  getImportJob(args: GetImportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobCommandOutput>;
+  getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetKnowledgeBaseCommand}
    */
   getKnowledgeBase(
@@ -382,6 +501,23 @@ export interface Wisdom {
     args: GetKnowledgeBaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQuickResponseCommand}
+   */
+  getQuickResponse(
+    args: GetQuickResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQuickResponseCommandOutput>;
+  getQuickResponse(
+    args: GetQuickResponseCommandInput,
+    cb: (err: any, data?: GetQuickResponseCommandOutput) => void
+  ): void;
+  getQuickResponse(
+    args: GetQuickResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQuickResponseCommandOutput) => void
   ): void;
 
   /**
@@ -455,6 +591,20 @@ export interface Wisdom {
   ): void;
 
   /**
+   * @see {@link ListImportJobsCommand}
+   */
+  listImportJobs(
+    args: ListImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportJobsCommandOutput>;
+  listImportJobs(args: ListImportJobsCommandInput, cb: (err: any, data?: ListImportJobsCommandOutput) => void): void;
+  listImportJobs(
+    args: ListImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListKnowledgeBasesCommand}
    */
   listKnowledgeBases(
@@ -469,6 +619,23 @@ export interface Wisdom {
     args: ListKnowledgeBasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQuickResponsesCommand}
+   */
+  listQuickResponses(
+    args: ListQuickResponsesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQuickResponsesCommandOutput>;
+  listQuickResponses(
+    args: ListQuickResponsesCommandInput,
+    cb: (err: any, data?: ListQuickResponsesCommandOutput) => void
+  ): void;
+  listQuickResponses(
+    args: ListQuickResponsesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQuickResponsesCommandOutput) => void
   ): void;
 
   /**
@@ -548,6 +715,23 @@ export interface Wisdom {
   ): void;
 
   /**
+   * @see {@link SearchQuickResponsesCommand}
+   */
+  searchQuickResponses(
+    args: SearchQuickResponsesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchQuickResponsesCommandOutput>;
+  searchQuickResponses(
+    args: SearchQuickResponsesCommandInput,
+    cb: (err: any, data?: SearchQuickResponsesCommandOutput) => void
+  ): void;
+  searchQuickResponses(
+    args: SearchQuickResponsesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchQuickResponsesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchSessionsCommand}
    */
   searchSessions(
@@ -576,6 +760,20 @@ export interface Wisdom {
     args: StartContentUploadCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartContentUploadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartImportJobCommand}
+   */
+  startImportJob(
+    args: StartImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartImportJobCommandOutput>;
+  startImportJob(args: StartImportJobCommandInput, cb: (err: any, data?: StartImportJobCommandOutput) => void): void;
+  startImportJob(
+    args: StartImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportJobCommandOutput) => void
   ): void;
 
   /**
@@ -626,6 +824,23 @@ export interface Wisdom {
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKnowledgeBaseTemplateUriCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQuickResponseCommand}
+   */
+  updateQuickResponse(
+    args: UpdateQuickResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuickResponseCommandOutput>;
+  updateQuickResponse(
+    args: UpdateQuickResponseCommandInput,
+    cb: (err: any, data?: UpdateQuickResponseCommandOutput) => void
+  ): void;
+  updateQuickResponse(
+    args: UpdateQuickResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuickResponseCommandOutput) => void
   ): void;
 }
 

@@ -60,6 +60,10 @@ import {
   CreateKnowledgeBaseCommandInput,
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
+import {
+  CreateQuickResponseCommandInput,
+  CreateQuickResponseCommandOutput,
+} from "./commands/CreateQuickResponseCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
 import {
   DeleteAssistantAssociationCommandInput,
@@ -67,10 +71,15 @@ import {
 } from "./commands/DeleteAssistantAssociationCommand";
 import { DeleteAssistantCommandInput, DeleteAssistantCommandOutput } from "./commands/DeleteAssistantCommand";
 import { DeleteContentCommandInput, DeleteContentCommandOutput } from "./commands/DeleteContentCommand";
+import { DeleteImportJobCommandInput, DeleteImportJobCommandOutput } from "./commands/DeleteImportJobCommand";
 import {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import {
+  DeleteQuickResponseCommandInput,
+  DeleteQuickResponseCommandOutput,
+} from "./commands/DeleteQuickResponseCommand";
 import {
   GetAssistantAssociationCommandInput,
   GetAssistantAssociationCommandOutput,
@@ -78,7 +87,9 @@ import {
 import { GetAssistantCommandInput, GetAssistantCommandOutput } from "./commands/GetAssistantCommand";
 import { GetContentCommandInput, GetContentCommandOutput } from "./commands/GetContentCommand";
 import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from "./commands/GetContentSummaryCommand";
+import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./commands/GetKnowledgeBaseCommand";
+import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "./commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
@@ -87,7 +98,9 @@ import {
 } from "./commands/ListAssistantAssociationsCommand";
 import { ListAssistantsCommandInput, ListAssistantsCommandOutput } from "./commands/ListAssistantsCommand";
 import { ListContentsCommandInput, ListContentsCommandOutput } from "./commands/ListContentsCommand";
+import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "./commands/ListKnowledgeBasesCommand";
+import { ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput } from "./commands/ListQuickResponsesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -102,8 +115,13 @@ import {
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/RemoveKnowledgeBaseTemplateUriCommand";
 import { SearchContentCommandInput, SearchContentCommandOutput } from "./commands/SearchContentCommand";
+import {
+  SearchQuickResponsesCommandInput,
+  SearchQuickResponsesCommandOutput,
+} from "./commands/SearchQuickResponsesCommand";
 import { SearchSessionsCommandInput, SearchSessionsCommandOutput } from "./commands/SearchSessionsCommand";
 import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from "./commands/StartContentUploadCommand";
+import { StartImportJobCommandInput, StartImportJobCommandOutput } from "./commands/StartImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateContentCommandInput, UpdateContentCommandOutput } from "./commands/UpdateContentCommand";
@@ -111,6 +129,10 @@ import {
   UpdateKnowledgeBaseTemplateUriCommandInput,
   UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/UpdateKnowledgeBaseTemplateUriCommand";
+import {
+  UpdateQuickResponseCommandInput,
+  UpdateQuickResponseCommandOutput,
+} from "./commands/UpdateQuickResponseCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -130,33 +152,43 @@ export type ServiceInputTypes =
   | CreateAssistantCommandInput
   | CreateContentCommandInput
   | CreateKnowledgeBaseCommandInput
+  | CreateQuickResponseCommandInput
   | CreateSessionCommandInput
   | DeleteAssistantAssociationCommandInput
   | DeleteAssistantCommandInput
   | DeleteContentCommandInput
+  | DeleteImportJobCommandInput
   | DeleteKnowledgeBaseCommandInput
+  | DeleteQuickResponseCommandInput
   | GetAssistantAssociationCommandInput
   | GetAssistantCommandInput
   | GetContentCommandInput
   | GetContentSummaryCommandInput
+  | GetImportJobCommandInput
   | GetKnowledgeBaseCommandInput
+  | GetQuickResponseCommandInput
   | GetRecommendationsCommandInput
   | GetSessionCommandInput
   | ListAssistantAssociationsCommandInput
   | ListAssistantsCommandInput
   | ListContentsCommandInput
+  | ListImportJobsCommandInput
   | ListKnowledgeBasesCommandInput
+  | ListQuickResponsesCommandInput
   | ListTagsForResourceCommandInput
   | NotifyRecommendationsReceivedCommandInput
   | QueryAssistantCommandInput
   | RemoveKnowledgeBaseTemplateUriCommandInput
   | SearchContentCommandInput
+  | SearchQuickResponsesCommandInput
   | SearchSessionsCommandInput
   | StartContentUploadCommandInput
+  | StartImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateContentCommandInput
-  | UpdateKnowledgeBaseTemplateUriCommandInput;
+  | UpdateKnowledgeBaseTemplateUriCommandInput
+  | UpdateQuickResponseCommandInput;
 
 /**
  * @public
@@ -166,33 +198,43 @@ export type ServiceOutputTypes =
   | CreateAssistantCommandOutput
   | CreateContentCommandOutput
   | CreateKnowledgeBaseCommandOutput
+  | CreateQuickResponseCommandOutput
   | CreateSessionCommandOutput
   | DeleteAssistantAssociationCommandOutput
   | DeleteAssistantCommandOutput
   | DeleteContentCommandOutput
+  | DeleteImportJobCommandOutput
   | DeleteKnowledgeBaseCommandOutput
+  | DeleteQuickResponseCommandOutput
   | GetAssistantAssociationCommandOutput
   | GetAssistantCommandOutput
   | GetContentCommandOutput
   | GetContentSummaryCommandOutput
+  | GetImportJobCommandOutput
   | GetKnowledgeBaseCommandOutput
+  | GetQuickResponseCommandOutput
   | GetRecommendationsCommandOutput
   | GetSessionCommandOutput
   | ListAssistantAssociationsCommandOutput
   | ListAssistantsCommandOutput
   | ListContentsCommandOutput
+  | ListImportJobsCommandOutput
   | ListKnowledgeBasesCommandOutput
+  | ListQuickResponsesCommandOutput
   | ListTagsForResourceCommandOutput
   | NotifyRecommendationsReceivedCommandOutput
   | QueryAssistantCommandOutput
   | RemoveKnowledgeBaseTemplateUriCommandOutput
   | SearchContentCommandOutput
+  | SearchQuickResponsesCommandOutput
   | SearchSessionsCommandOutput
   | StartContentUploadCommandOutput
+  | StartImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateContentCommandOutput
-  | UpdateKnowledgeBaseTemplateUriCommandOutput;
+  | UpdateKnowledgeBaseTemplateUriCommandOutput
+  | UpdateQuickResponseCommandOutput;
 
 /**
  * @public

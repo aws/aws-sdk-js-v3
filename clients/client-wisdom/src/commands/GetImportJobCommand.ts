@@ -14,12 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import {
-  StartContentUploadRequest,
-  StartContentUploadResponse,
-  StartContentUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
+import { GetImportJobRequest, GetImportJobResponse, GetImportJobResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetImportJobCommand, se_GetImportJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -29,50 +25,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartContentUploadCommand}.
+ * The input for {@link GetImportJobCommand}.
  */
-export interface StartContentUploadCommandInput extends StartContentUploadRequest {}
+export interface GetImportJobCommandInput extends GetImportJobRequest {}
 /**
  * @public
  *
- * The output of {@link StartContentUploadCommand}.
+ * The output of {@link GetImportJobCommand}.
  */
-export interface StartContentUploadCommandOutput extends StartContentUploadResponse, __MetadataBearer {}
+export interface GetImportJobCommandOutput extends GetImportJobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get a URL to upload content to a knowledge base. To upload content, first make a PUT
- *       request to the returned URL with your file, making sure to include the required headers. Then
- *       use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html">CreateContent</a> to finalize the content creation process or <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html">UpdateContent</a> to modify an existing resource. You can only upload content to a
- *       knowledge base of type CUSTOM.</p>
+ * <p>Retrieves the started import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, StartContentUploadCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, StartContentUploadCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, GetImportJobCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
+ * // const { WisdomClient, GetImportJobCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = { // StartContentUploadRequest
+ * const input = { // GetImportJobRequest
+ *   importJobId: "STRING_VALUE", // required
  *   knowledgeBaseId: "STRING_VALUE", // required
- *   contentType: "STRING_VALUE", // required
- *   presignedUrlTimeToLive: Number("int"),
  * };
- * const command = new StartContentUploadCommand(input);
+ * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);
- * // { // StartContentUploadResponse
- * //   uploadId: "STRING_VALUE", // required
- * //   url: "STRING_VALUE", // required
- * //   urlExpiry: new Date("TIMESTAMP"), // required
- * //   headersToInclude: { // Headers // required
- * //     "<keys>": "STRING_VALUE",
+ * // { // GetImportJobResponse
+ * //   importJob: { // ImportJobData
+ * //     importJobId: "STRING_VALUE", // required
+ * //     knowledgeBaseId: "STRING_VALUE", // required
+ * //     uploadId: "STRING_VALUE", // required
+ * //     knowledgeBaseArn: "STRING_VALUE", // required
+ * //     importJobType: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     url: "STRING_VALUE", // required
+ * //     failedRecordReport: "STRING_VALUE",
+ * //     urlExpiry: new Date("TIMESTAMP"), // required
+ * //     createdTime: new Date("TIMESTAMP"), // required
+ * //     lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     metadata: { // ContentMetadata
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     externalSourceConfiguration: { // ExternalSourceConfiguration
+ * //       source: "STRING_VALUE", // required
+ * //       configuration: { // Configuration Union: only one key present
+ * //         connectConfiguration: { // ConnectConfiguration
+ * //           instanceId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *
  * ```
  *
- * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
- * @returns {@link StartContentUploadCommandOutput}
- * @see {@link StartContentUploadCommandInput} for command's `input` shape.
- * @see {@link StartContentUploadCommandOutput} for command's `response` shape.
+ * @param GetImportJobCommandInput - {@link GetImportJobCommandInput}
+ * @returns {@link GetImportJobCommandOutput}
+ * @see {@link GetImportJobCommandInput} for command's `input` shape.
+ * @see {@link GetImportJobCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,9 +98,9 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
-export class StartContentUploadCommand extends $Command<
-  StartContentUploadCommandInput,
-  StartContentUploadCommandOutput,
+export class GetImportJobCommand extends $Command<
+  GetImportJobCommandInput,
+  GetImportJobCommandOutput,
   WisdomClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -105,7 +115,7 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartContentUploadCommandInput) {
+  constructor(readonly input: GetImportJobCommandInput) {
     super();
   }
 
@@ -116,26 +126,24 @@ export class StartContentUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WisdomClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartContentUploadCommandInput, StartContentUploadCommandOutput> {
+  ): Handler<GetImportJobCommandInput, GetImportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartContentUploadCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetImportJobCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WisdomClient";
-    const commandName = "StartContentUploadCommand";
+    const commandName = "GetImportJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: StartContentUploadResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: GetImportJobResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "WisdomService",
-        operation: "StartContentUpload",
+        operation: "GetImportJob",
       },
     };
     const { requestHandler } = configuration;
@@ -149,14 +157,14 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartContentUploadCommand(input, context);
+  private serialize(input: GetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
-    return de_StartContentUploadCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportJobCommandOutput> {
+    return de_GetImportJobCommand(output, context);
   }
 }

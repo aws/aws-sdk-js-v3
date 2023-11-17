@@ -1,0 +1,234 @@
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
+} from "@smithy/types";
+
+import {
+  SearchQuickResponsesRequest,
+  SearchQuickResponsesRequestFilterSensitiveLog,
+  SearchQuickResponsesResponse,
+  SearchQuickResponsesResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_SearchQuickResponsesCommand, se_SearchQuickResponsesCommand } from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SearchQuickResponsesCommand}.
+ */
+export interface SearchQuickResponsesCommandInput extends SearchQuickResponsesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchQuickResponsesCommand}.
+ */
+export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesResponse, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Searches existing Wisdom quick responses in a Wisdom knowledge base.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WisdomClient, SearchQuickResponsesCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
+ * // const { WisdomClient, SearchQuickResponsesCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * const client = new WisdomClient(config);
+ * const input = { // SearchQuickResponsesRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   searchExpression: { // QuickResponseSearchExpression
+ *     queries: [ // QuickResponseQueryFieldList
+ *       { // QuickResponseQueryField
+ *         name: "STRING_VALUE", // required
+ *         values: [ // QuickResponseQueryValueList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         operator: "STRING_VALUE", // required
+ *         allowFuzziness: true || false,
+ *         priority: "STRING_VALUE",
+ *       },
+ *     ],
+ *     filters: [ // QuickResponseFilterFieldList
+ *       { // QuickResponseFilterField
+ *         name: "STRING_VALUE", // required
+ *         values: [ // QuickResponseFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *         operator: "STRING_VALUE", // required
+ *         includeNoExistence: true || false,
+ *       },
+ *     ],
+ *     orderOnField: { // QuickResponseOrderField
+ *       name: "STRING_VALUE", // required
+ *       order: "STRING_VALUE",
+ *     },
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   attributes: { // ContactAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ * const command = new SearchQuickResponsesCommand(input);
+ * const response = await client.send(command);
+ * // { // SearchQuickResponsesResponse
+ * //   results: [ // QuickResponseSearchResultsList // required
+ * //     { // QuickResponseSearchResultData
+ * //       quickResponseArn: "STRING_VALUE", // required
+ * //       quickResponseId: "STRING_VALUE", // required
+ * //       knowledgeBaseArn: "STRING_VALUE", // required
+ * //       knowledgeBaseId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       contentType: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       contents: { // QuickResponseContents
+ * //         plainText: { // QuickResponseContentProvider Union: only one key present
+ * //           content: "STRING_VALUE",
+ * //         },
+ * //         markdown: {//  Union: only one key present
+ * //           content: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       createdTime: new Date("TIMESTAMP"), // required
+ * //       lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       isActive: true || false, // required
+ * //       description: "STRING_VALUE",
+ * //       groupingConfiguration: { // GroupingConfiguration
+ * //         criteria: "STRING_VALUE",
+ * //         values: [ // GroupingValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       shortcutKey: "STRING_VALUE",
+ * //       lastModifiedBy: "STRING_VALUE",
+ * //       channels: [ // Channels
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       language: "STRING_VALUE",
+ * //       attributesNotInterpolated: [ // ContactAttributeKeys
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       attributesInterpolated: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param SearchQuickResponsesCommandInput - {@link SearchQuickResponsesCommandInput}
+ * @returns {@link SearchQuickResponsesCommandOutput}
+ * @see {@link SearchQuickResponsesCommandInput} for command's `input` shape.
+ * @see {@link SearchQuickResponsesCommandOutput} for command's `response` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request reached the service more than 15 minutes after the date stamp on the request
+ *       or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or
+ *       the date stamp on the request is more than 15 minutes in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
+ *
+ */
+export class SearchQuickResponsesCommand extends $Command<
+  SearchQuickResponsesCommandInput,
+  SearchQuickResponsesCommandOutput,
+  WisdomClientResolvedConfig
+> {
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
+  constructor(readonly input: SearchQuickResponsesCommandInput) {
+    super();
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: WisdomClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<SearchQuickResponsesCommandInput, SearchQuickResponsesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchQuickResponsesCommand.getEndpointParameterInstructions())
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "WisdomClient";
+    const commandName = "SearchQuickResponsesCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: SearchQuickResponsesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchQuickResponsesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "WisdomService",
+        operation: "SearchQuickResponses",
+      },
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  /**
+   * @internal
+   */
+  private serialize(input: SearchQuickResponsesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_SearchQuickResponsesCommand(input, context);
+  }
+
+  /**
+   * @internal
+   */
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchQuickResponsesCommandOutput> {
+    return de_SearchQuickResponsesCommand(output, context);
+  }
+}

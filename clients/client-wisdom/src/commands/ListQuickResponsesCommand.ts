@@ -15,11 +15,11 @@ import {
 } from "@smithy/types";
 
 import {
-  StartContentUploadRequest,
-  StartContentUploadResponse,
-  StartContentUploadResponseFilterSensitiveLog,
+  ListQuickResponsesRequest,
+  ListQuickResponsesResponse,
+  ListQuickResponsesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
+import { de_ListQuickResponsesCommand, se_ListQuickResponsesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -29,50 +29,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartContentUploadCommand}.
+ * The input for {@link ListQuickResponsesCommand}.
  */
-export interface StartContentUploadCommandInput extends StartContentUploadRequest {}
+export interface ListQuickResponsesCommandInput extends ListQuickResponsesRequest {}
 /**
  * @public
  *
- * The output of {@link StartContentUploadCommand}.
+ * The output of {@link ListQuickResponsesCommand}.
  */
-export interface StartContentUploadCommandOutput extends StartContentUploadResponse, __MetadataBearer {}
+export interface ListQuickResponsesCommandOutput extends ListQuickResponsesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get a URL to upload content to a knowledge base. To upload content, first make a PUT
- *       request to the returned URL with your file, making sure to include the required headers. Then
- *       use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html">CreateContent</a> to finalize the content creation process or <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html">UpdateContent</a> to modify an existing resource. You can only upload content to a
- *       knowledge base of type CUSTOM.</p>
+ * <p>Lists information about quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, StartContentUploadCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, StartContentUploadCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, ListQuickResponsesCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
+ * // const { WisdomClient, ListQuickResponsesCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = { // StartContentUploadRequest
+ * const input = { // ListQuickResponsesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  *   knowledgeBaseId: "STRING_VALUE", // required
- *   contentType: "STRING_VALUE", // required
- *   presignedUrlTimeToLive: Number("int"),
  * };
- * const command = new StartContentUploadCommand(input);
+ * const command = new ListQuickResponsesCommand(input);
  * const response = await client.send(command);
- * // { // StartContentUploadResponse
- * //   uploadId: "STRING_VALUE", // required
- * //   url: "STRING_VALUE", // required
- * //   urlExpiry: new Date("TIMESTAMP"), // required
- * //   headersToInclude: { // Headers // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * // { // ListQuickResponsesResponse
+ * //   quickResponseSummaries: [ // QuickResponseSummaryList // required
+ * //     { // QuickResponseSummary
+ * //       quickResponseArn: "STRING_VALUE", // required
+ * //       quickResponseId: "STRING_VALUE", // required
+ * //       knowledgeBaseArn: "STRING_VALUE", // required
+ * //       knowledgeBaseId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       contentType: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       createdTime: new Date("TIMESTAMP"), // required
+ * //       lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       description: "STRING_VALUE",
+ * //       lastModifiedBy: "STRING_VALUE",
+ * //       isActive: true || false,
+ * //       channels: [ // Channels
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
- * @returns {@link StartContentUploadCommandOutput}
- * @see {@link StartContentUploadCommandInput} for command's `input` shape.
- * @see {@link StartContentUploadCommandOutput} for command's `response` shape.
+ * @param ListQuickResponsesCommandInput - {@link ListQuickResponsesCommandInput}
+ * @returns {@link ListQuickResponsesCommandOutput}
+ * @see {@link ListQuickResponsesCommandInput} for command's `input` shape.
+ * @see {@link ListQuickResponsesCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,9 +102,9 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
-export class StartContentUploadCommand extends $Command<
-  StartContentUploadCommandInput,
-  StartContentUploadCommandOutput,
+export class ListQuickResponsesCommand extends $Command<
+  ListQuickResponsesCommandInput,
+  ListQuickResponsesCommandOutput,
   WisdomClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -105,7 +119,7 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartContentUploadCommandInput) {
+  constructor(readonly input: ListQuickResponsesCommandInput) {
     super();
   }
 
@@ -116,26 +130,26 @@ export class StartContentUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WisdomClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartContentUploadCommandInput, StartContentUploadCommandOutput> {
+  ): Handler<ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartContentUploadCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListQuickResponsesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WisdomClient";
-    const commandName = "StartContentUploadCommand";
+    const commandName = "ListQuickResponsesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: StartContentUploadResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: ListQuickResponsesResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "WisdomService",
-        operation: "StartContentUpload",
+        operation: "ListQuickResponses",
       },
     };
     const { requestHandler } = configuration;
@@ -149,14 +163,14 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartContentUploadCommand(input, context);
+  private serialize(input: ListQuickResponsesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListQuickResponsesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
-    return de_StartContentUploadCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQuickResponsesCommandOutput> {
+    return de_ListQuickResponsesCommand(output, context);
   }
 }

@@ -14,12 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import {
-  StartContentUploadRequest,
-  StartContentUploadResponse,
-  StartContentUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
+import { DeleteImportJobRequest, DeleteImportJobResponse } from "../models/models_0";
+import { de_DeleteImportJobCommand, se_DeleteImportJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -29,54 +25,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartContentUploadCommand}.
+ * The input for {@link DeleteImportJobCommand}.
  */
-export interface StartContentUploadCommandInput extends StartContentUploadRequest {}
+export interface DeleteImportJobCommandInput extends DeleteImportJobRequest {}
 /**
  * @public
  *
- * The output of {@link StartContentUploadCommand}.
+ * The output of {@link DeleteImportJobCommand}.
  */
-export interface StartContentUploadCommandOutput extends StartContentUploadResponse, __MetadataBearer {}
+export interface DeleteImportJobCommandOutput extends DeleteImportJobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get a URL to upload content to a knowledge base. To upload content, first make a PUT
- *       request to the returned URL with your file, making sure to include the required headers. Then
- *       use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html">CreateContent</a> to finalize the content creation process or <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html">UpdateContent</a> to modify an existing resource. You can only upload content to a
- *       knowledge base of type CUSTOM.</p>
+ * <p>Deletes the quick response import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, StartContentUploadCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, StartContentUploadCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, DeleteImportJobCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
+ * // const { WisdomClient, DeleteImportJobCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = { // StartContentUploadRequest
+ * const input = { // DeleteImportJobRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
- *   contentType: "STRING_VALUE", // required
- *   presignedUrlTimeToLive: Number("int"),
+ *   importJobId: "STRING_VALUE", // required
  * };
- * const command = new StartContentUploadCommand(input);
+ * const command = new DeleteImportJobCommand(input);
  * const response = await client.send(command);
- * // { // StartContentUploadResponse
- * //   uploadId: "STRING_VALUE", // required
- * //   url: "STRING_VALUE", // required
- * //   urlExpiry: new Date("TIMESTAMP"), // required
- * //   headersToInclude: { // Headers // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
- * @returns {@link StartContentUploadCommandOutput}
- * @see {@link StartContentUploadCommandInput} for command's `input` shape.
- * @see {@link StartContentUploadCommandOutput} for command's `response` shape.
+ * @param DeleteImportJobCommandInput - {@link DeleteImportJobCommandInput}
+ * @returns {@link DeleteImportJobCommandOutput}
+ * @see {@link DeleteImportJobCommandInput} for command's `input` shape.
+ * @see {@link DeleteImportJobCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *       resource. For example, if you're using a <code>Create</code> API (such as
+ *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
+ *       same name) is being created or mutated.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
@@ -88,9 +79,9 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
-export class StartContentUploadCommand extends $Command<
-  StartContentUploadCommandInput,
-  StartContentUploadCommandOutput,
+export class DeleteImportJobCommand extends $Command<
+  DeleteImportJobCommandInput,
+  DeleteImportJobCommandOutput,
   WisdomClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -105,7 +96,7 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartContentUploadCommandInput) {
+  constructor(readonly input: DeleteImportJobCommandInput) {
     super();
   }
 
@@ -116,26 +107,26 @@ export class StartContentUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WisdomClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartContentUploadCommandInput, StartContentUploadCommandOutput> {
+  ): Handler<DeleteImportJobCommandInput, DeleteImportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartContentUploadCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteImportJobCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WisdomClient";
-    const commandName = "StartContentUploadCommand";
+    const commandName = "DeleteImportJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: StartContentUploadResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "WisdomService",
-        operation: "StartContentUpload",
+        operation: "DeleteImportJob",
       },
     };
     const { requestHandler } = configuration;
@@ -149,14 +140,14 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartContentUploadCommand(input, context);
+  private serialize(input: DeleteImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
-    return de_StartContentUploadCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImportJobCommandOutput> {
+    return de_DeleteImportJobCommand(output, context);
   }
 }

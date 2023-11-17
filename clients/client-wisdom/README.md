@@ -240,6 +240,14 @@ CreateKnowledgeBase
 </details>
 <details>
 <summary>
+CreateQuickResponse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/createquickresponsecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/createquickresponsecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/createquickresponsecommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateSession
 </summary>
 
@@ -272,10 +280,26 @@ DeleteContent
 </details>
 <details>
 <summary>
+DeleteImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/deleteimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/deleteimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/deleteimportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteKnowledgeBase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/deleteknowledgebasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/deleteknowledgebasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/deleteknowledgebasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteQuickResponse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/deletequickresponsecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/deletequickresponsecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/deletequickresponsecommandoutput.html)
 
 </details>
 <details>
@@ -312,10 +336,26 @@ GetContentSummary
 </details>
 <details>
 <summary>
+GetImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/getimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/getimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/getimportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetKnowledgeBase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/getknowledgebasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/getknowledgebasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/getknowledgebasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetQuickResponse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/getquickresponsecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/getquickresponsecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/getquickresponsecommandoutput.html)
 
 </details>
 <details>
@@ -360,10 +400,26 @@ ListContents
 </details>
 <details>
 <summary>
+ListImportJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/listimportjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/listimportjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/listimportjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListKnowledgeBases
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/listknowledgebasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/listknowledgebasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/listknowledgebasescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListQuickResponses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/listquickresponsescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/listquickresponsescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/listquickresponsescommandoutput.html)
 
 </details>
 <details>
@@ -408,6 +464,14 @@ SearchContent
 </details>
 <details>
 <summary>
+SearchQuickResponses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/searchquickresponsescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/searchquickresponsescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/searchquickresponsescommandoutput.html)
+
+</details>
+<details>
+<summary>
 SearchSessions
 </summary>
 
@@ -420,6 +484,14 @@ StartContentUpload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/startcontentuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/startcontentuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/startcontentuploadcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/startimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/startimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/startimportjobcommandoutput.html)
 
 </details>
 <details>
@@ -452,5 +524,13 @@ UpdateKnowledgeBaseTemplateUri
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/updateknowledgebasetemplateuricommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/updateknowledgebasetemplateuricommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/updateknowledgebasetemplateuricommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateQuickResponse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/classes/updatequickresponsecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/updatequickresponsecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wisdom/interfaces/updatequickresponsecommandoutput.html)
 
 </details>

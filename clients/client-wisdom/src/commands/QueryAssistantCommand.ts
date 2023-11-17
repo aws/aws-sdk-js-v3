@@ -106,6 +106,11 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request reached the service more than 15 minutes after the date stamp on the request
+ *       or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or
+ *       the date stamp on the request is more than 15 minutes in the future.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *

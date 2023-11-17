@@ -14,12 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import {
-  StartContentUploadRequest,
-  StartContentUploadResponse,
-  StartContentUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
+import { DeleteQuickResponseRequest, DeleteQuickResponseResponse } from "../models/models_0";
+import { de_DeleteQuickResponseCommand, se_DeleteQuickResponseCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -29,50 +25,39 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartContentUploadCommand}.
+ * The input for {@link DeleteQuickResponseCommand}.
  */
-export interface StartContentUploadCommandInput extends StartContentUploadRequest {}
+export interface DeleteQuickResponseCommandInput extends DeleteQuickResponseRequest {}
 /**
  * @public
  *
- * The output of {@link StartContentUploadCommand}.
+ * The output of {@link DeleteQuickResponseCommand}.
  */
-export interface StartContentUploadCommandOutput extends StartContentUploadResponse, __MetadataBearer {}
+export interface DeleteQuickResponseCommandOutput extends DeleteQuickResponseResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get a URL to upload content to a knowledge base. To upload content, first make a PUT
- *       request to the returned URL with your file, making sure to include the required headers. Then
- *       use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html">CreateContent</a> to finalize the content creation process or <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html">UpdateContent</a> to modify an existing resource. You can only upload content to a
- *       knowledge base of type CUSTOM.</p>
+ * <p>Deletes a quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, StartContentUploadCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, StartContentUploadCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, DeleteQuickResponseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
+ * // const { WisdomClient, DeleteQuickResponseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = { // StartContentUploadRequest
+ * const input = { // DeleteQuickResponseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
- *   contentType: "STRING_VALUE", // required
- *   presignedUrlTimeToLive: Number("int"),
+ *   quickResponseId: "STRING_VALUE", // required
  * };
- * const command = new StartContentUploadCommand(input);
+ * const command = new DeleteQuickResponseCommand(input);
  * const response = await client.send(command);
- * // { // StartContentUploadResponse
- * //   uploadId: "STRING_VALUE", // required
- * //   url: "STRING_VALUE", // required
- * //   urlExpiry: new Date("TIMESTAMP"), // required
- * //   headersToInclude: { // Headers // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
- * @returns {@link StartContentUploadCommandOutput}
- * @see {@link StartContentUploadCommandInput} for command's `input` shape.
- * @see {@link StartContentUploadCommandOutput} for command's `response` shape.
+ * @param DeleteQuickResponseCommandInput - {@link DeleteQuickResponseCommandInput}
+ * @returns {@link DeleteQuickResponseCommandOutput}
+ * @see {@link DeleteQuickResponseCommandInput} for command's `input` shape.
+ * @see {@link DeleteQuickResponseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,9 +73,9 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
-export class StartContentUploadCommand extends $Command<
-  StartContentUploadCommandInput,
-  StartContentUploadCommandOutput,
+export class DeleteQuickResponseCommand extends $Command<
+  DeleteQuickResponseCommandInput,
+  DeleteQuickResponseCommandOutput,
   WisdomClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -105,7 +90,7 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartContentUploadCommandInput) {
+  constructor(readonly input: DeleteQuickResponseCommandInput) {
     super();
   }
 
@@ -116,26 +101,26 @@ export class StartContentUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WisdomClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartContentUploadCommandInput, StartContentUploadCommandOutput> {
+  ): Handler<DeleteQuickResponseCommandInput, DeleteQuickResponseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartContentUploadCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteQuickResponseCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WisdomClient";
-    const commandName = "StartContentUploadCommand";
+    const commandName = "DeleteQuickResponseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: StartContentUploadResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "WisdomService",
-        operation: "StartContentUpload",
+        operation: "DeleteQuickResponse",
       },
     };
     const { requestHandler } = configuration;
@@ -149,14 +134,14 @@ export class StartContentUploadCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartContentUploadCommand(input, context);
+  private serialize(input: DeleteQuickResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteQuickResponseCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
-    return de_StartContentUploadCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQuickResponseCommandOutput> {
+    return de_DeleteQuickResponseCommand(output, context);
   }
 }
