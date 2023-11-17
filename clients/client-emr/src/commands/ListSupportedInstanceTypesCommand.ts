@@ -37,8 +37,8 @@ export interface ListSupportedInstanceTypesCommandOutput extends ListSupportedIn
 
 /**
  * @public
- * <p>A list of the instance types that Amazon EMR supports. You can filter the list
- *          by Amazon Web Services Region and Amazon EMR release. </p>
+ * <p>A list of the instance types that Amazon EMR supports. You can filter the
+ *          list by Amazon Web Services Region and Amazon EMR release. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

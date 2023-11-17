@@ -207,8 +207,8 @@ export interface OnDemandCapacityReservationOptions {
  *          determines the allocation strategy. </p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions. On-Demand Instances allocation strategy is
- *             available in Amazon EMR releases 5.12.1 and higher.</p>
+ *             4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is
+ *             available in Amazon EMR releases 5.12.1 and later.</p>
  *          </note>
  */
 export interface OnDemandProvisioningSpecification {
@@ -266,8 +266,8 @@ export type SpotProvisioningTimeoutAction =
  *          defined duration, provisioning timeout behavior, and allocation strategy.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions. Spot Instance allocation strategy is
- *             available in Amazon EMR releases 5.12.1 and higher.</p>
+ *             4.8.0 and later, excluding 5.0.x versions. Spot Instance allocation strategy is
+ *             available in Amazon EMR releases 5.12.1 and later.</p>
  *          </note>
  *          <note>
  *             <p>Spot Instances with a defined duration (also known as Spot blocks) are no longer
@@ -317,16 +317,9 @@ export interface SpotProvisioningSpecification {
 
   /**
    * @public
-   * <p>Specifies one of the following strategies to launch Spot Instance fleets:
-   *             <code>price-capacity-optimized</code>, <code>capacity-optimized</code>,
-   *             <code>lowest-price</code>, or <code>diversified</code>. For more information on the
-   *          provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies
-   *             for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux
-   *             Instances</i>.</p>
+   * <p>Specifies one of the following strategies to launch Spot Instance fleets: <code>price-capacity-optimized</code>, <code>capacity-optimized</code>, <code>lowest-price</code>, or  <code>diversified</code>. For more information on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <note>
-   *             <p>When you launch a Spot Instance fleet with the old console, it automatically launches
-   *             with the <code>capacity-optimized</code> strategy. You can't change the allocation
-   *             strategy from the old console.</p>
+   *             <p>When you launch a Spot Instance fleet with the old console, it automatically launches with the <code>capacity-optimized</code> strategy. You can't change the allocation strategy from the old console.</p>
    *          </note>
    */
   AllocationStrategy?: SpotProvisioningAllocationStrategy;
@@ -338,8 +331,8 @@ export interface SpotProvisioningSpecification {
  *          duration, provisioning timeout behavior, and allocation strategy.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions. On-Demand and Spot instance allocation
- *             strategies are available in Amazon EMR releases 5.12.1 and higher.</p>
+ *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation
+ *             strategies are available in Amazon EMR releases 5.12.1 and later.</p>
  *          </note>
  */
 export interface InstanceFleetProvisioningSpecifications {
@@ -356,8 +349,8 @@ export interface InstanceFleetProvisioningSpecifications {
    *          determines the allocation strategy. </p>
    *          <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and higher, excluding 5.0.x versions. On-Demand Instances allocation strategy is
-   *             available in Amazon EMR releases 5.12.1 and higher.</p>
+   *             4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is
+   *             available in Amazon EMR releases 5.12.1 and later.</p>
    *          </note>
    */
   OnDemandSpecification?: OnDemandProvisioningSpecification;
@@ -1120,7 +1113,7 @@ export interface AddTagsOutput {}
 
 /**
  * @public
- * <p>With Amazon EMR release version 4.0 and higher, the only accepted parameter is
+ * <p>With Amazon EMR release version 4.0 and later, the only accepted parameter is
  *          the application name. To pass arguments to applications, you use configuration
  *          classifications specified using configuration JSON objects. For more information, see
  *             <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a>.</p>
@@ -1437,7 +1430,7 @@ export type CancelStepsRequestStatus = (typeof CancelStepsRequestStatus)[keyof t
 
 /**
  * @public
- * <p>Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and higher, excluding version 5.0.0.</p>
+ * <p>Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.</p>
  */
 export interface CancelStepsInfo {
   /**
@@ -2012,6 +2005,20 @@ export interface CreateSecurityConfigurationOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const IdcUserAssignment = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRED: "REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type IdcUserAssignment = (typeof IdcUserAssignment)[keyof typeof IdcUserAssignment];
+
+/**
+ * @public
  */
 export interface CreateStudioInput {
   /**
@@ -2112,6 +2119,36 @@ export interface CreateStudioInput {
    *          an optional value string with a maximum of 256 characters.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *          A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is <code>false</code>.
+   *       </p>
+   */
+  TrustedIdentityPropagationEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies whether IAM Identity Center user assignment is <code>REQUIRED</code> or <code>OPTIONAL</code>. If the value is set to <code>REQUIRED</code>, users must be explicitly assigned to the Studio application to access the Studio.
+   *       </p>
+   */
+  IdcUserAssignment?: IdcUserAssignment;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the IAM Identity Center instance to create the Studio application.
+   *       </p>
+   */
+  IdcInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+   */
+  EncryptionKeyArn?: string;
 }
 
 /**
@@ -2557,7 +2594,7 @@ export interface PlacementType {
    *          instance groups.</p>
    *          <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and higher, excluding 5.0.x versions.</p>
+   *             4.8.0 and later, excluding 5.0.x versions.</p>
    *          </note>
    */
   AvailabilityZones?: string[];
@@ -2758,14 +2795,14 @@ export interface JobFlowDetail {
   /**
    * @public
    * <p>The KMS key used for encrypting log files. This attribute is only
-   *          available with Amazon EMR 5.30.0 and higher, excluding 6.0.0.</p>
+   *          available with Amazon EMR 5.30.0 and later, excluding 6.0.0.</p>
    */
   LogEncryptionKmsKeyId?: string;
 
   /**
    * @public
    * <p>Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR
-   *          releases 4.0 and higher, <code>ReleaseLabel</code> is used. To specify a custom AMI, use
+   *          releases 4.0 and later, <code>ReleaseLabel</code> is used. To specify a custom AMI, use
    *             <code>CustomAmiID</code>.</p>
    */
   AmiVersion?: string;
@@ -2844,11 +2881,11 @@ export interface JobFlowDetail {
    *             <code>TERMINATE_AT_INSTANCE_HOUR</code> indicates that Amazon EMR terminates
    *          nodes at the instance-hour boundary, regardless of when the request to terminate the
    *          instance was submitted. This option is only available with Amazon EMR 5.1.0 and
-   *          higher and is the default for clusters created using that version.
+   *          later and is the default for clusters created using that version.
    *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes
    *          to a deny list and drains tasks from nodes before terminating the Amazon EC2
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
-   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and higher, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
+   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
    */
   ScaleDownBehavior?: ScaleDownBehavior;
 }
@@ -3688,6 +3725,36 @@ export interface Studio {
    * <p>A list of tags associated with the Amazon EMR Studio.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the IAM Identity Center instance the Studio application belongs to.
+   *       </p>
+   */
+  IdcInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates whether the Studio has Trusted identity propagation enabled. The default value is <code>false</code>.
+   *       </p>
+   */
+  TrustedIdentityPropagationEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates whether the Studio has <code>REQUIRED</code> or <code>OPTIONAL</code> IAM Identity Center user assignment. If the value is set to <code>REQUIRED</code>, users must be explicitly assigned to the Studio application to access the Studio.
+   *       </p>
+   */
+  IdcUserAssignment?: IdcUserAssignment;
+
+  /**
+   * @public
+   * <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+   */
+  EncryptionKeyArn?: string;
 }
 
 /**
@@ -4092,7 +4159,7 @@ export type InstanceFleetStateChangeReasonCode =
  * <p>Provides status change reason details for the instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceFleetStateChangeReason {
@@ -4115,7 +4182,7 @@ export interface InstanceFleetStateChangeReason {
  *          the time it became ready to run jobs, and the time of termination.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceFleetTimeline {
@@ -4143,7 +4210,7 @@ export interface InstanceFleetTimeline {
  * <p>The status of the instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceFleetStatus {
@@ -5057,9 +5124,8 @@ export interface ListStudiosInput {
 
 /**
  * @public
- * <p>Details for an Amazon EMR Studio, including ID, Name, VPC, and Description. The
- *          details do not include subnets, IAM roles, security groups, or tags
- *          associated with the Studio.</p>
+ * <p>Details for an Amazon EMR Studio, including ID, Name, VPC, and Description. To fetch additional details such as subnets, IAM roles,
+ *          security groups, and tags for the Studio, use the <a>DescribeStudio</a> API.</p>
  */
 export interface StudioSummary {
   /**
@@ -5250,9 +5316,9 @@ export interface SupportedInstanceType {
 
   /**
    * @public
-   * <p>The amount of memory that is available to Amazon EMR from the
-   *             <code>SupportedInstanceType</code>. The kernel and hypervisor software consume some
-   *          memory, so this value might be lower than the overall memory for the instance type.</p>
+   * <p>The amount of memory that is available to Amazon EMR from the <code>SupportedInstanceType</code>. The kernel and hypervisor
+   *          software consume some memory, so this value might be lower than the overall memory for the
+   *          instance type.</p>
    */
   MemoryGB?: number;
 
@@ -5372,7 +5438,7 @@ export interface ModifyClusterOutput {
  * <p>Configuration parameters for an instance fleet modification request.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceFleetModifyConfig {
@@ -5901,6 +5967,12 @@ export interface UpdateStudioInput {
    * <p>The Amazon S3 location to back up Workspaces and notebook files for the Amazon EMR Studio.</p>
    */
   DefaultS3Location?: string;
+
+  /**
+   * @public
+   * <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+   */
+  EncryptionKeyArn?: string;
 }
 
 /**
@@ -5947,7 +6019,7 @@ export interface UpdateStudioSessionMappingInput {
 /**
  * @public
  * <note>
- *             <p>Amazon EMR releases 4.x or higher.</p>
+ *             <p>Amazon EMR releases 4.x or later.</p>
  *          </note>
  *          <p>An optional configuration specification to be used when provisioning cluster instances,
  *          which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional
@@ -6059,7 +6131,7 @@ export interface Cluster {
    * @public
    * <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and higher, excluding 5.0.x versions.</p>
+   *             4.8.0 and later, excluding 5.0.x versions.</p>
    *          </note>
    *          <p>The instance group configuration of the cluster. A value of <code>INSTANCE_GROUP</code>
    *          indicates a uniform instance group configuration. A value of <code>INSTANCE_FLEET</code>
@@ -6077,7 +6149,7 @@ export interface Cluster {
   /**
    * @public
    * <p> The KMS key used for encrypting log files. This attribute is only
-   *          available with Amazon EMR 5.30.0 and higher, excluding Amazon EMR 6.0.0.
+   *          available with Amazon EMR 5.30.0 and later, excluding Amazon EMR 6.0.0.
    *       </p>
    */
   LogEncryptionKmsKeyId?: string;
@@ -6101,7 +6173,7 @@ export interface Cluster {
    *             <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
    *             <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
    *          and included application versions and features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR
-   *          releases version 4.0 and higher. Earlier versions use <code>AmiVersion</code>.</p>
+   *          releases version 4.0 and later. Earlier versions use <code>AmiVersion</code>.</p>
    */
   ReleaseLabel?: string;
 
@@ -6169,7 +6241,7 @@ export interface Cluster {
 
   /**
    * @public
-   * <p>Applies only to Amazon EMR releases 4.x and higher. The list of configurations
+   * <p>Applies only to Amazon EMR releases 4.x and later. The list of configurations
    *          that are supplied to the Amazon EMR cluster.</p>
    */
   Configurations?: Configuration[];
@@ -6195,26 +6267,26 @@ export interface Cluster {
    *             <code>TERMINATE_AT_INSTANCE_HOUR</code> indicates that Amazon EMR terminates
    *          nodes at the instance-hour boundary, regardless of when the request to terminate the
    *          instance was submitted. This option is only available with Amazon EMR 5.1.0 and
-   *          higher and is the default for clusters created using that version.
+   *          later and is the default for clusters created using that version.
    *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes
    *          to a deny list and drains tasks from nodes before terminating the Amazon EC2
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
-   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> is available only in Amazon EMR releases 4.1.0 and higher, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
+   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> is available only in Amazon EMR releases 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
    */
   ScaleDownBehavior?: ScaleDownBehavior;
 
   /**
    * @public
-   * <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom
-   *          Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.</p>
+   * <p>Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon
+   *          EBS-backed Linux AMI if the cluster uses a custom AMI.</p>
    */
   CustomAmiId?: string;
 
   /**
    * @public
-   * <p>The size, in GiB, of the Amazon EBS root device volume for the Linux AMI that
-   *          each Amazon EC2 instance uses. Available in Amazon EMR releases 4.x and
-   *          higher.</p>
+   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is
+   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and
+   *          later.</p>
    */
   EbsRootVolumeSize?: number;
 
@@ -6268,17 +6340,17 @@ export interface Cluster {
 
   /**
    * @public
-   * <p>The IOPS, of the Amazon EBS root device volume for the Linux AMI that each
-   *             Amazon EC2 instance uses. Available in Amazon EMR releases 6.15.0 and
-   *          higher.</p>
+   * <p>The IOPS, of the Amazon EBS root device volume of the Linux AMI that is
+   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
+   *          later.</p>
    */
   EbsRootVolumeIops?: number;
 
   /**
    * @public
-   * <p>The throughput, in MiB/s, of the Amazon EBS root device volume for the Linux AMI
-   *          that each Amazon EC2 instance uses. Available in Amazon EMR releases 6.15.0
-   *          and higher.</p>
+   * <p>The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is
+   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
+   *          later.</p>
    */
   EbsRootVolumeThroughput?: number;
 }
@@ -6329,7 +6401,7 @@ export interface InstanceGroupConfig {
   /**
    * @public
    * <note>
-   *             <p>Amazon EMR releases 4.x or higher.</p>
+   *             <p>Amazon EMR releases 4.x or later.</p>
    *          </note>
    *          <p>The list of configurations supplied for an Amazon EMR cluster instance group.
    *          You can specify a separate configuration for each instance group (master, core, and
@@ -6414,7 +6486,7 @@ export interface InstanceGroupModifyConfig {
  *          instance type configurations for a fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceTypeConfig {
@@ -6478,7 +6550,7 @@ export interface InstanceTypeConfig {
  * <p>The configuration specification for each instance type in an instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceTypeSpecification {
@@ -6565,8 +6637,8 @@ export interface GetBlockPublicAccessConfigurationOutput {
    *          ::/0 on a port, unless the port is specified as an exception using
    *             <code>PermittedPublicSecurityGroupRuleRanges</code> in the
    *             <code>BlockPublicAccessConfiguration</code>. By default, Port 22 (SSH) is an exception,
-   *          and public access is allowed on this port. To change this, update the block public access
-   *          configuration to remove the exception.</p>
+   *          and public access is allowed on this port. You can change this by updating the block public
+   *          access configuration to remove the exception.</p>
    *          <note>
    *             <p>For accounts that created clusters in a Region before November 25, 2019, block public
    *             access is disabled by default in that Region. To use this feature, you must manually
@@ -6640,7 +6712,7 @@ export interface AddInstanceGroupsInput {
  *          provisioned to meet a defined target capacity. </p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceFleet {
@@ -6756,7 +6828,7 @@ export interface InstanceFleet {
  * <p>The configuration that defines an instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and higher, excluding 5.0.x versions.</p>
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export interface InstanceFleetConfig {
@@ -6938,7 +7010,7 @@ export interface InstanceGroup {
   /**
    * @public
    * <note>
-   *             <p>Amazon EMR releases 4.x or higher.</p>
+   *             <p>Amazon EMR releases 4.x or later.</p>
    *          </note>
    *          <p>The list of configurations supplied for an Amazon EMR cluster instance group.
    *          You can specify a separate configuration for each instance group (master, core, and
@@ -7074,7 +7146,7 @@ export interface JobFlowInstancesConfig {
    * @public
    * <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and higher, excluding 5.0.x versions.</p>
+   *             4.8.0 and later, excluding 5.0.x versions.</p>
    *          </note>
    *          <p>Describes the Amazon EC2 instances and instance configurations for clusters that
    *          use the instance fleet configuration.</p>
@@ -7138,7 +7210,7 @@ export interface JobFlowInstancesConfig {
    *          instances in the optimal subnet.</p>
    *          <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and higher, excluding 5.0.x versions.</p>
+   *             4.8.0 and later, excluding 5.0.x versions.</p>
    *          </note>
    */
   Ec2SubnetIds?: string[];
@@ -7182,7 +7254,7 @@ export interface JobFlowInstancesConfig {
 
 /**
  * @public
- * <p>Input to the <a>RunJobFlow</a> operation. </p>
+ * <p> Input to the <a>RunJobFlow</a> operation. </p>
  */
 export interface RunJobFlowInput {
   /**
@@ -7202,8 +7274,7 @@ export interface RunJobFlowInput {
    * @public
    * <p>The KMS key used for encrypting log files. If a value is not
    *          provided, the logs remain encrypted by AES-256. This attribute is only available with
-   *             Amazon EMR releases 5.30.0 and higher, excluding Amazon EMR
-   *          6.0.0.</p>
+   *             Amazon EMR releases 5.30.0 and later, excluding Amazon EMR 6.0.0.</p>
    */
   LogEncryptionKmsKeyId?: string;
 
@@ -7216,7 +7287,7 @@ export interface RunJobFlowInput {
   /**
    * @public
    * <p>Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR
-   *          releases 4.0 and higher, <code>ReleaseLabel</code> is used. To specify a custom AMI, use
+   *          releases 4.0 and later, <code>ReleaseLabel</code> is used. To specify a custom AMI, use
    *             <code>CustomAmiID</code>.</p>
    */
   AmiVersion?: string;
@@ -7228,7 +7299,7 @@ export interface RunJobFlowInput {
    *             <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
    *             <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
    *          and included application versions and features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR
-   *          releases version 4.0 and higher. Earlier versions use <code>AmiVersion</code>.</p>
+   *          releases version 4.0 and later. Earlier versions use <code>AmiVersion</code>.</p>
    */
   ReleaseLabel?: string;
 
@@ -7254,7 +7325,7 @@ export interface RunJobFlowInput {
    * @public
    * <note>
    *             <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
-   *             higher, use Applications.</p>
+   *             later, use Applications.</p>
    *          </note>
    *          <p>A list of strings that indicates third-party software to use. For more information, see
    *          the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p>
@@ -7273,7 +7344,7 @@ export interface RunJobFlowInput {
    * @public
    * <note>
    *             <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
-   *             higher, use Applications.</p>
+   *             later, use Applications.</p>
    *          </note>
    *          <p>A list of strings that indicates third-party software to use with the job flow that
    *          accepts a user argument list. Amazon EMR accepts and forwards the argument list to
@@ -7313,7 +7384,7 @@ export interface RunJobFlowInput {
 
   /**
    * @public
-   * <p>Applies to Amazon EMR releases 4.0 and higher. A case-insensitive list of
+   * <p>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of
    *          applications for Amazon EMR to install and configure when launching the cluster.
    *          For a list of applications available for each Amazon EMR release version, see the
    *             <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMRRelease
@@ -7323,7 +7394,7 @@ export interface RunJobFlowInput {
 
   /**
    * @public
-   * <p>For Amazon EMR releases 4.0 and higher. The list of configurations supplied for
+   * <p>For Amazon EMR releases 4.0 and later. The list of configurations supplied for
    *          the Amazon EMR cluster that you are creating.</p>
    */
   Configurations?: Configuration[];
@@ -7390,20 +7461,19 @@ export interface RunJobFlowInput {
    *             <code>TERMINATE_AT_INSTANCE_HOUR</code> indicates that Amazon EMR terminates
    *          nodes at the instance-hour boundary, regardless of when the request to terminate the
    *          instance was submitted. This option is only available with Amazon EMR 5.1.0 and
-   *          higher and is the default for clusters created using that version.
+   *          later and is the default for clusters created using that version.
    *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes
    *          to a deny list and drains tasks from nodes before terminating the Amazon EC2
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
-   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and higher, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
+   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
    */
   ScaleDownBehavior?: ScaleDownBehavior;
 
   /**
    * @public
-   * <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom
-   *          Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it
-   *          launches cluster Amazon EC2 instances. For more information about custom AMIs in
-   *             Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the
+   * <p>Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon
+   *          EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches
+   *          cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the
    *                <i>Amazon EMR Management Guide</i>. If omitted, the cluster
    *          uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR
    *          releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
@@ -7415,9 +7485,9 @@ export interface RunJobFlowInput {
 
   /**
    * @public
-   * <p>The size, in GiB, of the Amazon EBS root device volume for the Linux AMI that
-   *          each Amazon EC2 instance uses. Available in Amazon EMR releases 4.x and
-   *          higher.</p>
+   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is
+   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and
+   *          later.</p>
    */
   EbsRootVolumeSize?: number;
 
@@ -7477,17 +7547,17 @@ export interface RunJobFlowInput {
 
   /**
    * @public
-   * <p>The IOPS for the Amazon EBS root device volume for the Linux AMI that each
-   *             Amazon EC2 instance uses. Available in Amazon EMR releases 6.15.0 and
-   *          higher.</p>
+   * <p>The IOPS, of the Amazon EBS root device volume of the Linux AMI that is
+   *             used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
+   *             later.</p>
    */
   EbsRootVolumeIops?: number;
 
   /**
    * @public
-   * <p>The throughput, in MiB/s, of the Amazon EBS root device volume for the Linux AMI
-   *          that each Amazon EC2 instance uses. Available in Amazon EMR releases 6.15.0
-   *          and higher.</p>
+   * <p>The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is
+   *             used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
+   *             later.</p>
    */
   EbsRootVolumeThroughput?: number;
 }

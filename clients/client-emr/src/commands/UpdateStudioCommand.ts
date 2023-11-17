@@ -53,6 +53,7 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  *     "STRING_VALUE",
  *   ],
  *   DefaultS3Location: "STRING_VALUE",
+ *   EncryptionKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);

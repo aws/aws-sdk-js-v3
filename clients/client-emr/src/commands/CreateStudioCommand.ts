@@ -65,6 +65,10 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   TrustedIdentityPropagationEnabled: true || false,
+ *   IdcUserAssignment: "REQUIRED" || "OPTIONAL",
+ *   IdcInstanceArn: "STRING_VALUE",
+ *   EncryptionKeyArn: "STRING_VALUE",
  * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);

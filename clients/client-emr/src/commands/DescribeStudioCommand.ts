@@ -76,6 +76,10 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     IdcInstanceArn: "STRING_VALUE",
+ * //     TrustedIdentityPropagationEnabled: true || false,
+ * //     IdcUserAssignment: "REQUIRED" || "OPTIONAL",
+ * //     EncryptionKeyArn: "STRING_VALUE",
  * //   },
  * // };
  *

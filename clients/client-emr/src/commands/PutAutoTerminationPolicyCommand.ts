@@ -39,7 +39,7 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * @public
  * <note>
  *             <p>Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and
- *             higher. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an
+ *             later. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an
  *                auto-termination policy</a>.</p>
  *          </note>
  *          <p>Creates or updates an auto-termination policy for an Amazon EMR cluster. An
