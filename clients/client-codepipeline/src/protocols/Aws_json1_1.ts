@@ -237,6 +237,7 @@ import {
   RequestFailedException,
   ResourceNotFoundException,
   RetryStageExecutionInput,
+  SourceRevisionOverride,
   StageDeclaration,
   StageNotFoundException,
   StageNotRetryableException,
@@ -3624,6 +3625,10 @@ const se_PutThirdPartyJobSuccessResultInput = (
 
 // se_RetryStageExecutionInput omitted.
 
+// se_SourceRevisionOverride omitted.
+
+// se_SourceRevisionOverrideList omitted.
+
 // se_StageActionDeclarationList omitted.
 
 // se_StageBlockerDeclarationList omitted.
@@ -3637,6 +3642,7 @@ const se_StartPipelineExecutionInput = (input: StartPipelineExecutionInput, cont
   return take(input, {
     clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     name: [],
+    sourceRevisions: _json,
     variables: _json,
   });
 };

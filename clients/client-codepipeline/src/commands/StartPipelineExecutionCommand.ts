@@ -54,6 +54,13 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *     },
  *   ],
  *   clientRequestToken: "STRING_VALUE",
+ *   sourceRevisions: [ // SourceRevisionOverrideList
+ *     { // SourceRevisionOverride
+ *       actionName: "STRING_VALUE", // required
+ *       revisionType: "COMMIT_ID" || "IMAGE_DIGEST" || "S3_OBJECT_VERSION_ID", // required
+ *       revisionValue: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);

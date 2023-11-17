@@ -1960,6 +1960,11 @@ export interface GitPushFilter {
  *                 Git-based source actions that are supported by the
  *                     <code>CodeStarSourceConnection</code> action type.</p>
  *          </note>
+ *          <note>
+ *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
+ *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
+ *                 in the <i>CodePipeline User Guide</i>.</p>
+ *          </note>
  */
 export interface GitConfiguration {
   /**
@@ -2010,6 +2015,11 @@ export type PipelineTriggerProviderType =
  *             <p>When a trigger configuration is specified, default change detection for
  *                 repository and branch commits is disabled.</p>
  *          </note>
+ *          <note>
+ *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
+ *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
+ *                 in the <i>CodePipeline User Guide</i>.</p>
+ *          </note>
  */
 export interface PipelineTriggerDeclaration {
   /**
@@ -2030,6 +2040,11 @@ export interface PipelineTriggerDeclaration {
 /**
  * @public
  * <p>A variable declared at the pipeline level.</p>
+ *          <note>
+ *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
+ *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
+ *                 in the <i>CodePipeline User Guide</i>.</p>
+ *          </note>
  */
 export interface PipelineVariableDeclaration {
   /**
@@ -2133,6 +2148,11 @@ export interface PipelineDeclaration {
    *          <p>For information about pricing for CodePipeline, see <a href="https://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
    *          <p>
    *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
+   *          <note>
+   *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
+   *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
+   *                 in the <i>CodePipeline User Guide</i>.</p>
+   *          </note>
    */
   pipelineType?: PipelineType;
 
@@ -3731,6 +3751,11 @@ export interface PipelineSummary {
    *          <p>For information about pricing for CodePipeline, see <a href="https://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
    *          <p>
    *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
+   *          <note>
+   *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
+   *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
+   *                 in the <i>CodePipeline User Guide</i>.</p>
+   *          </note>
    */
   pipelineType?: PipelineType;
 
@@ -4805,7 +4830,55 @@ export class StageNotRetryableException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const SourceRevisionType = {
+  COMMIT_ID: "COMMIT_ID",
+  IMAGE_DIGEST: "IMAGE_DIGEST",
+  S3_OBJECT_VERSION_ID: "S3_OBJECT_VERSION_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceRevisionType = (typeof SourceRevisionType)[keyof typeof SourceRevisionType];
+
+/**
+ * @public
+ * <p>A list that allows you to specify, or override, the source revision for a pipeline
+ *             execution that's being started. A source revision is the version with all the changes to
+ *             your application code, or source artifact, for the pipeline execution.</p>
+ */
+export interface SourceRevisionOverride {
+  /**
+   * @public
+   * <p>The name of the action where the override will be applied.</p>
+   */
+  actionName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of source revision, based on the source provider. For example, the revision
+   *             type for the CodeCommit action provider is the commit ID.</p>
+   */
+  revisionType: SourceRevisionType | undefined;
+
+  /**
+   * @public
+   * <p>The source revision, or version of your source artifact, with the changes that you
+   *             want to run in the pipeline execution.</p>
+   */
+  revisionValue: string | undefined;
+}
+
+/**
+ * @public
  * <p>A pipeline-level variable used for a pipeline execution.</p>
+ *          <note>
+ *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
+ *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
+ *                 in the <i>CodePipeline User Guide</i>.</p>
+ *          </note>
  */
 export interface PipelineVariable {
   /**
@@ -4845,6 +4918,12 @@ export interface StartPipelineExecutionInput {
    *             request.</p>
    */
   clientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>A list that allows you to specify, or override, the source revision for a pipeline execution that's being started. A source revision is the version with all the changes to your application code, or source artifact, for the pipeline execution.</p>
+   */
+  sourceRevisions?: SourceRevisionOverride[];
 }
 
 /**
