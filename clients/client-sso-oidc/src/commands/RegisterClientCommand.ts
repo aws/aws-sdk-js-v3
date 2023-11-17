@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
+import {
+  RegisterClientRequest,
+  RegisterClientResponse,
+  RegisterClientResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_RegisterClientCommand, se_RegisterClientCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
@@ -134,7 +138,7 @@ export class RegisterClientCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: RegisterClientResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSSSOOIDCService",
         operation: "RegisterClient",

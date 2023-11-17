@@ -22,7 +22,7 @@ export const resolveClientEndpointParameters = <T>(
     ...options,
     useDualstackEndpoint: options.useDualstackEndpoint ?? false,
     useFipsEndpoint: options.useFipsEndpoint ?? false,
-    defaultSigningName: "awsssooidc",
+    defaultSigningName: "sso-oauth",
   };
 };
 

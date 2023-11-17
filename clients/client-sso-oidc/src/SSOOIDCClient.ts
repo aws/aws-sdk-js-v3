@@ -7,12 +7,14 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
+import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "@aws-sdk/middleware-signing";
 import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
@@ -44,6 +46,7 @@ import {
 } from "@smithy/types";
 
 import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import { CreateTokenWithIAMCommandInput, CreateTokenWithIAMCommandOutput } from "./commands/CreateTokenWithIAMCommand";
 import { RegisterClientCommandInput, RegisterClientCommandOutput } from "./commands/RegisterClientCommand";
 import {
   StartDeviceAuthorizationCommandInput,
@@ -65,6 +68,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateTokenCommandInput
+  | CreateTokenWithIAMCommandInput
   | RegisterClientCommandInput
   | StartDeviceAuthorizationCommandInput;
 
@@ -73,6 +77,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateTokenCommandOutput
+  | CreateTokenWithIAMCommandOutput
   | RegisterClientCommandOutput
   | StartDeviceAuthorizationCommandOutput;
 
@@ -168,6 +173,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   region?: string | __Provider<string>;
 
   /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -210,6 +221,7 @@ export type SSOOIDCClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
+  AwsAuthInputConfig &
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -229,6 +241,7 @@ export type SSOOIDCClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
+  AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -240,14 +253,12 @@ export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfig
 
 /**
  * @public
- * <p>AWS IAM Identity Center (successor to AWS Single Sign-On) OpenID Connect (OIDC) is a web service that enables a client (such as AWS CLI
+ * <p>IAM Identity Center OpenID Connect (OIDC) is a web service that enables a client (such as CLI
  *       or a native application) to register with IAM Identity Center. The service also enables the client to
  *       fetch the user’s access token upon successful authentication and authorization with
  *       IAM Identity Center.</p>
  *          <note>
- *             <p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
- *         <code>identitystore</code> API namespaces will continue to retain their original name for
- *         backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
+ *             <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API namespaces.</p>
  *          </note>
  *          <p>
  *             <b>Considerations for Using This Guide</b>
@@ -256,23 +267,24 @@ export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfig
  *       important information about how the IAM Identity Center OIDC service works.</p>
  *          <ul>
  *             <li>
- *                <p>The IAM Identity Center OIDC service currently implements only the portions of the OAuth 2.0
- *           Device Authorization Grant standard (<a href="https://tools.ietf.org/html/rfc8628">https://tools.ietf.org/html/rfc8628</a>) that are necessary to enable single
- *           sign-on authentication with the AWS CLI. Support for other OIDC flows frequently needed
- *           for native applications, such as Authorization Code Flow (+ PKCE), will be addressed in
- *           future releases.</p>
+ *                <p>The IAM Identity Center OIDC service currently implements only the portions of the OAuth 2.0 Device
+ *           Authorization Grant standard (<a href="https://tools.ietf.org/html/rfc8628">https://tools.ietf.org/html/rfc8628</a>) that are necessary to enable single
+ *           sign-on authentication with the CLI. </p>
  *             </li>
  *             <li>
- *                <p>The service emits only OIDC access tokens, such that obtaining a new token (For
- *           example, token refresh) requires explicit user re-authentication.</p>
+ *                <p>With older versions of the CLI, the service only emits OIDC access tokens, so to
+ *           obtain a new token, users must explicitly re-authenticate. To access the OIDC flow that
+ *           supports token refresh and doesn’t require re-authentication, update to the latest CLI
+ *           version (1.27.10 for CLI V1 and 2.9.0 for CLI V2) with support for OIDC token refresh and
+ *           configurable IAM Identity Center session durations. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/configure-user-session.html">Configure Amazon Web Services access portal session duration </a>. </p>
  *             </li>
  *             <li>
- *                <p>The access tokens provided by this service grant access to all AWS account
+ *                <p>The access tokens provided by this service grant access to all Amazon Web Services account
  *           entitlements assigned to an IAM Identity Center user, not just a particular application.</p>
  *             </li>
  *             <li>
  *                <p>The documentation in this guide does not describe the mechanism to convert the access
- *           token into AWS Auth (“sigv4”) credentials for use with IAM-protected AWS service
+ *           token into Amazon Web Services Auth (“sigv4”) credentials for use with IAM-protected Amazon Web Services service
  *           endpoints. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.html">GetRoleCredentials</a> in the <i>IAM Identity Center Portal API Reference
  *             Guide</i>.</p>
  *             </li>
@@ -298,10 +310,11 @@ export class SSOOIDCClient extends __Client<
     const _config_3 = resolveEndpointConfig(_config_2);
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    super(_config_7);
-    this.config = _config_7;
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

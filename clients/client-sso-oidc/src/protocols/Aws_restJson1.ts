@@ -20,6 +20,7 @@ import {
 } from "@smithy/types";
 
 import { CreateTokenCommandInput, CreateTokenCommandOutput } from "../commands/CreateTokenCommand";
+import { CreateTokenWithIAMCommandInput, CreateTokenWithIAMCommandOutput } from "../commands/CreateTokenWithIAMCommand";
 import { RegisterClientCommandInput, RegisterClientCommandOutput } from "../commands/RegisterClientCommand";
 import {
   StartDeviceAuthorizationCommandInput,
@@ -34,6 +35,7 @@ import {
   InvalidClientMetadataException,
   InvalidGrantException,
   InvalidRequestException,
+  InvalidRequestRegionException,
   InvalidScopeException,
   SlowDownException,
   UnauthorizedClientException,
@@ -73,6 +75,48 @@ export const se_CreateTokenCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateTokenWithIAMCommand
+ */
+export const se_CreateTokenWithIAMCommand = async (
+  input: CreateTokenWithIAMCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/token";
+  const query: any = map({
+    aws_iam: [, "t"],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      assertion: [],
+      clientId: [],
+      code: [],
+      grantType: [],
+      redirectUri: [],
+      refreshToken: [],
+      requestedTokenType: [],
+      scope: (_) => _json(_),
+      subjectToken: [],
+      subjectTokenType: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -198,6 +242,92 @@ const de_CreateTokenCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.ssooidc#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "InvalidScopeException":
+    case "com.amazonaws.ssooidc#InvalidScopeException":
+      throw await de_InvalidScopeExceptionRes(parsedOutput, context);
+    case "SlowDownException":
+    case "com.amazonaws.ssooidc#SlowDownException":
+      throw await de_SlowDownExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.ssooidc#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    case "UnsupportedGrantTypeException":
+    case "com.amazonaws.ssooidc#UnsupportedGrantTypeException":
+      throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateTokenWithIAMCommand
+ */
+export const de_CreateTokenWithIAMCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTokenWithIAMCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateTokenWithIAMCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessToken: __expectString,
+    expiresIn: __expectInt32,
+    idToken: __expectString,
+    issuedTokenType: __expectString,
+    refreshToken: __expectString,
+    scope: _json,
+    tokenType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTokenWithIAMCommandError
+ */
+const de_CreateTokenWithIAMCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTokenWithIAMCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssooidc#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AuthorizationPendingException":
+    case "com.amazonaws.ssooidc#AuthorizationPendingException":
+      throw await de_AuthorizationPendingExceptionRes(parsedOutput, context);
+    case "ExpiredTokenException":
+    case "com.amazonaws.ssooidc#ExpiredTokenException":
+      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssooidc#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidClientException":
+    case "com.amazonaws.ssooidc#InvalidClientException":
+      throw await de_InvalidClientExceptionRes(parsedOutput, context);
+    case "InvalidGrantException":
+    case "com.amazonaws.ssooidc#InvalidGrantException":
+      throw await de_InvalidGrantExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.ssooidc#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "InvalidRequestRegionException":
+    case "com.amazonaws.ssooidc#InvalidRequestRegionException":
+      throw await de_InvalidRequestRegionExceptionRes(parsedOutput, context);
     case "InvalidScopeException":
     case "com.amazonaws.ssooidc#InvalidScopeException":
       throw await de_InvalidScopeExceptionRes(parsedOutput, context);
@@ -515,6 +645,29 @@ const de_InvalidRequestExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1InvalidRequestRegionExceptionRes
+ */
+const de_InvalidRequestRegionExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidRequestRegionException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    endpoint: __expectString,
+    error: __expectString,
+    error_description: __expectString,
+    region: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidRequestRegionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InvalidScopeExceptionRes
  */
 const de_InvalidScopeExceptionRes = async (
@@ -596,6 +749,8 @@ const de_UnsupportedGrantTypeExceptionRes = async (
 };
 
 // se_Scopes omitted.
+
+// de_Scopes omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

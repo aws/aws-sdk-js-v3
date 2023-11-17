@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
@@ -15,12 +16,12 @@ import {
 } from "@smithy/types";
 
 import {
-  CreateTokenRequest,
-  CreateTokenRequestFilterSensitiveLog,
-  CreateTokenResponse,
-  CreateTokenResponseFilterSensitiveLog,
+  CreateTokenWithIAMRequest,
+  CreateTokenWithIAMRequestFilterSensitiveLog,
+  CreateTokenWithIAMResponse,
+  CreateTokenWithIAMResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_CreateTokenCommand, se_CreateTokenCommand } from "../protocols/Aws_restJson1";
+import { de_CreateTokenWithIAMCommand, se_CreateTokenWithIAMCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -30,55 +31,62 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateTokenCommand}.
+ * The input for {@link CreateTokenWithIAMCommand}.
  */
-export interface CreateTokenCommandInput extends CreateTokenRequest {}
+export interface CreateTokenWithIAMCommandInput extends CreateTokenWithIAMRequest {}
 /**
  * @public
  *
- * The output of {@link CreateTokenCommand}.
+ * The output of {@link CreateTokenWithIAMCommand}.
  */
-export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
+export interface CreateTokenWithIAMCommandOutput extends CreateTokenWithIAMResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates and returns access and refresh tokens for clients that are authenticated using
- *       client secrets. The access token can be used to fetch short-term credentials for the assigned
- *       AWS accounts or to access application APIs using <code>bearer</code> authentication.</p>
+ * <p>Creates and returns access and refresh tokens for clients and applications that are
+ *       authenticated using IAM entities. The access token can be used to fetch short-term credentials
+ *       for the assigned AWS accounts or to access application APIs using <code>bearer</code>
+ *       authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOOIDCClient, CreateTokenCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
- * // const { SSOOIDCClient, CreateTokenCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
+ * import { SSOOIDCClient, CreateTokenWithIAMCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
+ * // const { SSOOIDCClient, CreateTokenWithIAMCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
  * const client = new SSOOIDCClient(config);
- * const input = { // CreateTokenRequest
+ * const input = { // CreateTokenWithIAMRequest
  *   clientId: "STRING_VALUE", // required
- *   clientSecret: "STRING_VALUE", // required
  *   grantType: "STRING_VALUE", // required
- *   deviceCode: "STRING_VALUE",
  *   code: "STRING_VALUE",
  *   refreshToken: "STRING_VALUE",
+ *   assertion: "STRING_VALUE",
  *   scope: [ // Scopes
  *     "STRING_VALUE",
  *   ],
  *   redirectUri: "STRING_VALUE",
+ *   subjectToken: "STRING_VALUE",
+ *   subjectTokenType: "STRING_VALUE",
+ *   requestedTokenType: "STRING_VALUE",
  * };
- * const command = new CreateTokenCommand(input);
+ * const command = new CreateTokenWithIAMCommand(input);
  * const response = await client.send(command);
- * // { // CreateTokenResponse
+ * // { // CreateTokenWithIAMResponse
  * //   accessToken: "STRING_VALUE",
  * //   tokenType: "STRING_VALUE",
  * //   expiresIn: Number("int"),
  * //   refreshToken: "STRING_VALUE",
  * //   idToken: "STRING_VALUE",
+ * //   issuedTokenType: "STRING_VALUE",
+ * //   scope: [ // Scopes
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
- * @returns {@link CreateTokenCommandOutput}
- * @see {@link CreateTokenCommandInput} for command's `input` shape.
- * @see {@link CreateTokenCommandOutput} for command's `response` shape.
+ * @param CreateTokenWithIAMCommandInput - {@link CreateTokenWithIAMCommandInput}
+ * @returns {@link CreateTokenWithIAMCommandOutput}
+ * @see {@link CreateTokenWithIAMCommandInput} for command's `input` shape.
+ * @see {@link CreateTokenWithIAMCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -108,6 +116,10 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *  <p>Indicates that something is wrong with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  *
+ * @throws {@link InvalidRequestRegionException} (client fault)
+ *  <p>Indicates that a token provided as input to the request was issued by and is only usable
+ *       by calling IAM Identity Center endpoints in another region.</p>
+ *
  * @throws {@link InvalidScopeException} (client fault)
  *  <p>Indicates that the scope provided in the request is invalid.</p>
  *
@@ -126,9 +138,9 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
  */
-export class CreateTokenCommand extends $Command<
-  CreateTokenCommandInput,
-  CreateTokenCommandOutput,
+export class CreateTokenWithIAMCommand extends $Command<
+  CreateTokenWithIAMCommandInput,
+  CreateTokenWithIAMCommandOutput,
   SSOOIDCClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -143,7 +155,7 @@ export class CreateTokenCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateTokenCommandInput) {
+  constructor(readonly input: CreateTokenWithIAMCommandInput) {
     super();
   }
 
@@ -154,24 +166,27 @@ export class CreateTokenCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOOIDCClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateTokenCommandInput, CreateTokenCommandOutput> {
+  ): Handler<CreateTokenWithIAMCommandInput, CreateTokenWithIAMCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTokenCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateTokenWithIAMCommand.getEndpointParameterInstructions())
+    );
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSOOIDCClient";
-    const commandName = "CreateTokenCommand";
+    const commandName = "CreateTokenWithIAMCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateTokenWithIAMRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTokenWithIAMResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSSSOOIDCService",
-        operation: "CreateToken",
+        operation: "CreateTokenWithIAM",
       },
     };
     const { requestHandler } = configuration;
@@ -185,14 +200,14 @@ export class CreateTokenCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateTokenCommand(input, context);
+  private serialize(input: CreateTokenWithIAMCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateTokenWithIAMCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenCommandOutput> {
-    return de_CreateTokenCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenWithIAMCommandOutput> {
+    return de_CreateTokenWithIAMCommand(output, context);
   }
 }
