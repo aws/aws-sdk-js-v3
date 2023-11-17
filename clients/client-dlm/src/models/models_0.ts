@@ -539,7 +539,8 @@ export interface Script {
    * <p>Indicates the service used to execute the pre and/or post scripts.</p>
    *          <ul>
    *             <li>
-   *                <p>If you are using custom SSM documents, specify
+   *                <p>If you are using custom SSM documents or automating
+   * 					application-consistent snapshots of SAP HANA workloads, specify
    * 					<code>AWS_SYSTEMS_MANAGER</code>.</p>
    *             </li>
    *             <li>
@@ -558,6 +559,10 @@ export interface Script {
    *                <p>If you are automating VSS backups, specify <code>AWS_VSS_BACKUP</code>.
    * 					In this case, Amazon Data Lifecycle Manager automatically uses the <code>AWSEC2-CreateVssSnapshot</code>
    * 					SSM document.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are automating application-consistent snapshots for SAP HANA
+   * 					workloads, specify <code>AWSSystemsManagerSAP-CreateDLMSnapshotForSAPHANA</code>.</p>
    *             </li>
    *             <li>
    *                <p>If you are using a custom SSM document that you own, specify either
