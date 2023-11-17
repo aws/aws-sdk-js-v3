@@ -15,7 +15,12 @@ import {
 } from "@smithy/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import { CreateChatTokenRequest, CreateChatTokenResponse } from "../models/models_0";
+import {
+  CreateChatTokenRequest,
+  CreateChatTokenRequestFilterSensitiveLog,
+  CreateChatTokenResponse,
+  CreateChatTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateChatTokenCommand, se_CreateChatTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,8 +146,8 @@ export class CreateChatTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateChatTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateChatTokenResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonInteractiveVideoServiceChat",
         operation: "CreateChatToken",

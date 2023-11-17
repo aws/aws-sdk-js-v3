@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import { DisconnectUserRequest, DisconnectUserResponse } from "../models/models_0";
+import {
+  DisconnectUserRequest,
+  DisconnectUserRequestFilterSensitiveLog,
+  DisconnectUserResponse,
+} from "../models/models_0";
 import { de_DisconnectUserCommand, se_DisconnectUserCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -125,7 +129,7 @@ export class DisconnectUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: DisconnectUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonInteractiveVideoServiceChat",
