@@ -37,13 +37,10 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
 
 /**
  * @public
- * <p> Increases or decreases the stream's data retention period by the value that you
+ * <p>Increases or decreases the stream's data retention period by the value that you
  *             specify. To indicate whether you want to increase or decrease the data retention period,
  *             specify the <code>Operation</code> parameter in the request body. In the request, you
  *             must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
- *          <note>
- *             <p>The retention period that you specify replaces the current value.</p>
- *          </note>
  *          <p>This operation requires permission for the
  *                 <code>KinesisVideo:UpdateDataRetention</code> action.</p>
  *          <p>Changing the data retention period affects the data in the stream as

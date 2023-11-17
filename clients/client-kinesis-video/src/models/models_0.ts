@@ -1375,12 +1375,24 @@ export type MediaStorageConfigurationStatus =
 
 /**
  * @public
- * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ * <p>A structure that encapsulates, or contains, the media storage configuration
+ *             properties.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If <code>StorageStatus</code> is enabled, the data will be stored in the
+ *                         <code>StreamARN</code> provided. In order for WebRTC Ingestion to work, the stream must have data retention
+ *                     enabled.</p>
+ *             </li>
+ *             <li>
+ *                <p>If <code>StorageStatus</code> is disabled, no data will be stored, and the
+ *                         <code>StreamARN</code> parameter will not be needed. </p>
+ *             </li>
+ *          </ul>
  */
 export interface MediaStorageConfiguration {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the stream </p>
+   * <p>The Amazon Resource Name (ARN) of the stream. </p>
    */
   StreamARN?: string;
 
@@ -2254,8 +2266,8 @@ export interface UpdateDataRetentionInput {
 
   /**
    * @public
-   * <p>The retention period, in hours. The value you specify replaces the current value.
-   *             The maximum value for this parameter is 87600 (ten years).</p>
+   * <p>The number of hours to adjust the current retention by. The value you specify is added to or subtracted from the current value, depending on the <code>operation</code>.</p>
+   *          <p>The minimum value for data retention is 0 and the maximum value is 87600 (ten years).</p>
    */
   DataRetentionChangeInHours: number | undefined;
 }
