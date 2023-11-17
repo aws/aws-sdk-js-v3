@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchIsAuthorizedCommand,
+  BatchIsAuthorizedCommandInput,
+  BatchIsAuthorizedCommandOutput,
+} from "./commands/BatchIsAuthorizedCommand";
+import {
   CreateIdentitySourceCommand,
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
@@ -113,6 +118,7 @@ import {
 import { VerifiedPermissionsClient, VerifiedPermissionsClientConfig } from "./VerifiedPermissionsClient";
 
 const commands = {
+  BatchIsAuthorizedCommand,
   CreateIdentitySourceCommand,
   CreatePolicyCommand,
   CreatePolicyStoreCommand,
@@ -140,6 +146,23 @@ const commands = {
 };
 
 export interface VerifiedPermissions {
+  /**
+   * @see {@link BatchIsAuthorizedCommand}
+   */
+  batchIsAuthorized(
+    args: BatchIsAuthorizedCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchIsAuthorizedCommandOutput>;
+  batchIsAuthorized(
+    args: BatchIsAuthorizedCommandInput,
+    cb: (err: any, data?: BatchIsAuthorizedCommandOutput) => void
+  ): void;
+  batchIsAuthorized(
+    args: BatchIsAuthorizedCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchIsAuthorizedCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateIdentitySourceCommand}
    */

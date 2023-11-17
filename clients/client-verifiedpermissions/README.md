@@ -269,6 +269,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchIsAuthorized
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-verifiedpermissions/classes/batchisauthorizedcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-verifiedpermissions/interfaces/batchisauthorizedcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-verifiedpermissions/interfaces/batchisauthorizedcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateIdentitySource
 </summary>
 

@@ -5,6 +5,8 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -19,6 +21,7 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "../commands/BatchIsAuthorizedCommand";
 import {
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
@@ -74,6 +77,10 @@ import {
   AccessDeniedException,
   ActionIdentifier,
   AttributeValue,
+  BatchIsAuthorizedInput,
+  BatchIsAuthorizedInputItem,
+  BatchIsAuthorizedOutput,
+  BatchIsAuthorizedOutputItem,
   CognitoUserPoolConfiguration,
   Configuration,
   ConflictException,
@@ -146,6 +153,19 @@ import {
   ValidationSettings,
 } from "../models/models_0";
 import { VerifiedPermissionsServiceException as __BaseException } from "../models/VerifiedPermissionsServiceException";
+
+/**
+ * serializeAws_json1_0BatchIsAuthorizedCommand
+ */
+export const se_BatchIsAuthorizedCommand = async (
+  input: BatchIsAuthorizedCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchIsAuthorized");
+  let body: any;
+  body = JSON.stringify(se_BatchIsAuthorizedInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0CreateIdentitySourceCommand
@@ -457,6 +477,64 @@ export const se_UpdatePolicyTemplateCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedCommand
+ */
+export const de_BatchIsAuthorizedCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchIsAuthorizedCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_BatchIsAuthorizedCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchIsAuthorizedOutput(data, context);
+  const response: BatchIsAuthorizedCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedCommandError
+ */
+const de_BatchIsAuthorizedCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchIsAuthorizedCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.verifiedpermissions#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.verifiedpermissions#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.verifiedpermissions#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.verifiedpermissions#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.verifiedpermissions#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -2016,6 +2094,40 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
   });
 };
 
+/**
+ * serializeAws_json1_0BatchIsAuthorizedInput
+ */
+const se_BatchIsAuthorizedInput = (input: BatchIsAuthorizedInput, context: __SerdeContext): any => {
+  return take(input, {
+    entities: (_) => se_EntitiesDefinition(_, context),
+    policyStoreId: [],
+    requests: (_) => se_BatchIsAuthorizedInputList(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_0BatchIsAuthorizedInputItem
+ */
+const se_BatchIsAuthorizedInputItem = (input: BatchIsAuthorizedInputItem, context: __SerdeContext): any => {
+  return take(input, {
+    action: _json,
+    context: (_) => se_ContextDefinition(_, context),
+    principal: _json,
+    resource: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_0BatchIsAuthorizedInputList
+ */
+const se_BatchIsAuthorizedInputList = (input: BatchIsAuthorizedInputItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_BatchIsAuthorizedInputItem(entry, context);
+    });
+};
+
 // se_ClientIds omitted.
 
 // se_CognitoUserPoolConfiguration omitted.
@@ -2256,9 +2368,112 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 
 // de_AccessDeniedException omitted.
 
+// de_ActionIdentifier omitted.
+
+/**
+ * deserializeAws_json1_0AttributeValue
+ */
+const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
+  if (__expectBoolean(output.boolean) !== undefined) {
+    return { boolean: __expectBoolean(output.boolean) as any };
+  }
+  if (output.entityIdentifier != null) {
+    return {
+      entityIdentifier: _json(output.entityIdentifier),
+    };
+  }
+  if (__expectLong(output.long) !== undefined) {
+    return { long: __expectLong(output.long) as any };
+  }
+  if (output.record != null) {
+    return {
+      record: de_RecordAttribute(output.record, context),
+    };
+  }
+  if (output.set != null) {
+    return {
+      set: de_SetAttribute(output.set, context),
+    };
+  }
+  if (__expectString(output.string) !== undefined) {
+    return { string: __expectString(output.string) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedInputItem
+ */
+const de_BatchIsAuthorizedInputItem = (output: any, context: __SerdeContext): BatchIsAuthorizedInputItem => {
+  return take(output, {
+    action: _json,
+    context: (_: any) => de_ContextDefinition(__expectUnion(_), context),
+    principal: _json,
+    resource: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedOutput
+ */
+const de_BatchIsAuthorizedOutput = (output: any, context: __SerdeContext): BatchIsAuthorizedOutput => {
+  return take(output, {
+    results: (_: any) => de_BatchIsAuthorizedOutputList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedOutputItem
+ */
+const de_BatchIsAuthorizedOutputItem = (output: any, context: __SerdeContext): BatchIsAuthorizedOutputItem => {
+  return take(output, {
+    decision: __expectString,
+    determiningPolicies: _json,
+    errors: _json,
+    request: (_: any) => de_BatchIsAuthorizedInputItem(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedOutputList
+ */
+const de_BatchIsAuthorizedOutputList = (output: any, context: __SerdeContext): BatchIsAuthorizedOutputItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BatchIsAuthorizedOutputItem(entry, context);
+    });
+  return retVal;
+};
+
 // de_ClientIds omitted.
 
 // de_ConflictException omitted.
+
+/**
+ * deserializeAws_json1_0ContextDefinition
+ */
+const de_ContextDefinition = (output: any, context: __SerdeContext): ContextDefinition => {
+  if (output.contextMap != null) {
+    return {
+      contextMap: de_ContextMap(output.contextMap, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_0ContextMap
+ */
+const de_ContextMap = (output: any, context: __SerdeContext): Record<string, AttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, AttributeValue>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
+    return acc;
+  }, {} as Record<string, AttributeValue>);
+};
 
 /**
  * deserializeAws_json1_0CreateIdentitySourceOutput
@@ -2568,6 +2783,19 @@ const de_PutSchemaOutput = (output: any, context: __SerdeContext): PutSchemaOutp
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0RecordAttribute
+ */
+const de_RecordAttribute = (output: any, context: __SerdeContext): Record<string, AttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, AttributeValue>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
+    return acc;
+  }, {} as Record<string, AttributeValue>);
+};
+
 // de_ResourceConflict omitted.
 
 // de_ResourceConflictList omitted.
@@ -2575,6 +2803,18 @@ const de_PutSchemaOutput = (output: any, context: __SerdeContext): PutSchemaOutp
 // de_ResourceNotFoundException omitted.
 
 // de_ServiceQuotaExceededException omitted.
+
+/**
+ * deserializeAws_json1_0SetAttribute
+ */
+const de_SetAttribute = (output: any, context: __SerdeContext): AttributeValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AttributeValue(__expectUnion(entry), context);
+    });
+  return retVal;
+};
 
 // de_StaticPolicyDefinitionDetail omitted.
 

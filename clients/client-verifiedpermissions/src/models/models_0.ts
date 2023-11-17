@@ -27,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * <p>Contains information about an action for a request for which an authorization decision
  *             is made.</p>
- *          <p>This data type is used as an request parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ *          <p>This data type is used as a request parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
  *          <p>Example: <code>\{ "actionId": "&lt;action name&gt;", "actionType": "Action"
  *             \}</code>
  *          </p>
@@ -77,227 +78,48 @@ export interface EntityIdentifier {
 
 /**
  * @public
- * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
- *             as an identity provider for Verified Permissions.</p>
- *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
- *             used as a parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a>.</p>
- *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
- *          </p>
- */
-export interface CognitoUserPoolConfiguration {
-  /**
-   * @public
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
-   *             authorized.</p>
-   *          <p>Example: <code>"UserPoolArn":
-   *                 "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
-   *          </p>
-   */
-  userPoolArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The unique application client IDs that are associated with the specified Amazon Cognito user
-   *             pool.</p>
-   *          <p>Example: <code>"ClientIds": ["&amp;ExampleCogClientId;"]</code>
-   *          </p>
-   */
-  clientIds?: string[];
-}
-
-/**
- * @public
- * <p>Contains configuration information used when creating a new identity source.</p>
- *          <note>
- *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
- *                 configuration.</p>
- *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
- *                     <code>ClientId</code>.</p>
- *          </note>
- *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
- *             operation.</p>
- */
-export type Configuration = Configuration.CognitoUserPoolConfigurationMember | Configuration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Configuration {
-  /**
-   * @public
-   * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
-   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
-   *             and one or more application client IDs.</p>
-   *          <p>Example:
-   *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
-   *          </p>
-   */
-  export interface CognitoUserPoolConfigurationMember {
-    cognitoUserPoolConfiguration: CognitoUserPoolConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    cognitoUserPoolConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    cognitoUserPoolConfiguration: (value: CognitoUserPoolConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
-    if (value.cognitoUserPoolConfiguration !== undefined)
-      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
  * @enum
  */
-export const ResourceType = {
-  IDENTITY_SOURCE: "IDENTITY_SOURCE",
-  POLICY: "POLICY",
-  POLICY_STORE: "POLICY_STORE",
-  POLICY_TEMPLATE: "POLICY_TEMPLATE",
-  SCHEMA: "SCHEMA",
+export const Decision = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
 } as const;
 
 /**
  * @public
  */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+export type Decision = (typeof Decision)[keyof typeof Decision];
 
 /**
  * @public
- * <p>Contains information about a resource conflict.</p>
+ * <p>Contains information about one of the policies that determined an authorization
+ *             decision.</p>
+ *          <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
+ *          <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code>
+ *          </p>
  */
-export interface ResourceConflict {
+export interface DeterminingPolicyItem {
   /**
    * @public
-   * <p>The unique identifier of the resource involved in a conflict.</p>
+   * <p>The Id of a policy that determined to an authorization decision.</p>
+   *          <p>Example: <code>"policyId":"SPEXAMPLEabcdefg111111"</code>
+   *          </p>
    */
-  resourceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The type of the resource involved in a conflict.</p>
-   */
-  resourceType: ResourceType | undefined;
+  policyId: string | undefined;
 }
 
 /**
  * @public
- * <p>The request failed because another request to modify a resource occurred at the
- *             same.</p>
+ * <p>Contains a description of an evaluation error.</p>
+ *          <p>This data type is a response parameter of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
  */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
+export interface EvaluationErrorItem {
   /**
    * @public
-   * <p>The list of resources referenced with this failed request.</p>
+   * <p>The error description.</p>
    */
-  resources: ResourceConflict[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resources = opts.resources;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateIdentitySourceInput {
-  /**
-   * @public
-   * <p>Specifies a unique, case-sensitive ID that you provide to
-   *              ensure the idempotency of the request. This lets you safely retry the request without
-   *              accidentally performing the same operation a second time. Passing the same value to a
-   *              later call to an operation requires that you also pass the same value for all other
-   *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *              value.</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *              you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
-   *              error.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * @public
-   * <p>Specifies the ID of the policy store in which you want to store this identity source. Only policies and
-   *             requests made using this policy store can reference identities from the identity provider
-   *             configured in the new identity source.</p>
-   */
-  policyStoreId: string | undefined;
-
-  /**
-   * @public
-   * <p>Specifies the details required to communicate with the identity provider (IdP)
-   *             associated with this identity source.</p>
-   *          <note>
-   *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
-   *                 configuration.</p>
-   *             <p>You must specify a <code>UserPoolArn</code>, and optionally, a
-   *                     <code>ClientId</code>.</p>
-   *          </note>
-   */
-  configuration: Configuration | undefined;
-
-  /**
-   * @public
-   * <p>Specifies the namespace and data type of the principals generated for identities
-   *             authenticated by the new identity source.</p>
-   */
-  principalEntityType?: string;
-}
-
-/**
- * @public
- */
-export interface CreateIdentitySourceOutput {
-  /**
-   * @public
-   * <p>The date and time the identity source was originally created.</p>
-   */
-  createdDate: Date | undefined;
-
-  /**
-   * @public
-   * <p>The unique ID of the new identity source.</p>
-   */
-  identitySourceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The date and time the identity source was most recently updated.</p>
-   */
-  lastUpdatedDate: Date | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the policy store that contains the identity source.</p>
-   */
-  policyStoreId: string | undefined;
+  errorDescription: string | undefined;
 }
 
 /**
@@ -320,6 +142,23 @@ export class InternalServerException extends __BaseException {
     Object.setPrototypeOf(this, InternalServerException.prototype);
   }
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  IDENTITY_SOURCE: "IDENTITY_SOURCE",
+  POLICY: "POLICY",
+  POLICY_STORE: "POLICY_STORE",
+  POLICY_TEMPLATE: "POLICY_TEMPLATE",
+  SCHEMA: "SCHEMA",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -352,54 +191,6 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.resourceId = opts.resourceId;
     this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * <p>The request failed because it would cause a service quota to be exceeded.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>The unique ID of the resource referenced in the failed request.</p>
-   */
-  resourceId?: string;
-
-  /**
-   * @public
-   * <p>The resource type of the resource referenced in the failed request.</p>
-   */
-  resourceType: ResourceType | undefined;
-
-  /**
-   * @public
-   * <p>The code for the Amazon Web Service that owns the quota.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * @public
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
   }
 }
 
@@ -563,6 +354,262 @@ export class ValidationException extends __BaseException {
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * @public
+ * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
+ *             as an identity provider for Verified Permissions.</p>
+ *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
+ *             used as a parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a>.</p>
+ *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
+ *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *          </p>
+ */
+export interface CognitoUserPoolConfiguration {
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
+   *             authorized.</p>
+   *          <p>Example: <code>"UserPoolArn":
+   *                 "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
+   *          </p>
+   */
+  userPoolArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique application client IDs that are associated with the specified Amazon Cognito user
+   *             pool.</p>
+   *          <p>Example: <code>"ClientIds": ["&amp;ExampleCogClientId;"]</code>
+   *          </p>
+   */
+  clientIds?: string[];
+}
+
+/**
+ * @public
+ * <p>Contains configuration information used when creating a new identity source.</p>
+ *          <note>
+ *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
+ *                 configuration.</p>
+ *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
+ *                     <code>ClientId</code>.</p>
+ *          </note>
+ *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
+ *             operation.</p>
+ */
+export type Configuration = Configuration.CognitoUserPoolConfigurationMember | Configuration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Configuration {
+  /**
+   * @public
+   * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
+   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
+   *             and one or more application client IDs.</p>
+   *          <p>Example:
+   *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *          </p>
+   */
+  export interface CognitoUserPoolConfigurationMember {
+    cognitoUserPoolConfiguration: CognitoUserPoolConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cognitoUserPoolConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    cognitoUserPoolConfiguration: (value: CognitoUserPoolConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
+    if (value.cognitoUserPoolConfiguration !== undefined)
+      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Contains information about a resource conflict.</p>
+ */
+export interface ResourceConflict {
+  /**
+   * @public
+   * <p>The unique identifier of the resource involved in a conflict.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of the resource involved in a conflict.</p>
+   */
+  resourceType: ResourceType | undefined;
+}
+
+/**
+ * @public
+ * <p>The request failed because another request to modify a resource occurred at the
+ *             same.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The list of resources referenced with this failed request.</p>
+   */
+  resources: ResourceConflict[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resources = opts.resources;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateIdentitySourceInput {
+  /**
+   * @public
+   * <p>Specifies a unique, case-sensitive ID that you provide to
+   *              ensure the idempotency of the request. This lets you safely retry the request without
+   *              accidentally performing the same operation a second time. Passing the same value to a
+   *              later call to an operation requires that you also pass the same value for all other
+   *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
+   *              value.</a>.</p>
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *              you.</p>
+   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
+   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
+   *              error.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>Specifies the ID of the policy store in which you want to store this identity source. Only policies and
+   *             requests made using this policy store can reference identities from the identity provider
+   *             configured in the new identity source.</p>
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the details required to communicate with the identity provider (IdP)
+   *             associated with this identity source.</p>
+   *          <note>
+   *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
+   *                 configuration.</p>
+   *             <p>You must specify a <code>UserPoolArn</code>, and optionally, a
+   *                     <code>ClientId</code>.</p>
+   *          </note>
+   */
+  configuration: Configuration | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the namespace and data type of the principals generated for identities
+   *             authenticated by the new identity source.</p>
+   */
+  principalEntityType?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateIdentitySourceOutput {
+  /**
+   * @public
+   * <p>The date and time the identity source was originally created.</p>
+   */
+  createdDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>The unique ID of the new identity source.</p>
+   */
+  identitySourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the identity source was most recently updated.</p>
+   */
+  lastUpdatedDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the policy store that contains the identity source.</p>
+   */
+  policyStoreId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The request failed because it would cause a service quota to be exceeded.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The unique ID of the resource referenced in the failed request.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * @public
+   * <p>The resource type of the resource referenced in the failed request.</p>
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * @public
+   * <p>The code for the Amazon Web Service that owns the quota.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * @public
+   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
   }
 }
 
@@ -960,20 +1007,6 @@ export interface CreatePolicyTemplateOutput {
 
 /**
  * @public
- * @enum
- */
-export const Decision = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type Decision = (typeof Decision)[keyof typeof Decision];
-
-/**
- * @public
  */
 export interface DeleteIdentitySourceInput {
   /**
@@ -1056,25 +1089,6 @@ export interface DeletePolicyTemplateOutput {}
 
 /**
  * @public
- * <p>Contains information about one of the policies that determined an authorization
- *             decision.</p>
- *          <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>
- *             and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
- *          <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code>
- *          </p>
- */
-export interface DeterminingPolicyItem {
-  /**
-   * @public
-   * <p>The Id of a policy that determined to an authorization decision.</p>
-   *          <p>Example: <code>"policyId":"SPEXAMPLEabcdefg111111"</code>
-   *          </p>
-   */
-  policyId: string | undefined;
-}
-
-/**
- * @public
  * <p>Contains information about a principal or resource that can be referenced in a Cedar
  *             policy.</p>
  *          <p>This data type is used as part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyFilter.html">PolicyFilter</a> structure that is
@@ -1132,19 +1146,6 @@ export namespace EntityReference {
     if (value.identifier !== undefined) return visitor.identifier(value.identifier);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * @public
- * <p>Contains a description of an evaluation error.</p>
- *          <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
- */
-export interface EvaluationErrorItem {
-  /**
-   * @public
-   * <p>The error description.</p>
-   */
-  errorDescription: string | undefined;
 }
 
 /**
@@ -2796,7 +2797,8 @@ export interface UpdatePolicyStoreOutput {
  *          <p>Contains information about the runtime context for a request for which an
  *             authorization decision is made. </p>
  *          <p>This data type is used as a member of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ContextDefinition.html">ContextDefinition</a> structure
- *             which is uses as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ *             which is uses as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
  */
 export type AttributeValue =
   | AttributeValue.BooleanMember
@@ -2813,7 +2815,8 @@ export type AttributeValue =
 export namespace AttributeValue {
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#boolean">Boolean</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#boolean">Boolean</a>
+   *             type.</p>
    *          <p>Example: <code>\{"boolean": true\}</code>
    *          </p>
    */
@@ -2862,7 +2865,8 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#string">String</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#string">String</a>
+   *             type.</p>
    *          <p>Example: <code>\{"string": "abc"\}</code>
    *          </p>
    */
@@ -2894,7 +2898,8 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#record">Record</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#record">Record</a>
+   *             type.</p>
    *          <p>Example: <code>\{"record": \{ "keyName": \{\} \} \}</code>
    *          </p>
    */
@@ -2947,9 +2952,10 @@ export namespace AttributeValue {
  * <p>Contains additional details about the context of the request. Verified Permissions evaluates this
  *             information in an authorization request as part of the <code>when</code> and
  *                 <code>unless</code> clauses in a policy.</p>
- *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
  *          <p>Example:
- *                 <code>"context":\{"Context":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}\}</code>
+ *                 <code>"context":\{"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}\}</code>
  *          </p>
  */
 export type ContextDefinition = ContextDefinition.ContextMapMember | ContextDefinition.$UnknownMember;
@@ -2964,7 +2970,7 @@ export namespace ContextDefinition {
    *             request. Each attribute in this array must include a map of a data type and its
    *             value.</p>
    *          <p>Example:
-   *                 <code>"Context":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}</code>
+   *                 <code>"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}</code>
    *          </p>
    */
   export interface ContextMapMember {
@@ -3025,6 +3031,77 @@ export interface EntityItem {
 
 /**
  * @public
+ * <p>An authorization request that you include in a <code>BatchIsAuthorized</code> API
+ *             request.</p>
+ */
+export interface BatchIsAuthorizedInputItem {
+  /**
+   * @public
+   * <p>Specifies the principal for which the authorization decision is to be made.</p>
+   */
+  principal?: EntityIdentifier;
+
+  /**
+   * @public
+   * <p>Specifies the requested action to be authorized. For example, is the principal
+   *             authorized to perform this action on the resource?</p>
+   */
+  action?: ActionIdentifier;
+
+  /**
+   * @public
+   * <p>Specifies the resource for which the authorization decision is to be made.</p>
+   */
+  resource?: EntityIdentifier;
+
+  /**
+   * @public
+   * <p>Specifies additional context that can be used to make more granular authorization
+   *             decisions.</p>
+   */
+  context?: ContextDefinition;
+}
+
+/**
+ * @public
+ * <p>The decision, based on policy evaluation, from an individual authorization request in
+ *             a <code>BatchIsAuthorized</code> API request.</p>
+ */
+export interface BatchIsAuthorizedOutputItem {
+  /**
+   * @public
+   * <p>The authorization request that initiated the decision.</p>
+   */
+  request: BatchIsAuthorizedInputItem | undefined;
+
+  /**
+   * @public
+   * <p>An authorization decision that indicates if the authorization request should be
+   *             allowed or denied.</p>
+   */
+  decision: Decision | undefined;
+
+  /**
+   * @public
+   * <p>The list of determining policies used to make the authorization decision. For example,
+   *             if there are two matching policies, where one is a forbid and the other is a permit,
+   *             then the forbid policy will be the determining policy. In the case of multiple matching
+   *             permit policies then there would be multiple determining policies. In the case that no
+   *             policies match, and hence the response is DENY, there would be no determining
+   *             policies.</p>
+   */
+  determiningPolicies: DeterminingPolicyItem[] | undefined;
+
+  /**
+   * @public
+   * <p>Errors that occurred while making an authorization decision, for example, a policy
+   *             references an Entity or entity Attribute that does not exist in the slice.</p>
+   */
+  errors: EvaluationErrorItem[] | undefined;
+}
+
+/**
+ * @public
  * <p>Contains the list of entities to be considered during an authorization request. This
  *             includes all principals, resources, and actions required to successfully evaluate the
  *             request.</p>
@@ -3065,6 +3142,18 @@ export namespace EntitiesDefinition {
     if (value.entityList !== undefined) return visitor.entityList(value.entityList);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * @public
+ */
+export interface BatchIsAuthorizedOutput {
+  /**
+   * @public
+   * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and
+   *             the policies that produced them.</p>
+   */
+  results: BatchIsAuthorizedOutputItem[] | undefined;
 }
 
 /**
@@ -3193,6 +3282,35 @@ export interface IsAuthorizedWithTokenInput {
 }
 
 /**
+ * @public
+ */
+export interface BatchIsAuthorizedInput {
+  /**
+   * @public
+   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make the
+   *             authorization decisions for the input.</p>
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the list of resources and principals and their associated attributes that
+   *             Verified Permissions can examine when evaluating the policies. </p>
+   *          <note>
+   *             <p>You can include only principal and resource entities in this parameter; you can't
+   *                 include actions. You must specify actions in the schema.</p>
+   *          </note>
+   */
+  entities?: EntitiesDefinition;
+
+  /**
+   * @public
+   * <p>An array of up to 30 requests that you want Verified Permissions to evaluate.</p>
+   */
+  requests: BatchIsAuthorizedInputItem[] | undefined;
+}
+
+/**
  * @internal
  */
 export const ActionIdentifierFilterSensitiveLog = (obj: ActionIdentifier): any => ({
@@ -3208,6 +3326,13 @@ export const EntityIdentifierFilterSensitiveLog = (obj: EntityIdentifier): any =
   ...obj,
   ...(obj.entityType && { entityType: SENSITIVE_STRING }),
   ...(obj.entityId && { entityId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EvaluationErrorItemFilterSensitiveLog = (obj: EvaluationErrorItem): any => ({
+  ...obj,
 });
 
 /**
@@ -3300,13 +3425,6 @@ export const EntityReferenceFilterSensitiveLog = (obj: EntityReference): any => 
   if (obj.identifier !== undefined) return { identifier: EntityIdentifierFilterSensitiveLog(obj.identifier) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const EvaluationErrorItemFilterSensitiveLog = (obj: EvaluationErrorItem): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -3676,11 +3794,39 @@ export const EntityItemFilterSensitiveLog = (obj: EntityItem): any => ({
 /**
  * @internal
  */
+export const BatchIsAuthorizedInputItemFilterSensitiveLog = (obj: BatchIsAuthorizedInputItem): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.action && { action: ActionIdentifierFilterSensitiveLog(obj.action) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedOutputItemFilterSensitiveLog = (obj: BatchIsAuthorizedOutputItem): any => ({
+  ...obj,
+  ...(obj.request && { request: BatchIsAuthorizedInputItemFilterSensitiveLog(obj.request) }),
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const EntitiesDefinitionFilterSensitiveLog = (obj: EntitiesDefinition): any => {
   if (obj.entityList !== undefined)
     return { entityList: obj.entityList.map((item) => EntityItemFilterSensitiveLog(item)) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedOutputFilterSensitiveLog = (obj: BatchIsAuthorizedOutput): any => ({
+  ...obj,
+  ...(obj.results && { results: obj.results.map((item) => BatchIsAuthorizedOutputItemFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal
@@ -3705,4 +3851,13 @@ export const IsAuthorizedWithTokenInputFilterSensitiveLog = (obj: IsAuthorizedWi
   ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
   ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
   ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedInputFilterSensitiveLog = (obj: BatchIsAuthorizedInput): any => ({
+  ...obj,
+  ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+  ...(obj.requests && { requests: obj.requests.map((item) => BatchIsAuthorizedInputItemFilterSensitiveLog(item)) }),
 });

@@ -50,6 +50,7 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "./commands/BatchIsAuthorizedCommand";
 import {
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
@@ -116,6 +117,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchIsAuthorizedCommandInput
   | CreateIdentitySourceCommandInput
   | CreatePolicyCommandInput
   | CreatePolicyStoreCommandInput
@@ -145,6 +147,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchIsAuthorizedCommandOutput
   | CreateIdentitySourceCommandOutput
   | CreatePolicyCommandOutput
   | CreatePolicyStoreCommandOutput
