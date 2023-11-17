@@ -40,126 +40,57 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * <p>Adds the specified targets to the specified rule, or updates the targets if they are
  *       already associated with the rule.</p>
  *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
+ *          <p>The maximum number of entries per request is 10.</p>
  *          <note>
  *             <p>Each rule can have up to five (5) targets associated with it at one time.</p>
  *          </note>
- *          <p>You can configure the following as targets for Events:</p>
+ *          <p>For a list of services you can configure as targets for events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html">EventBridge targets</a>
+ *       in the <i>Amazon EventBridge User Guide</i>.</p>
+ *          <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The
+ *       built-in targets are:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API destination</a>
+ *                   <code>Amazon EBS CreateSnapshot API call</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html">API Gateway</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Batch job queue</p>
- *             </li>
- *             <li>
- *                <p>CloudWatch group</p>
- *             </li>
- *             <li>
- *                <p>CodeBuild project</p>
- *             </li>
- *             <li>
- *                <p>CodePipeline</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>CreateSnapshot</code> API call</p>
- *             </li>
- *             <li>
- *                <p>EC2 Image Builder</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>RebootInstances</code> API call</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>StopInstances</code> API call</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>TerminateInstances</code> API call</p>
- *             </li>
- *             <li>
- *                <p>ECS task</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html">Event bus in a different account or
- *           Region</a>
+ *                   <code>Amazon EC2 RebootInstances API call</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html">Event bus in the same account and
- *           Region</a>
+ *                   <code>Amazon EC2 StopInstances API call</code>
  *                </p>
- *             </li>
- *             <li>
- *                <p>Firehose delivery stream</p>
- *             </li>
- *             <li>
- *                <p>Glue workflow</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge">Incident Manager response plan</a>
+ *                   <code>Amazon EC2 TerminateInstances API
+ *         call</code>
  *                </p>
- *             </li>
- *             <li>
- *                <p>Inspector assessment template</p>
- *             </li>
- *             <li>
- *                <p>Kinesis stream</p>
- *             </li>
- *             <li>
- *                <p>Lambda function</p>
- *             </li>
- *             <li>
- *                <p>Redshift cluster</p>
- *             </li>
- *             <li>
- *                <p>Redshift Serverless workgroup</p>
- *             </li>
- *             <li>
- *                <p>SageMaker Pipeline</p>
- *             </li>
- *             <li>
- *                <p>SNS topic</p>
- *             </li>
- *             <li>
- *                <p>SQS queue</p>
- *             </li>
- *             <li>
- *                <p>Step Functions state machine</p>
- *             </li>
- *             <li>
- *                <p>Systems Manager Automation</p>
- *             </li>
- *             <li>
- *                <p>Systems Manager OpsItem</p>
- *             </li>
- *             <li>
- *                <p>Systems Manager Run Command</p>
  *             </li>
  *          </ul>
- *          <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The
- *       built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances API
- *         call</code>, <code>EC2 StopInstances API call</code>, and <code>EC2 TerminateInstances API
- *         call</code>. </p>
  *          <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the
  *       target is a Kinesis data stream, you can optionally specify which shard the event goes to by
  *       using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2
  *       instances with one rule, you can use the <code>RunCommandParameters</code> field.</p>
  *          <p>To be able to make API calls against the resources that you own, Amazon EventBridge
- *       needs the appropriate permissions. For Lambda and Amazon SNS
- *       resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis Data Streams,
- *       Step Functions state machines and API Gateway APIs, EventBridge relies on
- *       IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
- *         and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+ *       needs the appropriate permissions:
+ *       </p>
+ *          <ul>
+ *             <li>
+ *                <p>For Lambda and Amazon SNS
+ *         resources, EventBridge relies on resource-based policies.</p>
+ *             </li>
+ *             <li>
+ *                <p>For EC2 instances, Kinesis Data Streams,
+ *         Step Functions state machines and API Gateway APIs, EventBridge relies on
+ *         IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
+ *       and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  *          <p>If another Amazon Web Services account is in the same region and has granted you permission (using
  *         <code>PutPermission</code>), you can send events to that account. Set that account's event
  *       bus as a target of the rules in your account. To send the matched events to the other account,
@@ -180,6 +111,10 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and
  *           Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User
  *         Guide</i>.</p>
+ *          <note>
+ *             <p>If you have an IAM role on a cross-account event bus target,
+ *       a <code>PutTargets</code> call without a role on the same target (same <code>Id</code> and <code>Arn</code>) will not remove the role.</p>
+ *          </note>
  *          <p>For more information about enabling cross-account events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html">PutPermission</a>.</p>
  *          <p>
  *             <b>Input</b>, <b>InputPath</b>, and

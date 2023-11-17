@@ -2145,6 +2145,7 @@ export interface DescribeRuleRequest {
 export const RuleState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
+  ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS: "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS",
 } as const;
 
 /**
@@ -2171,7 +2172,7 @@ export interface DescribeRuleResponse {
   /**
    * @public
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *         Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
 
@@ -2497,7 +2498,7 @@ export interface ListEndpointsRequest {
 
 /**
  * @public
- * <p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide.</p>
+ * <p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  */
 export interface Endpoint {
   /**
@@ -3116,13 +3117,38 @@ export interface Rule {
   /**
    * @public
    * <p>The event pattern of the rule. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *         Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
 
   /**
    * @public
    * <p>The state of the rule.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: The rule is disabled. EventBridge does not match any events against the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: The rule is enabled.
+   *           EventBridge matches events against the rule, <i>except</i> for Amazon Web Services management events delivered through CloudTrail.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS</code>: The rule is enabled for all
+   *         events, including Amazon Web Services management events delivered through CloudTrail.</p>
+   *                <p>Management events provide visibility into management operations that are performed on
+   *           resources in your Amazon Web Services account. These are also known as control plane
+   *           operations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events">Logging management events</a> in the <i>CloudTrail User
+   *             Guide</i>, and <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-cloudtrail">Filtering management events from Amazon Web Services services</a> in the
+   *             <i>Amazon EventBridge User Guide</i>.</p>
+   *                <p>This value is only valid for rules on the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.html#eb-bus-concepts-buses">default</a> event bus
+   *           or <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-event-bus.html">custom event buses</a>.
+   *           It does not apply to <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-saas.html">partner event buses</a>.</p>
+   *             </li>
+   *          </ul>
    */
   State?: RuleState;
 
@@ -3751,7 +3777,7 @@ export interface KinesisParameters {
 
 /**
  * @public
- * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster or Redshift Serverless workgroup to invoke the
+ * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster  to invoke the
  *       Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
  */
 export interface RedshiftDataParameters {
@@ -3771,7 +3797,6 @@ export interface RedshiftDataParameters {
   /**
    * @public
    * <p>The database user name. Required when authenticating using temporary credentials.</p>
-   *          <p>Do not provide this parameter when connecting to a Redshift Serverless workgroup.</p>
    */
   DbUser?: string;
 
@@ -3797,7 +3822,9 @@ export interface RedshiftDataParameters {
 
   /**
    * @public
-   * A list of SQLs.
+   * <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array.
+   *       Subsequent SQL statements don't start until the previous statement in the array completes.
+   *       If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
    */
   Sqls?: string[];
 }
@@ -4079,6 +4106,13 @@ export interface PutEventsRequestEntry {
   /**
    * @public
    * <p>The source of the event.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Source?: string;
 
@@ -4092,13 +4126,27 @@ export interface PutEventsRequestEntry {
   /**
    * @public
    * <p>Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   DetailType?: string;
 
   /**
    * @public
    * <p>A valid JSON object. There is no other schema imposed. The JSON object may contain fields
-   *       and nested subobjects.</p>
+   *       and nested sub-objects.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Detail?: string;
 
@@ -4108,9 +4156,9 @@ export interface PutEventsRequestEntry {
    *       with this event bus are used to match the event. If you omit this, the default event bus is
    *       used.</p>
    *          <note>
-   *             <p>If you're using a global endpoint with a custom bus, you must enter the name, not the ARN, of the event bus in either
-   *       the primary or secondary Region here and the corresponding event bus in the
-   *       other Region will be determined based on the endpoint referenced by the <code>EndpointId</code>.</p>
+   *             <p>If you're using a global endpoint with a custom bus, you can enter either the name or Amazon Resource Name (ARN) of the event bus
+   *       in either the primary or secondary Region here. EventBridge then determines the corresponding event bus in the
+   *       other Region based on the endpoint referenced by the <code>EndpointId</code>. Specifying the event bus ARN is preferred.</p>
    *          </note>
    */
   EventBusName?: string;
@@ -4148,7 +4196,10 @@ export interface PutEventsRequest {
 
 /**
  * @public
- * <p>Represents an event that failed to be submitted. For information about the errors that are common to all actions, see
+ * <p>Represents the results of an event submitted to an event bus.</p>
+ *          <p>If the submission was successful, the entry has the event ID in it.
+ *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
+ *          <p>For information about the errors that are common to all actions, see
  *       <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
  */
 export interface PutEventsResultEntry {
@@ -4161,6 +4212,72 @@ export interface PutEventsResultEntry {
   /**
    * @public
    * <p>The error code that indicates why the event submission failed.</p>
+   *          <p>Retryable errors include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">InternalFailure</a>
+   *                   </code>
+   *                </p>
+   *                <p>The request processing has failed because of an unknown error, exception or failure.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">ThrottlingException</a>
+   *                   </code>
+   *                </p>
+   *                <p>The request was denied due to request throttling.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Non-retryable errors include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">AccessDeniedException</a>
+   *                   </code>
+   *                </p>
+   *                <p>You do not have sufficient access to perform this action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidAccountIdException</code>
+   *                </p>
+   *                <p>The account ID provided is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidArgument</code>
+   *                </p>
+   *                <p>A specified parameter is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MalformedDetail</code>
+   *                </p>
+   *                <p>The JSON provided is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RedactionFailure</code>
+   *                </p>
+   *                <p>Redacting the CloudTrail event failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotAuthorizedForSourceException</code>
+   *                </p>
+   *                <p>You do not have permissions to publish events with this source onto this event bus.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotAuthorizedForDetailTypeException</code>
+   *                </p>
+   *                <p>You do not have permissions to publish events with this detail type onto this event bus.</p>
+   *             </li>
+   *          </ul>
    */
   ErrorCode?: string;
 
@@ -4205,6 +4322,13 @@ export interface PutPartnerEventsRequestEntry {
   /**
    * @public
    * <p>The event source that is generating the entry.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Source?: string;
 
@@ -4218,13 +4342,27 @@ export interface PutPartnerEventsRequestEntry {
   /**
    * @public
    * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   DetailType?: string;
 
   /**
    * @public
    * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain fields
-   *       and nested subobjects.</p>
+   *       and nested sub-objects.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Detail?: string;
 }
@@ -4242,7 +4380,9 @@ export interface PutPartnerEventsRequest {
 
 /**
  * @public
- * <p>Represents an event that a partner tried to generate, but failed.</p>
+ * <p>The result of an event entry the partner submitted in this request.
+ *       If the event was successfully submitted, the entry has the event ID in it.
+ *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
  */
 export interface PutPartnerEventsResultEntry {
   /**
@@ -4277,8 +4417,10 @@ export interface PutPartnerEventsResponse {
 
   /**
    * @public
-   * <p>The list of events from this operation that were successfully written to the partner event
-   *       bus.</p>
+   * <p>The results for each event entry the partner submitted in this request.
+   *       If the event was successfully submitted, the entry has the event ID in it.
+   *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
+   *          <p>For each record, the index of the response element is the same as the index in the request array.</p>
    */
   Entries?: PutPartnerEventsResultEntry[];
 }
@@ -4420,13 +4562,38 @@ export interface PutRuleRequest {
   /**
    * @public
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event
-   *         patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
 
   /**
    * @public
-   * <p>Indicates whether the rule is enabled or disabled.</p>
+   * <p>The state of the rule.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: The rule is disabled. EventBridge does not match any events against the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: The rule is enabled.
+   *           EventBridge matches events against the rule, <i>except</i> for Amazon Web Services management events delivered through CloudTrail.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS</code>: The rule is enabled for all
+   *         events, including Amazon Web Services management events delivered through CloudTrail.</p>
+   *                <p>Management events provide visibility into management operations that are performed on
+   *           resources in your Amazon Web Services account. These are also known as control plane
+   *           operations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events">Logging management events</a> in the <i>CloudTrail User
+   *             Guide</i>, and <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-cloudtrail">Filtering management events from Amazon Web Services services</a> in the
+   *             <i>Amazon EventBridge User Guide</i>.</p>
+   *                <p>This value is only valid for rules on the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.html#eb-bus-concepts-buses">default</a> event bus
+   *           or <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-event-bus.html">custom event buses</a>.
+   *           It does not apply to <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-saas.html">partner event buses</a>.</p>
+   *             </li>
+   *          </ul>
    */
   State?: RuleState;
 
@@ -4742,7 +4909,7 @@ export interface TestEventPatternRequest {
   /**
    * @public
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *         Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern: string | undefined;
 

@@ -39,6 +39,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @public
  * <p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide
  *       a prefix to match to the rule names.</p>
+ *          <p>The maximum number of results per page for requests is 100.</p>
  *          <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,
  *       use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
  * @example
@@ -61,7 +62,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * //       Name: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       EventPattern: "STRING_VALUE",
- * //       State: "ENABLED" || "DISABLED",
+ * //       State: "ENABLED" || "DISABLED" || "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS",
  * //       Description: "STRING_VALUE",
  * //       ScheduleExpression: "STRING_VALUE",
  * //       RoleArn: "STRING_VALUE",

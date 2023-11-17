@@ -87,7 +87,7 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  *   Name: "STRING_VALUE", // required
  *   ScheduleExpression: "STRING_VALUE",
  *   EventPattern: "STRING_VALUE",
- *   State: "ENABLED" || "DISABLED",
+ *   State: "ENABLED" || "DISABLED" || "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS",
  *   Description: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
  *   Tags: [ // TagList

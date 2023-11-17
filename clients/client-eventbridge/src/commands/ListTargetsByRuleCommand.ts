@@ -42,6 +42,7 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
 /**
  * @public
  * <p>Lists the targets assigned to the specified rule.</p>
+ *          <p>The maximum number of results per page for requests is 100.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

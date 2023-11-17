@@ -47,6 +47,7 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  *          <p>This action can partially fail if too many requests are made at the same time. If that
  *       happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in
  *         <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>
+ *          <p>The maximum number of entries per request is 10.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -39,6 +39,7 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * @public
  * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
  *       EventBridge can invoke a specific target in your account.</p>
+ *          <p>The maximum number of results per page for requests is 100.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

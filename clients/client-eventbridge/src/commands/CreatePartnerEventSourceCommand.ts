@@ -53,13 +53,27 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *                <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>
  *             </code>
  *          </p>
- *          <p>
- *             <i>partner_name</i> is determined during partner registration and identifies
- *       the partner to Amazon Web Services customers. <i>event_namespace</i> is determined by the
- *       partner and is a way for the partner to categorize their events.
- *         <i>event_name</i> is determined by the partner, and should uniquely identify
- *       an event-generating resource within the partner system. The combination of
- *         <i>event_namespace</i> and <i>event_name</i> should help Amazon Web Services
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <i>partner_name</i> is determined during partner registration, and
+ *           identifies the partner to Amazon Web Services customers. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>event_namespace</i> is determined by the partner, and is a way for
+ *           the partner to categorize their events.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>event_name</i> is determined by the partner, and should uniquely identify
+ *         an event-generating resource within the partner system. </p>
+ *                <p>The <i>event_name</i> must be unique across all Amazon Web Services customers. This is because the event source is a shared resource
+ *           between the partner and customer accounts, and each partner event source unique in the partner account.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The combination of
+ *       <i>event_namespace</i> and <i>event_name</i> should help Amazon Web Services
  *       customers decide whether to create an event bus to receive these events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
