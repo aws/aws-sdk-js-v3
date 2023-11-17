@@ -3193,7 +3193,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to describe Job log item maximum results.</p>"
           }
         },
@@ -3272,7 +3271,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to describe job log items by max results.</p>"
           }
         },
@@ -3392,7 +3390,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>"
           }
         },
@@ -3468,7 +3465,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to describe Replication Configuration template by max results.</p>"
           }
         },
@@ -3541,7 +3537,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to filter Source Servers list by maximum results.</p>"
           }
         },
@@ -3679,7 +3674,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum results to be returned in DescribeVcenterClients.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -4799,7 +4793,6 @@
     "com.amazonaws.mgn#Iops": {
       "type": "long",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 100,
           "max": 64000
@@ -5439,14 +5432,12 @@
         "iops": {
           "target": "com.amazonaws.mgn#Iops",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Launch template disk iops configuration.</p>"
           }
         },
         "throughput": {
           "target": "com.amazonaws.mgn#Throughput",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Launch template disk throughput configuration.</p>"
           }
         }
@@ -5793,7 +5784,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum results to return when listing applications.</p>"
           }
         },
@@ -5898,7 +5888,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>List Connectors Request max results.</p>"
           }
         },
@@ -5992,7 +5981,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>List export errors request max results.</p>"
           }
         },
@@ -6065,7 +6053,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>List export request max results.</p>"
           }
         },
@@ -6171,7 +6158,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>List import errors request max results.</p>"
           }
         },
@@ -6250,7 +6236,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>List imports request max results.</p>"
           }
         },
@@ -6337,7 +6322,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>List managed accounts request max results.</p>"
           }
         },
@@ -6426,7 +6410,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum amount of items to return when listing source server post migration custom actions.</p>"
           }
         },
@@ -6570,7 +6553,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum amount of items to return when listing template post migration custom actions.</p>"
           }
         },
@@ -6640,7 +6622,6 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum results to return when listing waves.</p>"
           }
         },
@@ -6770,7 +6751,6 @@
     "com.amazonaws.mgn#MaxResultsType": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -6838,7 +6818,6 @@
     "com.amazonaws.mgn#OrderType": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1001,
           "max": 10000
@@ -7117,7 +7096,6 @@
         "order": {
           "target": "com.amazonaws.mgn#OrderType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Source server post migration custom action order.</p>",
             "smithy.api#required": {}
           }
@@ -7144,7 +7122,6 @@
         "timeoutSeconds": {
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Source server post migration custom action timeout in seconds.</p>"
           }
         },
@@ -7244,7 +7221,6 @@
         "order": {
           "target": "com.amazonaws.mgn#OrderType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Template post migration custom action order.</p>",
             "smithy.api#required": {}
           }
@@ -7271,7 +7247,6 @@
         "timeoutSeconds": {
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Template post migration custom action timeout in seconds.</p>"
           }
         },
@@ -8092,7 +8067,6 @@
         "quotaValue": {
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Exceeded the service quota value.</p>"
           }
         }
@@ -8289,7 +8263,6 @@
         "order": {
           "target": "com.amazonaws.mgn#OrderType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Source server post migration custom action order.</p>"
           }
         },
@@ -8308,7 +8281,6 @@
         "timeoutSeconds": {
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Source server post migration custom action timeout in seconds.</p>"
           }
         },
@@ -8512,7 +8484,6 @@
         "timeoutSeconds": {
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>AWS Systems Manager Document timeout seconds.</p>"
           }
         },
@@ -9095,7 +9066,6 @@
     "com.amazonaws.mgn#StrictlyPositiveInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1
         }
@@ -9247,7 +9217,6 @@
         "order": {
           "target": "com.amazonaws.mgn#OrderType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Template post migration custom action order.</p>"
           }
         },
@@ -9266,7 +9235,6 @@
         "timeoutSeconds": {
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Template post migration custom action timeout in seconds.</p>"
           }
         },
@@ -9447,7 +9415,6 @@
     "com.amazonaws.mgn#Throughput": {
       "type": "long",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 125,
           "max": 1000
