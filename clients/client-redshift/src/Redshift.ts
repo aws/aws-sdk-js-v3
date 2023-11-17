@@ -109,6 +109,11 @@ import {
   CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
+  CreateRedshiftIdcApplicationCommand,
+  CreateRedshiftIdcApplicationCommandInput,
+  CreateRedshiftIdcApplicationCommandOutput,
+} from "./commands/CreateRedshiftIdcApplicationCommand";
+import {
   CreateScheduledActionCommand,
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -194,6 +199,11 @@ import {
   DeletePartnerCommandInput,
   DeletePartnerCommandOutput,
 } from "./commands/DeletePartnerCommand";
+import {
+  DeleteRedshiftIdcApplicationCommand,
+  DeleteRedshiftIdcApplicationCommandInput,
+  DeleteRedshiftIdcApplicationCommandOutput,
+} from "./commands/DeleteRedshiftIdcApplicationCommand";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
@@ -360,6 +370,11 @@ import {
   DescribePartnersCommandInput,
   DescribePartnersCommandOutput,
 } from "./commands/DescribePartnersCommand";
+import {
+  DescribeRedshiftIdcApplicationsCommand,
+  DescribeRedshiftIdcApplicationsCommandInput,
+  DescribeRedshiftIdcApplicationsCommandOutput,
+} from "./commands/DescribeRedshiftIdcApplicationsCommand";
 import {
   DescribeReservedNodeExchangeStatusCommand,
   DescribeReservedNodeExchangeStatusCommandInput,
@@ -536,6 +551,11 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyRedshiftIdcApplicationCommand,
+  ModifyRedshiftIdcApplicationCommandInput,
+  ModifyRedshiftIdcApplicationCommandOutput,
+} from "./commands/ModifyRedshiftIdcApplicationCommand";
+import {
   ModifyScheduledActionCommand,
   ModifyScheduledActionCommandInput,
   ModifyScheduledActionCommandOutput,
@@ -655,6 +675,7 @@ const commands = {
   CreateEventSubscriptionCommand,
   CreateHsmClientCertificateCommand,
   CreateHsmConfigurationCommand,
+  CreateRedshiftIdcApplicationCommand,
   CreateScheduledActionCommand,
   CreateSnapshotCopyGrantCommand,
   CreateSnapshotScheduleCommand,
@@ -673,6 +694,7 @@ const commands = {
   DeleteHsmClientCertificateCommand,
   DeleteHsmConfigurationCommand,
   DeletePartnerCommand,
+  DeleteRedshiftIdcApplicationCommand,
   DeleteResourcePolicyCommand,
   DeleteScheduledActionCommand,
   DeleteSnapshotCopyGrantCommand,
@@ -707,6 +729,7 @@ const commands = {
   DescribeNodeConfigurationOptionsCommand,
   DescribeOrderableClusterOptionsCommand,
   DescribePartnersCommand,
+  DescribeRedshiftIdcApplicationsCommand,
   DescribeReservedNodeExchangeStatusCommand,
   DescribeReservedNodeOfferingsCommand,
   DescribeReservedNodesCommand,
@@ -742,6 +765,7 @@ const commands = {
   ModifyCustomDomainAssociationCommand,
   ModifyEndpointAccessCommand,
   ModifyEventSubscriptionCommand,
+  ModifyRedshiftIdcApplicationCommand,
   ModifyScheduledActionCommand,
   ModifySnapshotCopyRetentionPeriodCommand,
   ModifySnapshotScheduleCommand,
@@ -1121,6 +1145,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link CreateRedshiftIdcApplicationCommand}
+   */
+  createRedshiftIdcApplication(
+    args: CreateRedshiftIdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRedshiftIdcApplicationCommandOutput>;
+  createRedshiftIdcApplication(
+    args: CreateRedshiftIdcApplicationCommandInput,
+    cb: (err: any, data?: CreateRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+  createRedshiftIdcApplication(
+    args: CreateRedshiftIdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateScheduledActionCommand}
    */
   createScheduledAction(
@@ -1406,6 +1447,23 @@ export interface Redshift {
     args: DeletePartnerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePartnerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRedshiftIdcApplicationCommand}
+   */
+  deleteRedshiftIdcApplication(
+    args: DeleteRedshiftIdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRedshiftIdcApplicationCommandOutput>;
+  deleteRedshiftIdcApplication(
+    args: DeleteRedshiftIdcApplicationCommandInput,
+    cb: (err: any, data?: DeleteRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+  deleteRedshiftIdcApplication(
+    args: DeleteRedshiftIdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRedshiftIdcApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -1978,6 +2036,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link DescribeRedshiftIdcApplicationsCommand}
+   */
+  describeRedshiftIdcApplications(
+    args: DescribeRedshiftIdcApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRedshiftIdcApplicationsCommandOutput>;
+  describeRedshiftIdcApplications(
+    args: DescribeRedshiftIdcApplicationsCommandInput,
+    cb: (err: any, data?: DescribeRedshiftIdcApplicationsCommandOutput) => void
+  ): void;
+  describeRedshiftIdcApplications(
+    args: DescribeRedshiftIdcApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRedshiftIdcApplicationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeReservedNodeExchangeStatusCommand}
    */
   describeReservedNodeExchangeStatus(
@@ -2543,6 +2618,23 @@ export interface Redshift {
     args: ModifyEventSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyRedshiftIdcApplicationCommand}
+   */
+  modifyRedshiftIdcApplication(
+    args: ModifyRedshiftIdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyRedshiftIdcApplicationCommandOutput>;
+  modifyRedshiftIdcApplication(
+    args: ModifyRedshiftIdcApplicationCommandInput,
+    cb: (err: any, data?: ModifyRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+  modifyRedshiftIdcApplication(
+    args: ModifyRedshiftIdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyRedshiftIdcApplicationCommandOutput) => void
   ): void;
 
   /**

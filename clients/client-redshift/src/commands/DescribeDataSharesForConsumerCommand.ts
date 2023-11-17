@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeDataSharesForConsumerMessage, DescribeDataSharesForConsumerResult } from "../models/models_0";
+import { DescribeDataSharesForConsumerMessage, DescribeDataSharesForConsumerResult } from "../models/models_1";
 import {
   de_DescribeDataSharesForConsumerCommand,
   se_DescribeDataSharesForConsumerCommand,

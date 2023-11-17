@@ -105,6 +105,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  *   IpAddressType: "STRING_VALUE",
  *   MultiAZ: true || false,
+ *   RedshiftIdcApplicationArn: "STRING_VALUE",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -383,6 +384,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
+ *
+ * @throws {@link RedshiftIdcApplicationNotExistsFault} (client fault)
+ *  <p>The application you attempted to find doesn't exist.</p>
  *
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
  *  <p>We could not find the specified snapshot schedule. </p>

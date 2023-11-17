@@ -127,6 +127,10 @@ import {
   CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
+  CreateRedshiftIdcApplicationCommandInput,
+  CreateRedshiftIdcApplicationCommandOutput,
+} from "./commands/CreateRedshiftIdcApplicationCommand";
+import {
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
 } from "./commands/CreateScheduledActionCommand";
@@ -186,6 +190,10 @@ import {
   DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
 import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "./commands/DeletePartnerCommand";
+import {
+  DeleteRedshiftIdcApplicationCommandInput,
+  DeleteRedshiftIdcApplicationCommandOutput,
+} from "./commands/DeleteRedshiftIdcApplicationCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -305,6 +313,10 @@ import {
 } from "./commands/DescribeOrderableClusterOptionsCommand";
 import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "./commands/DescribePartnersCommand";
 import {
+  DescribeRedshiftIdcApplicationsCommandInput,
+  DescribeRedshiftIdcApplicationsCommandOutput,
+} from "./commands/DescribeRedshiftIdcApplicationsCommand";
+import {
   DescribeReservedNodeExchangeStatusCommandInput,
   DescribeReservedNodeExchangeStatusCommandOutput,
 } from "./commands/DescribeReservedNodeExchangeStatusCommand";
@@ -421,6 +433,10 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyRedshiftIdcApplicationCommandInput,
+  ModifyRedshiftIdcApplicationCommandOutput,
+} from "./commands/ModifyRedshiftIdcApplicationCommand";
+import {
   ModifyScheduledActionCommandInput,
   ModifyScheduledActionCommandOutput,
 } from "./commands/ModifyScheduledActionCommand";
@@ -512,6 +528,7 @@ export type ServiceInputTypes =
   | CreateEventSubscriptionCommandInput
   | CreateHsmClientCertificateCommandInput
   | CreateHsmConfigurationCommandInput
+  | CreateRedshiftIdcApplicationCommandInput
   | CreateScheduledActionCommandInput
   | CreateSnapshotCopyGrantCommandInput
   | CreateSnapshotScheduleCommandInput
@@ -530,6 +547,7 @@ export type ServiceInputTypes =
   | DeleteHsmClientCertificateCommandInput
   | DeleteHsmConfigurationCommandInput
   | DeletePartnerCommandInput
+  | DeleteRedshiftIdcApplicationCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteScheduledActionCommandInput
   | DeleteSnapshotCopyGrantCommandInput
@@ -564,6 +582,7 @@ export type ServiceInputTypes =
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
   | DescribePartnersCommandInput
+  | DescribeRedshiftIdcApplicationsCommandInput
   | DescribeReservedNodeExchangeStatusCommandInput
   | DescribeReservedNodeOfferingsCommandInput
   | DescribeReservedNodesCommandInput
@@ -599,6 +618,7 @@ export type ServiceInputTypes =
   | ModifyCustomDomainAssociationCommandInput
   | ModifyEndpointAccessCommandInput
   | ModifyEventSubscriptionCommandInput
+  | ModifyRedshiftIdcApplicationCommandInput
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
   | ModifySnapshotScheduleCommandInput
@@ -645,6 +665,7 @@ export type ServiceOutputTypes =
   | CreateEventSubscriptionCommandOutput
   | CreateHsmClientCertificateCommandOutput
   | CreateHsmConfigurationCommandOutput
+  | CreateRedshiftIdcApplicationCommandOutput
   | CreateScheduledActionCommandOutput
   | CreateSnapshotCopyGrantCommandOutput
   | CreateSnapshotScheduleCommandOutput
@@ -663,6 +684,7 @@ export type ServiceOutputTypes =
   | DeleteHsmClientCertificateCommandOutput
   | DeleteHsmConfigurationCommandOutput
   | DeletePartnerCommandOutput
+  | DeleteRedshiftIdcApplicationCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteScheduledActionCommandOutput
   | DeleteSnapshotCopyGrantCommandOutput
@@ -697,6 +719,7 @@ export type ServiceOutputTypes =
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
   | DescribePartnersCommandOutput
+  | DescribeRedshiftIdcApplicationsCommandOutput
   | DescribeReservedNodeExchangeStatusCommandOutput
   | DescribeReservedNodeOfferingsCommandOutput
   | DescribeReservedNodesCommandOutput
@@ -732,6 +755,7 @@ export type ServiceOutputTypes =
   | ModifyCustomDomainAssociationCommandOutput
   | ModifyEndpointAccessCommandOutput
   | ModifyEventSubscriptionCommandOutput
+  | ModifyRedshiftIdcApplicationCommandOutput
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput
   | ModifySnapshotScheduleCommandOutput

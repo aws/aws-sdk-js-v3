@@ -14,7 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/models_0";
+import { ClusterVersionsMessage } from "../models/models_0";
+import { DescribeClusterVersionsMessage } from "../models/models_1";
 import { de_DescribeClusterVersionsCommand, se_DescribeClusterVersionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 

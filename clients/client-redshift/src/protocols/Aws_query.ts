@@ -5,6 +5,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -100,6 +101,10 @@ import {
   CreateHsmConfigurationCommandOutput,
 } from "../commands/CreateHsmConfigurationCommand";
 import {
+  CreateRedshiftIdcApplicationCommandInput,
+  CreateRedshiftIdcApplicationCommandOutput,
+} from "../commands/CreateRedshiftIdcApplicationCommand";
+import {
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
 } from "../commands/CreateScheduledActionCommand";
@@ -159,6 +164,10 @@ import {
   DeleteHsmConfigurationCommandOutput,
 } from "../commands/DeleteHsmConfigurationCommand";
 import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "../commands/DeletePartnerCommand";
+import {
+  DeleteRedshiftIdcApplicationCommandInput,
+  DeleteRedshiftIdcApplicationCommandOutput,
+} from "../commands/DeleteRedshiftIdcApplicationCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -278,6 +287,10 @@ import {
 } from "../commands/DescribeOrderableClusterOptionsCommand";
 import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "../commands/DescribePartnersCommand";
 import {
+  DescribeRedshiftIdcApplicationsCommandInput,
+  DescribeRedshiftIdcApplicationsCommandOutput,
+} from "../commands/DescribeRedshiftIdcApplicationsCommand";
+import {
   DescribeReservedNodeExchangeStatusCommandInput,
   DescribeReservedNodeExchangeStatusCommandOutput,
 } from "../commands/DescribeReservedNodeExchangeStatusCommand";
@@ -394,6 +407,10 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "../commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyRedshiftIdcApplicationCommandInput,
+  ModifyRedshiftIdcApplicationCommandOutput,
+} from "../commands/ModifyRedshiftIdcApplicationCommand";
+import {
   ModifyScheduledActionCommandInput,
   ModifyScheduledActionCommandOutput,
 } from "../commands/ModifyScheduledActionCommand";
@@ -470,6 +487,7 @@ import {
   AuthorizeClusterSecurityGroupIngressMessage,
   AuthorizeClusterSecurityGroupIngressResult,
   AuthorizeDataShareMessage,
+  AuthorizedTokenIssuer,
   AuthorizeEndpointAccessMessage,
   AuthorizeSnapshotAccessMessage,
   AuthorizeSnapshotAccessResult,
@@ -548,6 +566,8 @@ import {
   CreateHsmClientCertificateResult,
   CreateHsmConfigurationMessage,
   CreateHsmConfigurationResult,
+  CreateRedshiftIdcApplicationMessage,
+  CreateRedshiftIdcApplicationResult,
   CreateScheduledActionMessage,
   CreateSnapshotCopyGrantMessage,
   CreateSnapshotCopyGrantResult,
@@ -578,12 +598,14 @@ import {
   DeleteEventSubscriptionMessage,
   DeleteHsmClientCertificateMessage,
   DeleteHsmConfigurationMessage,
+  DeleteRedshiftIdcApplicationMessage,
   DeleteResourcePolicyMessage,
   DeleteScheduledActionMessage,
   DeleteSnapshotCopyGrantMessage,
   DeleteSnapshotScheduleMessage,
   DeleteTagsMessage,
   DeleteUsageLimitMessage,
+  DependentServiceAccessDeniedFault,
   DependentServiceRequestThrottlingFault,
   DependentServiceUnavailableFault,
   DescribeAccountAttributesMessage,
@@ -597,23 +619,10 @@ import {
   DescribeClusterSnapshotsMessage,
   DescribeClusterSubnetGroupsMessage,
   DescribeClusterTracksMessage,
-  DescribeClusterVersionsMessage,
-  DescribeCustomDomainAssociationsMessage,
-  DescribeDataSharesForConsumerMessage,
-  DescribeDataSharesForConsumerResult,
-  DescribeDataSharesForProducerMessage,
-  DescribeDataSharesForProducerResult,
-  DescribeDataSharesMessage,
-  DescribeDataSharesResult,
-  DescribeDefaultClusterParametersMessage,
-  DescribeDefaultClusterParametersResult,
-  DescribeEndpointAccessMessage,
-  DescribeEndpointAuthorizationMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
   EndpointAccess,
-  EndpointAccessList,
   EndpointAlreadyExistsFault,
   EndpointAuthorization,
   EndpointAuthorizationAlreadyExistsFault,
@@ -661,6 +670,8 @@ import {
   InvalidVPCNetworkStateFault,
   IPRange,
   Ipv6CidrBlockNotFoundFault,
+  LakeFormationQuery,
+  LakeFormationScopeUnion,
   LimitExceededFault,
   MaintenanceTrack,
   NetworkInterface,
@@ -673,6 +684,10 @@ import {
   PauseClusterMessage,
   PendingModifiedValues,
   RecurringCharge,
+  RedshiftIdcApplication,
+  RedshiftIdcApplicationAlreadyExistsFault,
+  RedshiftIdcApplicationNotExistsFault,
+  RedshiftIdcApplicationQuotaExceededFault,
   ReservedNode,
   ReservedNodeAlreadyExistsFault,
   ReservedNodeAlreadyMigratedFault,
@@ -695,6 +710,7 @@ import {
   ScheduledActionTypeUnsupportedFault,
   ScheduleDefinitionTypeUnsupportedFault,
   SecondaryClusterInfo,
+  ServiceIntegrationsUnion,
   Snapshot,
   SnapshotCopyGrant,
   SnapshotCopyGrantAlreadyExistsFault,
@@ -733,6 +749,18 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeClusterVersionsMessage,
+  DescribeCustomDomainAssociationsMessage,
+  DescribeDataSharesForConsumerMessage,
+  DescribeDataSharesForConsumerResult,
+  DescribeDataSharesForProducerMessage,
+  DescribeDataSharesForProducerResult,
+  DescribeDataSharesMessage,
+  DescribeDataSharesResult,
+  DescribeDefaultClusterParametersMessage,
+  DescribeDefaultClusterParametersResult,
+  DescribeEndpointAccessMessage,
+  DescribeEndpointAuthorizationMessage,
   DescribeEventCategoriesMessage,
   DescribeEventsMessage,
   DescribeEventSubscriptionsMessage,
@@ -744,6 +772,8 @@ import {
   DescribeOrderableClusterOptionsMessage,
   DescribePartnersInputMessage,
   DescribePartnersOutputMessage,
+  DescribeRedshiftIdcApplicationsMessage,
+  DescribeRedshiftIdcApplicationsResult,
   DescribeReservedNodeExchangeStatusInputMessage,
   DescribeReservedNodeExchangeStatusOutputMessage,
   DescribeReservedNodeOfferingsMessage,
@@ -763,6 +793,7 @@ import {
   EnableLoggingMessage,
   EnableSnapshotCopyMessage,
   EnableSnapshotCopyResult,
+  EndpointAccessList,
   EndpointAuthorizationList,
   EndpointAuthorizationNotFoundFault,
   Event,
@@ -819,6 +850,8 @@ import {
   ModifyEndpointAccessMessage,
   ModifyEventSubscriptionMessage,
   ModifyEventSubscriptionResult,
+  ModifyRedshiftIdcApplicationMessage,
+  ModifyRedshiftIdcApplicationResult,
   ModifyScheduledActionMessage,
   ModifySnapshotCopyRetentionPeriodMessage,
   ModifySnapshotCopyRetentionPeriodResult,
@@ -1255,6 +1288,23 @@ export const se_CreateHsmConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_queryCreateRedshiftIdcApplicationCommand
+ */
+export const se_CreateRedshiftIdcApplicationCommand = async (
+  input: CreateRedshiftIdcApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateRedshiftIdcApplicationMessage(input, context),
+    Action: "CreateRedshiftIdcApplication",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryCreateScheduledActionCommand
  */
 export const se_CreateScheduledActionCommand = async (
@@ -1555,6 +1605,23 @@ export const se_DeletePartnerCommand = async (
   body = buildFormUrlencodedString({
     ...se_PartnerIntegrationInputMessage(input, context),
     Action: "DeletePartner",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeleteRedshiftIdcApplicationCommand
+ */
+export const se_DeleteRedshiftIdcApplicationCommand = async (
+  input: DeleteRedshiftIdcApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteRedshiftIdcApplicationMessage(input, context),
+    Action: "DeleteRedshiftIdcApplication",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2133,6 +2200,23 @@ export const se_DescribePartnersCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribePartnersInputMessage(input, context),
     Action: "DescribePartners",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeRedshiftIdcApplicationsCommand
+ */
+export const se_DescribeRedshiftIdcApplicationsCommand = async (
+  input: DescribeRedshiftIdcApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeRedshiftIdcApplicationsMessage(input, context),
+    Action: "DescribeRedshiftIdcApplications",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2726,6 +2810,23 @@ export const se_ModifyEventSubscriptionCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyEventSubscriptionMessage(input, context),
     Action: "ModifyEventSubscription",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyRedshiftIdcApplicationCommand
+ */
+export const se_ModifyRedshiftIdcApplicationCommand = async (
+  input: ModifyRedshiftIdcApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyRedshiftIdcApplicationMessage(input, context),
+    Action: "ModifyRedshiftIdcApplication",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3804,6 +3905,9 @@ const de_CreateClusterCommandError = async (
     case "NumberOfNodesQuotaExceeded":
     case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       throw await de_NumberOfNodesQuotaExceededFaultRes(parsedOutput, context);
+    case "RedshiftIdcApplicationNotExists":
+    case "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault":
+      throw await de_RedshiftIdcApplicationNotExistsFaultRes(parsedOutput, context);
     case "SnapshotScheduleNotFound":
     case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       throw await de_SnapshotScheduleNotFoundFaultRes(parsedOutput, context);
@@ -4368,6 +4472,64 @@ const de_CreateHsmConfigurationCommandError = async (
     case "TagLimitExceededFault":
     case "com.amazonaws.redshift#TagLimitExceededFault":
       throw await de_TagLimitExceededFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryCreateRedshiftIdcApplicationCommand
+ */
+export const de_CreateRedshiftIdcApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRedshiftIdcApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRedshiftIdcApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRedshiftIdcApplicationResult(data.CreateRedshiftIdcApplicationResult, context);
+  const response: CreateRedshiftIdcApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateRedshiftIdcApplicationCommandError
+ */
+const de_CreateRedshiftIdcApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRedshiftIdcApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependentServiceAccessDenied":
+    case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
+      throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
+    case "DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
+      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
+    case "RedshiftIdcApplicationAlreadyExists":
+    case "com.amazonaws.redshift#RedshiftIdcApplicationAlreadyExistsFault":
+      throw await de_RedshiftIdcApplicationAlreadyExistsFaultRes(parsedOutput, context);
+    case "RedshiftIdcApplicationQuotaExceeded":
+    case "com.amazonaws.redshift#RedshiftIdcApplicationQuotaExceededFault":
+      throw await de_RedshiftIdcApplicationQuotaExceededFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5316,6 +5478,58 @@ const de_DeletePartnerCommandError = async (
     case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteRedshiftIdcApplicationCommand
+ */
+export const de_DeleteRedshiftIdcApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRedshiftIdcApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRedshiftIdcApplicationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteRedshiftIdcApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteRedshiftIdcApplicationCommandError
+ */
+const de_DeleteRedshiftIdcApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRedshiftIdcApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependentServiceAccessDenied":
+    case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
+      throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
+    case "DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
+      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
+    case "RedshiftIdcApplicationNotExists":
+    case "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault":
+      throw await de_RedshiftIdcApplicationNotExistsFaultRes(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
@@ -6922,6 +7136,61 @@ const de_DescribePartnersCommandError = async (
     case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDescribeRedshiftIdcApplicationsCommand
+ */
+export const de_DescribeRedshiftIdcApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRedshiftIdcApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRedshiftIdcApplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRedshiftIdcApplicationsResult(data.DescribeRedshiftIdcApplicationsResult, context);
+  const response: DescribeRedshiftIdcApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeRedshiftIdcApplicationsCommandError
+ */
+const de_DescribeRedshiftIdcApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRedshiftIdcApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependentServiceAccessDenied":
+    case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
+      throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
+    case "DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
+      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
+    case "RedshiftIdcApplicationNotExists":
+    case "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault":
+      throw await de_RedshiftIdcApplicationNotExistsFaultRes(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
@@ -8864,6 +9133,61 @@ const de_ModifyEventSubscriptionCommandError = async (
 };
 
 /**
+ * deserializeAws_queryModifyRedshiftIdcApplicationCommand
+ */
+export const de_ModifyRedshiftIdcApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyRedshiftIdcApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyRedshiftIdcApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyRedshiftIdcApplicationResult(data.ModifyRedshiftIdcApplicationResult, context);
+  const response: ModifyRedshiftIdcApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyRedshiftIdcApplicationCommandError
+ */
+const de_ModifyRedshiftIdcApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyRedshiftIdcApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependentServiceAccessDenied":
+    case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
+      throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
+    case "DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
+      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
+    case "RedshiftIdcApplicationNotExists":
+    case "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault":
+      throw await de_RedshiftIdcApplicationNotExistsFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryModifyScheduledActionCommand
  */
 export const de_ModifyScheduledActionCommand = async (
@@ -10535,6 +10859,22 @@ const de_CustomDomainAssociationNotFoundFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryDependentServiceAccessDeniedFaultRes
+ */
+const de_DependentServiceAccessDeniedFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DependentServiceAccessDeniedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DependentServiceAccessDeniedFault(body.Error, context);
+  const exception = new DependentServiceAccessDeniedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryDependentServiceRequestThrottlingFaultRes
  */
 const de_DependentServiceRequestThrottlingFaultRes = async (
@@ -11432,6 +11772,54 @@ const de_PartnerNotFoundFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryRedshiftIdcApplicationAlreadyExistsFaultRes
+ */
+const de_RedshiftIdcApplicationAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RedshiftIdcApplicationAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_RedshiftIdcApplicationAlreadyExistsFault(body.Error, context);
+  const exception = new RedshiftIdcApplicationAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryRedshiftIdcApplicationNotExistsFaultRes
+ */
+const de_RedshiftIdcApplicationNotExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RedshiftIdcApplicationNotExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_RedshiftIdcApplicationNotExistsFault(body.Error, context);
+  const exception = new RedshiftIdcApplicationNotExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryRedshiftIdcApplicationQuotaExceededFaultRes
+ */
+const de_RedshiftIdcApplicationQuotaExceededFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RedshiftIdcApplicationQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_RedshiftIdcApplicationQuotaExceededFault(body.Error, context);
+  const exception = new RedshiftIdcApplicationQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryReservedNodeAlreadyExistsFaultRes
  */
 const de_ReservedNodeAlreadyExistsFaultRes = async (
@@ -12204,6 +12592,62 @@ const se_AuthorizeDataShareMessage = (input: AuthorizeDataShareMessage, context:
 };
 
 /**
+ * serializeAws_queryAuthorizedAudienceList
+ */
+const se_AuthorizedAudienceList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryAuthorizedTokenIssuer
+ */
+const se_AuthorizedTokenIssuer = (input: AuthorizedTokenIssuer, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TrustedTokenIssuerArn != null) {
+    entries["TrustedTokenIssuerArn"] = input.TrustedTokenIssuerArn;
+  }
+  if (input.AuthorizedAudiencesList != null) {
+    const memberEntries = se_AuthorizedAudienceList(input.AuthorizedAudiencesList, context);
+    if (input.AuthorizedAudiencesList?.length === 0) {
+      entries.AuthorizedAudiencesList = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthorizedAudiencesList.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryAuthorizedTokenIssuerList
+ */
+const se_AuthorizedTokenIssuerList = (input: AuthorizedTokenIssuer[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_AuthorizedTokenIssuer(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryAuthorizeEndpointAccessMessage
  */
 const se_AuthorizeEndpointAccessMessage = (input: AuthorizeEndpointAccessMessage, context: __SerdeContext): any => {
@@ -12506,6 +12950,9 @@ const se_CreateClusterMessage = (input: CreateClusterMessage, context: __SerdeCo
   if (input.MultiAZ != null) {
     entries["MultiAZ"] = input.MultiAZ;
   }
+  if (input.RedshiftIdcApplicationArn != null) {
+    entries["RedshiftIdcApplicationArn"] = input.RedshiftIdcApplicationArn;
+  }
   return entries;
 };
 
@@ -12784,6 +13231,52 @@ const se_CreateHsmConfigurationMessage = (input: CreateHsmConfigurationMessage, 
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCreateRedshiftIdcApplicationMessage
+ */
+const se_CreateRedshiftIdcApplicationMessage = (
+  input: CreateRedshiftIdcApplicationMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.IdcInstanceArn != null) {
+    entries["IdcInstanceArn"] = input.IdcInstanceArn;
+  }
+  if (input.RedshiftIdcApplicationName != null) {
+    entries["RedshiftIdcApplicationName"] = input.RedshiftIdcApplicationName;
+  }
+  if (input.IdentityNamespace != null) {
+    entries["IdentityNamespace"] = input.IdentityNamespace;
+  }
+  if (input.IdcDisplayName != null) {
+    entries["IdcDisplayName"] = input.IdcDisplayName;
+  }
+  if (input.IamRoleArn != null) {
+    entries["IamRoleArn"] = input.IamRoleArn;
+  }
+  if (input.AuthorizedTokenIssuerList != null) {
+    const memberEntries = se_AuthorizedTokenIssuerList(input.AuthorizedTokenIssuerList, context);
+    if (input.AuthorizedTokenIssuerList?.length === 0) {
+      entries.AuthorizedTokenIssuerList = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthorizedTokenIssuerList.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ServiceIntegrations != null) {
+    const memberEntries = se_ServiceIntegrationList(input.ServiceIntegrations, context);
+    if (input.ServiceIntegrations?.length === 0) {
+      entries.ServiceIntegrations = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServiceIntegrations.${key}`;
       entries[loc] = value;
     });
   }
@@ -13143,6 +13636,20 @@ const se_DeleteHsmConfigurationMessage = (input: DeleteHsmConfigurationMessage, 
   const entries: any = {};
   if (input.HsmConfigurationIdentifier != null) {
     entries["HsmConfigurationIdentifier"] = input.HsmConfigurationIdentifier;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeleteRedshiftIdcApplicationMessage
+ */
+const se_DeleteRedshiftIdcApplicationMessage = (
+  input: DeleteRedshiftIdcApplicationMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.RedshiftIdcApplicationArn != null) {
+    entries["RedshiftIdcApplicationArn"] = input.RedshiftIdcApplicationArn;
   }
   return entries;
 };
@@ -13992,6 +14499,26 @@ const se_DescribePartnersInputMessage = (input: DescribePartnersInputMessage, co
 };
 
 /**
+ * serializeAws_queryDescribeRedshiftIdcApplicationsMessage
+ */
+const se_DescribeRedshiftIdcApplicationsMessage = (
+  input: DescribeRedshiftIdcApplicationsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.RedshiftIdcApplicationArn != null) {
+    entries["RedshiftIdcApplicationArn"] = input.RedshiftIdcApplicationArn;
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeReservedNodeExchangeStatusInputMessage
  */
 const se_DescribeReservedNodeExchangeStatusInputMessage = (
@@ -14548,6 +15075,56 @@ const se_IamRoleArnList = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_queryLakeFormationQuery
+ */
+const se_LakeFormationQuery = (input: LakeFormationQuery, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Authorization != null) {
+    entries["Authorization"] = input.Authorization;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryLakeFormationScopeUnion
+ */
+const se_LakeFormationScopeUnion = (input: LakeFormationScopeUnion, context: __SerdeContext): any => {
+  const entries: any = {};
+  LakeFormationScopeUnion.visit(input, {
+    LakeFormationQuery: (value) => {
+      const memberEntries = se_LakeFormationQuery(value, context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `LakeFormationQuery.${key}`;
+        entries[loc] = value;
+      });
+    },
+    _: (name: string, value: any) => {
+      entries[name] = value;
+    },
+  });
+  return entries;
+};
+
+/**
+ * serializeAws_queryLakeFormationServiceIntegrations
+ */
+const se_LakeFormationServiceIntegrations = (input: LakeFormationScopeUnion[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_LakeFormationScopeUnion(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryLogTypeList
  */
 const se_LogTypeList = (input: string[], context: __SerdeContext): any => {
@@ -14942,6 +15519,49 @@ const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage
   }
   if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyRedshiftIdcApplicationMessage
+ */
+const se_ModifyRedshiftIdcApplicationMessage = (
+  input: ModifyRedshiftIdcApplicationMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.RedshiftIdcApplicationArn != null) {
+    entries["RedshiftIdcApplicationArn"] = input.RedshiftIdcApplicationArn;
+  }
+  if (input.IdentityNamespace != null) {
+    entries["IdentityNamespace"] = input.IdentityNamespace;
+  }
+  if (input.IamRoleArn != null) {
+    entries["IamRoleArn"] = input.IamRoleArn;
+  }
+  if (input.IdcDisplayName != null) {
+    entries["IdcDisplayName"] = input.IdcDisplayName;
+  }
+  if (input.AuthorizedTokenIssuerList != null) {
+    const memberEntries = se_AuthorizedTokenIssuerList(input.AuthorizedTokenIssuerList, context);
+    if (input.AuthorizedTokenIssuerList?.length === 0) {
+      entries.AuthorizedTokenIssuerList = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthorizedTokenIssuerList.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ServiceIntegrations != null) {
+    const memberEntries = se_ServiceIntegrationList(input.ServiceIntegrations, context);
+    if (input.ServiceIntegrations?.length === 0) {
+      entries.ServiceIntegrations = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServiceIntegrations.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -15639,6 +16259,48 @@ const se_ScheduleDefinitionList = (input: string[], context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_queryServiceIntegrationList
+ */
+const se_ServiceIntegrationList = (input: ServiceIntegrationsUnion[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ServiceIntegrationsUnion(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryServiceIntegrationsUnion
+ */
+const se_ServiceIntegrationsUnion = (input: ServiceIntegrationsUnion, context: __SerdeContext): any => {
+  const entries: any = {};
+  ServiceIntegrationsUnion.visit(input, {
+    LakeFormation: (value) => {
+      const memberEntries = se_LakeFormationServiceIntegrations(value, context);
+      if (value?.length === 0) {
+        entries.LakeFormation = [];
+      }
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `LakeFormation.${key}`;
+        entries[loc] = value;
+      });
+    },
+    _: (name: string, value: any) => {
+      entries[name] = value;
+    },
+  });
+  return entries;
+};
+
+/**
  * serializeAws_querySnapshotIdentifierList
  */
 const se_SnapshotIdentifierList = (input: string[], context: __SerdeContext): any => {
@@ -16168,6 +16830,50 @@ const de_AuthorizeClusterSecurityGroupIngressResult = (
     contents.ClusterSecurityGroup = de_ClusterSecurityGroup(output["ClusterSecurityGroup"], context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryAuthorizedAudienceList
+ */
+const de_AuthorizedAudienceList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_queryAuthorizedTokenIssuer
+ */
+const de_AuthorizedTokenIssuer = (output: any, context: __SerdeContext): AuthorizedTokenIssuer => {
+  const contents: any = {};
+  if (output["TrustedTokenIssuerArn"] !== undefined) {
+    contents.TrustedTokenIssuerArn = __expectString(output["TrustedTokenIssuerArn"]);
+  }
+  if (output.AuthorizedAudiencesList === "") {
+    contents.AuthorizedAudiencesList = [];
+  } else if (
+    output["AuthorizedAudiencesList"] !== undefined &&
+    output["AuthorizedAudiencesList"]["member"] !== undefined
+  ) {
+    contents.AuthorizedAudiencesList = de_AuthorizedAudienceList(
+      __getArrayIfSingleItem(output["AuthorizedAudiencesList"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryAuthorizedTokenIssuerList
+ */
+const de_AuthorizedTokenIssuerList = (output: any, context: __SerdeContext): AuthorizedTokenIssuer[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AuthorizedTokenIssuer(entry, context);
+    });
 };
 
 /**
@@ -17544,6 +18250,20 @@ const de_CreateHsmConfigurationResult = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_queryCreateRedshiftIdcApplicationResult
+ */
+const de_CreateRedshiftIdcApplicationResult = (
+  output: any,
+  context: __SerdeContext
+): CreateRedshiftIdcApplicationResult => {
+  const contents: any = {};
+  if (output["RedshiftIdcApplication"] !== undefined) {
+    contents.RedshiftIdcApplication = de_RedshiftIdcApplication(output["RedshiftIdcApplication"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCreateSnapshotCopyGrantResult
  */
 const de_CreateSnapshotCopyGrantResult = (output: any, context: __SerdeContext): CreateSnapshotCopyGrantResult => {
@@ -17800,6 +18520,20 @@ const de_DeleteClusterSnapshotResult = (output: any, context: __SerdeContext): D
 };
 
 /**
+ * deserializeAws_queryDependentServiceAccessDeniedFault
+ */
+const de_DependentServiceAccessDeniedFault = (
+  output: any,
+  context: __SerdeContext
+): DependentServiceAccessDeniedFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDependentServiceRequestThrottlingFault
  */
 const de_DependentServiceRequestThrottlingFault = (
@@ -17932,6 +18666,31 @@ const de_DescribePartnersOutputMessage = (output: any, context: __SerdeContext):
       __getArrayIfSingleItem(output["PartnerIntegrationInfoList"]["PartnerIntegrationInfo"]),
       context
     );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeRedshiftIdcApplicationsResult
+ */
+const de_DescribeRedshiftIdcApplicationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeRedshiftIdcApplicationsResult => {
+  const contents: any = {};
+  if (output.RedshiftIdcApplications === "") {
+    contents.RedshiftIdcApplications = [];
+  } else if (
+    output["RedshiftIdcApplications"] !== undefined &&
+    output["RedshiftIdcApplications"]["member"] !== undefined
+  ) {
+    contents.RedshiftIdcApplications = de_RedshiftIdcApplicationList(
+      __getArrayIfSingleItem(output["RedshiftIdcApplications"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -19455,6 +20214,40 @@ const de_Ipv6CidrBlockNotFoundFault = (output: any, context: __SerdeContext): Ip
 };
 
 /**
+ * deserializeAws_queryLakeFormationQuery
+ */
+const de_LakeFormationQuery = (output: any, context: __SerdeContext): LakeFormationQuery => {
+  const contents: any = {};
+  if (output["Authorization"] !== undefined) {
+    contents.Authorization = __expectString(output["Authorization"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryLakeFormationScopeUnion
+ */
+const de_LakeFormationScopeUnion = (output: any, context: __SerdeContext): LakeFormationScopeUnion => {
+  if (output["LakeFormationQuery"] !== undefined) {
+    return {
+      LakeFormationQuery: de_LakeFormationQuery(output["LakeFormationQuery"], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_queryLakeFormationServiceIntegrations
+ */
+const de_LakeFormationServiceIntegrations = (output: any, context: __SerdeContext): LakeFormationScopeUnion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LakeFormationScopeUnion(__expectUnion(entry), context);
+    });
+};
+
+/**
  * deserializeAws_queryLimitExceededFault
  */
 const de_LimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
@@ -19658,6 +20451,20 @@ const de_ModifyEventSubscriptionResult = (output: any, context: __SerdeContext):
   const contents: any = {};
   if (output["EventSubscription"] !== undefined) {
     contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyRedshiftIdcApplicationResult
+ */
+const de_ModifyRedshiftIdcApplicationResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyRedshiftIdcApplicationResult => {
+  const contents: any = {};
+  if (output["RedshiftIdcApplication"] !== undefined) {
+    contents.RedshiftIdcApplication = de_RedshiftIdcApplication(output["RedshiftIdcApplication"], context);
   }
   return contents;
 };
@@ -20103,6 +20910,110 @@ const de_RecurringChargeList = (output: any, context: __SerdeContext): Recurring
     .map((entry: any) => {
       return de_RecurringCharge(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryRedshiftIdcApplication
+ */
+const de_RedshiftIdcApplication = (output: any, context: __SerdeContext): RedshiftIdcApplication => {
+  const contents: any = {};
+  if (output["IdcInstanceArn"] !== undefined) {
+    contents.IdcInstanceArn = __expectString(output["IdcInstanceArn"]);
+  }
+  if (output["RedshiftIdcApplicationName"] !== undefined) {
+    contents.RedshiftIdcApplicationName = __expectString(output["RedshiftIdcApplicationName"]);
+  }
+  if (output["RedshiftIdcApplicationArn"] !== undefined) {
+    contents.RedshiftIdcApplicationArn = __expectString(output["RedshiftIdcApplicationArn"]);
+  }
+  if (output["IdentityNamespace"] !== undefined) {
+    contents.IdentityNamespace = __expectString(output["IdentityNamespace"]);
+  }
+  if (output["IdcDisplayName"] !== undefined) {
+    contents.IdcDisplayName = __expectString(output["IdcDisplayName"]);
+  }
+  if (output["IamRoleArn"] !== undefined) {
+    contents.IamRoleArn = __expectString(output["IamRoleArn"]);
+  }
+  if (output["IdcManagedApplicationArn"] !== undefined) {
+    contents.IdcManagedApplicationArn = __expectString(output["IdcManagedApplicationArn"]);
+  }
+  if (output["IdcOnboardStatus"] !== undefined) {
+    contents.IdcOnboardStatus = __expectString(output["IdcOnboardStatus"]);
+  }
+  if (output.AuthorizedTokenIssuerList === "") {
+    contents.AuthorizedTokenIssuerList = [];
+  } else if (
+    output["AuthorizedTokenIssuerList"] !== undefined &&
+    output["AuthorizedTokenIssuerList"]["member"] !== undefined
+  ) {
+    contents.AuthorizedTokenIssuerList = de_AuthorizedTokenIssuerList(
+      __getArrayIfSingleItem(output["AuthorizedTokenIssuerList"]["member"]),
+      context
+    );
+  }
+  if (output.ServiceIntegrations === "") {
+    contents.ServiceIntegrations = [];
+  } else if (output["ServiceIntegrations"] !== undefined && output["ServiceIntegrations"]["member"] !== undefined) {
+    contents.ServiceIntegrations = de_ServiceIntegrationList(
+      __getArrayIfSingleItem(output["ServiceIntegrations"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRedshiftIdcApplicationAlreadyExistsFault
+ */
+const de_RedshiftIdcApplicationAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): RedshiftIdcApplicationAlreadyExistsFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRedshiftIdcApplicationList
+ */
+const de_RedshiftIdcApplicationList = (output: any, context: __SerdeContext): RedshiftIdcApplication[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RedshiftIdcApplication(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryRedshiftIdcApplicationNotExistsFault
+ */
+const de_RedshiftIdcApplicationNotExistsFault = (
+  output: any,
+  context: __SerdeContext
+): RedshiftIdcApplicationNotExistsFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRedshiftIdcApplicationQuotaExceededFault
+ */
+const de_RedshiftIdcApplicationQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): RedshiftIdcApplicationQuotaExceededFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
 };
 
 /**
@@ -20944,6 +21855,36 @@ const de_SecondaryClusterInfo = (output: any, context: __SerdeContext): Secondar
     contents.ClusterNodes = de_ClusterNodesList(__getArrayIfSingleItem(output["ClusterNodes"]["member"]), context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryServiceIntegrationList
+ */
+const de_ServiceIntegrationList = (output: any, context: __SerdeContext): ServiceIntegrationsUnion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceIntegrationsUnion(__expectUnion(entry), context);
+    });
+};
+
+/**
+ * deserializeAws_queryServiceIntegrationsUnion
+ */
+const de_ServiceIntegrationsUnion = (output: any, context: __SerdeContext): ServiceIntegrationsUnion => {
+  if (output.LakeFormation === "") {
+    return {
+      LakeFormation: [],
+    };
+  } else if (output["LakeFormation"] !== undefined && output["LakeFormation"]["member"] !== undefined) {
+    return {
+      LakeFormation: de_LakeFormationServiceIntegrations(
+        __getArrayIfSingleItem(output["LakeFormation"]["member"]),
+        context
+      ),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 /**

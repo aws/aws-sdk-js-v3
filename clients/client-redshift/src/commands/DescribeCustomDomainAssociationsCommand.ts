@@ -14,7 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { CustomDomainAssociationsMessage, DescribeCustomDomainAssociationsMessage } from "../models/models_0";
+import { CustomDomainAssociationsMessage } from "../models/models_0";
+import { DescribeCustomDomainAssociationsMessage } from "../models/models_1";
 import {
   de_DescribeCustomDomainAssociationsCommand,
   se_DescribeCustomDomainAssociationsCommand,

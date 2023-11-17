@@ -5,22 +5,30 @@ import {
   ActionType,
   AquaConfiguration,
   AquaConfigurationStatus,
+  AuthorizedTokenIssuer,
   AvailabilityZone,
   Cluster,
   ClusterFilterSensitiveLog,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
+  DataShare,
+  DataShareStatusForConsumer,
+  DataShareStatusForProducer,
+  DefaultClusterParameters,
+  EndpointAccess,
   EndpointAuthorization,
   EventSubscription,
   HsmClientCertificate,
   HsmConfiguration,
   Parameter,
   RecurringCharge,
+  RedshiftIdcApplication,
   ReservedNode,
   ReservedNodeExchangeStatus,
   ReservedNodeOfferingType,
   ScheduledAction,
   ScheduledActionType,
+  ServiceIntegrationsUnion,
   Snapshot,
   SnapshotCopyGrant,
   SnapshotSchedule,
@@ -30,6 +38,409 @@ import {
   UsageLimitFeatureType,
 } from "./models_0";
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeClusterVersionsMessage {
+  /**
+   * @public
+   * <p>The specific cluster version to return.</p>
+   *          <p>Example: <code>1.0</code>
+   *          </p>
+   */
+  ClusterVersion?: string;
+
+  /**
+   * @public
+   * <p>The name of a specific cluster parameter group family to return details
+   *             for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 255 alphanumeric characters</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   */
+  ClusterParameterGroupFamily?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterVersions</a> request exceed
+   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCustomDomainAssociationsMessage {
+  /**
+   * @public
+   * <p>The custom domain name for the custom domain association.</p>
+   */
+  CustomDomainName?: string;
+
+  /**
+   * @public
+   * <p>The certificate Amazon Resource Name (ARN) for the custom domain association.</p>
+   */
+  CustomDomainCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The maximum records setting for the associated custom domain.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>The marker for the custom domain association.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesMessage {
+  /**
+   * @public
+   * <p>The identifier of the datashare to describe details of.</p>
+   */
+  DataShareArn?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesResult {
+  /**
+   * @public
+   * <p>The results returned from describing datashares.</p>
+   */
+  DataShares?: DataShare[];
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForConsumerMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the consumer that returns in the list of datashares.</p>
+   */
+  ConsumerArn?: string;
+
+  /**
+   * @public
+   * <p>An identifier giving the status of a datashare in the consumer cluster. If this field is specified, Amazon
+   *             Redshift returns the list of datashares that have the specified status.</p>
+   */
+  Status?: DataShareStatusForConsumer;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForConsumerResult {
+  /**
+   * @public
+   * <p>Shows the results of datashares available for consumers.</p>
+   */
+  DataShares?: DataShare[];
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForProducerMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the producer that returns in the list of datashares.</p>
+   */
+  ProducerArn?: string;
+
+  /**
+   * @public
+   * <p>An identifier giving the status of a datashare in the producer. If this field is specified, Amazon
+   *             Redshift returns the list of datashares that have the specified status.</p>
+   */
+  Status?: DataShareStatusForProducer;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForProducerResult {
+  /**
+   * @public
+   * <p>Shows the results of datashares available for producers.</p>
+   */
+  DataShares?: DataShare[];
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeDefaultClusterParametersMessage {
+  /**
+   * @public
+   * <p>The name of the cluster parameter group family.</p>
+   */
+  ParameterGroupFamily: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDefaultClusterParameters</a>
+   *             request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in
+   *             the <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDefaultClusterParametersResult {
+  /**
+   * @public
+   * <p>Describes the default cluster parameters for a parameter group family.</p>
+   */
+  DefaultClusterParameters?: DefaultClusterParameters;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointAccessMessage {
+  /**
+   * @public
+   * <p>The cluster identifier associated with the described endpoint.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the owner of the cluster.</p>
+   */
+  ResourceOwner?: string;
+
+  /**
+   * @public
+   * <p>The name of the endpoint to be described.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * @public
+   * <p>The virtual private cloud (VPC) identifier with access to the cluster.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is
+   *             included in the response so that the remaining results can be retrieved.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAccess</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface EndpointAccessList {
+  /**
+   * @public
+   * <p>The list of endpoints with access to the cluster.</p>
+   */
+  EndpointAccessList?: EndpointAccess[];
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAccess</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointAuthorizationMessage {
+  /**
+   * @public
+   * <p>The cluster identifier of the cluster to access.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of either the cluster owner (grantor) or grantee.
+   *        If <code>Grantee</code> parameter is true, then the <code>Account</code> value is of the grantor.</p>
+   */
+  Account?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether to check authorization from a grantor or grantee point of view.
+   *            If true, Amazon Redshift returns endpoint authorizations that you've been granted.
+   *            If false (default), checks authorization from a grantor point of view.</p>
+   */
+  Grantee?: boolean;
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is
+   *             included in the response so that the remaining results can be retrieved.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   */
+  Marker?: string;
+}
 
 /**
  * @public
@@ -1218,6 +1629,58 @@ export interface DescribePartnersOutputMessage {
    * <p>A list of partner integrations.</p>
    */
   PartnerIntegrationInfoList?: PartnerIntegrationInfo[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeRedshiftIdcApplicationsMessage {
+  /**
+   * @public
+   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+   */
+  RedshiftIdcApplicationArn?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of remaining response records
+   *             exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve
+   *             the next set of records by retrying the command with the returned marker value.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a
+   *             value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRedshiftIdcApplicationsResult {
+  /**
+   * @public
+   * <p>The list of Amazon Redshift IAM Identity Center applications.</p>
+   */
+  RedshiftIdcApplications?: RedshiftIdcApplication[];
+
+  /**
+   * @public
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent
+   *             request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   */
+  Marker?: string;
 }
 
 /**
@@ -3918,6 +4381,60 @@ export interface ModifyEventSubscriptionResult {
    * <p>Describes event subscriptions.</p>
    */
   EventSubscription?: EventSubscription;
+}
+
+/**
+ * @public
+ */
+export interface ModifyRedshiftIdcApplicationMessage {
+  /**
+   * @public
+   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+   */
+  RedshiftIdcApplicationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace for the Amazon Redshift IAM Identity Center application to change. It determines which managed application
+   *             verifies the connection token.</p>
+   */
+  IdentityNamespace?: string;
+
+  /**
+   * @public
+   * <p>The IAM role ARN associated with the Amazon Redshift IAM Identity Center application to change. It has the required permissions
+   *             to be assumed and invoke the IDC Identity Center API.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The display name for the Amazon Redshift IAM Identity Center application to change. It appears on the console.</p>
+   */
+  IdcDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The authorized token issuer list for the Amazon Redshift IAM Identity Center application to change.</p>
+   */
+  AuthorizedTokenIssuerList?: AuthorizedTokenIssuer[];
+
+  /**
+   * @public
+   * <p>A collection of service integrations associated with the application.</p>
+   */
+  ServiceIntegrations?: ServiceIntegrationsUnion[];
+}
+
+/**
+ * @public
+ */
+export interface ModifyRedshiftIdcApplicationResult {
+  /**
+   * @public
+   * <p>Contains properties for the Redshift IDC application.</p>
+   */
+  RedshiftIdcApplication?: RedshiftIdcApplication;
 }
 
 /**

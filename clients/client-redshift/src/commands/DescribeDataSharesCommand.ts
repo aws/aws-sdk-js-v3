@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeDataSharesMessage, DescribeDataSharesResult } from "../models/models_0";
+import { DescribeDataSharesMessage, DescribeDataSharesResult } from "../models/models_1";
 import { de_DescribeDataSharesCommand, se_DescribeDataSharesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 

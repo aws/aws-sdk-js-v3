@@ -32,6 +32,7 @@ export * from "./DescribeHsmConfigurationsPaginator";
 export * from "./DescribeInboundIntegrationsPaginator";
 export * from "./DescribeNodeConfigurationOptionsPaginator";
 export * from "./DescribeOrderableClusterOptionsPaginator";
+export * from "./DescribeRedshiftIdcApplicationsPaginator";
 export * from "./DescribeReservedNodeExchangeStatusPaginator";
 export * from "./DescribeReservedNodeOfferingsPaginator";
 export * from "./DescribeReservedNodesPaginator";

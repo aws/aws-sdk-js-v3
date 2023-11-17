@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeEndpointAccessMessage, EndpointAccessList } from "../models/models_0";
+import { DescribeEndpointAccessMessage, EndpointAccessList } from "../models/models_1";
 import { de_DescribeEndpointAccessCommand, se_DescribeEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 

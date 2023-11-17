@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeDefaultClusterParametersMessage, DescribeDefaultClusterParametersResult } from "../models/models_0";
+import { DescribeDefaultClusterParametersMessage, DescribeDefaultClusterParametersResult } from "../models/models_1";
 import {
   de_DescribeDefaultClusterParametersCommand,
   se_DescribeDefaultClusterParametersCommand,
