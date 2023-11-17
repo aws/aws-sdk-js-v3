@@ -318,6 +318,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //     ],
  * //     FeatureActivations: { // FeatureActivations
  * //       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ * //       OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  * //     },
  * //     GlobalConfiguration: { // GlobalConfiguration
  * //       InitialAudioGain: Number("int"),

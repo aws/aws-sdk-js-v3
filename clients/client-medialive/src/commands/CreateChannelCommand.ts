@@ -307,6 +307,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *     ],
  *     FeatureActivations: { // FeatureActivations
  *       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ *       OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  *     },
  *     GlobalConfiguration: { // GlobalConfiguration
  *       InitialAudioGain: Number("int"),
@@ -1317,6 +1318,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       ],
  * //       FeatureActivations: { // FeatureActivations
  * //         InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ * //         OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  * //       },
  * //       GlobalConfiguration: { // GlobalConfiguration
  * //         InitialAudioGain: Number("int"),

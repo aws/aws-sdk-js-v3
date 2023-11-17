@@ -167,6 +167,32 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * //           FadeOut: Number("int"),
  * //           Layer: Number("int"),
  * //         },
+ * //         StaticImageOutputActivateSettings: { // StaticImageOutputActivateScheduleActionSettings
+ * //           Duration: Number("int"),
+ * //           FadeIn: Number("int"),
+ * //           FadeOut: Number("int"),
+ * //           Height: Number("int"),
+ * //           Image: {
+ * //             PasswordParam: "STRING_VALUE",
+ * //             Uri: "STRING_VALUE", // required
+ * //             Username: "STRING_VALUE",
+ * //           },
+ * //           ImageX: Number("int"),
+ * //           ImageY: Number("int"),
+ * //           Layer: Number("int"),
+ * //           Opacity: Number("int"),
+ * //           OutputNames: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Width: Number("int"),
+ * //         },
+ * //         StaticImageOutputDeactivateSettings: { // StaticImageOutputDeactivateScheduleActionSettings
+ * //           FadeOut: Number("int"),
+ * //           Layer: Number("int"),
+ * //           OutputNames: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       ScheduleActionStartSettings: { // ScheduleActionStartSettings
  * //         FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings

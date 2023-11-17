@@ -318,6 +318,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //     ],
  * //     FeatureActivations: { // FeatureActivations
  * //       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ * //       OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  * //     },
  * //     GlobalConfiguration: { // GlobalConfiguration
  * //       InitialAudioGain: Number("int"),

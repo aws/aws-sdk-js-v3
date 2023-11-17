@@ -48,6 +48,60 @@ import {
 
 /**
  * @public
+ * Placeholder documentation for ListInputSecurityGroupsRequest
+ */
+export interface ListInputSecurityGroupsRequest {
+  /**
+   * @public
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListInputSecurityGroupsResponse
+ */
+export interface ListInputSecurityGroupsResponse {
+  /**
+   * @public
+   * List of input security groups
+   */
+  InputSecurityGroups?: InputSecurityGroup[];
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListMultiplexesRequest
+ */
+export interface ListMultiplexesRequest {
+  /**
+   * @public
+   * The maximum number of items to return.
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * The token to retrieve the next page of results.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * Placeholder documentation for ListMultiplexesResponse
  */
 export interface ListMultiplexesResponse {
@@ -585,7 +639,7 @@ export interface StartChannelResponse {
 export interface StartInputDeviceRequest {
   /**
    * @public
-   * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
+   * The unique ID of the input device to start. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
 }
@@ -827,7 +881,7 @@ export interface StopChannelResponse {
 export interface StopInputDeviceRequest {
   /**
    * @public
-   * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
+   * The unique ID of the input device to stop. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
 }

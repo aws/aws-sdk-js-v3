@@ -42,7 +42,7 @@ export interface DescribeAccountConfigurationCommandOutput
 
 /**
  * @public
- * Get account configuration
+ * Describe account configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

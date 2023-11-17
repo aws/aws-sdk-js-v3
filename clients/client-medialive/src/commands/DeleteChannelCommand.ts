@@ -318,6 +318,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //     ],
  * //     FeatureActivations: { // FeatureActivations
  * //       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ * //       OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  * //     },
  * //     GlobalConfiguration: { // GlobalConfiguration
  * //       InitialAudioGain: Number("int"),

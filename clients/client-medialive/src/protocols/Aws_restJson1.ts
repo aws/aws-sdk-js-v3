@@ -403,6 +403,8 @@ import {
   StartTimecode,
   StaticImageActivateScheduleActionSettings,
   StaticImageDeactivateScheduleActionSettings,
+  StaticImageOutputActivateScheduleActionSettings,
+  StaticImageOutputDeactivateScheduleActionSettings,
   StaticKeySettings,
   StopTimecode,
   TemporalFilterSettings,
@@ -7881,6 +7883,7 @@ const se_FailoverConditionSettings = (input: FailoverConditionSettings, context:
 const se_FeatureActivations = (input: FeatureActivations, context: __SerdeContext): any => {
   return take(input, {
     inputPrepareScheduleActions: [, , `InputPrepareScheduleActions`],
+    outputStaticImageOverlayScheduleActions: [, , `OutputStaticImageOverlayScheduleActions`],
   });
 };
 
@@ -9182,6 +9185,16 @@ const se_ScheduleActionSettings = (input: ScheduleActionSettings, context: __Ser
       (_) => se_StaticImageDeactivateScheduleActionSettings(_, context),
       `StaticImageDeactivateSettings`,
     ],
+    staticImageOutputActivateSettings: [
+      ,
+      (_) => se_StaticImageOutputActivateScheduleActionSettings(_, context),
+      `StaticImageOutputActivateSettings`,
+    ],
+    staticImageOutputDeactivateSettings: [
+      ,
+      (_) => se_StaticImageOutputDeactivateScheduleActionSettings(_, context),
+      `StaticImageOutputDeactivateSettings`,
+    ],
   });
 };
 
@@ -9405,6 +9418,42 @@ const se_StaticImageDeactivateScheduleActionSettings = (
   return take(input, {
     fadeOut: [, , `FadeOut`],
     layer: [, , `Layer`],
+  });
+};
+
+/**
+ * serializeAws_restJson1StaticImageOutputActivateScheduleActionSettings
+ */
+const se_StaticImageOutputActivateScheduleActionSettings = (
+  input: StaticImageOutputActivateScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    duration: [, , `Duration`],
+    fadeIn: [, , `FadeIn`],
+    fadeOut: [, , `FadeOut`],
+    height: [, , `Height`],
+    image: [, (_) => se_InputLocation(_, context), `Image`],
+    imageX: [, , `ImageX`],
+    imageY: [, , `ImageY`],
+    layer: [, , `Layer`],
+    opacity: [, , `Opacity`],
+    outputNames: [, _json, `OutputNames`],
+    width: [, , `Width`],
+  });
+};
+
+/**
+ * serializeAws_restJson1StaticImageOutputDeactivateScheduleActionSettings
+ */
+const se_StaticImageOutputDeactivateScheduleActionSettings = (
+  input: StaticImageOutputDeactivateScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    fadeOut: [, , `FadeOut`],
+    layer: [, , `Layer`],
+    outputNames: [, _json, `OutputNames`],
   });
 };
 
@@ -10921,6 +10970,7 @@ const de_FailoverConditionSettings = (output: any, context: __SerdeContext): Fai
 const de_FeatureActivations = (output: any, context: __SerdeContext): FeatureActivations => {
   return take(output, {
     InputPrepareScheduleActions: [, __expectString, `inputPrepareScheduleActions`],
+    OutputStaticImageOverlayScheduleActions: [, __expectString, `outputStaticImageOverlayScheduleActions`],
   }) as any;
 };
 
@@ -12513,6 +12563,16 @@ const de_ScheduleActionSettings = (output: any, context: __SerdeContext): Schedu
       (_: any) => de_StaticImageDeactivateScheduleActionSettings(_, context),
       `staticImageDeactivateSettings`,
     ],
+    StaticImageOutputActivateSettings: [
+      ,
+      (_: any) => de_StaticImageOutputActivateScheduleActionSettings(_, context),
+      `staticImageOutputActivateSettings`,
+    ],
+    StaticImageOutputDeactivateSettings: [
+      ,
+      (_: any) => de_StaticImageOutputDeactivateScheduleActionSettings(_, context),
+      `staticImageOutputDeactivateSettings`,
+    ],
   }) as any;
 };
 
@@ -12736,6 +12796,42 @@ const de_StaticImageDeactivateScheduleActionSettings = (
   return take(output, {
     FadeOut: [, __expectInt32, `fadeOut`],
     Layer: [, __expectInt32, `layer`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1StaticImageOutputActivateScheduleActionSettings
+ */
+const de_StaticImageOutputActivateScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): StaticImageOutputActivateScheduleActionSettings => {
+  return take(output, {
+    Duration: [, __expectInt32, `duration`],
+    FadeIn: [, __expectInt32, `fadeIn`],
+    FadeOut: [, __expectInt32, `fadeOut`],
+    Height: [, __expectInt32, `height`],
+    Image: [, (_: any) => de_InputLocation(_, context), `image`],
+    ImageX: [, __expectInt32, `imageX`],
+    ImageY: [, __expectInt32, `imageY`],
+    Layer: [, __expectInt32, `layer`],
+    Opacity: [, __expectInt32, `opacity`],
+    OutputNames: [, _json, `outputNames`],
+    Width: [, __expectInt32, `width`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1StaticImageOutputDeactivateScheduleActionSettings
+ */
+const de_StaticImageOutputDeactivateScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): StaticImageOutputDeactivateScheduleActionSettings => {
+  return take(output, {
+    FadeOut: [, __expectInt32, `fadeOut`],
+    Layer: [, __expectInt32, `layer`],
+    OutputNames: [, _json, `outputNames`],
   }) as any;
 };
 

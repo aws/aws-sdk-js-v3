@@ -161,6 +161,32 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *             FadeOut: Number("int"),
  *             Layer: Number("int"),
  *           },
+ *           StaticImageOutputActivateSettings: { // StaticImageOutputActivateScheduleActionSettings
+ *             Duration: Number("int"),
+ *             FadeIn: Number("int"),
+ *             FadeOut: Number("int"),
+ *             Height: Number("int"),
+ *             Image: {
+ *               PasswordParam: "STRING_VALUE",
+ *               Uri: "STRING_VALUE", // required
+ *               Username: "STRING_VALUE",
+ *             },
+ *             ImageX: Number("int"),
+ *             ImageY: Number("int"),
+ *             Layer: Number("int"),
+ *             Opacity: Number("int"),
+ *             OutputNames: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             Width: Number("int"),
+ *           },
+ *           StaticImageOutputDeactivateSettings: { // StaticImageOutputDeactivateScheduleActionSettings
+ *             FadeOut: Number("int"),
+ *             Layer: Number("int"),
+ *             OutputNames: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
  *         },
  *         ScheduleActionStartSettings: { // ScheduleActionStartSettings
  *           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -299,6 +325,32 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //             FadeOut: Number("int"),
  * //             Layer: Number("int"),
  * //           },
+ * //           StaticImageOutputActivateSettings: { // StaticImageOutputActivateScheduleActionSettings
+ * //             Duration: Number("int"),
+ * //             FadeIn: Number("int"),
+ * //             FadeOut: Number("int"),
+ * //             Height: Number("int"),
+ * //             Image: {
+ * //               PasswordParam: "STRING_VALUE",
+ * //               Uri: "STRING_VALUE", // required
+ * //               Username: "STRING_VALUE",
+ * //             },
+ * //             ImageX: Number("int"),
+ * //             ImageY: Number("int"),
+ * //             Layer: Number("int"),
+ * //             Opacity: Number("int"),
+ * //             OutputNames: [ // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             Width: Number("int"),
+ * //           },
+ * //           StaticImageOutputDeactivateSettings: { // StaticImageOutputDeactivateScheduleActionSettings
+ * //             FadeOut: Number("int"),
+ * //             Layer: Number("int"),
+ * //             OutputNames: [ // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //         },
  * //         ScheduleActionStartSettings: { // ScheduleActionStartSettings
  * //           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -353,9 +405,7 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //                 Timecode: "STRING_VALUE",
  * //               },
  * //             },
- * //             UrlPath: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             UrlPath: "<__listOf__string>",
  * //           },
  * //           MotionGraphicsImageActivateSettings: {
  * //             Duration: Number("long"),
@@ -427,6 +477,28 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //           StaticImageDeactivateSettings: {
  * //             FadeOut: Number("int"),
  * //             Layer: Number("int"),
+ * //           },
+ * //           StaticImageOutputActivateSettings: {
+ * //             Duration: Number("int"),
+ * //             FadeIn: Number("int"),
+ * //             FadeOut: Number("int"),
+ * //             Height: Number("int"),
+ * //             Image: {
+ * //               PasswordParam: "STRING_VALUE",
+ * //               Uri: "STRING_VALUE", // required
+ * //               Username: "STRING_VALUE",
+ * //             },
+ * //             ImageX: Number("int"),
+ * //             ImageY: Number("int"),
+ * //             Layer: Number("int"),
+ * //             Opacity: Number("int"),
+ * //             OutputNames: "<__listOf__string>", // required
+ * //             Width: Number("int"),
+ * //           },
+ * //           StaticImageOutputDeactivateSettings: {
+ * //             FadeOut: Number("int"),
+ * //             Layer: Number("int"),
+ * //             OutputNames: "<__listOf__string>", // required
  * //           },
  * //         },
  * //         ScheduleActionStartSettings: {

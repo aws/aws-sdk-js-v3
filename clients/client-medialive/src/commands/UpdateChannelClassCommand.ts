@@ -342,6 +342,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //       ],
  * //       FeatureActivations: { // FeatureActivations
  * //         InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ * //         OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  * //       },
  * //       GlobalConfiguration: { // GlobalConfiguration
  * //         InitialAudioGain: Number("int"),

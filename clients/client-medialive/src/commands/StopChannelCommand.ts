@@ -318,6 +318,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * //     ],
  * //     FeatureActivations: { // FeatureActivations
  * //       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ * //       OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  * //     },
  * //     GlobalConfiguration: { // GlobalConfiguration
  * //       InitialAudioGain: Number("int"),
