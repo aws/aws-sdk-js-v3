@@ -37,7 +37,11 @@ export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityRe
 
 /**
  * @public
- * <p>Deletes a cancelled capacity reservation. A reservation must be cancelled before it can be deleted. A deleted reservation is immediately removed from your account and can no longer be referenced, including by its ARN. A deleted reservation cannot be called by <code>GetCapacityReservation</code>, and  deleted reservations do not appear in the output of <code>ListCapacityReservations</code>.</p>
+ * <p>Deletes a cancelled capacity reservation. A reservation must be cancelled before it
+ *             can be deleted. A deleted reservation is immediately removed from your account and can
+ *             no longer be referenced, including by its ARN. A deleted reservation cannot be called by
+ *                 <code>GetCapacityReservation</code>, and deleted reservations do not appear in the
+ *             output of <code>ListCapacityReservations</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

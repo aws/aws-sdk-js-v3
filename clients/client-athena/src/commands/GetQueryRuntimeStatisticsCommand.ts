@@ -58,6 +58,7 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
  * //   QueryRuntimeStatistics: { // QueryRuntimeStatistics
  * //     Timeline: { // QueryRuntimeStatisticsTimeline
  * //       QueryQueueTimeInMillis: Number("long"),
+ * //       ServicePreProcessingTimeInMillis: Number("long"),
  * //       QueryPlanningTimeInMillis: Number("long"),
  * //       EngineExecutionTimeInMillis: Number("long"),
  * //       ServiceProcessingTimeInMillis: Number("long"),

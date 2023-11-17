@@ -37,7 +37,8 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
 
 /**
  * @public
- * <p>Updates the number of requested data processing units for the capacity reservation with the specified name.</p>
+ * <p>Updates the number of requested data processing units for the capacity reservation
+ *             with the specified name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

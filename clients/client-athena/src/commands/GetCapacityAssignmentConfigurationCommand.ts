@@ -42,7 +42,8 @@ export interface GetCapacityAssignmentConfigurationCommandOutput
 
 /**
  * @public
- * <p>Gets the capacity assignment configuration for a capacity reservation, if one exists.</p>
+ * <p>Gets the capacity assignment configuration for a capacity reservation, if one
+ *             exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

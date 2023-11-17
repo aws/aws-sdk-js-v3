@@ -42,7 +42,9 @@ export interface PutCapacityAssignmentConfigurationCommandOutput
 
 /**
  * @public
- * <p>Puts a new capacity assignment configuration for a specified capacity reservation. If a capacity assignment configuration already exists for the capacity reservation, replaces the existing capacity assignment configuration.</p>
+ * <p>Puts a new capacity assignment configuration for a specified capacity reservation. If
+ *             a capacity assignment configuration already exists for the capacity reservation,
+ *             replaces the existing capacity assignment configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

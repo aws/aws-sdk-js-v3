@@ -37,7 +37,8 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
 
 /**
  * @public
- * <p>Creates a capacity reservation with the specified name and number of requested data processing units.</p>
+ * <p>Creates a capacity reservation with the specified name and number of requested data
+ *             processing units.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

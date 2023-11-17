@@ -95,6 +95,7 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * //       DataManifestLocation: "STRING_VALUE",
  * //       TotalExecutionTimeInMillis: Number("long"),
  * //       QueryQueueTimeInMillis: Number("long"),
+ * //       ServicePreProcessingTimeInMillis: Number("long"),
  * //       QueryPlanningTimeInMillis: Number("long"),
  * //       ServiceProcessingTimeInMillis: Number("long"),
  * //       ResultReuseInformation: { // ResultReuseInformation
