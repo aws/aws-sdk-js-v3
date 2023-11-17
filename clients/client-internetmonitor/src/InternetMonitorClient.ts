@@ -54,12 +54,16 @@ import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./command
 import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
 import { GetHealthEventCommandInput, GetHealthEventCommandOutput } from "./commands/GetHealthEventCommand";
 import { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
+import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { GetQueryStatusCommandInput, GetQueryStatusCommandOutput } from "./commands/GetQueryStatusCommand";
 import { ListHealthEventsCommandInput, ListHealthEventsCommandOutput } from "./commands/ListHealthEventsCommand";
 import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "./commands/UpdateMonitorCommand";
@@ -82,9 +86,13 @@ export type ServiceInputTypes =
   | DeleteMonitorCommandInput
   | GetHealthEventCommandInput
   | GetMonitorCommandInput
+  | GetQueryResultsCommandInput
+  | GetQueryStatusCommandInput
   | ListHealthEventsCommandInput
   | ListMonitorsCommandInput
   | ListTagsForResourceCommandInput
+  | StartQueryCommandInput
+  | StopQueryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMonitorCommandInput;
@@ -97,9 +105,13 @@ export type ServiceOutputTypes =
   | DeleteMonitorCommandOutput
   | GetHealthEventCommandOutput
   | GetMonitorCommandOutput
+  | GetQueryResultsCommandOutput
+  | GetQueryStatusCommandOutput
   | ListHealthEventsCommandOutput
   | ListMonitorsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartQueryCommandOutput
+  | StopQueryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMonitorCommandOutput;
