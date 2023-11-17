@@ -179,11 +179,13 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
      *                               after member presence is validated.
      */
     void deserializeNamedMember(
-            GenerationContext context,
-            String memberName,
-            MemberShape memberShape,
-            String inputLocation,
-            BiConsumer<String, DocumentMemberDeserVisitor> statementBodyGenerator) {
+        GenerationContext context,
+        String memberName,
+        MemberShape memberShape,
+        String inputLocation,
+        BiConsumer<String, DocumentMemberDeserVisitor> statementBodyGenerator,
+        boolean isWithinUnion
+    ) {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
 
@@ -215,7 +217,9 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             sourceBuilder.append("['").append(targetLocation).append("']");
         }
 
-        boolean canMemberParsed = handleEmptyTags(writer, target, inputLocation, locationName, memberName);
+        boolean canMemberParsed = handleEmptyTags(
+            writer, target, inputLocation, locationName, memberName, isWithinUnion
+        );
 
         // Handle the response property.
         String source = sourceBuilder.toString();
@@ -230,6 +234,16 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             String dataSource = getNamedTargetWrapper(context, target, source);
             statementBodyGenerator.accept(dataSource, getMemberVisitor(memberShape, dataSource));
         });
+    }
+
+    void deserializeNamedMember(
+            GenerationContext context,
+            String memberName,
+            MemberShape memberShape,
+            String inputLocation,
+            BiConsumer<String, DocumentMemberDeserVisitor> statementBodyGenerator
+    ) {
+        deserializeNamedMember(context, memberName, memberShape, inputLocation, statementBodyGenerator, false);
     }
 
     private String getNamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
@@ -264,13 +278,20 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             Shape target,
             String inputLocation,
             String locationName,
-            String memberName) {
+            String memberName,
+            boolean isWithinUnion) {
         if (target instanceof MapShape || target instanceof CollectionShape || target instanceof UnionShape) {
             writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
                 if (target instanceof MapShape) {
                     writer.write("contents.$L = {};", memberName);
                 } else if (target instanceof CollectionShape) {
-                    writer.write("contents.$L = [];", memberName);
+                    if (isWithinUnion) {
+                        writer.openBlock("return {", "};", () -> {
+                            writer.write("$L: [],", memberName);
+                        });
+                    } else {
+                        writer.write("contents.$L = [];", memberName);
+                    }
                 } else if (target instanceof UnionShape) {
                     writer.write("// Pass empty tags.");
                 }
@@ -295,7 +316,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     // Dispatch to the output value provider for any additional handling.
                     writer.write("$L: $L$L", memberName, target.accept(visitor), usesExpect(target) ? " as any" : "");
                 });
-            });
+            }, true);
         });
 
         // Or write output element to the unknown member.
