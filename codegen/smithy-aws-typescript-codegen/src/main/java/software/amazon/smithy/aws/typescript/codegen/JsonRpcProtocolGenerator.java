@@ -16,15 +16,17 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Set;
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
+import software.amazon.smithy.aws.typescript.codegen.protocols.DeserializerElisionDenyList;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
-import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
 import software.amazon.smithy.utils.IoUtils;
@@ -80,12 +82,18 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
+        boolean disableDeserializationFunctionElision = DeserializerElisionDenyList.SDK_IDS.contains(
+            context.getService().getTrait(ServiceTrait.class)
+                .map(ServiceTrait::getSdkId)
+                .orElse(null)
+        );
+
         AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
             // AWS JSON does not support jsonName
             new JsonShapeDeserVisitor(
                 context,
                 (shape, name) -> name,
-                enableSerdeElision()
+                enableSerdeElision() && !disableDeserializationFunctionElision
             )
         );
     }
@@ -187,7 +195,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         writer.write("contents = $L;", outputStructure.accept(getMemberDeserVisitor(context, "data")));
     }
 
-    private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
+    private ShapeVisitor<String> getMemberDeserVisitor(GenerationContext context, String dataSource) {
         return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
     }
 
