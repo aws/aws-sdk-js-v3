@@ -66,6 +66,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * //       IncludeNestedStacks: true || false,
  * //       ParentChangeSetId: "STRING_VALUE",
  * //       RootChangeSetId: "STRING_VALUE",
+ * //       ImportExistingResources: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -1411,6 +1411,12 @@ export interface ChangeSetSummary {
    * <p>The root change set ID.</p>
    */
   RootChangeSetId?: string;
+
+  /**
+   * @public
+   * <p>Indicates if the stack set imports resources that already exist.</p>
+   */
+  ImportExistingResources?: boolean;
 }
 
 /**
@@ -1825,7 +1831,7 @@ export interface CreateChangeSetInput {
    *    default, CloudFormation grants permissions to all resource types. Identity and Access Management (IAM)
    *    uses this parameter for condition keys in IAM policies for CloudFormation. For more information,
    *    see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling access
-   *     with Identity and Access Management</a> in the CloudFormation User Guide.</p>
+   *    with Identity and Access Management</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <note>
    *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
    *          </note>
@@ -1947,6 +1953,18 @@ export interface CreateChangeSetInput {
    *      be deleted.</p>
    */
   OnStackFailure?: OnStackFailure;
+
+  /**
+   * @public
+   * <p>Indicates if the stack set imports resources that already exist.</p>
+   *          <note>
+   *             <p>This parameter can only import resources that have custom names in templates. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">name type</a> in the
+   *     <i>CloudFormation User Guide</i>. To import resources that do not accept custom names, such as EC2 instances,
+   *     use the resource import feature instead. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">Bringing existing resources into CloudFormation
+   *     management</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          </note>
+   */
+  ImportExistingResources?: boolean;
 }
 
 /**
@@ -2047,7 +2065,7 @@ export interface CreateStackInput {
   /**
    * @public
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For
-   *    more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template anatomy</a> in the CloudFormation User Guide.</p>
+   *    more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template anatomy</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code> parameter,
    *    but not both.</p>
    */
@@ -2057,7 +2075,7 @@ export interface CreateStackInput {
    * @public
    * <p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's
    *    located in an Amazon S3 bucket or a Systems Manager document. For more information, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template anatomy</a> in the
-   *    CloudFormation User Guide.</p>
+   *    <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code> parameter,
    *    but not both.</p>
    */
@@ -2493,19 +2511,21 @@ export interface StackSetOperationPreferences {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STRICT_FAILURE_TOLERANCE</code>: Dynamically lowers the concurrency level to ensure
-   *      the number of failed accounts never exceeds the <code>FailureToleranceCount</code> +1.
-   *      StackSets will set the actual concurrency of your deployment as the minimum value between the
-   *       <code>MaxConcurrentCount</code> and the <code>FailureToleranceCount</code> +1. This is the
-   *      default behavior.</p>
+   *                   <code>STRICT_FAILURE_TOLERANCE</code>: This option dynamically lowers the concurrency
+   *      level to ensure the number of failed accounts never exceeds the value of
+   *       <code>FailureToleranceCount</code> +1. The initial actual concurrency is set to the lower of
+   *      either the value of the <code>MaxConcurrentCount</code>, or the value of
+   *       <code>MaxConcurrentCount</code> +1. The actual concurrency is then reduced proportionally by
+   *      the number of failures. This is the default behavior.</p>
    *                <p>If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior
    *      is similar.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SOFT_FAILURE_TOLERANCE</code>: Always run at the concurrency level set by the user
-   *      in the <code>MaxConcurrentCount</code> or <code>MaxConcurrentPercentage</code>, regardless of
-   *      the number of failures.</p>
+   *                   <code>SOFT_FAILURE_TOLERANCE</code>: This option decouples
+   *       <code>FailureToleranceCount</code> from the actual concurrency. This allows stack set
+   *      operations to run at the concurrency level set by the <code>MaxConcurrentCount</code> value, or
+   *       <code>MaxConcurrentPercentage</code>, regardless of the number of failures.</p>
    *             </li>
    *          </ul>
    */
@@ -3602,6 +3622,16 @@ export interface DescribeChangeSetOutput {
    *          </ul>
    */
   OnStackFailure?: OnStackFailure;
+
+  /**
+   * @public
+   * <p>Indicates if the stack set imports resources that already exist.</p>
+   *          <note>
+   *             <p>This parameter can only import resources that have <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">custom names</a> in templates. To import
+   *     resources that do not accept custom names, such as EC2 instances, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">resource import</a> feature instead.</p>
+   *          </note>
+   */
+  ImportExistingResources?: boolean;
 }
 
 /**
@@ -6614,7 +6644,7 @@ export interface EstimateTemplateCostInput {
    * @public
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
    *    (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.)</p>
+   *    <i>CloudFormation User Guide</i>.)</p>
    *          <p>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>. If both are passed, only
    *     <code>TemplateBody</code> is used.</p>
    */
@@ -6623,7 +6653,7 @@ export interface EstimateTemplateCostInput {
   /**
    * @public
    * <p>Location of file containing the template body. The URL must point to a template that's located in an Amazon S3 bucket or a Systems Manager document. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.</p>
+   *    <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only
    *     <code>TemplateBody</code> is used.</p>
    */
@@ -6735,7 +6765,7 @@ export interface GetStackPolicyOutput {
   /**
    * @public
    * <p>Structure containing the stack policy body. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates to Stack Resources</a> in
-   *    the CloudFormation User Guide.)</p>
+   *    the <i>CloudFormation User Guide</i>.)</p>
    */
   StackPolicyBody?: string;
 }
@@ -6800,7 +6830,7 @@ export interface GetTemplateOutput {
   /**
    * @public
    * <p>Structure containing the template body. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.)</p>
+   *    <i>CloudFormation User Guide</i>.)</p>
    *          <p>CloudFormation returns the same template that was used when the stack was created.</p>
    */
   TemplateBody?: string;
@@ -6837,7 +6867,7 @@ export interface GetTemplateSummaryInput {
    * @public
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For
    *    more information about templates, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template anatomy</a> in the
-   *    CloudFormation User Guide.</p>
+   *    <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
    *     <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</p>
    */
@@ -6847,8 +6877,8 @@ export interface GetTemplateSummaryInput {
    * @public
    * <p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's
    *    located in an Amazon S3 bucket or a Systems Manager document. For more information about templates, see
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template anatomy</a>
-   *    in the CloudFormation User Guide.</p>
+   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template anatomy</a>
+   *    in the <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
    *     <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</p>
    */
@@ -7420,10 +7450,10 @@ export interface StackInstanceResourceDriftsSummary {
 
   /**
    * @public
-   * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses context
-   *    key-value pairs in cases where a resource's logical and physical IDs aren't enough to uniquely
-   *    identify that resource. Each context key-value pair specifies a unique resource that contains the
-   *    targeted resource.</p>
+   * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses
+   *    context key-value pairs in cases where a resource's logical and physical IDs aren't enough
+   *    to uniquely identify that resource. Each context key-value pair specifies a unique resource
+   *    that contains the targeted resource.</p>
    */
   PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
 
@@ -7436,9 +7466,9 @@ export interface StackInstanceResourceDriftsSummary {
 
   /**
    * @public
-   * <p>Status of the actual configuration of the resource compared to its expected configuration.
-   *    These will be present only for resources whose <code>StackInstanceResourceDriftStatus</code> is
-   *     <code>MODIFIED</code>. </p>
+   * <p>Status of the actual configuration of the resource compared to its expected
+   *    configuration. These will be present only for resources whose
+   *    <code>StackInstanceResourceDriftStatus</code> is <code>MODIFIED</code>. </p>
    */
   PropertyDifferences?: PropertyDifference[];
 
@@ -9549,8 +9579,8 @@ export interface SetStackPolicyInput {
   /**
    * @public
    * <p>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent updates to stack resources</a> in
-   *    the CloudFormation User Guide. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
-   *    parameter, but not both.</p>
+   *    the <i>CloudFormation User Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
+   *    <code>StackPolicyURL</code> parameter, but not both.</p>
    */
   StackPolicyBody?: string;
 
@@ -9844,7 +9874,7 @@ export interface UpdateStackInput {
    * @public
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
    *    (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.)</p>
+   *    <i>CloudFormation User Guide</i>.)</p>
    *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
    *     <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    */
@@ -9853,7 +9883,7 @@ export interface UpdateStackInput {
   /**
    * @public
    * <p>Location of file containing the template body. The URL must point to a template that's located in an Amazon S3 bucket or a Systems Manager document. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.</p>
+   *    <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
    *     <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    */
@@ -10596,7 +10626,7 @@ export interface ValidateTemplateInput {
   /**
    * @public
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For
-   *    more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the CloudFormation User Guide.</p>
+   *    more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only
    *     <code>TemplateBody</code> is used.</p>
    */
@@ -10606,7 +10636,7 @@ export interface ValidateTemplateInput {
    * @public
    * <p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that
    *    is located in an Amazon S3 bucket or a Systems Manager document. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.</p>
+   *    <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only
    *     <code>TemplateBody</code> is used.</p>
    */

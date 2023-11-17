@@ -5478,6 +5478,9 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
   if (input.OnStackFailure != null) {
     entries["OnStackFailure"] = input.OnStackFailure;
   }
+  if (input.ImportExistingResources != null) {
+    entries["ImportExistingResources"] = input.ImportExistingResources;
+  }
   return entries;
 };
 
@@ -8167,6 +8170,9 @@ const de_ChangeSetSummary = (output: any, context: __SerdeContext): ChangeSetSum
   if (output["RootChangeSetId"] !== undefined) {
     contents.RootChangeSetId = __expectString(output["RootChangeSetId"]);
   }
+  if (output["ImportExistingResources"] !== undefined) {
+    contents.ImportExistingResources = __parseBoolean(output["ImportExistingResources"]);
+  }
   return contents;
 };
 
@@ -8441,6 +8447,9 @@ const de_DescribeChangeSetOutput = (output: any, context: __SerdeContext): Descr
   }
   if (output["OnStackFailure"] !== undefined) {
     contents.OnStackFailure = __expectString(output["OnStackFailure"]);
+  }
+  if (output["ImportExistingResources"] !== undefined) {
+    contents.ImportExistingResources = __parseBoolean(output["ImportExistingResources"]);
   }
   return contents;
 };
