@@ -93,6 +93,30 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @example Call OAuth/OIDC /register-client endpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   "clientName": "My IDE Plugin",
+ *   "clientType": "public",
+ *   "scopes": [
+ *     "sso:account:access",
+ *     "codewhisperer:completions"
+ *   ]
+ * };
+ * const command = new RegisterClientCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "clientId": "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
+ *   "clientIdIssuedAt": 1579725929,
+ *   "clientSecret": "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
+ *   "clientSecretExpiresAt": 1587584729
+ * }
+ * *\/
+ * // example id: register-client
+ * ```
+ *
  */
 export class RegisterClientCommand extends $Command<
   RegisterClientCommandInput,

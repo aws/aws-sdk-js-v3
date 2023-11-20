@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.455.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.454.0...v3.455.0) (2023-11-20)
+
+
+### Features
+
+* **client-codestar-connections:** This release updates a few CodeStar Connections related APIs. ([6eb1bbf](https://github.com/aws/aws-sdk-js-v3/commit/6eb1bbf80591dd77d490bd5379dbe5957e3fc068))
+
+
+
+
+
 # [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
 
 
