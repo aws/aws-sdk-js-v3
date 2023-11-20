@@ -60,6 +60,7 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput
  *   ],
  *   Options: { // CreateTransitGatewayVpcAttachmentRequestOptions
  *     DnsSupport: "enable" || "disable",
+ *     SecurityGroupReferencingSupport: "enable" || "disable",
  *     Ipv6Support: "enable" || "disable",
  *     ApplianceModeSupport: "enable" || "disable",
  *   },
@@ -91,6 +92,7 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     Options: { // TransitGatewayVpcAttachmentOptions
  * //       DnsSupport: "enable" || "disable",
+ * //       SecurityGroupReferencingSupport: "enable" || "disable",
  * //       Ipv6Support: "enable" || "disable",
  * //       ApplianceModeSupport: "enable" || "disable",
  * //     },

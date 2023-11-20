@@ -12,6 +12,7 @@ import {
   Ipv6SupportValue,
   ReservedInstancesListing,
   RouteTableAssociationState,
+  SecurityGroupReferencingSupportValue,
   Tag,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
@@ -51,13 +52,30 @@ import {
   ManagedPrefixList,
   NetworkInterfaceAssociation,
   NetworkInterfaceAttachment,
-  NetworkInterfaceIpv6Address,
   NetworkInterfaceType,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Describes an IPv6 address associated with a network interface.</p>
+ */
+export interface NetworkInterfaceIpv6Address {
+  /**
+   * @public
+   * <p>The IPv6 address.</p>
+   */
+  Ipv6Address?: string;
+
+  /**
+   * @public
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
+   */
+  IsPrimaryIpv6?: boolean;
+}
 
 /**
  * @public
@@ -3040,6 +3058,13 @@ export interface TransitGatewayRequestOptions {
 
   /**
    * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
+
+  /**
+   * @public
    * <p>Indicates whether multicast is enabled on the transit gateway</p>
    */
   MulticastSupport?: MulticastSupportValue;
@@ -3141,6 +3166,13 @@ export interface TransitGatewayOptions {
    * <p>Indicates whether DNS support is enabled.</p>
    */
   DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
@@ -4482,6 +4514,16 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
    * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
    */
   DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>If you don't enable or disable SecurityGroupReferencingSupport in the request, the
+   *          attachment will inherit the security group referencing support setting on the transit
+   *          gateway.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
@@ -9019,25 +9061,6 @@ export interface DeleteManagedPrefixListResult {
    * <p>Information about the prefix list.</p>
    */
   PrefixList?: ManagedPrefixList;
-}
-
-/**
- * @public
- */
-export interface DeleteNatGatewayRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the NAT gateway.</p>
-   */
-  NatGatewayId: string | undefined;
 }
 
 /**

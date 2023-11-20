@@ -22,6 +22,7 @@ import {
   HostRecovery,
   InstanceEventWindow,
   Ipv6SupportValue,
+  SecurityGroupReferencingSupportValue,
   SubnetAssociation,
   Tag,
   TagSpecification,
@@ -162,6 +163,23 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetIpamPoolCidrsResult {
+  /**
+   * @public
+   * <p>Information about the CIDRs provisioned to an IPAM pool.</p>
+   */
+  IpamPoolCidrs?: IpamPoolCidr[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -6514,6 +6532,13 @@ export interface ModifyTransitGatewayOptions {
 
   /**
    * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
+
+  /**
+   * @public
    * <p>Enable or disable automatic acceptance of attachment requests.</p>
    */
   AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue;
@@ -6651,6 +6676,13 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
    * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
    */
   DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
@@ -9398,17 +9430,6 @@ export interface TransitGatewayMulticastRegisteredGroupSources {
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
    */
   GroupIpAddress?: string;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * @public
-   * <p>Information about the  transit gateway multicast group sources.</p>
-   */
-  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources;
 }
 
 /**

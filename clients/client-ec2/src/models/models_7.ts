@@ -58,7 +58,23 @@ import {
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_4";
-import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
+import {
+  CapacityReservationSpecification,
+  InstanceMonitoring,
+  Status,
+  TransitGatewayMulticastRegisteredGroupSources,
+} from "./models_6";
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupSourcesResult {
+  /**
+   * @public
+   * <p>Information about the  transit gateway multicast group sources.</p>
+   */
+  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources;
+}
 
 /**
  * @public

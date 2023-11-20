@@ -50,6 +50,12 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  *        You can use -1 for the type or code to mean all types or all codes.</p>
  *          <p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p>
  *          <p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
+ *          <note>
+ *             <p>If you want to reference a security group across VPCs attached to a transit gateway using the
+ *                     <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">security group
+ *                     referencing feature</a>, note that you can only reference security groups
+ *                 for ingress rules. You cannot reference a security group for egress rules.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

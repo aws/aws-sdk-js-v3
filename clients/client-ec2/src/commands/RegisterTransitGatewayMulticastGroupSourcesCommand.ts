@@ -15,10 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RegisterTransitGatewayMulticastGroupSourcesRequest,
-  RegisterTransitGatewayMulticastGroupSourcesResult,
-} from "../models/models_6";
+import { RegisterTransitGatewayMulticastGroupSourcesRequest } from "../models/models_6";
+import { RegisterTransitGatewayMulticastGroupSourcesResult } from "../models/models_7";
 import {
   de_RegisterTransitGatewayMulticastGroupSourcesCommand,
   se_RegisterTransitGatewayMulticastGroupSourcesCommand,

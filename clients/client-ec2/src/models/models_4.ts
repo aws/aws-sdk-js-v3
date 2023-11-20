@@ -65,7 +65,6 @@ import {
   PrivateIpAddressSpecification,
   SpotInstanceType,
   StateReason,
-  Subnet,
   TargetCapacityUnitType,
   Tenancy,
 } from "./models_1";
@@ -97,6 +96,44 @@ import {
   UserBucketDetails,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeImportSnapshotTasksRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>A list of import snapshot task IDs.</p>
+   */
+  ImportTaskIds?: string[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
+   *    with the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token that indicates the next page of results.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -9722,9 +9759,15 @@ export interface SecurityGroupReference {
 
   /**
    * @public
-   * <p>The ID of the VPC peering connection.</p>
+   * <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see <a href="https://docs.aws.amazon.com/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a> in the <i>VPC Peering Guide</i>.</p>
    */
   VpcPeeringConnectionId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the transit gateway (if applicable). For more information about security group referencing for transit gateways, see <a href="https://docs.aws.amazon.com/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  TransitGatewayId?: string;
 }
 
 /**
@@ -12882,23 +12925,6 @@ export interface DescribeSubnetsRequest {
    * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface DescribeSubnetsResult {
-  /**
-   * @public
-   * <p>Information about one or more subnets.</p>
-   */
-  Subnets?: Subnet[];
-
-  /**
-   * @public
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   */
-  NextToken?: string;
 }
 
 /**

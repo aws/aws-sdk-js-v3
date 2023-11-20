@@ -65,6 +65,7 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  *     DefaultRouteTablePropagation: "enable" || "disable",
  *     VpnEcmpSupport: "enable" || "disable",
  *     DnsSupport: "enable" || "disable",
+ *     SecurityGroupReferencingSupport: "enable" || "disable",
  *     MulticastSupport: "enable" || "disable",
  *     TransitGatewayCidrBlocks: [ // TransitGatewayCidrBlockStringList
  *       "STRING_VALUE",
@@ -105,6 +106,7 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  * //       PropagationDefaultRouteTableId: "STRING_VALUE",
  * //       VpnEcmpSupport: "enable" || "disable",
  * //       DnsSupport: "enable" || "disable",
+ * //       SecurityGroupReferencingSupport: "enable" || "disable",
  * //       MulticastSupport: "enable" || "disable",
  * //     },
  * //     Tags: [ // TagList

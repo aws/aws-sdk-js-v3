@@ -56,6 +56,7 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  *     ],
  *     VpnEcmpSupport: "enable" || "disable",
  *     DnsSupport: "enable" || "disable",
+ *     SecurityGroupReferencingSupport: "enable" || "disable",
  *     AutoAcceptSharedAttachments: "enable" || "disable",
  *     DefaultRouteTableAssociation: "enable" || "disable",
  *     AssociationDefaultRouteTableId: "STRING_VALUE",
@@ -87,6 +88,7 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * //       PropagationDefaultRouteTableId: "STRING_VALUE",
  * //       VpnEcmpSupport: "enable" || "disable",
  * //       DnsSupport: "enable" || "disable",
+ * //       SecurityGroupReferencingSupport: "enable" || "disable",
  * //       MulticastSupport: "enable" || "disable",
  * //     },
  * //     Tags: [ // TagList

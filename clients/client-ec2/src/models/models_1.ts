@@ -32,6 +32,39 @@ import {
 
 /**
  * @public
+ */
+export interface CreateCarrierGatewayRequest {
+  /**
+   * @public
+   * <p>The ID of the VPC to associate with the carrier gateway.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags to associate with the carrier gateway.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const CarrierGatewayState = {
@@ -10924,24 +10957,6 @@ export const NetworkInterfaceType = {
  * @public
  */
 export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
-
-/**
- * @public
- * <p>Describes an IPv6 address associated with a network interface.</p>
- */
-export interface NetworkInterfaceIpv6Address {
-  /**
-   * @public
-   * <p>The IPv6 address.</p>
-   */
-  Ipv6Address?: string;
-
-  /**
-   * @public
-   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
-   */
-  IsPrimaryIpv6?: boolean;
-}
 
 /**
  * @internal

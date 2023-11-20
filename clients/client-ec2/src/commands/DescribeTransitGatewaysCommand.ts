@@ -84,6 +84,7 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  * //         PropagationDefaultRouteTableId: "STRING_VALUE",
  * //         VpnEcmpSupport: "enable" || "disable",
  * //         DnsSupport: "enable" || "disable",
+ * //         SecurityGroupReferencingSupport: "enable" || "disable",
  * //         MulticastSupport: "enable" || "disable",
  * //       },
  * //       Tags: [ // TagList

@@ -89,6 +89,25 @@ import {
 /**
  * @public
  */
+export interface DeleteNatGatewayRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the NAT gateway.</p>
+   */
+  NatGatewayId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteNatGatewayResult {
   /**
    * @public
@@ -9316,44 +9335,6 @@ export interface DescribeImportImageTasksResult {
    * @public
    * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
    *    to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeImportSnapshotTasksRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>A list of import snapshot task IDs.</p>
-   */
-  ImportTaskIds?: string[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-   *    with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>A token that indicates the next page of results.</p>
    */
   NextToken?: string;
 }

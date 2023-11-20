@@ -31,7 +31,7 @@ import {
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
-import { DiskImageFormat, InstanceRequirementsRequest, IpamResourceTag, VolumeType, Vpc } from "./models_1";
+import { DiskImageFormat, InstanceRequirementsRequest, IpamResourceTag, Subnet, VolumeType, Vpc } from "./models_1";
 import {
   ConnectionNotification,
   DnsEntry,
@@ -69,7 +69,6 @@ import {
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   Filter,
-  IpamPoolCidr,
   MetricType,
   PaymentOption,
   PeriodType,
@@ -78,6 +77,23 @@ import {
   VirtualizationType,
 } from "./models_3";
 import { ArchitectureType, AttributeBooleanValue } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeSubnetsResult {
+  /**
+   * @public
+   * <p>Information about one or more subnets.</p>
+   */
+  Subnets?: Subnet[];
+
+  /**
+   * @public
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -8617,23 +8633,6 @@ export interface GetIpamPoolCidrsRequest {
   /**
    * @public
    * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolCidrsResult {
-  /**
-   * @public
-   * <p>Information about the CIDRs provisioned to an IPAM pool.</p>
-   */
-  IpamPoolCidrs?: IpamPoolCidr[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 }

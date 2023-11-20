@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateCarrierGatewayRequest } from "../models/models_0";
-import { CreateCarrierGatewayResult } from "../models/models_1";
+import { CreateCarrierGatewayRequest, CreateCarrierGatewayResult } from "../models/models_1";
 import { de_CreateCarrierGatewayCommand, se_CreateCarrierGatewayCommand } from "../protocols/Aws_ec2";
 
 /**

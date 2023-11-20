@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNatGatewayRequest } from "../models/models_2";
-import { DeleteNatGatewayResult } from "../models/models_3";
+import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/models_3";
 import { de_DeleteNatGatewayCommand, se_DeleteNatGatewayCommand } from "../protocols/Aws_ec2";
 
 /**

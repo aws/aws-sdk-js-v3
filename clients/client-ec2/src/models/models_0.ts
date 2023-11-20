@@ -832,6 +832,21 @@ export type Ipv6SupportValue = (typeof Ipv6SupportValue)[keyof typeof Ipv6Suppor
 
 /**
  * @public
+ * @enum
+ */
+export const SecurityGroupReferencingSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityGroupReferencingSupportValue =
+  (typeof SecurityGroupReferencingSupportValue)[keyof typeof SecurityGroupReferencingSupportValue];
+
+/**
+ * @public
  * <p>Describes the VPC attachment options.</p>
  */
 export interface TransitGatewayVpcAttachmentOptions {
@@ -840,6 +855,12 @@ export interface TransitGatewayVpcAttachmentOptions {
    * <p>Indicates whether DNS support is enabled.</p>
    */
   DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
@@ -6549,7 +6570,7 @@ export interface ReferencedSecurityGroup {
 
   /**
    * @public
-   * <p>The ID of the VPC peering connection.</p>
+   * <p>The ID of the VPC peering connection (if applicable).</p>
    */
   VpcPeeringConnectionId?: string;
 }
@@ -9641,39 +9662,6 @@ export interface CreateCapacityReservationFleetResult {
    * <p>The tags assigned to the Capacity Reservation Fleet.</p>
    */
   Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateCarrierGatewayRequest {
-  /**
-   * @public
-   * <p>The ID of the VPC to associate with the carrier gateway.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * @public
-   * <p>The tags to associate with the carrier gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   */
-  ClientToken?: string;
 }
 
 /**

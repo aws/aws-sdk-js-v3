@@ -2261,7 +2261,6 @@ import {
   CreateCapacityReservationFleetResult,
   CreateCapacityReservationRequest,
   CreateCapacityReservationResult,
-  CreateCarrierGatewayRequest,
   DeviceOptions,
   EnaSrdSpecification,
   EnaSrdUdpSpecification,
@@ -2369,6 +2368,7 @@ import {
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
+  CreateCarrierGatewayRequest,
   CreateCarrierGatewayResult,
   CreateClientVpnEndpointRequest,
   CreateClientVpnEndpointResult,
@@ -2553,7 +2553,6 @@ import {
   NetworkInterfaceAttachment,
   NetworkInterfaceCount,
   NetworkInterfaceCountRequest,
-  NetworkInterfaceIpv6Address,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
   PathFilter,
@@ -2731,7 +2730,6 @@ import {
   DeleteLocalGatewayRouteTableVpcAssociationResult,
   DeleteManagedPrefixListRequest,
   DeleteManagedPrefixListResult,
-  DeleteNatGatewayRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2742,6 +2740,7 @@ import {
   Ipv6PrefixSpecification,
   LastError,
   NetworkInterface,
+  NetworkInterfaceIpv6Address,
   NetworkInterfacePermission,
   NetworkInterfacePermissionState,
   NetworkInterfacePrivateIpAddress,
@@ -2843,6 +2842,7 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteNatGatewayRequest,
   DeleteNatGatewayResult,
   DeleteNetworkAclEntryRequest,
   DeleteNetworkAclRequest,
@@ -3030,7 +3030,6 @@ import {
   DescribeImagesResult,
   DescribeImportImageTasksRequest,
   DescribeImportImageTasksResult,
-  DescribeImportSnapshotTasksRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3097,6 +3096,7 @@ import {
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   CreateVolumePermission,
+  DescribeImportSnapshotTasksRequest,
   DescribeImportSnapshotTasksResult,
   DescribeInstanceAttributeRequest,
   DescribeInstanceConnectEndpointsRequest,
@@ -3230,7 +3230,6 @@ import {
   DescribeStoreImageTasksRequest,
   DescribeStoreImageTasksResult,
   DescribeSubnetsRequest,
-  DescribeSubnetsResult,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3354,6 +3353,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeSubnetsResult,
   DescribeTagsRequest,
   DescribeTagsResult,
   DescribeTrafficMirrorFiltersRequest,
@@ -3587,7 +3587,6 @@ import {
   GetIpamPoolAllocationsRequest,
   GetIpamPoolAllocationsResult,
   GetIpamPoolCidrsRequest,
-  GetIpamPoolCidrsResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceTypeInfoFromInstanceRequirements,
@@ -3637,6 +3636,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetIpamPoolCidrsResult,
   GetIpamResourceCidrsRequest,
   GetIpamResourceCidrsResult,
   GetLaunchTemplateDataRequest,
@@ -3882,7 +3882,6 @@ import {
   RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
-  RegisterTransitGatewayMulticastGroupSourcesResult,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3931,6 +3930,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RegisterTransitGatewayMulticastGroupSourcesResult,
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
   RejectTransitGatewayPeeringAttachmentRequest,
@@ -44191,6 +44191,9 @@ const se_CreateTransitGatewayVpcAttachmentRequestOptions = (
   if (input.DnsSupport != null) {
     entries["DnsSupport"] = input.DnsSupport;
   }
+  if (input.SecurityGroupReferencingSupport != null) {
+    entries["SecurityGroupReferencingSupport"] = input.SecurityGroupReferencingSupport;
+  }
   if (input.Ipv6Support != null) {
     entries["Ipv6Support"] = input.Ipv6Support;
   }
@@ -59848,6 +59851,9 @@ const se_ModifyTransitGatewayOptions = (input: ModifyTransitGatewayOptions, cont
   if (input.DnsSupport != null) {
     entries["DnsSupport"] = input.DnsSupport;
   }
+  if (input.SecurityGroupReferencingSupport != null) {
+    entries["SecurityGroupReferencingSupport"] = input.SecurityGroupReferencingSupport;
+  }
   if (input.AutoAcceptSharedAttachments != null) {
     entries["AutoAcceptSharedAttachments"] = input.AutoAcceptSharedAttachments;
   }
@@ -59973,6 +59979,9 @@ const se_ModifyTransitGatewayVpcAttachmentRequestOptions = (
   const entries: any = {};
   if (input.DnsSupport != null) {
     entries["DnsSupport"] = input.DnsSupport;
+  }
+  if (input.SecurityGroupReferencingSupport != null) {
+    entries["SecurityGroupReferencingSupport"] = input.SecurityGroupReferencingSupport;
   }
   if (input.Ipv6Support != null) {
     entries["Ipv6Support"] = input.Ipv6Support;
@@ -66496,6 +66505,9 @@ const se_TransitGatewayRequestOptions = (input: TransitGatewayRequestOptions, co
   }
   if (input.DnsSupport != null) {
     entries["DnsSupport"] = input.DnsSupport;
+  }
+  if (input.SecurityGroupReferencingSupport != null) {
+    entries["SecurityGroupReferencingSupport"] = input.SecurityGroupReferencingSupport;
   }
   if (input.MulticastSupport != null) {
     entries["MulticastSupport"] = input.MulticastSupport;
@@ -91021,6 +91033,9 @@ const de_SecurityGroupReference = (output: any, context: __SerdeContext): Securi
   if (output["vpcPeeringConnectionId"] !== undefined) {
     contents.VpcPeeringConnectionId = __expectString(output["vpcPeeringConnectionId"]);
   }
+  if (output["transitGatewayId"] !== undefined) {
+    contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
+  }
   return contents;
 };
 
@@ -93965,6 +93980,9 @@ const de_TransitGatewayOptions = (output: any, context: __SerdeContext): Transit
   if (output["dnsSupport"] !== undefined) {
     contents.DnsSupport = __expectString(output["dnsSupport"]);
   }
+  if (output["securityGroupReferencingSupport"] !== undefined) {
+    contents.SecurityGroupReferencingSupport = __expectString(output["securityGroupReferencingSupport"]);
+  }
   if (output["multicastSupport"] !== undefined) {
     contents.MulticastSupport = __expectString(output["multicastSupport"]);
   }
@@ -94622,6 +94640,9 @@ const de_TransitGatewayVpcAttachmentOptions = (
   const contents: any = {};
   if (output["dnsSupport"] !== undefined) {
     contents.DnsSupport = __expectString(output["dnsSupport"]);
+  }
+  if (output["securityGroupReferencingSupport"] !== undefined) {
+    contents.SecurityGroupReferencingSupport = __expectString(output["securityGroupReferencingSupport"]);
   }
   if (output["ipv6Support"] !== undefined) {
     contents.Ipv6Support = __expectString(output["ipv6Support"]);
