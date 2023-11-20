@@ -77,6 +77,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * //     KmsKeyId: "STRING_VALUE",
  * //     DBClusterSnapshotArn: "STRING_VALUE",
  * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -73,6 +73,7 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * //     KmsKeyId: "STRING_VALUE",
  * //     DBClusterSnapshotArn: "STRING_VALUE",
  * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

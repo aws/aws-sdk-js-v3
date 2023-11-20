@@ -109,6 +109,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

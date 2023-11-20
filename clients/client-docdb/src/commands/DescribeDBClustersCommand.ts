@@ -123,6 +123,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         "STRING_VALUE",
  * //       ],
  * //       DeletionProtection: true || false,
+ * //       StorageType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -109,6 +109,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

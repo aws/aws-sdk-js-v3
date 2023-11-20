@@ -70,6 +70,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   EngineVersion: "STRING_VALUE",
  *   AllowMajorVersionUpgrade: true || false,
  *   DeletionProtection: true || false,
+ *   StorageType: "STRING_VALUE",
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -130,6 +131,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -76,6 +76,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   ],
  *   DeletionProtection: true || false,
  *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -136,6 +137,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

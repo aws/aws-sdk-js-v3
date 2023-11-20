@@ -90,6 +90,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * //     KmsKeyId: "STRING_VALUE",
  * //     DBClusterSnapshotArn: "STRING_VALUE",
  * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -81,6 +81,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * //         },
  * //       ],
  * //       Vpc: true || false,
+ * //       StorageType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

@@ -5322,6 +5322,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input.GlobalClusterIdentifier != null) {
     entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
   }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
+  }
   return entries;
 };
 
@@ -6327,6 +6330,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input.DeletionProtection != null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
+  }
   return entries;
 };
 
@@ -6731,6 +6737,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   if (input.DBClusterParameterGroupName != null) {
     entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
   }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
+  }
   return entries;
 };
 
@@ -6798,6 +6807,9 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   }
   if (input.DeletionProtection != null) {
     entries["DeletionProtection"] = input.DeletionProtection;
+  }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
   }
   return entries;
 };
@@ -7330,6 +7342,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output["DeletionProtection"] !== undefined) {
     contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
   }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
+  }
   return contents;
 };
 
@@ -7609,6 +7624,9 @@ const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSn
   }
   if (output["SourceDBClusterSnapshotArn"] !== undefined) {
     contents.SourceDBClusterSnapshotArn = __expectString(output["SourceDBClusterSnapshotArn"]);
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
   }
   return contents;
 };
@@ -9026,6 +9044,9 @@ const de_OrderableDBInstanceOption = (output: any, context: __SerdeContext): Ord
   }
   if (output["Vpc"] !== undefined) {
     contents.Vpc = __parseBoolean(output["Vpc"]);
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
   }
   return contents;
 };

@@ -109,6 +109,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

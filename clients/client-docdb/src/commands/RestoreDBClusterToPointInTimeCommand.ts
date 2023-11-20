@@ -75,6 +75,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,
+ *   StorageType: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -135,6 +136,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

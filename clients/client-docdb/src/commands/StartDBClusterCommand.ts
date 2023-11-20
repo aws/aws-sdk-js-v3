@@ -108,6 +108,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

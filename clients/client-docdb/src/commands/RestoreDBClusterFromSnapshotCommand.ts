@@ -73,6 +73,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   ],
  *   DeletionProtection: true || false,
  *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -133,6 +134,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

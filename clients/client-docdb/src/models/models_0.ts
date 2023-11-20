@@ -858,6 +858,18 @@ export interface DBClusterSnapshot {
    *             the source cluster snapshot; otherwise, a null value.</p>
    */
   SourceDBClusterSnapshotArn?: string;
+
+  /**
+   * @public
+   * <p>Storage type associated with your cluster snapshot </p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -1194,6 +1206,22 @@ export interface CreateDBClusterMessage {
    * <p>The cluster identifier of the new global cluster.</p>
    */
   GlobalClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   *          <note>
+   *             <p>When you create a DocumentDB DB cluster with the storage type set to <code>iopt1</code>, the storage type is returned
+   *                     in the response. The storage type isn't returned when you set it to <code>standard</code>.</p>
+   *          </note>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -1493,6 +1521,19 @@ export interface DBCluster {
    *             protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * @public
+   * <p>Storage type associated with your cluster</p>
+   *          <p>Storage type associated with your cluster</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -4851,6 +4892,12 @@ export interface OrderableDBInstanceOption {
    * <p>Indicates whether an instance is in a virtual private cloud (VPC).</p>
    */
   Vpc?: boolean;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster</p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -5231,6 +5278,18 @@ export interface ModifyDBClusterMessage {
    *             protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -6031,6 +6090,18 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *         hyphens.</p>
    */
   DBClusterParameterGroupName?: string;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -6196,6 +6267,18 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
