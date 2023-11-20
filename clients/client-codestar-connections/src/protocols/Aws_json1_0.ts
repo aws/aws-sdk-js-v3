@@ -4,11 +4,6 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  parseEpochTimestamp as __parseEpochTimestamp,
-  take,
   withBaseException,
 } from "@smithy/smithy-client";
 import {
@@ -20,57 +15,12 @@ import {
 
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
 import { CreateHostCommandInput, CreateHostCommandOutput } from "../commands/CreateHostCommand";
-import {
-  CreateRepositoryLinkCommandInput,
-  CreateRepositoryLinkCommandOutput,
-} from "../commands/CreateRepositoryLinkCommand";
-import {
-  CreateSyncConfigurationCommandInput,
-  CreateSyncConfigurationCommandOutput,
-} from "../commands/CreateSyncConfigurationCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
 import { DeleteHostCommandInput, DeleteHostCommandOutput } from "../commands/DeleteHostCommand";
-import {
-  DeleteRepositoryLinkCommandInput,
-  DeleteRepositoryLinkCommandOutput,
-} from "../commands/DeleteRepositoryLinkCommand";
-import {
-  DeleteSyncConfigurationCommandInput,
-  DeleteSyncConfigurationCommandOutput,
-} from "../commands/DeleteSyncConfigurationCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
 import { GetHostCommandInput, GetHostCommandOutput } from "../commands/GetHostCommand";
-import { GetRepositoryLinkCommandInput, GetRepositoryLinkCommandOutput } from "../commands/GetRepositoryLinkCommand";
-import {
-  GetRepositorySyncStatusCommandInput,
-  GetRepositorySyncStatusCommandOutput,
-} from "../commands/GetRepositorySyncStatusCommand";
-import {
-  GetResourceSyncStatusCommandInput,
-  GetResourceSyncStatusCommandOutput,
-} from "../commands/GetResourceSyncStatusCommand";
-import {
-  GetSyncBlockerSummaryCommandInput,
-  GetSyncBlockerSummaryCommandOutput,
-} from "../commands/GetSyncBlockerSummaryCommand";
-import {
-  GetSyncConfigurationCommandInput,
-  GetSyncConfigurationCommandOutput,
-} from "../commands/GetSyncConfigurationCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
 import { ListHostsCommandInput, ListHostsCommandOutput } from "../commands/ListHostsCommand";
-import {
-  ListRepositoryLinksCommandInput,
-  ListRepositoryLinksCommandOutput,
-} from "../commands/ListRepositoryLinksCommand";
-import {
-  ListRepositorySyncDefinitionsCommandInput,
-  ListRepositorySyncDefinitionsCommandOutput,
-} from "../commands/ListRepositorySyncDefinitionsCommand";
-import {
-  ListSyncConfigurationsCommandInput,
-  ListSyncConfigurationsCommandOutput,
-} from "../commands/ListSyncConfigurationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -78,72 +28,26 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateHostCommandInput, UpdateHostCommandOutput } from "../commands/UpdateHostCommand";
-import {
-  UpdateRepositoryLinkCommandInput,
-  UpdateRepositoryLinkCommandOutput,
-} from "../commands/UpdateRepositoryLinkCommand";
-import { UpdateSyncBlockerCommandInput, UpdateSyncBlockerCommandOutput } from "../commands/UpdateSyncBlockerCommand";
-import {
-  UpdateSyncConfigurationCommandInput,
-  UpdateSyncConfigurationCommandOutput,
-} from "../commands/UpdateSyncConfigurationCommand";
 import { CodeStarConnectionsServiceException as __BaseException } from "../models/CodeStarConnectionsServiceException";
 import {
-  AccessDeniedException,
-  ConcurrentModificationException,
-  ConditionalCheckFailedException,
   ConflictException,
   CreateConnectionInput,
   CreateHostInput,
-  CreateRepositoryLinkInput,
-  CreateSyncConfigurationInput,
   DeleteConnectionInput,
   DeleteHostInput,
-  DeleteRepositoryLinkInput,
-  DeleteSyncConfigurationInput,
   GetConnectionInput,
   GetHostInput,
-  GetRepositoryLinkInput,
-  GetRepositorySyncStatusInput,
-  GetRepositorySyncStatusOutput,
-  GetResourceSyncStatusInput,
-  GetResourceSyncStatusOutput,
-  GetSyncBlockerSummaryInput,
-  GetSyncBlockerSummaryOutput,
-  GetSyncConfigurationInput,
-  InternalServerException,
-  InvalidInputException,
   LimitExceededException,
   ListConnectionsInput,
   ListHostsInput,
-  ListRepositoryLinksInput,
-  ListRepositorySyncDefinitionsInput,
-  ListSyncConfigurationsInput,
   ListTagsForResourceInput,
-  RepositorySyncAttempt,
-  RepositorySyncEvent,
-  ResourceAlreadyExistsException,
   ResourceNotFoundException,
-  ResourceSyncAttempt,
-  ResourceSyncEvent,
   ResourceUnavailableException,
-  RetryLatestCommitFailedException,
-  SyncBlocker,
-  SyncBlockerDoesNotExistException,
-  SyncBlockerSummary,
-  SyncConfigurationStillExistsException,
   Tag,
   TagResourceInput,
-  ThrottlingException,
   UnsupportedOperationException,
-  UnsupportedProviderTypeException,
   UntagResourceInput,
   UpdateHostInput,
-  UpdateOutOfSyncException,
-  UpdateRepositoryLinkInput,
-  UpdateSyncBlockerInput,
-  UpdateSyncBlockerOutput,
-  UpdateSyncConfigurationInput,
   VpcConfiguration,
 } from "../models/models_0";
 
@@ -168,32 +72,6 @@ export const se_CreateHostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHost");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0CreateRepositoryLinkCommand
- */
-export const se_CreateRepositoryLinkCommand = async (
-  input: CreateRepositoryLinkCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("CreateRepositoryLink");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0CreateSyncConfigurationCommand
- */
-export const se_CreateSyncConfigurationCommand = async (
-  input: CreateSyncConfigurationCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("CreateSyncConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -226,32 +104,6 @@ export const se_DeleteHostCommand = async (
 };
 
 /**
- * serializeAws_json1_0DeleteRepositoryLinkCommand
- */
-export const se_DeleteRepositoryLinkCommand = async (
-  input: DeleteRepositoryLinkCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("DeleteRepositoryLink");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0DeleteSyncConfigurationCommand
- */
-export const se_DeleteSyncConfigurationCommand = async (
-  input: DeleteSyncConfigurationCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("DeleteSyncConfiguration");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
  * serializeAws_json1_0GetConnectionCommand
  */
 export const se_GetConnectionCommand = async (
@@ -278,71 +130,6 @@ export const se_GetHostCommand = async (
 };
 
 /**
- * serializeAws_json1_0GetRepositoryLinkCommand
- */
-export const se_GetRepositoryLinkCommand = async (
-  input: GetRepositoryLinkCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetRepositoryLink");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0GetRepositorySyncStatusCommand
- */
-export const se_GetRepositorySyncStatusCommand = async (
-  input: GetRepositorySyncStatusCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetRepositorySyncStatus");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0GetResourceSyncStatusCommand
- */
-export const se_GetResourceSyncStatusCommand = async (
-  input: GetResourceSyncStatusCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetResourceSyncStatus");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0GetSyncBlockerSummaryCommand
- */
-export const se_GetSyncBlockerSummaryCommand = async (
-  input: GetSyncBlockerSummaryCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetSyncBlockerSummary");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0GetSyncConfigurationCommand
- */
-export const se_GetSyncConfigurationCommand = async (
-  input: GetSyncConfigurationCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetSyncConfiguration");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
  * serializeAws_json1_0ListConnectionsCommand
  */
 export const se_ListConnectionsCommand = async (
@@ -363,45 +150,6 @@ export const se_ListHostsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHosts");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0ListRepositoryLinksCommand
- */
-export const se_ListRepositoryLinksCommand = async (
-  input: ListRepositoryLinksCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ListRepositoryLinks");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0ListRepositorySyncDefinitionsCommand
- */
-export const se_ListRepositorySyncDefinitionsCommand = async (
-  input: ListRepositorySyncDefinitionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ListRepositorySyncDefinitions");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0ListSyncConfigurationsCommand
- */
-export const se_ListSyncConfigurationsCommand = async (
-  input: ListSyncConfigurationsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ListSyncConfigurations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -454,45 +202,6 @@ export const se_UpdateHostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateHost");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0UpdateRepositoryLinkCommand
- */
-export const se_UpdateRepositoryLinkCommand = async (
-  input: UpdateRepositoryLinkCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("UpdateRepositoryLink");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0UpdateSyncBlockerCommand
- */
-export const se_UpdateSyncBlockerCommand = async (
-  input: UpdateSyncBlockerCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("UpdateSyncBlocker");
-  let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-/**
- * serializeAws_json1_0UpdateSyncConfigurationCommand
- */
-export const se_UpdateSyncConfigurationCommand = async (
-  input: UpdateSyncConfigurationCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("UpdateSyncConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -597,134 +306,6 @@ const de_CreateHostCommandError = async (
 };
 
 /**
- * deserializeAws_json1_0CreateRepositoryLinkCommand
- */
-export const de_CreateRepositoryLinkCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRepositoryLinkCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateRepositoryLinkCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateRepositoryLinkCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0CreateRepositoryLinkCommandError
- */
-const de_CreateRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codestarconnections#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0CreateSyncConfigurationCommand
- */
-export const de_CreateSyncConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSyncConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateSyncConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateSyncConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0CreateSyncConfigurationCommandError
- */
-const de_CreateSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSyncConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codestarconnections#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteConnectionCommand
  */
 export const de_DeleteConnectionCommand = async (
@@ -809,134 +390,6 @@ const de_DeleteHostCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.codestarconnections#ResourceUnavailableException":
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteRepositoryLinkCommand
- */
-export const de_DeleteRepositoryLinkCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRepositoryLinkCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteRepositoryLinkCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteRepositoryLinkCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteRepositoryLinkCommandError
- */
-const de_DeleteRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SyncConfigurationStillExistsException":
-    case "com.amazonaws.codestarconnections#SyncConfigurationStillExistsException":
-      throw await de_SyncConfigurationStillExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedProviderTypeException":
-    case "com.amazonaws.codestarconnections#UnsupportedProviderTypeException":
-      throw await de_UnsupportedProviderTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteSyncConfigurationCommand
- */
-export const de_DeleteSyncConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSyncConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSyncConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteSyncConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteSyncConfigurationCommandError
- */
-const de_DeleteSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSyncConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1046,299 +499,6 @@ const de_GetHostCommandError = async (
 };
 
 /**
- * deserializeAws_json1_0GetRepositoryLinkCommand
- */
-export const de_GetRepositoryLinkCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositoryLinkCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetRepositoryLinkCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetRepositoryLinkCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0GetRepositoryLinkCommandError
- */
-const de_GetRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0GetRepositorySyncStatusCommand
- */
-export const de_GetRepositorySyncStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositorySyncStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetRepositorySyncStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetRepositorySyncStatusOutput(data, context);
-  const response: GetRepositorySyncStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0GetRepositorySyncStatusCommandError
- */
-const de_GetRepositorySyncStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositorySyncStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0GetResourceSyncStatusCommand
- */
-export const de_GetResourceSyncStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceSyncStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetResourceSyncStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetResourceSyncStatusOutput(data, context);
-  const response: GetResourceSyncStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0GetResourceSyncStatusCommandError
- */
-const de_GetResourceSyncStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceSyncStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0GetSyncBlockerSummaryCommand
- */
-export const de_GetSyncBlockerSummaryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSyncBlockerSummaryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetSyncBlockerSummaryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetSyncBlockerSummaryOutput(data, context);
-  const response: GetSyncBlockerSummaryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0GetSyncBlockerSummaryCommandError
- */
-const de_GetSyncBlockerSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSyncBlockerSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0GetSyncConfigurationCommand
- */
-export const de_GetSyncConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSyncConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetSyncConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetSyncConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0GetSyncConfigurationCommandError
- */
-const de_GetSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSyncConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListConnectionsCommand
  */
 export const de_ListConnectionsCommand = async (
@@ -1422,183 +582,6 @@ const de_ListHostsCommandError = async (
     parsedBody,
     errorCode,
   });
-};
-
-/**
- * deserializeAws_json1_0ListRepositoryLinksCommand
- */
-export const de_ListRepositoryLinksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRepositoryLinksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListRepositoryLinksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListRepositoryLinksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListRepositoryLinksCommandError
- */
-const de_ListRepositoryLinksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRepositoryLinksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListRepositorySyncDefinitionsCommand
- */
-export const de_ListRepositorySyncDefinitionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRepositorySyncDefinitionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListRepositorySyncDefinitionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListRepositorySyncDefinitionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListRepositorySyncDefinitionsCommandError
- */
-const de_ListRepositorySyncDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRepositorySyncDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListSyncConfigurationsCommand
- */
-export const de_ListSyncConfigurationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSyncConfigurationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListSyncConfigurationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListSyncConfigurationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListSyncConfigurationsCommandError
- */
-const de_ListSyncConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSyncConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1798,284 +781,12 @@ const de_UpdateHostCommandError = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateRepositoryLinkCommand
- */
-export const de_UpdateRepositoryLinkCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRepositoryLinkCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateRepositoryLinkCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateRepositoryLinkCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateRepositoryLinkCommandError
- */
-const de_UpdateRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConditionalCheckFailedException":
-    case "com.amazonaws.codestarconnections#ConditionalCheckFailedException":
-      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UpdateOutOfSyncException":
-    case "com.amazonaws.codestarconnections#UpdateOutOfSyncException":
-      throw await de_UpdateOutOfSyncExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateSyncBlockerCommand
- */
-export const de_UpdateSyncBlockerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSyncBlockerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSyncBlockerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateSyncBlockerOutput(data, context);
-  const response: UpdateSyncBlockerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateSyncBlockerCommandError
- */
-const de_UpdateSyncBlockerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSyncBlockerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryLatestCommitFailedException":
-    case "com.amazonaws.codestarconnections#RetryLatestCommitFailedException":
-      throw await de_RetryLatestCommitFailedExceptionRes(parsedOutput, context);
-    case "SyncBlockerDoesNotExistException":
-    case "com.amazonaws.codestarconnections#SyncBlockerDoesNotExistException":
-      throw await de_SyncBlockerDoesNotExistExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateSyncConfigurationCommand
- */
-export const de_UpdateSyncConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSyncConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSyncConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSyncConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateSyncConfigurationCommandError
- */
-const de_UpdateSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSyncConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UpdateOutOfSyncException":
-    case "com.amazonaws.codestarconnections#UpdateOutOfSyncException":
-      throw await de_UpdateOutOfSyncExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0AccessDeniedExceptionRes
- */
-const de_AccessDeniedExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<AccessDeniedException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new AccessDeniedException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0ConcurrentModificationExceptionRes
- */
-const de_ConcurrentModificationExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConcurrentModificationException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new ConcurrentModificationException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0ConditionalCheckFailedExceptionRes
- */
-const de_ConditionalCheckFailedExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConditionalCheckFailedException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new ConditionalCheckFailedException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
  * deserializeAws_json1_0ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ConflictException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0InternalServerExceptionRes
- */
-const de_InternalServerExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new InternalServerException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0InvalidInputExceptionRes
- */
-const de_InvalidInputExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidInputException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2092,22 +803,6 @@ const de_LimitExceededExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new LimitExceededException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0ResourceAlreadyExistsExceptionRes
- */
-const de_ResourceAlreadyExistsExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ResourceAlreadyExistsException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2147,67 +842,6 @@ const de_ResourceUnavailableExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_0RetryLatestCommitFailedExceptionRes
- */
-const de_RetryLatestCommitFailedExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<RetryLatestCommitFailedException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new RetryLatestCommitFailedException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0SyncBlockerDoesNotExistExceptionRes
- */
-const de_SyncBlockerDoesNotExistExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SyncBlockerDoesNotExistException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new SyncBlockerDoesNotExistException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0SyncConfigurationStillExistsExceptionRes
- */
-const de_SyncConfigurationStillExistsExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SyncConfigurationStillExistsException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new SyncConfigurationStillExistsException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0ThrottlingExceptionRes
- */
-const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new ThrottlingException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
  * deserializeAws_json1_0UnsupportedOperationExceptionRes
  */
 const de_UnsupportedOperationExceptionRes = async (
@@ -2223,77 +857,21 @@ const de_UnsupportedOperationExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * deserializeAws_json1_0UnsupportedProviderTypeExceptionRes
- */
-const de_UnsupportedProviderTypeExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<UnsupportedProviderTypeException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new UnsupportedProviderTypeException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_json1_0UpdateOutOfSyncExceptionRes
- */
-const de_UpdateOutOfSyncExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<UpdateOutOfSyncException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new UpdateOutOfSyncException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
 // se_CreateConnectionInput omitted.
 
 // se_CreateHostInput omitted.
-
-// se_CreateRepositoryLinkInput omitted.
-
-// se_CreateSyncConfigurationInput omitted.
 
 // se_DeleteConnectionInput omitted.
 
 // se_DeleteHostInput omitted.
 
-// se_DeleteRepositoryLinkInput omitted.
-
-// se_DeleteSyncConfigurationInput omitted.
-
 // se_GetConnectionInput omitted.
 
 // se_GetHostInput omitted.
 
-// se_GetRepositoryLinkInput omitted.
-
-// se_GetRepositorySyncStatusInput omitted.
-
-// se_GetResourceSyncStatusInput omitted.
-
-// se_GetSyncBlockerSummaryInput omitted.
-
-// se_GetSyncConfigurationInput omitted.
-
 // se_ListConnectionsInput omitted.
 
 // se_ListHostsInput omitted.
-
-// se_ListRepositoryLinksInput omitted.
-
-// se_ListRepositorySyncDefinitionsInput omitted.
-
-// se_ListSyncConfigurationsInput omitted.
 
 // se_ListTagsForResourceInput omitted.
 
@@ -2313,19 +891,7 @@ const de_UpdateOutOfSyncExceptionRes = async (
 
 // se_UpdateHostInput omitted.
 
-// se_UpdateRepositoryLinkInput omitted.
-
-// se_UpdateSyncBlockerInput omitted.
-
-// se_UpdateSyncConfigurationInput omitted.
-
 // se_VpcConfiguration omitted.
-
-// de_AccessDeniedException omitted.
-
-// de_ConcurrentModificationException omitted.
-
-// de_ConditionalCheckFailedException omitted.
 
 // de_ConflictException omitted.
 
@@ -2337,74 +903,17 @@ const de_UpdateOutOfSyncExceptionRes = async (
 
 // de_CreateHostOutput omitted.
 
-// de_CreateRepositoryLinkOutput omitted.
-
-// de_CreateSyncConfigurationOutput omitted.
-
 // de_DeleteConnectionOutput omitted.
 
 // de_DeleteHostOutput omitted.
-
-// de_DeleteRepositoryLinkOutput omitted.
-
-// de_DeleteSyncConfigurationOutput omitted.
 
 // de_GetConnectionOutput omitted.
 
 // de_GetHostOutput omitted.
 
-// de_GetRepositoryLinkOutput omitted.
-
-/**
- * deserializeAws_json1_0GetRepositorySyncStatusOutput
- */
-const de_GetRepositorySyncStatusOutput = (output: any, context: __SerdeContext): GetRepositorySyncStatusOutput => {
-  return take(output, {
-    LatestSync: (_: any) => de_RepositorySyncAttempt(_, context),
-  }) as any;
-};
-
-/**
- * deserializeAws_json1_0GetResourceSyncStatusOutput
- */
-const de_GetResourceSyncStatusOutput = (output: any, context: __SerdeContext): GetResourceSyncStatusOutput => {
-  return take(output, {
-    DesiredState: _json,
-    LatestSuccessfulSync: (_: any) => de_ResourceSyncAttempt(_, context),
-    LatestSync: (_: any) => de_ResourceSyncAttempt(_, context),
-  }) as any;
-};
-
-/**
- * deserializeAws_json1_0GetSyncBlockerSummaryOutput
- */
-const de_GetSyncBlockerSummaryOutput = (output: any, context: __SerdeContext): GetSyncBlockerSummaryOutput => {
-  return take(output, {
-    SyncBlockerSummary: (_: any) => de_SyncBlockerSummary(_, context),
-  }) as any;
-};
-
-// de_GetSyncConfigurationOutput omitted.
-
 // de_Host omitted.
 
 // de_HostList omitted.
-
-// de_InternalServerException omitted.
-
-// de_InvalidInputException omitted.
-
-/**
- * deserializeAws_json1_0LatestSyncBlockerList
- */
-const de_LatestSyncBlockerList = (output: any, context: __SerdeContext): SyncBlocker[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_SyncBlocker(entry, context);
-    });
-  return retVal;
-};
 
 // de_LimitExceededException omitted.
 
@@ -2412,147 +921,15 @@ const de_LatestSyncBlockerList = (output: any, context: __SerdeContext): SyncBlo
 
 // de_ListHostsOutput omitted.
 
-// de_ListRepositoryLinksOutput omitted.
-
-// de_ListRepositorySyncDefinitionsOutput omitted.
-
-// de_ListSyncConfigurationsOutput omitted.
-
 // de_ListTagsForResourceOutput omitted.
-
-// de_RepositoryLinkInfo omitted.
-
-// de_RepositoryLinkList omitted.
-
-/**
- * deserializeAws_json1_0RepositorySyncAttempt
- */
-const de_RepositorySyncAttempt = (output: any, context: __SerdeContext): RepositorySyncAttempt => {
-  return take(output, {
-    Events: (_: any) => de_RepositorySyncEventList(_, context),
-    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    Status: __expectString,
-  }) as any;
-};
-
-// de_RepositorySyncDefinition omitted.
-
-// de_RepositorySyncDefinitionList omitted.
-
-/**
- * deserializeAws_json1_0RepositorySyncEvent
- */
-const de_RepositorySyncEvent = (output: any, context: __SerdeContext): RepositorySyncEvent => {
-  return take(output, {
-    Event: __expectString,
-    ExternalId: __expectString,
-    Time: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    Type: __expectString,
-  }) as any;
-};
-
-/**
- * deserializeAws_json1_0RepositorySyncEventList
- */
-const de_RepositorySyncEventList = (output: any, context: __SerdeContext): RepositorySyncEvent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_RepositorySyncEvent(entry, context);
-    });
-  return retVal;
-};
-
-// de_ResourceAlreadyExistsException omitted.
 
 // de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0ResourceSyncAttempt
- */
-const de_ResourceSyncAttempt = (output: any, context: __SerdeContext): ResourceSyncAttempt => {
-  return take(output, {
-    Events: (_: any) => de_ResourceSyncEventList(_, context),
-    InitialRevision: _json,
-    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    Status: __expectString,
-    Target: __expectString,
-    TargetRevision: _json,
-  }) as any;
-};
-
-/**
- * deserializeAws_json1_0ResourceSyncEvent
- */
-const de_ResourceSyncEvent = (output: any, context: __SerdeContext): ResourceSyncEvent => {
-  return take(output, {
-    Event: __expectString,
-    ExternalId: __expectString,
-    Time: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    Type: __expectString,
-  }) as any;
-};
-
-/**
- * deserializeAws_json1_0ResourceSyncEventList
- */
-const de_ResourceSyncEventList = (output: any, context: __SerdeContext): ResourceSyncEvent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_ResourceSyncEvent(entry, context);
-    });
-  return retVal;
-};
-
 // de_ResourceUnavailableException omitted.
-
-// de_RetryLatestCommitFailedException omitted.
-
-// de_Revision omitted.
 
 // de_SecurityGroupIds omitted.
 
 // de_SubnetIds omitted.
-
-/**
- * deserializeAws_json1_0SyncBlocker
- */
-const de_SyncBlocker = (output: any, context: __SerdeContext): SyncBlocker => {
-  return take(output, {
-    Contexts: _json,
-    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    CreatedReason: __expectString,
-    Id: __expectString,
-    ResolvedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    ResolvedReason: __expectString,
-    Status: __expectString,
-    Type: __expectString,
-  }) as any;
-};
-
-// de_SyncBlockerContext omitted.
-
-// de_SyncBlockerContextList omitted.
-
-// de_SyncBlockerDoesNotExistException omitted.
-
-/**
- * deserializeAws_json1_0SyncBlockerSummary
- */
-const de_SyncBlockerSummary = (output: any, context: __SerdeContext): SyncBlockerSummary => {
-  return take(output, {
-    LatestBlockers: (_: any) => de_LatestSyncBlockerList(_, context),
-    ParentResourceName: __expectString,
-    ResourceName: __expectString,
-  }) as any;
-};
-
-// de_SyncConfiguration omitted.
-
-// de_SyncConfigurationList omitted.
-
-// de_SyncConfigurationStillExistsException omitted.
 
 // de_Tag omitted.
 
@@ -2560,32 +937,11 @@ const de_SyncBlockerSummary = (output: any, context: __SerdeContext): SyncBlocke
 
 // de_TagResourceOutput omitted.
 
-// de_ThrottlingException omitted.
-
 // de_UnsupportedOperationException omitted.
-
-// de_UnsupportedProviderTypeException omitted.
 
 // de_UntagResourceOutput omitted.
 
 // de_UpdateHostOutput omitted.
-
-// de_UpdateOutOfSyncException omitted.
-
-// de_UpdateRepositoryLinkOutput omitted.
-
-/**
- * deserializeAws_json1_0UpdateSyncBlockerOutput
- */
-const de_UpdateSyncBlockerOutput = (output: any, context: __SerdeContext): UpdateSyncBlockerOutput => {
-  return take(output, {
-    ParentResourceName: __expectString,
-    ResourceName: __expectString,
-    SyncBlocker: (_: any) => de_SyncBlocker(_, context),
-  }) as any;
-};
-
-// de_UpdateSyncConfigurationOutput omitted.
 
 // de_VpcConfiguration omitted.
 

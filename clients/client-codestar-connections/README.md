@@ -301,22 +301,6 @@ CreateHost
 </details>
 <details>
 <summary>
-CreateRepositoryLink
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/createrepositorylinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/createrepositorylinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/createrepositorylinkcommandoutput.html)
-
-</details>
-<details>
-<summary>
-CreateSyncConfiguration
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/createsyncconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/createsyncconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/createsyncconfigurationcommandoutput.html)
-
-</details>
-<details>
-<summary>
 DeleteConnection
 </summary>
 
@@ -329,22 +313,6 @@ DeleteHost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/deletehostcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/deletehostcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/deletehostcommandoutput.html)
-
-</details>
-<details>
-<summary>
-DeleteRepositoryLink
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/deleterepositorylinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/deleterepositorylinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/deleterepositorylinkcommandoutput.html)
-
-</details>
-<details>
-<summary>
-DeleteSyncConfiguration
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/deletesyncconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/deletesyncconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/deletesyncconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -365,46 +333,6 @@ GetHost
 </details>
 <details>
 <summary>
-GetRepositoryLink
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/getrepositorylinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getrepositorylinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getrepositorylinkcommandoutput.html)
-
-</details>
-<details>
-<summary>
-GetRepositorySyncStatus
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/getrepositorysyncstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getrepositorysyncstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getrepositorysyncstatuscommandoutput.html)
-
-</details>
-<details>
-<summary>
-GetResourceSyncStatus
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/getresourcesyncstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getresourcesyncstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getresourcesyncstatuscommandoutput.html)
-
-</details>
-<details>
-<summary>
-GetSyncBlockerSummary
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/getsyncblockersummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getsyncblockersummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getsyncblockersummarycommandoutput.html)
-
-</details>
-<details>
-<summary>
-GetSyncConfiguration
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/getsyncconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getsyncconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/getsyncconfigurationcommandoutput.html)
-
-</details>
-<details>
-<summary>
 ListConnections
 </summary>
 
@@ -417,30 +345,6 @@ ListHosts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/listhostscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listhostscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listhostscommandoutput.html)
-
-</details>
-<details>
-<summary>
-ListRepositoryLinks
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/listrepositorylinkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listrepositorylinkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listrepositorylinkscommandoutput.html)
-
-</details>
-<details>
-<summary>
-ListRepositorySyncDefinitions
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/listrepositorysyncdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listrepositorysyncdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listrepositorysyncdefinitionscommandoutput.html)
-
-</details>
-<details>
-<summary>
-ListSyncConfigurations
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/listsyncconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listsyncconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/listsyncconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -473,29 +377,5 @@ UpdateHost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/updatehostcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updatehostcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updatehostcommandoutput.html)
-
-</details>
-<details>
-<summary>
-UpdateRepositoryLink
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/updaterepositorylinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updaterepositorylinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updaterepositorylinkcommandoutput.html)
-
-</details>
-<details>
-<summary>
-UpdateSyncBlocker
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/updatesyncblockercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updatesyncblockercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updatesyncblockercommandoutput.html)
-
-</details>
-<details>
-<summary>
-UpdateSyncConfiguration
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/classes/updatesyncconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updatesyncconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codestar-connections/interfaces/updatesyncconfigurationcommandoutput.html)
 
 </details>
