@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import software.amazon.smithy.aws.typescript.codegen.visitor.MemberDeserVisitor;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
@@ -30,6 +29,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -47,8 +47,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
-final class XmlMemberDeserVisitor extends MemberDeserVisitor {
-
+final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     private final MemberShape memberShape;
 
     XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
@@ -61,7 +60,6 @@ final class XmlMemberDeserVisitor extends MemberDeserVisitor {
                           Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
         this.memberShape = memberShape;
-        this.context = context;
     }
 
     @Override
