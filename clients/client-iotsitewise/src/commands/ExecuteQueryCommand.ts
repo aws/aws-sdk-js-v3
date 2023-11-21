@@ -15,8 +15,9 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateProjectRequest, UpdateProjectResponse } from "../models/models_1";
-import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_restJson1";
+import { ExecuteQueryRequest } from "../models/models_0";
+import { ExecuteQueryResponse } from "../models/models_1";
+import { de_ExecuteQueryCommand, se_ExecuteQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,42 +26,75 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateProjectCommand}.
+ * The input for {@link ExecuteQueryCommand}.
  */
-export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
+export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateProjectCommand}.
+ * The output of {@link ExecuteQueryCommand}.
  */
-export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
+export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates an IoT SiteWise Monitor project.</p>
+ * <p>Run SQL queries to retrieve metadata and time-series data from asset models, assets, measurements, metrics, transforms, and aggregates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, UpdateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, UpdateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ExecuteQueryCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ExecuteQueryCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // UpdateProjectRequest
- *   projectId: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   projectDescription: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ * const input = { // ExecuteQueryRequest
+ *   queryStatement: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new UpdateProjectCommand(input);
+ * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ExecuteQueryResponse
+ * //   columns: [ // ColumnsList
+ * //     { // ColumnInfo
+ * //       name: "STRING_VALUE",
+ * //       type: { // ColumnType
+ * //         scalarType: "BOOLEAN" || "INT" || "DOUBLE" || "TIMESTAMP" || "STRING",
+ * //       },
+ * //     },
+ * //   ],
+ * //   rows: [ // Rows
+ * //     { // Row
+ * //       data: [ // DatumList // required
+ * //         { // Datum
+ * //           scalarValue: "STRING_VALUE",
+ * //           arrayValue: [
+ * //             {
+ * //               scalarValue: "STRING_VALUE",
+ * //               arrayValue: "<DatumList>",
+ * //               rowValue: {
+ * //                 data: "<DatumList>", // required
+ * //               },
+ * //               nullValue: true || false,
+ * //             },
+ * //           ],
+ * //           rowValue: "<Row>",
+ * //           nullValue: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
- * @returns {@link UpdateProjectCommandOutput}
- * @see {@link UpdateProjectCommandInput} for command's `input` shape.
- * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
+ * @param ExecuteQueryCommandInput - {@link ExecuteQueryCommandInput}
+ * @returns {@link ExecuteQueryCommandOutput}
+ * @see {@link ExecuteQueryCommandInput} for command's `input` shape.
+ * @see {@link ExecuteQueryCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
@@ -69,8 +103,11 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ * @throws {@link QueryTimeoutException} (client fault)
+ *  <p>The query timed out.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The requested service is unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
@@ -78,13 +115,16 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation failed for this query.</p>
+ *
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class UpdateProjectCommand extends $Command<
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput,
+export class ExecuteQueryCommand extends $Command<
+  ExecuteQueryCommandInput,
+  ExecuteQueryCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -99,7 +139,7 @@ export class UpdateProjectCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateProjectCommandInput) {
+  constructor(readonly input: ExecuteQueryCommandInput) {
     super();
   }
 
@@ -110,15 +150,15 @@ export class UpdateProjectCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateProjectCommandInput, UpdateProjectCommandOutput> {
+  ): Handler<ExecuteQueryCommandInput, ExecuteQueryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateProjectCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ExecuteQueryCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "UpdateProjectCommand";
+    const commandName = "ExecuteQueryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -127,7 +167,7 @@ export class UpdateProjectCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTSiteWise",
-        operation: "UpdateProject",
+        operation: "ExecuteQuery",
       },
     };
     const { requestHandler } = configuration;
@@ -141,14 +181,14 @@ export class UpdateProjectCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateProjectCommand(input, context);
+  private serialize(input: ExecuteQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ExecuteQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
-    return de_UpdateProjectCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteQueryCommandOutput> {
+    return de_ExecuteQueryCommand(output, context);
   }
 }

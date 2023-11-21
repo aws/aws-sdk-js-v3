@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribeAssetRequest, DescribeAssetResponse } from "../models/models_0";
-import { de_DescribeAssetCommand, se_DescribeAssetCommand } from "../protocols/Aws_restJson1";
+import { DescribeAssetCompositeModelRequest, DescribeAssetCompositeModelResponse } from "../models/models_0";
+import {
+  de_DescribeAssetCompositeModelCommand,
+  se_DescribeAssetCompositeModelCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,37 +28,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeAssetCommand}.
+ * The input for {@link DescribeAssetCompositeModelCommand}.
  */
-export interface DescribeAssetCommandInput extends DescribeAssetRequest {}
+export interface DescribeAssetCompositeModelCommandInput extends DescribeAssetCompositeModelRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeAssetCommand}.
+ * The output of {@link DescribeAssetCompositeModelCommand}.
  */
-export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __MetadataBearer {}
+export interface DescribeAssetCompositeModelCommandOutput
+  extends DescribeAssetCompositeModelResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves information about an asset.</p>
+ * <p>Retrieves information about an asset composite model (also known as an asset component).  An <code>AssetCompositeModel</code> is an instance of an <code>AssetModelCompositeModel</code>. If you want to see information about the model this is based on, call
+ *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html">DescribeAssetModelCompositeModel</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, DescribeAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, DescribeAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DescribeAssetCompositeModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DescribeAssetCompositeModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // DescribeAssetRequest
+ * const input = { // DescribeAssetCompositeModelRequest
  *   assetId: "STRING_VALUE", // required
- *   excludeProperties: true || false,
+ *   assetCompositeModelId: "STRING_VALUE", // required
  * };
- * const command = new DescribeAssetCommand(input);
+ * const command = new DescribeAssetCompositeModelCommand(input);
  * const response = await client.send(command);
- * // { // DescribeAssetResponse
+ * // { // DescribeAssetCompositeModelResponse
  * //   assetId: "STRING_VALUE", // required
- * //   assetArn: "STRING_VALUE", // required
- * //   assetName: "STRING_VALUE", // required
- * //   assetModelId: "STRING_VALUE", // required
- * //   assetProperties: [ // AssetProperties // required
+ * //   assetCompositeModelId: "STRING_VALUE", // required
+ * //   assetCompositeModelExternalId: "STRING_VALUE",
+ * //   assetCompositeModelPath: [ // AssetCompositeModelPath // required
+ * //     { // AssetCompositeModelPathSegment
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   assetCompositeModelName: "STRING_VALUE", // required
+ * //   assetCompositeModelDescription: "STRING_VALUE", // required
+ * //   assetCompositeModelType: "STRING_VALUE", // required
+ * //   assetCompositeModelProperties: [ // AssetProperties // required
  * //     { // AssetProperty
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
@@ -76,83 +90,36 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
- * //   assetHierarchies: [ // AssetHierarchies // required
- * //     { // AssetHierarchy
- * //       id: "STRING_VALUE",
- * //       name: "STRING_VALUE", // required
- * //       externalId: "STRING_VALUE",
- * //     },
- * //   ],
- * //   assetCompositeModels: [ // AssetCompositeModels
- * //     { // AssetCompositeModel
- * //       name: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       type: "STRING_VALUE", // required
- * //       properties: [ // required
- * //         {
- * //           id: "STRING_VALUE", // required
- * //           name: "STRING_VALUE", // required
- * //           alias: "STRING_VALUE",
- * //           notification: {
- * //             topic: "STRING_VALUE", // required
- * //             state: "ENABLED" || "DISABLED", // required
- * //           },
- * //           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
- * //           dataTypeSpec: "STRING_VALUE",
- * //           unit: "STRING_VALUE",
- * //           path: [
- * //             {
- * //               id: "STRING_VALUE",
- * //               name: "STRING_VALUE",
- * //             },
- * //           ],
- * //           externalId: "STRING_VALUE",
- * //         },
- * //       ],
- * //       id: "STRING_VALUE",
- * //       externalId: "STRING_VALUE",
- * //     },
- * //   ],
- * //   assetCreationDate: new Date("TIMESTAMP"), // required
- * //   assetLastUpdateDate: new Date("TIMESTAMP"), // required
- * //   assetStatus: { // AssetStatus
- * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
- * //     error: { // ErrorDetails
- * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- * //       message: "STRING_VALUE", // required
- * //       details: [ // DetailedErrors
- * //         { // DetailedError
- * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- * //           message: "STRING_VALUE", // required
- * //         },
- * //       ],
- * //     },
- * //   },
- * //   assetDescription: "STRING_VALUE",
- * //   assetCompositeModelSummaries: [ // AssetCompositeModelSummaries
+ * //   assetCompositeModelSummaries: [ // AssetCompositeModelSummaries // required
  * //     { // AssetCompositeModelSummary
  * //       id: "STRING_VALUE", // required
  * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       type: "STRING_VALUE", // required
  * //       description: "STRING_VALUE", // required
- * //       path: [ // AssetCompositeModelPath // required
- * //         { // AssetCompositeModelPathSegment
+ * //       path: [ // required
+ * //         {
  * //           id: "STRING_VALUE",
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },
  * //   ],
- * //   assetExternalId: "STRING_VALUE",
+ * //   actionDefinitions: [ // ActionDefinitions
+ * //     { // ActionDefinition
+ * //       actionDefinitionId: "STRING_VALUE", // required
+ * //       actionName: "STRING_VALUE", // required
+ * //       actionType: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param DescribeAssetCommandInput - {@link DescribeAssetCommandInput}
- * @returns {@link DescribeAssetCommandOutput}
- * @see {@link DescribeAssetCommandInput} for command's `input` shape.
- * @see {@link DescribeAssetCommandOutput} for command's `response` shape.
+ * @param DescribeAssetCompositeModelCommandInput - {@link DescribeAssetCompositeModelCommandInput}
+ * @returns {@link DescribeAssetCompositeModelCommandOutput}
+ * @see {@link DescribeAssetCompositeModelCommandInput} for command's `input` shape.
+ * @see {@link DescribeAssetCompositeModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -175,9 +142,9 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class DescribeAssetCommand extends $Command<
-  DescribeAssetCommandInput,
-  DescribeAssetCommandOutput,
+export class DescribeAssetCompositeModelCommand extends $Command<
+  DescribeAssetCompositeModelCommandInput,
+  DescribeAssetCompositeModelCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -192,7 +159,7 @@ export class DescribeAssetCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeAssetCommandInput) {
+  constructor(readonly input: DescribeAssetCompositeModelCommandInput) {
     super();
   }
 
@@ -203,15 +170,17 @@ export class DescribeAssetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeAssetCommandInput, DescribeAssetCommandOutput> {
+  ): Handler<DescribeAssetCompositeModelCommandInput, DescribeAssetCompositeModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeAssetCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAssetCompositeModelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "DescribeAssetCommand";
+    const commandName = "DescribeAssetCompositeModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -220,7 +189,7 @@ export class DescribeAssetCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTSiteWise",
-        operation: "DescribeAsset",
+        operation: "DescribeAssetCompositeModel",
       },
     };
     const { requestHandler } = configuration;
@@ -234,14 +203,17 @@ export class DescribeAssetCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAssetCommand(input, context);
+  private serialize(input: DescribeAssetCompositeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeAssetCompositeModelCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetCommandOutput> {
-    return de_DescribeAssetCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeAssetCompositeModelCommandOutput> {
+    return de_DescribeAssetCompositeModelCommand(output, context);
   }
 }

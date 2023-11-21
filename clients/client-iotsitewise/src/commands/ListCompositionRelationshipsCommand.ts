@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListAssociatedAssetsRequest, ListAssociatedAssetsResponse } from "../models/models_0";
-import { de_ListAssociatedAssetsCommand, se_ListAssociatedAssetsCommand } from "../protocols/Aws_restJson1";
+import { ListCompositionRelationshipsRequest, ListCompositionRelationshipsResponse } from "../models/models_0";
+import {
+  de_ListCompositionRelationshipsCommand,
+  se_ListCompositionRelationshipsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,74 +28,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListAssociatedAssetsCommand}.
+ * The input for {@link ListCompositionRelationshipsCommand}.
  */
-export interface ListAssociatedAssetsCommandInput extends ListAssociatedAssetsRequest {}
+export interface ListCompositionRelationshipsCommandInput extends ListCompositionRelationshipsRequest {}
 /**
  * @public
  *
- * The output of {@link ListAssociatedAssetsCommand}.
+ * The output of {@link ListCompositionRelationshipsCommand}.
  */
-export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsResponse, __MetadataBearer {}
+export interface ListCompositionRelationshipsCommandOutput
+  extends ListCompositionRelationshipsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves a paginated list of associated assets.</p>
- *          <p>You can use this operation to do the following:</p>
- *          <ul>
- *             <li>
- *                <p>List child assets associated to a parent asset by a hierarchy that you specify.</p>
- *             </li>
- *             <li>
- *                <p>List an asset's parent asset.</p>
- *             </li>
- *          </ul>
+ * <p>Retrieves a paginated list of composition relationships for an asset model of type <code>COMPONENT_MODEL</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssociatedAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssociatedAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListCompositionRelationshipsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListCompositionRelationshipsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListAssociatedAssetsRequest
- *   assetId: "STRING_VALUE", // required
- *   hierarchyId: "STRING_VALUE",
- *   traversalDirection: "PARENT" || "CHILD",
+ * const input = { // ListCompositionRelationshipsRequest
+ *   assetModelId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListAssociatedAssetsCommand(input);
+ * const command = new ListCompositionRelationshipsCommand(input);
  * const response = await client.send(command);
- * // { // ListAssociatedAssetsResponse
- * //   assetSummaries: [ // AssociatedAssetsSummaries // required
- * //     { // AssociatedAssetsSummary
- * //       id: "STRING_VALUE", // required
- * //       arn: "STRING_VALUE", // required
- * //       name: "STRING_VALUE", // required
+ * // { // ListCompositionRelationshipsResponse
+ * //   compositionRelationshipSummaries: [ // CompositionRelationshipSummaries // required
+ * //     { // CompositionRelationshipSummary
  * //       assetModelId: "STRING_VALUE", // required
- * //       creationDate: new Date("TIMESTAMP"), // required
- * //       lastUpdateDate: new Date("TIMESTAMP"), // required
- * //       status: { // AssetStatus
- * //         state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
- * //         error: { // ErrorDetails
- * //           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- * //           message: "STRING_VALUE", // required
- * //           details: [ // DetailedErrors
- * //             { // DetailedError
- * //               code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- * //               message: "STRING_VALUE", // required
- * //             },
- * //           ],
- * //         },
- * //       },
- * //       hierarchies: [ // AssetHierarchies // required
- * //         { // AssetHierarchy
- * //           id: "STRING_VALUE",
- * //           name: "STRING_VALUE", // required
- * //           externalId: "STRING_VALUE",
- * //         },
- * //       ],
- * //       description: "STRING_VALUE",
- * //       externalId: "STRING_VALUE",
+ * //       assetModelCompositeModelId: "STRING_VALUE", // required
+ * //       assetModelCompositeModelType: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -100,10 +69,10 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *
  * ```
  *
- * @param ListAssociatedAssetsCommandInput - {@link ListAssociatedAssetsCommandInput}
- * @returns {@link ListAssociatedAssetsCommandOutput}
- * @see {@link ListAssociatedAssetsCommandInput} for command's `input` shape.
- * @see {@link ListAssociatedAssetsCommandOutput} for command's `response` shape.
+ * @param ListCompositionRelationshipsCommandInput - {@link ListCompositionRelationshipsCommandInput}
+ * @returns {@link ListCompositionRelationshipsCommandOutput}
+ * @see {@link ListCompositionRelationshipsCommandInput} for command's `input` shape.
+ * @see {@link ListCompositionRelationshipsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -126,9 +95,9 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class ListAssociatedAssetsCommand extends $Command<
-  ListAssociatedAssetsCommandInput,
-  ListAssociatedAssetsCommandOutput,
+export class ListCompositionRelationshipsCommand extends $Command<
+  ListCompositionRelationshipsCommandInput,
+  ListCompositionRelationshipsCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -143,7 +112,7 @@ export class ListAssociatedAssetsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListAssociatedAssetsCommandInput) {
+  constructor(readonly input: ListCompositionRelationshipsCommandInput) {
     super();
   }
 
@@ -154,17 +123,17 @@ export class ListAssociatedAssetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAssociatedAssetsCommandInput, ListAssociatedAssetsCommandOutput> {
+  ): Handler<ListCompositionRelationshipsCommandInput, ListCompositionRelationshipsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAssociatedAssetsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListCompositionRelationshipsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "ListAssociatedAssetsCommand";
+    const commandName = "ListCompositionRelationshipsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -173,7 +142,7 @@ export class ListAssociatedAssetsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTSiteWise",
-        operation: "ListAssociatedAssets",
+        operation: "ListCompositionRelationships",
       },
     };
     const { requestHandler } = configuration;
@@ -187,14 +156,17 @@ export class ListAssociatedAssetsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListAssociatedAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAssociatedAssetsCommand(input, context);
+  private serialize(input: ListCompositionRelationshipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListCompositionRelationshipsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedAssetsCommandOutput> {
-    return de_ListAssociatedAssetsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListCompositionRelationshipsCommandOutput> {
+    return de_ListCompositionRelationshipsCommand(output, context);
   }
 }

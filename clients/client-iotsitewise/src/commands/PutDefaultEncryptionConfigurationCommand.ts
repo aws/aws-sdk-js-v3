@@ -18,7 +18,7 @@ import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   PutDefaultEncryptionConfigurationRequest,
   PutDefaultEncryptionConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutDefaultEncryptionConfigurationCommand,
   se_PutDefaultEncryptionConfigurationCommand,

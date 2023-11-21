@@ -18,7 +18,7 @@ import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   UpdateGatewayCapabilityConfigurationRequest,
   UpdateGatewayCapabilityConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_UpdateGatewayCapabilityConfigurationCommand,
   se_UpdateGatewayCapabilityConfigurationCommand,

@@ -79,8 +79,14 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //             { // ExpressionVariable
  * //               name: "STRING_VALUE", // required
  * //               value: { // VariableValue
- * //                 propertyId: "STRING_VALUE", // required
+ * //                 propertyId: "STRING_VALUE",
  * //                 hierarchyId: "STRING_VALUE",
+ * //                 propertyPath: [ // AssetModelPropertyPath
+ * //                   { // AssetModelPropertyPathSegment
+ * //                     id: "STRING_VALUE",
+ * //                     name: "STRING_VALUE",
+ * //                   },
+ * //                 ],
  * //               },
  * //             },
  * //           ],
@@ -97,8 +103,14 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //             {
  * //               name: "STRING_VALUE", // required
  * //               value: {
- * //                 propertyId: "STRING_VALUE", // required
+ * //                 propertyId: "STRING_VALUE",
  * //                 hierarchyId: "STRING_VALUE",
+ * //                 propertyPath: [
+ * //                   {
+ * //                     id: "STRING_VALUE",
+ * //                     name: "STRING_VALUE",
+ * //                   },
+ * //                 ],
  * //               },
  * //             },
  * //           ],
@@ -113,6 +125,13 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //           },
  * //         },
  * //       },
+ * //       path: [
+ * //         {
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelHierarchies: [ // AssetModelHierarchies // required
@@ -120,6 +139,7 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       childAssetModelId: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelCompositeModels: [ // AssetModelCompositeModels
@@ -151,8 +171,9 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //                 {
  * //                   name: "STRING_VALUE", // required
  * //                   value: {
- * //                     propertyId: "STRING_VALUE", // required
+ * //                     propertyId: "STRING_VALUE",
  * //                     hierarchyId: "STRING_VALUE",
+ * //                     propertyPath: "<AssetModelPropertyPath>",
  * //                   },
  * //                 },
  * //               ],
@@ -169,8 +190,9 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //                 {
  * //                   name: "STRING_VALUE", // required
  * //                   value: {
- * //                     propertyId: "STRING_VALUE", // required
+ * //                     propertyId: "STRING_VALUE",
  * //                     hierarchyId: "STRING_VALUE",
+ * //                     propertyPath: "<AssetModelPropertyPath>",
  * //                   },
  * //                 },
  * //               ],
@@ -185,9 +207,12 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //               },
  * //             },
  * //           },
+ * //           path: "<AssetModelPropertyPath>",
+ * //           externalId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelCreationDate: new Date("TIMESTAMP"), // required
@@ -205,6 +230,23 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //       ],
  * //     },
  * //   },
+ * //   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ * //   assetModelCompositeModelSummaries: [ // AssetModelCompositeModelSummaries
+ * //     { // AssetModelCompositeModelSummary
+ * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       path: [ // AssetModelCompositeModelPath
+ * //         { // AssetModelCompositeModelPathSegment
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   assetModelExternalId: "STRING_VALUE",
  * // };
  *
  * ```

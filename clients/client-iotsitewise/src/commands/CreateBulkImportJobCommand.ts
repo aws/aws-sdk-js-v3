@@ -40,8 +40,10 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
  *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <important>
- *             <p>You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk import job. For
- *         more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
+ *             <p>Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
+ *         For more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
+ *             <p>Bulk import is designed to store historical data to IoT SiteWise. It does not trigger computations or notifications on
+ *         IoT SiteWise warm or cold tier storage.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,12 +68,15 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *   jobConfiguration: { // JobConfiguration
  *     fileFormat: { // FileFormat
  *       csv: { // Csv
- *         columnNames: [ // ColumnNames
+ *         columnNames: [ // ColumnNames // required
  *           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
  *         ],
  *       },
+ *       parquet: {},
  *     },
  *   },
+ *   adaptiveIngestion: true || false,
+ *   deleteFilesAfterImport: true || false,
  * };
  * const command = new CreateBulkImportJobCommand(input);
  * const response = await client.send(command);

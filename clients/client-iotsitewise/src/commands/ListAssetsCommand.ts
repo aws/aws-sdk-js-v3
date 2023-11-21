@@ -90,9 +90,11 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * //         { // AssetHierarchy
  * //           id: "STRING_VALUE",
  * //           name: "STRING_VALUE", // required
+ * //           externalId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       description: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

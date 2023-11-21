@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListAssetModelPropertiesRequest, ListAssetModelPropertiesResponse } from "../models/models_0";
-import { de_ListAssetModelPropertiesCommand, se_ListAssetModelPropertiesCommand } from "../protocols/Aws_restJson1";
+import { DescribeAssetModelCompositeModelRequest, DescribeAssetModelCompositeModelResponse } from "../models/models_0";
+import {
+  de_DescribeAssetModelCompositeModelCommand,
+  se_DescribeAssetModelCompositeModelCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,38 +28,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListAssetModelPropertiesCommand}.
+ * The input for {@link DescribeAssetModelCompositeModelCommand}.
  */
-export interface ListAssetModelPropertiesCommandInput extends ListAssetModelPropertiesRequest {}
+export interface DescribeAssetModelCompositeModelCommandInput extends DescribeAssetModelCompositeModelRequest {}
 /**
  * @public
  *
- * The output of {@link ListAssetModelPropertiesCommand}.
+ * The output of {@link DescribeAssetModelCompositeModelCommand}.
  */
-export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPropertiesResponse, __MetadataBearer {}
+export interface DescribeAssetModelCompositeModelCommandOutput
+  extends DescribeAssetModelCompositeModelResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves a paginated list of properties associated with an asset model.
- *       If you update properties associated with the model before you finish listing all the properties,
- *         you need to start all over again.</p>
+ * <p>Retrieves information about an asset model composite model (also known as an asset model component). For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssetModelPropertiesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssetModelPropertiesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DescribeAssetModelCompositeModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DescribeAssetModelCompositeModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListAssetModelPropertiesRequest
+ * const input = { // DescribeAssetModelCompositeModelRequest
  *   assetModelId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   filter: "ALL" || "BASE",
+ *   assetModelCompositeModelId: "STRING_VALUE", // required
  * };
- * const command = new ListAssetModelPropertiesCommand(input);
+ * const command = new DescribeAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
- * // { // ListAssetModelPropertiesResponse
- * //   assetModelPropertySummaries: [ // AssetModelPropertySummaries // required
- * //     { // AssetModelPropertySummary
+ * // { // DescribeAssetModelCompositeModelResponse
+ * //   assetModelId: "STRING_VALUE", // required
+ * //   assetModelCompositeModelId: "STRING_VALUE", // required
+ * //   assetModelCompositeModelExternalId: "STRING_VALUE",
+ * //   assetModelCompositeModelPath: [ // AssetModelCompositeModelPath // required
+ * //     { // AssetModelCompositeModelPathSegment
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   assetModelCompositeModelName: "STRING_VALUE", // required
+ * //   assetModelCompositeModelDescription: "STRING_VALUE", // required
+ * //   assetModelCompositeModelType: "STRING_VALUE", // required
+ * //   assetModelCompositeModelProperties: [ // AssetModelProperties // required
+ * //     { // AssetModelProperty
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
@@ -125,7 +138,6 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //           },
  * //         },
  * //       },
- * //       assetModelCompositeModelId: "STRING_VALUE",
  * //       path: [
  * //         {
  * //           id: "STRING_VALUE",
@@ -135,15 +147,43 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
- * //   nextToken: "STRING_VALUE",
+ * //   compositionDetails: { // CompositionDetails
+ * //     compositionRelationship: [ // CompositionRelationship
+ * //       { // CompositionRelationshipItem
+ * //         id: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   assetModelCompositeModelSummaries: [ // AssetModelCompositeModelSummaries // required
+ * //     { // AssetModelCompositeModelSummary
+ * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       path: [
+ * //         {
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   actionDefinitions: [ // ActionDefinitions
+ * //     { // ActionDefinition
+ * //       actionDefinitionId: "STRING_VALUE", // required
+ * //       actionName: "STRING_VALUE", // required
+ * //       actionType: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param ListAssetModelPropertiesCommandInput - {@link ListAssetModelPropertiesCommandInput}
- * @returns {@link ListAssetModelPropertiesCommandOutput}
- * @see {@link ListAssetModelPropertiesCommandInput} for command's `input` shape.
- * @see {@link ListAssetModelPropertiesCommandOutput} for command's `response` shape.
+ * @param DescribeAssetModelCompositeModelCommandInput - {@link DescribeAssetModelCompositeModelCommandInput}
+ * @returns {@link DescribeAssetModelCompositeModelCommandOutput}
+ * @see {@link DescribeAssetModelCompositeModelCommandInput} for command's `input` shape.
+ * @see {@link DescribeAssetModelCompositeModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -166,9 +206,9 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class ListAssetModelPropertiesCommand extends $Command<
-  ListAssetModelPropertiesCommandInput,
-  ListAssetModelPropertiesCommandOutput,
+export class DescribeAssetModelCompositeModelCommand extends $Command<
+  DescribeAssetModelCompositeModelCommandInput,
+  DescribeAssetModelCompositeModelCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -183,7 +223,7 @@ export class ListAssetModelPropertiesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListAssetModelPropertiesCommandInput) {
+  constructor(readonly input: DescribeAssetModelCompositeModelCommandInput) {
     super();
   }
 
@@ -194,17 +234,17 @@ export class ListAssetModelPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAssetModelPropertiesCommandInput, ListAssetModelPropertiesCommandOutput> {
+  ): Handler<DescribeAssetModelCompositeModelCommandInput, DescribeAssetModelCompositeModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAssetModelPropertiesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeAssetModelCompositeModelCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "ListAssetModelPropertiesCommand";
+    const commandName = "DescribeAssetModelCompositeModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -213,7 +253,7 @@ export class ListAssetModelPropertiesCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTSiteWise",
-        operation: "ListAssetModelProperties",
+        operation: "DescribeAssetModelCompositeModel",
       },
     };
     const { requestHandler } = configuration;
@@ -227,14 +267,20 @@ export class ListAssetModelPropertiesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListAssetModelPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAssetModelPropertiesCommand(input, context);
+  private serialize(
+    input: DescribeAssetModelCompositeModelCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_DescribeAssetModelCompositeModelCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetModelPropertiesCommandOutput> {
-    return de_ListAssetModelPropertiesCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeAssetModelCompositeModelCommandOutput> {
+    return de_DescribeAssetModelCompositeModelCommand(output, context);
   }
 }

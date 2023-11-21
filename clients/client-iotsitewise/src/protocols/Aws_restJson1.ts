@@ -63,6 +63,10 @@ import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from 
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "../commands/CreateAssetCommand";
 import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "../commands/CreateAssetModelCommand";
 import {
+  CreateAssetModelCompositeModelCommandInput,
+  CreateAssetModelCompositeModelCommandOutput,
+} from "../commands/CreateAssetModelCompositeModelCommand";
+import {
   CreateBulkImportJobCommandInput,
   CreateBulkImportJobCommandOutput,
 } from "../commands/CreateBulkImportJobCommand";
@@ -73,6 +77,10 @@ import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../comman
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "../commands/DeleteAccessPolicyCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
 import { DeleteAssetModelCommandInput, DeleteAssetModelCommandOutput } from "../commands/DeleteAssetModelCommand";
+import {
+  DeleteAssetModelCompositeModelCommandInput,
+  DeleteAssetModelCompositeModelCommandOutput,
+} from "../commands/DeleteAssetModelCompositeModelCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "../commands/DeleteGatewayCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "../commands/DeletePortalCommand";
@@ -82,8 +90,17 @@ import {
   DescribeAccessPolicyCommandInput,
   DescribeAccessPolicyCommandOutput,
 } from "../commands/DescribeAccessPolicyCommand";
+import { DescribeActionCommandInput, DescribeActionCommandOutput } from "../commands/DescribeActionCommand";
 import { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "../commands/DescribeAssetCommand";
+import {
+  DescribeAssetCompositeModelCommandInput,
+  DescribeAssetCompositeModelCommandOutput,
+} from "../commands/DescribeAssetCompositeModelCommand";
 import { DescribeAssetModelCommandInput, DescribeAssetModelCommandOutput } from "../commands/DescribeAssetModelCommand";
+import {
+  DescribeAssetModelCompositeModelCommandInput,
+  DescribeAssetModelCompositeModelCommandOutput,
+} from "../commands/DescribeAssetModelCompositeModelCommand";
 import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
@@ -118,6 +135,8 @@ import {
   DisassociateTimeSeriesFromAssetPropertyCommandInput,
   DisassociateTimeSeriesFromAssetPropertyCommandOutput,
 } from "../commands/DisassociateTimeSeriesFromAssetPropertyCommand";
+import { ExecuteActionCommandInput, ExecuteActionCommandOutput } from "../commands/ExecuteActionCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "../commands/ExecuteQueryCommand";
 import {
   GetAssetPropertyAggregatesCommandInput,
   GetAssetPropertyAggregatesCommandOutput,
@@ -135,6 +154,11 @@ import {
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "../commands/GetInterpolatedAssetPropertyValuesCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "../commands/ListAccessPoliciesCommand";
+import { ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
+import {
+  ListAssetModelCompositeModelsCommandInput,
+  ListAssetModelCompositeModelsCommandOutput,
+} from "../commands/ListAssetModelCompositeModelsCommand";
 import {
   ListAssetModelPropertiesCommandInput,
   ListAssetModelPropertiesCommandOutput,
@@ -154,6 +178,10 @@ import {
   ListAssociatedAssetsCommandOutput,
 } from "../commands/ListAssociatedAssetsCommand";
 import { ListBulkImportJobsCommandInput, ListBulkImportJobsCommandOutput } from "../commands/ListBulkImportJobsCommand";
+import {
+  ListCompositionRelationshipsCommandInput,
+  ListCompositionRelationshipsCommandOutput,
+} from "../commands/ListCompositionRelationshipsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "../commands/ListGatewaysCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
@@ -179,6 +207,10 @@ import { UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput } from 
 import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "../commands/UpdateAssetCommand";
 import { UpdateAssetModelCommandInput, UpdateAssetModelCommandOutput } from "../commands/UpdateAssetModelCommand";
 import {
+  UpdateAssetModelCompositeModelCommandInput,
+  UpdateAssetModelCompositeModelCommandOutput,
+} from "../commands/UpdateAssetModelCompositeModelCommand";
+import {
   UpdateAssetPropertyCommandInput,
   UpdateAssetPropertyCommandOutput,
 } from "../commands/UpdateAssetPropertyCommand";
@@ -192,7 +224,9 @@ import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "../commands
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import { IoTSiteWiseServiceException as __BaseException } from "../models/IoTSiteWiseServiceException";
 import {
+  AccessDeniedException,
   AccessPolicySummary,
+  ActionPayload,
   AggregatedValue,
   Aggregates,
   AggregateType,
@@ -203,6 +237,7 @@ import {
   AssetModelHierarchyDefinition,
   AssetModelProperty,
   AssetModelPropertyDefinition,
+  AssetModelPropertyPathSegment,
   AssetModelSummary,
   AssetPropertyValue,
   AssetSummary,
@@ -238,7 +273,6 @@ import {
   IAMRoleIdentity,
   IAMUserIdentity,
   Identity,
-  Image,
   ImageFile,
   InternalFailureException,
   InterpolatedAssetPropertyValue,
@@ -252,6 +286,7 @@ import {
   MetricProcessingConfig,
   MetricWindow,
   MultiLayerStorage,
+  Parquet,
   PortalResource,
   PortalSummary,
   ProjectResource,
@@ -259,23 +294,27 @@ import {
   PropertyType,
   PutAssetPropertyValueEntry,
   Quality,
+  QueryTimeoutException,
   Resource,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   RetentionPeriod,
   ServiceUnavailableException,
+  TargetResource,
   ThrottlingException,
   TimeInNanos,
   TimeSeriesSummary,
-  TooManyTagsException,
   Transform,
   TransformProcessingConfig,
   TumblingWindow,
   UnauthorizedException,
   UserIdentity,
+  ValidationException,
   VariableValue,
   Variant,
+  WarmTierRetentionPeriod,
 } from "../models/models_0";
+import { Datum, Image, Row, TooManyTagsException } from "../models/models_1";
 
 /**
  * serializeAws_restJson1AssociateAssetsCommand
@@ -645,6 +684,8 @@ export const se_CreateAssetCommand = async (
   body = JSON.stringify(
     take(input, {
       assetDescription: [],
+      assetExternalId: [],
+      assetId: [],
       assetModelId: [],
       assetName: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
@@ -684,13 +725,70 @@ export const se_CreateAssetModelCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      assetModelCompositeModels: (_) => _json(_),
+      assetModelCompositeModels: (_) => se_AssetModelCompositeModelDefinitions(_, context),
       assetModelDescription: [],
+      assetModelExternalId: [],
       assetModelHierarchies: (_) => _json(_),
+      assetModelId: [],
       assetModelName: [],
       assetModelProperties: (_) => _json(_),
+      assetModelType: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateAssetModelCompositeModelCommand
+ */
+export const se_CreateAssetModelCompositeModelCommand = async (
+  input: CreateAssetModelCompositeModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/asset-models/{assetModelId}/composite-models";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      assetModelCompositeModelDescription: [],
+      assetModelCompositeModelExternalId: [],
+      assetModelCompositeModelId: [],
+      assetModelCompositeModelName: [],
+      assetModelCompositeModelProperties: (_) => _json(_),
+      assetModelCompositeModelType: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      composedAssetModelId: [],
+      parentAssetModelCompositeModelId: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -726,6 +824,8 @@ export const se_CreateBulkImportJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      adaptiveIngestion: [],
+      deleteFilesAfterImport: [],
       errorReportLocation: (_) => _json(_),
       files: (_) => _json(_),
       jobConfiguration: (_) => _json(_),
@@ -1034,6 +1134,57 @@ export const se_DeleteAssetModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAssetModelCompositeModelCommand
+ */
+export const se_DeleteAssetModelCompositeModelCommand = async (
+  input: DeleteAssetModelCompositeModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelCompositeModelId",
+    () => input.assetModelCompositeModelId!,
+    "{assetModelCompositeModelId}",
+    false
+  );
+  const query: any = map({
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteDashboardCommand
  */
 export const se_DeleteDashboardCommand = async (
@@ -1248,6 +1399,36 @@ export const se_DescribeAccessPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeActionCommand
+ */
+export const se_DescribeActionCommand = async (
+  input: DescribeActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actions/{actionId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "actionId", () => input.actionId!, "{actionId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeAssetCommand
  */
 export const se_DescribeAssetCommand = async (
@@ -1277,6 +1458,46 @@ export const se_DescribeAssetCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeAssetCompositeModelCommand
+ */
+export const se_DescribeAssetCompositeModelCommand = async (
+  input: DescribeAssetCompositeModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/assets/{assetId}/composite-models/{assetCompositeModelId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetCompositeModelId",
+    () => input.assetCompositeModelId!,
+    "{assetCompositeModelId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1319,6 +1540,53 @@ export const se_DescribeAssetModelCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeAssetModelCompositeModelCommand
+ */
+export const se_DescribeAssetModelCompositeModelCommand = async (
+  input: DescribeAssetModelCompositeModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelCompositeModelId",
+    () => input.assetModelCompositeModelId!,
+    "{assetModelCompositeModelId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1764,6 +2032,83 @@ export const se_DisassociateTimeSeriesFromAssetPropertyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ExecuteActionCommand
+ */
+export const se_ExecuteActionCommand = async (
+  input: ExecuteActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actionDefinitionId: [],
+      actionPayload: (_) => _json(_),
+      clientToken: [],
+      targetResource: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ExecuteQueryCommand
+ */
+export const se_ExecuteQueryCommand = async (
+  input: ExecuteQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queries/execution";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      queryStatement: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetAssetPropertyAggregatesCommand
  */
 export const se_GetAssetPropertyAggregatesCommand = async (
@@ -1995,6 +2340,86 @@ export const se_ListAccessPoliciesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListActionsCommand
+ */
+export const se_ListActionsCommand = async (
+  input: ListActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actions";
+  const query: any = map({
+    targetResourceType: [, __expectNonNull(input.targetResourceType!, `targetResourceType`)],
+    targetResourceId: [, __expectNonNull(input.targetResourceId!, `targetResourceId`)],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListAssetModelCompositeModelsCommand
+ */
+export const se_ListAssetModelCompositeModelsCommand = async (
+  input: ListAssetModelCompositeModelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/asset-models/{assetModelId}/composite-models";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListAssetModelPropertiesCommand
  */
 export const se_ListAssetModelPropertiesCommand = async (
@@ -2051,6 +2476,10 @@ export const se_ListAssetModelsCommand = async (
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    assetModelTypes: [
+      () => input.assetModelTypes !== void 0,
+      () => (input.assetModelTypes! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2239,6 +2668,50 @@ export const se_ListBulkImportJobsCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListCompositionRelationshipsCommand
+ */
+export const se_ListCompositionRelationshipsCommand = async (
+  input: ListCompositionRelationshipsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/asset-models/{assetModelId}/composition-relationships";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2593,6 +3066,8 @@ export const se_PutStorageConfigurationCommand = async (
       multiLayerStorage: (_) => _json(_),
       retentionPeriod: (_) => _json(_),
       storageType: [],
+      warmTier: [],
+      warmTierRetentionPeriod: (_) => _json(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2755,6 +3230,7 @@ export const se_UpdateAssetCommand = async (
   body = JSON.stringify(
     take(input, {
       assetDescription: [],
+      assetExternalId: [],
       assetName: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
@@ -2801,11 +3277,70 @@ export const se_UpdateAssetModelCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      assetModelCompositeModels: (_) => _json(_),
+      assetModelCompositeModels: (_) => se_AssetModelCompositeModels(_, context),
       assetModelDescription: [],
+      assetModelExternalId: [],
       assetModelHierarchies: (_) => _json(_),
       assetModelName: [],
       assetModelProperties: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateAssetModelCompositeModelCommand
+ */
+export const se_UpdateAssetModelCompositeModelCommand = async (
+  input: UpdateAssetModelCompositeModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelCompositeModelId",
+    () => input.assetModelCompositeModelId!,
+    "{assetModelCompositeModelId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      assetModelCompositeModelDescription: [],
+      assetModelCompositeModelExternalId: [],
+      assetModelCompositeModelName: [],
+      assetModelCompositeModelProperties: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
@@ -3738,6 +4273,73 @@ const de_CreateAssetModelCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateAssetModelCompositeModelCommand
+ */
+export const de_CreateAssetModelCompositeModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAssetModelCompositeModelCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CreateAssetModelCompositeModelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetModelCompositeModelId: __expectString,
+    assetModelCompositeModelPath: _json,
+    assetModelStatus: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAssetModelCompositeModelCommandError
+ */
+const de_CreateAssetModelCompositeModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAssetModelCompositeModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateBulkImportJobCommand
  */
 export const de_CreateBulkImportJobCommand = async (
@@ -4218,6 +4820,65 @@ const de_DeleteAssetModelCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAssetModelCompositeModelCommand
+ */
+export const de_DeleteAssetModelCompositeModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAssetModelCompositeModelCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_DeleteAssetModelCompositeModelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetModelStatus: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAssetModelCompositeModelCommandError
+ */
+const de_DeleteAssetModelCompositeModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAssetModelCompositeModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteDashboardCommand
  */
 export const de_DeleteDashboardCommand = async (
@@ -4550,6 +5211,66 @@ const de_DescribeAccessPolicyCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeActionCommand
+ */
+export const de_DescribeActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionDefinitionId: __expectString,
+    actionId: __expectString,
+    actionPayload: _json,
+    executionTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    targetResource: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeActionCommandError
+ */
+const de_DescribeActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeAssetCommand
  */
 export const de_DescribeAssetCommand = async (
@@ -4565,9 +5286,11 @@ export const de_DescribeAssetCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     assetArn: __expectString,
+    assetCompositeModelSummaries: _json,
     assetCompositeModels: _json,
     assetCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     assetDescription: __expectString,
+    assetExternalId: __expectString,
     assetHierarchies: _json,
     assetId: __expectString,
     assetLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -4616,6 +5339,71 @@ const de_DescribeAssetCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeAssetCompositeModelCommand
+ */
+export const de_DescribeAssetCompositeModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssetCompositeModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeAssetCompositeModelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionDefinitions: _json,
+    assetCompositeModelDescription: __expectString,
+    assetCompositeModelExternalId: __expectString,
+    assetCompositeModelId: __expectString,
+    assetCompositeModelName: __expectString,
+    assetCompositeModelPath: _json,
+    assetCompositeModelProperties: _json,
+    assetCompositeModelSummaries: _json,
+    assetCompositeModelType: __expectString,
+    assetId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAssetCompositeModelCommandError
+ */
+const de_DescribeAssetCompositeModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssetCompositeModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeAssetModelCommand
  */
 export const de_DescribeAssetModelCommand = async (
@@ -4631,15 +5419,18 @@ export const de_DescribeAssetModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     assetModelArn: __expectString,
-    assetModelCompositeModels: _json,
+    assetModelCompositeModelSummaries: _json,
+    assetModelCompositeModels: (_) => de_AssetModelCompositeModels(_, context),
     assetModelCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     assetModelDescription: __expectString,
+    assetModelExternalId: __expectString,
     assetModelHierarchies: _json,
     assetModelId: __expectString,
     assetModelLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     assetModelName: __expectString,
     assetModelProperties: _json,
     assetModelStatus: _json,
+    assetModelType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4652,6 +5443,72 @@ const de_DescribeAssetModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeAssetModelCompositeModelCommand
+ */
+export const de_DescribeAssetModelCompositeModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssetModelCompositeModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeAssetModelCompositeModelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionDefinitions: _json,
+    assetModelCompositeModelDescription: __expectString,
+    assetModelCompositeModelExternalId: __expectString,
+    assetModelCompositeModelId: __expectString,
+    assetModelCompositeModelName: __expectString,
+    assetModelCompositeModelPath: _json,
+    assetModelCompositeModelProperties: _json,
+    assetModelCompositeModelSummaries: _json,
+    assetModelCompositeModelType: __expectString,
+    assetModelId: __expectString,
+    compositionDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAssetModelCompositeModelCommandError
+ */
+const de_DescribeAssetModelCompositeModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssetModelCompositeModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4695,6 +5552,7 @@ export const de_DescribeAssetPropertyCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    assetExternalId: __expectString,
     assetId: __expectString,
     assetModelId: __expectString,
     assetName: __expectString,
@@ -4755,6 +5613,8 @@ export const de_DescribeBulkImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    adaptiveIngestion: __expectBoolean,
+    deleteFilesAfterImport: __expectBoolean,
     errorReportLocation: _json,
     files: _json,
     jobConfiguration: _json,
@@ -5252,6 +6112,8 @@ export const de_DescribeStorageConfigurationCommand = async (
     multiLayerStorage: _json,
     retentionPeriod: _json,
     storageType: __expectString,
+    warmTier: __expectString,
+    warmTierRetentionPeriod: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5462,6 +6324,135 @@ const de_DisassociateTimeSeriesFromAssetPropertyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotsitewise#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ExecuteActionCommand
+ */
+export const de_ExecuteActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteActionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_ExecuteActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ExecuteActionCommandError
+ */
+const de_ExecuteActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ExecuteQueryCommand
+ */
+export const de_ExecuteQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ExecuteQueryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    columns: _json,
+    nextToken: __expectString,
+    rows: (_) => de_Rows(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ExecuteQueryCommandError
+ */
+const de_ExecuteQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotsitewise#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "QueryTimeoutException":
+    case "com.amazonaws.iotsitewise#QueryTimeoutException":
+      throw await de_QueryTimeoutExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotsitewise#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5752,6 +6743,120 @@ const de_ListAccessPoliciesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iotsitewise#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListActionsCommand
+ */
+export const de_ListActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListActionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListActionsCommandError
+ */
+const de_ListActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAssetModelCompositeModelsCommand
+ */
+export const de_ListAssetModelCompositeModelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetModelCompositeModelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAssetModelCompositeModelsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetModelCompositeModelSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssetModelCompositeModelsCommandError
+ */
+const de_ListAssetModelCompositeModelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetModelCompositeModelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotsitewise#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -6133,6 +7238,63 @@ const de_ListBulkImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkImportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCompositionRelationshipsCommand
+ */
+export const de_ListCompositionRelationshipsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCompositionRelationshipsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCompositionRelationshipsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    compositionRelationshipSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCompositionRelationshipsCommandError
+ */
+const de_ListCompositionRelationshipsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCompositionRelationshipsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6689,6 +7851,8 @@ export const de_PutStorageConfigurationCommand = async (
     multiLayerStorage: _json,
     retentionPeriod: _json,
     storageType: __expectString,
+    warmTier: __expectString,
+    warmTierRetentionPeriod: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -7005,6 +8169,72 @@ const de_UpdateAssetModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateAssetModelCompositeModelCommand
+ */
+export const de_UpdateAssetModelCompositeModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssetModelCompositeModelCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_UpdateAssetModelCompositeModelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetModelCompositeModelPath: _json,
+    assetModelStatus: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAssetModelCompositeModelCommandError
+ */
+const de_UpdateAssetModelCompositeModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssetModelCompositeModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7380,6 +8610,26 @@ const de_UpdateProjectCommandError = async (
 
 const throwDefaultError = withBaseException(__BaseException);
 /**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ConflictingOperationExceptionRes
  */
 const de_ConflictingOperationExceptionRes = async (
@@ -7455,6 +8705,26 @@ const de_LimitExceededExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1QueryTimeoutExceptionRes
+ */
+const de_QueryTimeoutExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<QueryTimeoutException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new QueryTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -7581,6 +8851,25 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+// se_ActionPayload omitted.
+
 // se_AggregateTypes omitted.
 
 // se_Alarms omitted.
@@ -7589,9 +8878,30 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_AssetModelCompositeModelDefinition omitted.
 
-// se_AssetModelCompositeModelDefinitions omitted.
+/**
+ * serializeAws_restJson1AssetModelCompositeModelDefinitions
+ */
+const se_AssetModelCompositeModelDefinitions = (
+  input: AssetModelCompositeModelDefinition[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _json(entry);
+    });
+};
 
-// se_AssetModelCompositeModels omitted.
+/**
+ * serializeAws_restJson1AssetModelCompositeModels
+ */
+const se_AssetModelCompositeModels = (input: AssetModelCompositeModel[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _json(entry);
+    });
+};
 
 // se_AssetModelHierarchies omitted.
 
@@ -7608,6 +8918,10 @@ const de_UnauthorizedExceptionRes = async (
 // se_AssetModelPropertyDefinition omitted.
 
 // se_AssetModelPropertyDefinitions omitted.
+
+// se_AssetModelPropertyPath omitted.
+
+// se_AssetModelPropertyPathSegment omitted.
 
 /**
  * serializeAws_restJson1AssetPropertyValue
@@ -7777,6 +9091,8 @@ const se_ImageFile = (input: ImageFile, context: __SerdeContext): any => {
 
 // se_MultiLayerStorage omitted.
 
+// se_Parquet omitted.
+
 // se_PortalResource omitted.
 
 // se_ProjectResource omitted.
@@ -7815,6 +9131,8 @@ const se_PutAssetPropertyValueEntry = (input: PutAssetPropertyValueEntry, contex
 
 // se_TagMap omitted.
 
+// se_TargetResource omitted.
+
 // se_TimeInNanos omitted.
 
 // se_Transform omitted.
@@ -7838,6 +9156,8 @@ const se_Variant = (input: Variant, context: __SerdeContext): any => {
     stringValue: [],
   });
 };
+
+// se_WarmTierRetentionPeriod omitted.
 
 /**
  * deserializeAws_restJson1AccessPolicySummaries
@@ -7864,6 +9184,16 @@ const de_AccessPolicySummary = (output: any, context: __SerdeContext): AccessPol
     resource: _json,
   }) as any;
 };
+
+// de_ActionDefinition omitted.
+
+// de_ActionDefinitions omitted.
+
+// de_ActionPayload omitted.
+
+// de_ActionSummaries omitted.
+
+// de_ActionSummary omitted.
 
 /**
  * deserializeAws_restJson1AggregatedValue
@@ -7906,7 +9236,15 @@ const de_Aggregates = (output: any, context: __SerdeContext): Aggregates => {
 
 // de_AssetCompositeModel omitted.
 
+// de_AssetCompositeModelPath omitted.
+
+// de_AssetCompositeModelPathSegment omitted.
+
 // de_AssetCompositeModels omitted.
+
+// de_AssetCompositeModelSummaries omitted.
+
+// de_AssetCompositeModelSummary omitted.
 
 // de_AssetErrorDetails omitted.
 
@@ -7920,7 +9258,25 @@ const de_Aggregates = (output: any, context: __SerdeContext): Aggregates => {
 
 // de_AssetModelCompositeModel omitted.
 
-// de_AssetModelCompositeModels omitted.
+// de_AssetModelCompositeModelPath omitted.
+
+// de_AssetModelCompositeModelPathSegment omitted.
+
+/**
+ * deserializeAws_restJson1AssetModelCompositeModels
+ */
+const de_AssetModelCompositeModels = (output: any, context: __SerdeContext): AssetModelCompositeModel[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return _json(entry);
+    });
+  return retVal;
+};
+
+// de_AssetModelCompositeModelSummaries omitted.
+
+// de_AssetModelCompositeModelSummary omitted.
 
 // de_AssetModelHierarchies omitted.
 
@@ -7929,6 +9285,10 @@ const de_Aggregates = (output: any, context: __SerdeContext): Aggregates => {
 // de_AssetModelProperties omitted.
 
 // de_AssetModelProperty omitted.
+
+// de_AssetModelPropertyPath omitted.
+
+// de_AssetModelPropertyPathSegment omitted.
 
 // de_AssetModelPropertySummaries omitted.
 
@@ -7954,8 +9314,10 @@ const de_AssetModelSummaries = (output: any, context: __SerdeContext): AssetMode
 const de_AssetModelSummary = (output: any, context: __SerdeContext): AssetModelSummary => {
   return take(output, {
     arn: __expectString,
+    assetModelType: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    externalId: __expectString,
     id: __expectString,
     lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
@@ -7966,6 +9328,10 @@ const de_AssetModelSummary = (output: any, context: __SerdeContext): AssetModelS
 // de_AssetProperties omitted.
 
 // de_AssetProperty omitted.
+
+// de_AssetPropertyPath omitted.
+
+// de_AssetPropertyPathSegment omitted.
 
 // de_AssetPropertySummaries omitted.
 
@@ -8021,6 +9387,7 @@ const de_AssetSummary = (output: any, context: __SerdeContext): AssetSummary => 
     assetModelId: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    externalId: __expectString,
     hierarchies: _json,
     id: __expectString,
     lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -8050,6 +9417,7 @@ const de_AssociatedAssetsSummary = (output: any, context: __SerdeContext): Assoc
     assetModelId: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    externalId: __expectString,
     hierarchies: _json,
     id: __expectString,
     lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -8294,9 +9662,25 @@ const de_BatchGetAssetPropertyValueSuccessEntry = (
 
 // de_BatchPutAssetPropertyErrors omitted.
 
+// de_ColumnInfo omitted.
+
 // de_ColumnNames omitted.
 
+// de_ColumnsList omitted.
+
+// de_ColumnType omitted.
+
 // de_CompositeModelProperty omitted.
+
+// de_CompositionDetails omitted.
+
+// de_CompositionRelationship omitted.
+
+// de_CompositionRelationshipItem omitted.
+
+// de_CompositionRelationshipSummaries omitted.
+
+// de_CompositionRelationshipSummary omitted.
 
 // de_ConfigurationErrorDetails omitted.
 
@@ -8329,6 +9713,30 @@ const de_DashboardSummary = (output: any, context: __SerdeContext): DashboardSum
     lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Datum
+ */
+const de_Datum = (output: any, context: __SerdeContext): Datum => {
+  return take(output, {
+    arrayValue: (_: any) => de_DatumList(_, context),
+    nullValue: __expectBoolean,
+    rowValue: (_: any) => de_Row(_, context),
+    scalarValue: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DatumList
+ */
+const de_DatumList = (output: any, context: __SerdeContext): Datum[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Datum(entry, context);
+    });
+  return retVal;
 };
 
 // de_DetailedError omitted.
@@ -8441,6 +9849,8 @@ const de_InterpolatedAssetPropertyValues = (output: any, context: __SerdeContext
 
 // de_MultiLayerStorage omitted.
 
+// de_Parquet omitted.
+
 // de_PortalResource omitted.
 
 // de_PortalStatus omitted.
@@ -8510,7 +9920,30 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 
 // de_RetentionPeriod omitted.
 
+/**
+ * deserializeAws_restJson1Row
+ */
+const de_Row = (output: any, context: __SerdeContext): Row => {
+  return take(output, {
+    data: (_: any) => de_DatumList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Rows
+ */
+const de_Rows = (output: any, context: __SerdeContext): Row[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Row(entry, context);
+    });
+  return retVal;
+};
+
 // de_TagMap omitted.
+
+// de_TargetResource omitted.
 
 // de_TimeInNanos omitted.
 
@@ -8566,6 +9999,8 @@ const de_Variant = (output: any, context: __SerdeContext): Variant => {
     stringValue: __expectString,
   }) as any;
 };
+
+// de_WarmTierRetentionPeriod omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateAssetPropertyRequest } from "../models/models_0";
+import { UpdateAssetPropertyRequest } from "../models/models_1";
 import { de_UpdateAssetPropertyCommand, se_UpdateAssetPropertyCommand } from "../protocols/Aws_restJson1";
 
 /**

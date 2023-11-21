@@ -15,10 +15,10 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribeStorageConfigurationRequest, DescribeStorageConfigurationResponse } from "../models/models_0";
+import { DeleteAssetModelCompositeModelRequest, DeleteAssetModelCompositeModelResponse } from "../models/models_0";
 import {
-  de_DescribeStorageConfigurationCommand,
-  se_DescribeStorageConfigurationCommand,
+  de_DeleteAssetModelCompositeModelCommand,
+  se_DeleteAssetModelCompositeModelCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,64 +28,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeStorageConfigurationCommand}.
+ * The input for {@link DeleteAssetModelCompositeModelCommand}.
  */
-export interface DescribeStorageConfigurationCommandInput extends DescribeStorageConfigurationRequest {}
+export interface DeleteAssetModelCompositeModelCommandInput extends DeleteAssetModelCompositeModelRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeStorageConfigurationCommand}.
+ * The output of {@link DeleteAssetModelCompositeModelCommand}.
  */
-export interface DescribeStorageConfigurationCommandOutput
-  extends DescribeStorageConfigurationResponse,
+export interface DeleteAssetModelCompositeModelCommandOutput
+  extends DeleteAssetModelCompositeModelResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves information about the storage configuration for IoT SiteWise.</p>
+ * <p>Deletes a composite model. This action can't be undone. You must delete all assets created
+ *       from a  composite model before you can delete the model. Also, you can't delete a composite model if
+ *       a parent asset model exists that contains a property formula expression that depends on the
+ *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
+ *       <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, DescribeStorageConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, DescribeStorageConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DeleteAssetModelCompositeModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DeleteAssetModelCompositeModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {};
- * const command = new DescribeStorageConfigurationCommand(input);
+ * const input = { // DeleteAssetModelCompositeModelRequest
+ *   assetModelId: "STRING_VALUE", // required
+ *   assetModelCompositeModelId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
+ * const command = new DeleteAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
- * // { // DescribeStorageConfigurationResponse
- * //   storageType: "SITEWISE_DEFAULT_STORAGE" || "MULTI_LAYER_STORAGE", // required
- * //   multiLayerStorage: { // MultiLayerStorage
- * //     customerManagedS3Storage: { // CustomerManagedS3Storage
- * //       s3ResourceArn: "STRING_VALUE", // required
- * //       roleArn: "STRING_VALUE", // required
- * //     },
- * //   },
- * //   disassociatedDataStorage: "ENABLED" || "DISABLED",
- * //   retentionPeriod: { // RetentionPeriod
- * //     numberOfDays: Number("int"),
- * //     unlimited: true || false,
- * //   },
- * //   configurationStatus: { // ConfigurationStatus
- * //     state: "ACTIVE" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
- * //     error: { // ConfigurationErrorDetails
+ * // { // DeleteAssetModelCompositeModelResponse
+ * //   assetModelStatus: { // AssetModelStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
  * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
  * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
- * //   },
- * //   lastUpdateDate: new Date("TIMESTAMP"),
- * //   warmTier: "ENABLED" || "DISABLED",
- * //   warmTierRetentionPeriod: { // WarmTierRetentionPeriod
- * //     numberOfDays: Number("int"),
- * //     unlimited: true || false,
  * //   },
  * // };
  *
  * ```
  *
- * @param DescribeStorageConfigurationCommandInput - {@link DescribeStorageConfigurationCommandInput}
- * @returns {@link DescribeStorageConfigurationCommandOutput}
- * @see {@link DescribeStorageConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeStorageConfigurationCommandOutput} for command's `response` shape.
+ * @param DeleteAssetModelCompositeModelCommandInput - {@link DeleteAssetModelCompositeModelCommandInput}
+ * @returns {@link DeleteAssetModelCompositeModelCommandOutput}
+ * @see {@link DeleteAssetModelCompositeModelCommandInput} for command's `input` shape.
+ * @see {@link DeleteAssetModelCompositeModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
@@ -98,12 +94,6 @@ export interface DescribeStorageConfigurationCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the limit for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
@@ -118,9 +108,9 @@ export interface DescribeStorageConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class DescribeStorageConfigurationCommand extends $Command<
-  DescribeStorageConfigurationCommandInput,
-  DescribeStorageConfigurationCommandOutput,
+export class DeleteAssetModelCompositeModelCommand extends $Command<
+  DeleteAssetModelCompositeModelCommandInput,
+  DeleteAssetModelCompositeModelCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -135,7 +125,7 @@ export class DescribeStorageConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeStorageConfigurationCommandInput) {
+  constructor(readonly input: DeleteAssetModelCompositeModelCommandInput) {
     super();
   }
 
@@ -146,17 +136,17 @@ export class DescribeStorageConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeStorageConfigurationCommandInput, DescribeStorageConfigurationCommandOutput> {
+  ): Handler<DeleteAssetModelCompositeModelCommandInput, DeleteAssetModelCompositeModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeStorageConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteAssetModelCompositeModelCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "DescribeStorageConfigurationCommand";
+    const commandName = "DeleteAssetModelCompositeModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -165,7 +155,7 @@ export class DescribeStorageConfigurationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTSiteWise",
-        operation: "DescribeStorageConfiguration",
+        operation: "DeleteAssetModelCompositeModel",
       },
     };
     const { requestHandler } = configuration;
@@ -179,8 +169,11 @@ export class DescribeStorageConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeStorageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeStorageConfigurationCommand(input, context);
+  private serialize(
+    input: DeleteAssetModelCompositeModelCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_DeleteAssetModelCompositeModelCommand(input, context);
   }
 
   /**
@@ -189,7 +182,7 @@ export class DescribeStorageConfigurationCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeStorageConfigurationCommandOutput> {
-    return de_DescribeStorageConfigurationCommand(output, context);
+  ): Promise<DeleteAssetModelCompositeModelCommandOutput> {
+    return de_DeleteAssetModelCompositeModelCommand(output, context);
   }
 }

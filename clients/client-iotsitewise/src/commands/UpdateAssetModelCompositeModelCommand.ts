@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { CreateAssetModelRequest, CreateAssetModelResponse } from "../models/models_0";
-import { de_CreateAssetModelCommand, se_CreateAssetModelCommand } from "../protocols/Aws_restJson1";
+import { UpdateAssetModelCompositeModelRequest, UpdateAssetModelCompositeModelResponse } from "../models/models_1";
+import {
+  de_UpdateAssetModelCompositeModelCommand,
+  se_UpdateAssetModelCompositeModelCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,47 +28,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateAssetModelCommand}.
+ * The input for {@link UpdateAssetModelCompositeModelCommand}.
  */
-export interface CreateAssetModelCommandInput extends CreateAssetModelRequest {}
+export interface UpdateAssetModelCompositeModelCommandInput extends UpdateAssetModelCompositeModelRequest {}
 /**
  * @public
  *
- * The output of {@link CreateAssetModelCommand}.
+ * The output of {@link UpdateAssetModelCompositeModelCommand}.
  */
-export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse, __MetadataBearer {}
+export interface UpdateAssetModelCompositeModelCommandOutput
+  extends UpdateAssetModelCompositeModelResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates an asset model from specified property and hierarchy definitions. You create
- *       assets from asset models. With asset models, you can easily create assets of the same type
- *       that have standardized definitions. Each asset created from a model inherits the asset model's
- *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
- *         <i>IoT SiteWise User Guide</i>.</p>
- *          <p>You can create two types of asset models, <code>ASSET_MODEL</code> or <code>COMPONENT_MODEL</code>.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
- *         Can't be included as a component in another asset model.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
- *         models of other asset models. You can't create assets directly from this type of asset model. </p>
- *             </li>
- *          </ul>
+ * <p>Updates a composite model and all of the assets that were created from the model. Each asset
+ *       created from the model inherits the updated asset model's property and hierarchy definitions.
+ *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
+ *       <i>IoT SiteWise User Guide</i>.</p>
+ *          <important>
+ *             <p>If you remove a property from a composite asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property.</p>
+ *             <p>To replace an existing composite asset model property with a new one with the same <code>name</code>, do the following:</p>
+ *             <ol>
+ *                <li>
+ *                   <p>Submit an <code>UpdateAssetModelCompositeModel</code> request with the entire existing property removed.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Submit a second <code>UpdateAssetModelCompositeModel</code> request that includes the new property. The new asset property will have the same
+ *           <code>name</code> as the previous one and IoT SiteWise will generate a new unique <code>id</code>.</p>
+ *                </li>
+ *             </ol>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateAssetModelCompositeModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateAssetModelCompositeModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // CreateAssetModelRequest
- *   assetModelName: "STRING_VALUE", // required
- *   assetModelDescription: "STRING_VALUE",
- *   assetModelProperties: [ // AssetModelPropertyDefinitions
- *     { // AssetModelPropertyDefinition
+ * const input = { // UpdateAssetModelCompositeModelRequest
+ *   assetModelId: "STRING_VALUE", // required
+ *   assetModelCompositeModelId: "STRING_VALUE", // required
+ *   assetModelCompositeModelExternalId: "STRING_VALUE",
+ *   assetModelCompositeModelDescription: "STRING_VALUE",
+ *   assetModelCompositeModelName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   assetModelCompositeModelProperties: [ // AssetModelProperties
+ *     { // AssetModelProperty
+ *       id: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *       dataTypeSpec: "STRING_VALUE",
@@ -133,113 +142,25 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *           },
  *         },
  *       },
- *       id: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
- *     },
- *   ],
- *   assetModelHierarchies: [ // AssetModelHierarchyDefinitions
- *     { // AssetModelHierarchyDefinition
- *       name: "STRING_VALUE", // required
- *       childAssetModelId: "STRING_VALUE", // required
- *       id: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
- *     },
- *   ],
- *   assetModelCompositeModels: [ // AssetModelCompositeModelDefinitions
- *     { // AssetModelCompositeModelDefinition
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       type: "STRING_VALUE", // required
- *       properties: [
+ *       path: [
  *         {
- *           name: "STRING_VALUE", // required
- *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
- *           dataTypeSpec: "STRING_VALUE",
- *           unit: "STRING_VALUE",
- *           type: {
- *             attribute: {
- *               defaultValue: "STRING_VALUE",
- *             },
- *             measurement: {
- *               processingConfig: {
- *                 forwardingConfig: {
- *                   state: "DISABLED" || "ENABLED", // required
- *                 },
- *               },
- *             },
- *             transform: {
- *               expression: "STRING_VALUE", // required
- *               variables: [ // required
- *                 {
- *                   name: "STRING_VALUE", // required
- *                   value: {
- *                     propertyId: "STRING_VALUE",
- *                     hierarchyId: "STRING_VALUE",
- *                     propertyPath: [
- *                       {
- *                         id: "STRING_VALUE",
- *                         name: "STRING_VALUE",
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
- *               processingConfig: {
- *                 computeLocation: "EDGE" || "CLOUD", // required
- *                 forwardingConfig: {
- *                   state: "DISABLED" || "ENABLED", // required
- *                 },
- *               },
- *             },
- *             metric: {
- *               expression: "STRING_VALUE", // required
- *               variables: [ // required
- *                 {
- *                   name: "STRING_VALUE", // required
- *                   value: {
- *                     propertyId: "STRING_VALUE",
- *                     hierarchyId: "STRING_VALUE",
- *                     propertyPath: [
- *                       {
- *                         id: "STRING_VALUE",
- *                         name: "STRING_VALUE",
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
- *               window: {
- *                 tumbling: {
- *                   interval: "STRING_VALUE", // required
- *                   offset: "STRING_VALUE",
- *                 },
- *               },
- *               processingConfig: {
- *                 computeLocation: "EDGE" || "CLOUD", // required
- *               },
- *             },
- *           },
  *           id: "STRING_VALUE",
- *           externalId: "STRING_VALUE",
+ *           name: "STRING_VALUE",
  *         },
  *       ],
- *       id: "STRING_VALUE",
  *       externalId: "STRING_VALUE",
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   assetModelId: "STRING_VALUE",
- *   assetModelExternalId: "STRING_VALUE",
- *   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
  * };
- * const command = new CreateAssetModelCommand(input);
+ * const command = new UpdateAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
- * // { // CreateAssetModelResponse
- * //   assetModelId: "STRING_VALUE", // required
- * //   assetModelArn: "STRING_VALUE", // required
+ * // { // UpdateAssetModelCompositeModelResponse
+ * //   assetModelCompositeModelPath: [ // AssetModelCompositeModelPath // required
+ * //     { // AssetModelCompositeModelPathSegment
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
  * //   assetModelStatus: { // AssetModelStatus
  * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
  * //     error: { // ErrorDetails
@@ -257,10 +178,10 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *
  * ```
  *
- * @param CreateAssetModelCommandInput - {@link CreateAssetModelCommandInput}
- * @returns {@link CreateAssetModelCommandOutput}
- * @see {@link CreateAssetModelCommandInput} for command's `input` shape.
- * @see {@link CreateAssetModelCommandOutput} for command's `response` shape.
+ * @param UpdateAssetModelCompositeModelCommandInput - {@link UpdateAssetModelCompositeModelCommandInput}
+ * @returns {@link UpdateAssetModelCompositeModelCommandOutput}
+ * @see {@link UpdateAssetModelCompositeModelCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssetModelCompositeModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
@@ -296,9 +217,9 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class CreateAssetModelCommand extends $Command<
-  CreateAssetModelCommandInput,
-  CreateAssetModelCommandOutput,
+export class UpdateAssetModelCompositeModelCommand extends $Command<
+  UpdateAssetModelCompositeModelCommandInput,
+  UpdateAssetModelCompositeModelCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -313,7 +234,7 @@ export class CreateAssetModelCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateAssetModelCommandInput) {
+  constructor(readonly input: UpdateAssetModelCompositeModelCommandInput) {
     super();
   }
 
@@ -324,17 +245,17 @@ export class CreateAssetModelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateAssetModelCommandInput, CreateAssetModelCommandOutput> {
+  ): Handler<UpdateAssetModelCompositeModelCommandInput, UpdateAssetModelCompositeModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateAssetModelCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateAssetModelCompositeModelCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "CreateAssetModelCommand";
+    const commandName = "UpdateAssetModelCompositeModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -343,7 +264,7 @@ export class CreateAssetModelCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTSiteWise",
-        operation: "CreateAssetModel",
+        operation: "UpdateAssetModelCompositeModel",
       },
     };
     const { requestHandler } = configuration;
@@ -357,14 +278,20 @@ export class CreateAssetModelCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateAssetModelCommand(input, context);
+  private serialize(
+    input: UpdateAssetModelCompositeModelCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_UpdateAssetModelCompositeModelCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetModelCommandOutput> {
-    return de_CreateAssetModelCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateAssetModelCompositeModelCommandOutput> {
+    return de_UpdateAssetModelCompositeModelCommand(output, context);
   }
 }

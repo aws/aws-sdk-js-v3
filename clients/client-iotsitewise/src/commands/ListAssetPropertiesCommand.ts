@@ -57,7 +57,7 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * // { // ListAssetPropertiesResponse
  * //   assetPropertySummaries: [ // AssetPropertySummaries // required
  * //     { // AssetPropertySummary
- * //       id: "STRING_VALUE",
+ * //       id: "STRING_VALUE", // required
  * //       alias: "STRING_VALUE",
  * //       unit: "STRING_VALUE",
  * //       notification: { // PropertyNotification
@@ -65,6 +65,13 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * //         state: "ENABLED" || "DISABLED", // required
  * //       },
  * //       assetCompositeModelId: "STRING_VALUE",
+ * //       path: [ // AssetPropertyPath
+ * //         { // AssetPropertyPathSegment
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

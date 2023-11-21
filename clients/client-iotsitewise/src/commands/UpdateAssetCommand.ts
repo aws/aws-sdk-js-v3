@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateAssetRequest, UpdateAssetResponse } from "../models/models_0";
+import { UpdateAssetRequest, UpdateAssetResponse } from "../models/models_1";
 import { de_UpdateAssetCommand, se_UpdateAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -50,6 +50,7 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *   assetName: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   assetDescription: "STRING_VALUE",
+ *   assetExternalId: "STRING_VALUE",
  * };
  * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);

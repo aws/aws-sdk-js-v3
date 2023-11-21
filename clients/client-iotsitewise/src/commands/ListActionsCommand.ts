@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateProjectRequest, UpdateProjectResponse } from "../models/models_1";
-import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_restJson1";
+import { ListActionsRequest, ListActionsResponse } from "../models/models_0";
+import { de_ListActionsCommand, se_ListActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,41 +25,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateProjectCommand}.
+ * The input for {@link ListActionsCommand}.
  */
-export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
+export interface ListActionsCommandInput extends ListActionsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateProjectCommand}.
+ * The output of {@link ListActionsCommand}.
  */
-export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
+export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates an IoT SiteWise Monitor project.</p>
+ * <p>Retrieves a paginated list of actions for a specific target resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, UpdateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, UpdateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListActionsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListActionsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // UpdateProjectRequest
- *   projectId: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   projectDescription: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ * const input = { // ListActionsRequest
+ *   targetResourceType: "ASSET", // required
+ *   targetResourceId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new UpdateProjectCommand(input);
+ * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListActionsResponse
+ * //   actionSummaries: [ // ActionSummaries // required
+ * //     { // ActionSummary
+ * //       actionId: "STRING_VALUE",
+ * //       actionDefinitionId: "STRING_VALUE",
+ * //       targetResource: { // TargetResource
+ * //         assetId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
- * @returns {@link UpdateProjectCommandOutput}
- * @see {@link UpdateProjectCommandInput} for command's `input` shape.
- * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
+ * @param ListActionsCommandInput - {@link ListActionsCommandInput}
+ * @returns {@link ListActionsCommandOutput}
+ * @see {@link ListActionsCommandInput} for command's `input` shape.
+ * @see {@link ListActionsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -82,9 +93,9 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class UpdateProjectCommand extends $Command<
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput,
+export class ListActionsCommand extends $Command<
+  ListActionsCommandInput,
+  ListActionsCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -99,7 +110,7 @@ export class UpdateProjectCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateProjectCommandInput) {
+  constructor(readonly input: ListActionsCommandInput) {
     super();
   }
 
@@ -110,15 +121,15 @@ export class UpdateProjectCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateProjectCommandInput, UpdateProjectCommandOutput> {
+  ): Handler<ListActionsCommandInput, ListActionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateProjectCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListActionsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "UpdateProjectCommand";
+    const commandName = "ListActionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -127,7 +138,7 @@ export class UpdateProjectCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTSiteWise",
-        operation: "UpdateProject",
+        operation: "ListActions",
       },
     };
     const { requestHandler } = configuration;
@@ -141,14 +152,14 @@ export class UpdateProjectCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateProjectCommand(input, context);
+  private serialize(input: ListActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
-    return de_UpdateProjectCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionsCommandOutput> {
+    return de_ListActionsCommand(output, context);
   }
 }

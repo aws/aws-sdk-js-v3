@@ -294,6 +294,14 @@ CreateAssetModel
 </details>
 <details>
 <summary>
+CreateAssetModelCompositeModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/createassetmodelcompositemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/createassetmodelcompositemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/createassetmodelcompositemodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateBulkImportJob
 </summary>
 
@@ -358,6 +366,14 @@ DeleteAssetModel
 </details>
 <details>
 <summary>
+DeleteAssetModelCompositeModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/deleteassetmodelcompositemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/deleteassetmodelcompositemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/deleteassetmodelcompositemodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteDashboard
 </summary>
 
@@ -406,6 +422,14 @@ DescribeAccessPolicy
 </details>
 <details>
 <summary>
+DescribeAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/describeactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeAsset
 </summary>
 
@@ -414,10 +438,26 @@ DescribeAsset
 </details>
 <details>
 <summary>
+DescribeAssetCompositeModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/describeassetcompositemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeassetcompositemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeassetcompositemodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeAssetModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/describeassetmodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeassetmodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeassetmodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAssetModelCompositeModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/describeassetmodelcompositemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeassetmodelcompositemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/describeassetmodelcompositemodelcommandoutput.html)
 
 </details>
 <details>
@@ -526,6 +566,22 @@ DisassociateTimeSeriesFromAssetProperty
 </details>
 <details>
 <summary>
+ExecuteAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/executeactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/executeactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/executeactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+ExecuteQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/executequerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/executequerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/executequerycommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetAssetPropertyAggregates
 </summary>
 
@@ -562,6 +618,22 @@ ListAccessPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/listaccesspoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listaccesspoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listaccesspoliciescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/listactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listactionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAssetModelCompositeModels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/listassetmodelcompositemodelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listassetmodelcompositemodelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listassetmodelcompositemodelscommandoutput.html)
 
 </details>
 <details>
@@ -618,6 +690,14 @@ ListBulkImportJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/listbulkimportjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listbulkimportjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listbulkimportjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCompositionRelationships
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/listcompositionrelationshipscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listcompositionrelationshipscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/listcompositionrelationshipscommandoutput.html)
 
 </details>
 <details>
@@ -738,6 +818,14 @@ UpdateAssetModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/updateassetmodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/updateassetmodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/updateassetmodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAssetModelCompositeModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/classes/updateassetmodelcompositemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/updateassetmodelcompositemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsitewise/interfaces/updateassetmodelcompositemodelcommandoutput.html)
 
 </details>
 <details>

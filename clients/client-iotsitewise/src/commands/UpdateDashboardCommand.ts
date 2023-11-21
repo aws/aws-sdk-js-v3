@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateDashboardRequest, UpdateDashboardResponse } from "../models/models_0";
+import { UpdateDashboardRequest, UpdateDashboardResponse } from "../models/models_1";
 import { de_UpdateDashboardCommand, se_UpdateDashboardCommand } from "../protocols/Aws_restJson1";
 
 /**

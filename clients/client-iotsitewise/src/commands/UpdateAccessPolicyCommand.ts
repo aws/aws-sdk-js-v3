@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateAccessPolicyRequest, UpdateAccessPolicyResponse } from "../models/models_0";
+import { UpdateAccessPolicyRequest, UpdateAccessPolicyResponse } from "../models/models_1";
 import { de_UpdateAccessPolicyCommand, se_UpdateAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**

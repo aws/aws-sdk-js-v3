@@ -88,8 +88,14 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //           { // ExpressionVariable
  * //             name: "STRING_VALUE", // required
  * //             value: { // VariableValue
- * //               propertyId: "STRING_VALUE", // required
+ * //               propertyId: "STRING_VALUE",
  * //               hierarchyId: "STRING_VALUE",
+ * //               propertyPath: [ // AssetModelPropertyPath
+ * //                 { // AssetModelPropertyPathSegment
+ * //                   id: "STRING_VALUE",
+ * //                   name: "STRING_VALUE",
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //         ],
@@ -106,8 +112,14 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //           {
  * //             name: "STRING_VALUE", // required
  * //             value: {
- * //               propertyId: "STRING_VALUE", // required
+ * //               propertyId: "STRING_VALUE",
  * //               hierarchyId: "STRING_VALUE",
+ * //               propertyPath: [
+ * //                 {
+ * //                   id: "STRING_VALUE",
+ * //                   name: "STRING_VALUE",
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //         ],
@@ -122,6 +134,13 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //         },
  * //       },
  * //     },
+ * //     path: [ // AssetPropertyPath
+ * //       { // AssetPropertyPathSegment
+ * //         id: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     externalId: "STRING_VALUE",
  * //   },
  * //   compositeModel: { // CompositeModelProperty
  * //     name: "STRING_VALUE", // required
@@ -153,8 +172,14 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //             {
  * //               name: "STRING_VALUE", // required
  * //               value: {
- * //                 propertyId: "STRING_VALUE", // required
+ * //                 propertyId: "STRING_VALUE",
  * //                 hierarchyId: "STRING_VALUE",
+ * //                 propertyPath: [
+ * //                   {
+ * //                     id: "STRING_VALUE",
+ * //                     name: "STRING_VALUE",
+ * //                   },
+ * //                 ],
  * //               },
  * //             },
  * //           ],
@@ -171,8 +196,14 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //             {
  * //               name: "STRING_VALUE", // required
  * //               value: {
- * //                 propertyId: "STRING_VALUE", // required
+ * //                 propertyId: "STRING_VALUE",
  * //                 hierarchyId: "STRING_VALUE",
+ * //                 propertyPath: [
+ * //                   {
+ * //                     id: "STRING_VALUE",
+ * //                     name: "STRING_VALUE",
+ * //                   },
+ * //                 ],
  * //               },
  * //             },
  * //           ],
@@ -187,9 +218,18 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //           },
  * //         },
  * //       },
+ * //       path: [
+ * //         {
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //     id: "STRING_VALUE",
+ * //     externalId: "STRING_VALUE",
  * //   },
+ * //   assetExternalId: "STRING_VALUE",
  * // };
  *
  * ```

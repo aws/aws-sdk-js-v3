@@ -53,6 +53,8 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  *     "<keys>": "STRING_VALUE",
  *   },
  *   assetDescription: "STRING_VALUE",
+ *   assetId: "STRING_VALUE",
+ *   assetExternalId: "STRING_VALUE",
  * };
  * const command = new CreateAssetCommand(input);
  * const response = await client.send(command);

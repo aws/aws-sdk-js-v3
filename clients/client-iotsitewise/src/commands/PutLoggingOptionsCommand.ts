@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/models_0";
+import { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/models_1";
 import { de_PutLoggingOptionsCommand, se_PutLoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**

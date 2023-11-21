@@ -69,14 +69,17 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * //   jobConfiguration: { // JobConfiguration
  * //     fileFormat: { // FileFormat
  * //       csv: { // Csv
- * //         columnNames: [ // ColumnNames
+ * //         columnNames: [ // ColumnNames // required
  * //           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
  * //         ],
  * //       },
+ * //       parquet: {},
  * //     },
  * //   },
  * //   jobCreationDate: new Date("TIMESTAMP"), // required
  * //   jobLastUpdateDate: new Date("TIMESTAMP"), // required
+ * //   adaptiveIngestion: true || false,
+ * //   deleteFilesAfterImport: true || false,
  * // };
  *
  * ```

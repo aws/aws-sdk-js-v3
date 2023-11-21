@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateAssetModelRequest, UpdateAssetModelResponse } from "../models/models_0";
+import { UpdateAssetModelRequest, UpdateAssetModelResponse } from "../models/models_1";
 import { de_UpdateAssetModelCommand, se_UpdateAssetModelCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -84,8 +84,14 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *             { // ExpressionVariable
  *               name: "STRING_VALUE", // required
  *               value: { // VariableValue
- *                 propertyId: "STRING_VALUE", // required
+ *                 propertyId: "STRING_VALUE",
  *                 hierarchyId: "STRING_VALUE",
+ *                 propertyPath: [ // AssetModelPropertyPath
+ *                   { // AssetModelPropertyPathSegment
+ *                     id: "STRING_VALUE",
+ *                     name: "STRING_VALUE",
+ *                   },
+ *                 ],
  *               },
  *             },
  *           ],
@@ -102,8 +108,14 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *             {
  *               name: "STRING_VALUE", // required
  *               value: {
- *                 propertyId: "STRING_VALUE", // required
+ *                 propertyId: "STRING_VALUE",
  *                 hierarchyId: "STRING_VALUE",
+ *                 propertyPath: [
+ *                   {
+ *                     id: "STRING_VALUE",
+ *                     name: "STRING_VALUE",
+ *                   },
+ *                 ],
  *               },
  *             },
  *           ],
@@ -118,6 +130,13 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *           },
  *         },
  *       },
+ *       path: [
+ *         {
+ *           id: "STRING_VALUE",
+ *           name: "STRING_VALUE",
+ *         },
+ *       ],
+ *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelHierarchies: [ // AssetModelHierarchies
@@ -125,6 +144,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *       id: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       childAssetModelId: "STRING_VALUE", // required
+ *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelCompositeModels: [ // AssetModelCompositeModels
@@ -156,8 +176,9 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *                 {
  *                   name: "STRING_VALUE", // required
  *                   value: {
- *                     propertyId: "STRING_VALUE", // required
+ *                     propertyId: "STRING_VALUE",
  *                     hierarchyId: "STRING_VALUE",
+ *                     propertyPath: "<AssetModelPropertyPath>",
  *                   },
  *                 },
  *               ],
@@ -174,8 +195,9 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *                 {
  *                   name: "STRING_VALUE", // required
  *                   value: {
- *                     propertyId: "STRING_VALUE", // required
+ *                     propertyId: "STRING_VALUE",
  *                     hierarchyId: "STRING_VALUE",
+ *                     propertyPath: "<AssetModelPropertyPath>",
  *                   },
  *                 },
  *               ],
@@ -190,12 +212,16 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *               },
  *             },
  *           },
+ *           path: "<AssetModelPropertyPath>",
+ *           externalId: "STRING_VALUE",
  *         },
  *       ],
  *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
+ *   assetModelExternalId: "STRING_VALUE",
  * };
  * const command = new UpdateAssetModelCommand(input);
  * const response = await client.send(command);

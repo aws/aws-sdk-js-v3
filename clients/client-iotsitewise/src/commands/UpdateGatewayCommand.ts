@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateGatewayRequest } from "../models/models_0";
+import { UpdateGatewayRequest } from "../models/models_1";
 import { de_UpdateGatewayCommand, se_UpdateGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**

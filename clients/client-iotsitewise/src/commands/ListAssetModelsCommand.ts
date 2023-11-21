@@ -47,6 +47,9 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * const input = { // ListAssetModelsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   assetModelTypes: [ // ListAssetModelsTypeFilter
+ *     "ASSET_MODEL" || "COMPONENT_MODEL",
+ *   ],
  * };
  * const command = new ListAssetModelsCommand(input);
  * const response = await client.send(command);
@@ -72,6 +75,8 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * //           ],
  * //         },
  * //       },
+ * //       assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

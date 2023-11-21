@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { PutStorageConfigurationRequest, PutStorageConfigurationResponse } from "../models/models_0";
+import { PutStorageConfigurationRequest, PutStorageConfigurationResponse } from "../models/models_1";
 import { de_PutStorageConfigurationCommand, se_PutStorageConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -57,6 +57,11 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  *     numberOfDays: Number("int"),
  *     unlimited: true || false,
  *   },
+ *   warmTier: "ENABLED" || "DISABLED",
+ *   warmTierRetentionPeriod: { // WarmTierRetentionPeriod
+ *     numberOfDays: Number("int"),
+ *     unlimited: true || false,
+ *   },
  * };
  * const command = new PutStorageConfigurationCommand(input);
  * const response = await client.send(command);
@@ -79,6 +84,11 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
  * //       message: "STRING_VALUE", // required
  * //     },
+ * //   },
+ * //   warmTier: "ENABLED" || "DISABLED",
+ * //   warmTierRetentionPeriod: { // WarmTierRetentionPeriod
+ * //     numberOfDays: Number("int"),
+ * //     unlimited: true || false,
  * //   },
  * // };
  *
