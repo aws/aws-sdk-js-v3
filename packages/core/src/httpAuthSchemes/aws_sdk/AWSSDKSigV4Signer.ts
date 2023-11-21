@@ -16,7 +16,7 @@ import { throwAWSSDKSigningPropertyError } from "./throwAWSSDKSigningPropertyErr
 /**
  * @internal
  */
-interface AWSSDKSigV4Config {
+export interface AWSSDKSigV4Config {
   systemClockOffset: number;
   signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
 }
