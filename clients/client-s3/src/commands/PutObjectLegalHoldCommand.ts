@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/models_0";
+import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/models_1";
 import { de_PutObjectLegalHoldCommand, se_PutObjectLegalHoldCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 

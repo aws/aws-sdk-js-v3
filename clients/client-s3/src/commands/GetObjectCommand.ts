@@ -124,7 +124,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *                <note>
  *                   <ul>
  *                      <li>
- *                         <p> If you supply a <code>versionId</code>, you need the
+ *                         <p>If you supply a <code>versionId</code>, you need the
  *                               <code>s3:GetObjectVersion</code> permission to access a specific
  *                            version of an object. If you request a specific version, you do not need
  *                            to have the <code>s3:GetObject</code> permission. If you request the
@@ -133,9 +133,10 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *                               <code>s3:GetObjectVersion</code> permission won't be required.</p>
  *                      </li>
  *                      <li>
- *                         <p>If the current version of the object is a delete marker, Amazon S3 behaves
- *                            as if the object was deleted and includes <code>x-amz-delete-marker:
- *                               true</code> in the response.</p>
+ *                         <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the object was deleted and includes <code>x-amz-delete-marker: true</code> in the response.</p>
+ *                      </li>
+ *                      <li>
+ *                         <p>If the specified version is a delete marker, the response returns a 405 (Method Not Allowed) error and the <code>Last-Modified: timestamp</code> response header.</p>
  *                      </li>
  *                   </ul>
  *                </note>
@@ -311,6 +312,30 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @example To retrieve an object
+ * ```javascript
+ * // The following example retrieves an object for an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AcceptRanges": "bytes",
+ *   "ContentLength": "3191",
+ *   "ContentType": "image/jpeg",
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
+ *   "Metadata": {},
+ *   "TagCount": 2,
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-retrieve-an-object-1481827837012
+ * ```
+ *
  * @example To retrieve a byte range of an object
  * ```javascript
  * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.
@@ -334,30 +359,6 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * }
  * *\/
  * // example id: to-retrieve-a-byte-range-of-an-object--1481832674603
- * ```
- *
- * @example To retrieve an object
- * ```javascript
- * // The following example retrieves an object for an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AcceptRanges": "bytes",
- *   "ContentLength": "3191",
- *   "ContentType": "image/jpeg",
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
- *   "Metadata": {},
- *   "TagCount": 2,
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-retrieve-an-object-1481827837012
  * ```
  *
  */

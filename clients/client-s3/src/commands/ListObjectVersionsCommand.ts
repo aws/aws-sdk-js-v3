@@ -50,7 +50,6 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *             appropriately.</p>
  *          </note>
  *          <p>To use this operation, you must have READ access to the bucket.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  *          <p>The following operations are related to <code>ListObjectVersions</code>:</p>
  *          <ul>
  *             <li>

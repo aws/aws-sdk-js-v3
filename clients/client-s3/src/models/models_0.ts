@@ -646,10 +646,10 @@ export interface CompleteMultipartUploadRequest {
 
   /**
    * @public
-   * <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created
-   *     using a checksum algorithm. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the
-   *     <i>Amazon S3 User Guide</i>.</p>
+   * <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is
+   *          required only when the object was created using a checksum algorithm or if
+   *          your bucket policy requires the use of SSE-C. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html#ssec-require-condition-key">Protecting data
+   *             using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   SSECustomerAlgorithm?: string;
 
@@ -1161,7 +1161,8 @@ export interface CopyObjectRequest {
    * @public
    * <p>Specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The value of
    *          this header is a base64-encoded UTF-8 string holding JSON with the encryption context
-   *          key-value pairs.</p>
+   *          key-value pairs. This value must be explicitly added to specify encryption context for
+   *          CopyObject requests.</p>
    */
   SSEKMSEncryptionContext?: string;
 
@@ -5544,9 +5545,10 @@ export interface NoncurrentVersionExpiration {
 
   /**
    * @public
-   * <p>Specifies how many noncurrent versions Amazon S3 will retain. If there are this many more
-   *          recent noncurrent versions, Amazon S3 will take the associated action. For more information
-   *          about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
+   * <p>Specifies how many newer noncurrent versions must exist before Amazon S3 can perform the
+   *          associated action on a given version. If there are this many more recent noncurrent
+   *          versions, Amazon S3 will take the associated action. For more information about noncurrent
+   *          versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
    *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   NewerNoncurrentVersions?: number;
@@ -5599,9 +5601,10 @@ export interface NoncurrentVersionTransition {
 
   /**
    * @public
-   * <p>Specifies how many noncurrent versions Amazon S3 will retain. If there are this many more
-   *          recent noncurrent versions, Amazon S3 will take the associated action. For more information
-   *          about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
+   * <p>Specifies how many newer noncurrent versions must exist before Amazon S3 can perform the
+   *          associated action on a given version. If there are this many more recent noncurrent
+   *          versions, Amazon S3 will take the associated action. For more information about noncurrent
+   *          versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
    *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   NewerNoncurrentVersions?: number;
@@ -5839,6 +5842,63 @@ export interface TargetGrant {
 
 /**
  * @public
+ * @enum
+ */
+export const PartitionDateSource = {
+  DeliveryTime: "DeliveryTime",
+  EventTime: "EventTime",
+} as const;
+
+/**
+ * @public
+ */
+export type PartitionDateSource = (typeof PartitionDateSource)[keyof typeof PartitionDateSource];
+
+/**
+ * @public
+ * <p>Amazon S3 keys for log objects are partitioned in the following format:</p>
+ *          <p>
+ *             <code>[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]</code>
+ *          </p>
+ *          <p>PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.</p>
+ */
+export interface PartitionedPrefix {
+  /**
+   * @public
+   * <p>Specifies the partition date source for the partitioned prefix. PartitionDateSource can be EventTime or DeliveryTime.</p>
+   */
+  PartitionDateSource?: PartitionDateSource;
+}
+
+/**
+ * @public
+ * <p>To use simple format for S3 keys for log objects, set SimplePrefix to an empty object.</p>
+ *          <p>
+ *             <code>[DestinationPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]</code>
+ *          </p>
+ */
+export interface SimplePrefix {}
+
+/**
+ * @public
+ * <p>Amazon S3 key format for log objects. Only one format, PartitionedPrefix or SimplePrefix, is allowed.</p>
+ */
+export interface TargetObjectKeyFormat {
+  /**
+   * @public
+   * <p>To use the simple format for S3 keys for log objects. To specify SimplePrefix format, set SimplePrefix to \{\}.</p>
+   */
+  SimplePrefix?: SimplePrefix;
+
+  /**
+   * @public
+   * <p>Partitioned S3 key for log objects.</p>
+   */
+  PartitionedPrefix?: PartitionedPrefix;
+}
+
+/**
+ * @public
  * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys
  *          for a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the
  *             <i>Amazon S3 API Reference</i>.</p>
@@ -5870,6 +5930,12 @@ export interface LoggingEnabled {
    *          bucket.</p>
    */
   TargetPrefix: string | undefined;
+
+  /**
+   * @public
+   * <p>Amazon S3 key format for log objects.</p>
+   */
+  TargetObjectKeyFormat?: TargetObjectKeyFormat;
 }
 
 /**
@@ -7565,7 +7631,7 @@ export interface GetObjectOutput {
 
   /**
    * @public
-   * <p>Creation date of the object.</p>
+   * <p>Date and time when the object was last modified.</p>
    */
   LastModified?: Date;
 
@@ -8973,7 +9039,7 @@ export interface HeadObjectOutput {
 
   /**
    * @public
-   * <p>Creation date of the object.</p>
+   * <p>Date and time when the object was last modified.</p>
    */
   LastModified?: Date;
 
@@ -10499,7 +10565,7 @@ export interface DeleteMarkerEntry {
 
   /**
    * @public
-   * <p>Date and time the object was last modified.</p>
+   * <p>Date and time when the object was last modified.</p>
    */
   LastModified?: Date;
 }
@@ -10567,7 +10633,7 @@ export interface ObjectVersion {
 
   /**
    * @public
-   * <p>Date and time the object was last modified.</p>
+   * <p>Date and time when the object was last modified.</p>
    */
   LastModified?: Date;
 
@@ -12353,7 +12419,8 @@ export interface PutObjectRequest {
    *          this header is a base64-encoded UTF-8 string holding JSON with the encryption context
    *          key-value pairs. This value is stored as object metadata and automatically gets passed on
    *          to Amazon Web Services KMS for future <code>GetObject</code> or <code>CopyObject</code> operations on
-   *          this object.</p>
+   *          this object. This value must be explicitly added during CopyObject
+   *          operations.</p>
    */
   SSEKMSEncryptionContext?: string;
 
@@ -12405,218 +12472,6 @@ export interface PutObjectRequest {
    *          about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p>
    */
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus;
-
-  /**
-   * @public
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   */
-  ExpectedBucketOwner?: string;
-}
-
-/**
- * @public
- */
-export interface PutObjectAclOutput {
-  /**
-   * @public
-   * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
-   */
-  RequestCharged?: RequestCharged;
-}
-
-/**
- * @public
- */
-export interface PutObjectAclRequest {
-  /**
-   * @public
-   * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
-   *             ACL</a>.</p>
-   */
-  ACL?: ObjectCannedACL;
-
-  /**
-   * @public
-   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
-   */
-  AccessControlPolicy?: AccessControlPolicy;
-
-  /**
-   * @public
-   * <p>The bucket name that contains the object to which you want to attach the ACL. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message
-   *          integrity check to verify that the request body was not corrupted in transit. For more
-   *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
-   *          1864.></a>
-   *          </p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   */
-  ContentMD5?: string;
-
-  /**
-   * @public
-   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
-   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter.</p>
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
-
-  /**
-   * @public
-   * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
-   *          bucket.</p>
-   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
-   */
-  GrantFullControl?: string;
-
-  /**
-   * @public
-   * <p>Allows grantee to list the objects in the bucket.</p>
-   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
-   */
-  GrantRead?: string;
-
-  /**
-   * @public
-   * <p>Allows grantee to read the bucket ACL.</p>
-   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
-   */
-  GrantReadACP?: string;
-
-  /**
-   * @public
-   * <p>Allows grantee to create new objects in the bucket.</p>
-   *          <p>For the bucket and object owners of existing objects, also allows deletions and
-   *          overwrites of those objects.</p>
-   */
-  GrantWrite?: string;
-
-  /**
-   * @public
-   * <p>Allows grantee to write the ACL for the applicable bucket.</p>
-   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
-   */
-  GrantWriteACP?: string;
-
-  /**
-   * @public
-   * <p>Key for which the PUT action was initiated.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * @public
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. If either the source or
-   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
-   */
-  RequestPayer?: RequestPayer;
-
-  /**
-   * @public
-   * <p>VersionId used to reference a specific version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * @public
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   */
-  ExpectedBucketOwner?: string;
-}
-
-/**
- * @public
- */
-export interface PutObjectLegalHoldOutput {
-  /**
-   * @public
-   * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
-   */
-  RequestCharged?: RequestCharged;
-}
-
-/**
- * @public
- */
-export interface PutObjectLegalHoldRequest {
-  /**
-   * @public
-   * <p>The bucket name containing the object that you want to place a legal hold on. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p>The key name for the object that you want to place a legal hold on.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * @public
-   * <p>Container element for the legal hold configuration you want to apply to the specified
-   *          object.</p>
-   */
-  LegalHold?: ObjectLockLegalHold;
-
-  /**
-   * @public
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. If either the source or
-   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
-   */
-  RequestPayer?: RequestPayer;
-
-  /**
-   * @public
-   * <p>The version ID of the object that you want to place a legal hold on.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * @public
-   * <p>The MD5 hash for the request body.</p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   */
-  ContentMD5?: string;
-
-  /**
-   * @public
-   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
-   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter.</p>
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public

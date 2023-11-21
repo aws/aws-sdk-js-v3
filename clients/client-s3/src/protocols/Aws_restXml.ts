@@ -369,6 +369,7 @@ import {
   OwnershipControls,
   OwnershipControlsRule,
   Part,
+  PartitionedPrefix,
   PolicyStatus,
   PublicAccessBlockConfiguration,
   QueueConfiguration,
@@ -388,6 +389,7 @@ import {
   ServerSideEncryptionByDefault,
   ServerSideEncryptionConfiguration,
   ServerSideEncryptionRule,
+  SimplePrefix,
   SourceSelectionCriteria,
   SSEKMS,
   SseKmsEncryptedObjects,
@@ -397,6 +399,7 @@ import {
   Tag,
   Tagging,
   TargetGrant,
+  TargetObjectKeyFormat,
   Tiering,
   TopicConfiguration,
   Transition,
@@ -9611,6 +9614,10 @@ const se_LoggingEnabled = (input: LoggingEnabled, context: __SerdeContext): any 
     const node = __XmlNode.of("TargetPrefix", input.TargetPrefix).withName("TargetPrefix");
     bodyNode.addChildNode(node);
   }
+  if (input.TargetObjectKeyFormat != null) {
+    const node = se_TargetObjectKeyFormat(input.TargetObjectKeyFormat, context).withName("TargetObjectKeyFormat");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -9990,6 +9997,18 @@ const se_OwnershipControlsRules = (input: OwnershipControlsRule[], context: __Se
  */
 const se_ParquetInput = (input: ParquetInput, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ParquetInput");
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlPartitionedPrefix
+ */
+const se_PartitionedPrefix = (input: PartitionedPrefix, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("PartitionedPrefix");
+  if (input.PartitionDateSource != null) {
+    const node = __XmlNode.of("PartitionDateSource", input.PartitionDateSource).withName("PartitionDateSource");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -10520,6 +10539,14 @@ const se_ServerSideEncryptionRules = (input: ServerSideEncryptionRule[], context
 };
 
 /**
+ * serializeAws_restXmlSimplePrefix
+ */
+const se_SimplePrefix = (input: SimplePrefix, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("SimplePrefix");
+  return bodyNode;
+};
+
+/**
  * serializeAws_restXmlSourceSelectionCriteria
  */
 const se_SourceSelectionCriteria = (input: SourceSelectionCriteria, context: __SerdeContext): any => {
@@ -10668,6 +10695,22 @@ const se_TargetGrants = (input: TargetGrant[], context: __SerdeContext): any => 
       const node = se_TargetGrant(entry, context);
       return node.withName("Grant");
     });
+};
+
+/**
+ * serializeAws_restXmlTargetObjectKeyFormat
+ */
+const se_TargetObjectKeyFormat = (input: TargetObjectKeyFormat, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("TargetObjectKeyFormat");
+  if (input.SimplePrefix != null) {
+    const node = se_SimplePrefix(input.SimplePrefix, context).withName("SimplePrefix");
+    bodyNode.addChildNode(node);
+  }
+  if (input.PartitionedPrefix != null) {
+    const node = se_PartitionedPrefix(input.PartitionedPrefix, context).withName("PartitionedPrefix");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
 };
 
 /**
@@ -11902,6 +11945,9 @@ const de_LoggingEnabled = (output: any, context: __SerdeContext): LoggingEnabled
   if (output["TargetPrefix"] !== undefined) {
     contents.TargetPrefix = __expectString(output["TargetPrefix"]);
   }
+  if (output["TargetObjectKeyFormat"] !== undefined) {
+    contents.TargetObjectKeyFormat = de_TargetObjectKeyFormat(output["TargetObjectKeyFormat"], context);
+  }
   return contents;
 };
 
@@ -12339,6 +12385,17 @@ const de_Part = (output: any, context: __SerdeContext): Part => {
 };
 
 /**
+ * deserializeAws_restXmlPartitionedPrefix
+ */
+const de_PartitionedPrefix = (output: any, context: __SerdeContext): PartitionedPrefix => {
+  const contents: any = {};
+  if (output["PartitionDateSource"] !== undefined) {
+    contents.PartitionDateSource = __expectString(output["PartitionDateSource"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlParts
  */
 const de_Parts = (output: any, context: __SerdeContext): Part[] => {
@@ -12727,6 +12784,14 @@ const de_ServerSideEncryptionRules = (output: any, context: __SerdeContext): Ser
 };
 
 /**
+ * deserializeAws_restXmlSimplePrefix
+ */
+const de_SimplePrefix = (output: any, context: __SerdeContext): SimplePrefix => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlSourceSelectionCriteria
  */
 const de_SourceSelectionCriteria = (output: any, context: __SerdeContext): SourceSelectionCriteria => {
@@ -12860,6 +12925,20 @@ const de_TargetGrants = (output: any, context: __SerdeContext): TargetGrant[] =>
     .map((entry: any) => {
       return de_TargetGrant(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlTargetObjectKeyFormat
+ */
+const de_TargetObjectKeyFormat = (output: any, context: __SerdeContext): TargetObjectKeyFormat => {
+  const contents: any = {};
+  if (output["SimplePrefix"] !== undefined) {
+    contents.SimplePrefix = de_SimplePrefix(output["SimplePrefix"], context);
+  }
+  if (output["PartitionedPrefix"] !== undefined) {
+    contents.PartitionedPrefix = de_PartitionedPrefix(output["PartitionedPrefix"], context);
+  }
+  return contents;
 };
 
 /**

@@ -147,6 +147,12 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *         },
  *       ],
  *       TargetPrefix: "STRING_VALUE", // required
+ *       TargetObjectKeyFormat: { // TargetObjectKeyFormat
+ *         SimplePrefix: {},
+ *         PartitionedPrefix: { // PartitionedPrefix
+ *           PartitionDateSource: "EventTime" || "DeliveryTime",
+ *         },
+ *       },
  *     },
  *   },
  *   ContentMD5: "STRING_VALUE",

@@ -80,6 +80,12 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * //       },
  * //     ],
  * //     TargetPrefix: "STRING_VALUE", // required
+ * //     TargetObjectKeyFormat: { // TargetObjectKeyFormat
+ * //       SimplePrefix: {},
+ * //       PartitionedPrefix: { // PartitionedPrefix
+ * //         PartitionDateSource: "EventTime" || "DeliveryTime",
+ * //       },
+ * //     },
  * //   },
  * // };
  *
