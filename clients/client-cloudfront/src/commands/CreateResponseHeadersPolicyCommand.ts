@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateResponseHeadersPolicyRequest } from "../models/models_0";
-import { CreateResponseHeadersPolicyResult } from "../models/models_1";
+import { CreateResponseHeadersPolicyRequest, CreateResponseHeadersPolicyResult } from "../models/models_1";
 import { de_CreateResponseHeadersPolicyCommand, se_CreateResponseHeadersPolicyCommand } from "../protocols/Aws_restXml";
 
 /**

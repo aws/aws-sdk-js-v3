@@ -63,6 +63,14 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  *   FunctionConfig: { // FunctionConfig
  *     Comment: "STRING_VALUE", // required
  *     Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
+ *     KeyValueStoreAssociations: { // KeyValueStoreAssociations
+ *       Quantity: Number("int"), // required
+ *       Items: [ // KeyValueStoreAssociationList
+ *         { // KeyValueStoreAssociation
+ *           KeyValueStoreARN: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   FunctionCode: "BLOB_VALUE", // required
  * };
@@ -75,6 +83,14 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * //     FunctionConfig: { // FunctionConfig
  * //       Comment: "STRING_VALUE", // required
  * //       Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
+ * //       KeyValueStoreAssociations: { // KeyValueStoreAssociations
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // KeyValueStoreAssociationList
+ * //           { // KeyValueStoreAssociation
+ * //             KeyValueStoreARN: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     FunctionMetadata: { // FunctionMetadata
  * //       FunctionARN: "STRING_VALUE", // required

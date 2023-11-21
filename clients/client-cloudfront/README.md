@@ -306,6 +306,14 @@ CreateKeyGroup
 </details>
 <details>
 <summary>
+CreateKeyValueStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/classes/createkeyvaluestorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/createkeyvaluestorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/createkeyvaluestorecommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateMonitoringSubscription
 </summary>
 
@@ -434,6 +442,14 @@ DeleteKeyGroup
 </details>
 <details>
 <summary>
+DeleteKeyValueStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/classes/deletekeyvaluestorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/deletekeyvaluestorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/deletekeyvaluestorecommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteMonitoringSubscription
 </summary>
 
@@ -494,6 +510,14 @@ DescribeFunction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/classes/describefunctioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/describefunctioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/describefunctioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeKeyValueStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/classes/describekeyvaluestorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/describekeyvaluestorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/describekeyvaluestorecommandoutput.html)
 
 </details>
 <details>
@@ -850,6 +874,14 @@ ListKeyGroups
 </details>
 <details>
 <summary>
+ListKeyValueStores
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/classes/listkeyvaluestorescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/listkeyvaluestorescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/listkeyvaluestorescommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListOriginAccessControls
 </summary>
 
@@ -1006,6 +1038,14 @@ UpdateKeyGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/classes/updatekeygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/updatekeygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/updatekeygroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateKeyValueStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/classes/updatekeyvaluestorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/updatekeyvaluestorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudfront/interfaces/updatekeyvaluestorecommandoutput.html)
 
 </details>
 <details>

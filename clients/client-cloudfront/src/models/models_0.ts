@@ -1817,6 +1817,28 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
 
 /**
  * @public
+ * <p>The Key Value Store entity cannot be deleted while it is in use.</p>
+ */
+export class CannotDeleteEntityWhileInUse extends __BaseException {
+  readonly name: "CannotDeleteEntityWhileInUse" = "CannotDeleteEntityWhileInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotDeleteEntityWhileInUse, __BaseException>) {
+    super({
+      name: "CannotDeleteEntityWhileInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotDeleteEntityWhileInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const CertificateSource = {
@@ -2408,12 +2430,11 @@ export interface OriginGroupMembers {
 
 /**
  * @public
- * <p>An origin group includes two origins (a primary origin and a second origin to failover
- * 			to) and a failover criteria that you specify. You create an origin group to support
- * 			origin failover in CloudFront. When you create or update a distribution, you can
- * 			specifiy the origin group instead of a single origin, and CloudFront will failover from
- * 			the primary origin to the second origin under the failover conditions that you've
- * 			chosen.</p>
+ * <p>An origin group includes two origins (a primary origin and a second origin to failover to)
+ * 			and a failover criteria that you specify. You create an origin group to support origin
+ * 			failover in CloudFront. When you create or update a distribution, you can specify the
+ * 			origin group instead of a single origin, and CloudFront will failover from the primary
+ * 			origin to the second origin under the failover conditions that you've chosen.</p>
  */
 export interface OriginGroup {
   /**
@@ -2711,10 +2732,10 @@ export interface S3OriginConfig {
  *                      <p>An Elastic Load Balancing load balancer</p>
  *                   </li>
  *                   <li>
- *                      <p>An AWS Elemental MediaPackage endpoint</p>
+ *                      <p>An Elemental MediaPackage endpoint</p>
  *                   </li>
  *                   <li>
- *                      <p>An AWS Elemental MediaStore container</p>
+ *                      <p>An Elemental MediaStore container</p>
  *                   </li>
  *                   <li>
  *                      <p>Any other HTTP server, running on an Amazon EC2 instance or any other kind
@@ -6343,6 +6364,36 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
 
 /**
  * @public
+ * <p>The Key Value Store association.</p>
+ */
+export interface KeyValueStoreAssociation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Key Value Store association.</p>
+   */
+  KeyValueStoreARN: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The Key Value Store associations.</p>
+ */
+export interface KeyValueStoreAssociations {
+  /**
+   * @public
+   * <p>The quantity of Key Value Store associations.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * @public
+   * <p>The items of the Key Value Store association.</p>
+   */
+  Items?: KeyValueStoreAssociation[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const FunctionRuntime = {
@@ -6368,9 +6419,15 @@ export interface FunctionConfig {
 
   /**
    * @public
-   * <p>The function's runtime environment verion.</p>
+   * <p>The function's runtime environment version.</p>
    */
   Runtime: FunctionRuntime | undefined;
+
+  /**
+   * @public
+   * <p>The configuration for the Key Value Store associations.</p>
+   */
+  KeyValueStoreAssociations?: KeyValueStoreAssociations;
 }
 
 /**
@@ -6894,6 +6951,194 @@ export class TooManyPublicKeysInKeyGroup extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyPublicKeysInKeyGroup.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportSourceType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportSourceType = (typeof ImportSourceType)[keyof typeof ImportSourceType];
+
+/**
+ * @public
+ * <p>The import source for the Key Value Store.</p>
+ */
+export interface ImportSource {
+  /**
+   * @public
+   * <p>The source type of the import source for the Key Value Store.</p>
+   */
+  SourceType: ImportSourceType | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the import source for the Key Value Store.</p>
+   */
+  SourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKeyValueStoreRequest {
+  /**
+   * @public
+   * <p>The name of the Key Value Store. The maximum length of the name is 32 characters.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The comment of the Key Value Store.</p>
+   */
+  Comment?: string;
+
+  /**
+   * @public
+   * <p>The S3 bucket that provides the source for the import. The source must be in a valid JSON format.</p>
+   */
+  ImportSource?: ImportSource;
+}
+
+/**
+ * @public
+ * <p>The Key Value Store. Use this to separate data from function code, allowing you to update
+ * 			data without having to publish a new version of a function. The Key Value Store holds
+ * 			keys and their corresponding values.</p>
+ */
+export interface KeyValueStore {
+  /**
+   * @public
+   * <p>The name of the Key Value Store.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique Id for the Key Value Store.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * @public
+   * <p>A comment for the Key Value Store.</p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   */
+  ARN: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the Key Value Store.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>The last-modified time of the Key Value Store.</p>
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKeyValueStoreResult {
+  /**
+   * @public
+   * <p>The resulting Key Value Store.</p>
+   */
+  KeyValueStore?: KeyValueStore;
+
+  /**
+   * @public
+   * <p>The ETag in the resulting Key Value Store.</p>
+   */
+  ETag?: string;
+
+  /**
+   * @public
+   * <p>The location of the resulting Key Value Store.</p>
+   */
+  Location?: string;
+}
+
+/**
+ * @public
+ * <p>The Key Value Store entity already exists. You must provide a unique Key Value Store
+ * 			entity.</p>
+ */
+export class EntityAlreadyExists extends __BaseException {
+  readonly name: "EntityAlreadyExists" = "EntityAlreadyExists";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityAlreadyExists, __BaseException>) {
+    super({
+      name: "EntityAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The Key Value Store entity limit has been exceeded.</p>
+ */
+export class EntityLimitExceeded extends __BaseException {
+  readonly name: "EntityLimitExceeded" = "EntityLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityLimitExceeded, __BaseException>) {
+    super({
+      name: "EntityLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The Key Value Store entity size limit was exceeded.</p>
+ */
+export class EntitySizeLimitExceeded extends __BaseException {
+  readonly name: "EntitySizeLimitExceeded" = "EntitySizeLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntitySizeLimitExceeded, __BaseException>) {
+    super({
+      name: "EntitySizeLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntitySizeLimitExceeded.prototype);
     this.Message = opts.Message;
   }
 }
@@ -8317,412 +8562,6 @@ export interface ResponseHeadersPolicyContentTypeOptions {
    * 			with the one specified in this response headers policy.</p>
    */
   Override: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FrameOptionsList = {
-  DENY: "DENY",
-  SAMEORIGIN: "SAMEORIGIN",
-} as const;
-
-/**
- * @public
- */
-export type FrameOptionsList = (typeof FrameOptionsList)[keyof typeof FrameOptionsList];
-
-/**
- * @public
- * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header
- * 			and the header's value.</p>
- *          <p>For more information about the <code>X-Frame-Options</code> HTTP response header, see
- * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
- */
-export interface ResponseHeadersPolicyFrameOptions {
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront overrides the <code>X-Frame-Options</code> HTTP
-   * 			response header received from the origin with the one specified in this response headers
-   * 			policy.</p>
-   */
-  Override: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The value of the <code>X-Frame-Options</code> HTTP response header. Valid values are
-   * 				<code>DENY</code> and <code>SAMEORIGIN</code>.</p>
-   *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
-   */
-  FrameOption: FrameOptionsList | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReferrerPolicyList = {
-  no_referrer: "no-referrer",
-  no_referrer_when_downgrade: "no-referrer-when-downgrade",
-  origin: "origin",
-  origin_when_cross_origin: "origin-when-cross-origin",
-  same_origin: "same-origin",
-  strict_origin: "strict-origin",
-  strict_origin_when_cross_origin: "strict-origin-when-cross-origin",
-  unsafe_url: "unsafe-url",
-} as const;
-
-/**
- * @public
- */
-export type ReferrerPolicyList = (typeof ReferrerPolicyList)[keyof typeof ReferrerPolicyList];
-
-/**
- * @public
- * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header
- * 			and the header's value.</p>
- *          <p>For more information about the <code>Referrer-Policy</code> HTTP response header, see
- * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
- */
-export interface ResponseHeadersPolicyReferrerPolicy {
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront overrides the <code>Referrer-Policy</code> HTTP
-   * 			response header received from the origin with the one specified in this response headers
-   * 			policy.</p>
-   */
-  Override: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The value of the <code>Referrer-Policy</code> HTTP response header. Valid values
-   * 			are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>no-referrer</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>no-referrer-when-downgrade</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>origin</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>origin-when-cross-origin</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>same-origin</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>strict-origin</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>strict-origin-when-cross-origin</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unsafe-url</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
-   */
-  ReferrerPolicy: ReferrerPolicyList | undefined;
-}
-
-/**
- * @public
- * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP
- * 			response header and the header's value.</p>
- *          <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
- * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
- */
-export interface ResponseHeadersPolicyStrictTransportSecurity {
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront overrides the
-   * 				<code>Strict-Transport-Security</code> HTTP response header received from the origin
-   * 			with the one specified in this response headers policy.</p>
-   */
-  Override: boolean | undefined;
-
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront includes the <code>includeSubDomains</code>
-   * 			directive in the <code>Strict-Transport-Security</code> HTTP response header.</p>
-   */
-  IncludeSubdomains?: boolean;
-
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront includes the <code>preload</code> directive in
-   * 			the <code>Strict-Transport-Security</code> HTTP response header.</p>
-   */
-  Preload?: boolean;
-
-  /**
-   * @public
-   * <p>A number that CloudFront uses as the value for the <code>max-age</code> directive in the
-   * 				<code>Strict-Transport-Security</code> HTTP response header.</p>
-   */
-  AccessControlMaxAgeSec: number | undefined;
-}
-
-/**
- * @public
- * <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response
- * 			header and the header's value.</p>
- *          <p>For more information about the <code>X-XSS-Protection</code> HTTP response header, see
- * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
- */
-export interface ResponseHeadersPolicyXSSProtection {
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront overrides the <code>X-XSS-Protection</code>
-   * 			HTTP response header received from the origin with the one specified in this response
-   * 			headers policy.</p>
-   */
-  Override: boolean | undefined;
-
-  /**
-   * @public
-   * <p>A Boolean that determines the value of the <code>X-XSS-Protection</code> HTTP response
-   * 			header. When this setting is <code>true</code>, the value of the
-   * 				<code>X-XSS-Protection</code> header is <code>1</code>. When this setting is
-   * 				<code>false</code>, the value of the <code>X-XSS-Protection</code> header is
-   * 				<code>0</code>.</p>
-   *          <p>For more information about these settings, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
-   */
-  Protection: boolean | undefined;
-
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront includes the <code>mode=block</code> directive
-   * 			in the <code>X-XSS-Protection</code> header.</p>
-   *          <p>For more information about this directive, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
-   */
-  ModeBlock?: boolean;
-
-  /**
-   * @public
-   * <p>A reporting URI, which CloudFront uses as the value of the <code>report</code> directive in
-   * 			the <code>X-XSS-Protection</code> header.</p>
-   *          <p>You cannot specify a <code>ReportUri</code> when <code>ModeBlock</code> is
-   * 				<code>true</code>.</p>
-   *          <p>For more information about using a reporting URL, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
-   */
-  ReportUri?: string;
-}
-
-/**
- * @public
- * <p>A configuration for a set of security-related HTTP response headers. CloudFront adds these
- * 			headers to HTTP responses that it sends for requests that match a cache behavior
- * 			associated with this response headers policy.</p>
- */
-export interface ResponseHeadersPolicySecurityHeadersConfig {
-  /**
-   * @public
-   * <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response
-   * 			header and the header's value.</p>
-   *          <p>For more information about the <code>X-XSS-Protection</code> HTTP response header, see
-   * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
-   */
-  XSSProtection?: ResponseHeadersPolicyXSSProtection;
-
-  /**
-   * @public
-   * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header
-   * 			and the header's value.</p>
-   *          <p>For more information about the <code>X-Frame-Options</code> HTTP response header, see
-   * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
-   */
-  FrameOptions?: ResponseHeadersPolicyFrameOptions;
-
-  /**
-   * @public
-   * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header
-   * 			and the header's value.</p>
-   *          <p>For more information about the <code>Referrer-Policy</code> HTTP response header, see
-   * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
-   */
-  ReferrerPolicy?: ResponseHeadersPolicyReferrerPolicy;
-
-  /**
-   * @public
-   * <p>The policy directives and their values that CloudFront includes as values for the
-   * 				<code>Content-Security-Policy</code> HTTP response header.</p>
-   *          <p>For more information about the <code>Content-Security-Policy</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
-   */
-  ContentSecurityPolicy?: ResponseHeadersPolicyContentSecurityPolicy;
-
-  /**
-   * @public
-   * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
-   * 			header with its value set to <code>nosniff</code>.</p>
-   *          <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
-   */
-  ContentTypeOptions?: ResponseHeadersPolicyContentTypeOptions;
-
-  /**
-   * @public
-   * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP
-   * 			response header and the header's value.</p>
-   *          <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
-   */
-  StrictTransportSecurity?: ResponseHeadersPolicyStrictTransportSecurity;
-}
-
-/**
- * @public
- * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
- * 			sent from CloudFront. CloudFront adds this header to HTTP responses that it sends in response to
- * 			requests that match a cache behavior that's associated with this response headers
- * 			policy.</p>
- *          <p>You can use the <code>Server-Timing</code> header to view metrics that can help you
- * 			gain insights about the behavior and performance of CloudFront. For example, you can see which
- * 			cache layer served a cache hit, or the first byte latency from the origin when there was
- * 			a cache miss. You can use the metrics in the <code>Server-Timing</code> header to
- * 			troubleshoot issues or test the efficiency of your CloudFront configuration. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#server-timing-header">Server-Timing header</a> in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export interface ResponseHeadersPolicyServerTimingHeadersConfig {
-  /**
-   * @public
-   * <p>A Boolean that determines whether CloudFront adds the <code>Server-Timing</code> header to
-   * 			HTTP responses that it sends in response to requests that match a cache behavior that's
-   * 			associated with this response headers policy.</p>
-   */
-  Enabled: boolean | undefined;
-
-  /**
-   * @public
-   * <p>A number 0–100 (inclusive) that specifies the percentage of responses that you want
-   * 			CloudFront to add the <code>Server-Timing</code> header to. When you set the sampling rate to
-   * 			100, CloudFront adds the <code>Server-Timing</code> header to the HTTP response for every
-   * 			request that matches the cache behavior that this response headers policy is attached
-   * 			to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests
-   * 			that match the cache behavior. You can set the sampling rate to any number 0–100 with up
-   * 			to four decimal places.</p>
-   */
-  SamplingRate?: number;
-}
-
-/**
- * @public
- * <p>A response headers policy configuration.</p>
- *          <p>A response headers policy configuration contains metadata about the response headers policy,
- * 			and configurations for sets of HTTP response headers.</p>
- */
-export interface ResponseHeadersPolicyConfig {
-  /**
-   * @public
-   * <p>A comment to describe the response headers policy.</p>
-   *          <p>The comment cannot be longer than 128 characters.</p>
-   */
-  Comment?: string;
-
-  /**
-   * @public
-   * <p>A name to identify the response headers policy.</p>
-   *          <p>The name must be unique for response headers policies in this Amazon Web Services account.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>A configuration for a set of HTTP response headers that are used for cross-origin
-   * 			resource sharing (CORS).</p>
-   */
-  CorsConfig?: ResponseHeadersPolicyCorsConfig;
-
-  /**
-   * @public
-   * <p>A configuration for a set of security-related HTTP response headers.</p>
-   */
-  SecurityHeadersConfig?: ResponseHeadersPolicySecurityHeadersConfig;
-
-  /**
-   * @public
-   * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
-   * 			sent from CloudFront.</p>
-   */
-  ServerTimingHeadersConfig?: ResponseHeadersPolicyServerTimingHeadersConfig;
-
-  /**
-   * @public
-   * <p>A configuration for a set of custom HTTP response headers.</p>
-   */
-  CustomHeadersConfig?: ResponseHeadersPolicyCustomHeadersConfig;
-
-  /**
-   * @public
-   * <p>A configuration for a set of HTTP headers to remove from the HTTP response.</p>
-   */
-  RemoveHeadersConfig?: ResponseHeadersPolicyRemoveHeadersConfig;
-}
-
-/**
- * @public
- */
-export interface CreateResponseHeadersPolicyRequest {
-  /**
-   * @public
-   * <p>Contains metadata about the response headers policy, and a set of configurations that
-   * 			specify the HTTP headers.</p>
-   */
-  ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
-}
-
-/**
- * @public
- * <p>A response headers policy.</p>
- *          <p>A response headers policy contains information about a set of HTTP response headers.</p>
- *          <p>After you create a response headers policy, you can use its ID to attach it to one or more
- * 			cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the
- * 			response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to
- * 			requests that match the cache behavior. CloudFront adds or removes response headers according
- * 			to the configuration of the response headers policy.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html">Adding or removing HTTP headers in CloudFront responses</a> in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export interface ResponseHeadersPolicy {
-  /**
-   * @public
-   * <p>The identifier for the response headers policy.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * @public
-   * <p>The date and time when the response headers policy was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>A response headers policy configuration.</p>
-   */
-  ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
 }
 
 /**

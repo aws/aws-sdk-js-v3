@@ -54,6 +54,10 @@ import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "../comm
 import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "../commands/CreateInvalidationCommand";
 import { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "../commands/CreateKeyGroupCommand";
 import {
+  CreateKeyValueStoreCommandInput,
+  CreateKeyValueStoreCommandOutput,
+} from "../commands/CreateKeyValueStoreCommand";
+import {
   CreateMonitoringSubscriptionCommandInput,
   CreateMonitoringSubscriptionCommandOutput,
 } from "../commands/CreateMonitoringSubscriptionCommand";
@@ -103,6 +107,10 @@ import {
 import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "../commands/DeleteFunctionCommand";
 import { DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput } from "../commands/DeleteKeyGroupCommand";
 import {
+  DeleteKeyValueStoreCommandInput,
+  DeleteKeyValueStoreCommandOutput,
+} from "../commands/DeleteKeyValueStoreCommand";
+import {
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
 } from "../commands/DeleteMonitoringSubscriptionCommand";
@@ -128,6 +136,10 @@ import {
   DeleteStreamingDistributionCommandOutput,
 } from "../commands/DeleteStreamingDistributionCommand";
 import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "../commands/DescribeFunctionCommand";
+import {
+  DescribeKeyValueStoreCommandInput,
+  DescribeKeyValueStoreCommandOutput,
+} from "../commands/DescribeKeyValueStoreCommand";
 import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "../commands/GetCachePolicyCommand";
 import {
   GetCachePolicyConfigCommandInput,
@@ -265,6 +277,7 @@ import {
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "../commands/ListFunctionsCommand";
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "../commands/ListInvalidationsCommand";
 import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "../commands/ListKeyGroupsCommand";
+import { ListKeyValueStoresCommandInput, ListKeyValueStoresCommandOutput } from "../commands/ListKeyValueStoresCommand";
 import {
   ListOriginAccessControlsCommandInput,
   ListOriginAccessControlsCommandOutput,
@@ -319,6 +332,10 @@ import {
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "../commands/UpdateFunctionCommand";
 import { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "../commands/UpdateKeyGroupCommand";
 import {
+  UpdateKeyValueStoreCommandInput,
+  UpdateKeyValueStoreCommandOutput,
+} from "../commands/UpdateKeyValueStoreCommand";
+import {
   UpdateOriginAccessControlCommandInput,
   UpdateOriginAccessControlCommandOutput,
 } from "../commands/UpdateOriginAccessControlCommand";
@@ -361,6 +378,7 @@ import {
   CachePolicyQueryStringsConfig,
   CachePolicySummary,
   CannotChangeImmutablePublicKeyFields,
+  CannotDeleteEntityWhileInUse,
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityAlreadyExists,
   CloudFrontOriginAccessIdentityConfig,
@@ -388,6 +406,9 @@ import {
   EncryptionEntities,
   EncryptionEntity,
   EndPoint,
+  EntityAlreadyExists,
+  EntityLimitExceeded,
+  EntitySizeLimitExceeded,
   FieldLevelEncryption,
   FieldLevelEncryptionConfig,
   FieldLevelEncryptionConfigAlreadyExists,
@@ -409,6 +430,7 @@ import {
   IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
   IllegalOriginAccessConfiguration,
   IllegalUpdate,
+  ImportSource,
   InconsistentQuantities,
   InvalidArgument,
   Invalidation,
@@ -442,6 +464,9 @@ import {
   KeyGroupAlreadyExists,
   KeyGroupConfig,
   KeyPairIds,
+  KeyValueStore,
+  KeyValueStoreAssociation,
+  KeyValueStoreAssociations,
   KGKeyPairIds,
   KinesisStreamConfig,
   LambdaFunctionAssociation,
@@ -496,26 +521,18 @@ import {
   RealtimeLogConfigAlreadyExists,
   RealtimeLogConfigOwnerMismatch,
   RealtimeMetricsSubscriptionConfig,
-  ResponseHeadersPolicy,
   ResponseHeadersPolicyAccessControlAllowHeaders,
   ResponseHeadersPolicyAccessControlAllowMethods,
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
   ResponseHeadersPolicyAccessControlAllowOrigins,
   ResponseHeadersPolicyAccessControlExposeHeaders,
-  ResponseHeadersPolicyConfig,
   ResponseHeadersPolicyContentSecurityPolicy,
   ResponseHeadersPolicyContentTypeOptions,
   ResponseHeadersPolicyCorsConfig,
   ResponseHeadersPolicyCustomHeader,
   ResponseHeadersPolicyCustomHeadersConfig,
-  ResponseHeadersPolicyFrameOptions,
-  ResponseHeadersPolicyReferrerPolicy,
   ResponseHeadersPolicyRemoveHeader,
   ResponseHeadersPolicyRemoveHeadersConfig,
-  ResponseHeadersPolicySecurityHeadersConfig,
-  ResponseHeadersPolicyServerTimingHeadersConfig,
-  ResponseHeadersPolicyStrictTransportSecurity,
-  ResponseHeadersPolicyXSSProtection,
   Restrictions,
   S3OriginConfig,
   SessionStickinessConfig,
@@ -592,6 +609,7 @@ import {
   DistributionList,
   DistributionNotDisabled,
   DistributionSummary,
+  EntityNotFound,
   FieldLevelEncryptionConfigInUse,
   FieldLevelEncryptionList,
   FieldLevelEncryptionProfileInUse,
@@ -605,6 +623,7 @@ import {
   InvalidationSummary,
   KeyGroupList,
   KeyGroupSummary,
+  KeyValueStoreList,
   NoSuchCloudFrontOriginAccessIdentity,
   NoSuchFunctionExists,
   NoSuchInvalidation,
@@ -624,10 +643,18 @@ import {
   RealtimeLogConfigInUse,
   RealtimeLogConfigs,
   ResourceInUse,
+  ResponseHeadersPolicy,
   ResponseHeadersPolicyAlreadyExists,
+  ResponseHeadersPolicyConfig,
+  ResponseHeadersPolicyFrameOptions,
   ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyList,
+  ResponseHeadersPolicyReferrerPolicy,
+  ResponseHeadersPolicySecurityHeadersConfig,
+  ResponseHeadersPolicyServerTimingHeadersConfig,
+  ResponseHeadersPolicyStrictTransportSecurity,
   ResponseHeadersPolicySummary,
+  ResponseHeadersPolicyXSSProtection,
   S3Origin,
   StreamingDistribution,
   StreamingDistributionAlreadyExists,
@@ -1090,6 +1117,47 @@ export const se_CreateKeyGroupCommand = async (
     contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlCreateKeyValueStoreCommand
+ */
+export const se_CreateKeyValueStoreCommand = async (
+  input: CreateKeyValueStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateKeyValueStoreRequest");
+  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input.Comment !== undefined) {
+    const node = __XmlNode.of("KeyValueStoreComment", input.Comment).withName("Comment");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ImportSource !== undefined) {
+    const node = se_ImportSource(input.ImportSource, context).withName("ImportSource");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Name !== undefined) {
+    const node = __XmlNode.of("KeyValueStoreName", input.Name).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1623,6 +1691,32 @@ export const se_DeleteKeyGroupCommand = async (
 };
 
 /**
+ * serializeAws_restXmlDeleteKeyValueStoreCommand
+ */
+export const se_DeleteKeyValueStoreCommand = async (
+  input: DeleteKeyValueStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlDeleteMonitoringSubscriptionCommand
  */
 export const se_DeleteMonitoringSubscriptionCommand = async (
@@ -1845,6 +1939,30 @@ export const se_DescribeFunctionCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlDescribeKeyValueStoreCommand
+ */
+export const se_DescribeKeyValueStoreCommand = async (
+  input: DescribeKeyValueStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3077,6 +3195,35 @@ export const se_ListKeyGroupsCommand = async (
 };
 
 /**
+ * serializeAws_restXmlListKeyValueStoresCommand
+ */
+export const se_ListKeyValueStoresCommand = async (
+  input: ListKeyValueStoresCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store";
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    Status: [, input.Status!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlListOriginAccessControlsCommand
  */
 export const se_ListOriginAccessControlsCommand = async (
@@ -3736,6 +3883,41 @@ export const se_UpdateKeyGroupCommand = async (
     contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlUpdateKeyValueStoreCommand
+ */
+export const se_UpdateKeyValueStoreCommand = async (
+  input: UpdateKeyValueStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "if-match": input.IfMatch!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("UpdateKeyValueStoreRequest");
+  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input.Comment !== undefined) {
+    const node = __XmlNode.of("KeyValueStoreComment", input.Comment).withName("Comment");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5257,6 +5439,64 @@ const de_CreateKeyGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlCreateKeyValueStoreCommand
+ */
+export const de_CreateKeyValueStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKeyValueStoreCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateKeyValueStoreCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ETag: [, output.headers["etag"]],
+    Location: [, output.headers["location"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.KeyValueStore = de_KeyValueStore(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateKeyValueStoreCommandError
+ */
+const de_CreateKeyValueStoreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKeyValueStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await de_AccessDeniedRes(parsedOutput, context);
+    case "EntityAlreadyExists":
+    case "com.amazonaws.cloudfront#EntityAlreadyExists":
+      throw await de_EntityAlreadyExistsRes(parsedOutput, context);
+    case "EntityLimitExceeded":
+    case "com.amazonaws.cloudfront#EntityLimitExceeded":
+      throw await de_EntityLimitExceededRes(parsedOutput, context);
+    case "EntitySizeLimitExceeded":
+    case "com.amazonaws.cloudfront#EntitySizeLimitExceeded":
+      throw await de_EntitySizeLimitExceededRes(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await de_InvalidArgumentRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restXmlCreateMonitoringSubscriptionCommand
  */
 export const de_CreateMonitoringSubscriptionCommand = async (
@@ -6213,6 +6453,61 @@ const de_DeleteKeyGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlDeleteKeyValueStoreCommand
+ */
+export const de_DeleteKeyValueStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKeyValueStoreCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteKeyValueStoreCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteKeyValueStoreCommandError
+ */
+const de_DeleteKeyValueStoreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKeyValueStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await de_AccessDeniedRes(parsedOutput, context);
+    case "CannotDeleteEntityWhileInUse":
+    case "com.amazonaws.cloudfront#CannotDeleteEntityWhileInUse":
+      throw await de_CannotDeleteEntityWhileInUseRes(parsedOutput, context);
+    case "EntityNotFound":
+    case "com.amazonaws.cloudfront#EntityNotFound":
+      throw await de_EntityNotFoundRes(parsedOutput, context);
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      throw await de_InvalidIfMatchVersionRes(parsedOutput, context);
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      throw await de_PreconditionFailedRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restXmlDeleteMonitoringSubscriptionCommand
  */
 export const de_DeleteMonitoringSubscriptionCommand = async (
@@ -6635,6 +6930,57 @@ const de_DescribeFunctionCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.cloudfront#UnsupportedOperation":
       throw await de_UnsupportedOperationRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restXmlDescribeKeyValueStoreCommand
+ */
+export const de_DescribeKeyValueStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKeyValueStoreCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeKeyValueStoreCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ETag: [, output.headers["etag"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.KeyValueStore = de_KeyValueStore(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDescribeKeyValueStoreCommandError
+ */
+const de_DescribeKeyValueStoreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKeyValueStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await de_AccessDeniedRes(parsedOutput, context);
+    case "EntityNotFound":
+    case "com.amazonaws.cloudfront#EntityNotFound":
+      throw await de_EntityNotFoundRes(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -8748,6 +9094,53 @@ const de_ListKeyGroupsCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlListKeyValueStoresCommand
+ */
+export const de_ListKeyValueStoresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKeyValueStoresCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListKeyValueStoresCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.KeyValueStoreList = de_KeyValueStoreList(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListKeyValueStoresCommandError
+ */
+const de_ListKeyValueStoresCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKeyValueStoresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await de_AccessDeniedRes(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await de_InvalidArgumentRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restXmlListOriginAccessControlsCommand
  */
 export const de_ListOriginAccessControlsCommand = async (
@@ -10241,6 +10634,63 @@ const de_UpdateKeyGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlUpdateKeyValueStoreCommand
+ */
+export const de_UpdateKeyValueStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKeyValueStoreCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateKeyValueStoreCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ETag: [, output.headers["etag"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.KeyValueStore = de_KeyValueStore(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlUpdateKeyValueStoreCommandError
+ */
+const de_UpdateKeyValueStoreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKeyValueStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await de_AccessDeniedRes(parsedOutput, context);
+    case "EntityNotFound":
+    case "com.amazonaws.cloudfront#EntityNotFound":
+      throw await de_EntityNotFoundRes(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await de_InvalidArgumentRes(parsedOutput, context);
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      throw await de_InvalidIfMatchVersionRes(parsedOutput, context);
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      throw await de_PreconditionFailedRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restXmlUpdateOriginAccessControlCommand
  */
 export const de_UpdateOriginAccessControlCommand = async (
@@ -10740,6 +11190,25 @@ const de_CannotChangeImmutablePublicKeyFieldsRes = async (
 };
 
 /**
+ * deserializeAws_restXmlCannotDeleteEntityWhileInUseRes
+ */
+const de_CannotDeleteEntityWhileInUseRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CannotDeleteEntityWhileInUse> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new CannotDeleteEntityWhileInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
  * deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsRes
  */
 const de_CloudFrontOriginAccessIdentityAlreadyExistsRes = async (
@@ -10863,6 +11332,73 @@ const de_DistributionNotDisabledRes = async (
     contents.Message = __expectString(data["Message"]);
   }
   const exception = new DistributionNotDisabled({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlEntityAlreadyExistsRes
+ */
+const de_EntityAlreadyExistsRes = async (parsedOutput: any, context: __SerdeContext): Promise<EntityAlreadyExists> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new EntityAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlEntityLimitExceededRes
+ */
+const de_EntityLimitExceededRes = async (parsedOutput: any, context: __SerdeContext): Promise<EntityLimitExceeded> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new EntityLimitExceeded({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlEntityNotFoundRes
+ */
+const de_EntityNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<EntityNotFound> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new EntityNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlEntitySizeLimitExceededRes
+ */
+const de_EntitySizeLimitExceededRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EntitySizeLimitExceeded> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new EntitySizeLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -14384,6 +14920,12 @@ const se_FunctionConfig = (input: FunctionConfig, context: __SerdeContext): any 
     const node = __XmlNode.of("FunctionRuntime", input.Runtime).withName("Runtime");
     bodyNode.addChildNode(node);
   }
+  if (input.KeyValueStoreAssociations != null) {
+    const node = se_KeyValueStoreAssociations(input.KeyValueStoreAssociations, context).withName(
+      "KeyValueStoreAssociations"
+    );
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -14444,6 +14986,22 @@ const se_Headers = (input: Headers, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restXmlImportSource
+ */
+const se_ImportSource = (input: ImportSource, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("ImportSource");
+  if (input.SourceType != null) {
+    const node = __XmlNode.of("ImportSourceType", input.SourceType).withName("SourceType");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SourceARN != null) {
+    const node = __XmlNode.of("string", input.SourceARN).withName("SourceARN");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
  * serializeAws_restXmlInvalidationBatch
  */
 const se_InvalidationBatch = (input: InvalidationBatch, context: __SerdeContext): any => {
@@ -14479,6 +15037,50 @@ const se_KeyGroupConfig = (input: KeyGroupConfig, context: __SerdeContext): any 
   if (input.Comment != null) {
     const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlKeyValueStoreAssociation
+ */
+const se_KeyValueStoreAssociation = (input: KeyValueStoreAssociation, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("KeyValueStoreAssociation");
+  if (input.KeyValueStoreARN != null) {
+    const node = __XmlNode.of("KeyValueStoreARN", input.KeyValueStoreARN).withName("KeyValueStoreARN");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlKeyValueStoreAssociationList
+ */
+const se_KeyValueStoreAssociationList = (input: KeyValueStoreAssociation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = se_KeyValueStoreAssociation(entry, context);
+      return node.withName("KeyValueStoreAssociation");
+    });
+};
+
+/**
+ * serializeAws_restXmlKeyValueStoreAssociations
+ */
+const se_KeyValueStoreAssociations = (input: KeyValueStoreAssociations, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("KeyValueStoreAssociations");
+  if (input.Quantity != null) {
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items != null) {
+    const nodes = se_KeyValueStoreAssociationList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
   }
   return bodyNode;
 };
@@ -17722,6 +18324,9 @@ const de_FunctionConfig = (output: any, context: __SerdeContext): FunctionConfig
   if (output["Runtime"] !== undefined) {
     contents.Runtime = __expectString(output["Runtime"]);
   }
+  if (output["KeyValueStoreAssociations"] !== undefined) {
+    contents.KeyValueStoreAssociations = de_KeyValueStoreAssociations(output["KeyValueStoreAssociations"], context);
+  }
   return contents;
 };
 
@@ -18053,6 +18658,106 @@ const de_KeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
     contents.Items = de_KeyPairIdList(__getArrayIfSingleItem(output["Items"]["KeyPairId"]), context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_restXmlKeyValueStore
+ */
+const de_KeyValueStore = (output: any, context: __SerdeContext): KeyValueStore => {
+  const contents: any = {};
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["Comment"] !== undefined) {
+    contents.Comment = __expectString(output["Comment"]);
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = __expectString(output["ARN"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["LastModifiedTime"] !== undefined) {
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlKeyValueStoreAssociation
+ */
+const de_KeyValueStoreAssociation = (output: any, context: __SerdeContext): KeyValueStoreAssociation => {
+  const contents: any = {};
+  if (output["KeyValueStoreARN"] !== undefined) {
+    contents.KeyValueStoreARN = __expectString(output["KeyValueStoreARN"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlKeyValueStoreAssociationList
+ */
+const de_KeyValueStoreAssociationList = (output: any, context: __SerdeContext): KeyValueStoreAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KeyValueStoreAssociation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlKeyValueStoreAssociations
+ */
+const de_KeyValueStoreAssociations = (output: any, context: __SerdeContext): KeyValueStoreAssociations => {
+  const contents: any = {};
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  } else if (output["Items"] !== undefined && output["Items"]["KeyValueStoreAssociation"] !== undefined) {
+    contents.Items = de_KeyValueStoreAssociationList(
+      __getArrayIfSingleItem(output["Items"]["KeyValueStoreAssociation"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlKeyValueStoreList
+ */
+const de_KeyValueStoreList = (output: any, context: __SerdeContext): KeyValueStoreList => {
+  const contents: any = {};
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = __expectString(output["NextMarker"]);
+  }
+  if (output["MaxItems"] !== undefined) {
+    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  }
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  } else if (output["Items"] !== undefined && output["Items"]["KeyValueStore"] !== undefined) {
+    contents.Items = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output["Items"]["KeyValueStore"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlKeyValueStoreSummaryList
+ */
+const de_KeyValueStoreSummaryList = (output: any, context: __SerdeContext): KeyValueStore[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KeyValueStore(entry, context);
+    });
 };
 
 /**
