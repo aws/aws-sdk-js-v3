@@ -2655,19 +2655,15 @@ export interface ScheduledInstancesEbs {
 
   /**
    * @public
-   * <p>Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.</p>
+   * <p>Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that
+   *          support them.</p>
    */
   Encrypted?: boolean;
 
   /**
    * @public
-   * <p>The number of I/O operations per second (IOPS) to provision for an <code>io1</code> or <code>io2</code> volume, with a maximum
-   *    		ratio of 50 IOPS/GiB for <code>io1</code>, and 500 IOPS/GiB for <code>io2</code>. Range is 100 to 64,000 IOPS for
-   *    		volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on
-   *    		<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances built on the Nitro System</a>. Other instance families guarantee performance up to
-   *    		32,000 IOPS. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *    		<i>Amazon EC2 User Guide</i>.</p>
-   *          <p>This parameter is valid only for Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>) volumes.</p>
+   * <p>The number of I/O operations per second (IOPS) to provision for a <code>gp3</code>, <code>io1</code>, or <code>io2</code>
+   *    	   volume.</p>
    */
   Iops?: number;
 
@@ -2680,15 +2676,14 @@ export interface ScheduledInstancesEbs {
   /**
    * @public
    * <p>The size of the volume, in GiB.</p>
-   *          <p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</p>
+   *          <p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default
+   *          is the snapshot size.</p>
    */
   VolumeSize?: number;
 
   /**
    * @public
-   * <p>The volume type. <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code> io2</code> for Provisioned IOPS SSD, Throughput Optimized HDD
-   *          for <code>st1</code>, Cold HDD for <code>sc1</code>, or <code>standard</code> for
-   *          Magnetic.</p>
+   * <p>The volume type.</p>
    *          <p>Default: <code>gp2</code>
    *          </p>
    */
