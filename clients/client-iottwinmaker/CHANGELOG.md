@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.456.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.455.0...v3.456.0) (2023-11-21)
+
+
+### Features
+
+* **client-iottwinmaker:** This release adds following support. 1. New APIs for metadata bulk operations. 2. Modify the component type API to support composite component types - nesting component types within one another. 3. New list APIs for components and properties. 4. Support the larger scope digital twin modeling. ([9935356](https://github.com/aws/aws-sdk-js-v3/commit/993535668f07d1417cb3ed9e9153b658d7e24e6e))
+
+
+
+
+
 # [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-iottwinmaker

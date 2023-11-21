@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.456.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.455.0...v3.456.0) (2023-11-21)
+
+
+### Bug Fixes
+
+* **codegen:** create deser fn elision denylist ([#5506](https://github.com/aws/aws-sdk-js-v3/issues/5506)) ([59d599a](https://github.com/aws/aws-sdk-js-v3/commit/59d599a67a614f17cffe9cca877d733c881677ac))
+
+
+
+
+
 # [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

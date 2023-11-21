@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.456.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.455.0...v3.456.0) (2023-11-21)
+
+
+### Bug Fixes
+
+* **codegen:** create deser fn elision denylist ([#5506](https://github.com/aws/aws-sdk-js-v3/issues/5506)) ([59d599a](https://github.com/aws/aws-sdk-js-v3/commit/59d599a67a614f17cffe9cca877d733c881677ac))
+
+
+### Features
+
+* **client-cloudfront-keyvaluestore:** This release adds support for CloudFront KeyValueStore, a globally managed key value datastore associated with CloudFront Functions. ([9f71515](https://github.com/aws/aws-sdk-js-v3/commit/9f71515add144971dcc26135f6d12706e7880484))
+* **client-cloudfront:** This release adds support for CloudFront KeyValueStore, a globally managed key value datastore associated with CloudFront Functions. ([4ef66f7](https://github.com/aws/aws-sdk-js-v3/commit/4ef66f795132fab51972d815aadbcc570503641b))
+* **client-inspector-scan:** This release adds support for the new Amazon Inspector Scan API. The new Inspector Scan API can synchronously scan SBOMs adhering to the CycloneDX v1.5 format. ([40e7814](https://github.com/aws/aws-sdk-js-v3/commit/40e781445c4da50a822357ac10c295f6d7d4c253))
+* **client-iotsitewise:** Adds 1/ user-defined unique identifier for asset and model metadata, 2/ asset model components, and 3/ query API for asset metadata and telemetry data. Supports 4/ multi variate anomaly detection using Amazon Lookout for Equipment, 5/ warm storage tier, and 6/ buffered ingestion of time series data. ([a6607e9](https://github.com/aws/aws-sdk-js-v3/commit/a6607e90646535ebc06780fc7c364b4fcf54d018))
+* **client-iottwinmaker:** This release adds following support. 1. New APIs for metadata bulk operations. 2. Modify the component type API to support composite component types - nesting component types within one another. 3. New list APIs for components and properties. 4. Support the larger scope digital twin modeling. ([9935356](https://github.com/aws/aws-sdk-js-v3/commit/993535668f07d1417cb3ed9e9153b658d7e24e6e))
+* **client-s3:** Add support for automatic date based partitioning in S3 Server Access Logs. ([06ee66a](https://github.com/aws/aws-sdk-js-v3/commit/06ee66ae3bfce5019ee657969700f8df97055382))
+* **clients:** update client endpoints as of 2023-11-21 ([54d0682](https://github.com/aws/aws-sdk-js-v3/commit/54d0682c09bf8eefc8df34efeddfe0200b89cfb3))
+
+
+
+
+
 # [3.455.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.454.0...v3.455.0) (2023-11-20)
 
 

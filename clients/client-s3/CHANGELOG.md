@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.456.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.455.0...v3.456.0) (2023-11-21)
+
+
+### Features
+
+* **client-s3:** Add support for automatic date based partitioning in S3 Server Access Logs. ([06ee66a](https://github.com/aws/aws-sdk-js-v3/commit/06ee66ae3bfce5019ee657969700f8df97055382))
+
+
+
+
+
 # [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
 
 
