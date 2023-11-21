@@ -50,6 +50,7 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  *     { // PropertyValueEntry
  *       entityPropertyReference: { // EntityPropertyReference
  *         componentName: "STRING_VALUE",
+ *         componentPath: "STRING_VALUE",
  *         externalIdProperty: { // ExternalIdProperty
  *           "<keys>": "STRING_VALUE",
  *         },
@@ -112,6 +113,7 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * //           entry: { // PropertyValueEntry
  * //             entityPropertyReference: { // EntityPropertyReference
  * //               componentName: "STRING_VALUE",
+ * //               componentPath: "STRING_VALUE",
  * //               externalIdProperty: { // ExternalIdProperty
  * //                 "<keys>": "STRING_VALUE",
  * //               },

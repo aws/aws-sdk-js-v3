@@ -141,6 +141,11 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  *     },
  *   },
  *   componentTypeName: "STRING_VALUE",
+ *   compositeComponentTypes: { // CompositeComponentTypesRequest
+ *     "<keys>": { // CompositeComponentTypeRequest
+ *       componentTypeId: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateComponentTypeCommand(input);
  * const response = await client.send(command);

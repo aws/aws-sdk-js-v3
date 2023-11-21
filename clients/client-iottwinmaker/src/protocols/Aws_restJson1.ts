@@ -36,10 +36,18 @@ import {
   BatchPutPropertyValuesCommandOutput,
 } from "../commands/BatchPutPropertyValuesCommand";
 import {
+  CancelMetadataTransferJobCommandInput,
+  CancelMetadataTransferJobCommandOutput,
+} from "../commands/CancelMetadataTransferJobCommand";
+import {
   CreateComponentTypeCommandInput,
   CreateComponentTypeCommandOutput,
 } from "../commands/CreateComponentTypeCommand";
 import { CreateEntityCommandInput, CreateEntityCommandOutput } from "../commands/CreateEntityCommand";
+import {
+  CreateMetadataTransferJobCommandInput,
+  CreateMetadataTransferJobCommandOutput,
+} from "../commands/CreateMetadataTransferJobCommand";
 import { CreateSceneCommandInput, CreateSceneCommandOutput } from "../commands/CreateSceneCommand";
 import { CreateSyncJobCommandInput, CreateSyncJobCommandOutput } from "../commands/CreateSyncJobCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "../commands/CreateWorkspaceCommand";
@@ -54,6 +62,10 @@ import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../co
 import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "../commands/ExecuteQueryCommand";
 import { GetComponentTypeCommandInput, GetComponentTypeCommandOutput } from "../commands/GetComponentTypeCommand";
 import { GetEntityCommandInput, GetEntityCommandOutput } from "../commands/GetEntityCommand";
+import {
+  GetMetadataTransferJobCommandInput,
+  GetMetadataTransferJobCommandOutput,
+} from "../commands/GetMetadataTransferJobCommand";
 import { GetPricingPlanCommandInput, GetPricingPlanCommandOutput } from "../commands/GetPricingPlanCommand";
 import { GetPropertyValueCommandInput, GetPropertyValueCommandOutput } from "../commands/GetPropertyValueCommand";
 import {
@@ -63,8 +75,14 @@ import {
 import { GetSceneCommandInput, GetSceneCommandOutput } from "../commands/GetSceneCommand";
 import { GetSyncJobCommandInput, GetSyncJobCommandOutput } from "../commands/GetSyncJobCommand";
 import { GetWorkspaceCommandInput, GetWorkspaceCommandOutput } from "../commands/GetWorkspaceCommand";
+import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
 import { ListComponentTypesCommandInput, ListComponentTypesCommandOutput } from "../commands/ListComponentTypesCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "../commands/ListEntitiesCommand";
+import {
+  ListMetadataTransferJobsCommandInput,
+  ListMetadataTransferJobsCommandOutput,
+} from "../commands/ListMetadataTransferJobsCommand";
+import { ListPropertiesCommandInput, ListPropertiesCommandOutput } from "../commands/ListPropertiesCommand";
 import { ListScenesCommandInput, ListScenesCommandOutput } from "../commands/ListScenesCommand";
 import { ListSyncJobsCommandInput, ListSyncJobsCommandOutput } from "../commands/ListSyncJobsCommand";
 import { ListSyncResourcesCommandInput, ListSyncResourcesCommandOutput } from "../commands/ListSyncResourcesCommand";
@@ -93,20 +111,35 @@ import {
   ComponentResponse,
   ComponentTypeSummary,
   ComponentUpdateRequest,
+  CompositeComponentRequest,
+  CompositeComponentTypeRequest,
+  CompositeComponentUpdateRequest,
   ConflictException,
   ConnectorFailureException,
   ConnectorTimeoutException,
   DataConnector,
   DataType,
   DataValue,
+  DestinationConfiguration,
   EntityPropertyReference,
   EntitySummary,
+  FilterByAsset,
+  FilterByAssetModel,
+  FilterByComponentType,
+  FilterByEntity,
   FunctionRequest,
   InternalServerException,
   InterpolationParameters,
+  IotSiteWiseSourceConfiguration,
+  IotSiteWiseSourceConfigurationFilter,
+  IotTwinMakerDestinationConfiguration,
+  IotTwinMakerSourceConfiguration,
+  IotTwinMakerSourceConfigurationFilter,
   LambdaFunction,
   ListComponentTypesFilter,
   ListEntitiesFilter,
+  ListMetadataTransferJobsFilter,
+  MetadataTransferJobSummary,
   OrderBy,
   ParentEntityUpdateRequest,
   PricingPlan,
@@ -117,6 +150,7 @@ import {
   PropertyLatestValue,
   PropertyRequest,
   PropertyResponse,
+  PropertySummary,
   PropertyValue,
   PropertyValueEntry,
   PropertyValueHistory,
@@ -125,8 +159,11 @@ import {
   RelationshipValue,
   ResourceNotFoundException,
   Row,
+  S3DestinationConfiguration,
+  S3SourceConfiguration,
   SceneSummary,
   ServiceQuotaExceededException,
+  SourceConfiguration,
   SyncJobSummary,
   SyncResourceFilter,
   SyncResourceSummary,
@@ -177,6 +214,45 @@ export const se_BatchPutPropertyValuesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CancelMetadataTransferJobCommand
+ */
+export const se_CancelMetadataTransferJobCommand = async (
+  input: CancelMetadataTransferJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/metadata-transfer-jobs/{metadataTransferJobId}/cancel";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "metadataTransferJobId",
+    () => input.metadataTransferJobId!,
+    "{metadataTransferJobId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateComponentTypeCommand
  */
 export const se_CreateComponentTypeCommand = async (
@@ -203,6 +279,7 @@ export const se_CreateComponentTypeCommand = async (
   body = JSON.stringify(
     take(input, {
       componentTypeName: [],
+      compositeComponentTypes: (_) => _json(_),
       description: [],
       extendsFrom: (_) => _json(_),
       functions: (_) => _json(_),
@@ -248,11 +325,52 @@ export const se_CreateEntityCommand = async (
   body = JSON.stringify(
     take(input, {
       components: (_) => se_ComponentsMapRequest(_, context),
+      compositeComponents: (_) => se_CompositeComponentsMapRequest(_, context),
       description: [],
       entityId: [],
       entityName: [],
       parentEntityId: [],
       tags: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateMetadataTransferJobCommand
+ */
+export const se_CreateMetadataTransferJobCommand = async (
+  input: CreateMetadataTransferJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata-transfer-jobs";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      destination: (_) => _json(_),
+      metadataTransferJobId: [],
+      sources: (_) => _json(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -685,6 +803,45 @@ export const se_GetEntityCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMetadataTransferJobCommand
+ */
+export const se_GetMetadataTransferJobCommand = async (
+  input: GetMetadataTransferJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/metadata-transfer-jobs/{metadataTransferJobId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "metadataTransferJobId",
+    () => input.metadataTransferJobId!,
+    "{metadataTransferJobId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetPricingPlanCommand
  */
 export const se_GetPricingPlanCommand = async (
@@ -735,6 +892,7 @@ export const se_GetPropertyValueCommand = async (
   body = JSON.stringify(
     take(input, {
       componentName: [],
+      componentPath: [],
       componentTypeId: [],
       entityId: [],
       maxResults: [],
@@ -781,6 +939,7 @@ export const se_GetPropertyValueHistoryCommand = async (
   body = JSON.stringify(
     take(input, {
       componentName: [],
+      componentPath: [],
       componentTypeId: [],
       endDateTime: (_) => Math.round(_.getTime() / 1000),
       endTime: [],
@@ -912,6 +1071,48 @@ export const se_GetWorkspaceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListComponentsCommand
+ */
+export const se_ListComponentsCommand = async (
+  input: ListComponentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/entities/{entityId}/components-list";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "entityId", () => input.entityId!, "{entityId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      componentPath: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListComponentTypesCommand
  */
 export const se_ListComponentTypesCommand = async (
@@ -970,6 +1171,89 @@ export const se_ListEntitiesCommand = async (
   body = JSON.stringify(
     take(input, {
       filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListMetadataTransferJobsCommand
+ */
+export const se_ListMetadataTransferJobsCommand = async (
+  input: ListMetadataTransferJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata-transfer-jobs-list";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      destinationType: [],
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sourceType: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListPropertiesCommand
+ */
+export const se_ListPropertiesCommand = async (
+  input: ListPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/properties-list";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      componentName: [],
+      componentPath: [],
+      entityId: [],
       maxResults: [],
       nextToken: [],
     })
@@ -1288,6 +1572,7 @@ export const se_UpdateComponentTypeCommand = async (
   body = JSON.stringify(
     take(input, {
       componentTypeName: [],
+      compositeComponentTypes: (_) => _json(_),
       description: [],
       extendsFrom: (_) => _json(_),
       functions: (_) => _json(_),
@@ -1334,6 +1619,7 @@ export const se_UpdateEntityCommand = async (
   body = JSON.stringify(
     take(input, {
       componentUpdates: (_) => se_ComponentUpdatesMapRequest(_, context),
+      compositeComponentUpdates: (_) => se_CompositeComponentUpdatesMapRequest(_, context),
       description: [],
       entityName: [],
       parentEntityUpdate: (_) => _json(_),
@@ -1456,6 +1742,7 @@ export const se_UpdateWorkspaceCommand = async (
     take(input, {
       description: [],
       role: [],
+      s3Location: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1510,6 +1797,72 @@ const de_BatchPutPropertyValuesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CancelMetadataTransferJobCommand
+ */
+export const de_CancelMetadataTransferJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMetadataTransferJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CancelMetadataTransferJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    metadataTransferJobId: __expectString,
+    progress: _json,
+    status: _json,
+    updateDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelMetadataTransferJobCommandError
+ */
+const de_CancelMetadataTransferJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMetadataTransferJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iottwinmaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iottwinmaker#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1642,6 +1995,74 @@ const de_CreateEntityCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.iottwinmaker#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateMetadataTransferJobCommand
+ */
+export const de_CreateMetadataTransferJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetadataTransferJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateMetadataTransferJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metadataTransferJobId: __expectString,
+    status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMetadataTransferJobCommandError
+ */
+const de_CreateMetadataTransferJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetadataTransferJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iottwinmaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -2099,7 +2520,11 @@ export const de_DeleteWorkspaceCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2223,6 +2648,7 @@ export const de_GetComponentTypeCommand = async (
     arn: __expectString,
     componentTypeId: __expectString,
     componentTypeName: __expectString,
+    compositeComponentTypes: _json,
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     extendsFrom: _json,
@@ -2294,6 +2720,7 @@ export const de_GetEntityCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    areAllComponentsReturned: __expectBoolean,
     arn: __expectString,
     components: (_) => de_ComponentsMap(_, context),
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2333,6 +2760,75 @@ const de_GetEntityCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetMetadataTransferJobCommand
+ */
+export const de_GetMetadataTransferJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetadataTransferJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetMetadataTransferJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    destination: _json,
+    metadataTransferJobId: __expectString,
+    metadataTransferJobRole: __expectString,
+    progress: _json,
+    reportUrl: __expectString,
+    sources: _json,
+    status: _json,
+    updateDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMetadataTransferJobCommandError
+ */
+const de_GetMetadataTransferJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetadataTransferJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iottwinmaker#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2694,6 +3190,7 @@ export const de_GetWorkspaceCommand = async (
     arn: __expectString,
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    linkedServices: _json,
     role: __expectString,
     s3Location: __expectString,
     updateDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2725,6 +3222,66 @@ const de_GetWorkspaceCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListComponentsCommand
+ */
+export const de_ListComponentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListComponentsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    componentSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListComponentsCommandError
+ */
+const de_ListComponentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iottwinmaker#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2841,6 +3398,123 @@ const de_ListEntitiesCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListMetadataTransferJobsCommand
+ */
+export const de_ListMetadataTransferJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetadataTransferJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListMetadataTransferJobsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    metadataTransferJobSummaries: (_) => de_MetadataTransferJobSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMetadataTransferJobsCommandError
+ */
+const de_ListMetadataTransferJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetadataTransferJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListPropertiesCommand
+ */
+export const de_ListPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    propertySummaries: (_) => de_PropertySummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPropertiesCommandError
+ */
+const de_ListPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iottwinmaker#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3813,6 +4487,65 @@ const se_ComponentUpdatesMapRequest = (input: Record<string, ComponentUpdateRequ
   }, {});
 };
 
+/**
+ * serializeAws_restJson1CompositeComponentRequest
+ */
+const se_CompositeComponentRequest = (input: CompositeComponentRequest, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    properties: (_) => se_PropertyRequests(_, context),
+    propertyGroups: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1CompositeComponentsMapRequest
+ */
+const se_CompositeComponentsMapRequest = (
+  input: Record<string, CompositeComponentRequest>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_CompositeComponentRequest(value, context);
+    return acc;
+  }, {});
+};
+
+// se_CompositeComponentTypeRequest omitted.
+
+// se_CompositeComponentTypesRequest omitted.
+
+/**
+ * serializeAws_restJson1CompositeComponentUpdateRequest
+ */
+const se_CompositeComponentUpdateRequest = (input: CompositeComponentUpdateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    propertyGroupUpdates: _json,
+    propertyUpdates: (_) => se_PropertyRequests(_, context),
+    updateType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1CompositeComponentUpdatesMapRequest
+ */
+const se_CompositeComponentUpdatesMapRequest = (
+  input: Record<string, CompositeComponentUpdateRequest>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_CompositeComponentUpdateRequest(value, context);
+    return acc;
+  }, {});
+};
+
 // se_Configuration omitted.
 
 // se_DataConnector omitted.
@@ -3871,6 +4604,8 @@ const se_DataValueMap = (input: Record<string, DataValue>, context: __SerdeConte
   }, {});
 };
 
+// se_DestinationConfiguration omitted.
+
 // se_EntityPropertyReference omitted.
 
 /**
@@ -3888,11 +4623,33 @@ const se_Entries = (input: PropertyValueEntry[], context: __SerdeContext): any =
 
 // se_ExternalIdProperty omitted.
 
+// se_FilterByAsset omitted.
+
+// se_FilterByAssetModel omitted.
+
+// se_FilterByComponentType omitted.
+
+// se_FilterByEntity omitted.
+
 // se_FunctionRequest omitted.
 
 // se_FunctionsRequest omitted.
 
 // se_InterpolationParameters omitted.
+
+// se_IotSiteWiseSourceConfiguration omitted.
+
+// se_IotSiteWiseSourceConfigurationFilter omitted.
+
+// se_IotSiteWiseSourceConfigurationFilters omitted.
+
+// se_IotTwinMakerDestinationConfiguration omitted.
+
+// se_IotTwinMakerSourceConfiguration omitted.
+
+// se_IotTwinMakerSourceConfigurationFilter omitted.
+
+// se_IotTwinMakerSourceConfigurationFilters omitted.
 
 // se_LambdaFunction omitted.
 
@@ -3903,6 +4660,10 @@ const se_Entries = (input: PropertyValueEntry[], context: __SerdeContext): any =
 // se_ListEntitiesFilter omitted.
 
 // se_ListEntitiesFilters omitted.
+
+// se_ListMetadataTransferJobsFilter omitted.
+
+// se_ListMetadataTransferJobsFilters omitted.
 
 // se_OrderBy omitted.
 
@@ -4034,11 +4795,19 @@ const se_PropertyValues = (input: PropertyValue[], context: __SerdeContext): any
 
 // se_RequiredProperties omitted.
 
+// se_S3DestinationConfiguration omitted.
+
+// se_S3SourceConfiguration omitted.
+
 // se_SceneCapabilities omitted.
 
 // se_SceneMetadataMap omitted.
 
 // se_SelectedPropertyList omitted.
+
+// se_SourceConfiguration omitted.
+
+// se_SourceConfigurations omitted.
 
 // se_SyncResourceFilter omitted.
 
@@ -4091,8 +4860,11 @@ const de_BatchPutPropertyErrorEntry = (output: any, context: __SerdeContext): Ba
  */
 const de_ComponentResponse = (output: any, context: __SerdeContext): ComponentResponse => {
   return take(output, {
+    areAllCompositeComponentsReturned: __expectBoolean,
+    areAllPropertiesReturned: __expectBoolean,
     componentName: __expectString,
     componentTypeId: __expectString,
+    compositeComponents: _json,
     definedIn: __expectString,
     description: __expectString,
     properties: (_: any) => de_PropertyResponses(_, context),
@@ -4114,6 +4886,10 @@ const de_ComponentsMap = (output: any, context: __SerdeContext): Record<string, 
     return acc;
   }, {} as Record<string, ComponentResponse>);
 };
+
+// de_ComponentSummaries omitted.
+
+// de_ComponentSummary omitted.
 
 /**
  * deserializeAws_restJson1ComponentTypeSummaries
@@ -4141,6 +4917,12 @@ const de_ComponentTypeSummary = (output: any, context: __SerdeContext): Componen
     updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_CompositeComponentResponse omitted.
+
+// de_CompositeComponentTypeResponse omitted.
+
+// de_CompositeComponentTypesResponse omitted.
 
 // de_Configuration omitted.
 
@@ -4200,6 +4982,8 @@ const de_DataValueMap = (output: any, context: __SerdeContext): Record<string, D
     return acc;
   }, {} as Record<string, DataValue>);
 };
+
+// de_DestinationConfiguration omitted.
 
 // de_EntityPropertyReference omitted.
 
@@ -4262,13 +5046,67 @@ const de_Errors = (output: any, context: __SerdeContext): BatchPutPropertyError[
 
 // de_ExternalIdProperty omitted.
 
+// de_FilterByAsset omitted.
+
+// de_FilterByAssetModel omitted.
+
+// de_FilterByComponentType omitted.
+
+// de_FilterByEntity omitted.
+
 // de_FunctionResponse omitted.
 
 // de_FunctionsResponse omitted.
 
 // de_GeneratedSceneMetadataMap omitted.
 
+// de_IotSiteWiseSourceConfiguration omitted.
+
+// de_IotSiteWiseSourceConfigurationFilter omitted.
+
+// de_IotSiteWiseSourceConfigurationFilters omitted.
+
+// de_IotTwinMakerDestinationConfiguration omitted.
+
+// de_IotTwinMakerSourceConfiguration omitted.
+
+// de_IotTwinMakerSourceConfigurationFilter omitted.
+
+// de_IotTwinMakerSourceConfigurationFilters omitted.
+
 // de_LambdaFunction omitted.
+
+// de_LinkedServices omitted.
+
+// de_MetadataTransferJobProgress omitted.
+
+// de_MetadataTransferJobStatus omitted.
+
+/**
+ * deserializeAws_restJson1MetadataTransferJobSummaries
+ */
+const de_MetadataTransferJobSummaries = (output: any, context: __SerdeContext): MetadataTransferJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetadataTransferJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MetadataTransferJobSummary
+ */
+const de_MetadataTransferJobSummary = (output: any, context: __SerdeContext): MetadataTransferJobSummary => {
+  return take(output, {
+    arn: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metadataTransferJobId: __expectString,
+    progress: _json,
+    status: _json,
+    updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 // de_PricingBundles omitted.
 
@@ -4358,6 +5196,7 @@ const de_PropertyLatestValueMap = (output: any, context: __SerdeContext): Record
  */
 const de_PropertyResponse = (output: any, context: __SerdeContext): PropertyResponse => {
   return take(output, {
+    areAllPropertyValuesReturned: __expectBoolean,
     definition: (_: any) => de_PropertyDefinitionResponse(_, context),
     value: (_: any) => de_DataValue(_, context),
   }) as any;
@@ -4374,6 +5213,30 @@ const de_PropertyResponses = (output: any, context: __SerdeContext): Record<stri
     acc[key as string] = de_PropertyResponse(value, context);
     return acc;
   }, {} as Record<string, PropertyResponse>);
+};
+
+/**
+ * deserializeAws_restJson1PropertySummaries
+ */
+const de_PropertySummaries = (output: any, context: __SerdeContext): PropertySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PropertySummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1PropertySummary
+ */
+const de_PropertySummary = (output: any, context: __SerdeContext): PropertySummary => {
+  return take(output, {
+    areAllPropertyValuesReturned: __expectBoolean,
+    definition: (_: any) => de_PropertyDefinitionResponse(_, context),
+    propertyName: __expectString,
+    value: (_: any) => de_DataValue(_, context),
+  }) as any;
 };
 
 /**
@@ -4490,6 +5353,10 @@ const de_Rows = (output: any, context: __SerdeContext): Row[] => {
   return retVal;
 };
 
+// de_S3DestinationConfiguration omitted.
+
+// de_S3SourceConfiguration omitted.
+
 // de_SceneCapabilities omitted.
 
 // de_SceneError omitted.
@@ -4521,6 +5388,10 @@ const de_SceneSummary = (output: any, context: __SerdeContext): SceneSummary => 
     updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_SourceConfiguration omitted.
+
+// de_SourceConfigurations omitted.
 
 // de_Status omitted.
 
@@ -4637,6 +5508,7 @@ const de_WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSum
     arn: __expectString,
     creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    linkedServices: _json,
     updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     workspaceId: __expectString,
   }) as any;

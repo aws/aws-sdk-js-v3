@@ -39,6 +39,10 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @public
  * <p>Run queries to access information from your knowledge graph of entities within
  *          individual workspaces.</p>
+ *          <note>
+ *             <p>The ExecuteQuery action only works with <a href="https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html">Amazon Web Services Java SDK2</a>.
+ *          ExecuteQuery will not work with any Amazon Web Services Java SDK version &lt; 2.x.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -135,6 +135,39 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  *       },
  *     },
  *   },
+ *   compositeComponentUpdates: { // CompositeComponentUpdatesMapRequest
+ *     "<keys>": { // CompositeComponentUpdateRequest
+ *       updateType: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       propertyUpdates: {
+ *         "<keys>": {
+ *           definition: {
+ *             dataType: "<DataType>",
+ *             isRequiredInEntity: true || false,
+ *             isExternalId: true || false,
+ *             isStoredExternally: true || false,
+ *             isTimeSeries: true || false,
+ *             defaultValue: "<DataValue>",
+ *             configuration: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             displayName: "STRING_VALUE",
+ *           },
+ *           value: "<DataValue>",
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *       propertyGroupUpdates: {
+ *         "<keys>": {
+ *           groupType: "STRING_VALUE",
+ *           propertyNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
  *   parentEntityUpdate: { // ParentEntityUpdateRequest
  *     updateType: "STRING_VALUE", // required
  *     parentEntityId: "STRING_VALUE",

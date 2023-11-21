@@ -6,8 +6,7 @@
 
 AWS SDK for JavaScript IoTTwinMaker Client for Node.js, Browser and React Native.
 
-<p>IoT TwinMaker is a service with which you
-can
+<p>IoT TwinMaker is a service with which you can
 build operational digital twins of physical systems. IoT TwinMaker overlays measurements
 and analysis from real-world sensors, cameras, and enterprise applications so you can
 create data visualizations to monitor your physical factory, building, or industrial plant.
@@ -219,6 +218,14 @@ BatchPutPropertyValues
 </details>
 <details>
 <summary>
+CancelMetadataTransferJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/cancelmetadatatransferjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/cancelmetadatatransferjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/cancelmetadatatransferjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateComponentType
 </summary>
 
@@ -231,6 +238,14 @@ CreateEntity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/createentitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/createentitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/createentitycommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateMetadataTransferJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/createmetadatatransferjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/createmetadatatransferjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/createmetadatatransferjobcommandoutput.html)
 
 </details>
 <details>
@@ -323,6 +338,14 @@ GetEntity
 </details>
 <details>
 <summary>
+GetMetadataTransferJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/getmetadatatransferjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/getmetadatatransferjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/getmetadatatransferjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetPricingPlan
 </summary>
 
@@ -371,6 +394,14 @@ GetWorkspace
 </details>
 <details>
 <summary>
+ListComponents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/listcomponentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listcomponentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listcomponentscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListComponentTypes
 </summary>
 
@@ -383,6 +414,22 @@ ListEntities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/listentitiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listentitiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listentitiescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListMetadataTransferJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/listmetadatatransferjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listmetadatatransferjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listmetadatatransferjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/classes/listpropertiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listpropertiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iottwinmaker/interfaces/listpropertiescommandoutput.html)
 
 </details>
 <details>

@@ -8,6 +8,11 @@ import {
   BatchPutPropertyValuesCommandOutput,
 } from "./commands/BatchPutPropertyValuesCommand";
 import {
+  CancelMetadataTransferJobCommand,
+  CancelMetadataTransferJobCommandInput,
+  CancelMetadataTransferJobCommandOutput,
+} from "./commands/CancelMetadataTransferJobCommand";
+import {
   CreateComponentTypeCommand,
   CreateComponentTypeCommandInput,
   CreateComponentTypeCommandOutput,
@@ -17,6 +22,11 @@ import {
   CreateEntityCommandInput,
   CreateEntityCommandOutput,
 } from "./commands/CreateEntityCommand";
+import {
+  CreateMetadataTransferJobCommand,
+  CreateMetadataTransferJobCommandInput,
+  CreateMetadataTransferJobCommandOutput,
+} from "./commands/CreateMetadataTransferJobCommand";
 import { CreateSceneCommand, CreateSceneCommandInput, CreateSceneCommandOutput } from "./commands/CreateSceneCommand";
 import {
   CreateSyncJobCommand,
@@ -61,6 +71,11 @@ import {
 } from "./commands/GetComponentTypeCommand";
 import { GetEntityCommand, GetEntityCommandInput, GetEntityCommandOutput } from "./commands/GetEntityCommand";
 import {
+  GetMetadataTransferJobCommand,
+  GetMetadataTransferJobCommandInput,
+  GetMetadataTransferJobCommandOutput,
+} from "./commands/GetMetadataTransferJobCommand";
+import {
   GetPricingPlanCommand,
   GetPricingPlanCommandInput,
   GetPricingPlanCommandOutput,
@@ -83,6 +98,11 @@ import {
   GetWorkspaceCommandOutput,
 } from "./commands/GetWorkspaceCommand";
 import {
+  ListComponentsCommand,
+  ListComponentsCommandInput,
+  ListComponentsCommandOutput,
+} from "./commands/ListComponentsCommand";
+import {
   ListComponentTypesCommand,
   ListComponentTypesCommandInput,
   ListComponentTypesCommandOutput,
@@ -92,6 +112,16 @@ import {
   ListEntitiesCommandInput,
   ListEntitiesCommandOutput,
 } from "./commands/ListEntitiesCommand";
+import {
+  ListMetadataTransferJobsCommand,
+  ListMetadataTransferJobsCommandInput,
+  ListMetadataTransferJobsCommandOutput,
+} from "./commands/ListMetadataTransferJobsCommand";
+import {
+  ListPropertiesCommand,
+  ListPropertiesCommandInput,
+  ListPropertiesCommandOutput,
+} from "./commands/ListPropertiesCommand";
 import { ListScenesCommand, ListScenesCommandInput, ListScenesCommandOutput } from "./commands/ListScenesCommand";
 import {
   ListSyncJobsCommand,
@@ -144,8 +174,10 @@ import { IoTTwinMakerClient, IoTTwinMakerClientConfig } from "./IoTTwinMakerClie
 
 const commands = {
   BatchPutPropertyValuesCommand,
+  CancelMetadataTransferJobCommand,
   CreateComponentTypeCommand,
   CreateEntityCommand,
+  CreateMetadataTransferJobCommand,
   CreateSceneCommand,
   CreateSyncJobCommand,
   CreateWorkspaceCommand,
@@ -157,14 +189,18 @@ const commands = {
   ExecuteQueryCommand,
   GetComponentTypeCommand,
   GetEntityCommand,
+  GetMetadataTransferJobCommand,
   GetPricingPlanCommand,
   GetPropertyValueCommand,
   GetPropertyValueHistoryCommand,
   GetSceneCommand,
   GetSyncJobCommand,
   GetWorkspaceCommand,
+  ListComponentsCommand,
   ListComponentTypesCommand,
   ListEntitiesCommand,
+  ListMetadataTransferJobsCommand,
+  ListPropertiesCommand,
   ListScenesCommand,
   ListSyncJobsCommand,
   ListSyncResourcesCommand,
@@ -198,6 +234,23 @@ export interface IoTTwinMaker {
   ): void;
 
   /**
+   * @see {@link CancelMetadataTransferJobCommand}
+   */
+  cancelMetadataTransferJob(
+    args: CancelMetadataTransferJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMetadataTransferJobCommandOutput>;
+  cancelMetadataTransferJob(
+    args: CancelMetadataTransferJobCommandInput,
+    cb: (err: any, data?: CancelMetadataTransferJobCommandOutput) => void
+  ): void;
+  cancelMetadataTransferJob(
+    args: CancelMetadataTransferJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMetadataTransferJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateComponentTypeCommand}
    */
   createComponentType(
@@ -223,6 +276,23 @@ export interface IoTTwinMaker {
     args: CreateEntityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMetadataTransferJobCommand}
+   */
+  createMetadataTransferJob(
+    args: CreateMetadataTransferJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMetadataTransferJobCommandOutput>;
+  createMetadataTransferJob(
+    args: CreateMetadataTransferJobCommandInput,
+    cb: (err: any, data?: CreateMetadataTransferJobCommandOutput) => void
+  ): void;
+  createMetadataTransferJob(
+    args: CreateMetadataTransferJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMetadataTransferJobCommandOutput) => void
   ): void;
 
   /**
@@ -365,6 +435,23 @@ export interface IoTTwinMaker {
   ): void;
 
   /**
+   * @see {@link GetMetadataTransferJobCommand}
+   */
+  getMetadataTransferJob(
+    args: GetMetadataTransferJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetadataTransferJobCommandOutput>;
+  getMetadataTransferJob(
+    args: GetMetadataTransferJobCommandInput,
+    cb: (err: any, data?: GetMetadataTransferJobCommandOutput) => void
+  ): void;
+  getMetadataTransferJob(
+    args: GetMetadataTransferJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetadataTransferJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPricingPlanCommand}
    */
   getPricingPlan(
@@ -446,6 +533,20 @@ export interface IoTTwinMaker {
   ): void;
 
   /**
+   * @see {@link ListComponentsCommand}
+   */
+  listComponents(
+    args: ListComponentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentsCommandOutput>;
+  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListComponentTypesCommand}
    */
   listComponentTypes(
@@ -471,6 +572,37 @@ export interface IoTTwinMaker {
     args: ListEntitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEntitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMetadataTransferJobsCommand}
+   */
+  listMetadataTransferJobs(
+    args: ListMetadataTransferJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetadataTransferJobsCommandOutput>;
+  listMetadataTransferJobs(
+    args: ListMetadataTransferJobsCommandInput,
+    cb: (err: any, data?: ListMetadataTransferJobsCommandOutput) => void
+  ): void;
+  listMetadataTransferJobs(
+    args: ListMetadataTransferJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetadataTransferJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPropertiesCommand}
+   */
+  listProperties(
+    args: ListPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPropertiesCommandOutput>;
+  listProperties(args: ListPropertiesCommandInput, cb: (err: any, data?: ListPropertiesCommandOutput) => void): void;
+  listProperties(
+    args: ListPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPropertiesCommandOutput) => void
   ): void;
 
   /**
@@ -638,8 +770,7 @@ export interface IoTTwinMaker {
 
 /**
  * @public
- * <p>IoT TwinMaker is a service with which you
- *          can
+ * <p>IoT TwinMaker is a service with which you can
  *          build operational digital twins of physical systems. IoT TwinMaker overlays measurements
  *          and analysis from real-world sensors, cameras, and enterprise applications so you can
  *          create data visualizations to monitor your physical factory, building, or industrial plant.

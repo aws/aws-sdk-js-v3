@@ -144,6 +144,11 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  *     },
  *   },
  *   componentTypeName: "STRING_VALUE",
+ *   compositeComponentTypes: { // CompositeComponentTypesRequest
+ *     "<keys>": { // CompositeComponentTypeRequest
+ *       componentTypeId: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new CreateComponentTypeCommand(input);
  * const response = await client.send(command);

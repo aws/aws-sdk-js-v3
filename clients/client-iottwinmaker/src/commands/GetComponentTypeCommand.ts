@@ -165,6 +165,12 @@ export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse,
  * //   },
  * //   syncSource: "STRING_VALUE",
  * //   componentTypeName: "STRING_VALUE",
+ * //   compositeComponentTypes: { // CompositeComponentTypesResponse
+ * //     "<keys>": { // CompositeComponentTypeResponse
+ * //       componentTypeId: "STRING_VALUE",
+ * //       isInherited: true || false,
+ * //     },
+ * //   },
  * // };
  *
  * ```

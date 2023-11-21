@@ -55,10 +55,18 @@ import {
   BatchPutPropertyValuesCommandOutput,
 } from "./commands/BatchPutPropertyValuesCommand";
 import {
+  CancelMetadataTransferJobCommandInput,
+  CancelMetadataTransferJobCommandOutput,
+} from "./commands/CancelMetadataTransferJobCommand";
+import {
   CreateComponentTypeCommandInput,
   CreateComponentTypeCommandOutput,
 } from "./commands/CreateComponentTypeCommand";
 import { CreateEntityCommandInput, CreateEntityCommandOutput } from "./commands/CreateEntityCommand";
+import {
+  CreateMetadataTransferJobCommandInput,
+  CreateMetadataTransferJobCommandOutput,
+} from "./commands/CreateMetadataTransferJobCommand";
 import { CreateSceneCommandInput, CreateSceneCommandOutput } from "./commands/CreateSceneCommand";
 import { CreateSyncJobCommandInput, CreateSyncJobCommandOutput } from "./commands/CreateSyncJobCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
@@ -73,6 +81,10 @@ import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./com
 import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
 import { GetComponentTypeCommandInput, GetComponentTypeCommandOutput } from "./commands/GetComponentTypeCommand";
 import { GetEntityCommandInput, GetEntityCommandOutput } from "./commands/GetEntityCommand";
+import {
+  GetMetadataTransferJobCommandInput,
+  GetMetadataTransferJobCommandOutput,
+} from "./commands/GetMetadataTransferJobCommand";
 import { GetPricingPlanCommandInput, GetPricingPlanCommandOutput } from "./commands/GetPricingPlanCommand";
 import { GetPropertyValueCommandInput, GetPropertyValueCommandOutput } from "./commands/GetPropertyValueCommand";
 import {
@@ -82,8 +94,14 @@ import {
 import { GetSceneCommandInput, GetSceneCommandOutput } from "./commands/GetSceneCommand";
 import { GetSyncJobCommandInput, GetSyncJobCommandOutput } from "./commands/GetSyncJobCommand";
 import { GetWorkspaceCommandInput, GetWorkspaceCommandOutput } from "./commands/GetWorkspaceCommand";
+import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import { ListComponentTypesCommandInput, ListComponentTypesCommandOutput } from "./commands/ListComponentTypesCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
+import {
+  ListMetadataTransferJobsCommandInput,
+  ListMetadataTransferJobsCommandOutput,
+} from "./commands/ListMetadataTransferJobsCommand";
+import { ListPropertiesCommandInput, ListPropertiesCommandOutput } from "./commands/ListPropertiesCommand";
 import { ListScenesCommandInput, ListScenesCommandOutput } from "./commands/ListScenesCommand";
 import { ListSyncJobsCommandInput, ListSyncJobsCommandOutput } from "./commands/ListSyncJobsCommand";
 import { ListSyncResourcesCommandInput, ListSyncResourcesCommandOutput } from "./commands/ListSyncResourcesCommand";
@@ -118,8 +136,10 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchPutPropertyValuesCommandInput
+  | CancelMetadataTransferJobCommandInput
   | CreateComponentTypeCommandInput
   | CreateEntityCommandInput
+  | CreateMetadataTransferJobCommandInput
   | CreateSceneCommandInput
   | CreateSyncJobCommandInput
   | CreateWorkspaceCommandInput
@@ -131,6 +151,7 @@ export type ServiceInputTypes =
   | ExecuteQueryCommandInput
   | GetComponentTypeCommandInput
   | GetEntityCommandInput
+  | GetMetadataTransferJobCommandInput
   | GetPricingPlanCommandInput
   | GetPropertyValueCommandInput
   | GetPropertyValueHistoryCommandInput
@@ -138,7 +159,10 @@ export type ServiceInputTypes =
   | GetSyncJobCommandInput
   | GetWorkspaceCommandInput
   | ListComponentTypesCommandInput
+  | ListComponentsCommandInput
   | ListEntitiesCommandInput
+  | ListMetadataTransferJobsCommandInput
+  | ListPropertiesCommandInput
   | ListScenesCommandInput
   | ListSyncJobsCommandInput
   | ListSyncResourcesCommandInput
@@ -157,8 +181,10 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchPutPropertyValuesCommandOutput
+  | CancelMetadataTransferJobCommandOutput
   | CreateComponentTypeCommandOutput
   | CreateEntityCommandOutput
+  | CreateMetadataTransferJobCommandOutput
   | CreateSceneCommandOutput
   | CreateSyncJobCommandOutput
   | CreateWorkspaceCommandOutput
@@ -170,6 +196,7 @@ export type ServiceOutputTypes =
   | ExecuteQueryCommandOutput
   | GetComponentTypeCommandOutput
   | GetEntityCommandOutput
+  | GetMetadataTransferJobCommandOutput
   | GetPricingPlanCommandOutput
   | GetPropertyValueCommandOutput
   | GetPropertyValueHistoryCommandOutput
@@ -177,7 +204,10 @@ export type ServiceOutputTypes =
   | GetSyncJobCommandOutput
   | GetWorkspaceCommandOutput
   | ListComponentTypesCommandOutput
+  | ListComponentsCommandOutput
   | ListEntitiesCommandOutput
+  | ListMetadataTransferJobsCommandOutput
+  | ListPropertiesCommandOutput
   | ListScenesCommandOutput
   | ListSyncJobsCommandOutput
   | ListSyncResourcesCommandOutput
@@ -363,8 +393,7 @@ export interface IoTTwinMakerClientResolvedConfig extends IoTTwinMakerClientReso
 
 /**
  * @public
- * <p>IoT TwinMaker is a service with which you
- *          can
+ * <p>IoT TwinMaker is a service with which you can
  *          build operational digital twins of physical systems. IoT TwinMaker overlays measurements
  *          and analysis from real-world sensors, cameras, and enterprise applications so you can
  *          create data visualizations to monitor your physical factory, building, or industrial plant.

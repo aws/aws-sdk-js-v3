@@ -53,8 +53,11 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * //   workspaceId: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   s3Location: "STRING_VALUE", // required
- * //   role: "STRING_VALUE", // required
+ * //   linkedServices: [ // LinkedServices
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   s3Location: "STRING_VALUE",
+ * //   role: "STRING_VALUE",
  * //   creationDateTime: new Date("TIMESTAMP"), // required
  * //   updateDateTime: new Date("TIMESTAMP"), // required
  * // };

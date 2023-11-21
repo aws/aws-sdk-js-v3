@@ -48,6 +48,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  *   workspaceId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   role: "STRING_VALUE",
+ *   s3Location: "STRING_VALUE",
  * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);

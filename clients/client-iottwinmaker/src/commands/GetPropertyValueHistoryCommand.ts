@@ -52,6 +52,7 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  *   workspaceId: "STRING_VALUE", // required
  *   entityId: "STRING_VALUE",
  *   componentName: "STRING_VALUE",
+ *   componentPath: "STRING_VALUE",
  *   componentTypeId: "STRING_VALUE",
  *   selectedProperties: [ // SelectedPropertyList // required
  *     "STRING_VALUE",
@@ -116,6 +117,7 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  * //     { // PropertyValueHistory
  * //       entityPropertyReference: { // EntityPropertyReference
  * //         componentName: "STRING_VALUE",
+ * //         componentPath: "STRING_VALUE",
  * //         externalIdProperty: { // ExternalIdProperty
  * //           "<keys>": "STRING_VALUE",
  * //         },

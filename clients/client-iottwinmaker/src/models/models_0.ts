@@ -37,6 +37,12 @@ export interface EntityPropertyReference {
 
   /**
    * @public
+   * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   */
+  componentPath?: string;
+
+  /**
+   * @public
    * <p>A mapping of external IDs to property names. External IDs uniquely identify properties
    *          from external data stores.</p>
    */
@@ -155,6 +161,163 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ */
+export interface CancelMetadataTransferJobRequest {
+  /**
+   * @public
+   * <p>The metadata transfer job Id.</p>
+   */
+  metadataTransferJobId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The metadata transfer job's progress.</p>
+ */
+export interface MetadataTransferJobProgress {
+  /**
+   * @public
+   * <p>The total count. [of what]</p>
+   */
+  totalCount?: number;
+
+  /**
+   * @public
+   * <p>The succeeded count.</p>
+   */
+  succeededCount?: number;
+
+  /**
+   * @public
+   * <p>The skipped count.</p>
+   */
+  skippedCount?: number;
+
+  /**
+   * @public
+   * <p>The failed count.</p>
+   */
+  failedCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  COMPOSITE_COMPONENT_FAILURE: "COMPOSITE_COMPONENT_FAILURE",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PROCESSING_ERROR: "PROCESSING_ERROR",
+  SYNC_CREATING_ERROR: "SYNC_CREATING_ERROR",
+  SYNC_DELETING_ERROR: "SYNC_DELETING_ERROR",
+  SYNC_INITIALIZING_ERROR: "SYNC_INITIALIZING_ERROR",
+  SYNC_PROCESSING_ERROR: "SYNC_PROCESSING_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
+ * <p>The error details.</p>
+ */
+export interface ErrorDetails {
+  /**
+   * @public
+   * <p>The error code.</p>
+   */
+  code?: ErrorCode;
+
+  /**
+   * @public
+   * <p>The error message.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataTransferJobState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataTransferJobState = (typeof MetadataTransferJobState)[keyof typeof MetadataTransferJobState];
+
+/**
+ * @public
+ * <p>The metadata transfer job status.</p>
+ */
+export interface MetadataTransferJobStatus {
+  /**
+   * @public
+   * <p>The metadata transfer job state.</p>
+   */
+  state?: MetadataTransferJobState;
+
+  /**
+   * @public
+   * <p>The metadata transfer job error.</p>
+   */
+  error?: ErrorDetails;
+
+  /**
+   * @public
+   * <p>The queued position.</p>
+   */
+  queuedPosition?: number;
+}
+
+/**
+ * @public
+ */
+export interface CancelMetadataTransferJobResponse {
+  /**
+   * @public
+   * <p>The metadata transfer job Id.</p>
+   */
+  metadataTransferJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>Used to update the DateTime property.</p>
+   */
+  updateDateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's status.</p>
+   */
+  status: MetadataTransferJobStatus | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's progress.</p>
+   */
+  progress?: MetadataTransferJobProgress;
+}
+
+/**
+ * @public
  * <p>A conflict occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -171,6 +334,18 @@ export class ConflictException extends __BaseException {
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
   }
+}
+
+/**
+ * @public
+ * <p>An object that sets information about the composite component types of a component type.</p>
+ */
+export interface CompositeComponentTypeRequest {
+  /**
+   * @public
+   * <p>This is the <code>componentTypeId</code> that the <code>compositeComponentType</code> refers to.</p>
+   */
+  componentTypeId?: string;
 }
 
 /**
@@ -456,6 +631,408 @@ export interface CreateEntityResponse {
 
 /**
  * @public
+ * <p>The metadata transfer job AWS IoT TwinMaker destination configuration.</p>
+ */
+export interface IotTwinMakerDestinationConfiguration {
+  /**
+   * @public
+   * <p>The IoT TwinMaker workspace.</p>
+   */
+  workspace: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The S3 destination configuration.</p>
+ */
+export interface S3DestinationConfiguration {
+  /**
+   * @public
+   * <p>The S3 destination configuration location.</p>
+   */
+  location: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DestinationType = {
+  IOTSITEWISE: "iotsitewise",
+  IOTTWINMAKER: "iottwinmaker",
+  S3: "s3",
+} as const;
+
+/**
+ * @public
+ */
+export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
+
+/**
+ * @public
+ * <p>The [link to action] metadata transfer job destination configuration.</p>
+ */
+export interface DestinationConfiguration {
+  /**
+   * @public
+   * <p>The destination type.</p>
+   */
+  type: DestinationType | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job S3 configuration. [need to add S3 entity]</p>
+   */
+  s3Configuration?: S3DestinationConfiguration;
+
+  /**
+   * @public
+   * <p>The metadata transfer job Amazon Web Services IoT TwinMaker configuration.</p>
+   */
+  iotTwinMakerConfiguration?: IotTwinMakerDestinationConfiguration;
+}
+
+/**
+ * @public
+ * <p>Filter by asset. [TwinMaker asset]</p>
+ */
+export interface FilterByAsset {
+  /**
+   * @public
+   * <p>Filter by asset Id.</p>
+   */
+  assetId?: string;
+
+  /**
+   * @public
+   * <p>The external-Id property of an asset. </p>
+   */
+  assetExternalId?: string;
+
+  /**
+   * @public
+   * <p>Includes sub-assets.[need description hekp for this]</p>
+   */
+  includeOffspring?: boolean;
+
+  /**
+   * @public
+   * <p>Boolean to include the asset model.</p>
+   */
+  includeAssetModel?: boolean;
+}
+
+/**
+ * @public
+ * <p>Filter by asset model.</p>
+ */
+export interface FilterByAssetModel {
+  /**
+   * @public
+   * <p>The asset model Id.</p>
+   */
+  assetModelId?: string;
+
+  /**
+   * @public
+   * <p>The external-Id property of an asset model.</p>
+   */
+  assetModelExternalId?: string;
+
+  /**
+   * @public
+   * <p>Include asset offspring. [need desc.]</p>
+   */
+  includeOffspring?: boolean;
+
+  /**
+   * @public
+   * <p>Bolean to include assets.</p>
+   */
+  includeAssets?: boolean;
+}
+
+/**
+ * @public
+ * <p>The AWS IoT SiteWise soucre configuration filter.[need held with desc here]</p>
+ */
+export type IotSiteWiseSourceConfigurationFilter =
+  | IotSiteWiseSourceConfigurationFilter.FilterByAssetMember
+  | IotSiteWiseSourceConfigurationFilter.FilterByAssetModelMember
+  | IotSiteWiseSourceConfigurationFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IotSiteWiseSourceConfigurationFilter {
+  /**
+   * @public
+   * <p>Filter by asset model.</p>
+   */
+  export interface FilterByAssetModelMember {
+    filterByAssetModel: FilterByAssetModel;
+    filterByAsset?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Filter by asset.</p>
+   */
+  export interface FilterByAssetMember {
+    filterByAssetModel?: never;
+    filterByAsset: FilterByAsset;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    filterByAssetModel?: never;
+    filterByAsset?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    filterByAssetModel: (value: FilterByAssetModel) => T;
+    filterByAsset: (value: FilterByAsset) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IotSiteWiseSourceConfigurationFilter, visitor: Visitor<T>): T => {
+    if (value.filterByAssetModel !== undefined) return visitor.filterByAssetModel(value.filterByAssetModel);
+    if (value.filterByAsset !== undefined) return visitor.filterByAsset(value.filterByAsset);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>The metadata transfer job AWS IoT SiteWise source configuration.</p>
+ */
+export interface IotSiteWiseSourceConfiguration {
+  /**
+   * @public
+   * <p>The AWS IoT SiteWise soucre configuration filters.</p>
+   */
+  filters?: IotSiteWiseSourceConfigurationFilter[];
+}
+
+/**
+ * @public
+ * <p>Filter by component type.</p>
+ */
+export interface FilterByComponentType {
+  /**
+   * @public
+   * <p>The component type Id.</p>
+   */
+  componentTypeId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Vilter by entity.</p>
+ */
+export interface FilterByEntity {
+  /**
+   * @public
+   * <p>The entity Id.</p>
+   */
+  entityId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The metadata transfer job AWS IoT TwinMaker source configuration filter.</p>
+ */
+export type IotTwinMakerSourceConfigurationFilter =
+  | IotTwinMakerSourceConfigurationFilter.FilterByComponentTypeMember
+  | IotTwinMakerSourceConfigurationFilter.FilterByEntityMember
+  | IotTwinMakerSourceConfigurationFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IotTwinMakerSourceConfigurationFilter {
+  /**
+   * @public
+   * <p>Filter by component type.</p>
+   */
+  export interface FilterByComponentTypeMember {
+    filterByComponentType: FilterByComponentType;
+    filterByEntity?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Filter by entity.</p>
+   */
+  export interface FilterByEntityMember {
+    filterByComponentType?: never;
+    filterByEntity: FilterByEntity;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    filterByComponentType?: never;
+    filterByEntity?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    filterByComponentType: (value: FilterByComponentType) => T;
+    filterByEntity: (value: FilterByEntity) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IotTwinMakerSourceConfigurationFilter, visitor: Visitor<T>): T => {
+    if (value.filterByComponentType !== undefined) return visitor.filterByComponentType(value.filterByComponentType);
+    if (value.filterByEntity !== undefined) return visitor.filterByEntity(value.filterByEntity);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>The metadata transfer job AWS IoT TwinMaker source configuration.</p>
+ */
+export interface IotTwinMakerSourceConfiguration {
+  /**
+   * @public
+   * <p>The IoT TwinMaker workspace.</p>
+   */
+  workspace: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job AWS IoT TwinMaker source configuration filters.</p>
+   */
+  filters?: IotTwinMakerSourceConfigurationFilter[];
+}
+
+/**
+ * @public
+ * <p>The S3 destination source configuration.</p>
+ */
+export interface S3SourceConfiguration {
+  /**
+   * @public
+   * <p>The S3 destination source configuration location.</p>
+   */
+  location: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  IOTSITEWISE: "iotsitewise",
+  IOTTWINMAKER: "iottwinmaker",
+  S3: "s3",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ * <p>The source configuration.</p>
+ */
+export interface SourceConfiguration {
+  /**
+   * @public
+   * <p>The source configuration type.</p>
+   */
+  type: SourceType | undefined;
+
+  /**
+   * @public
+   * <p>The source configuration S3 configuration.</p>
+   */
+  s3Configuration?: S3SourceConfiguration;
+
+  /**
+   * @public
+   * <p>The source configuration IoT SiteWise configuration.</p>
+   */
+  iotSiteWiseConfiguration?: IotSiteWiseSourceConfiguration;
+
+  /**
+   * @public
+   * <p>The source configuration IoT TwinMaker configuration.</p>
+   */
+  iotTwinMakerConfiguration?: IotTwinMakerSourceConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface CreateMetadataTransferJobRequest {
+  /**
+   * @public
+   * <p>The metadata transfer job Id.</p>
+   */
+  metadataTransferJobId?: string;
+
+  /**
+   * @public
+   * <p>The metadata transfer job description.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The metadata transfer job sources.</p>
+   */
+  sources: SourceConfiguration[] | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job destination.</p>
+   */
+  destination: DestinationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMetadataTransferJobResponse {
+  /**
+   * @public
+   * <p>The metadata transfer job Id.</p>
+   */
+  metadataTransferJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The The metadata transfer job creation DateTime property.</p>
+   */
+  creationDateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job response status.</p>
+   */
+  status: MetadataTransferJobStatus | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateSceneRequest {
   /**
@@ -612,13 +1189,13 @@ export interface CreateWorkspaceRequest {
    * <p>The ARN of the S3 bucket where resources associated with the workspace are
    *          stored.</p>
    */
-  s3Location: string | undefined;
+  s3Location?: string;
 
   /**
    * @public
    * <p>The ARN of the execution role associated with the workspace.</p>
    */
-  role: string | undefined;
+  role?: string;
 
   /**
    * @public
@@ -773,7 +1350,13 @@ export interface DeleteWorkspaceRequest {
 /**
  * @public
  */
-export interface DeleteWorkspaceResponse {}
+export interface DeleteWorkspaceResponse {
+  /**
+   * @public
+   * <p>The string that specifies the delete result for the workspace.</p>
+   */
+  message?: string;
+}
 
 /**
  * @public
@@ -793,8 +1376,7 @@ export interface ExecuteQueryRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * <p>The maximum number of results to return at one time. The default is 50.</p>
    */
   maxResults?: number;
 
@@ -913,6 +1495,24 @@ export interface GetComponentTypeRequest {
 
 /**
  * @public
+ * <p>An object that returns information about the composite component types of a component type.</p>
+ */
+export interface CompositeComponentTypeResponse {
+  /**
+   * @public
+   * <p>This is the <code>componentTypeId</code> that this <code>compositeComponentType</code> refers to.</p>
+   */
+  componentTypeId?: string;
+
+  /**
+   * @public
+   * <p>This boolean indicates whether this <code>compositeComponentType</code> is inherited from its parent.</p>
+   */
+  isInherited?: boolean;
+}
+
+/**
+ * @public
  * <p>The function response.</p>
  */
 export interface FunctionResponse {
@@ -964,41 +1564,6 @@ export interface PropertyGroupResponse {
    *          entity</p>
    */
   isInherited: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  SYNC_CREATING_ERROR: "SYNC_CREATING_ERROR",
-  SYNC_INITIALIZING_ERROR: "SYNC_INITIALIZING_ERROR",
-  SYNC_PROCESSING_ERROR: "SYNC_PROCESSING_ERROR",
-  VALIDATION_ERROR: "VALIDATION_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
- * @public
- * <p>The error details.</p>
- */
-export interface ErrorDetails {
-  /**
-   * @public
-   * <p>The error code.</p>
-   */
-  code?: ErrorCode;
-
-  /**
-   * @public
-   * <p>The error message.</p>
-   */
-  message?: string;
 }
 
 /**
@@ -1060,6 +1625,142 @@ export interface ComponentPropertyGroupResponse {
    *          entity</p>
    */
   isInherited: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that returns information about a component summary.</p>
+ */
+export interface ComponentSummary {
+  /**
+   * @public
+   * <p>The name of the component.</p>
+   */
+  componentName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the component type.</p>
+   */
+  componentTypeId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the property definition set in the request.</p>
+   */
+  definedIn?: string;
+
+  /**
+   * @public
+   * <p>The description of the component request.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The property groups.</p>
+   */
+  propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
+
+  /**
+   * @public
+   * <p>The status of the component type.</p>
+   */
+  status: Status | undefined;
+
+  /**
+   * @public
+   * <p>The <code>syncSource</code> of the sync job, if this entity was created by a sync job.</p>
+   */
+  syncSource?: string;
+
+  /**
+   * @public
+   * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   */
+  componentPath?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetMetadataTransferJobRequest {
+  /**
+   * @public
+   * <p>The metadata transfer job Id.</p>
+   */
+  metadataTransferJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMetadataTransferJobResponse {
+  /**
+   * @public
+   * <p>The metadata transfer job Id.</p>
+   */
+  metadataTransferJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job description.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's sources.</p>
+   */
+  sources: SourceConfiguration[] | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's destination.</p>
+   */
+  destination: DestinationConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's role.</p>
+   */
+  metadataTransferJobRole: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's report URL.</p>
+   */
+  reportUrl?: string;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's creation DateTime property.</p>
+   */
+  creationDateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's update DateTime property.</p>
+   */
+  updateDateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's status.</p>
+   */
+  status: MetadataTransferJobStatus | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's progress.</p>
+   */
+  progress?: MetadataTransferJobProgress;
 }
 
 /**
@@ -1552,16 +2253,22 @@ export interface GetWorkspaceResponse {
 
   /**
    * @public
+   * <p>A list of services that are linked to the workspace.</p>
+   */
+  linkedServices?: string[];
+
+  /**
+   * @public
    * <p>The ARN of the S3 bucket where resources associated with the workspace are
    *          stored.</p>
    */
-  s3Location: string | undefined;
+  s3Location?: string;
 
   /**
    * @public
    * <p>The ARN of the execution role associated with the workspace.</p>
    */
-  role: string | undefined;
+  role?: string;
 
   /**
    * @public
@@ -1574,6 +2281,58 @@ export interface GetWorkspaceResponse {
    * <p>The date and time when the workspace was last updated.</p>
    */
   updateDateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComponentsRequest {
+  /**
+   * @public
+   * <p>The workspace ID.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID for the entity whose metadata (component/properties) is returned by the operation.</p>
+   */
+  entityId: string | undefined;
+
+  /**
+   * @public
+   * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   */
+  componentPath?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results returned at one time. The default is 25.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListComponentsResponse {
+  /**
+   * @public
+   * <p>A list of objects that contain information about the components.</p>
+   */
+  componentSummaries: ComponentSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The string that specifies the next page of component results.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -1908,7 +2667,7 @@ export interface EntitySummary {
 
   /**
    * @public
-   * <p>A Boolean value that specifies whether the entity has child entities or not.</p>
+   * <p>An <b>eventual</b> Boolean value that specifies whether the entity has child entities or not.</p>
    */
   hasChildEntities?: boolean;
 
@@ -1934,6 +2693,196 @@ export interface ListEntitiesResponse {
    * <p>A list of objects that contain information about the entities.</p>
    */
   entitySummaries?: EntitySummary[];
+
+  /**
+   * @public
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The ListMetadataTransferJobs filter.</p>
+ */
+export type ListMetadataTransferJobsFilter =
+  | ListMetadataTransferJobsFilter.StateMember
+  | ListMetadataTransferJobsFilter.WorkspaceIdMember
+  | ListMetadataTransferJobsFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ListMetadataTransferJobsFilter {
+  /**
+   * @public
+   * <p>The workspace Id.</p>
+   */
+  export interface WorkspaceIdMember {
+    workspaceId: string;
+    state?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The filter state.</p>
+   */
+  export interface StateMember {
+    workspaceId?: never;
+    state: MetadataTransferJobState;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    workspaceId?: never;
+    state?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    workspaceId: (value: string) => T;
+    state: (value: MetadataTransferJobState) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ListMetadataTransferJobsFilter, visitor: Visitor<T>): T => {
+    if (value.workspaceId !== undefined) return visitor.workspaceId(value.workspaceId);
+    if (value.state !== undefined) return visitor.state(value.state);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface ListMetadataTransferJobsRequest {
+  /**
+   * @public
+   * <p>The metadata transfer job's source type.</p>
+   */
+  sourceType: SourceType | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job's destination type.</p>
+   */
+  destinationType: DestinationType | undefined;
+
+  /**
+   * @public
+   * <p>An object that filters metadata transfer jobs.</p>
+   */
+  filters?: ListMetadataTransferJobsFilter[];
+
+  /**
+   * @public
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>The metadata transfer job summary.</p>
+ */
+export interface MetadataTransferJobSummary {
+  /**
+   * @public
+   * <p>The metadata transfer job summary Id.</p>
+   */
+  metadataTransferJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job summary ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job summary creation DateTime object.</p>
+   */
+  creationDateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job summary update DateTime object</p>
+   */
+  updateDateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job summary status.</p>
+   */
+  status: MetadataTransferJobStatus | undefined;
+
+  /**
+   * @public
+   * <p>The metadata transfer job summary progess.</p>
+   */
+  progress?: MetadataTransferJobProgress;
+}
+
+/**
+ * @public
+ */
+export interface ListMetadataTransferJobsResponse {
+  /**
+   * @public
+   * <p>The metadata transfer job summaries.</p>
+   */
+  metadataTransferJobSummaries: MetadataTransferJobSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPropertiesRequest {
+  /**
+   * @public
+   * <p>The workspace ID.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the component whose properties are returned by the operation.</p>
+   */
+  componentName?: string;
+
+  /**
+   * @public
+   * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   */
+  componentPath?: string;
+
+  /**
+   * @public
+   * <p>The ID for the entity whose metadata (component/properties) is returned by the operation.</p>
+   */
+  entityId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results returned at one time. The default is 25.</p>
+   */
+  maxResults?: number;
 
   /**
    * @public
@@ -2435,6 +3384,12 @@ export interface WorkspaceSummary {
 
   /**
    * @public
+   * <p>A list of services that are linked to the workspace.</p>
+   */
+  linkedServices?: string[];
+
+  /**
+   * @public
    * <p>The date and time when the workspace was created.</p>
    */
   creationDateTime: Date | undefined;
@@ -2728,6 +3683,13 @@ export interface UpdateWorkspaceRequest {
    * <p>The ARN of the execution role associated with the workspace.</p>
    */
   role?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the S3 bucket where resources associated with the workspace are
+   *          stored.</p>
+   */
+  s3Location?: string;
 }
 
 /**
@@ -2972,6 +3934,12 @@ export interface GetPropertyValueHistoryRequest {
 
   /**
    * @public
+   * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   */
+  componentPath?: string;
+
+  /**
+   * @public
    * <p>The ID of the component type.</p>
    */
   componentTypeId?: string;
@@ -3140,6 +4108,12 @@ export interface GetPropertyValueRequest {
    * <p>The name of the component whose property values the operation returns.</p>
    */
   componentName?: string;
+
+  /**
+   * @public
+   * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   */
+  componentPath?: string;
 
   /**
    * @public
@@ -3473,6 +4447,13 @@ export interface CreateComponentTypeRequest {
    * <p>A friendly name for the component type.</p>
    */
   componentTypeName?: string;
+
+  /**
+   * @public
+   * <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>.
+   *           <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+   */
+  compositeComponentTypes?: Record<string, CompositeComponentTypeRequest>;
 }
 
 /**
@@ -3579,6 +4560,12 @@ export interface GetComponentTypeResponse {
    * <p>The component type name.</p>
    */
   componentTypeName?: string;
+
+  /**
+   * @public
+   * <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>. <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+   */
+  compositeComponentTypes?: Record<string, CompositeComponentTypeResponse>;
 }
 
 /**
@@ -3641,6 +4628,13 @@ export interface UpdateComponentTypeRequest {
    * <p>The component type name.</p>
    */
   componentTypeName?: string;
+
+  /**
+   * @public
+   * <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>.
+   *           <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+   */
+  compositeComponentTypes?: Record<string, CompositeComponentTypeRequest>;
 }
 
 /**
@@ -3683,6 +4677,43 @@ export interface PropertyResponse {
    * <p>The value of the property.</p>
    */
   value?: DataValue;
+
+  /**
+   * @public
+   * <p>This flag notes whether all values of a list or map type property are returned in the API response. The maximum number of values per property returned is 50.</p>
+   */
+  areAllPropertyValuesReturned?: boolean;
+}
+
+/**
+ * @public
+ * <p>This is an object that contains the information of a property.</p>
+ */
+export interface PropertySummary {
+  /**
+   * @public
+   * <p>This is the schema for the property.</p>
+   */
+  definition?: PropertyDefinitionResponse;
+
+  /**
+   * @public
+   * <p>This is the name of the property.</p>
+   */
+  propertyName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the value for the property.</p>
+   */
+  value?: DataValue;
+
+  /**
+   * @public
+   * <p>This flag notes whether all values of a list or map type property are returned in the API
+   *           response. The maximum number of values per property returned is 50.</p>
+   */
+  areAllPropertyValuesReturned?: boolean;
 }
 
 /**
@@ -3770,6 +4801,26 @@ export interface ComponentResponse {
    * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
    */
   syncSource?: string;
+
+  /**
+   * @public
+   * <p>This flag notes whether all properties of the component are returned in the API response.
+   *           The maximum number of properties returned is 800.</p>
+   */
+  areAllPropertiesReturned?: boolean;
+
+  /**
+   * @public
+   * <p>This lists objects that contain information about the <code>compositeComponents</code>.</p>
+   */
+  compositeComponents?: Record<string, ComponentSummary>;
+
+  /**
+   * @public
+   * <p>This flag notes whether all <code>compositeComponents</code> are returned in the API
+   *           response.</p>
+   */
+  areAllCompositeComponentsReturned?: boolean;
 }
 
 /**
@@ -3811,50 +4862,74 @@ export interface ComponentUpdateRequest {
 
 /**
  * @public
+ * <p>An object that sets information about the composite component update request.</p>
  */
-export interface CreateEntityRequest {
+export interface CompositeComponentRequest {
   /**
    * @public
-   * <p>The ID of the workspace that contains the entity.</p>
-   */
-  workspaceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the entity.</p>
-   */
-  entityId?: string;
-
-  /**
-   * @public
-   * <p>The name of the entity.</p>
-   */
-  entityName: string | undefined;
-
-  /**
-   * @public
-   * <p>The description of the entity.</p>
+   * <p>The description of the component type.</p>
    */
   description?: string;
 
   /**
    * @public
-   * <p>An object that maps strings to the components in the entity. Each string in the mapping
-   *          must be unique to this object.</p>
+   * <p>This is an object that maps strings to the properties to set in the component type. Each string in
+   *           the mapping must be unique to this object.</p>
    */
-  components?: Record<string, ComponentRequest>;
+  properties?: Record<string, PropertyRequest>;
 
   /**
    * @public
-   * <p>The ID of the entity's parent entity.</p>
+   * <p>The property groups.</p>
    */
-  parentEntityId?: string;
+  propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
+}
+
+/**
+ * @public
+ * <p>An object that sets information about the composite component update request.</p>
+ */
+export interface CompositeComponentUpdateRequest {
+  /**
+   * @public
+   * <p>The update type of the component update request.</p>
+   */
+  updateType?: ComponentUpdateType;
 
   /**
    * @public
-   * <p>Metadata that you can use to manage the entity.</p>
+   * <p>The description of the component type.</p>
    */
-  tags?: Record<string, string>;
+  description?: string;
+
+  /**
+   * @public
+   * <p>An object that maps strings to the properties to set in the component type update. Each string in the mapping must be unique to this object.</p>
+   */
+  propertyUpdates?: Record<string, PropertyRequest>;
+
+  /**
+   * @public
+   * <p>The property group updates.</p>
+   */
+  propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
+}
+
+/**
+ * @public
+ */
+export interface ListPropertiesResponse {
+  /**
+   * @public
+   * <p>A list of objects that contain information about the properties.</p>
+   */
+  propertySummaries: PropertySummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The string that specifies the next page of property results.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -3933,6 +5008,67 @@ export interface GetEntityResponse {
    * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
    */
   syncSource?: string;
+
+  /**
+   * @public
+   * <p>This flag notes whether all components are returned in the API response. The maximum number of components returned is 30.</p>
+   */
+  areAllComponentsReturned?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface CreateEntityRequest {
+  /**
+   * @public
+   * <p>The ID of the workspace that contains the entity.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the entity.</p>
+   */
+  entityId?: string;
+
+  /**
+   * @public
+   * <p>The name of the entity.</p>
+   */
+  entityName: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the entity.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>An object that maps strings to the components in the entity. Each string in the mapping
+   *          must be unique to this object.</p>
+   */
+  components?: Record<string, ComponentRequest>;
+
+  /**
+   * @public
+   * <p>This is an object that maps strings to <code>compositeComponent</code> updates in the request.
+   *           Each key of the map represents the <code>componentPath</code> of the <code>compositeComponent</code>.</p>
+   */
+  compositeComponents?: Record<string, CompositeComponentRequest>;
+
+  /**
+   * @public
+   * <p>The ID of the entity's parent entity.</p>
+   */
+  parentEntityId?: string;
+
+  /**
+   * @public
+   * <p>Metadata that you can use to manage the entity.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -3969,6 +5105,13 @@ export interface UpdateEntityRequest {
    *          mapping must be unique to this object.</p>
    */
   componentUpdates?: Record<string, ComponentUpdateRequest>;
+
+  /**
+   * @public
+   * <p>This is an object that maps strings to <code>compositeComponent</code> updates in the request. Each key
+   *           of the map represents the <code>componentPath</code> of the <code>compositeComponent</code>.</p>
+   */
+  compositeComponentUpdates?: Record<string, CompositeComponentUpdateRequest>;
 
   /**
    * @public

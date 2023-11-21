@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { ListWorkspacesRequest, ListWorkspacesResponse } from "../models/models_0";
-import { de_ListWorkspacesCommand, se_ListWorkspacesCommand } from "../protocols/Aws_restJson1";
+import { ListMetadataTransferJobsRequest, ListMetadataTransferJobsResponse } from "../models/models_0";
+import { de_ListMetadataTransferJobsCommand, se_ListMetadataTransferJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,42 +25,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListWorkspacesCommand}.
+ * The input for {@link ListMetadataTransferJobsCommand}.
  */
-export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
+export interface ListMetadataTransferJobsCommandInput extends ListMetadataTransferJobsRequest {}
 /**
  * @public
  *
- * The output of {@link ListWorkspacesCommand}.
+ * The output of {@link ListMetadataTransferJobsCommand}.
  */
-export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
+export interface ListMetadataTransferJobsCommandOutput extends ListMetadataTransferJobsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves information about workspaces in the current account.</p>
+ * <p>Lists the metadata transfer jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, ListWorkspacesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, ListWorkspacesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, ListMetadataTransferJobsCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
+ * // const { IoTTwinMakerClient, ListMetadataTransferJobsCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = { // ListWorkspacesRequest
- *   maxResults: Number("int"),
+ * const input = { // ListMetadataTransferJobsRequest
+ *   sourceType: "STRING_VALUE", // required
+ *   destinationType: "STRING_VALUE", // required
+ *   filters: [ // ListMetadataTransferJobsFilters
+ *     { // ListMetadataTransferJobsFilter Union: only one key present
+ *       workspaceId: "STRING_VALUE",
+ *       state: "STRING_VALUE",
+ *     },
+ *   ],
  *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new ListWorkspacesCommand(input);
+ * const command = new ListMetadataTransferJobsCommand(input);
  * const response = await client.send(command);
- * // { // ListWorkspacesResponse
- * //   workspaceSummaries: [ // WorkspaceSummaries
- * //     { // WorkspaceSummary
- * //       workspaceId: "STRING_VALUE", // required
+ * // { // ListMetadataTransferJobsResponse
+ * //   metadataTransferJobSummaries: [ // MetadataTransferJobSummaries // required
+ * //     { // MetadataTransferJobSummary
+ * //       metadataTransferJobId: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       linkedServices: [ // LinkedServices
- * //         "STRING_VALUE",
- * //       ],
  * //       creationDateTime: new Date("TIMESTAMP"), // required
  * //       updateDateTime: new Date("TIMESTAMP"), // required
+ * //       status: { // MetadataTransferJobStatus
+ * //         state: "STRING_VALUE",
+ * //         error: { // ErrorDetails
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE",
+ * //         },
+ * //         queuedPosition: Number("int"),
+ * //       },
+ * //       progress: { // MetadataTransferJobProgress
+ * //         totalCount: Number("int"),
+ * //         succeededCount: Number("int"),
+ * //         skippedCount: Number("int"),
+ * //         failedCount: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -68,17 +86,17 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  *
  * ```
  *
- * @param ListWorkspacesCommandInput - {@link ListWorkspacesCommandInput}
- * @returns {@link ListWorkspacesCommandOutput}
- * @see {@link ListWorkspacesCommandInput} for command's `input` shape.
- * @see {@link ListWorkspacesCommandOutput} for command's `response` shape.
+ * @param ListMetadataTransferJobsCommandInput - {@link ListMetadataTransferJobsCommandInput}
+ * @returns {@link ListMetadataTransferJobsCommandOutput}
+ * @see {@link ListMetadataTransferJobsCommandInput} for command's `input` shape.
+ * @see {@link ListMetadataTransferJobsCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error has occurred.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota was exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
@@ -90,9 +108,9 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
-export class ListWorkspacesCommand extends $Command<
-  ListWorkspacesCommandInput,
-  ListWorkspacesCommandOutput,
+export class ListMetadataTransferJobsCommand extends $Command<
+  ListMetadataTransferJobsCommandInput,
+  ListMetadataTransferJobsCommandOutput,
   IoTTwinMakerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -107,7 +125,7 @@ export class ListWorkspacesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListWorkspacesCommandInput) {
+  constructor(readonly input: ListMetadataTransferJobsCommandInput) {
     super();
   }
 
@@ -118,17 +136,17 @@ export class ListWorkspacesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTTwinMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListWorkspacesCommandInput, ListWorkspacesCommandOutput> {
+  ): Handler<ListMetadataTransferJobsCommandInput, ListMetadataTransferJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListWorkspacesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListMetadataTransferJobsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTTwinMakerClient";
-    const commandName = "ListWorkspacesCommand";
+    const commandName = "ListMetadataTransferJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -137,7 +155,7 @@ export class ListWorkspacesCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTTwinMaker",
-        operation: "ListWorkspaces",
+        operation: "ListMetadataTransferJobs",
       },
     };
     const { requestHandler } = configuration;
@@ -151,14 +169,14 @@ export class ListWorkspacesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListWorkspacesCommand(input, context);
+  private serialize(input: ListMetadataTransferJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListMetadataTransferJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkspacesCommandOutput> {
-    return de_ListWorkspacesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetadataTransferJobsCommandOutput> {
+    return de_ListMetadataTransferJobsCommand(output, context);
   }
 }

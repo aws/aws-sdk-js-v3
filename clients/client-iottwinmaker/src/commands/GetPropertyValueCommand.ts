@@ -48,6 +48,7 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetPropertyValueRequest
  *   componentName: "STRING_VALUE",
+ *   componentPath: "STRING_VALUE",
  *   componentTypeId: "STRING_VALUE",
  *   entityId: "STRING_VALUE",
  *   selectedProperties: [ // SelectedPropertyList // required
@@ -114,6 +115,7 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * //     "<keys>": { // PropertyLatestValue
  * //       propertyReference: { // EntityPropertyReference
  * //         componentName: "STRING_VALUE",
+ * //         componentPath: "STRING_VALUE",
  * //         externalIdProperty: { // ExternalIdProperty
  * //           "<keys>": "STRING_VALUE",
  * //         },

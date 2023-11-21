@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { CreateWorkspaceRequest, CreateWorkspaceResponse } from "../models/models_0";
-import { de_CreateWorkspaceCommand, se_CreateWorkspaceCommand } from "../protocols/Aws_restJson1";
+import { CancelMetadataTransferJobRequest, CancelMetadataTransferJobResponse } from "../models/models_0";
+import { de_CancelMetadataTransferJobCommand, se_CancelMetadataTransferJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,47 +25,56 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateWorkspaceCommand}.
+ * The input for {@link CancelMetadataTransferJobCommand}.
  */
-export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
+export interface CancelMetadataTransferJobCommandInput extends CancelMetadataTransferJobRequest {}
 /**
  * @public
  *
- * The output of {@link CreateWorkspaceCommand}.
+ * The output of {@link CancelMetadataTransferJobCommand}.
  */
-export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
+export interface CancelMetadataTransferJobCommandOutput extends CancelMetadataTransferJobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a workplace.</p>
+ * <p>Cancels the metadata transfer job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, CreateWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, CreateWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, CancelMetadataTransferJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
+ * // const { IoTTwinMakerClient, CancelMetadataTransferJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = { // CreateWorkspaceRequest
- *   workspaceId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   s3Location: "STRING_VALUE",
- *   role: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // CancelMetadataTransferJobRequest
+ *   metadataTransferJobId: "STRING_VALUE", // required
  * };
- * const command = new CreateWorkspaceCommand(input);
+ * const command = new CancelMetadataTransferJobCommand(input);
  * const response = await client.send(command);
- * // { // CreateWorkspaceResponse
+ * // { // CancelMetadataTransferJobResponse
+ * //   metadataTransferJobId: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * //   status: { // MetadataTransferJobStatus
+ * //     state: "STRING_VALUE",
+ * //     error: { // ErrorDetails
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     queuedPosition: Number("int"),
+ * //   },
+ * //   progress: { // MetadataTransferJobProgress
+ * //     totalCount: Number("int"),
+ * //     succeededCount: Number("int"),
+ * //     skippedCount: Number("int"),
+ * //     failedCount: Number("int"),
+ * //   },
  * // };
  *
  * ```
  *
- * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
- * @returns {@link CreateWorkspaceCommandOutput}
- * @see {@link CreateWorkspaceCommandInput} for command's `input` shape.
- * @see {@link CreateWorkspaceCommandOutput} for command's `response` shape.
+ * @param CancelMetadataTransferJobCommandInput - {@link CancelMetadataTransferJobCommandInput}
+ * @returns {@link CancelMetadataTransferJobCommandOutput}
+ * @see {@link CancelMetadataTransferJobCommandInput} for command's `input` shape.
+ * @see {@link CancelMetadataTransferJobCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -77,8 +86,8 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error has occurred.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota was exceeded.</p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
@@ -90,9 +99,9 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
-export class CreateWorkspaceCommand extends $Command<
-  CreateWorkspaceCommandInput,
-  CreateWorkspaceCommandOutput,
+export class CancelMetadataTransferJobCommand extends $Command<
+  CancelMetadataTransferJobCommandInput,
+  CancelMetadataTransferJobCommandOutput,
   IoTTwinMakerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -107,7 +116,7 @@ export class CreateWorkspaceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateWorkspaceCommandInput) {
+  constructor(readonly input: CancelMetadataTransferJobCommandInput) {
     super();
   }
 
@@ -118,17 +127,17 @@ export class CreateWorkspaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTTwinMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput> {
+  ): Handler<CancelMetadataTransferJobCommandInput, CancelMetadataTransferJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateWorkspaceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CancelMetadataTransferJobCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTTwinMakerClient";
-    const commandName = "CreateWorkspaceCommand";
+    const commandName = "CancelMetadataTransferJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -137,7 +146,7 @@ export class CreateWorkspaceCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIoTTwinMaker",
-        operation: "CreateWorkspace",
+        operation: "CancelMetadataTransferJob",
       },
     };
     const { requestHandler } = configuration;
@@ -151,14 +160,17 @@ export class CreateWorkspaceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateWorkspaceCommand(input, context);
+  private serialize(input: CancelMetadataTransferJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CancelMetadataTransferJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceCommandOutput> {
-    return de_CreateWorkspaceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CancelMetadataTransferJobCommandOutput> {
+    return de_CancelMetadataTransferJobCommand(output, context);
   }
 }

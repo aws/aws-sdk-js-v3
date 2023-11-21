@@ -146,6 +146,7 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * //             displayName: "STRING_VALUE",
  * //           },
  * //           value: "<DataValue>",
+ * //           areAllPropertyValuesReturned: true || false,
  * //         },
  * //       },
  * //       propertyGroups: { // ComponentPropertyGroupResponses
@@ -158,6 +159,28 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * //         },
  * //       },
  * //       syncSource: "STRING_VALUE",
+ * //       areAllPropertiesReturned: true || false,
+ * //       compositeComponents: { // CompositeComponentResponse
+ * //         "<keys>": { // ComponentSummary
+ * //           componentName: "STRING_VALUE", // required
+ * //           componentTypeId: "STRING_VALUE", // required
+ * //           definedIn: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           propertyGroups: {
+ * //             "<keys>": {
+ * //               groupType: "STRING_VALUE", // required
+ * //               propertyNames: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               isInherited: true || false, // required
+ * //             },
+ * //           },
+ * //           status: "<Status>", // required
+ * //           syncSource: "STRING_VALUE",
+ * //           componentPath: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       areAllCompositeComponentsReturned: true || false,
  * //     },
  * //   },
  * //   parentEntityId: "STRING_VALUE", // required
@@ -165,6 +188,7 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * //   creationDateTime: new Date("TIMESTAMP"), // required
  * //   updateDateTime: new Date("TIMESTAMP"), // required
  * //   syncSource: "STRING_VALUE",
+ * //   areAllComponentsReturned: true || false,
  * // };
  *
  * ```

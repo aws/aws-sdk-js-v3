@@ -134,6 +134,38 @@ export interface CreateEntityCommandOutput extends CreateEntityResponse, __Metad
  *       },
  *     },
  *   },
+ *   compositeComponents: { // CompositeComponentsMapRequest
+ *     "<keys>": { // CompositeComponentRequest
+ *       description: "STRING_VALUE",
+ *       properties: {
+ *         "<keys>": {
+ *           definition: {
+ *             dataType: "<DataType>",
+ *             isRequiredInEntity: true || false,
+ *             isExternalId: true || false,
+ *             isStoredExternally: true || false,
+ *             isTimeSeries: true || false,
+ *             defaultValue: "<DataValue>",
+ *             configuration: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             displayName: "STRING_VALUE",
+ *           },
+ *           value: "<DataValue>",
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *       propertyGroups: {
+ *         "<keys>": {
+ *           groupType: "STRING_VALUE",
+ *           propertyNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
  *   parentEntityId: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
