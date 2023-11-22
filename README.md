@@ -176,39 +176,47 @@ we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/
 ## Working with the SDK in Lambda
 
 ### General Info
-The embedded JS SDK v3 version that is vended by lambda is set to a specific minor version, and NOT the latest version. To check the minor version used by Lambda please refer to [Lambda rutimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
+The Lambda provided AWS SDK is set to a specific minor version, and **NOT** the latest version. To check the minor version used by Lambda please refer to [Lambda runtimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
 If you wish to use the latest / different version of the SDK from the one provided by lambda, we recommend that you [bundle and minify](https://aws.amazon.com/blogs/compute/optimizing-node-js-dependencies-in-aws-lambda/) your project, or [upload it as a Lambda layer](https://aws.amazon.com/blogs/compute/using-lambda-layers-to-simplify-your-development-process/).
 
 The performance of the JS SDK v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
 
 ### Best practices
-When using Lambda we should use a single SDK client per service, per region, and initialize it the global scope (outside of the handler's codepath). This is done to optimize for Lambda's [container reuse](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html).
+When using Lambda we should use a single SDK client per service, per region, and initialize it the outside of the handler's codepath. This is done to optimize for Lambda's [container reuse](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html).
 
 The API calls themselves should be made from within the handler's codepath. 
-This is done to insure that API calls are signed at the very last step of Lambda's execution cycle, after the Lambda is "hot" to avoid signing time skew.
+This is done to ensure that API calls are signed at the very last step of Lambda's execution cycle, after the Lambda is "hot" to avoid signing time skew.
 
 Example:
 ```javascript
-import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts'
+import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
 
-const client = new STSClient({region: "us-west-2"}) // SDK Client initialized in the global scope
+const client = new STSClient({ region: "us-west-2" }); // SDK Client initialized outside the handler
 
 export const handler = async (event) => {
-    const response = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
+  const response = {
+    statusCode: 200, 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const results = await client.send(new GetCallerIdentityCommand({})); // API operation made from within the handler
+    const responseBody = {
+      userId: results.UserId,
     };
 
-    try {
-        const results = await client.send(new GetCallerIdentityCommand({})); // API operation made from within the handler
-        response.statusCode = 200;
-        response.body = JSON.stringify(results.UserId);
-    } catch (err) {
-        response.statusCode = 500;
-        response.body = JSON.stringify("Internal Server Error");
-    }
-    return response;
+    response.body = JSON.stringify(responseBody); 
+  } catch (err) {
+    console.log('Error:', err);
+    response.statusCode = 500;
+    response.body = JSON.stringify({
+      message: "Internal Server Error",
+    });
+  }
+
+  return response;
 };
 ```
 
