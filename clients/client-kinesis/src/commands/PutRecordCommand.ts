@@ -42,8 +42,9 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *             subsequent processing, one record at a time. Each shard can support writes up to 1,000
  *             records per second, up to a maximum data write total of 1 MiB per second.</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>You must specify the name of the stream that captures, stores, and transports the
  *             data; a partition key; and the data blob itself.</p>

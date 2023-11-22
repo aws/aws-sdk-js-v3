@@ -41,8 +41,9 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  *             This API is only supported for the data streams with the provisioned capacity
  *             mode.</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>Updating the shard count is an asynchronous operation. Upon receiving the request,
  *             Kinesis Data Streams returns immediately and sets the status of the stream to
@@ -79,6 +80,9 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  *             </li>
  *             <li>
  *                <p>Scale up to more than the shard limit for your account</p>
+ *             </li>
+ *             <li>
+ *                <p>Make over 10 TPS. TPS over 10 will trigger the LimitExceededException</p>
  *             </li>
  *          </ul>
  *          <p>For the default limits for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams

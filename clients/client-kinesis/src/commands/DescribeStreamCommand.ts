@@ -44,8 +44,9 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *                 shards in a specified data stream and obtain information about each shard. </p>
  *          </note>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>The information returned includes the stream name, Amazon Resource Name (ARN),
  *             creation time, enhanced metric configuration, and shard map. The shard map is an array

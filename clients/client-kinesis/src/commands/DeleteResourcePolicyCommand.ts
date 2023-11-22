@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DeleteStreamInput } from "../models/models_0";
-import { de_DeleteStreamCommand, se_DeleteStreamCommand } from "../protocols/Aws_json1_1";
+import { DeleteResourcePolicyInput } from "../models/models_0";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -25,63 +25,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteStreamCommand}.
+ * The input for {@link DeleteResourcePolicyCommand}.
  */
-export interface DeleteStreamCommandInput extends DeleteStreamInput {}
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyInput {}
 /**
  * @public
  *
- * The output of {@link DeleteStreamCommand}.
+ * The output of {@link DeleteResourcePolicyCommand}.
  */
-export interface DeleteStreamCommandOutput extends __MetadataBearer {}
+export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any
- *             applications that are operating on the stream before you delete the stream. If an
- *             application attempts to operate on a deleted stream, it receives the exception
- *                 <code>ResourceNotFoundException</code>.</p>
- *          <note>
- *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
- *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
- *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
- *          </note>
- *          <p>If the stream is in the <code>ACTIVE</code> state, you can delete it. After a
- *                 <code>DeleteStream</code> request, the specified stream is in the
- *                 <code>DELETING</code> state until Kinesis Data Streams completes the
- *             deletion.</p>
- *          <p>
- *             <b>Note:</b> Kinesis Data Streams might continue to accept
- *             data read and write operations, such as <a>PutRecord</a>, <a>PutRecords</a>, and <a>GetRecords</a>, on a stream in the
- *                 <code>DELETING</code> state until the stream deletion is complete.</p>
- *          <p>When you delete a stream, any shards in that stream are also deleted, and any tags are
- *             dissociated from the stream.</p>
- *          <p>You can use the <a>DescribeStreamSummary</a> operation to check the state
- *             of the stream, which is returned in <code>StreamStatus</code>.</p>
- *          <p>
- *             <a>DeleteStream</a> has a limit of five transactions per second per
- *             account.</p>
+ * <p>Delete a policy for the specified data stream or consumer. Request patterns can be one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Data stream pattern: <code>arn:aws.*:kinesis:.*:\d\{12\}:.*stream/\S+</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Consumer pattern: <code>^(arn):aws.*:kinesis:.*:\d\{12\}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = { // DeleteStreamInput
- *   StreamName: "STRING_VALUE",
- *   EnforceConsumerDeletion: true || false,
- *   StreamARN: "STRING_VALUE",
+ * const input = { // DeleteResourcePolicyInput
+ *   ResourceARN: "STRING_VALUE", // required
  * };
- * const command = new DeleteStreamCommand(input);
+ * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
- * @returns {@link DeleteStreamCommandOutput}
- * @see {@link DeleteStreamCommandInput} for command's `input` shape.
- * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -108,15 +93,15 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
-export class DeleteStreamCommand extends $Command<
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput,
+export class DeleteResourcePolicyCommand extends $Command<
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
   KinesisClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       OperationType: { type: "staticContextParams", value: `control` },
-      StreamARN: { type: "contextParams", name: "StreamARN" },
+      ResourceARN: { type: "contextParams", name: "ResourceARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },
@@ -127,7 +112,7 @@ export class DeleteStreamCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteStreamCommandInput) {
+  constructor(readonly input: DeleteResourcePolicyCommandInput) {
     super();
   }
 
@@ -138,15 +123,17 @@ export class DeleteStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteStreamCommandInput, DeleteStreamCommandOutput> {
+  ): Handler<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteStreamCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteResourcePolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KinesisClient";
-    const commandName = "DeleteStreamCommand";
+    const commandName = "DeleteResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,7 +142,7 @@ export class DeleteStreamCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "Kinesis_20131202",
-        operation: "DeleteStream",
+        operation: "DeleteResourcePolicy",
       },
     };
     const { requestHandler } = configuration;
@@ -169,14 +156,14 @@ export class DeleteStreamCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteStreamCommand(input, context);
+  private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
-    return de_DeleteStreamCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
+    return de_DeleteResourcePolicyCommand(output, context);
   }
 }

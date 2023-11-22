@@ -62,6 +62,10 @@ import {
   DecreaseStreamRetentionPeriodCommandInput,
   DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
 import {
   DeregisterStreamConsumerCommandInput,
@@ -86,6 +90,7 @@ import {
   EnableEnhancedMonitoringCommandOutput,
 } from "./commands/EnableEnhancedMonitoringCommand";
 import { GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "./commands/GetShardIteratorCommand";
 import {
   IncreaseStreamRetentionPeriodCommandInput,
@@ -101,6 +106,7 @@ import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from ".
 import { MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
 import { PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   RegisterStreamConsumerCommandInput,
   RegisterStreamConsumerCommandOutput,
@@ -139,6 +145,7 @@ export type ServiceInputTypes =
   | AddTagsToStreamCommandInput
   | CreateStreamCommandInput
   | DecreaseStreamRetentionPeriodCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteStreamCommandInput
   | DeregisterStreamConsumerCommandInput
   | DescribeLimitsCommandInput
@@ -148,6 +155,7 @@ export type ServiceInputTypes =
   | DisableEnhancedMonitoringCommandInput
   | EnableEnhancedMonitoringCommandInput
   | GetRecordsCommandInput
+  | GetResourcePolicyCommandInput
   | GetShardIteratorCommandInput
   | IncreaseStreamRetentionPeriodCommandInput
   | ListShardsCommandInput
@@ -157,6 +165,7 @@ export type ServiceInputTypes =
   | MergeShardsCommandInput
   | PutRecordCommandInput
   | PutRecordsCommandInput
+  | PutResourcePolicyCommandInput
   | RegisterStreamConsumerCommandInput
   | RemoveTagsFromStreamCommandInput
   | SplitShardCommandInput
@@ -173,6 +182,7 @@ export type ServiceOutputTypes =
   | AddTagsToStreamCommandOutput
   | CreateStreamCommandOutput
   | DecreaseStreamRetentionPeriodCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteStreamCommandOutput
   | DeregisterStreamConsumerCommandOutput
   | DescribeLimitsCommandOutput
@@ -182,6 +192,7 @@ export type ServiceOutputTypes =
   | DisableEnhancedMonitoringCommandOutput
   | EnableEnhancedMonitoringCommandOutput
   | GetRecordsCommandOutput
+  | GetResourcePolicyCommandOutput
   | GetShardIteratorCommandOutput
   | IncreaseStreamRetentionPeriodCommandOutput
   | ListShardsCommandOutput
@@ -191,6 +202,7 @@ export type ServiceOutputTypes =
   | MergeShardsCommandOutput
   | PutRecordCommandOutput
   | PutRecordsCommandOutput
+  | PutResourcePolicyCommandOutput
   | RegisterStreamConsumerCommandOutput
   | RemoveTagsFromStreamCommandOutput
   | SplitShardCommandOutput

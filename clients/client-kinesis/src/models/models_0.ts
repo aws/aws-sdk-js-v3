@@ -359,6 +359,17 @@ export interface DecreaseStreamRetentionPeriodInput {
 
 /**
  * @public
+ */
+export interface DeleteResourcePolicyInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
  * <p>Represents the input for <a>DeleteStream</a>.</p>
  */
 export interface DeleteStreamInput {
@@ -1496,6 +1507,28 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 
 /**
  * @public
+ */
+export interface GetResourcePolicyInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyOutput {
+  /**
+   * @public
+   * <p>Details of the resource policy. This is formatted as a JSON string.</p>
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ShardIteratorType = {
@@ -2410,6 +2443,23 @@ export interface PutRecordsOutput {
    *          </ul>
    */
   EncryptionType?: EncryptionType;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * @public
+   * <p>Details of the resource policy. It must include the identity of the principal and the actions allowed on this resource. This is formatted as a JSON string.</p>
+   */
+  Policy: string | undefined;
 }
 
 /**

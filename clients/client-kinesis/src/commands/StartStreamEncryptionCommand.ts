@@ -39,6 +39,11 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a
  *             specified stream. </p>
+ *          <note>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
+ *          </note>
  *          <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis
  *             Data Streams returns immediately and sets the status of the stream to
  *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
@@ -53,10 +58,6 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  *             before all records written to the stream are encrypted. After you enable encryption, you
  *             can verify that encryption is applied by inspecting the API response from
  *                 <code>PutRecord</code> or <code>PutRecords</code>.</p>
- *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

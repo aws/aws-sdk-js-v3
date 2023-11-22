@@ -45,6 +45,9 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  *             operation to get a list of the descriptions of all the consumers that are currently
  *             registered with a given data stream.</p>
  *          <p>This operation has a limit of 20 transactions per second per stream.</p>
+ *          <note>
+ *             <p>When making a cross-account call with <code>DescribeStreamConsumer</code>, make sure to provide the ARN of the consumer.  </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

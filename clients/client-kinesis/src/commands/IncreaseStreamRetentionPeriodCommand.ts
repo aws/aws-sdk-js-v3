@@ -44,8 +44,9 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *             records are accessible after they are added to the stream. The maximum value of a
  *             stream's retention period is 8760 hours (365 days).</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>If you choose a longer stream retention period, this operation increases the time
  *             period during which records that have not yet expired are accessible. However, it does

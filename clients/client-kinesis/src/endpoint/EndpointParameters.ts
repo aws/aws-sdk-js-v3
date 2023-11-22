@@ -34,4 +34,5 @@ export interface EndpointParameters extends __EndpointParameters {
   StreamARN?: string;
   OperationType?: string;
   ConsumerARN?: string;
+  ResourceARN?: string;
 }

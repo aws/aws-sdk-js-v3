@@ -232,6 +232,14 @@ DecreaseStreamRetentionPeriod
 </details>
 <details>
 <summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/classes/deleteresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/deleteresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/deleteresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteStream
 </summary>
 
@@ -304,6 +312,14 @@ GetRecords
 </details>
 <details>
 <summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/classes/getresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/getresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/getresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetShardIterator
 </summary>
 
@@ -372,6 +388,14 @@ PutRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/classes/putrecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/putrecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/putrecordscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/classes/putresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/putresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/interfaces/putresourcepolicycommandoutput.html)
 
 </details>
 <details>

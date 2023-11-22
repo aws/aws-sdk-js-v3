@@ -43,8 +43,9 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  *             increase in the volume of data records being ingested. This API is only supported for
  *             the data streams with the provisioned capacity mode.</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>You can also use <code>SplitShard</code> when a shard appears to be approaching its
  *             maximum utilization; for example, the producers sending data into the specific shard are

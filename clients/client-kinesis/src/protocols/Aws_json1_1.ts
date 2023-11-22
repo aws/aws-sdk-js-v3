@@ -28,6 +28,10 @@ import {
   DecreaseStreamRetentionPeriodCommandInput,
   DecreaseStreamRetentionPeriodCommandOutput,
 } from "../commands/DecreaseStreamRetentionPeriodCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "../commands/DeleteStreamCommand";
 import {
   DeregisterStreamConsumerCommandInput,
@@ -52,6 +56,7 @@ import {
   EnableEnhancedMonitoringCommandOutput,
 } from "../commands/EnableEnhancedMonitoringCommand";
 import { GetRecordsCommandInput, GetRecordsCommandOutput } from "../commands/GetRecordsCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "../commands/GetShardIteratorCommand";
 import {
   IncreaseStreamRetentionPeriodCommandInput,
@@ -67,6 +72,7 @@ import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from ".
 import { MergeShardsCommandInput, MergeShardsCommandOutput } from "../commands/MergeShardsCommand";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "../commands/PutRecordCommand";
 import { PutRecordsCommandInput, PutRecordsCommandOutput } from "../commands/PutRecordsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   RegisterStreamConsumerCommandInput,
   RegisterStreamConsumerCommandOutput,
@@ -96,6 +102,7 @@ import {
   ConsumerDescription,
   CreateStreamInput,
   DecreaseStreamRetentionPeriodInput,
+  DeleteResourcePolicyInput,
   DeleteStreamInput,
   DeregisterStreamConsumerInput,
   DescribeLimitsInput,
@@ -111,6 +118,7 @@ import {
   ExpiredNextTokenException,
   GetRecordsInput,
   GetRecordsOutput,
+  GetResourcePolicyInput,
   GetShardIteratorInput,
   IncreaseStreamRetentionPeriodInput,
   InternalFailureException,
@@ -134,6 +142,7 @@ import {
   PutRecordInput,
   PutRecordsInput,
   PutRecordsRequestEntry,
+  PutResourcePolicyInput,
   RegisterStreamConsumerInput,
   RegisterStreamConsumerOutput,
   RemoveTagsFromStreamInput,
@@ -190,6 +199,19 @@ export const se_DecreaseStreamRetentionPeriodCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DecreaseStreamRetentionPeriod");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -313,6 +335,19 @@ export const se_GetRecordsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetShardIteratorCommand
  */
 export const se_GetShardIteratorCommand = async (
@@ -426,6 +461,19 @@ export const se_PutRecordsCommand = async (
   const headers: __HeaderBag = sharedHeaders("PutRecords");
   let body: any;
   body = JSON.stringify(se_PutRecordsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -661,6 +709,61 @@ const de_DecreaseStreamRetentionPeriodCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseStreamRetentionPeriodCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteResourcePolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1183,6 +1286,61 @@ const de_GetRecordsCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
       throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommandError
+ */
+const de_GetResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1723,6 +1881,61 @@ const de_PutRecordsCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
       throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutResourcePolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2608,6 +2821,8 @@ const de_InternalFailureExceptionRes = async (
 
 // se_DecreaseStreamRetentionPeriodInput omitted.
 
+// se_DeleteResourcePolicyInput omitted.
+
 // se_DeleteStreamInput omitted.
 
 // se_DeregisterStreamConsumerInput omitted.
@@ -2625,6 +2840,8 @@ const de_InternalFailureExceptionRes = async (
 // se_EnableEnhancedMonitoringInput omitted.
 
 // se_GetRecordsInput omitted.
+
+// se_GetResourcePolicyInput omitted.
 
 /**
  * serializeAws_json1_1GetShardIteratorInput
@@ -2723,6 +2940,8 @@ const se_PutRecordsRequestEntryList = (input: PutRecordsRequestEntry[], context:
       return se_PutRecordsRequestEntry(entry, context);
     });
 };
+
+// se_PutResourcePolicyInput omitted.
 
 // se_RegisterStreamConsumerInput omitted.
 
@@ -2870,6 +3089,8 @@ const de_GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOu
     Records: (_: any) => de_RecordList(_, context),
   }) as any;
 };
+
+// de_GetResourcePolicyOutput omitted.
 
 // de_GetShardIteratorOutput omitted.
 

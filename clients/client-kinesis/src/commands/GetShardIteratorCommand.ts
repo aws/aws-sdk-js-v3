@@ -40,8 +40,9 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is
  *             returned to the requester.</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>A shard iterator specifies the shard position from which to start reading data records
  *             sequentially. The position is specified using the sequence number of a data record in a

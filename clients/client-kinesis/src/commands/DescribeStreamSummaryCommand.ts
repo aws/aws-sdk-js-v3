@@ -40,8 +40,9 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * <p>Provides a summarized description of the specified Kinesis data stream without the
  *             shard list.</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>The information returned includes the stream name, Amazon Resource Name (ARN), status,
  *             record retention period, approximate creation time, monitoring, encryption details, and
