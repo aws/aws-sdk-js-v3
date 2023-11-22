@@ -45,8 +45,8 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             in the <i>Amazon S3 API Reference</i>. </p>
  *          </note>
  *          <p>Creates a replication configuration or replaces an existing one. For information about
- *          S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for S3 on Outposts</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *          S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for
+ *             S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
  *             a replication configuration to all S3 on Outposts systems. Therefore, the replication
@@ -71,9 +71,9 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *          <p>A replication configuration must include at least one rule and can contain a maximum of
- *          100. Each rule identifies a subset of objects to replicate by filtering the objects in
- *          the source Outposts bucket. To choose additional subsets of objects to replicate, add a
- *          rule for each subset.</p>
+ *          100. Each rule identifies a subset of objects to replicate by filtering the objects in the
+ *          source Outposts bucket. To choose additional subsets of objects to replicate, add a rule
+ *          for each subset.</p>
  *          <p>To specify a subset of the objects in the source Outposts bucket to apply a replication
  *          rule to, add the <code>Filter</code> element as a child of the <code>Rule</code> element.
  *          You can filter objects based on an object key prefix, one or more object tags, or both.
@@ -102,9 +102,10 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing access to
  *             S3 on Outposts buckets</a>. </p>
  *          <note>
- *             <p>To perform this operation, the user or role must also have the <code>iam:CreateRole</code> and <code>iam:PassRole</code> permissions.
- *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a user
- *                permissions to pass a role to an Amazon Web Services service</a>.</p>
+ *             <p>To perform this operation, the user or role must also have the
+ *                <code>iam:CreateRole</code> and <code>iam:PassRole</code> permissions. For more
+ *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a user permissions to
+ *                pass a role to an Amazon Web Services service</a>.</p>
  *          </note>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html#API_control_PutBucketReplication_Examples">Examples</a> section.</p>
  *          <p>The following operations are related to <code>PutBucketReplication</code>:</p>

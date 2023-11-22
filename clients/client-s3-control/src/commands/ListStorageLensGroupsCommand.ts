@@ -38,14 +38,12 @@ export interface ListStorageLensGroupsCommandOutput extends ListStorageLensGroup
 
 /**
  * @public
- * <p>
- * Lists all the Storage Lens groups in the specified home Region.
- * </p>
+ * <p> Lists all the Storage Lens groups in the specified home Region. </p>
  *          <p>To use this operation, you must have the permission to perform the
- *       <code>s3:ListStorageLensGroups</code> action. For more information about the required Storage Lens
- *       Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
+ *             <code>s3:ListStorageLensGroups</code> action. For more information about the required
+ *          Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
  *          <p>For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List of Amazon S3 Storage
- *       Lens error codes</a>.</p>
+ *             Lens error codes</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

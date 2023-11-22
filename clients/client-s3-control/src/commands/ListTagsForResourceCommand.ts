@@ -41,9 +41,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p> This operation allows you to list all the Amazon Web Services resource tags for the specified
  *          resource. </p>
  *          <p>To use this operation, you must have the permission to perform the
- *       <code>s3:ListTagsForResource</code> action. For more information about the required Storage Lens
- *       Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
- *          <p>For information about S3 Tagging errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList">List of Amazon S3 Tagging error codes</a>.</p>
+ *             <code>s3:ListTagsForResource</code> action. For more information about the required
+ *          Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
+ *          <p>For information about S3 Tagging errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList">List of Amazon S3
+ *             Tagging error codes</a>.</p>
  *          <note>
  *             <p>This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3 Storage Lens
  *                groups</a>.</p>

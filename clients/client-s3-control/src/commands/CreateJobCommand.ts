@@ -233,6 +233,22 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *         ObjectReplicationStatuses: [ // ReplicationStatusFilterList
  *           "COMPLETED" || "FAILED" || "REPLICA" || "NONE",
  *         ],
+ *         KeyNameConstraint: { // KeyNameConstraint
+ *           MatchAnyPrefix: [ // NonEmptyMaxLength1024StringList
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchAnySuffix: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchAnySubstring: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         ObjectSizeGreaterThanBytes: Number("long"),
+ *         ObjectSizeLessThanBytes: Number("long"),
+ *         MatchAnyStorageClass: [ // StorageClassList
+ *           "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "GLACIER" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *         ],
  *       },
  *       EnableManifestOutput: true || false, // required
  *     },

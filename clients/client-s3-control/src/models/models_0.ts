@@ -294,9 +294,8 @@ export interface BucketLevel {
 export interface StorageLensGroupLevelSelectionCriteria {
   /**
    * @public
-   * <p>
-   * Indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
-   * </p>
+   * <p> Indicates which Storage Lens group ARNs to include in the Storage Lens group
+   *          aggregation. </p>
    */
   Include?: string[];
 
@@ -310,16 +309,14 @@ export interface StorageLensGroupLevelSelectionCriteria {
 
 /**
  * @public
- * <p>
- * Specifies the Storage Lens groups to include in the Storage Lens group aggregation.
- * </p>
+ * <p> Specifies the Storage Lens groups to include in the Storage Lens group aggregation.
+ *       </p>
  */
 export interface StorageLensGroupLevel {
   /**
    * @public
-   * <p>
-   *    Indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
-   * </p>
+   * <p> Indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group
+   *          aggregation. If this value is left null, then all Storage Lens groups are selected. </p>
    */
   SelectionCriteria?: StorageLensGroupLevelSelectionCriteria;
 }
@@ -362,9 +359,7 @@ export interface AccountLevel {
 
   /**
    * @public
-   * <p>
-   * A container element for S3 Storage Lens groups metrics.
-   * </p>
+   * <p> A container element for S3 Storage Lens groups metrics. </p>
    */
   StorageLensGroupLevel?: StorageLensGroupLevel;
 }
@@ -924,8 +919,8 @@ export type ObjectLambdaAccessPointAliasStatus =
 
 /**
  * @public
- * <p>The alias of an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias">How to use a bucket-style alias for your S3 bucket
- *          Object Lambda Access Point</a>.</p>
+ * <p>The alias of an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias">How to use a
+ *             bucket-style alias for your S3 bucket Object Lambda Access Point</a>.</p>
  */
 export interface ObjectLambdaAccessPointAlias {
   /**
@@ -936,8 +931,10 @@ export interface ObjectLambdaAccessPointAlias {
 
   /**
    * @public
-   * <p>The status of the Object Lambda Access Point alias. If the status is <code>PROVISIONING</code>, the Object Lambda Access Point is provisioning the alias and the alias is not ready for use yet. If
-   *          the status is <code>READY</code>, the Object Lambda Access Point alias is successfully provisioned and ready for use.</p>
+   * <p>The status of the Object Lambda Access Point alias. If the status is <code>PROVISIONING</code>, the Object Lambda Access Point
+   *          is provisioning the alias and the alias is not ready for use yet. If the status is
+   *             <code>READY</code>, the Object Lambda Access Point alias is successfully provisioned and ready for
+   *          use.</p>
    */
   Status?: ObjectLambdaAccessPointAliasStatus;
 }
@@ -1294,6 +1291,54 @@ export interface JobManifest {
 
 /**
  * @public
+ * <p>If provided, the generated manifest includes only source bucket objects whose object
+ *          keys match the string constraints specified for <code>MatchAnyPrefix</code>,
+ *             <code>MatchAnySuffix</code>, and <code>MatchAnySubstring</code>.</p>
+ */
+export interface KeyNameConstraint {
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes objects where the specified string appears
+   *          at the start of the object key string.</p>
+   */
+  MatchAnyPrefix?: string[];
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes objects where the specified string appears
+   *          at the end of the object key string.</p>
+   */
+  MatchAnySuffix?: string[];
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes objects where the specified string appears
+   *          anywhere within the object key string.</p>
+   */
+  MatchAnySubstring?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
+
+/**
+ * @public
  * @enum
  */
 export const ReplicationStatus = {
@@ -1322,24 +1367,53 @@ export interface JobManifestGeneratorFilter {
 
   /**
    * @public
-   * <p>If provided, the generated manifest should include only source bucket objects that were
+   * <p>If provided, the generated manifest includes only source bucket objects that were
    *          created after this time.</p>
    */
   CreatedAfter?: Date;
 
   /**
    * @public
-   * <p>If provided, the generated manifest should include only source bucket objects that were
+   * <p>If provided, the generated manifest includes only source bucket objects that were
    *          created before this time.</p>
    */
   CreatedBefore?: Date;
 
   /**
    * @public
-   * <p>If provided, the generated manifest should include only source bucket objects that have
-   *          one of the specified Replication statuses.</p>
+   * <p>If provided, the generated manifest includes only source bucket objects that have one of
+   *          the specified Replication statuses.</p>
    */
   ObjectReplicationStatuses?: ReplicationStatus[];
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects whose object
+   *          keys match the string constraints specified for <code>MatchAnyPrefix</code>,
+   *             <code>MatchAnySuffix</code>, and <code>MatchAnySubstring</code>.</p>
+   */
+  KeyNameConstraint?: KeyNameConstraint;
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects whose file size
+   *          is greater than the specified number of bytes.</p>
+   */
+  ObjectSizeGreaterThanBytes?: number;
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects whose file size
+   *          is less than the specified number of bytes.</p>
+   */
+  ObjectSizeLessThanBytes?: number;
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects that are stored
+   *          with the specified storage class.</p>
+   */
+  MatchAnyStorageClass?: S3StorageClass[];
 }
 
 /**
@@ -1916,25 +1990,6 @@ export type S3ObjectLockMode = (typeof S3ObjectLockMode)[keyof typeof S3ObjectLo
 
 /**
  * @public
- * @enum
- */
-export const S3StorageClass = {
-  DEEP_ARCHIVE: "DEEP_ARCHIVE",
-  GLACIER: "GLACIER",
-  GLACIER_IR: "GLACIER_IR",
-  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
-  ONEZONE_IA: "ONEZONE_IA",
-  STANDARD: "STANDARD",
-  STANDARD_IA: "STANDARD_IA",
-} as const;
-
-/**
- * @public
- */
-export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
-
-/**
- * @public
  * <p>Contains
  *          the configuration parameters for a PUT Copy object operation. S3 Batch Operations passes every
  *          object to the underlying
@@ -2076,7 +2131,8 @@ export interface S3CopyObjectOperation {
    *          that
    *          you want Amazon S3 to use to create the checksum. For more
    *          information,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumAlgorithm?: S3ChecksumAlgorithm;
 }
@@ -2548,96 +2604,84 @@ export interface CreateMultiRegionAccessPointResult {
 
 /**
  * @public
- * <p>
- *    A filter condition that specifies the object age range of included objects in days. Only integers are supported.
- * </p>
+ * <p> A filter condition that specifies the object age range of included objects in days.
+ *          Only integers are supported. </p>
  */
 export interface MatchObjectAge {
   /**
    * @public
-   * <p>
-   * Specifies the maximum object age in days. Must be a positive whole number, greater than the minimum object age and less than or equal to 2,147,483,647.
-   * </p>
+   * <p> Specifies the maximum object age in days. Must be a positive whole number, greater than
+   *          the minimum object age and less than or equal to 2,147,483,647. </p>
    */
   DaysGreaterThan?: number;
 
   /**
    * @public
-   * <p>
-   * Specifies the minimum object age in days. The value must be a positive whole number, greater than 0 and less than or equal to 2,147,483,647.
-   * </p>
+   * <p> Specifies the minimum object age in days. The value must be a positive whole number,
+   *          greater than 0 and less than or equal to 2,147,483,647. </p>
    */
   DaysLessThan?: number;
 }
 
 /**
  * @public
- * <p>
- * A filter condition that specifies the object size range of included objects in bytes. Only integers are supported.
- * </p>
+ * <p> A filter condition that specifies the object size range of included objects in bytes.
+ *          Only integers are supported. </p>
  */
 export interface MatchObjectSize {
   /**
    * @public
-   * <p>
-   * Specifies the minimum object size in Bytes. The value must be a positive number, greater than 0 and less than 5 TB.
-   * </p>
+   * <p> Specifies the minimum object size in Bytes. The value must be a positive number,
+   *          greater than 0 and less than 5 TB. </p>
    */
   BytesGreaterThan?: number;
 
   /**
    * @public
-   * <p>
-   * Specifies the maximum object size in Bytes. The value must be a positive number, greater than the minimum object size and less than 5 TB.
-   * </p>
+   * <p> Specifies the maximum object size in Bytes. The value must be a positive number,
+   *          greater than the minimum object size and less than 5 TB. </p>
    */
   BytesLessThan?: number;
 }
 
 /**
  * @public
- * <p>
- * A logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data.
- * </p>
+ * <p> A logical operator that allows multiple filter conditions to be joined for more complex
+ *          comparisons of Storage Lens group data. </p>
  */
 export interface StorageLensGroupAndOperator {
   /**
    * @public
-   * <p>
-   *    Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
-   * </p>
+   * <p> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
+   *          are allowed. </p>
    */
   MatchAnyPrefix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
-   * </p>
+   * <p> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
+   *          are allowed. </p>
    */
   MatchAnySuffix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-   * </p>
+   * <p> Contains the list of object tags. At least one object tag must be specified. Up to 10
+   *          object tags are allowed. </p>
    */
   MatchAnyTag?: S3Tag[];
 
   /**
    * @public
-   * <p>
-   *    Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the object age range (minimum and maximum number of days).
-   * </p>
+   * <p> Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the
+   *          object age range (minimum and maximum number of days). </p>
    */
   MatchObjectAge?: MatchObjectAge;
 
   /**
    * @public
-   * <p>
-   *    Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the object size range (minimum and maximum number of Bytes).
-   * </p>
+   * <p> Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the
+   *          object size range (minimum and maximum number of Bytes). </p>
    */
   MatchObjectSize?: MatchObjectSize;
 }
@@ -2646,8 +2690,8 @@ export interface StorageLensGroupAndOperator {
  * @public
  * <p>A container element for specifying <code>Or</code> rule conditions. The rule conditions
  *          determine the subset of objects to which the <code>Or</code> rule applies. Objects can
- *          match any of the listed filter conditions, which are joined by the <code>Or</code> logical operator.
- *          Only one of each filter condition is allowed.</p>
+ *          match any of the listed filter conditions, which are joined by the <code>Or</code> logical
+ *          operator. Only one of each filter condition is allowed.</p>
  */
 export interface StorageLensGroupOrOperator {
   /**
@@ -2658,80 +2702,68 @@ export interface StorageLensGroupOrOperator {
 
   /**
    * @public
-   * <p>
-   * Filters objects that match any of the specified suffixes.
-   * </p>
+   * <p> Filters objects that match any of the specified suffixes. </p>
    */
   MatchAnySuffix?: string[];
 
   /**
    * @public
-   * <p>
-   * Filters objects that match any of the specified S3 object tags.
-   * </p>
+   * <p> Filters objects that match any of the specified S3 object tags. </p>
    */
   MatchAnyTag?: S3Tag[];
 
   /**
    * @public
-   * <p>
-   * Filters objects that match the specified object age range.
-   * </p>
+   * <p> Filters objects that match the specified object age range. </p>
    */
   MatchObjectAge?: MatchObjectAge;
 
   /**
    * @public
-   * <p>
-   * Filters objects that match the specified object size range.
-   * </p>
+   * <p> Filters objects that match the specified object size range. </p>
    */
   MatchObjectSize?: MatchObjectSize;
 }
 
 /**
  * @public
- * <p>The filter element sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the <code>AND</code> or <code>OR</code>
- *       logical operator is used.</p>
+ * <p>The filter element sets the criteria for the Storage Lens group data that is displayed.
+ *          For multiple filter conditions, the <code>AND</code> or <code>OR</code> logical operator is
+ *          used.</p>
  */
 export interface StorageLensGroupFilter {
   /**
    * @public
-   * <p>
-   *    Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
-   * </p>
+   * <p> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
+   *          are allowed. </p>
    */
   MatchAnyPrefix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
-   * </p>
+   * <p> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
+   *          are allowed. </p>
    */
   MatchAnySuffix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-   * </p>
+   * <p> Contains the list of S3 object tags. At least one object tag must be specified. Up to
+   *          10 object tags are allowed. </p>
    */
   MatchAnyTag?: S3Tag[];
 
   /**
    * @public
-   * <p>
-   *    Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the object age range (minimum and maximum number of days).
-   * </p>
+   * <p> Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the
+   *          object age range (minimum and maximum number of days). </p>
    */
   MatchObjectAge?: MatchObjectAge;
 
   /**
    * @public
-   * <p>
-   *    Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the object size range (minimum and maximum number of Bytes).
-   * </p>
+   * <p> Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the
+   *          object size range (minimum and maximum number of Bytes). </p>
    */
   MatchObjectSize?: MatchObjectSize;
 
@@ -2739,16 +2771,16 @@ export interface StorageLensGroupFilter {
    * @public
    * <p>A logical operator that allows multiple filter conditions to be joined for more complex
    *          comparisons of Storage Lens group data. Objects must match all of the listed filter
-   *          conditions that are joined by the <code>And</code> logical operator. Only one of each filter condition
-   *          is allowed.</p>
+   *          conditions that are joined by the <code>And</code> logical operator. Only one of each
+   *          filter condition is allowed.</p>
    */
   And?: StorageLensGroupAndOperator;
 
   /**
    * @public
    * <p>A single logical operator that allows multiple filter conditions to be joined. Objects
-   *          can match any of the listed filter conditions, which are joined by the <code>Or</code> logical operator.
-   *          Only one of each filter condition is allowed. </p>
+   *          can match any of the listed filter conditions, which are joined by the <code>Or</code>
+   *          logical operator. Only one of each filter condition is allowed. </p>
    */
   Or?: StorageLensGroupOrOperator;
 }
@@ -2763,51 +2795,47 @@ export interface StorageLensGroupFilter {
 export interface StorageLensGroup {
   /**
    * @public
-   * <p>
-   * Contains the name of the Storage Lens group.
-   * </p>
+   * <p> Contains the name of the Storage Lens group. </p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>Sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the <code>AND</code> or <code>OR</code>
-   *          logical operator is used.</p>
+   * <p>Sets the criteria for the Storage Lens group data that is displayed. For multiple filter
+   *          conditions, the <code>AND</code> or <code>OR</code> logical operator is used.</p>
    */
   Filter: StorageLensGroupFilter | undefined;
 
   /**
    * @public
-   * <p>
-   * Contains the Amazon Resource Name (ARN) of the Storage Lens group. This property is read-only.
-   * </p>
+   * <p> Contains the Amazon Resource Name (ARN) of the Storage Lens group. This property is
+   *          read-only. </p>
    */
   StorageLensGroupArn?: string;
 }
 
 /**
  * @public
- * <p>
- *    An Amazon Web Services resource tag that's associated with your S3 resource. You can add tags to new objects when you upload them, or you can add object tags to existing objects.
- * </p>
+ * <p> An Amazon Web Services resource tag that's associated with your S3 resource. You can add tags to new
+ *          objects when you upload them, or you can add object tags to existing objects. </p>
  *          <note>
- *             <p>This data type is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3 Storage Lens groups</a>.</p>
+ *             <p>This data type is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3 Storage Lens
+ *                groups</a>.</p>
  *          </note>
  */
 export interface Tag {
   /**
    * @public
    * <p> The tag key for your Amazon Web Services resource. A tag key can be up to 128 Unicode characters in
-   *          length and is case-sensitive. System created tags that begin with <code>aws:</code> aren’t supported.
-   *       </p>
+   *          length and is case-sensitive. System created tags that begin with <code>aws:</code> aren’t
+   *          supported. </p>
    */
   Key: string | undefined;
 
   /**
    * @public
-   * <p>
-   *    The tag value for your Amazon Web Services resource. A tag value can be up to 256 Unicode characters in length and is case-sensitive.
-   * </p>
+   * <p> The tag value for your Amazon Web Services resource. A tag value can be up to 256 Unicode characters
+   *          in length and is case-sensitive. </p>
    */
   Value: string | undefined;
 }
@@ -2818,25 +2846,21 @@ export interface Tag {
 export interface CreateStorageLensGroupRequest {
   /**
    * @public
-   * <p>
-   * The Amazon Web Services account ID that the Storage Lens group is created from and associated with.
-   * </p>
+   * <p> The Amazon Web Services account ID that the Storage Lens group is created from and associated with.
+   *       </p>
    */
   AccountId?: string;
 
   /**
    * @public
-   * <p>
-   * The Storage Lens group configuration.
-   * </p>
+   * <p> The Storage Lens group configuration. </p>
    */
   StorageLensGroup: StorageLensGroup | undefined;
 
   /**
    * @public
-   * <p>
-   * The Amazon Web Services resource tags that you're adding to your Storage Lens group. This parameter is optional.
-   * </p>
+   * <p> The Amazon Web Services resource tags that you're adding to your Storage Lens group. This parameter
+   *          is optional. </p>
    */
   Tags?: Tag[];
 }
@@ -3146,17 +3170,14 @@ export interface DeleteStorageLensConfigurationTaggingResult {}
 export interface DeleteStorageLensGroupRequest {
   /**
    * @public
-   * <p>
-   * The name of the Storage Lens group that you're trying to delete.
-   * </p>
+   * <p> The name of the Storage Lens group that you're trying to delete. </p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>
-   * The Amazon Web Services account ID used to create the Storage Lens group that you're trying to delete.
-   * </p>
+   * <p> The Amazon Web Services account ID used to create the Storage Lens group that you're trying to
+   *          delete. </p>
    */
   AccountId?: string;
 }
@@ -4089,8 +4110,8 @@ export interface LifecycleRule {
    * @public
    * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3
    *          waits before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
-   *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in
+   *          the <i>Amazon S3 User Guide</i>.</p>
    */
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 }
@@ -4178,7 +4199,8 @@ export type DeleteMarkerReplicationStatus =
  *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code> element's
  *             <code>Status</code> child element must be set to <code>Disabled</code>, because
  *          S3 on Outposts does not support replicating delete markers for tag-based rules.</p>
- *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the
+ *             <i>Amazon S3 User Guide</i>. </p>
  */
 export interface DeleteMarkerReplication {
   /**
@@ -4387,7 +4409,8 @@ export interface Destination {
    *          are stored in the <code>OUTPOSTS</code> storage class. S3 on Outposts uses the
    *             <code>OUTPOSTS</code> storage class to create the object replicas. </p>
    *          <note>
-   *             <p>Values other than <code>OUTPOSTS</code> are not supported by Amazon S3 on Outposts. </p>
+   *             <p>Values other than <code>OUTPOSTS</code> are not supported by Amazon S3 on Outposts.
+   *          </p>
    *          </note>
    */
   StorageClass?: ReplicationStorageClass;
@@ -4622,7 +4645,8 @@ export type ReplicationRuleStatus = (typeof ReplicationRuleStatus)[keyof typeof 
 
 /**
  * @public
- * <p>Specifies which S3 on Outposts objects to replicate and where to store the replicas.</p>
+ * <p>Specifies which S3 on Outposts objects to replicate and where to store the
+ *          replicas.</p>
  */
 export interface ReplicationRule {
   /**
@@ -4635,11 +4659,11 @@ export interface ReplicationRule {
    * @public
    * <p>The priority indicates which rule has precedence whenever two or more replication rules
    *          conflict. S3 on Outposts attempts to replicate objects according to all replication rules.
-   *          However, if there are two or more rules with the same destination Outposts bucket, then objects will
-   *          be replicated according to the rule with the highest priority. The higher the number, the
-   *          higher the priority. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-between-outposts.html">Creating replication rules on Outposts</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          However, if there are two or more rules with the same destination Outposts bucket, then
+   *          objects will be replicated according to the rule with the highest priority. The higher the
+   *          number, the higher the priority. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-between-outposts.html">Creating replication
+   *             rules on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Priority?: number;
 
@@ -4675,9 +4699,9 @@ export interface ReplicationRule {
 
   /**
    * @public
-   * <p>A container that describes additional filters for identifying the source Outposts objects that
-   *          you want to replicate. You can choose to enable or disable the replication of these
-   *          objects.</p>
+   * <p>A container that describes additional filters for identifying the source Outposts
+   *          objects that you want to replicate. You can choose to enable or disable the replication of
+   *          these objects.</p>
    */
   SourceSelectionCriteria?: SourceSelectionCriteria;
 
@@ -4692,7 +4716,8 @@ export interface ReplicationRule {
 
   /**
    * @public
-   * <p>A container for information about the replication destination and its configurations.</p>
+   * <p>A container for information about the replication destination and its
+   *          configurations.</p>
    */
   Destination: Destination | undefined;
 
@@ -4704,7 +4729,8 @@ export interface ReplicationRule {
    *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code> element's
    *             <code>Status</code> child element must be set to <code>Disabled</code>, because
    *          S3 on Outposts doesn't support replicating delete markers for tag-based rules.</p>
-   *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the <i>Amazon S3 User Guide</i>. </p>
+   *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the
+   *             <i>Amazon S3 User Guide</i>. </p>
    */
   DeleteMarkerReplication?: DeleteMarkerReplication;
 
@@ -4718,8 +4744,9 @@ export interface ReplicationRule {
 
 /**
  * @public
- * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
- *          replication configuration is 128 KB.</p>
+ * <p>A container for one or more replication rules. A replication configuration must have at
+ *          least one rule and you can add up to 100 rules. The maximum size of a replication
+ *          configuration is 128 KB.</p>
  */
 export interface ReplicationConfiguration {
   /**
@@ -4745,8 +4772,9 @@ export interface ReplicationConfiguration {
 export interface GetBucketReplicationResult {
   /**
    * @public
-   * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
-   *          replication configuration is 128 KB.</p>
+   * <p>A container for one or more replication rules. A replication configuration must have at
+   *          least one rule and you can add up to 100 rules. The maximum size of a replication
+   *          configuration is 128 KB.</p>
    */
   ReplicationConfiguration?: ReplicationConfiguration;
 }
@@ -5588,17 +5616,15 @@ export interface GetStorageLensConfigurationTaggingResult {
 export interface GetStorageLensGroupRequest {
   /**
    * @public
-   * <p>
-   * The name of the Storage Lens group that you're trying to retrieve the configuration details for.
-   * </p>
+   * <p> The name of the Storage Lens group that you're trying to retrieve the configuration
+   *          details for. </p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>
-   * The Amazon Web Services account ID associated with the Storage Lens group that you're trying to retrieve the details for.
-   * </p>
+   * <p> The Amazon Web Services account ID associated with the Storage Lens group that you're trying to
+   *          retrieve the details for. </p>
    */
   AccountId?: string;
 }
@@ -5609,9 +5635,8 @@ export interface GetStorageLensGroupRequest {
 export interface GetStorageLensGroupResult {
   /**
    * @public
-   * <p>
-   * The name of the Storage Lens group that you're trying to retrieve the configuration details for.
-   * </p>
+   * <p> The name of the Storage Lens group that you're trying to retrieve the configuration
+   *          details for. </p>
    */
   StorageLensGroup?: StorageLensGroup;
 }
@@ -6129,48 +6154,41 @@ export interface ListStorageLensConfigurationsResult {
 export interface ListStorageLensGroupsRequest {
   /**
    * @public
-   * <p>
-   *    The Amazon Web Services account ID that owns the Storage Lens groups.
-   * </p>
+   * <p> The Amazon Web Services account ID that owns the Storage Lens groups. </p>
    */
   AccountId?: string;
 
   /**
    * @public
-   * <p>The token for the next set of results, or <code>null</code> if there are no more results.
-   *    </p>
+   * <p>The token for the next set of results, or <code>null</code> if there are no more
+   *          results. </p>
    */
   NextToken?: string;
 }
 
 /**
  * @public
- * <p>
- * Each entry contains a Storage Lens group that exists in the specified home Region.
- * </p>
+ * <p> Each entry contains a Storage Lens group that exists in the specified home Region.
+ *       </p>
  */
 export interface ListStorageLensGroupEntry {
   /**
    * @public
-   * <p>
-   * Contains the name of the Storage Lens group that exists in the specified home Region.
-   * </p>
+   * <p> Contains the name of the Storage Lens group that exists in the specified home Region.
+   *       </p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>
-   * Contains the Amazon Resource Name (ARN) of the Storage Lens group. This property is read-only.
-   * </p>
+   * <p> Contains the Amazon Resource Name (ARN) of the Storage Lens group. This property is
+   *          read-only. </p>
    */
   StorageLensGroupArn: string | undefined;
 
   /**
    * @public
-   * <p>
-   * Contains the Amazon Web Services Region where the Storage Lens group was created.
-   * </p>
+   * <p> Contains the Amazon Web Services Region where the Storage Lens group was created. </p>
    */
   HomeRegion: string | undefined;
 }
@@ -6181,20 +6199,16 @@ export interface ListStorageLensGroupEntry {
 export interface ListStorageLensGroupsResult {
   /**
    * @public
-   * <p>
-   *    If <code>NextToken</code> is returned, there are more Storage Lens groups results available. The value of <code>NextToken</code> is a
-   *       unique pagination token for each page. Make the call again using the returned token to
-   *       retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 24 hours.
-   * </p>
+   * <p> If <code>NextToken</code> is returned, there are more Storage Lens groups results
+   *          available. The value of <code>NextToken</code> is a unique pagination token for each page.
+   *          Make the call again using the returned token to retrieve the next page. Keep all other
+   *          arguments unchanged. Each pagination token expires after 24 hours. </p>
    */
   NextToken?: string;
 
   /**
    * @public
-   * <p>
-   * The list of Storage Lens groups that exist in the specified home Region.
-   * </p>
+   * <p> The list of Storage Lens groups that exist in the specified home Region. </p>
    */
   StorageLensGroupList?: ListStorageLensGroupEntry[];
 }
@@ -6205,17 +6219,14 @@ export interface ListStorageLensGroupsResult {
 export interface ListTagsForResourceRequest {
   /**
    * @public
-   * <p>
-   * The Amazon Web Services account ID of the resource owner.
-   * </p>
+   * <p> The Amazon Web Services account ID of the resource owner. </p>
    */
   AccountId?: string;
 
   /**
    * @public
-   * <p>
-   * The Amazon Resource Name (ARN) of the S3 resource that you want to list the tags for.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) of the S3 resource that you want to list the tags for.
+   *       </p>
    */
   ResourceArn: string | undefined;
 }
@@ -6226,9 +6237,7 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResult {
   /**
    * @public
-   * <p>
-   * The Amazon Web Services resource tags that are associated with the resource.
-   * </p>
+   * <p> The Amazon Web Services resource tags that are associated with the resource. </p>
    */
   Tags?: Tag[];
 }
@@ -6705,25 +6714,21 @@ export interface SubmitMultiRegionAccessPointRoutesResult {}
 export interface TagResourceRequest {
   /**
    * @public
-   * <p>
-   * The Amazon Web Services account ID that created the S3 resource that you're trying to add tags to.
-   * </p>
+   * <p> The Amazon Web Services account ID that created the S3 resource that you're trying to add tags to.
+   *       </p>
    */
   AccountId?: string;
 
   /**
    * @public
-   * <p>
-   * The Amazon Resource Name (ARN) of the S3 resource that you're trying to add tags to.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) of the S3 resource that you're trying to add tags to.
+   *       </p>
    */
   ResourceArn: string | undefined;
 
   /**
    * @public
-   * <p>
-   * The Amazon Web Services resource tags that you want to add to the specified S3 resource.
-   * </p>
+   * <p> The Amazon Web Services resource tags that you want to add to the specified S3 resource. </p>
    */
   Tags: Tag[] | undefined;
 }
@@ -6739,25 +6744,21 @@ export interface TagResourceResult {}
 export interface UntagResourceRequest {
   /**
    * @public
-   * <p>
-   * The Amazon Web Services account ID that owns the resource that you're trying to remove the tags from.
-   * </p>
+   * <p> The Amazon Web Services account ID that owns the resource that you're trying to remove the tags from.
+   *       </p>
    */
   AccountId?: string;
 
   /**
    * @public
-   * <p>
-   * The Amazon Resource Name (ARN) of the S3 resource that you want to remove the resource tags from.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) of the S3 resource that you want to remove the resource
+   *          tags from. </p>
    */
   ResourceArn: string | undefined;
 
   /**
    * @public
-   * <p>
-   * The tag key pair of the S3 resource tag that you're trying to remove.
-   * </p>
+   * <p> The tag key pair of the S3 resource tag that you're trying to remove. </p>
    */
   TagKeys: string[] | undefined;
 }
@@ -6902,25 +6903,19 @@ export interface UpdateJobStatusResult {
 export interface UpdateStorageLensGroupRequest {
   /**
    * @public
-   * <p>
-   * The name of the Storage Lens group that you want to update.
-   * </p>
+   * <p> The name of the Storage Lens group that you want to update. </p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>
-   * The Amazon Web Services account ID of the Storage Lens group owner.
-   * </p>
+   * <p> The Amazon Web Services account ID of the Storage Lens group owner. </p>
    */
   AccountId?: string;
 
   /**
    * @public
-   * <p>
-   * The JSON file that contains the Storage Lens group configuration.
-   * </p>
+   * <p> The JSON file that contains the Storage Lens group configuration. </p>
    */
   StorageLensGroup: StorageLensGroup | undefined;
 }

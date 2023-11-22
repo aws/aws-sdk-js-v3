@@ -302,6 +302,7 @@ import {
   JobReport,
   JobStatusException,
   JobTimers,
+  KeyNameConstraint,
   LambdaInvokeOperation,
   LifecycleConfiguration,
   LifecycleExpiration,
@@ -366,6 +367,7 @@ import {
   S3SetObjectLegalHoldOperation,
   S3SetObjectRetentionOperation,
   S3SetObjectTaggingOperation,
+  S3StorageClass,
   S3Tag,
   SelectionCriteria,
   SourceSelectionCriteria,
@@ -7166,6 +7168,30 @@ const se_JobManifestGeneratorFilter = (input: JobManifestGeneratorFilter, contex
     });
     bodyNode.addChildNode(containerNode);
   }
+  if (input.KeyNameConstraint != null) {
+    const node = se_KeyNameConstraint(input.KeyNameConstraint, context).withName("KeyNameConstraint");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeGreaterThanBytes != null) {
+    const node = __XmlNode
+      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThanBytes))
+      .withName("ObjectSizeGreaterThanBytes");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeLessThanBytes != null) {
+    const node = __XmlNode
+      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThanBytes))
+      .withName("ObjectSizeLessThanBytes");
+    bodyNode.addChildNode(node);
+  }
+  if (input.MatchAnyStorageClass != null) {
+    const nodes = se_StorageClassList(input.MatchAnyStorageClass, context);
+    const containerNode = new __XmlNode("MatchAnyStorageClass");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
   return bodyNode;
 };
 
@@ -7281,6 +7307,38 @@ const se_JobReport = (input: JobReport, context: __SerdeContext): any => {
   if (input.ReportScope != null) {
     const node = __XmlNode.of("JobReportScope", input.ReportScope).withName("ReportScope");
     bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlKeyNameConstraint
+ */
+const se_KeyNameConstraint = (input: KeyNameConstraint, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("KeyNameConstraint");
+  if (input.MatchAnyPrefix != null) {
+    const nodes = se_NonEmptyMaxLength1024StringList(input.MatchAnyPrefix, context);
+    const containerNode = new __XmlNode("MatchAnyPrefix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnySuffix != null) {
+    const nodes = se_NonEmptyMaxLength1024StringList(input.MatchAnySuffix, context);
+    const containerNode = new __XmlNode("MatchAnySuffix");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MatchAnySubstring != null) {
+    const nodes = se_NonEmptyMaxLength1024StringList(input.MatchAnySubstring, context);
+    const containerNode = new __XmlNode("MatchAnySubstring");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
   }
   return bodyNode;
 };
@@ -7612,6 +7670,18 @@ const se_NoncurrentVersionTransitionList = (input: NoncurrentVersionTransition[]
     .map((entry) => {
       const node = se_NoncurrentVersionTransition(entry, context);
       return node.withName("NoncurrentVersionTransition");
+    });
+};
+
+/**
+ * serializeAws_restXmlNonEmptyMaxLength1024StringList
+ */
+const se_NonEmptyMaxLength1024StringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("NonEmptyMaxLength1024String", entry);
+      return node.withName("member");
     });
 };
 
@@ -8633,6 +8703,18 @@ const se_SSES3 = (input: SSES3, context: __SerdeContext): any => {
 const se_SSES3Encryption = (input: SSES3Encryption, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("SSE-S3");
   return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlStorageClassList
+ */
+const se_StorageClassList = (input: S3StorageClass[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("S3StorageClass", entry);
+      return node.withName("member");
+    });
 };
 
 /**
@@ -9733,6 +9815,23 @@ const de_JobManifestGeneratorFilter = (output: any, context: __SerdeContext): Jo
       context
     );
   }
+  if (output["KeyNameConstraint"] !== undefined) {
+    contents.KeyNameConstraint = de_KeyNameConstraint(output["KeyNameConstraint"], context);
+  }
+  if (output["ObjectSizeGreaterThanBytes"] !== undefined) {
+    contents.ObjectSizeGreaterThanBytes = __strictParseLong(output["ObjectSizeGreaterThanBytes"]) as number;
+  }
+  if (output["ObjectSizeLessThanBytes"] !== undefined) {
+    contents.ObjectSizeLessThanBytes = __strictParseLong(output["ObjectSizeLessThanBytes"]) as number;
+  }
+  if (output.MatchAnyStorageClass === "") {
+    contents.MatchAnyStorageClass = [];
+  } else if (output["MatchAnyStorageClass"] !== undefined && output["MatchAnyStorageClass"]["member"] !== undefined) {
+    contents.MatchAnyStorageClass = de_StorageClassList(
+      __getArrayIfSingleItem(output["MatchAnyStorageClass"]["member"]),
+      context
+    );
+  }
   return contents;
 };
 
@@ -9854,6 +9953,38 @@ const de_JobTimers = (output: any, context: __SerdeContext): JobTimers => {
   const contents: any = {};
   if (output["ElapsedTimeInActiveSeconds"] !== undefined) {
     contents.ElapsedTimeInActiveSeconds = __strictParseLong(output["ElapsedTimeInActiveSeconds"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlKeyNameConstraint
+ */
+const de_KeyNameConstraint = (output: any, context: __SerdeContext): KeyNameConstraint => {
+  const contents: any = {};
+  if (output.MatchAnyPrefix === "") {
+    contents.MatchAnyPrefix = [];
+  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["member"] !== undefined) {
+    contents.MatchAnyPrefix = de_NonEmptyMaxLength1024StringList(
+      __getArrayIfSingleItem(output["MatchAnyPrefix"]["member"]),
+      context
+    );
+  }
+  if (output.MatchAnySuffix === "") {
+    contents.MatchAnySuffix = [];
+  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["member"] !== undefined) {
+    contents.MatchAnySuffix = de_NonEmptyMaxLength1024StringList(
+      __getArrayIfSingleItem(output["MatchAnySuffix"]["member"]),
+      context
+    );
+  }
+  if (output.MatchAnySubstring === "") {
+    contents.MatchAnySubstring = [];
+  } else if (output["MatchAnySubstring"] !== undefined && output["MatchAnySubstring"]["member"] !== undefined) {
+    contents.MatchAnySubstring = de_NonEmptyMaxLength1024StringList(
+      __getArrayIfSingleItem(output["MatchAnySubstring"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -10264,6 +10395,17 @@ const de_NoncurrentVersionTransitionList = (output: any, context: __SerdeContext
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_NoncurrentVersionTransition(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlNonEmptyMaxLength1024StringList
+ */
+const de_NonEmptyMaxLength1024StringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 
@@ -11277,6 +11419,17 @@ const de_SSES3 = (output: any, context: __SerdeContext): SSES3 => {
 const de_SSES3Encryption = (output: any, context: __SerdeContext): SSES3Encryption => {
   const contents: any = {};
   return contents;
+};
+
+/**
+ * deserializeAws_restXmlStorageClassList
+ */
+const de_StorageClassList = (output: any, context: __SerdeContext): S3StorageClass[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
