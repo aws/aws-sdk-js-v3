@@ -76,6 +76,9 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //         S3Uri: "STRING_VALUE", // required
  * //         S3DataType: "S3Prefix" || "S3Object", // required
  * //         CompressionType: "None" || "Gzip", // required
+ * //         ModelAccessConfig: { // ModelAccessConfig
+ * //           AcceptEula: true || false, // required
+ * //         },
  * //       },
  * //     },
  * //   },
@@ -104,6 +107,9 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //           S3Uri: "STRING_VALUE", // required
  * //           S3DataType: "S3Prefix" || "S3Object", // required
  * //           CompressionType: "None" || "Gzip", // required
+ * //           ModelAccessConfig: {
+ * //             AcceptEula: true || false, // required
+ * //           },
  * //         },
  * //       },
  * //     },

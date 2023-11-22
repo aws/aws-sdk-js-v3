@@ -1782,7 +1782,7 @@ export interface StoppingCondition {
 
   /**
    * @public
-   * <p>The maximum pending time in seconds.</p>
+   * <p>The maximum length of time, in seconds, that a training or compilation job can be pending before it is stopped.</p>
    */
   MaxPendingTimeInSeconds?: number;
 }
@@ -8839,6 +8839,24 @@ export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof Mo
 
 /**
  * @public
+ * <p>The access configuration file for the ML model. You can explicitly accept the model
+ *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. For more
+ *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a>.</p>
+ */
+export interface ModelAccessConfig {
+  /**
+   * @public
+   * <p>Specifies agreement to the model end-user license agreement (EULA). The
+   *          <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in
+   *          order to accept the EULA that this model requires. You are responsible for reviewing and
+   *          complying with any applicable license terms and making sure they are acceptable for your
+   *          use case before downloading or using a model.</p>
+   */
+  AcceptEula: boolean | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const S3ModelDataType = {
@@ -8945,6 +8963,16 @@ export interface S3ModelDataSource {
    *          </ul>
    */
   CompressionType: ModelCompressionType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the access configuration file for the ML model. You can explicitly accept
+   *          the model end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.
+   *          You are responsible for reviewing and complying with any applicable license terms and
+   *          making sure they are acceptable for your use case before downloading or using a
+   *          model.</p>
+   */
+  ModelAccessConfig?: ModelAccessConfig;
 }
 
 /**
@@ -11544,34 +11572,4 @@ export interface MonitoringResources {
    * <p>The configuration for the cluster resources used to run the processing job.</p>
    */
   ClusterConfig: MonitoringClusterConfig | undefined;
-}
-
-/**
- * @public
- * <p>The networking configuration for the monitoring job.</p>
- */
-export interface MonitoringNetworkConfig {
-  /**
-   * @public
-   * <p>Whether to encrypt all communications between the instances used for the monitoring
-   *          jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater
-   *          security for distributed jobs, but the processing might take longer.</p>
-   */
-  EnableInterContainerTrafficEncryption?: boolean;
-
-  /**
-   * @public
-   * <p>Whether to allow inbound and outbound network calls to and from the containers used for
-   *          the monitoring job.</p>
-   */
-  EnableNetworkIsolation?: boolean;
-
-  /**
-   * @public
-   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
-   *             access to and from your training and model containers by configuring the VPC. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
-   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
-   */
-  VpcConfig?: VpcConfig;
 }

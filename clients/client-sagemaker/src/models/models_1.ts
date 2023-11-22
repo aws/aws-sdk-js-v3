@@ -55,7 +55,6 @@ import {
   MetricsSource,
   ModelApprovalStatus,
   MonitoringConstraintsResource,
-  MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStatisticsResource,
@@ -77,6 +76,36 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The networking configuration for the monitoring job.</p>
+ */
+export interface MonitoringNetworkConfig {
+  /**
+   * @public
+   * <p>Whether to encrypt all communications between the instances used for the monitoring
+   *          jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater
+   *          security for distributed jobs, but the processing might take longer.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * @public
+   * <p>Whether to allow inbound and outbound network calls to and from the containers used for
+   *          the monitoring job.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
+   *             access to and from your training and model containers by configuring the VPC. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+}
 
 /**
  * @public
@@ -12040,17 +12069,6 @@ export interface DeleteAssociationResponse {
    * <p>The Amazon Resource Name (ARN) of the destination.</p>
    */
   DestinationArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteCodeRepositoryInput {
-  /**
-   * @public
-   * <p>The name of the Git repository to delete.</p>
-   */
-  CodeRepositoryName: string | undefined;
 }
 
 /**

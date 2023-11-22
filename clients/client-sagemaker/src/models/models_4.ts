@@ -131,12 +131,122 @@ import {
   InferenceExperimentStopDesiredState,
   LineageType,
   Model,
-  ModelCard,
-  ModelCardFilterSensitiveLog,
   MonitoringAlertSummary,
   Parameter,
   ResourceType,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>An Amazon SageMaker Model Card.</p>
+ */
+export interface ModelCard {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the model card.</p>
+   */
+  ModelCardArn?: string;
+
+  /**
+   * @public
+   * <p>The unique name of the model card.</p>
+   */
+  ModelCardName?: string;
+
+  /**
+   * @public
+   * <p>The version of the model card.</p>
+   */
+  ModelCardVersion?: number;
+
+  /**
+   * @public
+   * <p>The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p>
+   */
+  Content?: string;
+
+  /**
+   * @public
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Draft</code>: The model card is a work in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingReview</code>: The model card is pending review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Approved</code>: The model card is approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
+   *                card, but it can still be exported.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelCardStatus?: ModelCardStatus;
+
+  /**
+   * @public
+   * <p>The security configuration used to protect model card data.</p>
+   */
+  SecurityConfig?: ModelCardSecurityConfig;
+
+  /**
+   * @public
+   * <p>The date and time that the model card was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The date and time that the model card was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>Key-value pairs used to manage metadata for the model card.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The unique name (ID) of the model.</p>
+   */
+  ModelId?: string;
+
+  /**
+   * @public
+   * <p>The risk rating of the model. Different organizations might have different criteria for model card risk ratings. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-risk-rating.html">Risk ratings</a>.</p>
+   */
+  RiskRating?: string;
+
+  /**
+   * @public
+   * <p>The model package group that contains the model package. Only relevant for model cards created for model packages in the Amazon SageMaker Model Registry.
+   *       </p>
+   */
+  ModelPackageGroupName?: string;
+}
 
 /**
  * @public
@@ -4845,6 +4955,14 @@ export interface SearchRequest {
    */
   CrossAccountFilterOption?: CrossAccountFilterOption;
 }
+
+/**
+ * @internal
+ */
+export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

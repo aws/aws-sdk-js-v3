@@ -55,7 +55,6 @@ import {
   ModelApprovalStatus,
   ModelDeployConfig,
   ModelPackageStatus,
-  MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   NeoVpcConfig,
@@ -136,6 +135,7 @@ import {
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
+  MonitoringNetworkConfig,
   MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   MonitoringType,
@@ -176,6 +176,17 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteCodeRepositoryInput {
+  /**
+   * @public
+   * <p>The name of the Git repository to delete.</p>
+   */
+  CodeRepositoryName: string | undefined;
+}
 
 /**
  * @public
@@ -2444,8 +2455,7 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>The ARN of the associated Amazon Web Services Single Sign-On application
-   *         for this Domain.</p>
+   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.</p>
    */
   SingleSignOnApplicationArn?: string;
 
@@ -10682,99 +10692,6 @@ export interface EnableSagemakerServicecatalogPortfolioInput {}
  * @public
  */
 export interface EnableSagemakerServicecatalogPortfolioOutput {}
-
-/**
- * @public
- * <p>A schedule for a model monitoring job. For information about model monitor, see
- *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
- *                 Monitor</a>.</p>
- */
-export interface MonitoringSchedule {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   */
-  MonitoringScheduleArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the monitoring schedule.</p>
-   */
-  MonitoringScheduleName?: string;
-
-  /**
-   * @public
-   * <p>The status of the monitoring schedule. This can be one of the following values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - The schedule is pending being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The schedule failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULED</code> - The schedule was successfully created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code> - The schedule was stopped.</p>
-   *             </li>
-   *          </ul>
-   */
-  MonitoringScheduleStatus?: ScheduleStatus;
-
-  /**
-   * @public
-   * <p>The type of the monitoring job definition to schedule.</p>
-   */
-  MonitoringType?: MonitoringType;
-
-  /**
-   * @public
-   * <p>If the monitoring schedule failed, the reason it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The time that the monitoring schedule was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time the monitoring schedule was changed.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Configures the monitoring schedule and defines the monitoring job.</p>
-   */
-  MonitoringScheduleConfig?: MonitoringScheduleConfig;
-
-  /**
-   * @public
-   * <p>The endpoint that hosts the model being monitored.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * @public
-   * <p>Summary of information about the last monitoring job to run.</p>
-   */
-  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
-
-  /**
-   * @public
-   * <p>A list of the tags associated with the monitoring schedlue. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
 
 /**
  * @internal

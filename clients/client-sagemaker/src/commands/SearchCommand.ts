@@ -1763,6 +1763,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 S3Uri: "STRING_VALUE", // required
  * //                 S3DataType: "S3Prefix" || "S3Object", // required
  * //                 CompressionType: "None" || "Gzip", // required
+ * //                 ModelAccessConfig: { // ModelAccessConfig
+ * //                   AcceptEula: true || false, // required
+ * //                 },
  * //               },
  * //             },
  * //           },
@@ -1789,6 +1792,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   S3Uri: "STRING_VALUE", // required
  * //                   S3DataType: "S3Prefix" || "S3Object", // required
  * //                   CompressionType: "None" || "Gzip", // required
+ * //                   ModelAccessConfig: {
+ * //                     AcceptEula: true || false, // required
+ * //                   },
  * //                 },
  * //               },
  * //             },

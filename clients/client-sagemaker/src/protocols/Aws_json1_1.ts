@@ -951,6 +951,7 @@ import {
   MetricDatum,
   MetricDefinition,
   MetricsSource,
+  ModelAccessConfig,
   ModelDataSource,
   ModelDeployConfig,
   ModelInput,
@@ -961,7 +962,6 @@ import {
   MonitoringCsvDatasetFormat,
   MonitoringDatasetFormat,
   MonitoringJsonDatasetFormat,
-  MonitoringNetworkConfig,
   MonitoringOutput,
   MonitoringOutputConfig,
   MonitoringParquetDatasetFormat,
@@ -1121,7 +1121,6 @@ import {
   DeleteArtifactResponse,
   DeleteAssociationRequest,
   DeleteAssociationResponse,
-  DeleteCodeRepositoryInput,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1199,6 +1198,7 @@ import {
   MonitoringGroundTruthS3Input,
   MonitoringInput,
   MonitoringJobDefinition,
+  MonitoringNetworkConfig,
   MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   NetworkConfig,
@@ -1273,6 +1273,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteCodeRepositoryInput,
   DeleteContextRequest,
   DeleteContextResponse,
   DeleteDataQualityJobDefinitionRequest,
@@ -1496,7 +1497,6 @@ import {
   ModelPackageStatusItem,
   ModelVariantConfigSummary,
   MonitoringExecutionSummary,
-  MonitoringSchedule,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OidcConfigForResponse,
@@ -1718,7 +1718,6 @@ import {
   ListWorkteamsRequest,
   ListWorkteamsResponse,
   Model,
-  ModelCard,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -1734,6 +1733,7 @@ import {
   MonitoringAlertHistorySummary,
   MonitoringAlertSummary,
   MonitoringJobDefinitionSummary,
+  MonitoringSchedule,
   MonitoringScheduleSummary,
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
@@ -1767,6 +1767,7 @@ import {
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  ModelCard,
   ModelDashboardEndpoint,
   ModelDashboardModel,
   ModelDashboardModelCard,
@@ -21571,6 +21572,8 @@ const se_ListTrialsRequest = (input: ListTrialsRequest, context: __SerdeContext)
 
 // se_MetricsSource omitted.
 
+// se_ModelAccessConfig omitted.
+
 // se_ModelBiasAppSpecification omitted.
 
 // se_ModelBiasBaselineConfig omitted.
@@ -29880,6 +29883,15 @@ const de_Model = (output: any, context: __SerdeContext): Model => {
 };
 
 /**
+ * deserializeAws_json1_1ModelAccessConfig
+ */
+const de_ModelAccessConfig = (output: any, context: __SerdeContext): ModelAccessConfig => {
+  return take(output, {
+    AcceptEula: __expectBoolean,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ModelArtifacts
  */
 const de_ModelArtifacts = (output: any, context: __SerdeContext): ModelArtifacts => {
@@ -32760,6 +32772,7 @@ const de_S3DataSource = (output: any, context: __SerdeContext): S3DataSource => 
 const de_S3ModelDataSource = (output: any, context: __SerdeContext): S3ModelDataSource => {
   return take(output, {
     CompressionType: __expectString,
+    ModelAccessConfig: (_: any) => de_ModelAccessConfig(_, context),
     S3DataType: __expectString,
     S3Uri: __expectString,
   }) as any;

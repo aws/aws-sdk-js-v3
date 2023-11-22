@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActionSummary,
   AgentVersion,
@@ -53,8 +51,8 @@ import {
   InferenceExperimentSchedule,
   InferenceExperimentType,
   LabelingJobInputConfig,
-  ModelCardSecurityConfig,
   ModelCardStatus,
+  MonitoringScheduleConfig,
   MonitoringType,
   OfflineStoreConfig,
   OnlineStoreConfig,
@@ -102,7 +100,6 @@ import {
   ModelConfiguration,
   ModelPackageGroupStatus,
   MonitoringExecutionSummary,
-  MonitoringSchedule,
   NotebookInstanceStatus,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
@@ -127,6 +124,99 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>A schedule for a model monitoring job. For information about model monitor, see
+ *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
+ *                 Monitor</a>.</p>
+ */
+export interface MonitoringSchedule {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   */
+  MonitoringScheduleArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the monitoring schedule.</p>
+   */
+  MonitoringScheduleName?: string;
+
+  /**
+   * @public
+   * <p>The status of the monitoring schedule. This can be one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The schedule is pending being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The schedule failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SCHEDULED</code> - The schedule was successfully created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code> - The schedule was stopped.</p>
+   *             </li>
+   *          </ul>
+   */
+  MonitoringScheduleStatus?: ScheduleStatus;
+
+  /**
+   * @public
+   * <p>The type of the monitoring job definition to schedule.</p>
+   */
+  MonitoringType?: MonitoringType;
+
+  /**
+   * @public
+   * <p>If the monitoring schedule failed, the reason it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>The time that the monitoring schedule was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time the monitoring schedule was changed.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Configures the monitoring schedule and defines the monitoring job.</p>
+   */
+  MonitoringScheduleConfig?: MonitoringScheduleConfig;
+
+  /**
+   * @public
+   * <p>The endpoint that hosts the model being monitored.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * @public
+   * <p>Summary of information about the last monitoring job to run.</p>
+   */
+  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
+
+  /**
+   * @public
+   * <p>A list of the tags associated with the monitoring schedlue. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -10331,123 +10421,3 @@ export interface Model {
    */
   DeploymentRecommendation?: DeploymentRecommendation;
 }
-
-/**
- * @public
- * <p>An Amazon SageMaker Model Card.</p>
- */
-export interface ModelCard {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the model card.</p>
-   */
-  ModelCardArn?: string;
-
-  /**
-   * @public
-   * <p>The unique name of the model card.</p>
-   */
-  ModelCardName?: string;
-
-  /**
-   * @public
-   * <p>The version of the model card.</p>
-   */
-  ModelCardVersion?: number;
-
-  /**
-   * @public
-   * <p>The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p>
-   */
-  Content?: string;
-
-  /**
-   * @public
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Draft</code>: The model card is a work in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PendingReview</code>: The model card is pending review.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Approved</code>: The model card is approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
-   *                card, but it can still be exported.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelCardStatus?: ModelCardStatus;
-
-  /**
-   * @public
-   * <p>The security configuration used to protect model card data.</p>
-   */
-  SecurityConfig?: ModelCardSecurityConfig;
-
-  /**
-   * @public
-   * <p>The date and time that the model card was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>The date and time that the model card was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>Key-value pairs used to manage metadata for the model card.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>The unique name (ID) of the model.</p>
-   */
-  ModelId?: string;
-
-  /**
-   * @public
-   * <p>The risk rating of the model. Different organizations might have different criteria for model card risk ratings. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-risk-rating.html">Risk ratings</a>.</p>
-   */
-  RiskRating?: string;
-
-  /**
-   * @public
-   * <p>The model package group that contains the model package. Only relevant for model cards created for model packages in the Amazon SageMaker Model Registry.
-   *       </p>
-   */
-  ModelPackageGroupName?: string;
-}
-
-/**
- * @internal
- */
-export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
