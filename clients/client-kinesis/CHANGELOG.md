@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.457.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.456.0...v3.457.0) (2023-11-22)
+
+
+### Features
+
+* **client-kinesis:** This release adds support for resource based policies on streams and consumers. ([f375b15](https://github.com/aws/aws-sdk-js-v3/commit/f375b15b02b207dc0dc3d3158b2db61c619b729b))
+
+
+
+
+
 # [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis

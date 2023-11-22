@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.457.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.456.0...v3.457.0) (2023-11-22)
+
+
+### Features
+
+* **client-kinesis:** This release adds support for resource based policies on streams and consumers. ([f375b15](https://github.com/aws/aws-sdk-js-v3/commit/f375b15b02b207dc0dc3d3158b2db61c619b729b))
+* **client-s3-control:** Amazon S3 Batch Operations now manages buckets or prefixes in a single step. ([2ff1875](https://github.com/aws/aws-sdk-js-v3/commit/2ff187595593f3ab70f3603e9105c3558e12ccc8))
+* **client-sagemaker:** This feature adds the end user license agreement status as a model access configuration parameter. ([c3aa186](https://github.com/aws/aws-sdk-js-v3/commit/c3aa1867b3e91f5275b1a24b4874c3815be905d3))
+* **clients:** update command documentation examples as of 2023-11-22 ([55f938a](https://github.com/aws/aws-sdk-js-v3/commit/55f938ae90c41b1665b929b8ed91ed22d49d4291))
+
+
+
+
+
 # [3.456.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.455.0...v3.456.0) (2023-11-21)
 
 
