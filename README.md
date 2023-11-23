@@ -40,6 +40,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
    1. [Paginators](#paginators)
    1. [Abort Controller](#abort-controller)
    1. [Middleware Stack](#middleware-stack)
+1. [Working with the SDK in Lambda](#working-with-the-sdk-in-lambda)
 1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [Release Cadence](#release-cadence)
@@ -172,7 +173,54 @@ It returns a function that accepts args, an object that contains the parameters 
 If you are looking for a breakdown of the API changes from AWS SDK for JavaScript v2 to v3,
 we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/main/UPGRADING.md).
 
-### Install from Source
+## Working with the SDK in Lambda
+
+### General Info
+The Lambda provided AWS SDK is set to a specific minor version, and **NOT** the latest version. To check the minor version used by Lambda please refer to [Lambda runtimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
+If you wish to use the latest / different version of the SDK from the one provided by lambda, we recommend that you [bundle and minify](https://aws.amazon.com/blogs/compute/optimizing-node-js-dependencies-in-aws-lambda/) your project, or [upload it as a Lambda layer](https://aws.amazon.com/blogs/compute/using-lambda-layers-to-simplify-your-development-process/).
+
+The performance of the AWS SDK for JavaScript v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
+
+### Best practices
+When using Lambda we should use a single SDK client per service, per region, and initialize it the outside of the handler's codepath. This is done to optimize for Lambda's [container reuse](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html).
+
+The API calls themselves should be made from within the handler's codepath. 
+This is done to ensure that API calls are signed at the very last step of Lambda's execution cycle, after the Lambda is "hot" to avoid signing time skew.
+
+Example:
+```javascript
+import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
+
+const client = new STSClient({}); // SDK Client initialized outside the handler
+
+export const handler = async (event) => {
+  const response = {
+    statusCode: 200, 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const results = await client.send(new GetCallerIdentityCommand({})); // API operation made from within the handler
+    const responseBody = {
+      userId: results.UserId,
+    };
+
+    response.body = JSON.stringify(responseBody); 
+  } catch (err) {
+    console.log('Error:', err);
+    response.statusCode = 500;
+    response.body = JSON.stringify({
+      message: "Internal Server Error",
+    });
+  }
+
+  return response;
+};
+```
+
+## Install from Source
 
 All clients have been published to NPM and can be installed as described above. If you want to play with latest clients, you can build from source as follows:
 
@@ -215,14 +263,14 @@ All clients have been published to NPM and can be installed as described above. 
    ```
    yarn add ./path/to/vendors/folder/aws-sdk-client-dynamodb-v3.0.0.tgz
    ```
-
-### Giving feedback and contributing
+   
+## Giving feedback and contributing
 
 You can provide feedback to us in several ways. Both positive and negative feedback is appreciated.
 If you do, please feel free to [open an issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose) on our GitHub repository.
 Our GitHub issues page also includes work we know still needs to be done to reach full feature parity with v2 SDK.
 
-#### Feedback
+### Feedback
 
 **GitHub issues**. Customers who are comfortable giving public feedback can open a GitHub issue in the new repository.
 This is the preferred mechanism to give feedback so that other customers can engage in the conversation, +1 issues, etc.
@@ -232,7 +280,7 @@ Issues you open will be evaluated, and included in our roadmap for the GA launch
 The Gitter channel is also a great place to get help with v3 from other developers. JS SDK team doesn't
 track the discussion daily, so feel free to open a GitHub issue if your question is not answered there.
 
-#### Contributing
+### Contributing
 
 You can open pull requests for fixes or additions to the new AWS SDK for JavaScript v3.
 All pull requests must be submitted under the Apache 2.0 license and will be reviewed by an SDK team member prior to merging.
