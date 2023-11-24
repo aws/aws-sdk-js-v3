@@ -186,25 +186,25 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             writer.write("</summary>");
             writer.write("");
 
-            // sample URL for command
-            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/classes/abortmultipartuploadcommand.html
-
-            String commandNameLowercase = operationShape.getId().getName().toLowerCase();
+            String commandName = operationShape.getId().getName() + "Command";
             String serviceId = settings.getService(model).getTrait(ServiceTrait.class)
                     .orElseThrow(() -> new RuntimeException("Missing Service Trait during README doc generation."))
                     .getSdkId().toLowerCase().replaceAll(" ", "-");
 
-            String commandUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
-                    + serviceId + "/classes/" + commandNameLowercase + "command.html";
+            String apiReferencePrefix = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest";
+            String packageNamePrefix = apiReferencePrefix + "/Package/-aws-sdk-client-" + serviceId;
 
-            // sample URL for command input and outputs
-            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/abortmultipartuploadcommandinput.html
-            String commandInputUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
-                    + serviceId + "/interfaces/" + commandNameLowercase + "commandinput.html";
+            // sample URL for command
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand/
+            String commandUrl = apiReferencePrefix + "/client/" + serviceId + "/command/" + commandName + "/";
 
-            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/abortmultipartuploadcommandoutput.html
-            String commandOutputUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
-                    + serviceId + "/interfaces/" + commandNameLowercase + "commandoutput.html";
+            // sample URL for command input
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/PutObjectCommandInput/
+            String commandInputUrl = packageNamePrefix + "/Interface/" + commandName + "Input/";
+
+            // sample URL for command output
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/PutObjectCommandOutput/
+            String commandOutputUrl = packageNamePrefix + "/Interface/" + commandName + "Output/";
 
             writer.write(
                     "[Command API Reference]($L) / [Input]($L) / [Output]($L)",
