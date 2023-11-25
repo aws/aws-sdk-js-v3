@@ -212,7 +212,7 @@ see LICENSE for more information.
 GetRawMessageContent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/classes/getrawmessagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/getrawmessagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/getrawmessagecontentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmailmessageflow/command/GetRawMessageContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/GetRawMessageContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/GetRawMessageContentCommandOutput/)
 
 </details>
 <details>
@@ -220,6 +220,6 @@ GetRawMessageContent
 PutRawMessageContent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/classes/putrawmessagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/putrawmessagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/putrawmessagecontentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmailmessageflow/command/PutRawMessageContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/PutRawMessageContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/PutRawMessageContentCommandOutput/)
 
 </details>
