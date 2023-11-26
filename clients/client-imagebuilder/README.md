@@ -211,7 +211,7 @@ see LICENSE for more information.
 CancelImageCreation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/cancelimagecreationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/cancelimagecreationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/cancelimagecreationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CancelImageCreationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CancelImageCreationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CancelImageCreationCommandOutput/)
 
 </details>
 <details>
@@ -219,7 +219,7 @@ CancelImageCreation
 CancelLifecycleExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/cancellifecycleexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/cancellifecycleexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/cancellifecycleexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CancelLifecycleExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CancelLifecycleExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CancelLifecycleExecutionCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +227,7 @@ CancelLifecycleExecution
 CreateComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createcomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateComponentCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +235,7 @@ CreateComponent
 CreateContainerRecipe
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createcontainerrecipecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createcontainerrecipecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createcontainerrecipecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateContainerRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateContainerRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateContainerRecipeCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ CreateContainerRecipe
 CreateDistributionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createdistributionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createdistributionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createdistributionconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateDistributionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateDistributionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateDistributionConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ CreateDistributionConfiguration
 CreateImage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createimagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateImageCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ CreateImage
 CreateImagePipeline
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createimagepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createimagepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createimagepipelinecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateImagePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateImagePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateImagePipelineCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +267,7 @@ CreateImagePipeline
 CreateImageRecipe
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createimagerecipecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createimagerecipecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createimagerecipecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateImageRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateImageRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateImageRecipeCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +275,7 @@ CreateImageRecipe
 CreateInfrastructureConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createinfrastructureconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createinfrastructureconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createinfrastructureconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateInfrastructureConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateInfrastructureConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateInfrastructureConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +283,7 @@ CreateInfrastructureConfiguration
 CreateLifecyclePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/createlifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createlifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/createlifecyclepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/CreateLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/CreateLifecyclePolicyCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +291,7 @@ CreateLifecyclePolicy
 DeleteComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deletecomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletecomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletecomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteComponentCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +299,7 @@ DeleteComponent
 DeleteContainerRecipe
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deletecontainerrecipecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletecontainerrecipecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletecontainerrecipecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteContainerRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteContainerRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteContainerRecipeCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +307,7 @@ DeleteContainerRecipe
 DeleteDistributionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deletedistributionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletedistributionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletedistributionconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteDistributionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteDistributionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteDistributionConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +315,7 @@ DeleteDistributionConfiguration
 DeleteImage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deleteimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteimagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteImageCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +323,7 @@ DeleteImage
 DeleteImagePipeline
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deleteimagepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteimagepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteimagepipelinecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteImagePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteImagePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteImagePipelineCommandOutput/)
 
 </details>
 <details>
@@ -331,7 +331,7 @@ DeleteImagePipeline
 DeleteImageRecipe
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deleteimagerecipecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteimagerecipecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteimagerecipecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteImageRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteImageRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteImageRecipeCommandOutput/)
 
 </details>
 <details>
@@ -339,7 +339,7 @@ DeleteImageRecipe
 DeleteInfrastructureConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deleteinfrastructureconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteinfrastructureconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deleteinfrastructureconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteInfrastructureConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteInfrastructureConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteInfrastructureConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -347,7 +347,7 @@ DeleteInfrastructureConfiguration
 DeleteLifecyclePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/deletelifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletelifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/deletelifecyclepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/DeleteLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/DeleteLifecyclePolicyCommandOutput/)
 
 </details>
 <details>
@@ -355,7 +355,7 @@ DeleteLifecyclePolicy
 GetComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetComponentCommandOutput/)
 
 </details>
 <details>
@@ -363,7 +363,7 @@ GetComponent
 GetComponentPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getcomponentpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcomponentpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcomponentpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetComponentPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetComponentPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetComponentPolicyCommandOutput/)
 
 </details>
 <details>
@@ -371,7 +371,7 @@ GetComponentPolicy
 GetContainerRecipe
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getcontainerrecipecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcontainerrecipecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcontainerrecipecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetContainerRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetContainerRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetContainerRecipeCommandOutput/)
 
 </details>
 <details>
@@ -379,7 +379,7 @@ GetContainerRecipe
 GetContainerRecipePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getcontainerrecipepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcontainerrecipepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getcontainerrecipepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetContainerRecipePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetContainerRecipePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetContainerRecipePolicyCommandOutput/)
 
 </details>
 <details>
@@ -387,7 +387,7 @@ GetContainerRecipePolicy
 GetDistributionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getdistributionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getdistributionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getdistributionconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetDistributionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetDistributionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetDistributionConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -395,7 +395,7 @@ GetDistributionConfiguration
 GetImage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImageCommandOutput/)
 
 </details>
 <details>
@@ -403,7 +403,7 @@ GetImage
 GetImagePipeline
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getimagepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagepipelinecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetImagePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImagePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImagePipelineCommandOutput/)
 
 </details>
 <details>
@@ -411,7 +411,7 @@ GetImagePipeline
 GetImagePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getimagepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetImagePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImagePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImagePolicyCommandOutput/)
 
 </details>
 <details>
@@ -419,7 +419,7 @@ GetImagePolicy
 GetImageRecipe
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getimagerecipecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagerecipecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagerecipecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetImageRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImageRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImageRecipeCommandOutput/)
 
 </details>
 <details>
@@ -427,7 +427,7 @@ GetImageRecipe
 GetImageRecipePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getimagerecipepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagerecipepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getimagerecipepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetImageRecipePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImageRecipePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetImageRecipePolicyCommandOutput/)
 
 </details>
 <details>
@@ -435,7 +435,7 @@ GetImageRecipePolicy
 GetInfrastructureConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getinfrastructureconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getinfrastructureconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getinfrastructureconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetInfrastructureConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetInfrastructureConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetInfrastructureConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -443,7 +443,7 @@ GetInfrastructureConfiguration
 GetLifecycleExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getlifecycleexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecycleexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecycleexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetLifecycleExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetLifecycleExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetLifecycleExecutionCommandOutput/)
 
 </details>
 <details>
@@ -451,7 +451,7 @@ GetLifecycleExecution
 GetLifecyclePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getlifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getlifecyclepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetLifecyclePolicyCommandOutput/)
 
 </details>
 <details>
@@ -459,7 +459,7 @@ GetLifecyclePolicy
 GetWorkflowExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getworkflowexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetWorkflowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetWorkflowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetWorkflowExecutionCommandOutput/)
 
 </details>
 <details>
@@ -467,7 +467,7 @@ GetWorkflowExecution
 GetWorkflowStepExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getworkflowstepexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowstepexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowstepexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetWorkflowStepExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetWorkflowStepExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetWorkflowStepExecutionCommandOutput/)
 
 </details>
 <details>
@@ -475,7 +475,7 @@ GetWorkflowStepExecution
 ImportComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/importcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/importcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/importcomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ImportComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportComponentCommandOutput/)
 
 </details>
 <details>
@@ -483,7 +483,7 @@ ImportComponent
 ImportVmImage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/importvmimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/importvmimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/importvmimagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ImportVmImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportVmImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportVmImageCommandOutput/)
 
 </details>
 <details>
@@ -491,7 +491,7 @@ ImportVmImage
 ListComponentBuildVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listcomponentbuildversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listcomponentbuildversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listcomponentbuildversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListComponentBuildVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListComponentBuildVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListComponentBuildVersionsCommandOutput/)
 
 </details>
 <details>
@@ -499,7 +499,7 @@ ListComponentBuildVersions
 ListComponents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listcomponentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listcomponentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listcomponentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListComponentsCommandOutput/)
 
 </details>
 <details>
@@ -507,7 +507,7 @@ ListComponents
 ListContainerRecipes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listcontainerrecipescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listcontainerrecipescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listcontainerrecipescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListContainerRecipesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListContainerRecipesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListContainerRecipesCommandOutput/)
 
 </details>
 <details>
@@ -515,7 +515,7 @@ ListContainerRecipes
 ListDistributionConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listdistributionconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listdistributionconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listdistributionconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListDistributionConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListDistributionConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListDistributionConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -523,7 +523,7 @@ ListDistributionConfigurations
 ListImageBuildVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagebuildversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagebuildversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagebuildversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImageBuildVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageBuildVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageBuildVersionsCommandOutput/)
 
 </details>
 <details>
@@ -531,7 +531,7 @@ ListImageBuildVersions
 ListImagePackages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagepackagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagepackagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagepackagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImagePackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagePackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagePackagesCommandOutput/)
 
 </details>
 <details>
@@ -539,7 +539,7 @@ ListImagePackages
 ListImagePipelineImages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagepipelineimagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagepipelineimagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagepipelineimagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImagePipelineImagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagePipelineImagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagePipelineImagesCommandOutput/)
 
 </details>
 <details>
@@ -547,7 +547,7 @@ ListImagePipelineImages
 ListImagePipelines
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagepipelinescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagepipelinescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagepipelinescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImagePipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagePipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagePipelinesCommandOutput/)
 
 </details>
 <details>
@@ -555,7 +555,7 @@ ListImagePipelines
 ListImageRecipes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagerecipescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagerecipescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagerecipescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImageRecipesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageRecipesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageRecipesCommandOutput/)
 
 </details>
 <details>
@@ -563,7 +563,7 @@ ListImageRecipes
 ListImages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImagesCommandOutput/)
 
 </details>
 <details>
@@ -571,7 +571,7 @@ ListImages
 ListImageScanFindingAggregations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagescanfindingaggregationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingaggregationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingaggregationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImageScanFindingAggregationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageScanFindingAggregationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageScanFindingAggregationsCommandOutput/)
 
 </details>
 <details>
@@ -579,7 +579,7 @@ ListImageScanFindingAggregations
 ListImageScanFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagescanfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListImageScanFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageScanFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListImageScanFindingsCommandOutput/)
 
 </details>
 <details>
@@ -587,7 +587,7 @@ ListImageScanFindings
 ListInfrastructureConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listinfrastructureconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listinfrastructureconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listinfrastructureconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListInfrastructureConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListInfrastructureConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListInfrastructureConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -595,7 +595,7 @@ ListInfrastructureConfigurations
 ListLifecycleExecutionResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listlifecycleexecutionresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListLifecycleExecutionResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListLifecycleExecutionResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListLifecycleExecutionResourcesCommandOutput/)
 
 </details>
 <details>
@@ -603,7 +603,7 @@ ListLifecycleExecutionResources
 ListLifecycleExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listlifecycleexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecycleexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListLifecycleExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListLifecycleExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListLifecycleExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -611,7 +611,7 @@ ListLifecycleExecutions
 ListLifecyclePolicies
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listlifecyclepoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecyclepoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listlifecyclepoliciescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListLifecyclePoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListLifecyclePoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListLifecyclePoliciesCommandOutput/)
 
 </details>
 <details>
@@ -619,7 +619,7 @@ ListLifecyclePolicies
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -627,7 +627,7 @@ ListTagsForResource
 ListWorkflowExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listworkflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListWorkflowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListWorkflowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListWorkflowExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -635,7 +635,7 @@ ListWorkflowExecutions
 ListWorkflowStepExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listworkflowstepexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowstepexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowstepexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ListWorkflowStepExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListWorkflowStepExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ListWorkflowStepExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -643,7 +643,7 @@ ListWorkflowStepExecutions
 PutComponentPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/putcomponentpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putcomponentpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putcomponentpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/PutComponentPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutComponentPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutComponentPolicyCommandOutput/)
 
 </details>
 <details>
@@ -651,7 +651,7 @@ PutComponentPolicy
 PutContainerRecipePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/putcontainerrecipepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putcontainerrecipepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putcontainerrecipepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/PutContainerRecipePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutContainerRecipePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutContainerRecipePolicyCommandOutput/)
 
 </details>
 <details>
@@ -659,7 +659,7 @@ PutContainerRecipePolicy
 PutImagePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/putimagepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putimagepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putimagepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/PutImagePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutImagePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutImagePolicyCommandOutput/)
 
 </details>
 <details>
@@ -667,7 +667,7 @@ PutImagePolicy
 PutImageRecipePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/putimagerecipepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putimagerecipepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/putimagerecipepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/PutImageRecipePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutImageRecipePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/PutImageRecipePolicyCommandOutput/)
 
 </details>
 <details>
@@ -675,7 +675,7 @@ PutImageRecipePolicy
 StartImagePipelineExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/startimagepipelineexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/startimagepipelineexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/startimagepipelineexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/StartImagePipelineExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/StartImagePipelineExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/StartImagePipelineExecutionCommandOutput/)
 
 </details>
 <details>
@@ -683,7 +683,7 @@ StartImagePipelineExecution
 StartResourceStateUpdate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/startresourcestateupdatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/startresourcestateupdatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/startresourcestateupdatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/StartResourceStateUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/StartResourceStateUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/StartResourceStateUpdateCommandOutput/)
 
 </details>
 <details>
@@ -691,7 +691,7 @@ StartResourceStateUpdate
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -699,7 +699,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -707,7 +707,7 @@ UntagResource
 UpdateDistributionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/updatedistributionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updatedistributionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updatedistributionconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/UpdateDistributionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateDistributionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateDistributionConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -715,7 +715,7 @@ UpdateDistributionConfiguration
 UpdateImagePipeline
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/updateimagepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updateimagepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updateimagepipelinecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/UpdateImagePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateImagePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateImagePipelineCommandOutput/)
 
 </details>
 <details>
@@ -723,7 +723,7 @@ UpdateImagePipeline
 UpdateInfrastructureConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/updateinfrastructureconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updateinfrastructureconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updateinfrastructureconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/UpdateInfrastructureConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateInfrastructureConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateInfrastructureConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -731,6 +731,6 @@ UpdateInfrastructureConfiguration
 UpdateLifecyclePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/updatelifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updatelifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/updatelifecyclepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/UpdateLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/UpdateLifecyclePolicyCommandOutput/)
 
 </details>

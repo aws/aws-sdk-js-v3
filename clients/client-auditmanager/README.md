@@ -243,7 +243,7 @@ see LICENSE for more information.
 AssociateAssessmentReportEvidenceFolder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/associateassessmentreportevidencefoldercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/associateassessmentreportevidencefoldercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/associateassessmentreportevidencefoldercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/AssociateAssessmentReportEvidenceFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/AssociateAssessmentReportEvidenceFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/AssociateAssessmentReportEvidenceFolderCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ AssociateAssessmentReportEvidenceFolder
 BatchAssociateAssessmentReportEvidence
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/batchassociateassessmentreportevidencecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchassociateassessmentreportevidencecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchassociateassessmentreportevidencecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/BatchAssociateAssessmentReportEvidenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchAssociateAssessmentReportEvidenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchAssociateAssessmentReportEvidenceCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ BatchAssociateAssessmentReportEvidence
 BatchCreateDelegationByAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/batchcreatedelegationbyassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchcreatedelegationbyassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchcreatedelegationbyassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/BatchCreateDelegationByAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchCreateDelegationByAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchCreateDelegationByAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +267,7 @@ BatchCreateDelegationByAssessment
 BatchDeleteDelegationByAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/batchdeletedelegationbyassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchdeletedelegationbyassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchdeletedelegationbyassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/BatchDeleteDelegationByAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchDeleteDelegationByAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchDeleteDelegationByAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +275,7 @@ BatchDeleteDelegationByAssessment
 BatchDisassociateAssessmentReportEvidence
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/batchdisassociateassessmentreportevidencecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchdisassociateassessmentreportevidencecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchdisassociateassessmentreportevidencecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/BatchDisassociateAssessmentReportEvidenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchDisassociateAssessmentReportEvidenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchDisassociateAssessmentReportEvidenceCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +283,7 @@ BatchDisassociateAssessmentReportEvidence
 BatchImportEvidenceToAssessmentControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/batchimportevidencetoassessmentcontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchimportevidencetoassessmentcontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/batchimportevidencetoassessmentcontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/BatchImportEvidenceToAssessmentControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchImportEvidenceToAssessmentControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/BatchImportEvidenceToAssessmentControlCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +291,7 @@ BatchImportEvidenceToAssessmentControl
 CreateAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/createassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/CreateAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +299,7 @@ CreateAssessment
 CreateAssessmentFramework
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/createassessmentframeworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createassessmentframeworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createassessmentframeworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/CreateAssessmentFrameworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateAssessmentFrameworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateAssessmentFrameworkCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +307,7 @@ CreateAssessmentFramework
 CreateAssessmentReport
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/createassessmentreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createassessmentreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createassessmentreportcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/CreateAssessmentReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateAssessmentReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateAssessmentReportCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +315,7 @@ CreateAssessmentReport
 CreateControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/createcontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createcontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/createcontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/CreateControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/CreateControlCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +323,7 @@ CreateControl
 DeleteAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/deleteassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DeleteAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -331,7 +331,7 @@ DeleteAssessment
 DeleteAssessmentFramework
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/deleteassessmentframeworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentframeworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentframeworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DeleteAssessmentFrameworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentFrameworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentFrameworkCommandOutput/)
 
 </details>
 <details>
@@ -339,7 +339,7 @@ DeleteAssessmentFramework
 DeleteAssessmentFrameworkShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/deleteassessmentframeworksharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentframeworksharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentframeworksharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DeleteAssessmentFrameworkShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentFrameworkShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentFrameworkShareCommandOutput/)
 
 </details>
 <details>
@@ -347,7 +347,7 @@ DeleteAssessmentFrameworkShare
 DeleteAssessmentReport
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/deleteassessmentreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deleteassessmentreportcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DeleteAssessmentReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteAssessmentReportCommandOutput/)
 
 </details>
 <details>
@@ -355,7 +355,7 @@ DeleteAssessmentReport
 DeleteControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/deletecontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deletecontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deletecontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DeleteControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeleteControlCommandOutput/)
 
 </details>
 <details>
@@ -363,7 +363,7 @@ DeleteControl
 DeregisterAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/deregisteraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deregisteraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deregisteraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DeregisterAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeregisterAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeregisterAccountCommandOutput/)
 
 </details>
 <details>
@@ -371,7 +371,7 @@ DeregisterAccount
 DeregisterOrganizationAdminAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/deregisterorganizationadminaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deregisterorganizationadminaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/deregisterorganizationadminaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DeregisterOrganizationAdminAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeregisterOrganizationAdminAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DeregisterOrganizationAdminAccountCommandOutput/)
 
 </details>
 <details>
@@ -379,7 +379,7 @@ DeregisterOrganizationAdminAccount
 DisassociateAssessmentReportEvidenceFolder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/disassociateassessmentreportevidencefoldercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/disassociateassessmentreportevidencefoldercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/disassociateassessmentreportevidencefoldercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/DisassociateAssessmentReportEvidenceFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DisassociateAssessmentReportEvidenceFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/DisassociateAssessmentReportEvidenceFolderCommandOutput/)
 
 </details>
 <details>
@@ -387,7 +387,7 @@ DisassociateAssessmentReportEvidenceFolder
 GetAccountStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getaccountstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getaccountstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getaccountstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetAccountStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAccountStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAccountStatusCommandOutput/)
 
 </details>
 <details>
@@ -395,7 +395,7 @@ GetAccountStatus
 GetAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -403,7 +403,7 @@ GetAssessment
 GetAssessmentFramework
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getassessmentframeworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getassessmentframeworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getassessmentframeworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetAssessmentFrameworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAssessmentFrameworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAssessmentFrameworkCommandOutput/)
 
 </details>
 <details>
@@ -411,7 +411,7 @@ GetAssessmentFramework
 GetAssessmentReportUrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getassessmentreporturlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getassessmentreporturlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getassessmentreporturlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetAssessmentReportUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAssessmentReportUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetAssessmentReportUrlCommandOutput/)
 
 </details>
 <details>
@@ -419,7 +419,7 @@ GetAssessmentReportUrl
 GetChangeLogs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getchangelogscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getchangelogscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getchangelogscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetChangeLogsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetChangeLogsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetChangeLogsCommandOutput/)
 
 </details>
 <details>
@@ -427,7 +427,7 @@ GetChangeLogs
 GetControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getcontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getcontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getcontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetControlCommandOutput/)
 
 </details>
 <details>
@@ -435,7 +435,7 @@ GetControl
 GetDelegations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getdelegationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getdelegationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getdelegationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetDelegationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetDelegationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetDelegationsCommandOutput/)
 
 </details>
 <details>
@@ -443,7 +443,7 @@ GetDelegations
 GetEvidence
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getevidencecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetEvidenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceCommandOutput/)
 
 </details>
 <details>
@@ -451,7 +451,7 @@ GetEvidence
 GetEvidenceByEvidenceFolder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getevidencebyevidencefoldercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencebyevidencefoldercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencebyevidencefoldercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetEvidenceByEvidenceFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceByEvidenceFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceByEvidenceFolderCommandOutput/)
 
 </details>
 <details>
@@ -459,7 +459,7 @@ GetEvidenceByEvidenceFolder
 GetEvidenceFileUploadUrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getevidencefileuploadurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefileuploadurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefileuploadurlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetEvidenceFileUploadUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFileUploadUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFileUploadUrlCommandOutput/)
 
 </details>
 <details>
@@ -467,7 +467,7 @@ GetEvidenceFileUploadUrl
 GetEvidenceFolder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getevidencefoldercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefoldercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefoldercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetEvidenceFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFolderCommandOutput/)
 
 </details>
 <details>
@@ -475,7 +475,7 @@ GetEvidenceFolder
 GetEvidenceFoldersByAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getevidencefoldersbyassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefoldersbyassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefoldersbyassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetEvidenceFoldersByAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFoldersByAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFoldersByAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -483,7 +483,7 @@ GetEvidenceFoldersByAssessment
 GetEvidenceFoldersByAssessmentControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getevidencefoldersbyassessmentcontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefoldersbyassessmentcontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefoldersbyassessmentcontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetEvidenceFoldersByAssessmentControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFoldersByAssessmentControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetEvidenceFoldersByAssessmentControlCommandOutput/)
 
 </details>
 <details>
@@ -491,7 +491,7 @@ GetEvidenceFoldersByAssessmentControl
 GetInsights
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getinsightscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetInsightsCommandOutput/)
 
 </details>
 <details>
@@ -499,7 +499,7 @@ GetInsights
 GetInsightsByAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getinsightsbyassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getinsightsbyassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getinsightsbyassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetInsightsByAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetInsightsByAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetInsightsByAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -507,7 +507,7 @@ GetInsightsByAssessment
 GetOrganizationAdminAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getorganizationadminaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getorganizationadminaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getorganizationadminaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetOrganizationAdminAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetOrganizationAdminAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetOrganizationAdminAccountCommandOutput/)
 
 </details>
 <details>
@@ -515,7 +515,7 @@ GetOrganizationAdminAccount
 GetServicesInScope
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getservicesinscopecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getservicesinscopecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getservicesinscopecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetServicesInScopeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetServicesInScopeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetServicesInScopeCommandOutput/)
 
 </details>
 <details>
@@ -523,7 +523,7 @@ GetServicesInScope
 GetSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/GetSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/GetSettingsCommandOutput/)
 
 </details>
 <details>
@@ -531,7 +531,7 @@ GetSettings
 ListAssessmentControlInsightsByControlDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listassessmentcontrolinsightsbycontroldomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentcontrolinsightsbycontroldomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentcontrolinsightsbycontroldomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListAssessmentControlInsightsByControlDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentControlInsightsByControlDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentControlInsightsByControlDomainCommandOutput/)
 
 </details>
 <details>
@@ -539,7 +539,7 @@ ListAssessmentControlInsightsByControlDomain
 ListAssessmentFrameworks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listassessmentframeworkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentframeworkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentframeworkscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListAssessmentFrameworksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentFrameworksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentFrameworksCommandOutput/)
 
 </details>
 <details>
@@ -547,7 +547,7 @@ ListAssessmentFrameworks
 ListAssessmentFrameworkShareRequests
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listassessmentframeworksharerequestscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentframeworksharerequestscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentframeworksharerequestscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListAssessmentFrameworkShareRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentFrameworkShareRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentFrameworkShareRequestsCommandOutput/)
 
 </details>
 <details>
@@ -555,7 +555,7 @@ ListAssessmentFrameworkShareRequests
 ListAssessmentReports
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listassessmentreportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentreportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentreportscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListAssessmentReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentReportsCommandOutput/)
 
 </details>
 <details>
@@ -563,7 +563,7 @@ ListAssessmentReports
 ListAssessments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listassessmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listassessmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListAssessmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListAssessmentsCommandOutput/)
 
 </details>
 <details>
@@ -571,7 +571,7 @@ ListAssessments
 ListControlDomainInsights
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listcontroldomaininsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontroldomaininsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontroldomaininsightscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListControlDomainInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlDomainInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlDomainInsightsCommandOutput/)
 
 </details>
 <details>
@@ -579,7 +579,7 @@ ListControlDomainInsights
 ListControlDomainInsightsByAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listcontroldomaininsightsbyassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontroldomaininsightsbyassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontroldomaininsightsbyassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListControlDomainInsightsByAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlDomainInsightsByAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlDomainInsightsByAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -587,7 +587,7 @@ ListControlDomainInsightsByAssessment
 ListControlInsightsByControlDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listcontrolinsightsbycontroldomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontrolinsightsbycontroldomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontrolinsightsbycontroldomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListControlInsightsByControlDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlInsightsByControlDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlInsightsByControlDomainCommandOutput/)
 
 </details>
 <details>
@@ -595,7 +595,7 @@ ListControlInsightsByControlDomain
 ListControls
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listcontrolscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontrolscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listcontrolscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListControlsCommandOutput/)
 
 </details>
 <details>
@@ -603,7 +603,7 @@ ListControls
 ListKeywordsForDataSource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listkeywordsfordatasourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listkeywordsfordatasourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listkeywordsfordatasourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListKeywordsForDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListKeywordsForDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListKeywordsForDataSourceCommandOutput/)
 
 </details>
 <details>
@@ -611,7 +611,7 @@ ListKeywordsForDataSource
 ListNotifications
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listnotificationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listnotificationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listnotificationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListNotificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListNotificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListNotificationsCommandOutput/)
 
 </details>
 <details>
@@ -619,7 +619,7 @@ ListNotifications
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -627,7 +627,7 @@ ListTagsForResource
 RegisterAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/registeraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/registeraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/registeraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/RegisterAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/RegisterAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/RegisterAccountCommandOutput/)
 
 </details>
 <details>
@@ -635,7 +635,7 @@ RegisterAccount
 RegisterOrganizationAdminAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/registerorganizationadminaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/registerorganizationadminaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/registerorganizationadminaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/RegisterOrganizationAdminAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/RegisterOrganizationAdminAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/RegisterOrganizationAdminAccountCommandOutput/)
 
 </details>
 <details>
@@ -643,7 +643,7 @@ RegisterOrganizationAdminAccount
 StartAssessmentFrameworkShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/startassessmentframeworksharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/startassessmentframeworksharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/startassessmentframeworksharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/StartAssessmentFrameworkShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/StartAssessmentFrameworkShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/StartAssessmentFrameworkShareCommandOutput/)
 
 </details>
 <details>
@@ -651,7 +651,7 @@ StartAssessmentFrameworkShare
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -659,7 +659,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -667,7 +667,7 @@ UntagResource
 UpdateAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updateassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -675,7 +675,7 @@ UpdateAssessment
 UpdateAssessmentControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updateassessmentcontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentcontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentcontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateAssessmentControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentControlCommandOutput/)
 
 </details>
 <details>
@@ -683,7 +683,7 @@ UpdateAssessmentControl
 UpdateAssessmentControlSetStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updateassessmentcontrolsetstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentcontrolsetstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentcontrolsetstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateAssessmentControlSetStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentControlSetStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentControlSetStatusCommandOutput/)
 
 </details>
 <details>
@@ -691,7 +691,7 @@ UpdateAssessmentControlSetStatus
 UpdateAssessmentFramework
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updateassessmentframeworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentframeworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentframeworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateAssessmentFrameworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentFrameworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentFrameworkCommandOutput/)
 
 </details>
 <details>
@@ -699,7 +699,7 @@ UpdateAssessmentFramework
 UpdateAssessmentFrameworkShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updateassessmentframeworksharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentframeworksharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentframeworksharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateAssessmentFrameworkShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentFrameworkShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentFrameworkShareCommandOutput/)
 
 </details>
 <details>
@@ -707,7 +707,7 @@ UpdateAssessmentFrameworkShare
 UpdateAssessmentStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updateassessmentstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updateassessmentstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateAssessmentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateAssessmentStatusCommandOutput/)
 
 </details>
 <details>
@@ -715,7 +715,7 @@ UpdateAssessmentStatus
 UpdateControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updatecontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updatecontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updatecontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateControlCommandOutput/)
 
 </details>
 <details>
@@ -723,7 +723,7 @@ UpdateControl
 UpdateSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/updatesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updatesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/updatesettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/UpdateSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/UpdateSettingsCommandOutput/)
 
 </details>
 <details>
@@ -731,6 +731,6 @@ UpdateSettings
 ValidateAssessmentReportIntegrity
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/validateassessmentreportintegritycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/validateassessmentreportintegritycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/validateassessmentreportintegritycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auditmanager/command/ValidateAssessmentReportIntegrityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ValidateAssessmentReportIntegrityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auditmanager/Interface/ValidateAssessmentReportIntegrityCommandOutput/)
 
 </details>

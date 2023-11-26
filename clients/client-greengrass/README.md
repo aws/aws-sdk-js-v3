@@ -208,7 +208,7 @@ see LICENSE for more information.
 AssociateRoleToGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/associateroletogroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/associateroletogroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/associateroletogroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/AssociateRoleToGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/AssociateRoleToGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/AssociateRoleToGroupCommandOutput/)
 
 </details>
 <details>
@@ -216,7 +216,7 @@ AssociateRoleToGroup
 AssociateServiceRoleToAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/associateserviceroletoaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/associateserviceroletoaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/associateserviceroletoaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/AssociateServiceRoleToAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/AssociateServiceRoleToAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/AssociateServiceRoleToAccountCommandOutput/)
 
 </details>
 <details>
@@ -224,7 +224,7 @@ AssociateServiceRoleToAccount
 CreateConnectorDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createconnectordefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createconnectordefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createconnectordefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateConnectorDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateConnectorDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateConnectorDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +232,7 @@ CreateConnectorDefinition
 CreateConnectorDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createconnectordefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createconnectordefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createconnectordefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateConnectorDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateConnectorDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateConnectorDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +240,7 @@ CreateConnectorDefinitionVersion
 CreateCoreDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createcoredefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createcoredefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createcoredefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateCoreDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateCoreDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateCoreDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +248,7 @@ CreateCoreDefinition
 CreateCoreDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createcoredefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createcoredefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createcoredefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateCoreDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateCoreDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateCoreDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -256,7 +256,7 @@ CreateCoreDefinitionVersion
 CreateDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -264,7 +264,7 @@ CreateDeployment
 CreateDeviceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createdevicedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createdevicedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createdevicedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateDeviceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateDeviceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateDeviceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -272,7 +272,7 @@ CreateDeviceDefinition
 CreateDeviceDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createdevicedefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createdevicedefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createdevicedefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateDeviceDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateDeviceDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateDeviceDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -280,7 +280,7 @@ CreateDeviceDefinitionVersion
 CreateFunctionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createfunctiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createfunctiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createfunctiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateFunctionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateFunctionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateFunctionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -288,7 +288,7 @@ CreateFunctionDefinition
 CreateFunctionDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createfunctiondefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createfunctiondefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createfunctiondefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateFunctionDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateFunctionDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateFunctionDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -296,7 +296,7 @@ CreateFunctionDefinitionVersion
 CreateGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/creategroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/creategroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/creategroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateGroupCommandOutput/)
 
 </details>
 <details>
@@ -304,7 +304,7 @@ CreateGroup
 CreateGroupCertificateAuthority
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/creategroupcertificateauthoritycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/creategroupcertificateauthoritycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/creategroupcertificateauthoritycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateGroupCertificateAuthorityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateGroupCertificateAuthorityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateGroupCertificateAuthorityCommandOutput/)
 
 </details>
 <details>
@@ -312,7 +312,7 @@ CreateGroupCertificateAuthority
 CreateGroupVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/creategroupversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/creategroupversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/creategroupversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateGroupVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateGroupVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateGroupVersionCommandOutput/)
 
 </details>
 <details>
@@ -320,7 +320,7 @@ CreateGroupVersion
 CreateLoggerDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createloggerdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createloggerdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createloggerdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateLoggerDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateLoggerDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateLoggerDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -328,7 +328,7 @@ CreateLoggerDefinition
 CreateLoggerDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createloggerdefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createloggerdefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createloggerdefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateLoggerDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateLoggerDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateLoggerDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -336,7 +336,7 @@ CreateLoggerDefinitionVersion
 CreateResourceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createresourcedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createresourcedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createresourcedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateResourceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateResourceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateResourceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -344,7 +344,7 @@ CreateResourceDefinition
 CreateResourceDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createresourcedefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createresourcedefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createresourcedefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateResourceDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateResourceDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateResourceDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -352,7 +352,7 @@ CreateResourceDefinitionVersion
 CreateSoftwareUpdateJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createsoftwareupdatejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createsoftwareupdatejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createsoftwareupdatejobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateSoftwareUpdateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateSoftwareUpdateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateSoftwareUpdateJobCommandOutput/)
 
 </details>
 <details>
@@ -360,7 +360,7 @@ CreateSoftwareUpdateJob
 CreateSubscriptionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createsubscriptiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createsubscriptiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createsubscriptiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateSubscriptionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateSubscriptionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateSubscriptionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -368,7 +368,7 @@ CreateSubscriptionDefinition
 CreateSubscriptionDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/createsubscriptiondefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createsubscriptiondefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/createsubscriptiondefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/CreateSubscriptionDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateSubscriptionDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/CreateSubscriptionDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -376,7 +376,7 @@ CreateSubscriptionDefinitionVersion
 DeleteConnectorDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deleteconnectordefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deleteconnectordefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deleteconnectordefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteConnectorDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteConnectorDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteConnectorDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -384,7 +384,7 @@ DeleteConnectorDefinition
 DeleteCoreDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deletecoredefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletecoredefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletecoredefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteCoreDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteCoreDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteCoreDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -392,7 +392,7 @@ DeleteCoreDefinition
 DeleteDeviceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deletedevicedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletedevicedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletedevicedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteDeviceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteDeviceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteDeviceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -400,7 +400,7 @@ DeleteDeviceDefinition
 DeleteFunctionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deletefunctiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletefunctiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletefunctiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteFunctionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteFunctionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteFunctionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -408,7 +408,7 @@ DeleteFunctionDefinition
 DeleteGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deletegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteGroupCommandOutput/)
 
 </details>
 <details>
@@ -416,7 +416,7 @@ DeleteGroup
 DeleteLoggerDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deleteloggerdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deleteloggerdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deleteloggerdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteLoggerDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteLoggerDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteLoggerDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -424,7 +424,7 @@ DeleteLoggerDefinition
 DeleteResourceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deleteresourcedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deleteresourcedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deleteresourcedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteResourceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteResourceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteResourceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -432,7 +432,7 @@ DeleteResourceDefinition
 DeleteSubscriptionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/deletesubscriptiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletesubscriptiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/deletesubscriptiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DeleteSubscriptionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteSubscriptionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DeleteSubscriptionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -440,7 +440,7 @@ DeleteSubscriptionDefinition
 DisassociateRoleFromGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/disassociaterolefromgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/disassociaterolefromgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/disassociaterolefromgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DisassociateRoleFromGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DisassociateRoleFromGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DisassociateRoleFromGroupCommandOutput/)
 
 </details>
 <details>
@@ -448,7 +448,7 @@ DisassociateRoleFromGroup
 DisassociateServiceRoleFromAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/disassociateservicerolefromaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/disassociateservicerolefromaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/disassociateservicerolefromaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/DisassociateServiceRoleFromAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DisassociateServiceRoleFromAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/DisassociateServiceRoleFromAccountCommandOutput/)
 
 </details>
 <details>
@@ -456,7 +456,7 @@ DisassociateServiceRoleFromAccount
 GetAssociatedRole
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getassociatedrolecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getassociatedrolecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getassociatedrolecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetAssociatedRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetAssociatedRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetAssociatedRoleCommandOutput/)
 
 </details>
 <details>
@@ -464,7 +464,7 @@ GetAssociatedRole
 GetBulkDeploymentStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getbulkdeploymentstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getbulkdeploymentstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getbulkdeploymentstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetBulkDeploymentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetBulkDeploymentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetBulkDeploymentStatusCommandOutput/)
 
 </details>
 <details>
@@ -472,7 +472,7 @@ GetBulkDeploymentStatus
 GetConnectivityInfo
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getconnectivityinfocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getconnectivityinfocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getconnectivityinfocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetConnectivityInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetConnectivityInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetConnectivityInfoCommandOutput/)
 
 </details>
 <details>
@@ -480,7 +480,7 @@ GetConnectivityInfo
 GetConnectorDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getconnectordefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getconnectordefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getconnectordefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetConnectorDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetConnectorDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetConnectorDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -488,7 +488,7 @@ GetConnectorDefinition
 GetConnectorDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getconnectordefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getconnectordefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getconnectordefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetConnectorDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetConnectorDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetConnectorDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -496,7 +496,7 @@ GetConnectorDefinitionVersion
 GetCoreDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getcoredefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getcoredefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getcoredefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetCoreDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetCoreDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetCoreDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -504,7 +504,7 @@ GetCoreDefinition
 GetCoreDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getcoredefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getcoredefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getcoredefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetCoreDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetCoreDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetCoreDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -512,7 +512,7 @@ GetCoreDefinitionVersion
 GetDeploymentStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getdeploymentstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getdeploymentstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getdeploymentstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetDeploymentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetDeploymentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetDeploymentStatusCommandOutput/)
 
 </details>
 <details>
@@ -520,7 +520,7 @@ GetDeploymentStatus
 GetDeviceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getdevicedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getdevicedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getdevicedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetDeviceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetDeviceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetDeviceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -528,7 +528,7 @@ GetDeviceDefinition
 GetDeviceDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getdevicedefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getdevicedefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getdevicedefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetDeviceDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetDeviceDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetDeviceDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -536,7 +536,7 @@ GetDeviceDefinitionVersion
 GetFunctionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getfunctiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getfunctiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getfunctiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetFunctionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetFunctionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetFunctionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -544,7 +544,7 @@ GetFunctionDefinition
 GetFunctionDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getfunctiondefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getfunctiondefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getfunctiondefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetFunctionDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetFunctionDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetFunctionDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -552,7 +552,7 @@ GetFunctionDefinitionVersion
 GetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupCommandOutput/)
 
 </details>
 <details>
@@ -560,7 +560,7 @@ GetGroup
 GetGroupCertificateAuthority
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getgroupcertificateauthoritycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupcertificateauthoritycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupcertificateauthoritycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetGroupCertificateAuthorityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupCertificateAuthorityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupCertificateAuthorityCommandOutput/)
 
 </details>
 <details>
@@ -568,7 +568,7 @@ GetGroupCertificateAuthority
 GetGroupCertificateConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getgroupcertificateconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupcertificateconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupcertificateconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetGroupCertificateConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupCertificateConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupCertificateConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -576,7 +576,7 @@ GetGroupCertificateConfiguration
 GetGroupVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getgroupversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getgroupversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetGroupVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetGroupVersionCommandOutput/)
 
 </details>
 <details>
@@ -584,7 +584,7 @@ GetGroupVersion
 GetLoggerDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getloggerdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getloggerdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getloggerdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetLoggerDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetLoggerDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetLoggerDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -592,7 +592,7 @@ GetLoggerDefinition
 GetLoggerDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getloggerdefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getloggerdefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getloggerdefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetLoggerDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetLoggerDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetLoggerDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -600,7 +600,7 @@ GetLoggerDefinitionVersion
 GetResourceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getresourcedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getresourcedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getresourcedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetResourceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetResourceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetResourceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -608,7 +608,7 @@ GetResourceDefinition
 GetResourceDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getresourcedefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getresourcedefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getresourcedefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetResourceDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetResourceDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetResourceDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -616,7 +616,7 @@ GetResourceDefinitionVersion
 GetServiceRoleForAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getserviceroleforaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getserviceroleforaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getserviceroleforaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetServiceRoleForAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetServiceRoleForAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetServiceRoleForAccountCommandOutput/)
 
 </details>
 <details>
@@ -624,7 +624,7 @@ GetServiceRoleForAccount
 GetSubscriptionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getsubscriptiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getsubscriptiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getsubscriptiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetSubscriptionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetSubscriptionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetSubscriptionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -632,7 +632,7 @@ GetSubscriptionDefinition
 GetSubscriptionDefinitionVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getsubscriptiondefinitionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getsubscriptiondefinitionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getsubscriptiondefinitionversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetSubscriptionDefinitionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetSubscriptionDefinitionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetSubscriptionDefinitionVersionCommandOutput/)
 
 </details>
 <details>
@@ -640,7 +640,7 @@ GetSubscriptionDefinitionVersion
 GetThingRuntimeConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/getthingruntimeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getthingruntimeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/getthingruntimeconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/GetThingRuntimeConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetThingRuntimeConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/GetThingRuntimeConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -648,7 +648,7 @@ GetThingRuntimeConfiguration
 ListBulkDeploymentDetailedReports
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listbulkdeploymentdetailedreportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listbulkdeploymentdetailedreportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listbulkdeploymentdetailedreportscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListBulkDeploymentDetailedReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListBulkDeploymentDetailedReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListBulkDeploymentDetailedReportsCommandOutput/)
 
 </details>
 <details>
@@ -656,7 +656,7 @@ ListBulkDeploymentDetailedReports
 ListBulkDeployments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listbulkdeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listbulkdeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listbulkdeploymentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListBulkDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListBulkDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListBulkDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -664,7 +664,7 @@ ListBulkDeployments
 ListConnectorDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listconnectordefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listconnectordefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listconnectordefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListConnectorDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListConnectorDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListConnectorDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -672,7 +672,7 @@ ListConnectorDefinitions
 ListConnectorDefinitionVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listconnectordefinitionversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listconnectordefinitionversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listconnectordefinitionversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListConnectorDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListConnectorDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListConnectorDefinitionVersionsCommandOutput/)
 
 </details>
 <details>
@@ -680,7 +680,7 @@ ListConnectorDefinitionVersions
 ListCoreDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listcoredefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listcoredefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listcoredefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListCoreDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListCoreDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListCoreDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -688,7 +688,7 @@ ListCoreDefinitions
 ListCoreDefinitionVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listcoredefinitionversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listcoredefinitionversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listcoredefinitionversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListCoreDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListCoreDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListCoreDefinitionVersionsCommandOutput/)
 
 </details>
 <details>
@@ -696,7 +696,7 @@ ListCoreDefinitionVersions
 ListDeployments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listdeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listdeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listdeploymentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -704,7 +704,7 @@ ListDeployments
 ListDeviceDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listdevicedefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listdevicedefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listdevicedefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListDeviceDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListDeviceDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListDeviceDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -712,7 +712,7 @@ ListDeviceDefinitions
 ListDeviceDefinitionVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listdevicedefinitionversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listdevicedefinitionversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listdevicedefinitionversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListDeviceDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListDeviceDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListDeviceDefinitionVersionsCommandOutput/)
 
 </details>
 <details>
@@ -720,7 +720,7 @@ ListDeviceDefinitionVersions
 ListFunctionDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listfunctiondefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listfunctiondefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listfunctiondefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListFunctionDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListFunctionDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListFunctionDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -728,7 +728,7 @@ ListFunctionDefinitions
 ListFunctionDefinitionVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listfunctiondefinitionversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listfunctiondefinitionversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listfunctiondefinitionversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListFunctionDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListFunctionDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListFunctionDefinitionVersionsCommandOutput/)
 
 </details>
 <details>
@@ -736,7 +736,7 @@ ListFunctionDefinitionVersions
 ListGroupCertificateAuthorities
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listgroupcertificateauthoritiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listgroupcertificateauthoritiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listgroupcertificateauthoritiescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListGroupCertificateAuthoritiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListGroupCertificateAuthoritiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListGroupCertificateAuthoritiesCommandOutput/)
 
 </details>
 <details>
@@ -744,7 +744,7 @@ ListGroupCertificateAuthorities
 ListGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListGroupsCommandOutput/)
 
 </details>
 <details>
@@ -752,7 +752,7 @@ ListGroups
 ListGroupVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listgroupversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listgroupversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listgroupversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListGroupVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListGroupVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListGroupVersionsCommandOutput/)
 
 </details>
 <details>
@@ -760,7 +760,7 @@ ListGroupVersions
 ListLoggerDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listloggerdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listloggerdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listloggerdefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListLoggerDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListLoggerDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListLoggerDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -768,7 +768,7 @@ ListLoggerDefinitions
 ListLoggerDefinitionVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listloggerdefinitionversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listloggerdefinitionversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listloggerdefinitionversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListLoggerDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListLoggerDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListLoggerDefinitionVersionsCommandOutput/)
 
 </details>
 <details>
@@ -776,7 +776,7 @@ ListLoggerDefinitionVersions
 ListResourceDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listresourcedefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listresourcedefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listresourcedefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListResourceDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListResourceDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListResourceDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -784,7 +784,7 @@ ListResourceDefinitions
 ListResourceDefinitionVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listresourcedefinitionversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listresourcedefinitionversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listresourcedefinitionversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListResourceDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListResourceDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListResourceDefinitionVersionsCommandOutput/)
 
 </details>
 <details>
@@ -792,7 +792,7 @@ ListResourceDefinitionVersions
 ListSubscriptionDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listsubscriptiondefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listsubscriptiondefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listsubscriptiondefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListSubscriptionDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListSubscriptionDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListSubscriptionDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -800,7 +800,7 @@ ListSubscriptionDefinitions
 ListSubscriptionDefinitionVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listsubscriptiondefinitionversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listsubscriptiondefinitionversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listsubscriptiondefinitionversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListSubscriptionDefinitionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListSubscriptionDefinitionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListSubscriptionDefinitionVersionsCommandOutput/)
 
 </details>
 <details>
@@ -808,7 +808,7 @@ ListSubscriptionDefinitionVersions
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -816,7 +816,7 @@ ListTagsForResource
 ResetDeployments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/resetdeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/resetdeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/resetdeploymentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/ResetDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ResetDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/ResetDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -824,7 +824,7 @@ ResetDeployments
 StartBulkDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/startbulkdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/startbulkdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/startbulkdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/StartBulkDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/StartBulkDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/StartBulkDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -832,7 +832,7 @@ StartBulkDeployment
 StopBulkDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/stopbulkdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/stopbulkdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/stopbulkdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/StopBulkDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/StopBulkDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/StopBulkDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -840,7 +840,7 @@ StopBulkDeployment
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -848,7 +848,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -856,7 +856,7 @@ UntagResource
 UpdateConnectivityInfo
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updateconnectivityinfocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateconnectivityinfocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateconnectivityinfocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateConnectivityInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateConnectivityInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateConnectivityInfoCommandOutput/)
 
 </details>
 <details>
@@ -864,7 +864,7 @@ UpdateConnectivityInfo
 UpdateConnectorDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updateconnectordefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateconnectordefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateconnectordefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateConnectorDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateConnectorDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateConnectorDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -872,7 +872,7 @@ UpdateConnectorDefinition
 UpdateCoreDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updatecoredefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatecoredefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatecoredefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateCoreDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateCoreDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateCoreDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -880,7 +880,7 @@ UpdateCoreDefinition
 UpdateDeviceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updatedevicedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatedevicedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatedevicedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateDeviceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateDeviceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateDeviceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -888,7 +888,7 @@ UpdateDeviceDefinition
 UpdateFunctionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updatefunctiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatefunctiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatefunctiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateFunctionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateFunctionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateFunctionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -896,7 +896,7 @@ UpdateFunctionDefinition
 UpdateGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updategroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updategroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updategroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateGroupCommandOutput/)
 
 </details>
 <details>
@@ -904,7 +904,7 @@ UpdateGroup
 UpdateGroupCertificateConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updategroupcertificateconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updategroupcertificateconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updategroupcertificateconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateGroupCertificateConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateGroupCertificateConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateGroupCertificateConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -912,7 +912,7 @@ UpdateGroupCertificateConfiguration
 UpdateLoggerDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updateloggerdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateloggerdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateloggerdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateLoggerDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateLoggerDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateLoggerDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -920,7 +920,7 @@ UpdateLoggerDefinition
 UpdateResourceDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updateresourcedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateresourcedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updateresourcedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateResourceDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateResourceDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateResourceDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -928,7 +928,7 @@ UpdateResourceDefinition
 UpdateSubscriptionDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updatesubscriptiondefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatesubscriptiondefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatesubscriptiondefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateSubscriptionDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateSubscriptionDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateSubscriptionDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -936,6 +936,6 @@ UpdateSubscriptionDefinition
 UpdateThingRuntimeConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/classes/updatethingruntimeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatethingruntimeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrass/interfaces/updatethingruntimeconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrass/command/UpdateThingRuntimeConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateThingRuntimeConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrass/Interface/UpdateThingRuntimeConfigurationCommandOutput/)
 
 </details>
