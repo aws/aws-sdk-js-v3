@@ -88,6 +88,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //         Timestamp: new Date("TIMESTAMP"),
  * //         ValueInIA: Number("long"),
  * //         ValueInStandard: Number("long"),
+ * //         ValueInArchive: Number("long"),
  * //       },
  * //       PerformanceMode: "generalPurpose" || "maxIO", // required
  * //       Encrypted: true || false,

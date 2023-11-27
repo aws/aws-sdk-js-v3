@@ -133,19 +133,20 @@ export interface CreationInfo {
 export interface RootDirectory {
   /**
    * @public
-   * <p>Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
-   *        A path can have up to four subdirectories.
-   *     If the specified path does not exist, you are required to provide the <code>CreationInfo</code>.</p>
+   * <p>Specifies the path on the EFS file system to expose as the root directory to
+   *       NFS clients using the access point to access the EFS file system. A path can have
+   *       up to four subdirectories. If the specified path does not exist, you are required to provide
+   *       the <code>CreationInfo</code>.</p>
    */
   Path?: string;
 
   /**
    * @public
-   * <p>(Optional) Specifies the POSIX IDs and permissions to apply to the access point's <code>RootDirectory</code>.
-   *       If the <code>RootDirectory</code> > <code>Path</code> specified does not exist,
-   *       EFS creates the root directory using the <code>CreationInfo</code> settings when a client connects to an access point.
-   *       When specifying the <code>CreationInfo</code>, you must provide values for all properties.
-   *     </p>
+   * <p>(Optional) Specifies the POSIX IDs and permissions to apply to the access point's
+   *         <code>RootDirectory</code>. If the <code>RootDirectory</code> > <code>Path</code>
+   *       specified does not exist, EFS creates the root directory using the
+   *         <code>CreationInfo</code> settings when a client connects to an access point. When
+   *       specifying the <code>CreationInfo</code>, you must provide values for all properties. </p>
    *          <important>
    *             <p>If you do not provide <code>CreationInfo</code> and the specified <code>RootDirectory</code> > <code>Path</code> does not exist,
    *       attempts to mount the file system using the access point will fail.</p>
@@ -223,7 +224,8 @@ export interface AccessPointDescription {
 
   /**
    * @public
-   * <p>The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.</p>
+   * <p>The directory on the EFS file system that the access point exposes as the root
+   *       directory to NFS clients using the access point.</p>
    */
   RootDirectory?: RootDirectory;
 
@@ -388,26 +390,29 @@ export interface BackupPolicy {
    *                <p>
    *                   <b>
    *                      <code>ENABLED</code>
-   *                   </b> - EFS is automatically backing up the file system.</p>
+   *                   </b> – EFS is automatically
+   *           backing up the file system.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>ENABLING</code>
-   *                   </b> - EFS is turning on automatic backups for the file system.</p>
+   *                   </b> – EFS is turning on
+   *           automatic backups for the file system.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>DISABLED</code>
-   *                   </b> - Automatic back ups are turned off for
-   *           the file system.</p>
+   *                   </b> – Automatic back ups are turned
+   *           off for the file system.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>DISABLING</code>
-   *                   </b> - EFS is turning off automatic backups for the file system.</p>
+   *                   </b> – EFS is turning off
+   *           automatic backups for the file system.</p>
    *             </li>
    *          </ul>
    */
@@ -499,13 +504,12 @@ export interface CreateAccessPointRequest {
 
   /**
    * @public
-   * <p>Specifies the directory on the Amazon EFS file system that the access point
-   *       exposes as the root directory of your file system to NFS clients using the access point. The
-   *       clients using the access point can only access the root directory and below. If the
-   *         <code>RootDirectory</code> > <code>Path</code> specified does not exist, EFS creates it
-   *       and applies the <code>CreationInfo</code> settings when a client connects to an access point.
-   *       When specifying a <code>RootDirectory</code>, you must provide the <code>Path</code>, and the
-   *         <code>CreationInfo</code>.</p>
+   * <p>Specifies the directory on the EFS file system that the access point exposes as
+   *       the root directory of your file system to NFS clients using the access point. The clients
+   *       using the access point can only access the root directory and below. If the
+   *         <code>RootDirectory</code> > <code>Path</code> specified does not exist, Amazon EFS creates it and applies the <code>CreationInfo</code> settings when a client connects to an
+   *       access point. When specifying a <code>RootDirectory</code>, you must provide the
+   *         <code>Path</code>, and the <code>CreationInfo</code>.</p>
    *          <p>Amazon EFS creates a root directory only if you have provided the  CreationInfo: OwnUid, OwnGID, and permissions for the directory.
    *       If  you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount
    *       using the access point will fail.</p>
@@ -710,14 +714,15 @@ export interface CreateFileSystemRequest {
 
   /**
    * @public
-   * <p>The performance mode of the file system. We recommend <code>generalPurpose</code>
-   *       performance mode for most file systems. File systems using the <code>maxIO</code> performance
+   * <p>The Performance mode of the file system. We recommend <code>generalPurpose</code>
+   *       performance mode for all file systems. File systems using the <code>maxIO</code> performance
    *       mode can scale to higher levels of aggregate throughput and operations per second with a
    *       tradeoff of slightly higher latencies for most file operations. The performance mode
-   *       can't be changed after the file system has been created.</p>
-   *          <note>
-   *             <p>The <code>maxIO</code> mode is not supported on file systems using One Zone storage classes.</p>
-   *          </note>
+   *       can't be changed after the file system has been created. The <code>maxIO</code> mode is
+   *       not supported on One Zone file systems.</p>
+   *          <important>
+   *             <p>Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.</p>
+   *          </important>
    *          <p>Default is <code>generalPurpose</code>.</p>
    */
   PerformanceMode?: PerformanceMode;
@@ -770,8 +775,8 @@ export interface CreateFileSystemRequest {
    *         <code>provisioned</code>, or <code>elastic</code>. If you set <code>ThroughputMode</code> to
    *         <code>provisioned</code>, you must also set a value for
    *         <code>ProvisionedThroughputInMibps</code>. After you create the file system, you can
-   *       decrease your file system's throughput in Provisioned Throughput mode or change between
-   *       the throughput modes, with certain time restrictions. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
+   *       decrease your file system's Provisioned throughput or change between the
+   *       throughput modes, with certain time restrictions. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
    *         throughput with provisioned mode</a> in the <i>Amazon EFS User
    *         Guide</i>. </p>
    *          <p>Default is <code>bursting</code>.</p>
@@ -791,13 +796,13 @@ export interface CreateFileSystemRequest {
 
   /**
    * @public
-   * <p>Used to create a file system that uses One Zone storage classes. It specifies the Amazon Web Services
-   *       Availability Zone in which to create the file system. Use the format <code>us-east-1a</code>
-   *       to specify the Availability Zone. For
-   *       more information about One Zone storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.</p>
+   * <p>Used to create a One Zone file system. It specifies the Amazon Web Services
+   *       Availability Zone in which to create the file system. Use the format <code>us-east-1a</code> to
+   *       specify the  Availability Zone. For more information about One Zone file systems, see
+   *         <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage
+   *         classes</a> in the <i>Amazon EFS User Guide</i>.</p>
    *          <note>
-   *             <p>One Zone storage classes are not available in all Availability Zones in Amazon Web Services Regions where
-   *         Amazon EFS is available.</p>
+   *             <p>One Zone file systems are not available in all Availability Zones in Amazon Web Services Regions where Amazon EFS is available.</p>
    *          </note>
    */
   AvailabilityZoneName?: string;
@@ -805,10 +810,10 @@ export interface CreateFileSystemRequest {
   /**
    * @public
    * <p>Specifies whether automatic backups are enabled on the file system that you are creating.
-   *       Set the value to <code>true</code> to enable automatic backups. If you are creating a file
-   *       system that uses One Zone storage classes, automatic backups are enabled by default. For more
+   *       Set the value to <code>true</code> to enable automatic backups. If you are creating a
+   *       One Zone file system, automatic backups are enabled by default. For more
    *       information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic backups</a> in the
-   *         <i>Amazon EFS User Guide</i>.</p>
+   *           <i>Amazon EFS User Guide</i>.</p>
    *          <p>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
    *       the default is <code>true</code>.</p>
    *          <note>
@@ -896,17 +901,24 @@ export interface FileSystemSize {
 
   /**
    * @public
-   * <p>The latest known metered size (in bytes) of data stored in the Infrequent Access
-   *       storage class.</p>
+   * <p>The latest known metered size (in bytes) of data stored in the Infrequent Access storage
+   *       class.</p>
    */
   ValueInIA?: number;
 
   /**
    * @public
-   * <p>The latest known metered size (in bytes) of data stored in the Standard storage
-   *       class.</p>
+   * <p>The latest known metered size (in bytes) of data stored in the Standard
+   *       storage class.</p>
    */
   ValueInStandard?: number;
+
+  /**
+   * @public
+   * <p>The latest known metered size (in bytes) of data stored in the Archive
+   *       storage class.</p>
+   */
+  ValueInArchive?: number;
 }
 
 /**
@@ -935,9 +947,10 @@ export interface FileSystemDescription {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) for the EFS file system, in the format
-   *       <code>arn:aws:elasticfilesystem:<i>region</i>:<i>account-id</i>:file-system/<i>file-system-id</i>
+   *           <code>arn:aws:elasticfilesystem:<i>region</i>:<i>account-id</i>:file-system/<i>file-system-id</i>
    *             </code>.
-   *       Example with sample data: <code>arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-01234567</code>
+   *       Example with sample data:
+   *         <code>arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-01234567</code>
    *          </p>
    */
   FileSystemArn?: string;
@@ -985,7 +998,7 @@ export interface FileSystemDescription {
 
   /**
    * @public
-   * <p>The performance mode of the file system.</p>
+   * <p>The Performance mode of the file system.</p>
    */
   PerformanceMode: PerformanceMode | undefined;
 
@@ -1019,17 +1032,18 @@ export interface FileSystemDescription {
 
   /**
    * @public
-   * <p>Describes the Amazon Web Services Availability Zone in which the file system is located, and is valid only
-   *       for file systems using One Zone storage classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage classes</a>
-   *       in the <i>Amazon EFS User Guide</i>.</p>
+   * <p>Describes the Amazon Web Services Availability Zone in which the file system is located, and is
+   *       valid only for One Zone file systems. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage
+   *         classes</a> in the <i>Amazon EFS User Guide</i>.</p>
    */
   AvailabilityZoneName?: string;
 
   /**
    * @public
-   * <p>The unique and consistent identifier of the Availability Zone in which the file system's
-   *       One Zone storage classes exist. For example, <code>use1-az1</code> is an Availability Zone ID
-   *       for the us-east-1 Amazon Web Services Region, and it has the same location in every Amazon Web Services account.</p>
+   * <p>The unique and consistent identifier of the Availability Zone in which the file system is
+   *       located, and is valid only for One Zone file systems. For example,
+   *         <code>use1-az1</code> is an Availability Zone ID for the us-east-1 Amazon Web Services Region, and
+   *       it has the same location in every Amazon Web Services account.</p>
    */
   AvailabilityZoneId?: string;
 
@@ -1212,8 +1226,8 @@ export interface CreateMountTargetRequest {
 
   /**
    * @public
-   * <p>The ID of the subnet to add the mount target in. For file systems that use One Zone storage classes, use the subnet
-   *     that is associated with the file system's Availability Zone.</p>
+   * <p>The ID of the subnet to add the mount target in. For One Zone  file systems, use the
+   *       subnet that is associated with the file system's Availability Zone.</p>
    */
   SubnetId: string | undefined;
 
@@ -1585,14 +1599,13 @@ export class SubnetNotFound extends __BaseException {
 export interface DestinationToCreate {
   /**
    * @public
-   * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region
-   *       in which to create the destination file system.</p>
+   * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region in which to create the destination file system.</p>
    */
   Region?: string;
 
   /**
    * @public
-   * <p>To create a file system that uses EFS One Zone storage, specify the name of the
+   * <p>To create a file system that uses One Zone storage, specify the name of the
    *       Availability Zone in which to create the destination file system.</p>
    */
   AvailabilityZoneName?: string;
@@ -1667,7 +1680,7 @@ export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof Replicat
 export interface Destination {
   /**
    * @public
-   * <p>Describes the status of the destination Amazon EFS file system.</p>
+   * <p>Describes the status of the destination EFS file system.</p>
    *          <ul>
    *             <li>
    *                <p>The <code>Paused</code> state occurs as a result of opting out of the source or
@@ -1723,7 +1736,8 @@ export interface ReplicationConfigurationDescription {
 
   /**
    * @public
-   * <p>The Amazon Web Services Region in which the source Amazon EFS  file system is located.</p>
+   * <p>The Amazon Web Services Region in which the source EFS file system is
+   *       located.</p>
    */
   SourceFileSystemRegion: string | undefined;
 
@@ -1736,7 +1750,8 @@ export interface ReplicationConfigurationDescription {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the original source Amazon EFS  file system in the replication configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the original source EFS file system in the
+   *       replication configuration.</p>
    */
   OriginalSourceFileSystemArn: string | undefined;
 
@@ -1916,7 +1931,8 @@ export class FileSystemInUse extends __BaseException {
 export interface DeleteFileSystemPolicyRequest {
   /**
    * @public
-   * <p>Specifies the EFS file system for which to delete the <code>FileSystemPolicy</code>.</p>
+   * <p>Specifies the EFS file system for which to delete the
+   *         <code>FileSystemPolicy</code>.</p>
    */
   FileSystemId: string | undefined;
 }
@@ -2062,13 +2078,15 @@ export interface DescribeAccessPointsRequest {
 
   /**
    * @public
-   * <p>(Optional) Specifies an EFS access point to describe in the response; mutually exclusive with <code>FileSystemId</code>.</p>
+   * <p>(Optional) Specifies an EFS access point to describe in the response; mutually
+   *       exclusive with <code>FileSystemId</code>.</p>
    */
   AccessPointId?: string;
 
   /**
    * @public
-   * <p>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access points for that file system; mutually exclusive with <code>AccessPointId</code>.</p>
+   * <p>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access
+   *       points for that file system; mutually exclusive with <code>AccessPointId</code>.</p>
    */
   FileSystemId?: string;
 }
@@ -2146,7 +2164,8 @@ export type Resource = (typeof Resource)[keyof typeof Resource];
 export interface ResourceIdPreference {
   /**
    * @public
-   * <p>Identifies the EFS resource ID preference, either <code>LONG_ID</code> (17 characters) or <code>SHORT_ID</code> (8 characters).</p>
+   * <p>Identifies the EFS resource ID preference, either <code>LONG_ID</code> (17
+   *       characters) or <code>SHORT_ID</code> (8 characters).</p>
    */
   ResourceIdType?: ResourceIdType;
 
@@ -2181,7 +2200,8 @@ export interface DescribeAccountPreferencesResponse {
 export interface DescribeBackupPolicyRequest {
   /**
    * @public
-   * <p>Specifies which EFS file system to retrieve the <code>BackupPolicy</code> for.</p>
+   * <p>Specifies which EFS file system for which to retrieve the
+   *         <code>BackupPolicy</code>.</p>
    */
   FileSystemId: string | undefined;
 }
@@ -2230,7 +2250,8 @@ export class PolicyNotFound extends __BaseException {
 export interface DescribeFileSystemPolicyRequest {
   /**
    * @public
-   * <p>Specifies which EFS file system to retrieve the <code>FileSystemPolicy</code> for.</p>
+   * <p>Specifies which EFS file system to retrieve the <code>FileSystemPolicy</code>
+   *       for.</p>
    */
   FileSystemId: string | undefined;
 }
@@ -2241,13 +2262,15 @@ export interface DescribeFileSystemPolicyRequest {
 export interface FileSystemPolicyDescription {
   /**
    * @public
-   * <p>Specifies the EFS file system to which the <code>FileSystemPolicy</code> applies.</p>
+   * <p>Specifies the EFS file system to which the <code>FileSystemPolicy</code>
+   *       applies.</p>
    */
   FileSystemId?: string;
 
   /**
    * @public
-   * <p>The JSON formatted <code>FileSystemPolicy</code> for the EFS file system.</p>
+   * <p>The JSON formatted <code>FileSystemPolicy</code> for the EFS file
+   *       system.</p>
    */
   Policy?: string;
 }
@@ -2328,10 +2351,34 @@ export interface DescribeLifecycleConfigurationRequest {
  * @public
  * @enum
  */
+export const TransitionToArchiveRules = {
+  AFTER_14_DAYS: "AFTER_14_DAYS",
+  AFTER_180_DAYS: "AFTER_180_DAYS",
+  AFTER_1_DAY: "AFTER_1_DAY",
+  AFTER_270_DAYS: "AFTER_270_DAYS",
+  AFTER_30_DAYS: "AFTER_30_DAYS",
+  AFTER_365_DAYS: "AFTER_365_DAYS",
+  AFTER_60_DAYS: "AFTER_60_DAYS",
+  AFTER_7_DAYS: "AFTER_7_DAYS",
+  AFTER_90_DAYS: "AFTER_90_DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitionToArchiveRules = (typeof TransitionToArchiveRules)[keyof typeof TransitionToArchiveRules];
+
+/**
+ * @public
+ * @enum
+ */
 export const TransitionToIARules = {
   AFTER_14_DAYS: "AFTER_14_DAYS",
+  AFTER_180_DAYS: "AFTER_180_DAYS",
   AFTER_1_DAY: "AFTER_1_DAY",
+  AFTER_270_DAYS: "AFTER_270_DAYS",
   AFTER_30_DAYS: "AFTER_30_DAYS",
+  AFTER_365_DAYS: "AFTER_365_DAYS",
   AFTER_60_DAYS: "AFTER_60_DAYS",
   AFTER_7_DAYS: "AFTER_7_DAYS",
   AFTER_90_DAYS: "AFTER_90_DAYS",
@@ -2358,37 +2405,44 @@ export type TransitionToPrimaryStorageClassRules =
 
 /**
  * @public
- * <p>Describes a policy used by EFS lifecycle management and EFS Intelligent-Tiering that
- *       specifies when to transition files into and out of the file system's Infrequent Access (IA)
- *       storage class. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Intelligent‐Tiering and EFS Lifecycle
- *         Management</a>.</p>
+ * <p>Describes a policy used by Lifecycle management that specifies when to transition files
+ *       into and out of the Infrequent Access (IA) and Archive storage
+ *       classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">Managing file system storage</a>.</p>
  *          <note>
  *             <p>When using the <code>put-lifecycle-configuration</code> CLI command or the
  *           <code>PutLifecycleConfiguration</code> API action, Amazon EFS requires that each
  *           <code>LifecyclePolicy</code> object have only a single transition. This means that in a
  *         request body, <code>LifecyclePolicies</code> must be structured as an array of
- *           <code>LifecyclePolicy</code> objects, one object for each transition,
- *           <code>TransitionToIA</code>, <code>TransitionToPrimaryStorageClass</code>. For more
+ *           <code>LifecyclePolicy</code> objects, one object for each transition. For more
  *         information, see the request examples in <a>PutLifecycleConfiguration</a>.</p>
  *          </note>
  */
 export interface LifecyclePolicy {
   /**
    * @public
-   * <p>
-   *       Describes the period of time that a file is not accessed, after which it transitions to IA storage. Metadata
-   *       operations such as listing the contents of a directory don't count as file access
-   *       events.</p>
+   * <p>The number of days after files were last accessed in primary storage (the
+   *       Standard storage class) at which to move them to Infrequent Access
+   *       (IA) storage. Metadata operations such as listing the contents of a directory
+   *       don't count as file access events.</p>
    */
   TransitionToIA?: TransitionToIARules;
 
   /**
    * @public
-   * <p>Describes when to transition a file from IA storage to primary storage. Metadata
-   *       operations such as listing the contents of a directory don't count as file access
-   *       events.</p>
+   * <p>Whether to move files back to primary (Standard) storage after they are
+   *       accessed in IA or Archive storage. Metadata operations such as
+   *       listing the contents of a directory don't count as file access events.</p>
    */
   TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules;
+
+  /**
+   * @public
+   * <p>The number of days after files were last accessed in primary storage (the
+   *       Standard storage class) files at which to move them to Archive
+   *       storage. Metadata operations such as listing the contents of a directory don't count as
+   *       file access events.</p>
+   */
+  TransitionToArchive?: TransitionToArchiveRules;
 }
 
 /**
@@ -2684,7 +2738,8 @@ export class InvalidPolicyException extends __BaseException {
 export interface ListTagsForResourceRequest {
   /**
    * @public
-   * <p>Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.</p>
+   * <p>Specifies the EFS resource you want to retrieve tags for. You can retrieve tags
+   *       for EFS file systems and access points using this API endpoint.</p>
    */
   ResourceId: string | undefined;
 
@@ -2743,9 +2798,8 @@ export interface ModifyMountTargetSecurityGroupsRequest {
 export interface PutAccountPreferencesRequest {
   /**
    * @public
-   * <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account,
-   *       in the current Amazon Web Services Region, either <code>LONG_ID</code> (17 characters), or
-   *       <code>SHORT_ID</code> (8 characters).</p>
+   * <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account, in the current Amazon Web Services Region, either <code>LONG_ID</code>
+   *       (17 characters), or <code>SHORT_ID</code> (8 characters).</p>
    *          <note>
    *             <p>Starting in October, 2021, you will receive an error when setting the account preference to
    *           <code>SHORT_ID</code>. Contact Amazon Web Services support if you receive an error and must
@@ -2789,17 +2843,16 @@ export interface PutBackupPolicyRequest {
 export interface PutFileSystemPolicyRequest {
   /**
    * @public
-   * <p>The ID of the EFS file system that you want to create or update the <code>FileSystemPolicy</code> for.</p>
+   * <p>The ID of the EFS file system that you want to create or update the
+   *         <code>FileSystemPolicy</code> for.</p>
    */
   FileSystemId: string | undefined;
 
   /**
    * @public
-   * <p>The <code>FileSystemPolicy</code> that you're creating. Accepts a JSON formatted policy definition.
-   *      EFS file system policies have a 20,000 character limit.
-   *       To find out more about the elements that make up a file system policy, see
-   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">EFS Resource-based Policies</a>.
-   *     </p>
+   * <p>The <code>FileSystemPolicy</code> that you're creating. Accepts a JSON formatted
+   *       policy definition. EFS file system policies have a 20,000 character limit. To find
+   *       out more about the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">EFS Resource-based Policies</a>. </p>
    */
   Policy: string | undefined;
 
@@ -2830,13 +2883,36 @@ export interface PutLifecycleConfigurationRequest {
    * @public
    * <p>An array of <code>LifecyclePolicy</code> objects that define the file system's
    *         <code>LifecycleConfiguration</code> object. A <code>LifecycleConfiguration</code> object
-   *       informs EFS lifecycle management and EFS Intelligent-Tiering of the following:</p>
+   *       informs EFS Lifecycle management of the following:</p>
    *          <ul>
    *             <li>
-   *                <p>When to move files in the file system from primary storage to the IA storage class.</p>
+   *                <p>
+   *                   <b>
+   *                      <code>TransitionToIA</code>
+   *                   </b> –
+   *       When to move files in the file system from primary storage (Standard storage class) into the Infrequent Access
+   *         (IA) storage.</p>
    *             </li>
    *             <li>
-   *                <p>When to move files that are in IA storage to primary storage.</p>
+   *                <p>
+   *                   <b>
+   *                      <code>TransitionToArchive</code>
+   *                   </b> –
+   *           When to move files in the file system from their current storage class (either IA or Standard storage) into the
+   *          Archive storage.</p>
+   *                <p>File systems cannot transition into Archive storage before transitioning into IA  storage. Therefore,
+   *         TransitionToArchive must either not be set or must be later than TransitionToIA.</p>
+   *                <note>
+   *                   <p> The Archive storage class is available only for file systems that use the Elastic Throughput mode
+   * and the General Purpose Performance mode. </p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TransitionToPrimaryStorageClass</code>
+   *                   </b> – Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA
+   *         or Archive storage.</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -2844,8 +2920,7 @@ export interface PutLifecycleConfigurationRequest {
    *           <code>PutLifecycleConfiguration</code> API action, Amazon EFS requires that each
    *           <code>LifecyclePolicy</code> object have only a single transition. This means that in a
    *         request body, <code>LifecyclePolicies</code> must be structured as an array of
-   *           <code>LifecyclePolicy</code> objects, one object for each transition,
-   *           <code>TransitionToIA</code>, <code>TransitionToPrimaryStorageClass</code>. See the example
+   *           <code>LifecyclePolicy</code> objects, one object for each storage transition. See the example
    *         requests in the following section for more information.</p>
    *          </note>
    */
@@ -2882,8 +2957,8 @@ export interface UntagResourceRequest {
 
   /**
    * @public
-   * <p>The keys of the key-value tag pairs that you want to remove from the specified EFS
-   *       resource.</p>
+   * <p>The keys of the key-value tag pairs that you want to remove from the specified
+   *       EFS resource.</p>
    */
   TagKeys: string[] | undefined;
 }

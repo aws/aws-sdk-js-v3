@@ -43,12 +43,10 @@ export interface DescribeLifecycleConfigurationCommandOutput
 /**
  * @public
  * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
- *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
- *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
- *       without a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
+ *       EFS file system. Llifecycle management uses the <code>LifecycleConfiguration</code> object to
+ *       identify when to move files between storage classes. For a file system without a
+ *         <code>LifecycleConfiguration</code> object, the call returns an empty array in the
  *       response.</p>
- *          <p>When EFS Intelligent-Tiering is enabled, <code>TransitionToPrimaryStorageClass</code> has
- *       a value of <code>AFTER_1_ACCESS</code>.</p>
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
  * @example
@@ -65,8 +63,9 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * // { // LifecycleConfigurationDescription
  * //   LifecyclePolicies: [ // LifecyclePolicies
  * //     { // LifecyclePolicy
- * //       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
+ * //       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY" || "AFTER_180_DAYS" || "AFTER_270_DAYS" || "AFTER_365_DAYS",
  * //       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
+ * //       TransitionToArchive: "AFTER_1_DAY" || "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_180_DAYS" || "AFTER_270_DAYS" || "AFTER_365_DAYS",
  * //     },
  * //   ],
  * // };

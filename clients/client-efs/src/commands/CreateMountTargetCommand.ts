@@ -44,12 +44,12 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *       file system. If you have multiple subnets in an Availability Zone, you create a mount target
  *       in one of the subnets. EC2 instances do not need to be in the same subnet as the mount target
  *       in order to access their file system.</p>
- *          <p>You can create only one mount target for an EFS file system using One Zone storage
- *       classes. You must create that mount target in the same Availability Zone in which the file
- *       system is located. Use the <code>AvailabilityZoneName</code> and
- *         <code>AvailabiltyZoneId</code> properties in the <a>DescribeFileSystems</a>
- *       response object to get this information. Use the <code>subnetId</code> associated with the
- *       file system's Availability Zone when creating the mount target.</p>
+ *          <p>You can create only one mount target for a One Zone file system.
+ *       You must create that mount target in the same Availability Zone in which the file system is
+ *       located. Use the <code>AvailabilityZoneName</code> and <code>AvailabiltyZoneId</code>
+ *       properties in the <a>DescribeFileSystems</a> response object to get this
+ *       information. Use the <code>subnetId</code> associated with the file system's Availability Zone
+ *       when creating the mount target.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
  *          <p>To create a mount target for a file system, the file system's lifecycle state must be
  *         <code>available</code>. For more information, see <a>DescribeFileSystems</a>.</p>

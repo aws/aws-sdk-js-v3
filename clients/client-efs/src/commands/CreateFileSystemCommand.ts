@@ -57,7 +57,7 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *             <p>For basic use cases, you can use a randomly generated UUID for the creation
  *         token.</p>
  *          </note>
- *          <p> The idempotent operation allows you to retry a <code>CreateFileSystem</code> call without
+ *          <p>The idempotent operation allows you to retry a <code>CreateFileSystem</code> call without
  *       risk of creating an extra file system. This can happen when an initial call fails in a way
  *       that leaves it uncertain whether or not a file system was actually created. An example might
  *       be that a transport level timeout occurred or your connection was reset. As long as you use
@@ -72,11 +72,15 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *         calling the <a>DescribeFileSystems</a> operation, which among other things returns the file
  *         system state.</p>
  *          </note>
- *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you
- *       choose for your file system. We recommend <code>generalPurpose</code> performance mode for
- *       most file systems. File systems using the <code>maxIO</code> performance mode can scale to
- *       higher levels of aggregate throughput and operations per second with a tradeoff of slightly
- *       higher latencies for most file operations. The performance mode can't be changed after
+ *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you choose
+ *       for your file system. We recommend <code>generalPurpose</code> performance mode for all file
+ *       systems. File systems using the <code>maxIO</code> mode is a previous generation performance type that is designed for highly parallelized workloads that can tolerate higher latencies
+ *           than the General Purpose mode. Max I/O mode is not supported for One Zone file systems or
+ *           file systems that use Elastic throughput.</p>
+ *          <important>
+ *             <p>Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.</p>
+ *          </important>
+ *          <p>The performance mode can't be changed after
  *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
  *         modes</a>.</p>
  *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code> parameter.</p>
@@ -129,6 +133,7 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * //     Timestamp: new Date("TIMESTAMP"),
  * //     ValueInIA: Number("long"),
  * //     ValueInStandard: Number("long"),
+ * //     ValueInArchive: Number("long"),
  * //   },
  * //   PerformanceMode: "generalPurpose" || "maxIO", // required
  * //   Encrypted: true || false,

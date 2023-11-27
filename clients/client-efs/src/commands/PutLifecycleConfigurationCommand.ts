@@ -37,43 +37,59 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
 
 /**
  * @public
- * <p>Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A
+ * <p>Use this action to manage storage of your file system. A
  *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
  *       objects that define the following:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>EFS Lifecycle management</b> - When Amazon EFS
- *           automatically transitions files in a file system into the lower-cost EFS Infrequent Access
- *           (IA) storage class.</p>
- *                <p>To enable EFS Lifecycle management, set the value of <code>TransitionToIA</code> to one of the available options.</p>
+ *                   <b>
+ *                      <code>TransitionToIA</code>
+ *                   </b> –
+ *           When to move files in the file system from primary storage (Standard storage class) into the Infrequent Access
+ *         (IA) storage.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>EFS Intelligent-Tiering</b> - When Amazon EFS
- *           automatically transitions files from IA back into the file system's primary storage class
- *           (EFS Standard or EFS One Zone Standard).</p>
- *                <p>To enable EFS Intelligent-Tiering, set the value of
- *             <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.</p>
+ *                   <b>
+ *                      <code>TransitionToArchive</code>
+ *                   </b> –
+ *           When to move files in the file system from their current storage class (either IA or Standard storage) into the
+ *          Archive storage.</p>
+ *                <p>File systems cannot transition into Archive storage before transitioning into IA  storage. Therefore,
+ *         TransitionToArchive must either not be set or must be later than TransitionToIA.</p>
+ *                <note>
+ *                   <p> The Archive storage class is available only for file systems that use the Elastic Throughput mode
+ * and the General Purpose Performance mode. </p>
+ *                </note>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>
+ *                      <code>TransitionToPrimaryStorageClass</code>
+ *                   </b> –
+ *         Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA
+ *         or Archive storage.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Lifecycle Management</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">
+ *       Managing file system storage</a>.</p>
  *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to
  *       all files in the file system. If a <code>LifecycleConfiguration</code> object already exists
  *       for the specified file system, a <code>PutLifecycleConfiguration</code> call modifies the
  *       existing configuration. A <code>PutLifecycleConfiguration</code> call with an empty
  *         <code>LifecyclePolicies</code> array in the request body deletes any existing
- *         <code>LifecycleConfiguration</code> and turns off lifecycle management and EFS
- *       Intelligent-Tiering for the file system.</p>
+ *         <code>LifecycleConfiguration</code> for the file system.</p>
  *          <p>In the request, specify the following: </p>
  *          <ul>
  *             <li>
  *                <p>The ID for the file system for which you are enabling, disabling, or modifying
- *           lifecycle management and EFS Intelligent-Tiering.</p>
+ *           Lifecycle management.</p>
  *             </li>
  *             <li>
  *                <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
- *           define when files are moved into IA storage, and when they are moved back to Standard storage.</p>
+ *           define when to move files to IA storage, to Archive storage,
+ *           and back to primary storage.</p>
  *                <note>
  *                   <p>Amazon EFS requires that each <code>LifecyclePolicy</code>
  *           object have only have a single transition, so the <code>LifecyclePolicies</code> array needs to be structured with separate
@@ -94,8 +110,9 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *   FileSystemId: "STRING_VALUE", // required
  *   LifecyclePolicies: [ // LifecyclePolicies // required
  *     { // LifecyclePolicy
- *       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
+ *       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY" || "AFTER_180_DAYS" || "AFTER_270_DAYS" || "AFTER_365_DAYS",
  *       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
+ *       TransitionToArchive: "AFTER_1_DAY" || "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_180_DAYS" || "AFTER_270_DAYS" || "AFTER_365_DAYS",
  *     },
  *   ],
  * };
@@ -104,8 +121,9 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * // { // LifecycleConfigurationDescription
  * //   LifecyclePolicies: [ // LifecyclePolicies
  * //     { // LifecyclePolicy
- * //       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
+ * //       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY" || "AFTER_180_DAYS" || "AFTER_270_DAYS" || "AFTER_365_DAYS",
  * //       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
+ * //       TransitionToArchive: "AFTER_1_DAY" || "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_180_DAYS" || "AFTER_270_DAYS" || "AFTER_365_DAYS",
  * //     },
  * //   ],
  * // };

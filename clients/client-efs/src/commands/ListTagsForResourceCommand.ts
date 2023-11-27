@@ -37,7 +37,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * @public
- * <p>Lists all tags for a top-level EFS resource. You must provide the ID of the resource that you want to retrieve the tags for.</p>
+ * <p>Lists all tags for a top-level EFS resource. You must provide the ID of the
+ *       resource that you want to retrieve the tags for.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

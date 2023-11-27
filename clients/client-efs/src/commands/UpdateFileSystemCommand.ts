@@ -66,6 +66,7 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * //     Timestamp: new Date("TIMESTAMP"),
  * //     ValueInIA: Number("long"),
  * //     ValueInStandard: Number("long"),
+ * //     ValueInArchive: Number("long"),
  * //   },
  * //   PerformanceMode: "generalPurpose" || "maxIO", // required
  * //   Encrypted: true || false,

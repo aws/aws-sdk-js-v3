@@ -37,7 +37,8 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
 
 /**
  * @public
- * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
+ * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file
+ *       system.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

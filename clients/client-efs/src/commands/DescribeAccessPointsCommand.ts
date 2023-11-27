@@ -37,9 +37,11 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
 
 /**
  * @public
- * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.
- *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
- *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
+ * <p>Returns the description of a specific Amazon EFS access point if the
+ *         <code>AccessPointId</code> is provided. If you provide an EFS
+ *         <code>FileSystemId</code>, it returns descriptions of all access points for that file
+ *       system. You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in
+ *       the request, but not both. </p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

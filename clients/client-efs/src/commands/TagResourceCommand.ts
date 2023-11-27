@@ -37,7 +37,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a tag for an EFS resource. You can create tags for EFS file systems and access points using this API operation.</p>
+ * <p>Creates a tag for an EFS resource. You can create tags for EFS file
+ *       systems and access points using this API operation.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:TagResource</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -3620,6 +3620,7 @@ const de_FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize
   return take(output, {
     Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Value: __expectLong,
+    ValueInArchive: __expectLong,
     ValueInIA: __expectLong,
     ValueInStandard: __expectLong,
   }) as any;

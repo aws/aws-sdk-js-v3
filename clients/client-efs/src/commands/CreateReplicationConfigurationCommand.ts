@@ -42,8 +42,8 @@ export interface CreateReplicationConfigurationCommandOutput
 
 /**
  * @public
- * <p>Creates a replication configuration that replicates an existing EFS file system to a new,
- *       read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
+ * <p>Creates a replication configuration that replicates an existing EFS file system
+ *       to a new, read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>. The replication configuration
  *       specifies the following:</p>
  *          <ul>
@@ -71,9 +71,8 @@ export interface CreateReplicationConfigurationCommandOutput
  *                   <li>
  *                      <p>
  *                         <b>Availability Zone</b> - If you want the destination file system
- *               to use EFS One Zone availability and durability, you must specify the Availability
- *               Zone to create the file system in. For more information about EFS storage classes, see
- *                 <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
+ *               to use EFS One Zone availability, you must specify the Availability Zone to create the
+ *               file system in. For more information about EFS storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
  *                 Amazon EFS storage classes</a> in the <i>Amazon EFS User
  *                 Guide</i>.</p>
  *                   </li>
@@ -110,14 +109,13 @@ export interface CreateReplicationConfigurationCommandOutput
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Lifecycle management</b> - EFS lifecycle management and EFS
- *           Intelligent-Tiering are not enabled on the destination file system. After the destination
- *           file system is created, you can enable EFS lifecycle management and EFS
- *           Intelligent-Tiering.</p>
+ *                   <b>Lifecycle management</b> – Lifecycle management is not enabled
+ *           on the destination file system. After the destination file system is created, you can
+ *           enable it.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Automatic backups</b> - Automatic daily backups are enabled on
+ *                   <b>Automatic backups</b> – Automatic daily backups are enabled on
  *           the destination file system. After the file system is created, you can change this
  *           setting.</p>
  *             </li>
