@@ -372,6 +372,9 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  *         invocationLabel: "STRING_VALUE",
  *       },
  *     },
+ *     slotResolutionSetting: { // SlotResolutionSetting
+ *       slotResolutionStrategy: "EnhancedFallback" || "Default", // required
+ *     },
  *   },
  *   obfuscationSetting: { // ObfuscationSetting
  *     obfuscationSettingType: "None" || "DefaultObfuscation", // required
@@ -774,6 +777,9 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  * //         enableCodeHookInvocation: true || false, // required
  * //         invocationLabel: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     slotResolutionSetting: { // SlotResolutionSetting
+ * //       slotResolutionStrategy: "EnhancedFallback" || "Default", // required
  * //     },
  * //   },
  * //   obfuscationSetting: { // ObfuscationSetting

@@ -57,6 +57,30 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *     voiceId: "STRING_VALUE", // required
  *     engine: "standard" || "neural",
  *   },
+ *   generativeAISettings: { // GenerativeAISettings
+ *     runtimeSettings: { // RuntimeSettings
+ *       slotResolutionImprovement: { // SlotResolutionImprovementSpecification
+ *         enabled: true || false, // required
+ *         bedrockModelSpecification: { // BedrockModelSpecification
+ *           modelArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *     buildtimeSettings: { // BuildtimeSettings
+ *       descriptiveBotBuilder: { // DescriptiveBotBuilderSpecification
+ *         enabled: true || false, // required
+ *         bedrockModelSpecification: {
+ *           modelArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
+ *         enabled: true || false, // required
+ *         bedrockModelSpecification: {
+ *           modelArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   },
  * };
  * const command = new CreateBotLocaleCommand(input);
  * const response = await client.send(command);
@@ -73,6 +97,30 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //   },
  * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
  * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   generativeAISettings: { // GenerativeAISettings
+ * //     runtimeSettings: { // RuntimeSettings
+ * //       slotResolutionImprovement: { // SlotResolutionImprovementSpecification
+ * //         enabled: true || false, // required
+ * //         bedrockModelSpecification: { // BedrockModelSpecification
+ * //           modelArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     buildtimeSettings: { // BuildtimeSettings
+ * //       descriptiveBotBuilder: { // DescriptiveBotBuilderSpecification
+ * //         enabled: true || false, // required
+ * //         bedrockModelSpecification: {
+ * //           modelArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
+ * //         enabled: true || false, // required
+ * //         bedrockModelSpecification: {
+ * //           modelArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

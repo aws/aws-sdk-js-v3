@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_1";
-import { de_DescribeResourcePolicyCommand, se_DescribeResourcePolicyCommand } from "../protocols/Aws_restJson1";
+import { ListBotResourceGenerationsRequest, ListBotResourceGenerationsResponse } from "../models/models_1";
+import { de_ListBotResourceGenerationsCommand, se_ListBotResourceGenerationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,43 +25,59 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeResourcePolicyCommand}.
+ * The input for {@link ListBotResourceGenerationsCommand}.
  */
-export interface DescribeResourcePolicyCommandInput extends DescribeResourcePolicyRequest {}
+export interface ListBotResourceGenerationsCommandInput extends ListBotResourceGenerationsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeResourcePolicyCommand}.
+ * The output of {@link ListBotResourceGenerationsCommand}.
  */
-export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
+export interface ListBotResourceGenerationsCommandOutput extends ListBotResourceGenerationsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the resource policy and policy revision for a bot or bot
- *          alias.</p>
+ * <p>Lists the generation requests made for a bot locale.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBotResourceGenerationsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListBotResourceGenerationsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // DescribeResourcePolicyRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // ListBotResourceGenerationsRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   sortBy: { // GenerationSortBy
+ *     attribute: "creationStartTime" || "lastUpdatedTime", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new DescribeResourcePolicyCommand(input);
+ * const command = new ListBotResourceGenerationsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeResourcePolicyResponse
- * //   resourceArn: "STRING_VALUE",
- * //   policy: "STRING_VALUE",
- * //   revisionId: "STRING_VALUE",
+ * // { // ListBotResourceGenerationsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   generationSummaries: [ // GenerationSummaryList
+ * //     { // GenerationSummary
+ * //       generationId: "STRING_VALUE",
+ * //       generationStatus: "Failed" || "Complete" || "InProgress",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
- * @returns {@link DescribeResourcePolicyCommandOutput}
- * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
- * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
+ * @param ListBotResourceGenerationsCommandInput - {@link ListBotResourceGenerationsCommandInput}
+ * @returns {@link ListBotResourceGenerationsCommandOutput}
+ * @see {@link ListBotResourceGenerationsCommandInput} for command's `input` shape.
+ * @see {@link ListBotResourceGenerationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -76,13 +92,17 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *  <p>Your request rate is too high. Reduce the frequency of
  *          requests.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
+ *
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class DescribeResourcePolicyCommand extends $Command<
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
+export class ListBotResourceGenerationsCommand extends $Command<
+  ListBotResourceGenerationsCommandInput,
+  ListBotResourceGenerationsCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -97,7 +117,7 @@ export class DescribeResourcePolicyCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeResourcePolicyCommandInput) {
+  constructor(readonly input: ListBotResourceGenerationsCommandInput) {
     super();
   }
 
@@ -108,17 +128,17 @@ export class DescribeResourcePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeResourcePolicyCommandInput, DescribeResourcePolicyCommandOutput> {
+  ): Handler<ListBotResourceGenerationsCommandInput, ListBotResourceGenerationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeResourcePolicyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListBotResourceGenerationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "DescribeResourcePolicyCommand";
+    const commandName = "ListBotResourceGenerationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -127,7 +147,7 @@ export class DescribeResourcePolicyCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "LexModelBuildingServiceV2",
-        operation: "DescribeResourcePolicy",
+        operation: "ListBotResourceGenerations",
       },
     };
     const { requestHandler } = configuration;
@@ -141,14 +161,17 @@ export class DescribeResourcePolicyCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeResourcePolicyCommand(input, context);
+  private serialize(input: ListBotResourceGenerationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListBotResourceGenerationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
-    return de_DescribeResourcePolicyCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListBotResourceGenerationsCommandOutput> {
+    return de_ListBotResourceGenerationsCommand(output, context);
   }
 }

@@ -91,6 +91,10 @@ import {
   DescribeBotRecommendationCommandInput,
   DescribeBotRecommendationCommandOutput,
 } from "../commands/DescribeBotRecommendationCommand";
+import {
+  DescribeBotResourceGenerationCommandInput,
+  DescribeBotResourceGenerationCommandOutput,
+} from "../commands/DescribeBotResourceGenerationCommand";
 import { DescribeBotVersionCommandInput, DescribeBotVersionCommandOutput } from "../commands/DescribeBotVersionCommand";
 import {
   DescribeCustomVocabularyMetadataCommandInput,
@@ -118,6 +122,7 @@ import {
   DescribeTestSetGenerationCommandInput,
   DescribeTestSetGenerationCommandOutput,
 } from "../commands/DescribeTestSetGenerationCommand";
+import { GenerateBotElementCommandInput, GenerateBotElementCommandOutput } from "../commands/GenerateBotElementCommand";
 import {
   GetTestExecutionArtifactsUrlCommandInput,
   GetTestExecutionArtifactsUrlCommandOutput,
@@ -132,6 +137,10 @@ import {
   ListBotRecommendationsCommandInput,
   ListBotRecommendationsCommandOutput,
 } from "../commands/ListBotRecommendationsCommand";
+import {
+  ListBotResourceGenerationsCommandInput,
+  ListBotResourceGenerationsCommandOutput,
+} from "../commands/ListBotResourceGenerationsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
 import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "../commands/ListBotVersionsCommand";
 import { ListBuiltInIntentsCommandInput, ListBuiltInIntentsCommandOutput } from "../commands/ListBuiltInIntentsCommand";
@@ -190,6 +199,10 @@ import {
   StartBotRecommendationCommandInput,
   StartBotRecommendationCommandOutput,
 } from "../commands/StartBotRecommendationCommand";
+import {
+  StartBotResourceGenerationCommandInput,
+  StartBotResourceGenerationCommandOutput,
+} from "../commands/StartBotResourceGenerationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
 import { StartTestExecutionCommandInput, StartTestExecutionCommandOutput } from "../commands/StartTestExecutionCommand";
 import {
@@ -253,6 +266,7 @@ import {
   AudioLogDestination,
   AudioLogSetting,
   AudioSpecification,
+  BedrockModelSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
   BotAliasSummary,
@@ -273,6 +287,7 @@ import {
   BotVersionLocaleDetails,
   BotVersionSortBy,
   BotVersionSummary,
+  BuildtimeSettings,
   BuiltInIntentSortBy,
   BuiltInSlotTypeSortBy,
   Button,
@@ -292,6 +307,7 @@ import {
   CustomVocabularyItem,
   DataPrivacy,
   DateRangeFilter,
+  DescriptiveBotBuilderSpecification,
   DialogAction,
   DialogCodeHookSettings,
   DTMFSpecification,
@@ -302,10 +318,10 @@ import {
   FulfillmentStartResponseSpecification,
   FulfillmentUpdateResponseSpecification,
   FulfillmentUpdatesSpecification,
+  GenerativeAISettings,
   GrammarSlotTypeSetting,
   GrammarSlotTypeSource,
   ImageResponseCard,
-  ImportResourceSpecification,
   InputContext,
   InternalServerException,
   KendraConfiguration,
@@ -326,15 +342,18 @@ import {
   PromptSpecification,
   ResourceNotFoundException,
   ResponseSpecification,
+  RuntimeSettings,
   S3BucketLogDestination,
   S3BucketTranscriptSource,
   SampleUtterance,
+  SampleUtteranceGenerationSpecification,
   SampleValue,
   SentimentAnalysisSettings,
   ServiceQuotaExceededException,
   SlotDefaultValue,
   SlotDefaultValueSpecification,
-  SlotPriority,
+  SlotResolutionImprovementSpecification,
+  SlotResolutionSetting,
   SlotTypeValue,
   SlotValue,
   SlotValueRegexFilter,
@@ -348,9 +367,6 @@ import {
   TestSetDiscrepancyReportBotAliasTarget,
   TestSetDiscrepancyReportResourceTarget,
   TestSetExportSpecification,
-  TestSetImportInputLocation,
-  TestSetImportResourceSpecification,
-  TestSetStorageLocation,
   TextInputSpecification,
   TextLogDestination,
   TextLogSetting,
@@ -371,7 +387,10 @@ import {
   ExportSortBy,
   ExportSummary,
   FulfillmentCodeHookSettings,
+  GenerationSortBy,
+  GenerationSummary,
   ImportFilter,
+  ImportResourceSpecification,
   ImportSortBy,
   ImportSummary,
   InitialResponseSetting,
@@ -391,6 +410,7 @@ import {
   SessionSpecification,
   SlotCaptureSetting,
   SlotFilter,
+  SlotPriority,
   SlotSortBy,
   SlotSummary,
   SlotTypeFilter,
@@ -404,7 +424,10 @@ import {
   TestExecutionSummary,
   TestExecutionTarget,
   TestSetGenerationDataSource,
+  TestSetImportInputLocation,
+  TestSetImportResourceSpecification,
   TestSetSortBy,
+  TestSetStorageLocation,
   TestSetSummary,
   TestSetTurnRecord,
   TestSetTurnResult,
@@ -644,6 +667,7 @@ export const se_CreateBotLocaleCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      generativeAISettings: (_) => _json(_),
       localeId: [],
       nluIntentConfidenceThreshold: (_) => __serializeFloat(_),
       voiceSettings: (_) => _json(_),
@@ -1479,6 +1503,41 @@ export const se_DescribeBotRecommendationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeBotResourceGenerationCommand
+ */
+export const se_DescribeBotResourceGenerationCommand = async (
+  input: DescribeBotResourceGenerationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "generationId",
+    () => input.generationId!,
+    "{generationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeBotVersionCommand
  */
 export const se_DescribeBotVersionCommand = async (
@@ -1802,6 +1861,40 @@ export const se_DescribeTestSetGenerationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GenerateBotElementCommand
+ */
+export const se_GenerateBotElementCommand = async (
+  input: GenerateBotElementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      intentId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetTestExecutionArtifactsUrlCommand
  */
 export const se_GetTestExecutionArtifactsUrlCommand = async (
@@ -1960,6 +2053,42 @@ export const se_ListBotRecommendationsCommand = async (
     take(input, {
       maxResults: [],
       nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListBotResourceGenerationsCommand
+ */
+export const se_ListBotResourceGenerationsCommand = async (
+  input: ListBotResourceGenerationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -2862,6 +2991,40 @@ export const se_StartBotRecommendationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartBotResourceGenerationCommand
+ */
+export const se_StartBotResourceGenerationCommand = async (
+  input: StartBotResourceGenerationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      generationInputPrompt: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StartImportCommand
  */
 export const se_StartImportCommand = async (
@@ -3149,6 +3312,7 @@ export const se_UpdateBotLocaleCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      generativeAISettings: (_) => _json(_),
       nluIntentConfidenceThreshold: (_) => __serializeFloat(_),
       voiceSettings: (_) => _json(_),
     })
@@ -3851,6 +4015,7 @@ export const de_CreateBotLocaleCommand = async (
     botVersion: __expectString,
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    generativeAISettings: _json,
     localeId: __expectString,
     localeName: __expectString,
     nluIntentConfidenceThreshold: __limitedParseDouble,
@@ -5512,6 +5677,7 @@ export const de_DescribeBotLocaleCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     failureReasons: _json,
+    generativeAISettings: _json,
     intentsCount: __expectInt32,
     lastBuildSubmittedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5602,6 +5768,72 @@ const de_DescribeBotRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotRecommendationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeBotResourceGenerationCommand
+ */
+export const de_DescribeBotResourceGenerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBotResourceGenerationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeBotResourceGenerationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+    generatedBotLocaleUrl: __expectString,
+    generationId: __expectString,
+    generationInputPrompt: __expectString,
+    generationStatus: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    modelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeBotResourceGenerationCommandError
+ */
+const de_DescribeBotResourceGenerationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBotResourceGenerationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6440,6 +6672,75 @@ const de_DescribeTestSetGenerationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GenerateBotElementCommand
+ */
+export const de_GenerateBotElementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateBotElementCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_GenerateBotElementCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    intentId: __expectString,
+    localeId: __expectString,
+    sampleUtterances: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GenerateBotElementCommandError
+ */
+const de_GenerateBotElementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateBotElementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetTestExecutionArtifactsUrlCommand
  */
 export const de_GetTestExecutionArtifactsUrlCommand = async (
@@ -6713,6 +7014,66 @@ const de_ListBotRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListBotResourceGenerationsCommand
+ */
+export const de_ListBotResourceGenerationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBotResourceGenerationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListBotResourceGenerationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    generationSummaries: (_) => de_GenerationSummaryList(_, context),
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBotResourceGenerationsCommandError
+ */
+const de_ListBotResourceGenerationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBotResourceGenerationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -8247,6 +8608,74 @@ const de_StartBotRecommendationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartBotResourceGenerationCommand
+ */
+export const de_StartBotResourceGenerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBotResourceGenerationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_StartBotResourceGenerationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    generationId: __expectString,
+    generationInputPrompt: __expectString,
+    generationStatus: __expectString,
+    localeId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartBotResourceGenerationCommandError
+ */
+const de_StartBotResourceGenerationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBotResourceGenerationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartImportCommand
  */
 export const de_StartImportCommand = async (
@@ -8787,6 +9216,7 @@ export const de_UpdateBotLocaleCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     failureReasons: _json,
+    generativeAISettings: _json,
     lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     localeId: __expectString,
     localeName: __expectString,
@@ -9565,6 +9995,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AudioSpecification omitted.
 
+// se_BedrockModelSpecification omitted.
+
 // se_BotAliasLocaleSettings omitted.
 
 // se_BotAliasLocaleSettingsMap omitted.
@@ -9611,6 +10043,8 @@ const se_BotLocaleImportSpecification = (input: BotLocaleImportSpecification, co
 // se_BotVersionLocaleSpecification omitted.
 
 // se_BotVersionSortBy omitted.
+
+// se_BuildtimeSettings omitted.
 
 // se_BuiltInIntentSortBy omitted.
 
@@ -9732,6 +10166,8 @@ const se_DefaultConditionalBranch = (input: DefaultConditionalBranch, context: _
 
 // se_DeleteCustomVocabularyItemsList omitted.
 
+// se_DescriptiveBotBuilderSpecification omitted.
+
 // se_DialogAction omitted.
 
 /**
@@ -9794,6 +10230,10 @@ const se_FulfillmentCodeHookSettings = (input: FulfillmentCodeHookSettings, cont
 // se_FulfillmentUpdateResponseSpecification omitted.
 
 // se_FulfillmentUpdatesSpecification omitted.
+
+// se_GenerationSortBy omitted.
+
+// se_GenerativeAISettings omitted.
 
 // se_GrammarSlotTypeSetting omitted.
 
@@ -9977,6 +10417,8 @@ const se_PostFulfillmentStatusSpecification = (
 
 // se_ResponseSpecification omitted.
 
+// se_RuntimeSettings omitted.
+
 // se_S3BucketLogDestination omitted.
 
 /**
@@ -9993,6 +10435,8 @@ const se_S3BucketTranscriptSource = (input: S3BucketTranscriptSource, context: _
 };
 
 // se_SampleUtterance omitted.
+
+// se_SampleUtteranceGenerationSpecification omitted.
 
 // se_SampleUtterancesList omitted.
 
@@ -10032,6 +10476,10 @@ const se_SlotCaptureSetting = (input: SlotCaptureSetting, context: __SerdeContex
 
 // se_SlotPriority omitted.
 
+// se_SlotResolutionImprovementSpecification omitted.
+
+// se_SlotResolutionSetting omitted.
+
 // se_SlotSortBy omitted.
 
 // se_SlotTypeFilter omitted.
@@ -10056,6 +10504,7 @@ const se_SlotValueElicitationSetting = (input: SlotValueElicitationSetting, cont
     sampleUtterances: _json,
     slotCaptureSetting: (_) => se_SlotCaptureSetting(_, context),
     slotConstraint: [],
+    slotResolutionSetting: _json,
     waitAndContinueSpecification: _json,
   });
 };
@@ -10484,6 +10933,8 @@ const de_AnalyticsUtteranceResults = (output: any, context: __SerdeContext): Ana
 
 // de_AudioSpecification omitted.
 
+// de_BedrockModelSpecification omitted.
+
 /**
  * deserializeAws_restJson1BotAliasHistoryEvent
  */
@@ -10695,6 +11146,8 @@ const de_BotVersionSummaryList = (output: any, context: __SerdeContext): BotVers
   return retVal;
 };
 
+// de_BuildtimeSettings omitted.
+
 // de_BuiltInIntentSummary omitted.
 
 // de_BuiltInIntentSummaryList omitted.
@@ -10826,6 +11279,8 @@ const de_DefaultConditionalBranch = (output: any, context: __SerdeContext): Defa
   }) as any;
 };
 
+// de_DescriptiveBotBuilderSpecification omitted.
+
 // de_DialogAction omitted.
 
 /**
@@ -10914,6 +11369,32 @@ const de_FulfillmentCodeHookSettings = (output: any, context: __SerdeContext): F
 // de_FulfillmentUpdateResponseSpecification omitted.
 
 // de_FulfillmentUpdatesSpecification omitted.
+
+/**
+ * deserializeAws_restJson1GenerationSummary
+ */
+const de_GenerationSummary = (output: any, context: __SerdeContext): GenerationSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    generationId: __expectString,
+    generationStatus: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GenerationSummaryList
+ */
+const de_GenerationSummaryList = (output: any, context: __SerdeContext): GenerationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GenerationSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_GenerativeAISettings omitted.
 
 // de_GrammarSlotTypeSetting omitted.
 
@@ -11202,6 +11683,8 @@ const de_RuntimeHints = (output: any, context: __SerdeContext): RuntimeHints => 
 
 // de_RuntimeHintValuesList omitted.
 
+// de_RuntimeSettings omitted.
+
 // de_S3BucketLogDestination omitted.
 
 /**
@@ -11218,6 +11701,8 @@ const de_S3BucketTranscriptSource = (output: any, context: __SerdeContext): S3Bu
 };
 
 // de_SampleUtterance omitted.
+
+// de_SampleUtteranceGenerationSpecification omitted.
 
 // de_SampleUtterancesList omitted.
 
@@ -11316,6 +11801,10 @@ const de_SlotHintsSlotMap = (output: any, context: __SerdeContext): Record<strin
 
 // de_SlotPriority omitted.
 
+// de_SlotResolutionImprovementSpecification omitted.
+
+// de_SlotResolutionSetting omitted.
+
 // de_SlotResolutionTestResultItem omitted.
 
 // de_SlotResolutionTestResultItemCounts omitted.
@@ -11393,6 +11882,7 @@ const de_SlotValueElicitationSetting = (output: any, context: __SerdeContext): S
     sampleUtterances: _json,
     slotCaptureSetting: (_: any) => de_SlotCaptureSetting(_, context),
     slotConstraint: __expectString,
+    slotResolutionSetting: _json,
     waitAndContinueSpecification: _json,
   }) as any;
 };

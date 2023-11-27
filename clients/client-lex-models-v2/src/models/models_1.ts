@@ -39,7 +39,9 @@ import {
   BotAliasSummary,
   BotAliasTestExecutionTarget,
   BotFilter,
+  BotImportSpecification,
   BotLocaleFilter,
+  BotLocaleImportSpecification,
   BotLocaleSortBy,
   BotLocaleStatus,
   BotLocaleSummary,
@@ -64,6 +66,7 @@ import {
   ConversationLevelTestResultsFilterBy,
   ConversationLogsDataSource,
   ConversationLogSettings,
+  CustomVocabularyImportSpecification,
   CustomVocabularyItem,
   DataPrivacy,
   DialogAction,
@@ -76,9 +79,10 @@ import {
   ExportStatus,
   ExternalSourceSetting,
   FulfillmentUpdatesSpecification,
+  GenerationStatus,
+  GenerativeAISettings,
   ImageResponseCard,
   ImportExportFileFormat,
-  ImportResourceSpecification,
   ImportStatus,
   InputContext,
   KendraConfiguration,
@@ -92,7 +96,7 @@ import {
   SentimentAnalysisSettings,
   SlotConstraint,
   SlotDefaultValueSpecification,
-  SlotPriority,
+  SlotResolutionSetting,
   SlotShape,
   SlotTypeValue,
   SlotValue,
@@ -101,12 +105,374 @@ import {
   SubSlotSetting,
   TestResultMatchStatus,
   TestSetDiscrepancyReportResourceTarget,
-  TestSetModality,
-  TestSetStorageLocation,
   TranscriptSourceSetting,
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Contains information about the Amazon S3 location from which the test set is imported.</p>
+ */
+export interface TestSetImportInputLocation {
+  /**
+   * @public
+   * <p>The name of the Amazon S3 bucket.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The path inside the Amazon S3 bucket pointing to the test-set CSV file.</p>
+   */
+  s3Path: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestSetModality = {
+  Audio: "Audio",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type TestSetModality = (typeof TestSetModality)[keyof typeof TestSetModality];
+
+/**
+ * @public
+ * <p>Contains information about the location in which the test set is stored.</p>
+ */
+export interface TestSetStorageLocation {
+  /**
+   * @public
+   * <p>The name of the Amazon S3 bucket in which the test set is stored.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The path inside the Amazon S3 bucket where the test set is stored.</p>
+   */
+  s3Path: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Key Management Service
+   *  (KMS) key for encrypting the test set.</p>
+   */
+  kmsKeyArn?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the test set that is imported.</p>
+ */
+export interface TestSetImportResourceSpecification {
+  /**
+   * @public
+   * <p>The name of the test set.</p>
+   */
+  testSetName: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the test set.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has
+   *  permission to access the test set.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Contains information about the location that Amazon Lex uses to store the test-set.</p>
+   */
+  storageLocation: TestSetStorageLocation | undefined;
+
+  /**
+   * @public
+   * <p>Contains information about the input location from where test-set should be imported.</p>
+   */
+  importInputLocation: TestSetImportInputLocation | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether the test-set being imported contains written or spoken data.</p>
+   */
+  modality: TestSetModality | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags to add to the test set. You can only add tags when you import/generate a new test set. You can't use the <code>UpdateTestSet</code> operation to update tags. To update tags, use the <code>TagResource</code> operation.</p>
+   */
+  testSetTags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Provides information about the bot or bot locale that you want to
+ *          import. You can specify the <code>botImportSpecification</code> or the
+ *             <code>botLocaleImportSpecification</code>, but not both.</p>
+ */
+export interface ImportResourceSpecification {
+  /**
+   * @public
+   * <p>Parameters for importing a bot.</p>
+   */
+  botImportSpecification?: BotImportSpecification;
+
+  /**
+   * @public
+   * <p>Parameters for importing a bot locale.</p>
+   */
+  botLocaleImportSpecification?: BotLocaleImportSpecification;
+
+  /**
+   * @public
+   * <p>Provides the parameters required for importing a custom vocabulary.</p>
+   */
+  customVocabularyImportSpecification?: CustomVocabularyImportSpecification;
+
+  /**
+   * @public
+   * <p>Specifications for the test set that is imported.</p>
+   */
+  testSetImportResourceSpecification?: TestSetImportResourceSpecification;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImportResponse {
+  /**
+   * @public
+   * <p>The unique identifier of the described import.</p>
+   */
+  importId?: string;
+
+  /**
+   * @public
+   * <p>The specifications of the imported bot, bot locale, or custom
+   *          vocabulary.</p>
+   */
+  resourceSpecification?: ImportResourceSpecification;
+
+  /**
+   * @public
+   * <p>The unique identifier that Amazon Lex assigned to the resource created by
+   *          the import.</p>
+   */
+  importedResourceId?: string;
+
+  /**
+   * @public
+   * <p>The name of the imported resource.</p>
+   */
+  importedResourceName?: string;
+
+  /**
+   * @public
+   * <p>The strategy used when there was a name conflict between the
+   *          imported resource and an existing resource. When the merge strategy is
+   *             <code>FailOnConflict</code> existing resources are not overwritten
+   *          and the import fails.</p>
+   */
+  mergeStrategy?: MergeStrategy;
+
+  /**
+   * @public
+   * <p>The status of the import process. When the status is
+   *             <code>Completed</code> the resource is imported and ready for
+   *          use.</p>
+   */
+  importStatus?: ImportStatus;
+
+  /**
+   * @public
+   * <p>If the <code>importStatus</code> field is <code>Failed</code>, this
+   *          provides one or more reasons for the failure.</p>
+   */
+  failureReasons?: string[];
+
+  /**
+   * @public
+   * <p>The date and time that the import was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time that the import was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntentRequest {
+  /**
+   * @public
+   * <p>The identifier of the intent to describe.</p>
+   */
+  intentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the bot associated with the intent.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot associated with the intent.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale of the intent to describe.
+   *          The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Sets the priority that Amazon Lex should use when eliciting slot values
+ *          from a user.</p>
+ */
+export interface SlotPriority {
+  /**
+   * @public
+   * <p>The priority that Amazon Lex should apply to the slot.</p>
+   */
+  priority: number | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the slot.</p>
+   */
+  slotId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourcePolicyRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourcePolicyResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * @public
+   * <p>The JSON structure that contains the resource policy. For more
+   *          information about the contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html"> IAM JSON policy
+   *             reference </a>.</p>
+   */
+  policy?: string;
+
+  /**
+   * @public
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSlotRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the slot.</p>
+   */
+  slotId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the bot associated with the slot.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot associated with the slot.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale of the slot to describe.
+   *          The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the intent that contains the slot.</p>
+   */
+  intentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSlotTypeRequest {
+  /**
+   * @public
+   * <p>The identifier of the slot type.</p>
+   */
+  slotTypeId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the bot associated with the slot type.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot associated with the slot type.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale of the slot type to
+   *          describe. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+}
 
 /**
  * @public
@@ -812,6 +1178,142 @@ export interface ExportSummary {
   /**
    * @public
    * <p>The date and time that the export was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GenerateBotElementRequest {
+  /**
+   * @public
+   * <p>The intent unique Id for the bot request to generate utterances.</p>
+   */
+  intentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The bot unique Id for the bot request to generate utterances.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The bot version for the bot request to generate utterances.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique locale Id for the bot request to generate utterances.</p>
+   */
+  localeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateBotElementResponse {
+  /**
+   * @public
+   * <p>The unique bot Id for the bot which received the response.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The unique bot version for the bot which received the response.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The unique locale Id for the bot which received the response.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>The unique intent Id for the bot which received the response.</p>
+   */
+  intentId?: string;
+
+  /**
+   * @public
+   * <p>The sample utterances for the bot which received the response.</p>
+   */
+  sampleUtterances?: SampleUtterance[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GenerationSortByAttribute = {
+  creationStartTime: "creationStartTime",
+  lastUpdatedTime: "lastUpdatedTime",
+} as const;
+
+/**
+ * @public
+ */
+export type GenerationSortByAttribute = (typeof GenerationSortByAttribute)[keyof typeof GenerationSortByAttribute];
+
+/**
+ * @public
+ * <p>Specifies the attribute and method by which to sort the generation request information.</p>
+ */
+export interface GenerationSortBy {
+  /**
+   * @public
+   * <p>The attribute by which to sort the generation request information. You can sort by the following attributes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>creationStartTime</code> – The time at which the generation request was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>lastUpdatedTime</code> – The time at which the generation request was last updated.</p>
+   *             </li>
+   *          </ul>
+   */
+  attribute: GenerationSortByAttribute | undefined;
+
+  /**
+   * @public
+   * <p>The order by which to sort the generation request information.</p>
+   */
+  order: SortOrder | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about a generation request made for the bot locale.</p>
+ */
+export interface GenerationSummary {
+  /**
+   * @public
+   * <p>The unique identifier of the generation request.</p>
+   */
+  generationId?: string;
+
+  /**
+   * @public
+   * <p>The status of the generation request.</p>
+   */
+  generationStatus?: GenerationStatus;
+
+  /**
+   * @public
+   * <p>The date and time at which the generation request was made.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the generation request was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 }
@@ -1830,6 +2332,92 @@ export interface ListBotRecommendationsResponse {
    *          field is present, you send the contents as the nextToken parameter of a
    *          ListBotRecommendations operation request to get the next page of
    *          results. </p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBotResourceGenerationsRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the bot whose generation
+   *       requests you want to view.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot whose generation
+   *          requests you want to view.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The locale of the bot whose generation
+   *          requests you want to view.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * @public
+   * <p>An object containing information about the attribute and the
+   *       method by which to sort the results</p>
+   */
+  sortBy?: GenerationSortBy;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>If the total number of results is greater than the number
+   *       specified in the <code>maxResults</code>, the response returns a token
+   *       in the <code>nextToken</code> field. Use this token when making a request to
+   *       return the next batch of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBotResourceGenerationsResponse {
+  /**
+   * @public
+   * <p>The unique identifier of the bot for which the generation requests were made.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The version of the bot for which the generation requests were made.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The locale of the bot for which the generation requests were made.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>A list of objects, each containing information about a generation request for the bot locale.</p>
+   */
+  generationSummaries?: GenerationSummary[];
+
+  /**
+   * @public
+   * <p>If the total number of results is greater than the number
+   *          specified in the <code>maxResults</code>, the response returns a token
+   *          in the <code>nextToken</code> field. Use this token when making a request to
+   *          return the next batch of results.</p>
    */
   nextToken?: string;
 }
@@ -4931,6 +5519,82 @@ export interface StartBotRecommendationResponse {
 /**
  * @public
  */
+export interface StartBotResourceGenerationRequest {
+  /**
+   * @public
+   * <p>The prompt to generate intents and slot types for the bot locale. Your description should be both <i>detailed</i> and <i>precise</i> to help generate appropriate and sufficient intents for your bot. Include a list of actions to improve the intent creation process.</p>
+   */
+  generationInputPrompt: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the bot for which to generate intents and slot types.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot for which to generate intents and slot types.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The locale of the bot for which to generate intents and slot types.</p>
+   */
+  localeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBotResourceGenerationResponse {
+  /**
+   * @public
+   * <p>The prompt that was used generate intents and slot types for the bot locale.</p>
+   */
+  generationInputPrompt?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the generation request.</p>
+   */
+  generationId?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the bot for which the generation request was made.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The version of the bot for which the generation request was made.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The locale of the bot for which the generation request was made.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>The status of the generation request.</p>
+   */
+  generationStatus?: GenerationStatus;
+
+  /**
+   * @public
+   * <p>The date and time at which the generation request was made.</p>
+   */
+  creationDateTime?: Date;
+}
+
+/**
+ * @public
+ */
 export interface StartImportRequest {
   /**
    * @public
@@ -5623,6 +6287,13 @@ export interface UpdateBotLocaleRequest {
    *          user.</p>
    */
   voiceSettings?: VoiceSettings;
+
+  /**
+   * @public
+   * <p>Contains settings for generative AI features powered by Amazon Bedrock for your bot locale. Use this object to turn generative AI features on and off. Pricing
+   *       may differ if you turn a feature on. For more information, see LINK.</p>
+   */
+  generativeAISettings?: GenerativeAISettings;
 }
 
 /**
@@ -5709,6 +6380,12 @@ export interface UpdateBotLocaleResponse {
    *             <code>failureReasons</code> field.</p>
    */
   recommendedActions?: string[];
+
+  /**
+   * @public
+   * <p>Contains settings for generative AI features powered by Amazon Bedrock for your bot locale.</p>
+   */
+  generativeAISettings?: GenerativeAISettings;
 }
 
 /**
@@ -7195,6 +7872,12 @@ export interface SlotValueElicitationSetting {
    *          value is successfully entered by a user.</p>
    */
   slotCaptureSetting?: SlotCaptureSetting;
+
+  /**
+   * @public
+   * <p>An object containing information about whether assisted slot resolution is turned on for the slot or not.</p>
+   */
+  slotResolutionSetting?: SlotResolutionSetting;
 }
 
 /**

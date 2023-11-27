@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/models_0";
-import { de_CreateBotVersionCommand, se_CreateBotVersionCommand } from "../protocols/Aws_restJson1";
+import { StartBotResourceGenerationRequest, StartBotResourceGenerationResponse } from "../models/models_1";
+import { de_StartBotResourceGenerationCommand, se_StartBotResourceGenerationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,59 +25,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateBotVersionCommand}.
+ * The input for {@link StartBotResourceGenerationCommand}.
  */
-export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
+export interface StartBotResourceGenerationCommandInput extends StartBotResourceGenerationRequest {}
 /**
  * @public
  *
- * The output of {@link CreateBotVersionCommand}.
+ * The output of {@link StartBotResourceGenerationCommand}.
  */
-export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
+export interface StartBotResourceGenerationCommandOutput extends StartBotResourceGenerationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates an immutable version of the bot. When you create the first
- *          version of a bot, Amazon Lex sets the version number to 1. Subsequent bot versions increase
- *          in an increment of 1. The version number will always represent the total number
- *          of versions created of the bot, not the current number of versions. If a bot version
- *          is deleted, that bot version number will not be reused.</p>
+ * <p>Starts a request for the descriptive bot builder to generate a bot locale configuration
+ *          based on the prompt you provide it. After you make this call, use the <code>DescribeBotResourceGeneration</code>
+ *          operation to check on the status of the generation and for the <code>generatedBotLocaleUrl</code> when the
+ *          generation is complete. Use that value to retrieve the Amazon S3 object containing the bot locale configuration. You can
+ *          then modify and import this configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, CreateBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, CreateBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, StartBotResourceGenerationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, StartBotResourceGenerationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // CreateBotVersionRequest
+ * const input = { // StartBotResourceGenerationRequest
+ *   generationInputPrompt: "STRING_VALUE", // required
  *   botId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   botVersionLocaleSpecification: { // BotVersionLocaleSpecification // required
- *     "<keys>": { // BotVersionLocaleDetails
- *       sourceBotVersion: "STRING_VALUE", // required
- *     },
- *   },
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
  * };
- * const command = new CreateBotVersionCommand(input);
+ * const command = new StartBotResourceGenerationCommand(input);
  * const response = await client.send(command);
- * // { // CreateBotVersionResponse
+ * // { // StartBotResourceGenerationResponse
+ * //   generationInputPrompt: "STRING_VALUE",
+ * //   generationId: "STRING_VALUE",
  * //   botId: "STRING_VALUE",
- * //   description: "STRING_VALUE",
  * //   botVersion: "STRING_VALUE",
- * //   botVersionLocaleSpecification: { // BotVersionLocaleSpecification
- * //     "<keys>": { // BotVersionLocaleDetails
- * //       sourceBotVersion: "STRING_VALUE", // required
- * //     },
- * //   },
- * //   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * //   localeId: "STRING_VALUE",
+ * //   generationStatus: "Failed" || "Complete" || "InProgress",
  * //   creationDateTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param CreateBotVersionCommandInput - {@link CreateBotVersionCommandInput}
- * @returns {@link CreateBotVersionCommandOutput}
- * @see {@link CreateBotVersionCommandInput} for command's `input` shape.
- * @see {@link CreateBotVersionCommandOutput} for command's `response` shape.
+ * @param StartBotResourceGenerationCommandInput - {@link StartBotResourceGenerationCommandInput}
+ * @returns {@link StartBotResourceGenerationCommandOutput}
+ * @see {@link StartBotResourceGenerationCommandInput} for command's `input` shape.
+ * @see {@link StartBotResourceGenerationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -109,9 +103,9 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class CreateBotVersionCommand extends $Command<
-  CreateBotVersionCommandInput,
-  CreateBotVersionCommandOutput,
+export class StartBotResourceGenerationCommand extends $Command<
+  StartBotResourceGenerationCommandInput,
+  StartBotResourceGenerationCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -126,7 +120,7 @@ export class CreateBotVersionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateBotVersionCommandInput) {
+  constructor(readonly input: StartBotResourceGenerationCommandInput) {
     super();
   }
 
@@ -137,17 +131,17 @@ export class CreateBotVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateBotVersionCommandInput, CreateBotVersionCommandOutput> {
+  ): Handler<StartBotResourceGenerationCommandInput, StartBotResourceGenerationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateBotVersionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartBotResourceGenerationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "CreateBotVersionCommand";
+    const commandName = "StartBotResourceGenerationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -156,7 +150,7 @@ export class CreateBotVersionCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "LexModelBuildingServiceV2",
-        operation: "CreateBotVersion",
+        operation: "StartBotResourceGeneration",
       },
     };
     const { requestHandler } = configuration;
@@ -170,14 +164,17 @@ export class CreateBotVersionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateBotVersionCommand(input, context);
+  private serialize(input: StartBotResourceGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartBotResourceGenerationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotVersionCommandOutput> {
-    return de_CreateBotVersionCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<StartBotResourceGenerationCommandOutput> {
+    return de_StartBotResourceGenerationCommand(output, context);
   }
 }

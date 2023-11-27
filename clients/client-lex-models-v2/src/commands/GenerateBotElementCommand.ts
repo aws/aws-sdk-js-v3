@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_1";
-import { de_DescribeResourcePolicyCommand, se_DescribeResourcePolicyCommand } from "../protocols/Aws_restJson1";
+import { GenerateBotElementRequest, GenerateBotElementResponse } from "../models/models_1";
+import { de_GenerateBotElementCommand, se_GenerateBotElementCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,64 +25,89 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeResourcePolicyCommand}.
+ * The input for {@link GenerateBotElementCommand}.
  */
-export interface DescribeResourcePolicyCommandInput extends DescribeResourcePolicyRequest {}
+export interface GenerateBotElementCommandInput extends GenerateBotElementRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeResourcePolicyCommand}.
+ * The output of {@link GenerateBotElementCommand}.
  */
-export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
+export interface GenerateBotElementCommandOutput extends GenerateBotElementResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the resource policy and policy revision for a bot or bot
- *          alias.</p>
+ * <p>Generates sample utterances for an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, GenerateBotElementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, GenerateBotElementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // DescribeResourcePolicyRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // GenerateBotElementRequest
+ *   intentId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
  * };
- * const command = new DescribeResourcePolicyCommand(input);
+ * const command = new GenerateBotElementCommand(input);
  * const response = await client.send(command);
- * // { // DescribeResourcePolicyResponse
- * //   resourceArn: "STRING_VALUE",
- * //   policy: "STRING_VALUE",
- * //   revisionId: "STRING_VALUE",
+ * // { // GenerateBotElementResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   intentId: "STRING_VALUE",
+ * //   sampleUtterances: [ // SampleUtterancesList
+ * //     { // SampleUtterance
+ * //       utterance: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
- * @returns {@link DescribeResourcePolicyCommandOutput}
- * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
- * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
+ * @param GenerateBotElementCommandInput - {@link GenerateBotElementCommandInput}
+ * @returns {@link GenerateBotElementCommandOutput}
+ * @see {@link GenerateBotElementCommandInput} for command's `input` shape.
+ * @see {@link GenerateBotElementCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The action that you tried to perform couldn't be completed because
+ *          the resource is in a conflicting state. For example, deleting a bot
+ *          that is in the CREATING state. Try your request again. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>Your request couldn't be completed because one or more request
+ *          fields aren't valid. Check the fields in your request and try
  *          again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You asked to describe a resource that doesn't exist. Check the
  *          resource that you are requesting and try again.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached a quota for your bot. </p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request rate is too high. Reduce the frequency of
  *          requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
  *
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class DescribeResourcePolicyCommand extends $Command<
-  DescribeResourcePolicyCommandInput,
-  DescribeResourcePolicyCommandOutput,
+export class GenerateBotElementCommand extends $Command<
+  GenerateBotElementCommandInput,
+  GenerateBotElementCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -97,7 +122,7 @@ export class DescribeResourcePolicyCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeResourcePolicyCommandInput) {
+  constructor(readonly input: GenerateBotElementCommandInput) {
     super();
   }
 
@@ -108,17 +133,17 @@ export class DescribeResourcePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeResourcePolicyCommandInput, DescribeResourcePolicyCommandOutput> {
+  ): Handler<GenerateBotElementCommandInput, GenerateBotElementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeResourcePolicyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GenerateBotElementCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "DescribeResourcePolicyCommand";
+    const commandName = "GenerateBotElementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -127,7 +152,7 @@ export class DescribeResourcePolicyCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "LexModelBuildingServiceV2",
-        operation: "DescribeResourcePolicy",
+        operation: "GenerateBotElement",
       },
     };
     const { requestHandler } = configuration;
@@ -141,14 +166,14 @@ export class DescribeResourcePolicyCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeResourcePolicyCommand(input, context);
+  private serialize(input: GenerateBotElementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GenerateBotElementCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
-    return de_DescribeResourcePolicyCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateBotElementCommandOutput> {
+    return de_GenerateBotElementCommand(output, context);
   }
 }

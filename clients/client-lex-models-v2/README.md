@@ -477,6 +477,14 @@ DescribeBotRecommendation
 </details>
 <details>
 <summary>
+DescribeBotResourceGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DescribeBotResourceGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotResourceGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotResourceGenerationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeBotVersion
 </summary>
 
@@ -573,6 +581,14 @@ DescribeTestSetGeneration
 </details>
 <details>
 <summary>
+GenerateBotElement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/GenerateBotElementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/GenerateBotElementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/GenerateBotElementCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTestExecutionArtifactsUrl
 </summary>
 
@@ -609,6 +625,14 @@ ListBotRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListBotResourceGenerations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotResourceGenerationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotResourceGenerationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotResourceGenerationsCommandOutput/)
 
 </details>
 <details>
@@ -809,6 +833,14 @@ StartBotRecommendation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/StartBotRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartBotRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartBotRecommendationCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartBotResourceGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/StartBotResourceGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartBotResourceGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartBotResourceGenerationCommandOutput/)
 
 </details>
 <details>

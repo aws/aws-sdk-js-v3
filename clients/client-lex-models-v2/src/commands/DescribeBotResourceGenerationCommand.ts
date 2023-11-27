@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeSlotTypeRequest, DescribeSlotTypeResponse } from "../models/models_1";
-import { de_DescribeSlotTypeCommand, se_DescribeSlotTypeCommand } from "../protocols/Aws_restJson1";
+import { DescribeBotResourceGenerationRequest, DescribeBotResourceGenerationResponse } from "../models/models_0";
+import {
+  de_DescribeBotResourceGenerationCommand,
+  se_DescribeBotResourceGenerationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,89 +28,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeSlotTypeCommand}.
+ * The input for {@link DescribeBotResourceGenerationCommand}.
  */
-export interface DescribeSlotTypeCommandInput extends DescribeSlotTypeRequest {}
+export interface DescribeBotResourceGenerationCommandInput extends DescribeBotResourceGenerationRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeSlotTypeCommand}.
+ * The output of {@link DescribeBotResourceGenerationCommand}.
  */
-export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse, __MetadataBearer {}
+export interface DescribeBotResourceGenerationCommandOutput
+  extends DescribeBotResourceGenerationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets metadata information about a slot type.</p>
+ * <p>Returns information about a request to generate a bot through natural language description, made through
+ *       the <code>StartBotResource</code> API. Use the <code>generatedBotLocaleUrl</code>
+ *       to retrieve the Amazon S3 object containing the bot locale configuration. You can
+ *       then modify and import this configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeBotResourceGenerationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DescribeBotResourceGenerationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // DescribeSlotTypeRequest
- *   slotTypeId: "STRING_VALUE", // required
+ * const input = { // DescribeBotResourceGenerationRequest
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
+ *   generationId: "STRING_VALUE", // required
  * };
- * const command = new DescribeSlotTypeCommand(input);
+ * const command = new DescribeBotResourceGenerationCommand(input);
  * const response = await client.send(command);
- * // { // DescribeSlotTypeResponse
- * //   slotTypeId: "STRING_VALUE",
- * //   slotTypeName: "STRING_VALUE",
- * //   description: "STRING_VALUE",
- * //   slotTypeValues: [ // SlotTypeValues
- * //     { // SlotTypeValue
- * //       sampleValue: { // SampleValue
- * //         value: "STRING_VALUE", // required
- * //       },
- * //       synonyms: [ // SynonymList
- * //         {
- * //           value: "STRING_VALUE", // required
- * //         },
- * //       ],
- * //     },
- * //   ],
- * //   valueSelectionSetting: { // SlotValueSelectionSetting
- * //     resolutionStrategy: "OriginalValue" || "TopResolution" || "Concatenation", // required
- * //     regexFilter: { // SlotValueRegexFilter
- * //       pattern: "STRING_VALUE", // required
- * //     },
- * //     advancedRecognitionSetting: { // AdvancedRecognitionSetting
- * //       audioRecognitionStrategy: "UseSlotValuesAsCustomVocabulary",
- * //     },
- * //   },
- * //   parentSlotTypeSignature: "STRING_VALUE",
+ * // { // DescribeBotResourceGenerationResponse
  * //   botId: "STRING_VALUE",
  * //   botVersion: "STRING_VALUE",
  * //   localeId: "STRING_VALUE",
+ * //   generationId: "STRING_VALUE",
+ * //   failureReasons: [ // FailureReasons
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   generationStatus: "Failed" || "Complete" || "InProgress",
+ * //   generationInputPrompt: "STRING_VALUE",
+ * //   generatedBotLocaleUrl: "STRING_VALUE",
  * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   modelArn: "STRING_VALUE",
  * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
- * //   externalSourceSetting: { // ExternalSourceSetting
- * //     grammarSlotTypeSetting: { // GrammarSlotTypeSetting
- * //       source: { // GrammarSlotTypeSource
- * //         s3BucketName: "STRING_VALUE", // required
- * //         s3ObjectKey: "STRING_VALUE", // required
- * //         kmsKeyArn: "STRING_VALUE",
- * //       },
- * //     },
- * //   },
- * //   compositeSlotTypeSetting: { // CompositeSlotTypeSetting
- * //     subSlots: [ // SubSlotTypeList
- * //       { // SubSlotTypeComposition
- * //         name: "STRING_VALUE", // required
- * //         slotTypeId: "STRING_VALUE", // required
- * //       },
- * //     ],
- * //   },
  * // };
  *
  * ```
  *
- * @param DescribeSlotTypeCommandInput - {@link DescribeSlotTypeCommandInput}
- * @returns {@link DescribeSlotTypeCommandOutput}
- * @see {@link DescribeSlotTypeCommandInput} for command's `input` shape.
- * @see {@link DescribeSlotTypeCommandOutput} for command's `response` shape.
+ * @param DescribeBotResourceGenerationCommandInput - {@link DescribeBotResourceGenerationCommandInput}
+ * @returns {@link DescribeBotResourceGenerationCommandOutput}
+ * @see {@link DescribeBotResourceGenerationCommandInput} for command's `input` shape.
+ * @see {@link DescribeBotResourceGenerationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -117,9 +91,6 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You asked to describe a resource that doesn't exist. Check the
  *          resource that you are requesting and try again.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have reached a quota for your bot. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request rate is too high. Reduce the frequency of
@@ -133,9 +104,9 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class DescribeSlotTypeCommand extends $Command<
-  DescribeSlotTypeCommandInput,
-  DescribeSlotTypeCommandOutput,
+export class DescribeBotResourceGenerationCommand extends $Command<
+  DescribeBotResourceGenerationCommandInput,
+  DescribeBotResourceGenerationCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -150,7 +121,7 @@ export class DescribeSlotTypeCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeSlotTypeCommandInput) {
+  constructor(readonly input: DescribeBotResourceGenerationCommandInput) {
     super();
   }
 
@@ -161,17 +132,17 @@ export class DescribeSlotTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput> {
+  ): Handler<DescribeBotResourceGenerationCommandInput, DescribeBotResourceGenerationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeSlotTypeCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeBotResourceGenerationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "DescribeSlotTypeCommand";
+    const commandName = "DescribeBotResourceGenerationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -180,7 +151,7 @@ export class DescribeSlotTypeCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "LexModelBuildingServiceV2",
-        operation: "DescribeSlotType",
+        operation: "DescribeBotResourceGeneration",
       },
     };
     const { requestHandler } = configuration;
@@ -194,14 +165,17 @@ export class DescribeSlotTypeCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeSlotTypeCommand(input, context);
+  private serialize(input: DescribeBotResourceGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeBotResourceGenerationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSlotTypeCommandOutput> {
-    return de_DescribeSlotTypeCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeBotResourceGenerationCommandOutput> {
+    return de_DescribeBotResourceGenerationCommand(output, context);
   }
 }

@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeSlotRequest } from "../models/models_0";
-import { DescribeSlotResponse } from "../models/models_1";
+import { DescribeSlotRequest, DescribeSlotResponse } from "../models/models_1";
 import { de_DescribeSlotCommand, se_DescribeSlotCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -378,6 +377,9 @@ export interface DescribeSlotCommandOutput extends DescribeSlotResponse, __Metad
  * //         enableCodeHookInvocation: true || false, // required
  * //         invocationLabel: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     slotResolutionSetting: { // SlotResolutionSetting
+ * //       slotResolutionStrategy: "EnhancedFallback" || "Default", // required
  * //     },
  * //   },
  * //   obfuscationSetting: { // ObfuscationSetting

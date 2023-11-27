@@ -80,6 +80,30 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //   recommendedActions: [ // RecommendedActions
  * //     "STRING_VALUE",
  * //   ],
+ * //   generativeAISettings: { // GenerativeAISettings
+ * //     runtimeSettings: { // RuntimeSettings
+ * //       slotResolutionImprovement: { // SlotResolutionImprovementSpecification
+ * //         enabled: true || false, // required
+ * //         bedrockModelSpecification: { // BedrockModelSpecification
+ * //           modelArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     buildtimeSettings: { // BuildtimeSettings
+ * //       descriptiveBotBuilder: { // DescriptiveBotBuilderSpecification
+ * //         enabled: true || false, // required
+ * //         bedrockModelSpecification: {
+ * //           modelArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
+ * //         enabled: true || false, // required
+ * //         bedrockModelSpecification: {
+ * //           modelArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

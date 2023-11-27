@@ -4,6 +4,7 @@ export * from "./ListAggregatedUtterancesPaginator";
 export * from "./ListBotAliasesPaginator";
 export * from "./ListBotLocalesPaginator";
 export * from "./ListBotRecommendationsPaginator";
+export * from "./ListBotResourceGenerationsPaginator";
 export * from "./ListBotVersionsPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListBuiltInIntentsPaginator";

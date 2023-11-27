@@ -153,6 +153,11 @@ import {
   DescribeBotRecommendationCommandOutput,
 } from "./commands/DescribeBotRecommendationCommand";
 import {
+  DescribeBotResourceGenerationCommand,
+  DescribeBotResourceGenerationCommandInput,
+  DescribeBotResourceGenerationCommandOutput,
+} from "./commands/DescribeBotResourceGenerationCommand";
+import {
   DescribeBotVersionCommand,
   DescribeBotVersionCommandInput,
   DescribeBotVersionCommandOutput,
@@ -213,6 +218,11 @@ import {
   DescribeTestSetGenerationCommandOutput,
 } from "./commands/DescribeTestSetGenerationCommand";
 import {
+  GenerateBotElementCommand,
+  GenerateBotElementCommandInput,
+  GenerateBotElementCommandOutput,
+} from "./commands/GenerateBotElementCommand";
+import {
   GetTestExecutionArtifactsUrlCommand,
   GetTestExecutionArtifactsUrlCommandInput,
   GetTestExecutionArtifactsUrlCommandOutput,
@@ -237,6 +247,11 @@ import {
   ListBotRecommendationsCommandInput,
   ListBotRecommendationsCommandOutput,
 } from "./commands/ListBotRecommendationsCommand";
+import {
+  ListBotResourceGenerationsCommand,
+  ListBotResourceGenerationsCommandInput,
+  ListBotResourceGenerationsCommandOutput,
+} from "./commands/ListBotResourceGenerationsCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
   ListBotVersionsCommand,
@@ -342,6 +357,11 @@ import {
   StartBotRecommendationCommandInput,
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
+import {
+  StartBotResourceGenerationCommand,
+  StartBotResourceGenerationCommandInput,
+  StartBotResourceGenerationCommandOutput,
+} from "./commands/StartBotResourceGenerationCommand";
 import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
   StartTestExecutionCommand,
@@ -443,6 +463,7 @@ const commands = {
   DescribeBotAliasCommand,
   DescribeBotLocaleCommand,
   DescribeBotRecommendationCommand,
+  DescribeBotResourceGenerationCommand,
   DescribeBotVersionCommand,
   DescribeCustomVocabularyMetadataCommand,
   DescribeExportCommand,
@@ -455,11 +476,13 @@ const commands = {
   DescribeTestSetCommand,
   DescribeTestSetDiscrepancyReportCommand,
   DescribeTestSetGenerationCommand,
+  GenerateBotElementCommand,
   GetTestExecutionArtifactsUrlCommand,
   ListAggregatedUtterancesCommand,
   ListBotAliasesCommand,
   ListBotLocalesCommand,
   ListBotRecommendationsCommand,
+  ListBotResourceGenerationsCommand,
   ListBotsCommand,
   ListBotVersionsCommand,
   ListBuiltInIntentsCommand,
@@ -485,6 +508,7 @@ const commands = {
   ListUtteranceMetricsCommand,
   SearchAssociatedTranscriptsCommand,
   StartBotRecommendationCommand,
+  StartBotResourceGenerationCommand,
   StartImportCommand,
   StartTestExecutionCommand,
   StartTestSetGenerationCommand,
@@ -993,6 +1017,23 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link DescribeBotResourceGenerationCommand}
+   */
+  describeBotResourceGeneration(
+    args: DescribeBotResourceGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBotResourceGenerationCommandOutput>;
+  describeBotResourceGeneration(
+    args: DescribeBotResourceGenerationCommandInput,
+    cb: (err: any, data?: DescribeBotResourceGenerationCommandOutput) => void
+  ): void;
+  describeBotResourceGeneration(
+    args: DescribeBotResourceGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBotResourceGenerationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeBotVersionCommand}
    */
   describeBotVersion(
@@ -1179,6 +1220,23 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link GenerateBotElementCommand}
+   */
+  generateBotElement(
+    args: GenerateBotElementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateBotElementCommandOutput>;
+  generateBotElement(
+    args: GenerateBotElementCommandInput,
+    cb: (err: any, data?: GenerateBotElementCommandOutput) => void
+  ): void;
+  generateBotElement(
+    args: GenerateBotElementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateBotElementCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTestExecutionArtifactsUrlCommand}
    */
   getTestExecutionArtifactsUrl(
@@ -1255,6 +1313,23 @@ export interface LexModelsV2 {
     args: ListBotRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBotRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBotResourceGenerationsCommand}
+   */
+  listBotResourceGenerations(
+    args: ListBotResourceGenerationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBotResourceGenerationsCommandOutput>;
+  listBotResourceGenerations(
+    args: ListBotResourceGenerationsCommandInput,
+    cb: (err: any, data?: ListBotResourceGenerationsCommandOutput) => void
+  ): void;
+  listBotResourceGenerations(
+    args: ListBotResourceGenerationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBotResourceGenerationsCommandOutput) => void
   ): void;
 
   /**
@@ -1632,6 +1707,23 @@ export interface LexModelsV2 {
     args: StartBotRecommendationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartBotRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartBotResourceGenerationCommand}
+   */
+  startBotResourceGeneration(
+    args: StartBotResourceGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBotResourceGenerationCommandOutput>;
+  startBotResourceGeneration(
+    args: StartBotResourceGenerationCommandInput,
+    cb: (err: any, data?: StartBotResourceGenerationCommandOutput) => void
+  ): void;
+  startBotResourceGeneration(
+    args: StartBotResourceGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBotResourceGenerationCommandOutput) => void
   ): void;
 
   /**
