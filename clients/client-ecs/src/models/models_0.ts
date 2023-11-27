@@ -3569,6 +3569,7 @@ export const SettingName = {
   CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
   FARGATE_FIPS_MODE: "fargateFIPSMode",
   FARGATE_TASK_RETIREMENT_WAIT_PERIOD: "fargateTaskRetirementWaitPeriod",
+  GUARD_DUTY_ACTIVATE: "guardDutyActivate",
   SERVICE_LONG_ARN_FORMAT: "serviceLongArnFormat",
   TAG_RESOURCE_AUTHORIZATION: "tagResourceAuthorization",
   TASK_LONG_ARN_FORMAT: "taskLongArnFormat",
@@ -3607,6 +3608,20 @@ export interface DeleteAccountSettingRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const SettingType = {
+  AWS_MANAGED: "aws_managed",
+  USER: "user",
+} as const;
+
+/**
+ * @public
+ */
+export type SettingType = (typeof SettingType)[keyof typeof SettingType];
+
+/**
+ * @public
  * <p>The current account setting for a resource.</p>
  */
 export interface Setting {
@@ -3628,6 +3643,16 @@ export interface Setting {
    * 			field is omitted, the authenticated user is assumed.</p>
    */
   principalArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether Amazon Web Services manages the account setting, or if the user manages it.</p>
+   *          <p>
+   *             <code>aws_managed</code> account settings are read-only, as Amazon Web Services manages such on the
+   * 			customer's behalf. Currently, the <code>guardDutyActivate</code> account setting is the
+   * 			only one Amazon Web Services manages.</p>
+   */
+  type?: SettingType;
 }
 
 /**
@@ -9726,6 +9751,9 @@ export interface PutAccountSettingRequest {
    * 			resources on creation is affected. For information about the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging authorization timeline</a> in the <i>Amazon ECS Developer
    * 				Guide</i>. If you specify <code>fargateTaskRetirementWaitPeriod</code>, the
    * 			wait time to retire a Fargate task is affected.</p>
+   *          <p>The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates whether
+   * 			Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator in your
+   * 			Amazon ECS account. Amazon GuardDuty controls this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</p>
    */
   name: SettingName | undefined;
 
@@ -9811,6 +9839,9 @@ export interface PutAccountSettingDefaultRequest {
    * 			Fargate task to the default. For information about the Fargate tasks maintenance,
    * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web Services Fargate task
    * 				maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   *          <p>The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates whether
+   * 			Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator in your
+   * 			Amazon ECS account. Amazon GuardDuty controls this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</p>
    */
   name: SettingName | undefined;
 

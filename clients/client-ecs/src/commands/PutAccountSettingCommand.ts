@@ -74,6 +74,9 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * 			them. Use <code>fargateTaskRetirementWaitPeriod</code> to configure the wait time to
  * 			retire a Fargate task. For information about the Fargate tasks maintenance, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer
  * 					Guide</i>.</p>
+ *          <p>The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates whether
+ * 			Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator in your
+ * 			Amazon ECS account. Amazon GuardDuty controls this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +84,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * // const { ECSClient, PutAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // PutAccountSettingRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod", // required
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate", // required
  *   value: "STRING_VALUE", // required
  *   principalArn: "STRING_VALUE",
  * };
@@ -89,9 +92,10 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * const response = await client.send(command);
  * // { // PutAccountSettingResponse
  * //   setting: { // Setting
- * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod",
+ * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate",
  * //     value: "STRING_VALUE",
  * //     principalArn: "STRING_VALUE",
+ * //     type: "user" || "aws_managed",
  * //   },
  * // };
  *
