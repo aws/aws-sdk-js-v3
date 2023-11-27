@@ -52,6 +52,7 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * const input = { // ListAccessorsInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   NetworkType: "ETHEREUM_GOERLI" || "ETHEREUM_MAINNET" || "ETHEREUM_MAINNET_AND_GOERLI" || "POLYGON_MAINNET" || "POLYGON_MUMBAI",
  * };
  * const command = new ListAccessorsCommand(input);
  * const response = await client.send(command);
@@ -63,6 +64,7 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * //       Status: "AVAILABLE" || "PENDING_DELETION" || "DELETED",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       Arn: "STRING_VALUE",
+ * //       NetworkType: "ETHEREUM_GOERLI" || "ETHEREUM_MAINNET" || "ETHEREUM_MAINNET_AND_GOERLI" || "POLYGON_MAINNET" || "POLYGON_MUMBAI",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

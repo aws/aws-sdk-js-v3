@@ -112,6 +112,7 @@ export const se_CreateAccessorCommand = async (
     take(input, {
       AccessorType: [],
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      NetworkType: [],
       Tags: (_) => _json(_),
     })
   );
@@ -481,6 +482,7 @@ export const se_ListAccessorsCommand = async (
   const query: any = map({
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
+    networkType: [, input.NetworkType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -905,6 +907,7 @@ export const de_CreateAccessorCommand = async (
   const doc = take(data, {
     AccessorId: __expectString,
     BillingToken: __expectString,
+    NetworkType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2735,6 +2738,7 @@ const de_Accessor = (output: any, context: __SerdeContext): Accessor => {
     BillingToken: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Id: __expectString,
+    NetworkType: __expectString,
     Status: __expectString,
     Tags: _json,
     Type: __expectString,
@@ -2749,6 +2753,7 @@ const de_AccessorSummary = (output: any, context: __SerdeContext): AccessorSumma
     Arn: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Id: __expectString,
+    NetworkType: __expectString,
     Status: __expectString,
     Type: __expectString,
   }) as any;

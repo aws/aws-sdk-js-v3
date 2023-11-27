@@ -29,6 +29,23 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const AccessorNetworkType = {
+  ETHEREUM_GOERLI: "ETHEREUM_GOERLI",
+  ETHEREUM_MAINNET: "ETHEREUM_MAINNET",
+  ETHEREUM_MAINNET_AND_GOERLI: "ETHEREUM_MAINNET_AND_GOERLI",
+  POLYGON_MAINNET: "POLYGON_MAINNET",
+  POLYGON_MUMBAI: "POLYGON_MUMBAI",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessorNetworkType = (typeof AccessorNetworkType)[keyof typeof AccessorNetworkType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AccessorStatus = {
   AVAILABLE: "AVAILABLE",
   DELETED: "DELETED",
@@ -75,9 +92,9 @@ export interface Accessor {
 
   /**
    * @public
-   * <p>The billing token is a property of the accessor. Use this token to make Ethereum API calls to your
-   *          Ethereum node. The billing token is used to track your accessor object for billing Ethereum API
-   *          requests made to your Ethereum nodes.</p>
+   * <p>The billing token is a property of the Accessor. Use this token to
+   *          when making calls to the blockchain network. The billing token is used
+   *          to track your accessor token for billing requests.</p>
    */
   BillingToken?: string;
 
@@ -107,6 +124,12 @@ export interface Accessor {
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The blockchain network that the Accessor token is created for.</p>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -148,6 +171,12 @@ export interface AccessorSummary {
    *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
+
+  /**
+   * @public
+   * <p>The blockchain network that the Accessor token is created for.</p>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -184,7 +213,9 @@ export interface ApprovalThresholdPolicy {
 
   /**
    * @public
-   * <p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>
+   * <p>Determines whether the vote percentage must be greater than the
+   *             <code>ThresholdPercentage</code> or must be greater than or equal to the
+   *             <code>ThresholdPercentage</code> to be approved.</p>
    */
   ThresholdComparator?: ThresholdComparator;
 }
@@ -221,6 +252,28 @@ export interface CreateAccessorInput {
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The blockchain network that the <code>Accessor</code> token is created for.</p>
+   *          <note>
+   *             <p>We recommend using the appropriate <code>networkType</code>
+   *             value for the blockchain network that you are creating the <code>Accessor</code>
+   *             token for. You cannnot use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> to
+   *             specify a <code>networkType</code> for your Accessor token.</p>
+   *             <p>The default value of <code>ETHEREUM_MAINNET_AND_GOERLI</code> is only applied:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>when the <code>CreateAccessor</code> action does not set a <code>networkType</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>to all existing <code>Accessor</code> tokens that were created before the <code>networkType</code> property was introduced.
+   *                </p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -235,11 +288,17 @@ export interface CreateAccessorOutput {
 
   /**
    * @public
-   * <p>The billing token is a property of the Accessor. Use this token to make Ethereum API calls to
-   *          your Ethereum node. The billing token is used to track your accessor object for billing Ethereum
-   *          API requests made to your Ethereum nodes.</p>
+   * <p>The billing token is a property of the Accessor. Use this token to
+   *          when making calls to the blockchain network. The billing token is used
+   *          to track your accessor token for billing requests.</p>
    */
   BillingToken?: string;
+
+  /**
+   * @public
+   * <p>The blockchain network that the accessor token is created for.</p>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -2059,6 +2118,17 @@ export interface ListAccessorsInput {
    * <p> The pagination token that indicates the next set of results to retrieve. </p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>The blockchain network that the <code>Accessor</code> token is created for.</p>
+   *          <note>
+   *             <p>Use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> for all
+   *          existing <code>Accessors</code> tokens that were created before the <code>networkType</code>
+   *          property was introduced.</p>
+   *          </note>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**

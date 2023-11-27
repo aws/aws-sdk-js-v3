@@ -65,6 +65,7 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * //     Tags: { // OutputTagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     NetworkType: "ETHEREUM_GOERLI" || "ETHEREUM_MAINNET" || "ETHEREUM_MAINNET_AND_GOERLI" || "POLYGON_MAINNET" || "POLYGON_MUMBAI",
  * //   },
  * // };
  *

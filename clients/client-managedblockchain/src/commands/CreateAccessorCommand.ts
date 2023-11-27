@@ -41,8 +41,8 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
 
 /**
  * @public
- * <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor contains information
- *          required for token based access to your Ethereum nodes.</p>
+ * <p>Creates a new accessor for use with Amazon Managed Blockchain service that supports token based access.
+ *          The accessor contains information required for token based access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,12 +55,14 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  *   Tags: { // InputTagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   NetworkType: "ETHEREUM_GOERLI" || "ETHEREUM_MAINNET" || "ETHEREUM_MAINNET_AND_GOERLI" || "POLYGON_MAINNET" || "POLYGON_MUMBAI",
  * };
  * const command = new CreateAccessorCommand(input);
  * const response = await client.send(command);
  * // { // CreateAccessorOutput
  * //   AccessorId: "STRING_VALUE",
  * //   BillingToken: "STRING_VALUE",
+ * //   NetworkType: "ETHEREUM_GOERLI" || "ETHEREUM_MAINNET" || "ETHEREUM_MAINNET_AND_GOERLI" || "POLYGON_MAINNET" || "POLYGON_MUMBAI",
  * // };
  *
  * ```
