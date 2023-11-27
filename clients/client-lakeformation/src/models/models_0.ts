@@ -613,6 +613,20 @@ export class AlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ApplicationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
+
+/**
+ * @public
  */
 export interface AssumeDecoratedRoleWithSAMLRequest {
   /**
@@ -1079,6 +1093,80 @@ export class ResourceNumberLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const EnableStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EnableStatus = (typeof EnableStatus)[keyof typeof EnableStatus];
+
+/**
+ * @public
+ * <p>Configuration for enabling external data filtering for third-party applications to
+ *          access data managed by Lake Formation .</p>
+ */
+export interface ExternalFilteringConfiguration {
+  /**
+   * @public
+   * <p>Allows to enable or disable the third-party applications that are allowed to access data
+   *          managed by Lake Formation.</p>
+   */
+  Status: EnableStatus | undefined;
+
+  /**
+   * @public
+   * <p>List of third-party application <code>ARNs</code> integrated with Lake Formation.</p>
+   */
+  AuthorizedTargets: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLakeFormationIdentityCenterConfigurationRequest {
+  /**
+   * @public
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the
+   *          persistent metadata store. It contains database definitions, table definitions, view
+   *          definitions, and other control information to manage your Lake Formation
+   *          environment.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center instance for which the operation will be executed.
+   *          For more information about ARNs, see Amazon Resource Names (ARNs) and Amazon Web Services Service
+   *          Namespaces in the Amazon Web Services General Reference.</p>
+   */
+  InstanceArn?: string;
+
+  /**
+   * @public
+   * <p>A list of the account IDs of Amazon Web Services accounts of third-party applications
+   *          that are allowed to to access data managed by Lake Formation.</p>
+   */
+  ExternalFiltering?: ExternalFilteringConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface CreateLakeFormationIdentityCenterConfigurationResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the integrated application.</p>
+   */
+  ApplicationArn?: string;
+}
+
+/**
+ * @public
  */
 export interface CreateLakeFormationOptInRequest {
   /**
@@ -1161,6 +1249,24 @@ export interface DeleteDataCellsFilterRequest {
  * @public
  */
 export interface DeleteDataCellsFilterResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteLakeFormationIdentityCenterConfigurationRequest {
+  /**
+   * @public
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the
+   *          persistent metadata store. It contains database definitions, table definitions, view
+   *          definition, and other control information to manage your Lake Formation environment.</p>
+   */
+  CatalogId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLakeFormationIdentityCenterConfigurationResponse {}
 
 /**
  * @public
@@ -1307,6 +1413,46 @@ export interface DeregisterResourceRequest {
  * @public
  */
 export interface DeregisterResourceResponse {}
+
+/**
+ * @public
+ */
+export interface DescribeLakeFormationIdentityCenterConfigurationRequest {
+  /**
+   * @public
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</p>
+   */
+  CatalogId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLakeFormationIdentityCenterConfigurationResponse {
+  /**
+   * @public
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the connection.</p>
+   */
+  InstanceArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the integrated application.</p>
+   */
+  ApplicationArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates if external filtering is enabled.</p>
+   */
+  ExternalFiltering?: ExternalFilteringConfiguration;
+}
 
 /**
  * @public
@@ -1542,7 +1688,7 @@ export interface DataLakeSettings {
 
   /**
    * @public
-   * <p>A key-value map that provides an additional configuration on your data lake. CrossAccountVersion is the key you can configure in the Parameters field. Accepted values for the CrossAccountVersion key are 1, 2, and 3.</p>
+   * <p>A key-value map that provides an additional configuration on your data lake. CROSS_ACCOUNT_VERSION is the key you can configure in the Parameters field. Accepted values for the CrossAccountVersion key are 1, 2, 3, and 4.</p>
    */
   Parameters?: Record<string, string>;
 
@@ -3350,7 +3496,7 @@ export interface TaggedTable {
 export interface SearchTablesByLFTagsResponse {
   /**
    * @public
-   * <p>A continuation token, present if the current list segment is not the last.</p>
+   * <p>A continuation token, present if the current list segment is not the last. On the first run, if you include a not null (a value) token you can get empty pages.</p>
    */
   NextToken?: string;
 
@@ -3477,6 +3623,38 @@ export interface UpdateDataCellsFilterRequest {
  * @public
  */
 export interface UpdateDataCellsFilterResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLakeFormationIdentityCenterConfigurationRequest {
+  /**
+   * @public
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the
+   *          persistent metadata store. It contains database definitions, table definitions, view
+   *          definitions, and other control information to manage your Lake Formation
+   *          environment.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>Allows to enable or disable the IAM Identity Center connection.</p>
+   */
+  ApplicationStatus?: ApplicationStatus;
+
+  /**
+   * @public
+   * <p>A list of the account IDs of Amazon Web Services accounts of third-party applications
+   *          that are allowed to access data managed by Lake Formation.</p>
+   */
+  ExternalFiltering?: ExternalFilteringConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLakeFormationIdentityCenterConfigurationResponse {}
 
 /**
  * @public

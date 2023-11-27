@@ -263,6 +263,14 @@ CreateDataCellsFilter
 </details>
 <details>
 <summary>
+CreateLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CreateLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLakeFormationIdentityCenterConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateLakeFormationOptIn
 </summary>
 
@@ -283,6 +291,14 @@ DeleteDataCellsFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteDataCellsFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteDataCellsFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteDataCellsFilterCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLakeFormationIdentityCenterConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -315,6 +331,14 @@ DeregisterResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeregisterResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeregisterResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeregisterResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DescribeLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeLakeFormationIdentityCenterConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -571,6 +595,14 @@ UpdateDataCellsFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateDataCellsFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateDataCellsFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateDataCellsFilterCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLakeFormationIdentityCenterConfigurationCommandOutput/)
 
 </details>
 <details>

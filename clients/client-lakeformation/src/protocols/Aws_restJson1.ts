@@ -49,6 +49,10 @@ import {
   CreateDataCellsFilterCommandOutput,
 } from "../commands/CreateDataCellsFilterCommand";
 import {
+  CreateLakeFormationIdentityCenterConfigurationCommandInput,
+  CreateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "../commands/CreateLakeFormationIdentityCenterConfigurationCommand";
+import {
   CreateLakeFormationOptInCommandInput,
   CreateLakeFormationOptInCommandOutput,
 } from "../commands/CreateLakeFormationOptInCommand";
@@ -57,6 +61,10 @@ import {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "../commands/DeleteDataCellsFilterCommand";
+import {
+  DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+  DeleteLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "../commands/DeleteLakeFormationIdentityCenterConfigurationCommand";
 import {
   DeleteLakeFormationOptInCommandInput,
   DeleteLakeFormationOptInCommandOutput,
@@ -67,6 +75,10 @@ import {
   DeleteObjectsOnCancelCommandOutput,
 } from "../commands/DeleteObjectsOnCancelCommand";
 import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "../commands/DeregisterResourceCommand";
+import {
+  DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+  DescribeLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "../commands/DescribeLakeFormationIdentityCenterConfigurationCommand";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "../commands/DescribeResourceCommand";
 import {
   DescribeTransactionCommandInput,
@@ -138,6 +150,10 @@ import {
   UpdateDataCellsFilterCommandInput,
   UpdateDataCellsFilterCommandOutput,
 } from "../commands/UpdateDataCellsFilterCommand";
+import {
+  UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+  UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "../commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
 import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "../commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "../commands/UpdateResourceCommand";
 import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "../commands/UpdateTableObjectsCommand";
@@ -165,6 +181,7 @@ import {
   DeleteObjectInput,
   EntityNotFoundException,
   ExpiredException,
+  ExternalFilteringConfiguration,
   FilterCondition,
   GlueEncryptionException,
   InternalServiceException,
@@ -415,6 +432,39 @@ export const se_CreateDataCellsFilterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateLakeFormationIdentityCenterConfigurationCommand
+ */
+export const se_CreateLakeFormationIdentityCenterConfigurationCommand = async (
+  input: CreateLakeFormationIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/CreateLakeFormationIdentityCenterConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      ExternalFiltering: (_) => _json(_),
+      InstanceArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateLakeFormationOptInCommand
  */
 export const se_CreateLakeFormationOptInCommand = async (
@@ -495,6 +545,37 @@ export const se_DeleteDataCellsFilterCommand = async (
       Name: [],
       TableCatalogId: [],
       TableName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteLakeFormationIdentityCenterConfigurationCommand
+ */
+export const se_DeleteLakeFormationIdentityCenterConfigurationCommand = async (
+  input: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/DeleteLakeFormationIdentityCenterConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
     })
   );
   return new __HttpRequest({
@@ -618,6 +699,37 @@ export const se_DeregisterResourceCommand = async (
   body = JSON.stringify(
     take(input, {
       ResourceArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeLakeFormationIdentityCenterConfigurationCommand
+ */
+export const se_DescribeLakeFormationIdentityCenterConfigurationCommand = async (
+  input: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/DescribeLakeFormationIdentityCenterConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
     })
   );
   return new __HttpRequest({
@@ -1677,6 +1789,39 @@ export const se_UpdateDataCellsFilterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateLakeFormationIdentityCenterConfigurationCommand
+ */
+export const se_UpdateLakeFormationIdentityCenterConfigurationCommand = async (
+  input: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/UpdateLakeFormationIdentityCenterConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ApplicationStatus: [],
+      CatalogId: [],
+      ExternalFiltering: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateLFTagCommand
  */
 export const se_UpdateLFTagCommand = async (
@@ -2215,6 +2360,68 @@ const de_CreateDataCellsFilterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLakeFormationIdentityCenterConfigurationCommand
+ */
+export const de_CreateLakeFormationIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLakeFormationIdentityCenterConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLakeFormationIdentityCenterConfigurationCommandError
+ */
+const de_CreateLakeFormationIdentityCenterConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.lakeformation#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateLakeFormationOptInCommand
  */
 export const de_CreateLakeFormationOptInCommand = async (
@@ -2363,6 +2570,64 @@ const de_DeleteDataCellsFilterCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteLakeFormationIdentityCenterConfigurationCommand
+ */
+export const de_DeleteLakeFormationIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteLakeFormationIdentityCenterConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLakeFormationIdentityCenterConfigurationCommandError
+ */
+const de_DeleteLakeFormationIdentityCenterConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
       throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
@@ -2592,6 +2857,68 @@ const de_DeregisterResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeLakeFormationIdentityCenterConfigurationCommand
+ */
+export const de_DescribeLakeFormationIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeLakeFormationIdentityCenterConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationArn: __expectString,
+    CatalogId: __expectString,
+    ExternalFiltering: _json,
+    InstanceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeLakeFormationIdentityCenterConfigurationCommandError
+ */
+const de_DescribeLakeFormationIdentityCenterConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
       throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
@@ -4467,6 +4794,64 @@ const de_UpdateDataCellsFilterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateLakeFormationIdentityCenterConfigurationCommand
+ */
+export const de_UpdateLakeFormationIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateLakeFormationIdentityCenterConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateLakeFormationIdentityCenterConfigurationCommandError
+ */
+const de_UpdateLakeFormationIdentityCenterConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateLFTagCommand
  */
 export const de_UpdateLFTagCommand = async (
@@ -5090,6 +5475,8 @@ const de_WorkUnitsNotReadyYetExceptionRes = async (
 
 // se_Expression omitted.
 
+// se_ExternalFilteringConfiguration omitted.
+
 // se_FilterCondition omitted.
 
 // se_FilterConditionList omitted.
@@ -5136,6 +5523,8 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
 // se_Resource omitted.
 
 // se_RowFilter omitted.
+
+// se_ScopeTargets omitted.
 
 // se_StorageOptimizerConfig omitted.
 
@@ -5208,6 +5597,8 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
 // de_ExecutionStatistics omitted.
 
 // de_Expression omitted.
+
+// de_ExternalFilteringConfiguration omitted.
 
 /**
  * deserializeAws_restJson1LakeFormationOptInsInfo
@@ -5320,6 +5711,8 @@ const de_ResourceInfoList = (output: any, context: __SerdeContext): ResourceInfo
 // de_ResourceShareList omitted.
 
 // de_RowFilter omitted.
+
+// de_ScopeTargets omitted.
 
 // de_StorageOptimizer omitted.
 

@@ -74,6 +74,10 @@ import {
   CreateDataCellsFilterCommandOutput,
 } from "./commands/CreateDataCellsFilterCommand";
 import {
+  CreateLakeFormationIdentityCenterConfigurationCommandInput,
+  CreateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/CreateLakeFormationIdentityCenterConfigurationCommand";
+import {
   CreateLakeFormationOptInCommandInput,
   CreateLakeFormationOptInCommandOutput,
 } from "./commands/CreateLakeFormationOptInCommand";
@@ -82,6 +86,10 @@ import {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "./commands/DeleteDataCellsFilterCommand";
+import {
+  DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+  DeleteLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/DeleteLakeFormationIdentityCenterConfigurationCommand";
 import {
   DeleteLakeFormationOptInCommandInput,
   DeleteLakeFormationOptInCommandOutput,
@@ -92,6 +100,10 @@ import {
   DeleteObjectsOnCancelCommandOutput,
 } from "./commands/DeleteObjectsOnCancelCommand";
 import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand";
+import {
+  DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+  DescribeLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/DescribeLakeFormationIdentityCenterConfigurationCommand";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
 import {
   DescribeTransactionCommandInput,
@@ -163,6 +175,10 @@ import {
   UpdateDataCellsFilterCommandInput,
   UpdateDataCellsFilterCommandOutput,
 } from "./commands/UpdateDataCellsFilterCommand";
+import {
+  UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+  UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
 import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "./commands/UpdateTableObjectsCommand";
@@ -193,12 +209,15 @@ export type ServiceInputTypes =
   | CommitTransactionCommandInput
   | CreateDataCellsFilterCommandInput
   | CreateLFTagCommandInput
+  | CreateLakeFormationIdentityCenterConfigurationCommandInput
   | CreateLakeFormationOptInCommandInput
   | DeleteDataCellsFilterCommandInput
   | DeleteLFTagCommandInput
+  | DeleteLakeFormationIdentityCenterConfigurationCommandInput
   | DeleteLakeFormationOptInCommandInput
   | DeleteObjectsOnCancelCommandInput
   | DeregisterResourceCommandInput
+  | DescribeLakeFormationIdentityCenterConfigurationCommandInput
   | DescribeResourceCommandInput
   | DescribeTransactionCommandInput
   | ExtendTransactionCommandInput
@@ -232,6 +251,7 @@ export type ServiceInputTypes =
   | StartTransactionCommandInput
   | UpdateDataCellsFilterCommandInput
   | UpdateLFTagCommandInput
+  | UpdateLakeFormationIdentityCenterConfigurationCommandInput
   | UpdateResourceCommandInput
   | UpdateTableObjectsCommandInput
   | UpdateTableStorageOptimizerCommandInput;
@@ -248,12 +268,15 @@ export type ServiceOutputTypes =
   | CommitTransactionCommandOutput
   | CreateDataCellsFilterCommandOutput
   | CreateLFTagCommandOutput
+  | CreateLakeFormationIdentityCenterConfigurationCommandOutput
   | CreateLakeFormationOptInCommandOutput
   | DeleteDataCellsFilterCommandOutput
   | DeleteLFTagCommandOutput
+  | DeleteLakeFormationIdentityCenterConfigurationCommandOutput
   | DeleteLakeFormationOptInCommandOutput
   | DeleteObjectsOnCancelCommandOutput
   | DeregisterResourceCommandOutput
+  | DescribeLakeFormationIdentityCenterConfigurationCommandOutput
   | DescribeResourceCommandOutput
   | DescribeTransactionCommandOutput
   | ExtendTransactionCommandOutput
@@ -287,6 +310,7 @@ export type ServiceOutputTypes =
   | StartTransactionCommandOutput
   | UpdateDataCellsFilterCommandOutput
   | UpdateLFTagCommandOutput
+  | UpdateLakeFormationIdentityCenterConfigurationCommandOutput
   | UpdateResourceCommandOutput
   | UpdateTableObjectsCommandOutput
   | UpdateTableStorageOptimizerCommandOutput;
