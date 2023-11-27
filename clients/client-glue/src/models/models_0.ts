@@ -97,6 +97,7 @@ export interface Action {
  */
 export const AdditionalOptionKeys = {
   CacheOption: "performanceTuning.caching",
+  ObservationsOption: "observations.scope",
 } as const;
 
 /**
@@ -3295,7 +3296,37 @@ export interface ConnectorDataSource {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>opensearch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>azuresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>azurecosmos</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>bigquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>saphana</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>teradata</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vertica</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3336,7 +3367,37 @@ export interface ConnectorDataTarget {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>opensearch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>azuresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>azurecosmos</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>bigquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>saphana</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>teradata</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vertica</code>
    *                </p>
    *             </li>
    *          </ul>
