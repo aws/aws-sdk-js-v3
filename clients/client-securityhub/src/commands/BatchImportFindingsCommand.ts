@@ -4005,6 +4005,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *             StandardsId: "STRING_VALUE",
  *           },
  *         ],
+ *         SecurityControlParameters: [ // SecurityControlParametersList
+ *           { // SecurityControlParameter
+ *             Name: "STRING_VALUE",
+ *             Value: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
  *       },
  *       VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
  *       WorkflowState: "NEW" || "ASSIGNED" || "IN_PROGRESS" || "DEFERRED" || "RESOLVED",
@@ -4069,9 +4077,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           ExploitAvailable: "YES" || "NO",
  *           CodeVulnerabilities: [ // VulnerabilityCodeVulnerabilitiesList
  *             { // VulnerabilityCodeVulnerabilities
- *               Cwes: [
- *                 "STRING_VALUE",
- *               ],
+ *               Cwes: "<TypeList>",
  *               FilePath: { // CodeVulnerabilitiesFilePath
  *                 EndLine: Number("int"),
  *                 FileName: "STRING_VALUE",

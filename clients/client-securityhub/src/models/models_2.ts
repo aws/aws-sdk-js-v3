@@ -120,7 +120,8 @@ import {
   AwsWafRuleGroupDetails,
   AwsWafv2ActionAllowDetails,
   AwsWafv2ActionBlockDetails,
-  AwsWafv2RulesActionDetails,
+  AwsWafv2RulesActionCaptchaDetails,
+  AwsWafv2RulesActionCountDetails,
   Compliance,
   DataClassificationDetails,
   FindingProviderFields,
@@ -135,6 +136,47 @@ import {
   Remediation,
 } from "./models_1";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * @public
+ * <p>
+ *          The action that WAF should take on a web request when it matches a rule's statement.
+ *          Settings at the web ACL level can override the rule action setting.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionDetails {
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to allow the web request.
+   *       </p>
+   */
+  Allow?: AwsWafv2ActionAllowDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to block the web request.
+   *       </p>
+   */
+  Block?: AwsWafv2ActionBlockDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to run a CAPTCHA check against the web request.
+   *       </p>
+   */
+  Captcha?: AwsWafv2RulesActionCaptchaDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+   *       </p>
+   */
+  Count?: AwsWafv2RulesActionCountDetails;
+}
 
 /**
  * @public
@@ -1446,7 +1488,7 @@ export interface Resource {
 export interface Severity {
   /**
    * @public
-   * <p>Deprecated. This attribute is being deprecated. Instead of providing
+   * <p>Deprecated. This attribute isn't included in findings. Instead of providing
    *             <code>Product</code>, provide <code>Original</code>.</p>
    *          <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
    *          generated the finding.</p>
@@ -1508,7 +1550,7 @@ export interface Severity {
 
   /**
    * @public
-   * <p>Deprecated. The normalized severity of a finding. This attribute is being deprecated.
+   * <p>Deprecated. The normalized severity of a finding.
    *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
    *          <p>If you provide <code>Label</code> and do not provide <code>Normalized</code>, then
    *             <code>Normalized</code> is set automatically as follows.</p>
@@ -2470,9 +2512,8 @@ export interface BooleanFilter {
 
 /**
  * @public
- * <p>A collection of attributes that are applied to all active Security Hub-aggregated findings and
- *          that result in a subset of findings that are included in this insight.</p>
- *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+ * <p>A collection of filters that are applied to all active findings aggregated by Security Hub.</p>
+ *          <p>You can filter by up to ten finding attributes. For each attribute, you can provide up to
  *          20 filter values.</p>
  */
 export interface AwsSecurityFindingFilters {
@@ -3182,6 +3223,41 @@ export interface AwsSecurityFindingFilters {
    *       </p>
    */
   ComplianceAssociatedStandardsId?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether a software vulnerability in your environment has a known exploit. You can filter findings by this
+   *             field only if you use Security Hub and Amazon Inspector.
+   *         </p>
+   */
+  VulnerabilitiesExploitAvailable?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether a vulnerability is fixed in a newer version of the affected software packages. You can filter
+   *             findings by this field only if you use Security Hub and Amazon Inspector.
+   *
+   *         </p>
+   */
+  VulnerabilitiesFixAvailable?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The name of a security control parameter.
+   *         </p>
+   */
+  ComplianceSecurityControlParametersName?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The current value of a security control parameter.
+   *         </p>
+   */
+  ComplianceSecurityControlParametersValue?: StringFilter[];
 }
 
 /**
@@ -3487,6 +3563,249 @@ export interface BatchGetSecurityControlsRequest {
 
 /**
  * @public
+ * <p>
+ *             An object that includes the data type of a security control parameter and its current value.
+ *         </p>
+ */
+export type ParameterValue =
+  | ParameterValue.BooleanMember
+  | ParameterValue.DoubleMember
+  | ParameterValue.EnumMember
+  | ParameterValue.EnumListMember
+  | ParameterValue.IntegerMember
+  | ParameterValue.IntegerListMember
+  | ParameterValue.StringMember
+  | ParameterValue.StringListMember
+  | ParameterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ParameterValue {
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is an integer.
+   *         </p>
+   */
+  export interface IntegerMember {
+    Integer: number;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a list of integers.
+   *         </p>
+   */
+  export interface IntegerListMember {
+    Integer?: never;
+    IntegerList: number[];
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a double.
+   *         </p>
+   */
+  export interface DoubleMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double: number;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a string.
+   *         </p>
+   */
+  export interface StringMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String: string;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a list of strings.
+   *         </p>
+   */
+  export interface StringListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList: string[];
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a boolean.
+   *         </p>
+   */
+  export interface BooleanMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean: boolean;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is an enum.
+   *         </p>
+   */
+  export interface EnumMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum: string;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a list of enums.
+   *         </p>
+   */
+  export interface EnumListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Integer: (value: number) => T;
+    IntegerList: (value: number[]) => T;
+    Double: (value: number) => T;
+    String: (value: string) => T;
+    StringList: (value: string[]) => T;
+    Boolean: (value: boolean) => T;
+    Enum: (value: string) => T;
+    EnumList: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ParameterValue, visitor: Visitor<T>): T => {
+    if (value.Integer !== undefined) return visitor.Integer(value.Integer);
+    if (value.IntegerList !== undefined) return visitor.IntegerList(value.IntegerList);
+    if (value.Double !== undefined) return visitor.Double(value.Double);
+    if (value.String !== undefined) return visitor.String(value.String);
+    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
+    if (value.Boolean !== undefined) return visitor.Boolean(value.Boolean);
+    if (value.Enum !== undefined) return visitor.Enum(value.Enum);
+    if (value.EnumList !== undefined) return visitor.EnumList(value.EnumList);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ParameterValueType = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterValueType = (typeof ParameterValueType)[keyof typeof ParameterValueType];
+
+/**
+ * @public
+ * <p>
+ *             An object that provides the current value of a security control parameter and identifies whether it has been customized.
+ *         </p>
+ */
+export interface ParameterConfiguration {
+  /**
+   * @public
+   * <p>
+   *             Identifies whether a control parameter uses a custom user-defined value or the Security Hub default value.
+   *         </p>
+   */
+  ValueType: ParameterValueType | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The current value of a control parameter.
+   *         </p>
+   */
+  Value?: ParameterValue;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ControlStatus = {
@@ -3514,6 +3833,20 @@ export const SeverityRating = {
  * @public
  */
 export type SeverityRating = (typeof SeverityRating)[keyof typeof SeverityRating];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateStatus = {
+  READY: "READY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
  * @public
@@ -3579,6 +3912,37 @@ export interface SecurityControl {
    *       </p>
    */
   SecurityControlStatus: ControlStatus | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             Identifies whether customizable properties of a security control are reflected in Security Hub findings. A status of
+   * <code>READY</code> indicates findings include the current parameter values. A status of <code>UPDATING</code> indicates that
+   * all findings may not include the current parameter values.
+   *         </p>
+   */
+  UpdateStatus?: UpdateStatus;
+
+  /**
+   * @public
+   * <p>
+   *             An object that identifies the name of a control parameter, its current value, and whether it has been customized.
+   *         </p>
+   */
+  Parameters?: Record<string, ParameterConfiguration>;
+
+  /**
+   * @public
+   * <p>
+   *             The most recent reason for updating the customizable properties of a security control. This differs from the
+   *             <code>UpdateReason</code> field of the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">
+   *                <code>BatchUpdateStandardsControlAssociations</code>
+   *             </a> API, which tracks the
+   *             reason for updating the enablement status of a control. This field accepts alphanumeric
+   *             characters in addition to white spaces, dashes, and underscores.
+   *         </p>
+   */
+  LastUpdateReason?: string;
 }
 
 /**
@@ -4321,6 +4685,462 @@ export interface BatchUpdateStandardsControlAssociationsResponse {
 
 /**
  * @public
+ * <p>
+ *             The options for customizing a security control parameter with a boolean. For a boolean parameter, the options are
+ *             <code>true</code> and <code>false</code>.
+ *         </p>
+ */
+export interface BooleanConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a boolean parameter.
+   *         </p>
+   */
+  DefaultValue?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a double.
+ *         </p>
+ */
+export interface DoubleConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a double.
+   *         </p>
+   */
+  DefaultValue?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The minimum valid value for a control parameter that is a double.
+   *         </p>
+   */
+  Min?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum valid value for a control parameter that is a double.
+   *         </p>
+   */
+  Max?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is an enum.
+ *         </p>
+ */
+export interface EnumConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is an enum.
+   *         </p>
+   */
+  DefaultValue?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The valid values for a control parameter that is an enum.
+   *         </p>
+   */
+  AllowedValues?: string[];
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a list of enums.
+ *         </p>
+ */
+export interface EnumListConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a list of enums.
+   *         </p>
+   */
+  DefaultValue?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of list items that an enum list control parameter can accept.
+   *         </p>
+   */
+  MaxItems?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The valid values for a control parameter that is a list of enums.
+   *         </p>
+   */
+  AllowedValues?: string[];
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is an integer.
+ *         </p>
+ */
+export interface IntegerConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is an integer.
+   *         </p>
+   */
+  DefaultValue?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The minimum valid value for a control parameter that is an integer.
+   *         </p>
+   */
+  Min?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum valid value for a control parameter that is an integer.
+   *         </p>
+   */
+  Max?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a list of integers.
+ *         </p>
+ */
+export interface IntegerListConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a list of integers.
+   *         </p>
+   */
+  DefaultValue?: number[];
+
+  /**
+   * @public
+   * <p>
+   *             The minimum valid value for a control parameter that is a list of integers.
+   *         </p>
+   */
+  Min?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum valid value for a control parameter that is a list of integers.
+   *         </p>
+   */
+  Max?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of list items that an interger list control parameter can accept.
+   *         </p>
+   */
+  MaxItems?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a string.
+ *         </p>
+ */
+export interface StringConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a string.
+   *         </p>
+   */
+  DefaultValue?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An RE2 regular expression that Security Hub uses to validate a user-provided control parameter string.
+   *         </p>
+   */
+  Re2Expression?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the RE2 regular expression.
+   *         </p>
+   */
+  ExpressionDescription?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a list of strings.
+ *         </p>
+ */
+export interface StringListConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a list of strings.
+   *         </p>
+   */
+  DefaultValue?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             An RE2 regular expression that Security Hub uses to validate a user-provided list of strings for a control
+   *             parameter.
+   *         </p>
+   */
+  Re2Expression?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of list items that a string list control parameter can accept.
+   *         </p>
+   */
+  MaxItems?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the RE2 regular expression.
+   *         </p>
+   */
+  ExpressionDescription?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter.
+ *         </p>
+ */
+export type ConfigurationOptions =
+  | ConfigurationOptions.BooleanMember
+  | ConfigurationOptions.DoubleMember
+  | ConfigurationOptions.EnumMember
+  | ConfigurationOptions.EnumListMember
+  | ConfigurationOptions.IntegerMember
+  | ConfigurationOptions.IntegerListMember
+  | ConfigurationOptions.StringMember
+  | ConfigurationOptions.StringListMember
+  | ConfigurationOptions.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is an integer.
+   *         </p>
+   */
+  export interface IntegerMember {
+    Integer: IntegerConfigurationOptions;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a list of integers.
+   *         </p>
+   */
+  export interface IntegerListMember {
+    Integer?: never;
+    IntegerList: IntegerListConfigurationOptions;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a double.
+   *         </p>
+   */
+  export interface DoubleMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double: DoubleConfigurationOptions;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a string data type.
+   *         </p>
+   */
+  export interface StringMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String: StringConfigurationOptions;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a list of strings.
+   *         </p>
+   */
+  export interface StringListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList: StringListConfigurationOptions;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a boolean. For a boolean parameter, the options are
+   *             <code>true</code> and <code>false</code>.
+   *         </p>
+   */
+  export interface BooleanMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean: BooleanConfigurationOptions;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is an enum.
+   *         </p>
+   */
+  export interface EnumMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum: EnumConfigurationOptions;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a list of enums.
+   *         </p>
+   */
+  export interface EnumListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList: EnumListConfigurationOptions;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Integer: (value: IntegerConfigurationOptions) => T;
+    IntegerList: (value: IntegerListConfigurationOptions) => T;
+    Double: (value: DoubleConfigurationOptions) => T;
+    String: (value: StringConfigurationOptions) => T;
+    StringList: (value: StringListConfigurationOptions) => T;
+    Boolean: (value: BooleanConfigurationOptions) => T;
+    Enum: (value: EnumConfigurationOptions) => T;
+    EnumList: (value: EnumListConfigurationOptions) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ConfigurationOptions, visitor: Visitor<T>): T => {
+    if (value.Integer !== undefined) return visitor.Integer(value.Integer);
+    if (value.IntegerList !== undefined) return visitor.IntegerList(value.IntegerList);
+    if (value.Double !== undefined) return visitor.Double(value.Double);
+    if (value.String !== undefined) return visitor.String(value.String);
+    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
+    if (value.Boolean !== undefined) return visitor.Boolean(value.Boolean);
+    if (value.Enum !== undefined) return visitor.Enum(value.Enum);
+    if (value.EnumList !== undefined) return visitor.EnumList(value.EnumList);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
  * @enum
  */
 export const ControlFindingGenerator = {
@@ -4628,6 +5448,19 @@ export interface CreateMembersResponse {
    */
   UnprocessedAccounts?: Result[];
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityControlProperty = {
+  Parameters: "Parameters",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityControlProperty = (typeof SecurityControlProperty)[keyof typeof SecurityControlProperty];
 
 /**
  * @public
@@ -6174,6 +7007,151 @@ export interface GetMembersResponse {
 /**
  * @public
  */
+export interface GetSecurityControlDefinitionRequest {
+  /**
+   * @public
+   * <p>
+   *             The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+   *         </p>
+   */
+  SecurityControlId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegionAvailabilityStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
+
+/**
+ * @public
+ * <p>
+ *             An object that describes a security control parameter and the options for customizing it.
+ *         </p>
+ */
+export interface ParameterDefinition {
+  /**
+   * @public
+   * <p>
+   *             Description of a control parameter.
+   *         </p>
+   */
+  Description: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
+   *         </p>
+   */
+  ConfigurationOptions: ConfigurationOptions | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+ *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+ *       </p>
+ */
+export interface SecurityControlDefinition {
+  /**
+   * @public
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an
+   *          Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from
+   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
+   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The title of a security control.
+   *       </p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p> The description of a security control across standards. This typically summarizes how
+   *             Security Hub evaluates the control and the conditions under which it produces a
+   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   */
+  Description: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
+   *       </p>
+   */
+  RemediationUrl: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The severity of a security control. For more information about how Security Hub determines control severity,
+   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  SeverityRating: SeverityRating | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies whether a security control is available in the current Amazon Web Services Region.
+   *       </p>
+   */
+  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             Security control properties that you can customize. Currently, only parameter customization is supported for select
+   *             controls. An empty array is returned for controls that don’t support custom properties.
+   *         </p>
+   */
+  CustomizableProperties?: SecurityControlProperty[];
+
+  /**
+   * @public
+   * <p>
+   *             An object that provides a security control parameter name, description, and the options for customizing it. This
+   * object is excluded for a control that doesn't support custom parameters.
+   *         </p>
+   */
+  ParameterDefinitions?: Record<string, ParameterDefinition>;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityControlDefinitionResponse {
+  /**
+   * @public
+   * <p>
+   *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+   *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+   *       </p>
+   */
+  SecurityControlDefinition: SecurityControlDefinition | undefined;
+}
+
+/**
+ * @public
+ */
 export interface InviteMembersRequest {
   /**
    * @public
@@ -6469,82 +7447,6 @@ export interface ListSecurityControlDefinitionsRequest {
 
 /**
  * @public
- * @enum
- */
-export const RegionAvailabilityStatus = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
-
-/**
- * @public
- * <p>
- *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
- *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
- *       </p>
- */
-export interface SecurityControlDefinition {
-  /**
-   * @public
-   * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an
-   *          Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from
-   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
-   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
-   *       </p>
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          The title of a security control.
-   *       </p>
-   */
-  Title: string | undefined;
-
-  /**
-   * @public
-   * <p> The description of a security control across standards. This typically summarizes how
-   *             Security Hub evaluates the control and the conditions under which it produces a
-   *          failed finding. This parameter doesn't reference a specific standard. </p>
-   */
-  Description: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
-   *       </p>
-   */
-  RemediationUrl: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          The severity of a security control. For more information about how Security Hub determines control severity,
-   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
-   *          <i>Security Hub User Guide</i>.
-   *       </p>
-   */
-  SeverityRating: SeverityRating | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          Specifies whether a security control is available in the current Amazon Web Services Region.
-   *       </p>
-   */
-  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
-}
-
-/**
- * @public
  */
 export interface ListSecurityControlDefinitionsResponse {
   /**
@@ -6713,6 +7615,33 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with a resource.</p>
    */
   Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>
+ *             The request was rejected because it conflicts with the resource's availability. For example, you tried
+ *             to update a security control that's currently in the <code>UPDATING</code> state.
+ *         </p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
@@ -6948,6 +7877,41 @@ export interface UpdateOrganizationConfigurationRequest {
  * @public
  */
 export interface UpdateOrganizationConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateSecurityControlRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or ID of the control to update.
+   *         </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             An object that specifies which security control parameters to update.
+   *         </p>
+   */
+  Parameters: Record<string, ParameterConfiguration> | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The most recent reason for updating the properties of the security control. This field accepts alphanumeric
+   * characters in addition to white spaces, dashes, and underscores.
+   *         </p>
+   */
+  LastUpdateReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSecurityControlResponse {}
 
 /**
  * @public

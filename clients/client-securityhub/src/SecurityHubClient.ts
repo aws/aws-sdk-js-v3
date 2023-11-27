@@ -182,6 +182,10 @@ import {
 } from "./commands/GetInvitationsCountCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import {
+  GetSecurityControlDefinitionCommandInput,
+  GetSecurityControlDefinitionCommandOutput,
+} from "./commands/GetSecurityControlDefinitionCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import {
   ListAutomationRulesCommandInput,
@@ -226,6 +230,10 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateSecurityControlCommandInput,
+  UpdateSecurityControlCommandOutput,
+} from "./commands/UpdateSecurityControlCommand";
 import {
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -297,6 +305,7 @@ export type ServiceInputTypes =
   | GetInvitationsCountCommandInput
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
+  | GetSecurityControlDefinitionCommandInput
   | InviteMembersCommandInput
   | ListAutomationRulesCommandInput
   | ListEnabledProductsForImportCommandInput
@@ -314,6 +323,7 @@ export type ServiceInputTypes =
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
   | UpdateOrganizationConfigurationCommandInput
+  | UpdateSecurityControlCommandInput
   | UpdateSecurityHubConfigurationCommandInput
   | UpdateStandardsControlCommandInput;
 
@@ -369,6 +379,7 @@ export type ServiceOutputTypes =
   | GetInvitationsCountCommandOutput
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
+  | GetSecurityControlDefinitionCommandOutput
   | InviteMembersCommandOutput
   | ListAutomationRulesCommandOutput
   | ListEnabledProductsForImportCommandOutput
@@ -386,6 +397,7 @@ export type ServiceOutputTypes =
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput
   | UpdateOrganizationConfigurationCommandOutput
+  | UpdateSecurityControlCommandOutput
   | UpdateSecurityHubConfigurationCommandOutput
   | UpdateStandardsControlCommandOutput;
 

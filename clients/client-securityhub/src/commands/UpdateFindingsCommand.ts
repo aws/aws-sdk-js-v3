@@ -126,6 +126,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -133,6 +135,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -141,6 +145,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -148,6 +154,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -191,6 +199,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -300,6 +310,10 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *     ],
  *     ComplianceSecurityControlId: "<StringFilterList>",
  *     ComplianceAssociatedStandardsId: "<StringFilterList>",
+ *     VulnerabilitiesExploitAvailable: "<StringFilterList>",
+ *     VulnerabilitiesFixAvailable: "<StringFilterList>",
+ *     ComplianceSecurityControlParametersName: "<StringFilterList>",
+ *     ComplianceSecurityControlParametersValue: "<StringFilterList>",
  *   },
  *   Note: { // NoteUpdate
  *     Text: "STRING_VALUE", // required

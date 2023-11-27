@@ -227,6 +227,11 @@ import {
 } from "./commands/GetMasterAccountCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  GetSecurityControlDefinitionCommand,
+  GetSecurityControlDefinitionCommandInput,
+  GetSecurityControlDefinitionCommandOutput,
+} from "./commands/GetSecurityControlDefinitionCommand";
+import {
   InviteMembersCommand,
   InviteMembersCommandInput,
   InviteMembersCommandOutput,
@@ -304,6 +309,11 @@ import {
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import {
+  UpdateSecurityControlCommand,
+  UpdateSecurityControlCommandInput,
+  UpdateSecurityControlCommandOutput,
+} from "./commands/UpdateSecurityControlCommand";
+import {
   UpdateSecurityHubConfigurationCommand,
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -364,6 +374,7 @@ const commands = {
   GetInvitationsCountCommand,
   GetMasterAccountCommand,
   GetMembersCommand,
+  GetSecurityControlDefinitionCommand,
   InviteMembersCommand,
   ListAutomationRulesCommand,
   ListEnabledProductsForImportCommand,
@@ -381,6 +392,7 @@ const commands = {
   UpdateFindingsCommand,
   UpdateInsightCommand,
   UpdateOrganizationConfigurationCommand,
+  UpdateSecurityControlCommand,
   UpdateSecurityHubConfigurationCommand,
   UpdateStandardsControlCommand,
 };
@@ -1155,6 +1167,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetSecurityControlDefinitionCommand}
+   */
+  getSecurityControlDefinition(
+    args: GetSecurityControlDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSecurityControlDefinitionCommandOutput>;
+  getSecurityControlDefinition(
+    args: GetSecurityControlDefinitionCommandInput,
+    cb: (err: any, data?: GetSecurityControlDefinitionCommandOutput) => void
+  ): void;
+  getSecurityControlDefinition(
+    args: GetSecurityControlDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSecurityControlDefinitionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link InviteMembersCommand}
    */
   inviteMembers(args: InviteMembersCommandInput, options?: __HttpHandlerOptions): Promise<InviteMembersCommandOutput>;
@@ -1405,6 +1434,23 @@ export interface SecurityHub {
     args: UpdateOrganizationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSecurityControlCommand}
+   */
+  updateSecurityControl(
+    args: UpdateSecurityControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityControlCommandOutput>;
+  updateSecurityControl(
+    args: UpdateSecurityControlCommandInput,
+    cb: (err: any, data?: UpdateSecurityControlCommandOutput) => void
+  ): void;
+  updateSecurityControl(
+    args: UpdateSecurityControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityControlCommandOutput) => void
   ): void;
 
   /**

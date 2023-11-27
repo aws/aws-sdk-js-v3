@@ -8411,6 +8411,30 @@ export interface AwsSecretsManagerSecretDetails {
 
 /**
  * @public
+ * <p>
+ *             A parameter that a security control accepts.
+ *         </p>
+ */
+export interface SecurityControlParameter {
+  /**
+   * @public
+   * <p>
+   *             The name of a
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The current value of a control parameter.
+   *         </p>
+   */
+  Value?: string[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const ComplianceStatus = {
@@ -8517,6 +8541,14 @@ export interface Compliance {
    *       </p>
    */
   AssociatedStandards?: AssociatedStandard[];
+
+  /**
+   * @public
+   * <p>
+   *             An object that includes security control parameter names and values.
+   *         </p>
+   */
+  SecurityControlParameters?: SecurityControlParameter[];
 }
 
 /**
@@ -10641,45 +10673,4 @@ export interface AwsWafv2RulesActionCountDetails {
    *       </p>
    */
   CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
-}
-
-/**
- * @public
- * <p>
- *          The action that WAF should take on a web request when it matches a rule's statement.
- *          Settings at the web ACL level can override the rule action setting.
- *       </p>
- */
-export interface AwsWafv2RulesActionDetails {
-  /**
-   * @public
-   * <p>
-   *          Instructs WAF to allow the web request.
-   *       </p>
-   */
-  Allow?: AwsWafv2ActionAllowDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Instructs WAF to block the web request.
-   *       </p>
-   */
-  Block?: AwsWafv2ActionBlockDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Instructs WAF to run a CAPTCHA check against the web request.
-   *       </p>
-   */
-  Captcha?: AwsWafv2RulesActionCaptchaDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-   *       </p>
-   */
-  Count?: AwsWafv2RulesActionCountDetails;
 }

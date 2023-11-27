@@ -1306,6 +1306,22 @@ export interface NumberFilter {
 
   /**
    * @public
+   * <p>
+   *             The greater-than condition to be applied to a single field when querying for findings.
+   *         </p>
+   */
+  Gt?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The less-than condition to be applied to a single field when querying for findings.
+   *         </p>
+   */
+  Lt?: number;
+
+  /**
+   * @public
    * <p>The equal-to condition to be applied to a single field when querying for
    *          findings.</p>
    */
@@ -5413,7 +5429,7 @@ export interface AwsCloudFrontDistributionOriginS3OriginConfig {
 /**
  * @public
  * <p>A complex type that describes the
- *             Amazon S3 bucket, HTTP server (for example, a web server), AWS Elemental MediaStore, or other server from which CloudFront gets your files.</p>
+ *             Amazon S3 bucket, HTTP server (for example, a web server), Elemental MediaStore, or other server from which CloudFront gets your files.</p>
  */
 export interface AwsCloudFrontDistributionOriginItem {
   /**

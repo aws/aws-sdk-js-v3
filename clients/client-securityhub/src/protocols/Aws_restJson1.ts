@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -157,6 +158,10 @@ import {
 } from "../commands/GetInvitationsCountCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
+import {
+  GetSecurityControlDefinitionCommandInput,
+  GetSecurityControlDefinitionCommandOutput,
+} from "../commands/GetSecurityControlDefinitionCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "../commands/InviteMembersCommand";
 import {
   ListAutomationRulesCommandInput,
@@ -201,6 +206,10 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "../commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateSecurityControlCommandInput,
+  UpdateSecurityControlCommandOutput,
+} from "../commands/UpdateSecurityControlCommand";
 import {
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -732,7 +741,6 @@ import {
   AwsWafv2CustomResponseDetails,
   AwsWafv2RulesActionCaptchaDetails,
   AwsWafv2RulesActionCountDetails,
-  AwsWafv2RulesActionDetails,
   Cell,
   ClassificationResult,
   ClassificationStatus,
@@ -782,6 +790,7 @@ import {
   RuleGroupVariables,
   RuleGroupVariablesIpSetsDetails,
   RuleGroupVariablesPortSetsDetails,
+  SecurityControlParameter,
   SensitiveDataDetections,
   SensitiveDataResult,
   StatelessCustomActionDefinition,
@@ -794,6 +803,7 @@ import {
   AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
   AwsWafv2RuleGroupDetails,
+  AwsWafv2RulesActionDetails,
   AwsWafv2RulesDetails,
   AwsWafv2VisibilityConfigDetails,
   AwsWafv2WebAclActionDetails,
@@ -805,8 +815,10 @@ import {
   AwsXrayEncryptionConfigDetails,
   BooleanFilter,
   CodeVulnerabilitiesFilePath,
+  ConfigurationOptions,
   ContainerDetails,
   Cvss,
+  DoubleConfigurationOptions,
   FilePaths,
   FindingHistoryRecord,
   Insight,
@@ -814,9 +826,15 @@ import {
   IpFilter,
   KeywordFilter,
   Member,
+  ParameterConfiguration,
+  ParameterDefinition,
+  ParameterValue,
   Resource,
   ResourceConflictException,
   ResourceDetails,
+  ResourceInUseException,
+  SecurityControl,
+  SecurityControlDefinition,
   Severity,
   SoftwarePackage,
   SortCriterion,
@@ -2254,6 +2272,33 @@ export const se_GetMembersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetSecurityControlDefinitionCommand
+ */
+export const se_GetSecurityControlDefinitionCommand = async (
+  input: GetSecurityControlDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/securityControl/definition";
+  const query: any = map({
+    SecurityControlId: [, __expectNonNull(input.SecurityControlId!, `SecurityControlId`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1InviteMembersCommand
  */
 export const se_InviteMembersCommand = async (
@@ -2752,6 +2797,38 @@ export const se_UpdateOrganizationConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateSecurityControlCommand
+ */
+export const se_UpdateSecurityControlCommand = async (
+  input: UpdateSecurityControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/securityControl/update";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      LastUpdateReason: [],
+      Parameters: (_) => se_Parameters(_, context),
+      SecurityControlId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateSecurityHubConfigurationCommand
  */
 export const se_UpdateSecurityHubConfigurationCommand = async (
@@ -3180,7 +3257,7 @@ export const de_BatchGetSecurityControlsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    SecurityControls: _json,
+    SecurityControls: (_) => de_SecurityControls(_, context),
     UnprocessedIds: _json,
   });
   Object.assign(contents, doc);
@@ -5580,6 +5657,65 @@ const de_GetMembersCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetSecurityControlDefinitionCommand
+ */
+export const de_GetSecurityControlDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSecurityControlDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetSecurityControlDefinitionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SecurityControlDefinition: (_) => de_SecurityControlDefinition(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSecurityControlDefinitionCommandError
+ */
+const de_GetSecurityControlDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSecurityControlDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1InviteMembersCommand
  */
 export const de_InviteMembersCommand = async (
@@ -5999,7 +6135,7 @@ export const de_ListSecurityControlDefinitionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    SecurityControlDefinitions: _json,
+    SecurityControlDefinitions: (_) => de_SecurityControlDefinitions(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -6528,6 +6664,64 @@ const de_UpdateOrganizationConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSecurityControlCommand
+ */
+export const de_UpdateSecurityControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSecurityControlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateSecurityControlCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSecurityControlCommandError
+ */
+const de_UpdateSecurityControlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSecurityControlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.securityhub#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateSecurityHubConfigurationCommand
  */
 export const de_UpdateSecurityHubConfigurationCommand = async (
@@ -6752,6 +6946,27 @@ const de_ResourceConflictExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new ResourceConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -8442,6 +8657,8 @@ const se_AwsSecurityFindingFilters = (input: AwsSecurityFindingFilters, context:
     CompanyName: _json,
     ComplianceAssociatedStandardsId: _json,
     ComplianceSecurityControlId: _json,
+    ComplianceSecurityControlParametersName: _json,
+    ComplianceSecurityControlParametersValue: _json,
     ComplianceStatus: _json,
     Confidence: (_) => se_NumberFilterList(_, context),
     CreatedAt: _json,
@@ -8533,6 +8750,8 @@ const se_AwsSecurityFindingFilters = (input: AwsSecurityFindingFilters, context:
     UpdatedAt: _json,
     UserDefinedFields: _json,
     VerificationState: _json,
+    VulnerabilitiesExploitAvailable: _json,
+    VulnerabilitiesFixAvailable: _json,
     WorkflowState: _json,
     WorkflowStatus: _json,
   });
@@ -8839,7 +9058,9 @@ const se_NetworkConnectionAction = (input: NetworkConnectionAction, context: __S
 const se_NumberFilter = (input: NumberFilter, context: __SerdeContext): any => {
   return take(input, {
     Eq: __serializeFloat,
+    Gt: __serializeFloat,
     Gte: __serializeFloat,
+    Lt: __serializeFloat,
     Lte: __serializeFloat,
   });
 };
@@ -8860,6 +9081,46 @@ const se_NumberFilterList = (input: NumberFilter[], context: __SerdeContext): an
 // se_Page omitted.
 
 // se_Pages omitted.
+
+/**
+ * serializeAws_restJson1ParameterConfiguration
+ */
+const se_ParameterConfiguration = (input: ParameterConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    Value: (_) => se_ParameterValue(_, context),
+    ValueType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1Parameters
+ */
+const se_Parameters = (input: Record<string, ParameterConfiguration>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_ParameterConfiguration(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1ParameterValue
+ */
+const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any => {
+  return ParameterValue.visit(input, {
+    Boolean: (value) => ({ Boolean: value }),
+    Double: (value) => ({ Double: __serializeFloat(value) }),
+    Enum: (value) => ({ Enum: value }),
+    EnumList: (value) => ({ EnumList: _json(value) }),
+    Integer: (value) => ({ Integer: value }),
+    IntegerList: (value) => ({ IntegerList: _json(value) }),
+    String: (value) => ({ String: value }),
+    StringList: (value) => ({ StringList: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 // se_PatchSummary omitted.
 
@@ -9120,6 +9381,10 @@ const se_ResourceList = (input: Resource[], context: __SerdeContext): any => {
 // se_RuleGroupVariablesIpSetsDetails omitted.
 
 // se_RuleGroupVariablesPortSetsDetails omitted.
+
+// se_SecurityControlParameter omitted.
+
+// se_SecurityControlParametersList omitted.
 
 // se_SecurityGroups omitted.
 
@@ -11025,6 +11290,8 @@ const de_AwsSecurityFindingFilters = (output: any, context: __SerdeContext): Aws
     CompanyName: _json,
     ComplianceAssociatedStandardsId: _json,
     ComplianceSecurityControlId: _json,
+    ComplianceSecurityControlParametersName: _json,
+    ComplianceSecurityControlParametersValue: _json,
     ComplianceStatus: _json,
     Confidence: (_: any) => de_NumberFilterList(_, context),
     CreatedAt: _json,
@@ -11116,6 +11383,8 @@ const de_AwsSecurityFindingFilters = (output: any, context: __SerdeContext): Aws
     UpdatedAt: _json,
     UserDefinedFields: _json,
     VerificationState: _json,
+    VulnerabilitiesExploitAvailable: _json,
+    VulnerabilitiesFixAvailable: _json,
     WorkflowState: _json,
     WorkflowStatus: _json,
   }) as any;
@@ -11259,6 +11528,8 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_BatchUpdateFindingsUnprocessedFindingsList omitted.
 
+// de_BooleanConfigurationOptions omitted.
+
 // de_BooleanFilter omitted.
 
 // de_BooleanFilterList omitted.
@@ -11285,6 +11556,53 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_Compliance omitted.
 
+/**
+ * deserializeAws_restJson1ConfigurationOptions
+ */
+const de_ConfigurationOptions = (output: any, context: __SerdeContext): ConfigurationOptions => {
+  if (output.Boolean != null) {
+    return {
+      Boolean: _json(output.Boolean),
+    };
+  }
+  if (output.Double != null) {
+    return {
+      Double: de_DoubleConfigurationOptions(output.Double, context),
+    };
+  }
+  if (output.Enum != null) {
+    return {
+      Enum: _json(output.Enum),
+    };
+  }
+  if (output.EnumList != null) {
+    return {
+      EnumList: _json(output.EnumList),
+    };
+  }
+  if (output.Integer != null) {
+    return {
+      Integer: _json(output.Integer),
+    };
+  }
+  if (output.IntegerList != null) {
+    return {
+      IntegerList: _json(output.IntegerList),
+    };
+  }
+  if (output.String != null) {
+    return {
+      String: _json(output.String),
+    };
+  }
+  if (output.StringList != null) {
+    return {
+      StringList: _json(output.StringList),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 // de_ContainerDetails omitted.
 
 // de_Country omitted.
@@ -11294,6 +11612,8 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 // de_CustomDataIdentifiersDetectionsList omitted.
 
 // de_CustomDataIdentifiersResult omitted.
+
+// de_CustomizableProperties omitted.
 
 /**
  * deserializeAws_restJson1Cvss
@@ -11329,6 +11649,21 @@ const de_CvssList = (output: any, context: __SerdeContext): Cvss[] => {
 // de_DateRange omitted.
 
 // de_DnsRequestAction omitted.
+
+/**
+ * deserializeAws_restJson1DoubleConfigurationOptions
+ */
+const de_DoubleConfigurationOptions = (output: any, context: __SerdeContext): DoubleConfigurationOptions => {
+  return take(output, {
+    DefaultValue: __limitedParseDouble,
+    Max: __limitedParseDouble,
+    Min: __limitedParseDouble,
+  }) as any;
+};
+
+// de_EnumConfigurationOptions omitted.
+
+// de_EnumListConfigurationOptions omitted.
 
 // de_FieldMap omitted.
 
@@ -11438,7 +11773,11 @@ const de_InsightList = (output: any, context: __SerdeContext): Insight[] => {
 
 // de_InsightResultValueList omitted.
 
+// de_IntegerConfigurationOptions omitted.
+
 // de_IntegerList omitted.
+
+// de_IntegerListConfigurationOptions omitted.
 
 // de_IntegrationTypeList omitted.
 
@@ -11553,7 +11892,9 @@ const de_NetworkConnectionAction = (output: any, context: __SerdeContext): Netwo
 const de_NumberFilter = (output: any, context: __SerdeContext): NumberFilter => {
   return take(output, {
     Eq: __limitedParseDouble,
+    Gt: __limitedParseDouble,
     Gte: __limitedParseDouble,
+    Lt: __limitedParseDouble,
     Lte: __limitedParseDouble,
   }) as any;
 };
@@ -11575,6 +11916,89 @@ const de_NumberFilterList = (output: any, context: __SerdeContext): NumberFilter
 // de_Page omitted.
 
 // de_Pages omitted.
+
+/**
+ * deserializeAws_restJson1ParameterConfiguration
+ */
+const de_ParameterConfiguration = (output: any, context: __SerdeContext): ParameterConfiguration => {
+  return take(output, {
+    Value: (_: any) => de_ParameterValue(__expectUnion(_), context),
+    ValueType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ParameterDefinition
+ */
+const de_ParameterDefinition = (output: any, context: __SerdeContext): ParameterDefinition => {
+  return take(output, {
+    ConfigurationOptions: (_: any) => de_ConfigurationOptions(__expectUnion(_), context),
+    Description: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ParameterDefinitions
+ */
+const de_ParameterDefinitions = (output: any, context: __SerdeContext): Record<string, ParameterDefinition> => {
+  return Object.entries(output).reduce((acc: Record<string, ParameterDefinition>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_ParameterDefinition(value, context);
+    return acc;
+  }, {} as Record<string, ParameterDefinition>);
+};
+
+/**
+ * deserializeAws_restJson1Parameters
+ */
+const de_Parameters = (output: any, context: __SerdeContext): Record<string, ParameterConfiguration> => {
+  return Object.entries(output).reduce((acc: Record<string, ParameterConfiguration>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_ParameterConfiguration(value, context);
+    return acc;
+  }, {} as Record<string, ParameterConfiguration>);
+};
+
+/**
+ * deserializeAws_restJson1ParameterValue
+ */
+const de_ParameterValue = (output: any, context: __SerdeContext): ParameterValue => {
+  if (__expectBoolean(output.Boolean) !== undefined) {
+    return { Boolean: __expectBoolean(output.Boolean) as any };
+  }
+  if (__limitedParseDouble(output.Double) !== undefined) {
+    return { Double: __limitedParseDouble(output.Double) as any };
+  }
+  if (__expectString(output.Enum) !== undefined) {
+    return { Enum: __expectString(output.Enum) as any };
+  }
+  if (output.EnumList != null) {
+    return {
+      EnumList: _json(output.EnumList),
+    };
+  }
+  if (__expectInt32(output.Integer) !== undefined) {
+    return { Integer: __expectInt32(output.Integer) as any };
+  }
+  if (output.IntegerList != null) {
+    return {
+      IntegerList: _json(output.IntegerList),
+    };
+  }
+  if (__expectString(output.String) !== undefined) {
+    return { String: __expectString(output.String) as any };
+  }
+  if (output.StringList != null) {
+    return {
+      StringList: _json(output.StringList),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_PatchSummary omitted.
 
@@ -11848,13 +12272,67 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
 
 // de_RuleGroupVariablesPortSetsDetails omitted.
 
-// de_SecurityControl omitted.
+/**
+ * deserializeAws_restJson1SecurityControl
+ */
+const de_SecurityControl = (output: any, context: __SerdeContext): SecurityControl => {
+  return take(output, {
+    Description: __expectString,
+    LastUpdateReason: __expectString,
+    Parameters: (_: any) => de_Parameters(_, context),
+    RemediationUrl: __expectString,
+    SecurityControlArn: __expectString,
+    SecurityControlId: __expectString,
+    SecurityControlStatus: __expectString,
+    SeverityRating: __expectString,
+    Title: __expectString,
+    UpdateStatus: __expectString,
+  }) as any;
+};
 
-// de_SecurityControlDefinition omitted.
+/**
+ * deserializeAws_restJson1SecurityControlDefinition
+ */
+const de_SecurityControlDefinition = (output: any, context: __SerdeContext): SecurityControlDefinition => {
+  return take(output, {
+    CurrentRegionAvailability: __expectString,
+    CustomizableProperties: _json,
+    Description: __expectString,
+    ParameterDefinitions: (_: any) => de_ParameterDefinitions(_, context),
+    RemediationUrl: __expectString,
+    SecurityControlId: __expectString,
+    SeverityRating: __expectString,
+    Title: __expectString,
+  }) as any;
+};
 
-// de_SecurityControlDefinitions omitted.
+/**
+ * deserializeAws_restJson1SecurityControlDefinitions
+ */
+const de_SecurityControlDefinitions = (output: any, context: __SerdeContext): SecurityControlDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityControlDefinition(entry, context);
+    });
+  return retVal;
+};
 
-// de_SecurityControls omitted.
+// de_SecurityControlParameter omitted.
+
+// de_SecurityControlParametersList omitted.
+
+/**
+ * deserializeAws_restJson1SecurityControls
+ */
+const de_SecurityControls = (output: any, context: __SerdeContext): SecurityControl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityControl(entry, context);
+    });
+  return retVal;
+};
 
 // de_SecurityGroups omitted.
 
@@ -12026,11 +12504,15 @@ const de_StandardsControls = (output: any, context: __SerdeContext): StandardsCo
 
 // de_StatusReasonsList omitted.
 
+// de_StringConfigurationOptions omitted.
+
 // de_StringFilter omitted.
 
 // de_StringFilterList omitted.
 
 // de_StringList omitted.
+
+// de_StringListConfigurationOptions omitted.
 
 // de_TagMap omitted.
 

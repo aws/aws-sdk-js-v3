@@ -138,6 +138,8 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //           { // NumberFilter
  * //             Gte: Number("double"),
  * //             Lte: Number("double"),
+ * //             Gt: Number("double"),
+ * //             Lt: Number("double"),
  * //             Eq: Number("double"),
  * //           },
  * //         ],
@@ -145,6 +147,8 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //           {
  * //             Gte: Number("double"),
  * //             Lte: Number("double"),
+ * //             Gt: Number("double"),
+ * //             Lt: Number("double"),
  * //             Eq: Number("double"),
  * //           },
  * //         ],

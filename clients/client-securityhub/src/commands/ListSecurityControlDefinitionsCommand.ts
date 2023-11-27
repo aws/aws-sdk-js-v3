@@ -67,6 +67,65 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * //       RemediationUrl: "STRING_VALUE", // required
  * //       SeverityRating: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL", // required
  * //       CurrentRegionAvailability: "AVAILABLE" || "UNAVAILABLE", // required
+ * //       CustomizableProperties: [ // CustomizableProperties
+ * //         "Parameters",
+ * //       ],
+ * //       ParameterDefinitions: { // ParameterDefinitions
+ * //         "<keys>": { // ParameterDefinition
+ * //           Description: "STRING_VALUE", // required
+ * //           ConfigurationOptions: { // ConfigurationOptions Union: only one key present
+ * //             Integer: { // IntegerConfigurationOptions
+ * //               DefaultValue: Number("int"),
+ * //               Min: Number("int"),
+ * //               Max: Number("int"),
+ * //             },
+ * //             IntegerList: { // IntegerListConfigurationOptions
+ * //               DefaultValue: [ // IntegerList
+ * //                 Number("int"),
+ * //               ],
+ * //               Min: Number("int"),
+ * //               Max: Number("int"),
+ * //               MaxItems: Number("int"),
+ * //             },
+ * //             Double: { // DoubleConfigurationOptions
+ * //               DefaultValue: Number("double"),
+ * //               Min: Number("double"),
+ * //               Max: Number("double"),
+ * //             },
+ * //             String: { // StringConfigurationOptions
+ * //               DefaultValue: "STRING_VALUE",
+ * //               Re2Expression: "STRING_VALUE",
+ * //               ExpressionDescription: "STRING_VALUE",
+ * //             },
+ * //             StringList: { // StringListConfigurationOptions
+ * //               DefaultValue: [ // StringList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Re2Expression: "STRING_VALUE",
+ * //               MaxItems: Number("int"),
+ * //               ExpressionDescription: "STRING_VALUE",
+ * //             },
+ * //             Boolean: { // BooleanConfigurationOptions
+ * //               DefaultValue: true || false,
+ * //             },
+ * //             Enum: { // EnumConfigurationOptions
+ * //               DefaultValue: "STRING_VALUE",
+ * //               AllowedValues: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             EnumList: { // EnumListConfigurationOptions
+ * //               DefaultValue: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               MaxItems: Number("int"),
+ * //               AllowedValues: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

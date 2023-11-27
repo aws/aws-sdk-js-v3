@@ -130,6 +130,8 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -137,6 +139,8 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],

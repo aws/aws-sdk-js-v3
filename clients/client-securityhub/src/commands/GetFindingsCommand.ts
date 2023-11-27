@@ -122,6 +122,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -129,6 +131,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -137,6 +141,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -144,6 +150,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -187,6 +195,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -296,6 +306,10 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *     ],
  *     ComplianceSecurityControlId: "<StringFilterList>",
  *     ComplianceAssociatedStandardsId: "<StringFilterList>",
+ *     VulnerabilitiesExploitAvailable: "<StringFilterList>",
+ *     VulnerabilitiesFixAvailable: "<StringFilterList>",
+ *     ComplianceSecurityControlParametersName: "<StringFilterList>",
+ *     ComplianceSecurityControlParametersValue: "<StringFilterList>",
  *   },
  *   SortCriteria: [ // SortCriteria
  *     { // SortCriterion
@@ -4195,6 +4209,14 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             StandardsId: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         SecurityControlParameters: [ // SecurityControlParametersList
+ * //           { // SecurityControlParameter
+ * //             Name: "STRING_VALUE",
+ * //             Value: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //       VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
  * //       WorkflowState: "NEW" || "ASSIGNED" || "IN_PROGRESS" || "DEFERRED" || "RESOLVED",
@@ -4259,9 +4281,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           ExploitAvailable: "YES" || "NO",
  * //           CodeVulnerabilities: [ // VulnerabilityCodeVulnerabilitiesList
  * //             { // VulnerabilityCodeVulnerabilities
- * //               Cwes: [
- * //                 "STRING_VALUE",
- * //               ],
+ * //               Cwes: "<TypeList>",
  * //               FilePath: { // CodeVulnerabilitiesFilePath
  * //                 EndLine: Number("int"),
  * //                 FileName: "STRING_VALUE",

@@ -131,6 +131,8 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *           { // NumberFilter
  *             Gte: Number("double"),
  *             Lte: Number("double"),
+ *             Gt: Number("double"),
+ *             Lt: Number("double"),
  *             Eq: Number("double"),
  *           },
  *         ],
@@ -138,6 +140,8 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *           {
  *             Gte: Number("double"),
  *             Lte: Number("double"),
+ *             Gt: Number("double"),
+ *             Lt: Number("double"),
  *             Eq: Number("double"),
  *           },
  *         ],

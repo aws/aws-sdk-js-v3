@@ -134,6 +134,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //           { // NumberFilter
  * //             Gte: Number("double"),
  * //             Lte: Number("double"),
+ * //             Gt: Number("double"),
+ * //             Lt: Number("double"),
  * //             Eq: Number("double"),
  * //           },
  * //         ],
@@ -141,6 +143,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //           {
  * //             Gte: Number("double"),
  * //             Lte: Number("double"),
+ * //             Gt: Number("double"),
+ * //             Lt: Number("double"),
  * //             Eq: Number("double"),
  * //           },
  * //         ],
@@ -149,6 +153,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //           {
  * //             Gte: Number("double"),
  * //             Lte: Number("double"),
+ * //             Gt: Number("double"),
+ * //             Lt: Number("double"),
  * //             Eq: Number("double"),
  * //           },
  * //         ],
@@ -156,6 +162,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //           {
  * //             Gte: Number("double"),
  * //             Lte: Number("double"),
+ * //             Gt: Number("double"),
+ * //             Lt: Number("double"),
  * //             Eq: Number("double"),
  * //           },
  * //         ],
@@ -199,6 +207,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //           {
  * //             Gte: Number("double"),
  * //             Lte: Number("double"),
+ * //             Gt: Number("double"),
+ * //             Lt: Number("double"),
  * //             Eq: Number("double"),
  * //           },
  * //         ],
@@ -308,6 +318,10 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //         ],
  * //         ComplianceSecurityControlId: "<StringFilterList>",
  * //         ComplianceAssociatedStandardsId: "<StringFilterList>",
+ * //         VulnerabilitiesExploitAvailable: "<StringFilterList>",
+ * //         VulnerabilitiesFixAvailable: "<StringFilterList>",
+ * //         ComplianceSecurityControlParametersName: "<StringFilterList>",
+ * //         ComplianceSecurityControlParametersValue: "<StringFilterList>",
  * //       },
  * //       GroupByAttribute: "STRING_VALUE", // required
  * //     },

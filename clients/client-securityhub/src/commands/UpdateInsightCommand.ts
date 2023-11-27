@@ -123,6 +123,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -130,6 +132,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -138,6 +142,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -145,6 +151,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -188,6 +196,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Gt: Number("double"),
+ *         Lt: Number("double"),
  *         Eq: Number("double"),
  *       },
  *     ],
@@ -297,6 +307,10 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *     ],
  *     ComplianceSecurityControlId: "<StringFilterList>",
  *     ComplianceAssociatedStandardsId: "<StringFilterList>",
+ *     VulnerabilitiesExploitAvailable: "<StringFilterList>",
+ *     VulnerabilitiesFixAvailable: "<StringFilterList>",
+ *     ComplianceSecurityControlParametersName: "<StringFilterList>",
+ *     ComplianceSecurityControlParametersValue: "<StringFilterList>",
  *   },
  *   GroupByAttribute: "STRING_VALUE",
  * };

@@ -63,6 +63,29 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * //       RemediationUrl: "STRING_VALUE", // required
  * //       SeverityRating: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL", // required
  * //       SecurityControlStatus: "ENABLED" || "DISABLED", // required
+ * //       UpdateStatus: "READY" || "UPDATING",
+ * //       Parameters: { // Parameters
+ * //         "<keys>": { // ParameterConfiguration
+ * //           ValueType: "DEFAULT" || "CUSTOM", // required
+ * //           Value: { // ParameterValue Union: only one key present
+ * //             Integer: Number("int"),
+ * //             IntegerList: [ // IntegerList
+ * //               Number("int"),
+ * //             ],
+ * //             Double: Number("double"),
+ * //             String: "STRING_VALUE",
+ * //             StringList: [ // StringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             Boolean: true || false,
+ * //             Enum: "STRING_VALUE",
+ * //             EnumList: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //       LastUpdateReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   UnprocessedIds: [ // UnprocessedSecurityControls
