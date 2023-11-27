@@ -148,12 +148,26 @@ export interface ChannelDefinition {
  * @enum
  */
 export const LanguageCode = {
+  AB_GE: "ab-GE",
   AF_ZA: "af-ZA",
   AR_AE: "ar-AE",
   AR_SA: "ar-SA",
+  AST_ES: "ast-ES",
+  AZ_AZ: "az-AZ",
+  BA_RU: "ba-RU",
+  BE_BY: "be-BY",
+  BG_BG: "bg-BG",
+  BN_IN: "bn-IN",
+  BS_BA: "bs-BA",
+  CA_ES: "ca-ES",
+  CKB_IQ: "ckb-IQ",
+  CKB_IR: "ckb-IR",
+  CS_CZ: "cs-CZ",
+  CY_WL: "cy-WL",
   DA_DK: "da-DK",
   DE_CH: "de-CH",
   DE_DE: "de-DE",
+  EL_GR: "el-GR",
   EN_AB: "en-AB",
   EN_AU: "en-AU",
   EN_GB: "en-GB",
@@ -165,28 +179,78 @@ export const LanguageCode = {
   EN_ZA: "en-ZA",
   ES_ES: "es-ES",
   ES_US: "es-US",
+  ET_ET: "et-ET",
+  EU_ES: "eu-ES",
   FA_IR: "fa-IR",
+  FI_FI: "fi-FI",
   FR_CA: "fr-CA",
   FR_FR: "fr-FR",
+  GL_ES: "gl-ES",
+  GU_IN: "gu-IN",
+  HA_NG: "ha-NG",
   HE_IL: "he-IL",
   HI_IN: "hi-IN",
+  HR_HR: "hr-HR",
+  HU_HU: "hu-HU",
+  HY_AM: "hy-AM",
   ID_ID: "id-ID",
+  IS_IS: "is-IS",
   IT_IT: "it-IT",
   JA_JP: "ja-JP",
+  KAB_DZ: "kab-DZ",
+  KA_GE: "ka-GE",
+  KK_KZ: "kk-KZ",
+  KN_IN: "kn-IN",
   KO_KR: "ko-KR",
+  KY_KG: "ky-KG",
+  LG_IN: "lg-IN",
+  LT_LT: "lt-LT",
+  LV_LV: "lv-LV",
+  MHR_RU: "mhr-RU",
+  MI_NZ: "mi-NZ",
+  MK_MK: "mk-MK",
+  ML_IN: "ml-IN",
+  MN_MN: "mn-MN",
+  MR_IN: "mr-IN",
   MS_MY: "ms-MY",
+  MT_MT: "mt-MT",
   NL_NL: "nl-NL",
+  NO_NO: "no-NO",
+  OR_IN: "or-IN",
+  PA_IN: "pa-IN",
+  PL_PL: "pl-PL",
+  PS_AF: "ps-AF",
   PT_BR: "pt-BR",
   PT_PT: "pt-PT",
+  RO_RO: "ro-RO",
   RU_RU: "ru-RU",
+  RW_RW: "rw-RW",
+  SI_LK: "si-LK",
+  SK_SK: "sk-SK",
+  SL_SI: "sl-SI",
+  SO_SO: "so-SO",
+  SR_RS: "sr-RS",
+  SU_ID: "su-ID",
   SV_SE: "sv-SE",
+  SW_BI: "sw-BI",
+  SW_KE: "sw-KE",
+  SW_RW: "sw-RW",
+  SW_TZ: "sw-TZ",
+  SW_UG: "sw-UG",
   TA_IN: "ta-IN",
   TE_IN: "te-IN",
   TH_TH: "th-TH",
+  TL_PH: "tl-PH",
   TR_TR: "tr-TR",
+  TT_RU: "tt-RU",
+  UG_CN: "ug-CN",
+  UK_UA: "uk-UA",
+  UZ_UZ: "uz-UZ",
   VI_VN: "vi-VN",
+  WO_SN: "wo-SN",
   ZH_CN: "zh-CN",
   ZH_TW: "zh-TW",
+  ZU_ZA: "zu-ZA",
 } as const;
 
 /**
@@ -431,6 +495,23 @@ export interface LanguageIdSettings {
 
 /**
  * @public
+ * <p>Contains <code>GenerateAbstractiveSummary</code>, which is a required parameter if you
+ * 	    want to enable Generative call summarization in your Call Analytics request.</p>
+ */
+export interface Summarization {
+  /**
+   * @public
+   * <p>Enables Generative call summarization in your Call Analytics request</p>
+   *          <p>Generative call summarization provides a summary of the transcript including important
+   * 	    components discussed in the conversation.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-enable-summarization.html">Enabling generative call
+   * 	        summarization</a>.</p>
+   */
+  GenerateAbstractiveSummary: boolean | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const VocabularyFilterMethod = {
@@ -539,6 +620,13 @@ export interface CallAnalyticsJobSettings {
    *             language-specific features</a>.</p>
    */
   LanguageIdSettings?: Partial<Record<LanguageCode, LanguageIdSettings>>;
+
+  /**
+   * @public
+   * <p>Contains <code>GenerateAbstractiveSummary</code>, which is a required parameter if you
+   * 	    want to enable Generative call summarization in your Call Analytics request.</p>
+   */
+  Summarization?: Summarization;
 }
 
 /**

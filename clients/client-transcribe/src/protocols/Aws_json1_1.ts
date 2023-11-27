@@ -243,6 +243,7 @@ import {
   StartTranscriptionJobResponse,
   SubtitleFormat,
   Subtitles,
+  Summarization,
   Tag,
   TagResourceRequest,
   ToxicityCategory,
@@ -3068,6 +3069,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_Subtitles omitted.
 
+// se_Summarization omitted.
+
 // se_Tag omitted.
 
 // se_TagKeyList omitted.
@@ -3612,6 +3615,8 @@ const de_StartTranscriptionJobResponse = (output: any, context: __SerdeContext):
 // de_SubtitleFormats omitted.
 
 // de_SubtitlesOutput omitted.
+
+// de_Summarization omitted.
 
 // de_Tag omitted.
 
