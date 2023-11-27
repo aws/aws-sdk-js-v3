@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AmpClient` and
-the commands you need, for example `ListWorkspacesCommand`:
+the commands you need, for example `ListScrapersCommand`:
 
 ```js
 // ES5 example
-const { AmpClient, ListWorkspacesCommand } = require("@aws-sdk/client-amp");
+const { AmpClient, ListScrapersCommand } = require("@aws-sdk/client-amp");
 ```
 
 ```ts
 // ES6+ example
-import { AmpClient, ListWorkspacesCommand } from "@aws-sdk/client-amp";
+import { AmpClient, ListScrapersCommand } from "@aws-sdk/client-amp";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new AmpClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListWorkspacesCommand(params);
+const command = new ListScrapersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Amp({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listWorkspaces(params);
+  const data = await client.listScrapers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .listWorkspaces(params)
+  .listScrapers(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.listWorkspaces(params, (err, data) => {
+client.listScrapers(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -229,6 +229,14 @@ CreateRuleGroupsNamespace
 </details>
 <details>
 <summary>
+CreateScraper
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/CreateScraperCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/CreateScraperCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/CreateScraperCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateWorkspace
 </summary>
 
@@ -257,6 +265,14 @@ DeleteRuleGroupsNamespace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DeleteRuleGroupsNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteRuleGroupsNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteRuleGroupsNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteScraper
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DeleteScraperCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteScraperCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteScraperCommandOutput/)
 
 </details>
 <details>
@@ -293,6 +309,14 @@ DescribeRuleGroupsNamespace
 </details>
 <details>
 <summary>
+DescribeScraper
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DescribeScraperCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeScraperCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeScraperCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeWorkspace
 </summary>
 
@@ -301,10 +325,26 @@ DescribeWorkspace
 </details>
 <details>
 <summary>
+GetDefaultScraperConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/GetDefaultScraperConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/GetDefaultScraperConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/GetDefaultScraperConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRuleGroupsNamespaces
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/ListRuleGroupsNamespacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/ListRuleGroupsNamespacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/ListRuleGroupsNamespacesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListScrapers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/ListScrapersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/ListScrapersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/ListScrapersCommandOutput/)
 
 </details>
 <details>

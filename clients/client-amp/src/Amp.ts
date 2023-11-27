@@ -19,6 +19,11 @@ import {
   CreateRuleGroupsNamespaceCommandOutput,
 } from "./commands/CreateRuleGroupsNamespaceCommand";
 import {
+  CreateScraperCommand,
+  CreateScraperCommandInput,
+  CreateScraperCommandOutput,
+} from "./commands/CreateScraperCommand";
+import {
   CreateWorkspaceCommand,
   CreateWorkspaceCommandInput,
   CreateWorkspaceCommandOutput,
@@ -38,6 +43,11 @@ import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "./commands/DeleteRuleGroupsNamespaceCommand";
+import {
+  DeleteScraperCommand,
+  DeleteScraperCommandInput,
+  DeleteScraperCommandOutput,
+} from "./commands/DeleteScraperCommand";
 import {
   DeleteWorkspaceCommand,
   DeleteWorkspaceCommandInput,
@@ -59,15 +69,30 @@ import {
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "./commands/DescribeRuleGroupsNamespaceCommand";
 import {
+  DescribeScraperCommand,
+  DescribeScraperCommandInput,
+  DescribeScraperCommandOutput,
+} from "./commands/DescribeScraperCommand";
+import {
   DescribeWorkspaceCommand,
   DescribeWorkspaceCommandInput,
   DescribeWorkspaceCommandOutput,
 } from "./commands/DescribeWorkspaceCommand";
 import {
+  GetDefaultScraperConfigurationCommand,
+  GetDefaultScraperConfigurationCommandInput,
+  GetDefaultScraperConfigurationCommandOutput,
+} from "./commands/GetDefaultScraperConfigurationCommand";
+import {
   ListRuleGroupsNamespacesCommand,
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
 } from "./commands/ListRuleGroupsNamespacesCommand";
+import {
+  ListScrapersCommand,
+  ListScrapersCommandInput,
+  ListScrapersCommandOutput,
+} from "./commands/ListScrapersCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -109,16 +134,21 @@ const commands = {
   CreateAlertManagerDefinitionCommand,
   CreateLoggingConfigurationCommand,
   CreateRuleGroupsNamespaceCommand,
+  CreateScraperCommand,
   CreateWorkspaceCommand,
   DeleteAlertManagerDefinitionCommand,
   DeleteLoggingConfigurationCommand,
   DeleteRuleGroupsNamespaceCommand,
+  DeleteScraperCommand,
   DeleteWorkspaceCommand,
   DescribeAlertManagerDefinitionCommand,
   DescribeLoggingConfigurationCommand,
   DescribeRuleGroupsNamespaceCommand,
+  DescribeScraperCommand,
   DescribeWorkspaceCommand,
+  GetDefaultScraperConfigurationCommand,
   ListRuleGroupsNamespacesCommand,
+  ListScrapersCommand,
   ListTagsForResourceCommand,
   ListWorkspacesCommand,
   PutAlertManagerDefinitionCommand,
@@ -179,6 +209,17 @@ export interface Amp {
     args: CreateRuleGroupsNamespaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRuleGroupsNamespaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateScraperCommand}
+   */
+  createScraper(args: CreateScraperCommandInput, options?: __HttpHandlerOptions): Promise<CreateScraperCommandOutput>;
+  createScraper(args: CreateScraperCommandInput, cb: (err: any, data?: CreateScraperCommandOutput) => void): void;
+  createScraper(
+    args: CreateScraperCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateScraperCommandOutput) => void
   ): void;
 
   /**
@@ -247,6 +288,17 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link DeleteScraperCommand}
+   */
+  deleteScraper(args: DeleteScraperCommandInput, options?: __HttpHandlerOptions): Promise<DeleteScraperCommandOutput>;
+  deleteScraper(args: DeleteScraperCommandInput, cb: (err: any, data?: DeleteScraperCommandOutput) => void): void;
+  deleteScraper(
+    args: DeleteScraperCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteScraperCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWorkspaceCommand}
    */
   deleteWorkspace(
@@ -312,6 +364,20 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link DescribeScraperCommand}
+   */
+  describeScraper(
+    args: DescribeScraperCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeScraperCommandOutput>;
+  describeScraper(args: DescribeScraperCommandInput, cb: (err: any, data?: DescribeScraperCommandOutput) => void): void;
+  describeScraper(
+    args: DescribeScraperCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeScraperCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeWorkspaceCommand}
    */
   describeWorkspace(
@@ -329,6 +395,23 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link GetDefaultScraperConfigurationCommand}
+   */
+  getDefaultScraperConfiguration(
+    args: GetDefaultScraperConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDefaultScraperConfigurationCommandOutput>;
+  getDefaultScraperConfiguration(
+    args: GetDefaultScraperConfigurationCommandInput,
+    cb: (err: any, data?: GetDefaultScraperConfigurationCommandOutput) => void
+  ): void;
+  getDefaultScraperConfiguration(
+    args: GetDefaultScraperConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDefaultScraperConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRuleGroupsNamespacesCommand}
    */
   listRuleGroupsNamespaces(
@@ -343,6 +426,17 @@ export interface Amp {
     args: ListRuleGroupsNamespacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRuleGroupsNamespacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListScrapersCommand}
+   */
+  listScrapers(args: ListScrapersCommandInput, options?: __HttpHandlerOptions): Promise<ListScrapersCommandOutput>;
+  listScrapers(args: ListScrapersCommandInput, cb: (err: any, data?: ListScrapersCommandOutput) => void): void;
+  listScrapers(
+    args: ListScrapersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScrapersCommandOutput) => void
   ): void;
 
   /**

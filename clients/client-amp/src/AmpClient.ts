@@ -62,6 +62,7 @@ import {
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
 } from "./commands/CreateRuleGroupsNamespaceCommand";
+import { CreateScraperCommandInput, CreateScraperCommandOutput } from "./commands/CreateScraperCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
 import {
   DeleteAlertManagerDefinitionCommandInput,
@@ -75,6 +76,7 @@ import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "./commands/DeleteRuleGroupsNamespaceCommand";
+import { DeleteScraperCommandInput, DeleteScraperCommandOutput } from "./commands/DeleteScraperCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
 import {
   DescribeAlertManagerDefinitionCommandInput,
@@ -88,11 +90,17 @@ import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "./commands/DescribeRuleGroupsNamespaceCommand";
+import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "./commands/DescribeScraperCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
+import {
+  GetDefaultScraperConfigurationCommandInput,
+  GetDefaultScraperConfigurationCommandOutput,
+} from "./commands/GetDefaultScraperConfigurationCommand";
 import {
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
 } from "./commands/ListRuleGroupsNamespacesCommand";
+import { ListScrapersCommandInput, ListScrapersCommandOutput } from "./commands/ListScrapersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -134,16 +142,21 @@ export type ServiceInputTypes =
   | CreateAlertManagerDefinitionCommandInput
   | CreateLoggingConfigurationCommandInput
   | CreateRuleGroupsNamespaceCommandInput
+  | CreateScraperCommandInput
   | CreateWorkspaceCommandInput
   | DeleteAlertManagerDefinitionCommandInput
   | DeleteLoggingConfigurationCommandInput
   | DeleteRuleGroupsNamespaceCommandInput
+  | DeleteScraperCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeAlertManagerDefinitionCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeRuleGroupsNamespaceCommandInput
+  | DescribeScraperCommandInput
   | DescribeWorkspaceCommandInput
+  | GetDefaultScraperConfigurationCommandInput
   | ListRuleGroupsNamespacesCommandInput
+  | ListScrapersCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
   | PutAlertManagerDefinitionCommandInput
@@ -160,16 +173,21 @@ export type ServiceOutputTypes =
   | CreateAlertManagerDefinitionCommandOutput
   | CreateLoggingConfigurationCommandOutput
   | CreateRuleGroupsNamespaceCommandOutput
+  | CreateScraperCommandOutput
   | CreateWorkspaceCommandOutput
   | DeleteAlertManagerDefinitionCommandOutput
   | DeleteLoggingConfigurationCommandOutput
   | DeleteRuleGroupsNamespaceCommandOutput
+  | DeleteScraperCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeAlertManagerDefinitionCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeRuleGroupsNamespaceCommandOutput
+  | DescribeScraperCommandOutput
   | DescribeWorkspaceCommandOutput
+  | GetDefaultScraperConfigurationCommandOutput
   | ListRuleGroupsNamespacesCommandOutput
+  | ListScrapersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
   | PutAlertManagerDefinitionCommandOutput
