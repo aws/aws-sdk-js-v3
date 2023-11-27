@@ -37,7 +37,7 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
 
 /**
  * @public
- * <p>Returns details about the landing zone. Displays a message in case of error. </p>
+ * <p>Returns details about the landing zone. Displays a message in case of error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,16 +74,16 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *  <p>An unexpected error occurred during processing of a request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *  <p>The input does not satisfy the constraints specified by an  Amazon Web Services service.</p>
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>

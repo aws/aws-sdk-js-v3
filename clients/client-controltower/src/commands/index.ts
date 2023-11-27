@@ -13,4 +13,5 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ResetLandingZoneCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateEnabledControlCommand";
 export * from "./UpdateLandingZoneCommand";

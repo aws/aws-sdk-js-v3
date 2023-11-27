@@ -6,8 +6,8 @@
 
 AWS SDK for JavaScript ControlTower Client for Node.js, Browser and React Native.
 
-<p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
-<i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+<p>These interfaces allow you to apply the  Amazon Web Services library of pre-defined
+<i>controls</i> to your organizational units, programmatically. In  Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
 <p>To call these APIs, you'll need to know:</p>
 <ul>
 <li>
@@ -21,7 +21,7 @@ AWS SDK for JavaScript ControlTower Client for Node.js, Browser and React Native
 </li>
 </ul>
 <p>
-<b>To get the <code>controlIdentifier</code> for your AWS Control Tower
+<b>To get the <code>controlIdentifier</code> for your Amazon Web Services Control Tower
 control:</b>
 </p>
 <p>The <code>controlIdentifier</code> is an ARN that is specified for each
@@ -418,6 +418,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateEnabledControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/UpdateEnabledControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UpdateEnabledControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UpdateEnabledControlCommandOutput/)
 
 </details>
 <details>

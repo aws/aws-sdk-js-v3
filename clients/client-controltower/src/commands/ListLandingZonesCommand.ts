@@ -39,7 +39,7 @@ export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, _
  * @public
  * <p>Returns the landing zone ARN for the landing zone deployed in your managed account. This API also
  *          creates an ARN for existing accounts that do not yet have a landing zone ARN. </p>
- *          <p>The return limit is one landing zone ARN. </p>
+ *          <p>Returns one landing zone ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,13 +73,13 @@ export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, _
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *  <p>An unexpected error occurred during processing of a request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *  <p>The input does not satisfy the constraints specified by an  Amazon Web Services service.</p>
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>

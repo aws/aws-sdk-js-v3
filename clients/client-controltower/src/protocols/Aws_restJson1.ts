@@ -48,12 +48,19 @@ import {
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "../commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateEnabledControlCommandInput,
+  UpdateEnabledControlCommandOutput,
+} from "../commands/UpdateEnabledControlCommand";
 import { UpdateLandingZoneCommandInput, UpdateLandingZoneCommandOutput } from "../commands/UpdateLandingZoneCommand";
 import { ControlTowerServiceException as __BaseException } from "../models/ControlTowerServiceException";
 import {
   AccessDeniedException,
   ConflictException,
   ControlOperation,
+  EnabledControlDetails,
+  EnabledControlParameter,
+  EnabledControlParameterSummary,
   InternalServerException,
   LandingZoneDetail,
   LandingZoneOperationDetail,
@@ -169,6 +176,7 @@ export const se_EnableControlCommand = async (
   body = JSON.stringify(
     take(input, {
       controlIdentifier: [],
+      parameters: (_) => se_EnabledControlParameters(_, context),
       tags: (_) => _json(_),
       targetIdentifier: [],
     })
@@ -470,6 +478,37 @@ export const se_UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateEnabledControlCommand
+ */
+export const se_UpdateEnabledControlCommand = async (
+  input: UpdateEnabledControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-enabled-control";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledControlIdentifier: [],
+      parameters: (_) => se_EnabledControlParameters(_, context),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -832,7 +871,7 @@ export const de_GetEnabledControlCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    enabledControlDetails: _json,
+    enabledControlDetails: (_) => de_EnabledControlDetails(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1325,6 +1364,71 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateEnabledControlCommand
+ */
+export const de_UpdateEnabledControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEnabledControlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateEnabledControlCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEnabledControlCommandError
+ */
+const de_UpdateEnabledControlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEnabledControlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.controltower#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.controltower#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.controltower#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.controltower#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.controltower#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.controltower#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.controltower#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateLandingZoneCommand
  */
 export const de_UpdateLandingZoneCommand = async (
@@ -1526,6 +1630,27 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * serializeAws_restJson1EnabledControlParameter
+ */
+const se_EnabledControlParameter = (input: EnabledControlParameter, context: __SerdeContext): any => {
+  return take(input, {
+    key: [],
+    value: (_) => se_Document(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1EnabledControlParameters
+ */
+const se_EnabledControlParameters = (input: EnabledControlParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EnabledControlParameter(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1Manifest
  */
 const se_Manifest = (input: __DocumentType, context: __SerdeContext): any => {
@@ -1533,6 +1658,13 @@ const se_Manifest = (input: __DocumentType, context: __SerdeContext): any => {
 };
 
 // se_TagMap omitted.
+
+/**
+ * serializeAws_restJson1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 /**
  * deserializeAws_restJson1ControlOperation
@@ -1549,7 +1681,45 @@ const de_ControlOperation = (output: any, context: __SerdeContext): ControlOpera
 
 // de_DriftStatusSummary omitted.
 
-// de_EnabledControlDetails omitted.
+/**
+ * deserializeAws_restJson1EnabledControlDetails
+ */
+const de_EnabledControlDetails = (output: any, context: __SerdeContext): EnabledControlDetails => {
+  return take(output, {
+    arn: __expectString,
+    controlIdentifier: __expectString,
+    driftStatusSummary: _json,
+    parameters: (_: any) => de_EnabledControlParameterSummaries(_, context),
+    statusSummary: _json,
+    targetIdentifier: __expectString,
+    targetRegions: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EnabledControlParameterSummaries
+ */
+const de_EnabledControlParameterSummaries = (
+  output: any,
+  context: __SerdeContext
+): EnabledControlParameterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EnabledControlParameterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1EnabledControlParameterSummary
+ */
+const de_EnabledControlParameterSummary = (output: any, context: __SerdeContext): EnabledControlParameterSummary => {
+  return take(output, {
+    key: __expectString,
+    value: (_: any) => de_Document(_, context),
+  }) as any;
+};
 
 // de_EnabledControls omitted.
 
@@ -1602,6 +1772,13 @@ const de_Manifest = (output: any, context: __SerdeContext): __DocumentType => {
 // de_TagMap omitted.
 
 // de_TargetRegions omitted.
+
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

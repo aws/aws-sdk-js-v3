@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { DeleteLandingZoneInput, DeleteLandingZoneOutput } from "../models/models_0";
-import { de_DeleteLandingZoneCommand, se_DeleteLandingZoneCommand } from "../protocols/Aws_restJson1";
+import { UpdateEnabledControlInput, UpdateEnabledControlOutput } from "../models/models_0";
+import { de_UpdateEnabledControlCommand, se_UpdateEnabledControlCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,41 +25,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteLandingZoneCommand}.
+ * The input for {@link UpdateEnabledControlCommand}.
  */
-export interface DeleteLandingZoneCommandInput extends DeleteLandingZoneInput {}
+export interface UpdateEnabledControlCommandInput extends UpdateEnabledControlInput {}
 /**
  * @public
  *
- * The output of {@link DeleteLandingZoneCommand}.
+ * The output of {@link UpdateEnabledControlCommand}.
  */
-export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput, __MetadataBearer {}
+export interface UpdateEnabledControlCommandOutput extends UpdateEnabledControlOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Decommissions a landing zone. This API call starts an asynchronous operation that deletes Amazon Web Services Control Tower
- *          resources deployed in accounts managed by Amazon Web Services Control Tower.</p>
+ * <p>
+ *          Updates the configuration of an already enabled control.</p>
+ *          <p>If the enabled control shows an <code>EnablementStatus</code> of SUCCEEDED, supply parameters that are different from the currently configured parameters. Otherwise, Amazon Web Services Control Tower will not accept the request.</p>
+ *          <p>If the enabled control shows an <code>EnablementStatus</code> of FAILED, Amazon Web Services Control Tower will update the control to match any valid parameters that you supply.</p>
+ *          <p>If the <code>DriftSummary</code> status for the control shows as DRIFTED, you cannot call this API. Instead, you can update the control by calling <code>DisableControl</code> and again calling <code>EnableControl</code>, or you can run an extending governance operation. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ *                <i>the Amazon Web Services Control Tower User Guide</i>
+ *             </a>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, DeleteLandingZoneCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, DeleteLandingZoneCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, UpdateEnabledControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
+ * // const { ControlTowerClient, UpdateEnabledControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = { // DeleteLandingZoneInput
- *   landingZoneIdentifier: "STRING_VALUE", // required
+ * const input = { // UpdateEnabledControlInput
+ *   parameters: [ // EnabledControlParameters // required
+ *     { // EnabledControlParameter
+ *       key: "STRING_VALUE", // required
+ *       value: "DOCUMENT_VALUE", // required
+ *     },
+ *   ],
+ *   enabledControlIdentifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteLandingZoneCommand(input);
+ * const command = new UpdateEnabledControlCommand(input);
  * const response = await client.send(command);
- * // { // DeleteLandingZoneOutput
+ * // { // UpdateEnabledControlOutput
  * //   operationIdentifier: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param DeleteLandingZoneCommandInput - {@link DeleteLandingZoneCommandInput}
- * @returns {@link DeleteLandingZoneCommandOutput}
- * @see {@link DeleteLandingZoneCommandInput} for command's `input` shape.
- * @see {@link DeleteLandingZoneCommandOutput} for command's `response` shape.
+ * @param UpdateEnabledControlCommandInput - {@link UpdateEnabledControlCommandInput}
+ * @returns {@link UpdateEnabledControlCommandOutput}
+ * @see {@link UpdateEnabledControlCommandInput} for command's `input` shape.
+ * @see {@link UpdateEnabledControlCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,6 +86,9 @@ export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
@@ -84,9 +99,9 @@ export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput,
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class DeleteLandingZoneCommand extends $Command<
-  DeleteLandingZoneCommandInput,
-  DeleteLandingZoneCommandOutput,
+export class UpdateEnabledControlCommand extends $Command<
+  UpdateEnabledControlCommandInput,
+  UpdateEnabledControlCommandOutput,
   ControlTowerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +116,7 @@ export class DeleteLandingZoneCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteLandingZoneCommandInput) {
+  constructor(readonly input: UpdateEnabledControlCommandInput) {
     super();
   }
 
@@ -112,17 +127,17 @@ export class DeleteLandingZoneCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ControlTowerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteLandingZoneCommandInput, DeleteLandingZoneCommandOutput> {
+  ): Handler<UpdateEnabledControlCommandInput, UpdateEnabledControlCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteLandingZoneCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateEnabledControlCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ControlTowerClient";
-    const commandName = "DeleteLandingZoneCommand";
+    const commandName = "UpdateEnabledControlCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -131,7 +146,7 @@ export class DeleteLandingZoneCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSControlTowerApis",
-        operation: "DeleteLandingZone",
+        operation: "UpdateEnabledControl",
       },
     };
     const { requestHandler } = configuration;
@@ -145,14 +160,14 @@ export class DeleteLandingZoneCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteLandingZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteLandingZoneCommand(input, context);
+  private serialize(input: UpdateEnabledControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateEnabledControlCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLandingZoneCommandOutput> {
-    return de_DeleteLandingZoneCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnabledControlCommandOutput> {
+    return de_UpdateEnabledControlCommand(output, context);
   }
 }

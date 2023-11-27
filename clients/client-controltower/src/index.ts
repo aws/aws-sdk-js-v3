@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
- *          <i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+ * <p>These interfaces allow you to apply the  Amazon Web Services library of pre-defined
+ *          <i>controls</i> to your organizational units, programmatically. In  Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
  *          <p>To call these APIs, you'll need to know:</p>
  *          <ul>
  *             <li>
@@ -16,7 +16,7 @@
  *             </li>
  *          </ul>
  *          <p>
- *             <b>To get the <code>controlIdentifier</code> for your AWS Control Tower
+ *             <b>To get the <code>controlIdentifier</code> for your Amazon Web Services Control Tower
  *          control:</b>
  *          </p>
  *          <p>The <code>controlIdentifier</code> is an ARN that is specified for each

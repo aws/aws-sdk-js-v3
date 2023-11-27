@@ -76,6 +76,10 @@ import {
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "./commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateEnabledControlCommandInput,
+  UpdateEnabledControlCommandOutput,
+} from "./commands/UpdateEnabledControlCommand";
 import { UpdateLandingZoneCommandInput, UpdateLandingZoneCommandOutput } from "./commands/UpdateLandingZoneCommand";
 import {
   ClientInputEndpointParameters,
@@ -106,6 +110,7 @@ export type ServiceInputTypes =
   | ResetLandingZoneCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateEnabledControlCommandInput
   | UpdateLandingZoneCommandInput;
 
 /**
@@ -126,6 +131,7 @@ export type ServiceOutputTypes =
   | ResetLandingZoneCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateEnabledControlCommandOutput
   | UpdateLandingZoneCommandOutput;
 
 /**
@@ -300,8 +306,8 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
 
 /**
  * @public
- * <p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
- *          <i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+ * <p>These interfaces allow you to apply the  Amazon Web Services library of pre-defined
+ *          <i>controls</i> to your organizational units, programmatically. In  Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
  *          <p>To call these APIs, you'll need to know:</p>
  *          <ul>
  *             <li>
@@ -315,7 +321,7 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *             </li>
  *          </ul>
  *          <p>
- *             <b>To get the <code>controlIdentifier</code> for your AWS Control Tower
+ *             <b>To get the <code>controlIdentifier</code> for your Amazon Web Services Control Tower
  *          control:</b>
  *          </p>
  *          <p>The <code>controlIdentifier</code> is an ARN that is specified for each
