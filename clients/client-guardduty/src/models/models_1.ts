@@ -22,6 +22,138 @@ import {
 
 /**
  * @public
+ * <p>Contains information about the invitation to become a member account.</p>
+ */
+export interface Invitation {
+  /**
+   * @public
+   * <p>The ID of the account that the invitation was sent from.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the invitation. This value is used to validate the inviter account to the member
+   *       account.</p>
+   */
+  InvitationId?: string;
+
+  /**
+   * @public
+   * <p>The status of the relationship between the inviter and invitee accounts.</p>
+   */
+  RelationshipStatus?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when the invitation was sent.</p>
+   */
+  InvitedAt?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsResponse {
+  /**
+   * @public
+   * <p>A list of invitation descriptions.</p>
+   */
+  Invitations?: Invitation[];
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIPSetsRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector that the IPSet is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIPSetsResponse {
+  /**
+   * @public
+   * <p>The IDs of the IPSet resources.</p>
+   */
+  IpSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector the member is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to only return associated members or to return all members (including
+   *       members who haven't been invited yet or have been disassociated). Member accounts must have
+   *       been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
+   *                <code>Create
+   *           Members</code>
+   *             </a>. </p>
+   */
+  OnlyAssociated?: string;
+}
+
+/**
+ * @public
  */
 export interface ListMembersResponse {
   /**

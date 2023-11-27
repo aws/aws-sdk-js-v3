@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListIPSetsRequest, ListIPSetsResponse } from "../models/models_0";
+import { ListIPSetsRequest, ListIPSetsResponse } from "../models/models_1";
 import { de_ListIPSetsCommand, se_ListIPSetsCommand } from "../protocols/Aws_restJson1";
 
 /**

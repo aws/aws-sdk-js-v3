@@ -85,11 +85,11 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * //   },
  * //   Features: [ // OrganizationFeaturesConfigurationsResults
  * //     { // OrganizationFeatureConfigurationResult
- * //       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ * //       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
  * //       AutoEnable: "NEW" || "NONE" || "ALL",
  * //       AdditionalConfiguration: [ // OrganizationAdditionalConfigurationResults
  * //         { // OrganizationAdditionalConfigurationResult
- * //           Name: "EKS_ADDON_MANAGEMENT",
+ * //           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
  * //           AutoEnable: "NEW" || "NONE" || "ALL",
  * //         },
  * //       ],

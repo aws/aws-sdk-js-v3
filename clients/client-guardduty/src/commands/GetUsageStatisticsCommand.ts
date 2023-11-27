@@ -61,7 +61,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  *       "STRING_VALUE",
  *     ],
  *     Features: [ // UsageFeatureList
- *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
+ *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
  *     ],
  *   },
  *   Unit: "STRING_VALUE",
@@ -110,7 +110,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * //     ],
  * //     SumByFeature: [ // UsageFeatureResultList
  * //       { // UsageFeatureResult
- * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
+ * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
  * //         Total: {
  * //           Amount: "STRING_VALUE",
  * //           Unit: "STRING_VALUE",

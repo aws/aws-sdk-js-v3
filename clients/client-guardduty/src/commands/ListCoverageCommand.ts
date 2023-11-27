@@ -54,7 +54,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *   FilterCriteria: { // CoverageFilterCriteria
  *     FilterCriterion: [ // CoverageFilterCriterionList
  *       { // CoverageFilterCriterion
- *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION" || "MANAGEMENT_TYPE" || "EKS_CLUSTER_NAME",
+ *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION" || "MANAGEMENT_TYPE" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "AGENT_VERSION" || "INSTANCE_ID" || "CLUSTER_ARN",
  *         FilterCondition: { // CoverageFilterCondition
  *           Equals: [ // Equals
  *             "STRING_VALUE",
@@ -67,7 +67,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *     ],
  *   },
  *   SortCriteria: { // CoverageSortCriteria
- *     AttributeName: "ACCOUNT_ID" || "CLUSTER_NAME" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT" || "EKS_CLUSTER_NAME",
+ *     AttributeName: "ACCOUNT_ID" || "CLUSTER_NAME" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "INSTANCE_ID",
  *     OrderBy: "ASC" || "DESC",
  *   },
  * };
@@ -88,9 +88,31 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //             AddonVersion: "STRING_VALUE",
  * //             AddonStatus: "STRING_VALUE",
  * //           },
- * //           ManagementType: "AUTO_MANAGED" || "MANUAL",
+ * //           ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
  * //         },
- * //         ResourceType: "EKS",
+ * //         ResourceType: "EKS" || "ECS" || "EC2",
+ * //         EcsClusterDetails: { // CoverageEcsClusterDetails
+ * //           ClusterName: "STRING_VALUE",
+ * //           FargateDetails: { // FargateDetails
+ * //             Issues: [ // Issues
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
+ * //           },
+ * //           ContainerInstanceDetails: { // ContainerInstanceDetails
+ * //             CoveredContainerInstances: Number("long"),
+ * //             CompatibleContainerInstances: Number("long"),
+ * //           },
+ * //         },
+ * //         Ec2InstanceDetails: { // CoverageEc2InstanceDetails
+ * //           InstanceId: "STRING_VALUE",
+ * //           InstanceType: "STRING_VALUE",
+ * //           ClusterArn: "STRING_VALUE",
+ * //           AgentDetails: { // AgentDetails
+ * //             Version: "STRING_VALUE",
+ * //           },
+ * //           ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
+ * //         },
  * //       },
  * //       CoverageStatus: "HEALTHY" || "UNHEALTHY",
  * //       Issue: "STRING_VALUE",

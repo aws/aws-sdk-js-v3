@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListMembersRequest } from "../models/models_0";
-import { ListMembersResponse } from "../models/models_1";
+import { ListMembersRequest, ListMembersResponse } from "../models/models_1";
 import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_restJson1";
 
 /**

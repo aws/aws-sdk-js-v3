@@ -89,12 +89,12 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  * //       },
  * //       Features: [ // MemberFeaturesConfigurationsResults
  * //         { // MemberFeaturesConfigurationResult
- * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
  * //           Status: "ENABLED" || "DISABLED",
  * //           UpdatedAt: new Date("TIMESTAMP"),
  * //           AdditionalConfiguration: [ // MemberAdditionalConfigurationResults
  * //             { // MemberAdditionalConfigurationResult
- * //               Name: "EKS_ADDON_MANAGEMENT",
+ * //               Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
  * //               Status: "ENABLED" || "DISABLED",
  * //               UpdatedAt: new Date("TIMESTAMP"),
  * //             },

@@ -74,11 +74,11 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  *   },
  *   Features: [ // DetectorFeatureConfigurations
  *     { // DetectorFeatureConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
  *       Status: "ENABLED" || "DISABLED",
  *       AdditionalConfiguration: [ // DetectorAdditionalConfigurations
  *         { // DetectorAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT",
+ *           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
  *           Status: "ENABLED" || "DISABLED",
  *         },
  *       ],

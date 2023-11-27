@@ -91,12 +91,12 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * //   },
  * //   Features: [ // DetectorFeatureConfigurationsResults
  * //     { // DetectorFeatureConfigurationResult
- * //       Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ * //       Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS" || "RUNTIME_MONITORING",
  * //       Status: "ENABLED" || "DISABLED",
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       AdditionalConfiguration: [ // DetectorAdditionalConfigurationResults
  * //         { // DetectorAdditionalConfigurationResult
- * //           Name: "EKS_ADDON_MANAGEMENT",
+ * //           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
  * //           Status: "ENABLED" || "DISABLED",
  * //           UpdatedAt: new Date("TIMESTAMP"),
  * //         },

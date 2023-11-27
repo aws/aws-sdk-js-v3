@@ -202,6 +202,7 @@ import {
   AddonDetails,
   AdminAccount,
   Administrator,
+  AgentDetails,
   Anomaly,
   AnomalyObject,
   AnomalyUnusual,
@@ -215,7 +216,10 @@ import {
   Condition,
   ConflictException,
   Container,
+  ContainerInstanceDetails,
   Country,
+  CoverageEc2InstanceDetails,
+  CoverageEcsClusterDetails,
   CoverageEksClusterDetails,
   CoverageFilterCondition,
   CoverageFilterCriteria,
@@ -248,6 +252,7 @@ import {
   EcsTaskDetails,
   EksClusterDetails,
   Evidence,
+  FargateDetails,
   FilterCondition,
   FilterCriteria,
   FilterCriterion,
@@ -264,7 +269,6 @@ import {
   ImpersonatedUser,
   InstanceDetails,
   InternalServerErrorException,
-  Invitation,
   KubernetesApiCallAction,
   KubernetesAuditLogsConfiguration,
   KubernetesAuditLogsConfigurationResult,
@@ -362,6 +366,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  Invitation,
   MemberAdditionalConfiguration,
   MemberFeaturesConfiguration,
   OrganizationAdditionalConfiguration,
@@ -6578,6 +6583,15 @@ const de_Administrator = (output: any, context: __SerdeContext): Administrator =
 // de_AffectedResources omitted.
 
 /**
+ * deserializeAws_restJson1AgentDetails
+ */
+const de_AgentDetails = (output: any, context: __SerdeContext): AgentDetails => {
+  return take(output, {
+    Version: [, __expectString, `version`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Anomaly
  */
 const de_Anomaly = (output: any, context: __SerdeContext): Anomaly => {
@@ -6781,6 +6795,16 @@ const de_Container = (output: any, context: __SerdeContext): Container => {
 };
 
 /**
+ * deserializeAws_restJson1ContainerInstanceDetails
+ */
+const de_ContainerInstanceDetails = (output: any, context: __SerdeContext): ContainerInstanceDetails => {
+  return take(output, {
+    CompatibleContainerInstances: [, __expectLong, `compatibleContainerInstances`],
+    CoveredContainerInstances: [, __expectLong, `coveredContainerInstances`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Containers
  */
 const de_Containers = (output: any, context: __SerdeContext): Container[] => {
@@ -6805,6 +6829,30 @@ const de_Country = (output: any, context: __SerdeContext): Country => {
   return take(output, {
     CountryCode: [, __expectString, `countryCode`],
     CountryName: [, __expectString, `countryName`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CoverageEc2InstanceDetails
+ */
+const de_CoverageEc2InstanceDetails = (output: any, context: __SerdeContext): CoverageEc2InstanceDetails => {
+  return take(output, {
+    AgentDetails: [, (_: any) => de_AgentDetails(_, context), `agentDetails`],
+    ClusterArn: [, __expectString, `clusterArn`],
+    InstanceId: [, __expectString, `instanceId`],
+    InstanceType: [, __expectString, `instanceType`],
+    ManagementType: [, __expectString, `managementType`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CoverageEcsClusterDetails
+ */
+const de_CoverageEcsClusterDetails = (output: any, context: __SerdeContext): CoverageEcsClusterDetails => {
+  return take(output, {
+    ClusterName: [, __expectString, `clusterName`],
+    ContainerInstanceDetails: [, (_: any) => de_ContainerInstanceDetails(_, context), `containerInstanceDetails`],
+    FargateDetails: [, (_: any) => de_FargateDetails(_, context), `fargateDetails`],
   }) as any;
 };
 
@@ -6841,6 +6889,8 @@ const de_CoverageResource = (output: any, context: __SerdeContext): CoverageReso
  */
 const de_CoverageResourceDetails = (output: any, context: __SerdeContext): CoverageResourceDetails => {
   return take(output, {
+    Ec2InstanceDetails: [, (_: any) => de_CoverageEc2InstanceDetails(_, context), `ec2InstanceDetails`],
+    EcsClusterDetails: [, (_: any) => de_CoverageEcsClusterDetails(_, context), `ecsClusterDetails`],
     EksClusterDetails: [, (_: any) => de_CoverageEksClusterDetails(_, context), `eksClusterDetails`],
     ResourceType: [, __expectString, `resourceType`],
   }) as any;
@@ -7162,6 +7212,16 @@ const de_Evidence = (output: any, context: __SerdeContext): Evidence => {
 };
 
 /**
+ * deserializeAws_restJson1FargateDetails
+ */
+const de_FargateDetails = (output: any, context: __SerdeContext): FargateDetails => {
+  return take(output, {
+    Issues: [, _json, `issues`],
+    ManagementType: [, __expectString, `managementType`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1FilePaths
  */
 const de_FilePaths = (output: any, context: __SerdeContext): ScanFilePath[] => {
@@ -7369,6 +7429,8 @@ const de_Invitations = (output: any, context: __SerdeContext): Invitation[] => {
 // de_IpSetIds omitted.
 
 // de_Ipv6Addresses omitted.
+
+// de_Issues omitted.
 
 /**
  * deserializeAws_restJson1KubernetesApiCallAction

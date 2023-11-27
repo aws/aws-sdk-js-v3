@@ -320,8 +320,10 @@ export const FreeTrialFeatureResult = {
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EC2_RUNTIME_MONITORING: "EC2_RUNTIME_MONITORING",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
@@ -1168,6 +1170,18 @@ export interface Administrator {
 
 /**
  * @public
+ * <p>Information about the installed GuardDuty security agent.</p>
+ */
+export interface AgentDetails {
+  /**
+   * @public
+   * <p>Version of the installed GuardDuty security agent.</p>
+   */
+  Version?: string;
+}
+
+/**
+ * @public
  * <p>Contains information about the observed behavior.</p>
  */
 export interface Observations {
@@ -1596,6 +1610,26 @@ export interface Container {
 
 /**
  * @public
+ * <p>Contains information about the Amazon EC2 instance that is running
+ *     the Amazon ECS container.</p>
+ */
+export interface ContainerInstanceDetails {
+  /**
+   * @public
+   * <p>Represents the nodes in the Amazon ECS cluster that has a <code>HEALTHY</code>
+   *       coverage status.</p>
+   */
+  CoveredContainerInstances?: number;
+
+  /**
+   * @public
+   * <p>Represents total number of nodes in the Amazon ECS cluster.</p>
+   */
+  CompatibleContainerInstances?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const CoverageStatus = {
@@ -1613,6 +1647,8 @@ export type CoverageStatus = (typeof CoverageStatus)[keyof typeof CoverageStatus
  * @enum
  */
 export const ResourceType = {
+  EC2: "EC2",
+  ECS: "ECS",
   EKS: "EKS",
 } as const;
 
@@ -1627,6 +1663,7 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export const ManagementType = {
   AUTO_MANAGED: "AUTO_MANAGED",
+  DISABLED: "DISABLED",
   MANUAL: "MANUAL",
 } as const;
 
@@ -1634,6 +1671,124 @@ export const ManagementType = {
  * @public
  */
 export type ManagementType = (typeof ManagementType)[keyof typeof ManagementType];
+
+/**
+ * @public
+ * <note>
+ *             <p>This API is also used when you use GuardDuty Runtime Monitoring
+ *       for your Amazon EC2 instances (currently in preview
+ *       release) and is subject to change.</p>
+ *          </note>
+ *          <p>Contains information about the Amazon EC2 instance runtime
+ *     coverage details.</p>
+ */
+export interface CoverageEc2InstanceDetails {
+  /**
+   * @public
+   * <p>The Amazon EC2 instance ID.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>The instance type of the Amazon EC2 instance.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * @public
+   * <p>The cluster ARN of the Amazon ECS cluster running on
+   *     the Amazon EC2 instance.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>Information about the installed security agent.</p>
+   */
+  AgentDetails?: AgentDetails;
+
+  /**
+   * @public
+   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage the GuardDuty
+   *           security agent updates for this resource.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>DISABLED</code> status doesn't apply to Amazon
+   *     EC2 instances and Amazon EKS clusters that run on Amazon EC2 instances.</p>
+   *          </note>
+   */
+  ManagementType?: ManagementType;
+}
+
+/**
+ * @public
+ * <p>Contains information about AWS Fargate details associated with
+ *       an Amazon ECS cluster.</p>
+ */
+export interface FargateDetails {
+  /**
+   * @public
+   * <p>Runtime coverage issues identified for the resource running on AWS Fargate.</p>
+   */
+  Issues?: string[];
+
+  /**
+   * @public
+   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage the GuardDuty
+   *         security agent updates for this resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> indicates that the deployment of the GuardDuty security agent is disabled for this resource.</p>
+   *             </li>
+   *          </ul>
+   */
+  ManagementType?: ManagementType;
+}
+
+/**
+ * @public
+ * <p>Contains information about Amazon ECS cluster runtime coverage details.</p>
+ */
+export interface CoverageEcsClusterDetails {
+  /**
+   * @public
+   * <p>The name of the Amazon ECS cluster.</p>
+   */
+  ClusterName?: string;
+
+  /**
+   * @public
+   * <p>Information about the Fargate details associated with the Amazon
+   *       ECS cluster.</p>
+   */
+  FargateDetails?: FargateDetails;
+
+  /**
+   * @public
+   * <p>Information about the Amazon ECS container running on Amazon EC2
+   *       instance.</p>
+   */
+  ContainerInstanceDetails?: ContainerInstanceDetails;
+}
 
 /**
  * @public
@@ -1705,9 +1860,13 @@ export interface CoverageFilterCondition {
 export const CoverageFilterCriterionKey = {
   ACCOUNT_ID: "ACCOUNT_ID",
   ADDON_VERSION: "ADDON_VERSION",
+  AGENT_VERSION: "AGENT_VERSION",
+  CLUSTER_ARN: "CLUSTER_ARN",
   CLUSTER_NAME: "CLUSTER_NAME",
   COVERAGE_STATUS: "COVERAGE_STATUS",
+  ECS_CLUSTER_NAME: "ECS_CLUSTER_NAME",
   EKS_CLUSTER_NAME: "EKS_CLUSTER_NAME",
+  INSTANCE_ID: "INSTANCE_ID",
   MANAGEMENT_TYPE: "MANAGEMENT_TYPE",
   RESOURCE_TYPE: "RESOURCE_TYPE",
 } as const;
@@ -1769,6 +1928,25 @@ export interface CoverageResourceDetails {
    * <p>The type of Amazon Web Services resource.</p>
    */
   ResourceType?: ResourceType;
+
+  /**
+   * @public
+   * <p>Information about the Amazon ECS cluster that is assessed for
+   *     runtime coverage.</p>
+   */
+  EcsClusterDetails?: CoverageEcsClusterDetails;
+
+  /**
+   * @public
+   * <note>
+   *             <p>This API is also used when you use GuardDuty Runtime Monitoring
+   *       for your Amazon EC2 instances (currently in preview
+   *       release) and is subject to change.</p>
+   *          </note>
+   *          <p>Information about the Amazon EC2 instance assessed
+   *       for runtime coverage.</p>
+   */
+  Ec2InstanceDetails?: CoverageEc2InstanceDetails;
 }
 
 /**
@@ -1830,7 +2008,9 @@ export const CoverageSortKey = {
   ADDON_VERSION: "ADDON_VERSION",
   CLUSTER_NAME: "CLUSTER_NAME",
   COVERAGE_STATUS: "COVERAGE_STATUS",
+  ECS_CLUSTER_NAME: "ECS_CLUSTER_NAME",
   EKS_CLUSTER_NAME: "EKS_CLUSTER_NAME",
+  INSTANCE_ID: "INSTANCE_ID",
   ISSUE: "ISSUE",
   UPDATED_AT: "UPDATED_AT",
 } as const;
@@ -1998,6 +2178,7 @@ export interface DataSourceConfigurations {
  * @enum
  */
 export const FeatureAdditionalConfiguration = {
+  ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
 } as const;
 
@@ -2049,6 +2230,7 @@ export const DetectorFeature = {
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
 
@@ -3804,6 +3986,7 @@ export type OrgFeatureStatus = (typeof OrgFeatureStatus)[keyof typeof OrgFeature
  * @enum
  */
 export const OrgFeatureAdditionalConfiguration = {
+  ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
 } as const;
 
@@ -3867,6 +4050,7 @@ export const OrgFeature = {
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
 
@@ -4143,6 +4327,7 @@ export const DetectorFeatureResult = {
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
 
@@ -6884,8 +7069,10 @@ export const UsageFeature = {
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EC2_RUNTIME_MONITORING: "EC2_RUNTIME_MONITORING",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
@@ -7555,136 +7742,4 @@ export interface ListInvitationsRequest {
    *       data.</p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- * <p>Contains information about the invitation to become a member account.</p>
- */
-export interface Invitation {
-  /**
-   * @public
-   * <p>The ID of the account that the invitation was sent from.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the invitation. This value is used to validate the inviter account to the member
-   *       account.</p>
-   */
-  InvitationId?: string;
-
-  /**
-   * @public
-   * <p>The status of the relationship between the inviter and invitee accounts.</p>
-   */
-  RelationshipStatus?: string;
-
-  /**
-   * @public
-   * <p>The timestamp when the invitation was sent.</p>
-   */
-  InvitedAt?: string;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsResponse {
-  /**
-   * @public
-   * <p>A list of invitation descriptions.</p>
-   */
-  Invitations?: Invitation[];
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListIPSetsRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector that the IPSet is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListIPSetsResponse {
-  /**
-   * @public
-   * <p>The IDs of the IPSet resources.</p>
-   */
-  IpSetIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListMembersRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector the member is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Specifies whether to only return associated members or to return all members (including
-   *       members who haven't been invited yet or have been disassociated). Member accounts must have
-   *       been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
-   *                <code>Create
-   *           Members</code>
-   *             </a>. </p>
-   */
-  OnlyAssociated?: string;
 }
