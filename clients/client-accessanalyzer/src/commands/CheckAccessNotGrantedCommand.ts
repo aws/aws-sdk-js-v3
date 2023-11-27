@@ -15,8 +15,12 @@ import {
 } from "@smithy/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { CreateAnalyzerRequest, CreateAnalyzerResponse } from "../models/models_0";
-import { de_CreateAnalyzerCommand, se_CreateAnalyzerCommand } from "../protocols/Aws_restJson1";
+import {
+  CheckAccessNotGrantedRequest,
+  CheckAccessNotGrantedRequestFilterSensitiveLog,
+  CheckAccessNotGrantedResponse,
+} from "../models/models_0";
+import { de_CheckAccessNotGrantedCommand, se_CheckAccessNotGrantedCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,85 +29,72 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateAnalyzerCommand}.
+ * The input for {@link CheckAccessNotGrantedCommand}.
  */
-export interface CreateAnalyzerCommandInput extends CreateAnalyzerRequest {}
+export interface CheckAccessNotGrantedCommandInput extends CheckAccessNotGrantedRequest {}
 /**
  * @public
  *
- * The output of {@link CreateAnalyzerCommand}.
+ * The output of {@link CheckAccessNotGrantedCommand}.
  */
-export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __MetadataBearer {}
+export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrantedResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates an analyzer for your account.</p>
+ * <p>Checks whether the specified access isn't allowed by a policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, CreateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, CreateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, CheckAccessNotGrantedCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, CheckAccessNotGrantedCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = { // CreateAnalyzerRequest
- *   analyzerName: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
- *   archiveRules: [ // InlineArchiveRulesList
- *     { // InlineArchiveRule
- *       ruleName: "STRING_VALUE", // required
- *       filter: { // FilterCriteriaMap // required
- *         "<keys>": { // Criterion
- *           eq: [ // ValueList
- *             "STRING_VALUE",
- *           ],
- *           neq: [
- *             "STRING_VALUE",
- *           ],
- *           contains: [
- *             "STRING_VALUE",
- *           ],
- *           exists: true || false,
- *         },
- *       },
+ * const input = { // CheckAccessNotGrantedRequest
+ *   policyDocument: "STRING_VALUE", // required
+ *   access: [ // AccessList // required
+ *     { // Access
+ *       actions: [ // ActionsList // required
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   clientToken: "STRING_VALUE",
- *   configuration: { // AnalyzerConfiguration Union: only one key present
- *     unusedAccess: { // UnusedAccessConfiguration
- *       unusedAccessAge: Number("int"),
- *     },
- *   },
+ *   policyType: "STRING_VALUE", // required
  * };
- * const command = new CreateAnalyzerCommand(input);
+ * const command = new CheckAccessNotGrantedCommand(input);
  * const response = await client.send(command);
- * // { // CreateAnalyzerResponse
- * //   arn: "STRING_VALUE",
+ * // { // CheckAccessNotGrantedResponse
+ * //   result: "STRING_VALUE",
+ * //   message: "STRING_VALUE",
+ * //   reasons: [ // ReasonSummaryList
+ * //     { // ReasonSummary
+ * //       description: "STRING_VALUE",
+ * //       statementIndex: Number("int"),
+ * //       statementId: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param CreateAnalyzerCommandInput - {@link CreateAnalyzerCommandInput}
- * @returns {@link CreateAnalyzerCommandOutput}
- * @see {@link CreateAnalyzerCommandInput} for command's `input` shape.
- * @see {@link CreateAnalyzerCommandOutput} for command's `response` shape.
+ * @param CheckAccessNotGrantedCommandInput - {@link CheckAccessNotGrantedCommandInput}
+ * @returns {@link CheckAccessNotGrantedCommandOutput}
+ * @see {@link CheckAccessNotGrantedCommandInput} for command's `input` shape.
+ * @see {@link CheckAccessNotGrantedCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>A conflict exception error.</p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal server error.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Service quote met error.</p>
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Throttling limit exceeded error.</p>
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  <p>The specified entity could not be processed.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
@@ -112,9 +103,9 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
-export class CreateAnalyzerCommand extends $Command<
-  CreateAnalyzerCommandInput,
-  CreateAnalyzerCommandOutput,
+export class CheckAccessNotGrantedCommand extends $Command<
+  CheckAccessNotGrantedCommandInput,
+  CheckAccessNotGrantedCommandOutput,
   AccessAnalyzerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -129,7 +120,7 @@ export class CreateAnalyzerCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateAnalyzerCommandInput) {
+  constructor(readonly input: CheckAccessNotGrantedCommandInput) {
     super();
   }
 
@@ -140,26 +131,26 @@ export class CreateAnalyzerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput> {
+  ): Handler<CheckAccessNotGrantedCommandInput, CheckAccessNotGrantedCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateAnalyzerCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CheckAccessNotGrantedCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AccessAnalyzerClient";
-    const commandName = "CreateAnalyzerCommand";
+    const commandName = "CheckAccessNotGrantedCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CheckAccessNotGrantedRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AccessAnalyzer",
-        operation: "CreateAnalyzer",
+        operation: "CheckAccessNotGranted",
       },
     };
     const { requestHandler } = configuration;
@@ -173,14 +164,14 @@ export class CreateAnalyzerCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateAnalyzerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateAnalyzerCommand(input, context);
+  private serialize(input: CheckAccessNotGrantedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CheckAccessNotGrantedCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnalyzerCommandOutput> {
-    return de_CreateAnalyzerCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckAccessNotGrantedCommandOutput> {
+    return de_CheckAccessNotGrantedCommand(output, context);
   }
 }

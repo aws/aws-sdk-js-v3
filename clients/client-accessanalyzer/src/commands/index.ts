@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 export * from "./ApplyArchiveRuleCommand";
 export * from "./CancelPolicyGenerationCommand";
+export * from "./CheckAccessNotGrantedCommand";
+export * from "./CheckNoNewAccessCommand";
 export * from "./CreateAccessPreviewCommand";
 export * from "./CreateAnalyzerCommand";
 export * from "./CreateArchiveRuleCommand";
@@ -11,6 +13,7 @@ export * from "./GetAnalyzedResourceCommand";
 export * from "./GetAnalyzerCommand";
 export * from "./GetArchiveRuleCommand";
 export * from "./GetFindingCommand";
+export * from "./GetFindingV2Command";
 export * from "./GetGeneratedPolicyCommand";
 export * from "./ListAccessPreviewFindingsCommand";
 export * from "./ListAccessPreviewsCommand";
@@ -18,6 +21,7 @@ export * from "./ListAnalyzedResourcesCommand";
 export * from "./ListAnalyzersCommand";
 export * from "./ListArchiveRulesCommand";
 export * from "./ListFindingsCommand";
+export * from "./ListFindingsV2Command";
 export * from "./ListPolicyGenerationsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartPolicyGenerationCommand";

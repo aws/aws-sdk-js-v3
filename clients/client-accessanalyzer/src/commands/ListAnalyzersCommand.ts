@@ -67,6 +67,11 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * //       statusReason: { // StatusReason
  * //         code: "STRING_VALUE", // required
  * //       },
+ * //       configuration: { // AnalyzerConfiguration Union: only one key present
+ * //         unusedAccess: { // UnusedAccessConfiguration
+ * //           unusedAccessAge: Number("int"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

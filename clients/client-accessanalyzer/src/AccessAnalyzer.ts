@@ -14,6 +14,16 @@ import {
   CancelPolicyGenerationCommandOutput,
 } from "./commands/CancelPolicyGenerationCommand";
 import {
+  CheckAccessNotGrantedCommand,
+  CheckAccessNotGrantedCommandInput,
+  CheckAccessNotGrantedCommandOutput,
+} from "./commands/CheckAccessNotGrantedCommand";
+import {
+  CheckNoNewAccessCommand,
+  CheckNoNewAccessCommandInput,
+  CheckNoNewAccessCommandOutput,
+} from "./commands/CheckNoNewAccessCommand";
+import {
   CreateAccessPreviewCommand,
   CreateAccessPreviewCommandInput,
   CreateAccessPreviewCommandOutput,
@@ -56,6 +66,11 @@ import {
 } from "./commands/GetArchiveRuleCommand";
 import { GetFindingCommand, GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
 import {
+  GetFindingV2Command,
+  GetFindingV2CommandInput,
+  GetFindingV2CommandOutput,
+} from "./commands/GetFindingV2Command";
+import {
   GetGeneratedPolicyCommand,
   GetGeneratedPolicyCommandInput,
   GetGeneratedPolicyCommandOutput,
@@ -90,6 +105,11 @@ import {
   ListFindingsCommandInput,
   ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand";
+import {
+  ListFindingsV2Command,
+  ListFindingsV2CommandInput,
+  ListFindingsV2CommandOutput,
+} from "./commands/ListFindingsV2Command";
 import {
   ListPolicyGenerationsCommand,
   ListPolicyGenerationsCommandInput,
@@ -135,6 +155,8 @@ import {
 const commands = {
   ApplyArchiveRuleCommand,
   CancelPolicyGenerationCommand,
+  CheckAccessNotGrantedCommand,
+  CheckNoNewAccessCommand,
   CreateAccessPreviewCommand,
   CreateAnalyzerCommand,
   CreateArchiveRuleCommand,
@@ -145,6 +167,7 @@ const commands = {
   GetAnalyzerCommand,
   GetArchiveRuleCommand,
   GetFindingCommand,
+  GetFindingV2Command,
   GetGeneratedPolicyCommand,
   ListAccessPreviewFindingsCommand,
   ListAccessPreviewsCommand,
@@ -152,6 +175,7 @@ const commands = {
   ListAnalyzersCommand,
   ListArchiveRulesCommand,
   ListFindingsCommand,
+  ListFindingsV2Command,
   ListPolicyGenerationsCommand,
   ListTagsForResourceCommand,
   StartPolicyGenerationCommand,
@@ -196,6 +220,40 @@ export interface AccessAnalyzer {
     args: CancelPolicyGenerationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelPolicyGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CheckAccessNotGrantedCommand}
+   */
+  checkAccessNotGranted(
+    args: CheckAccessNotGrantedCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckAccessNotGrantedCommandOutput>;
+  checkAccessNotGranted(
+    args: CheckAccessNotGrantedCommandInput,
+    cb: (err: any, data?: CheckAccessNotGrantedCommandOutput) => void
+  ): void;
+  checkAccessNotGranted(
+    args: CheckAccessNotGrantedCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckAccessNotGrantedCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CheckNoNewAccessCommand}
+   */
+  checkNoNewAccess(
+    args: CheckNoNewAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckNoNewAccessCommandOutput>;
+  checkNoNewAccess(
+    args: CheckNoNewAccessCommandInput,
+    cb: (err: any, data?: CheckNoNewAccessCommandOutput) => void
+  ): void;
+  checkNoNewAccess(
+    args: CheckNoNewAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckNoNewAccessCommandOutput) => void
   ): void;
 
   /**
@@ -348,6 +406,17 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
+   * @see {@link GetFindingV2Command}
+   */
+  getFindingV2(args: GetFindingV2CommandInput, options?: __HttpHandlerOptions): Promise<GetFindingV2CommandOutput>;
+  getFindingV2(args: GetFindingV2CommandInput, cb: (err: any, data?: GetFindingV2CommandOutput) => void): void;
+  getFindingV2(
+    args: GetFindingV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetGeneratedPolicyCommand}
    */
   getGeneratedPolicy(
@@ -452,6 +521,20 @@ export interface AccessAnalyzer {
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFindingsV2Command}
+   */
+  listFindingsV2(
+    args: ListFindingsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFindingsV2CommandOutput>;
+  listFindingsV2(args: ListFindingsV2CommandInput, cb: (err: any, data?: ListFindingsV2CommandOutput) => void): void;
+  listFindingsV2(
+    args: ListFindingsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFindingsV2CommandOutput) => void
   ): void;
 
   /**
@@ -592,15 +675,30 @@ export interface AccessAnalyzer {
 
 /**
  * @public
- * <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to
- *          identify any policies that grant access to an external principal. It does this by using
- *          logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An
- *          external principal can be another Amazon Web Services account, a root user, an IAM user or role, a
- *          federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to
- *          preview and validate public and cross-account access to your resources before deploying
- *          permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can
- *          call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
- *          <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>
+ * <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing
+ *          a suite of capabilities. Its features include findings for external and unused access,
+ *          basic and custom policy checks for validating policies, and policy generation to generate
+ *          fine-grained policies. To start using IAM Access Analyzer to identify external or unused access,
+ *          you first need to create an analyzer.</p>
+ *          <p>
+ *             <b>External access analyzers</b> help identify potential risks
+ *          of accessing resources by enabling you to identify any resource policies that grant access
+ *          to an external principal. It does this by using logic-based reasoning to analyze
+ *          resource-based policies in your Amazon Web Services environment. An external principal can be another
+ *          Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an
+ *          anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access
+ *          to your resources before deploying permissions changes.</p>
+ *          <p>
+ *             <b>Unused access analyzers</b> help identify potential
+ *          identity access risks by enabling you to identify unused IAM roles, unused access keys,
+ *          unused console passwords, and IAM principals with unused service and action-level
+ *          permissions.</p>
+ *          <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM
+ *          policies before deploying permissions changes. You can use policy generation to refine
+ *          permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p>
+ *          <p>This guide describes the IAM Access Analyzer operations that you can call programmatically.
+ *          For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the
+ *             <b>IAM User Guide</b>.</p>
  */
 export class AccessAnalyzer extends AccessAnalyzerClient implements AccessAnalyzer {}
 createAggregatedClient(commands, AccessAnalyzer);
