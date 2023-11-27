@@ -57,6 +57,7 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  *           Value: "STRING_VALUE",
  *         },
  *       ],
+ *       DataReplication: "NO_REPLICATION" || "PRIMARY_AS_SOURCE",
  *     },
  *   ],
  * };
@@ -75,6 +76,7 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * //             Value: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         DataReplication: "NO_REPLICATION" || "PRIMARY_AS_SOURCE",
  * //       },
  * //       ErrorCode: "STRING_VALUE",
  * //       ErrorMessage: "STRING_VALUE",

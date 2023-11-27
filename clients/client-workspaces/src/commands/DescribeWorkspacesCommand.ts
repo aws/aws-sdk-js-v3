@@ -99,6 +99,17 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * //           Type: "PRIMARY" || "STANDBY",
  * //         },
  * //       ],
+ * //       DataReplicationSettings: { // DataReplicationSettings
+ * //         DataReplication: "NO_REPLICATION" || "PRIMARY_AS_SOURCE",
+ * //         RecoverySnapshotTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       StandbyWorkspacesProperties: [ // StandbyWorkspacesPropertiesList
+ * //         { // StandbyWorkspacesProperties
+ * //           StandbyWorkspaceId: "STRING_VALUE",
+ * //           DataReplication: "NO_REPLICATION" || "PRIMARY_AS_SOURCE",
+ * //           RecoverySnapshotTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

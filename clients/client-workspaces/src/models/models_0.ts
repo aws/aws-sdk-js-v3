@@ -1432,6 +1432,20 @@ export interface CreateIpGroupResult {
 
 /**
  * @public
+ * @enum
+ */
+export const DataReplication = {
+  NO_REPLICATION: "NO_REPLICATION",
+  PRIMARY_AS_SOURCE: "PRIMARY_AS_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplication = (typeof DataReplication)[keyof typeof DataReplication];
+
+/**
+ * @public
  * <p>Describes a standby WorkSpace.</p>
  */
 export interface StandbyWorkspace {
@@ -1458,6 +1472,12 @@ export interface StandbyWorkspace {
    * <p>The tags associated with the standby WorkSpace.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
+   */
+  DataReplication?: DataReplication;
 }
 
 /**
@@ -2078,6 +2098,25 @@ export interface FailedCreateWorkspaceRequest {
 
 /**
  * @public
+ * <p>Describes the data replication settings.</p>
+ */
+export interface DataReplicationSettings {
+  /**
+   * @public
+   * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
+   */
+  DataReplication?: DataReplication;
+
+  /**
+   * @public
+   * <p>The date and time at which the last successful snapshot was taken of the
+   *          primary WorkSpace used for replicating data.</p>
+   */
+  RecoverySnapshotTime?: Date;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ModificationResourceEnum = {
@@ -2167,6 +2206,31 @@ export interface RelatedWorkspaceProperties {
    * <p>Indicates the type of WorkSpace.</p>
    */
   Type?: StandbyWorkspaceRelationshipType;
+}
+
+/**
+ * @public
+ * <p>Describes the properties of the related standby WorkSpaces. </p>
+ */
+export interface StandbyWorkspacesProperties {
+  /**
+   * @public
+   * <p>The identifier of the standby WorkSpace</p>
+   */
+  StandbyWorkspaceId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
+   */
+  DataReplication?: DataReplication;
+
+  /**
+   * @public
+   * <p>The date and time at which the last successful snapshot was taken of the
+   *          primary WorkSpace used for replicating data.</p>
+   */
+  RecoverySnapshotTime?: Date;
 }
 
 /**
@@ -2281,6 +2345,18 @@ export interface Workspace {
    * <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
    */
   RelatedWorkspaces?: RelatedWorkspaceProperties[];
+
+  /**
+   * @public
+   * <p>Indicates the settings of the data replication.</p>
+   */
+  DataReplicationSettings?: DataReplicationSettings;
+
+  /**
+   * @public
+   * <p>The properties of the standby WorkSpace</p>
+   */
+  StandbyWorkspacesProperties?: StandbyWorkspacesProperties[];
 }
 
 /**
@@ -5169,7 +5245,13 @@ export interface ModifyWorkspacePropertiesRequest {
    * @public
    * <p>The properties of the WorkSpace.</p>
    */
-  WorkspaceProperties: WorkspaceProperties | undefined;
+  WorkspaceProperties?: WorkspaceProperties;
+
+  /**
+   * @public
+   * <p>Indicates the data replication status.</p>
+   */
+  DataReplication?: DataReplication;
 }
 
 /**

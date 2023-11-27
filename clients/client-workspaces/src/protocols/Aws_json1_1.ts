@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -283,6 +284,8 @@ import {
   CreateWorkspaceImageRequest,
   CreateWorkspaceImageResult,
   CreateWorkspacesRequest,
+  CreateWorkspacesResult,
+  DataReplicationSettings,
   DefaultImportClientBrandingAttributes,
   DeletableCertificateBasedAuthProperty,
   DeletableSamlProperty,
@@ -327,6 +330,7 @@ import {
   DescribeWorkspaceSnapshotsRequest,
   DescribeWorkspaceSnapshotsResult,
   DescribeWorkspacesRequest,
+  DescribeWorkspacesResult,
   DisassociateConnectionAliasRequest,
   DisassociateIpGroupsRequest,
   DisassociateWorkspaceApplicationRequest,
@@ -375,6 +379,7 @@ import {
   SelfservicePermissions,
   Snapshot,
   StandbyWorkspace,
+  StandbyWorkspacesProperties,
   StartRequest,
   StartWorkspacesRequest,
   StopRequest,
@@ -390,6 +395,7 @@ import {
   UpdateWorkspaceBundleRequest,
   UpdateWorkspaceImagePermissionRequest,
   UserStorage,
+  Workspace,
   WorkspaceAccessProperties,
   WorkSpaceApplication,
   WorkSpaceApplicationDeployment,
@@ -2159,7 +2165,7 @@ export const de_CreateWorkspacesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_CreateWorkspacesResult(data, context);
   const response: CreateWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3618,7 +3624,7 @@ export const de_DescribeWorkspacesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_DescribeWorkspacesResult(data, context);
   const response: DescribeWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6113,7 +6119,25 @@ const de_CreateWorkspaceImageResult = (output: any, context: __SerdeContext): Cr
   }) as any;
 };
 
-// de_CreateWorkspacesResult omitted.
+/**
+ * deserializeAws_json1_1CreateWorkspacesResult
+ */
+const de_CreateWorkspacesResult = (output: any, context: __SerdeContext): CreateWorkspacesResult => {
+  return take(output, {
+    FailedRequests: _json,
+    PendingRequests: (_: any) => de_WorkspaceList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DataReplicationSettings
+ */
+const de_DataReplicationSettings = (output: any, context: __SerdeContext): DataReplicationSettings => {
+  return take(output, {
+    DataReplication: __expectString,
+    RecoverySnapshotTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 // de_DedicatedTenancyCidrRangeList omitted.
 
@@ -6284,7 +6308,15 @@ const de_DescribeWorkspaceSnapshotsResult = (
   }) as any;
 };
 
-// de_DescribeWorkspacesResult omitted.
+/**
+ * deserializeAws_json1_1DescribeWorkspacesResult
+ */
+const de_DescribeWorkspacesResult = (output: any, context: __SerdeContext): DescribeWorkspacesResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Workspaces: (_: any) => de_WorkspaceList(_, context),
+  }) as any;
+};
 
 // de_DirectoryList omitted.
 
@@ -6480,6 +6512,29 @@ const de_SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
 
 // de_StandbyWorkspace omitted.
 
+/**
+ * deserializeAws_json1_1StandbyWorkspacesProperties
+ */
+const de_StandbyWorkspacesProperties = (output: any, context: __SerdeContext): StandbyWorkspacesProperties => {
+  return take(output, {
+    DataReplication: __expectString,
+    RecoverySnapshotTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StandbyWorkspaceId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StandbyWorkspacesPropertiesList
+ */
+const de_StandbyWorkspacesPropertiesList = (output: any, context: __SerdeContext): StandbyWorkspacesProperties[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StandbyWorkspacesProperties(entry, context);
+    });
+  return retVal;
+};
+
 // de_StartWorkspacesResult omitted.
 
 // de_StopWorkspacesResult omitted.
@@ -6510,7 +6565,31 @@ const de_SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
 
 // de_UserStorage omitted.
 
-// de_Workspace omitted.
+/**
+ * deserializeAws_json1_1Workspace
+ */
+const de_Workspace = (output: any, context: __SerdeContext): Workspace => {
+  return take(output, {
+    BundleId: __expectString,
+    ComputerName: __expectString,
+    DataReplicationSettings: (_: any) => de_DataReplicationSettings(_, context),
+    DirectoryId: __expectString,
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    IpAddress: __expectString,
+    ModificationStates: _json,
+    RelatedWorkspaces: _json,
+    RootVolumeEncryptionEnabled: __expectBoolean,
+    StandbyWorkspacesProperties: (_: any) => de_StandbyWorkspacesPropertiesList(_, context),
+    State: __expectString,
+    SubnetId: __expectString,
+    UserName: __expectString,
+    UserVolumeEncryptionEnabled: __expectBoolean,
+    VolumeEncryptionKey: __expectString,
+    WorkspaceId: __expectString,
+    WorkspaceProperties: _json,
+  }) as any;
+};
 
 // de_WorkspaceAccessProperties omitted.
 
@@ -6630,7 +6709,17 @@ const de_WorkspaceImageList = (output: any, context: __SerdeContext): WorkspaceI
   return retVal;
 };
 
-// de_WorkspaceList omitted.
+/**
+ * deserializeAws_json1_1WorkspaceList
+ */
+const de_WorkspaceList = (output: any, context: __SerdeContext): Workspace[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Workspace(entry, context);
+    });
+  return retVal;
+};
 
 // de_WorkspaceProperties omitted.
 
