@@ -23,6 +23,10 @@ import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "../co
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "../commands/CancelExportTaskCommand";
 import { CreateDeliveryCommandInput, CreateDeliveryCommandOutput } from "../commands/CreateDeliveryCommand";
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "../commands/CreateExportTaskCommand";
+import {
+  CreateLogAnomalyDetectorCommandInput,
+  CreateLogAnomalyDetectorCommandOutput,
+} from "../commands/CreateLogAnomalyDetectorCommand";
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "../commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "../commands/CreateLogStreamCommand";
 import {
@@ -47,6 +51,10 @@ import {
   DeleteDeliverySourceCommandOutput,
 } from "../commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "../commands/DeleteDestinationCommand";
+import {
+  DeleteLogAnomalyDetectorCommandInput,
+  DeleteLogAnomalyDetectorCommandOutput,
+} from "../commands/DeleteLogAnomalyDetectorCommand";
 import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "../commands/DeleteLogGroupCommand";
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "../commands/DeleteLogStreamCommand";
 import { DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput } from "../commands/DeleteMetricFilterCommand";
@@ -122,10 +130,19 @@ import {
   GetDeliveryDestinationPolicyCommandOutput,
 } from "../commands/GetDeliveryDestinationPolicyCommand";
 import { GetDeliverySourceCommandInput, GetDeliverySourceCommandOutput } from "../commands/GetDeliverySourceCommand";
+import {
+  GetLogAnomalyDetectorCommandInput,
+  GetLogAnomalyDetectorCommandOutput,
+} from "../commands/GetLogAnomalyDetectorCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "../commands/GetLogEventsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "../commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "../commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
+import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "../commands/ListAnomaliesCommand";
+import {
+  ListLogAnomalyDetectorsCommandInput,
+  ListLogAnomalyDetectorsCommandOutput,
+} from "../commands/ListLogAnomalyDetectorsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -166,6 +183,11 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "../commands/TestMetricFilterCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "../commands/UntagLogGroupCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAnomalyCommandInput, UpdateAnomalyCommandOutput } from "../commands/UpdateAnomalyCommand";
+import {
+  UpdateLogAnomalyDetectorCommandInput,
+  UpdateLogAnomalyDetectorCommandOutput,
+} from "../commands/UpdateLogAnomalyDetectorCommand";
 import { CloudWatchLogsServiceException as __BaseException } from "../models/CloudWatchLogsServiceException";
 import {
   AccessDeniedException,
@@ -174,6 +196,7 @@ import {
   ConflictException,
   CreateDeliveryRequest,
   CreateExportTaskRequest,
+  CreateLogAnomalyDetectorRequest,
   CreateLogGroupRequest,
   CreateLogStreamRequest,
   DataAlreadyAcceptedException,
@@ -184,6 +207,7 @@ import {
   DeleteDeliveryRequest,
   DeleteDeliverySourceRequest,
   DeleteDestinationRequest,
+  DeleteLogAnomalyDetectorRequest,
   DeleteLogGroupRequest,
   DeleteLogStreamRequest,
   DeleteMetricFilterRequest,
@@ -213,6 +237,7 @@ import {
   GetDeliveryDestinationRequest,
   GetDeliveryRequest,
   GetDeliverySourceRequest,
+  GetLogAnomalyDetectorRequest,
   GetLogEventsRequest,
   GetLogGroupFieldsRequest,
   GetLogRecordRequest,
@@ -223,6 +248,8 @@ import {
   InvalidParameterException,
   InvalidSequenceTokenException,
   LimitExceededException,
+  ListAnomaliesRequest,
+  ListLogAnomalyDetectorsRequest,
   ListTagsForResourceRequest,
   ListTagsLogGroupRequest,
   MalformedQueryException,
@@ -249,6 +276,7 @@ import {
   ServiceUnavailableException,
   StartQueryRequest,
   StopQueryRequest,
+  SuppressionPeriod,
   TagLogGroupRequest,
   TagResourceRequest,
   TestMetricFilterRequest,
@@ -257,6 +285,8 @@ import {
   UnrecognizedClientException,
   UntagLogGroupRequest,
   UntagResourceRequest,
+  UpdateAnomalyRequest,
+  UpdateLogAnomalyDetectorRequest,
   ValidationException,
 } from "../models/models_0";
 
@@ -307,6 +337,19 @@ export const se_CreateExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateExportTask");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateLogAnomalyDetectorCommand
+ */
+export const se_CreateLogAnomalyDetectorCommand = async (
+  input: CreateLogAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateLogAnomalyDetector");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,6 +467,19 @@ export const se_DeleteDestinationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDestination");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteLogAnomalyDetectorCommand
+ */
+export const se_DeleteLogAnomalyDetectorCommand = async (
+  input: DeleteLogAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteLogAnomalyDetector");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -781,6 +837,19 @@ export const se_GetDeliverySourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetLogAnomalyDetectorCommand
+ */
+export const se_GetLogAnomalyDetectorCommand = async (
+  input: GetLogAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetLogAnomalyDetector");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetLogEventsCommand
  */
 export const se_GetLogEventsCommand = async (
@@ -827,6 +896,32 @@ export const se_GetQueryResultsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQueryResults");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListAnomaliesCommand
+ */
+export const se_ListAnomaliesCommand = async (
+  input: ListAnomaliesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAnomalies");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListLogAnomalyDetectorsCommand
+ */
+export const se_ListLogAnomalyDetectorsCommand = async (
+  input: ListLogAnomalyDetectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListLogAnomalyDetectors");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1119,6 +1214,32 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateAnomalyCommand
+ */
+export const se_UpdateAnomalyCommand = async (
+  input: UpdateAnomalyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateAnomaly");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateLogAnomalyDetectorCommand
+ */
+export const se_UpdateLogAnomalyDetectorCommand = async (
+  input: UpdateLogAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLogAnomalyDetector");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * deserializeAws_json1_1AssociateKmsKeyCommand
  */
 export const de_AssociateKmsKeyCommand = async (
@@ -1331,6 +1452,64 @@ const de_CreateExportTaskCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateLogAnomalyDetectorCommand
+ */
+export const de_CreateLogAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLogAnomalyDetectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateLogAnomalyDetectorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateLogAnomalyDetectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateLogAnomalyDetectorCommandError
+ */
+const de_CreateLogAnomalyDetectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLogAnomalyDetectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1808,6 +1987,58 @@ const de_DeleteDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteLogAnomalyDetectorCommand
+ */
+export const de_DeleteLogAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLogAnomalyDetectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteLogAnomalyDetectorCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteLogAnomalyDetectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteLogAnomalyDetectorCommandError
+ */
+const de_DeleteLogAnomalyDetectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLogAnomalyDetectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3256,6 +3487,61 @@ const de_GetDeliverySourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetLogAnomalyDetectorCommand
+ */
+export const de_GetLogAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLogAnomalyDetectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetLogAnomalyDetectorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetLogAnomalyDetectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetLogAnomalyDetectorCommandError
+ */
+const de_GetLogAnomalyDetectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLogAnomalyDetectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetLogEventsCommand
  */
 export const de_GetLogEventsCommand = async (
@@ -3453,6 +3739,116 @@ const de_GetQueryResultsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListAnomaliesCommand
+ */
+export const de_ListAnomaliesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomaliesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListAnomaliesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAnomaliesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAnomaliesCommandError
+ */
+const de_ListAnomaliesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomaliesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListLogAnomalyDetectorsCommand
+ */
+export const de_ListLogAnomalyDetectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLogAnomalyDetectorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListLogAnomalyDetectorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListLogAnomalyDetectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListLogAnomalyDetectorsCommandError
+ */
+const de_ListLogAnomalyDetectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLogAnomalyDetectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -4641,6 +5037,110 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateAnomalyCommand
+ */
+export const de_UpdateAnomalyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnomalyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateAnomalyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateAnomalyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAnomalyCommandError
+ */
+const de_UpdateAnomalyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnomalyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateLogAnomalyDetectorCommand
+ */
+export const de_UpdateLogAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLogAnomalyDetectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateLogAnomalyDetectorCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateLogAnomalyDetectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLogAnomalyDetectorCommandError
+ */
+const de_UpdateLogAnomalyDetectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLogAnomalyDetectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1AccessDeniedExceptionRes
  */
 const de_AccessDeniedExceptionRes = async (
@@ -4913,6 +5413,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateExportTaskRequest omitted.
 
+// se_CreateLogAnomalyDetectorRequest omitted.
+
 // se_CreateLogGroupRequest omitted.
 
 // se_CreateLogStreamRequest omitted.
@@ -4930,6 +5432,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeleteDeliverySourceRequest omitted.
 
 // se_DeleteDestinationRequest omitted.
+
+// se_DeleteLogAnomalyDetectorRequest omitted.
 
 // se_DeleteLogGroupRequest omitted.
 
@@ -4989,6 +5493,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_GetDeliverySourceRequest omitted.
 
+// se_GetLogAnomalyDetectorRequest omitted.
+
 // se_GetLogEventsRequest omitted.
 
 // se_GetLogGroupFieldsRequest omitted.
@@ -5003,9 +5509,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_InputLogStreamNames omitted.
 
+// se_ListAnomaliesRequest omitted.
+
+// se_ListLogAnomalyDetectorsRequest omitted.
+
 // se_ListTagsForResourceRequest omitted.
 
 // se_ListTagsLogGroupRequest omitted.
+
+// se_LogGroupArnList omitted.
 
 // se_LogGroupIdentifiers omitted.
 
@@ -5087,6 +5599,8 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // se_StopQueryRequest omitted.
 
+// se_SuppressionPeriod omitted.
+
 // se_TagKeyList omitted.
 
 // se_TagList omitted.
@@ -5105,17 +5619,31 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateAnomalyRequest omitted.
+
+// se_UpdateLogAnomalyDetectorRequest omitted.
+
 // de_AccessDeniedException omitted.
 
 // de_AccountPolicies omitted.
 
 // de_AccountPolicy omitted.
 
+// de_Anomalies omitted.
+
+// de_Anomaly omitted.
+
+// de_AnomalyDetector omitted.
+
+// de_AnomalyDetectors omitted.
+
 // de_ConflictException omitted.
 
 // de_CreateDeliveryResponse omitted.
 
 // de_CreateExportTaskResponse omitted.
+
+// de_CreateLogAnomalyDetectorResponse omitted.
 
 // de_DataAlreadyAcceptedException omitted.
 
@@ -5175,6 +5703,8 @@ const de_DescribeMetricFiltersResponse = (output: any, context: __SerdeContext):
 
 // de_Dimensions omitted.
 
+// de_Enumerations omitted.
+
 // de_ExportTask omitted.
 
 // de_ExportTaskExecutionInfo omitted.
@@ -5201,6 +5731,8 @@ const de_DescribeMetricFiltersResponse = (output: any, context: __SerdeContext):
 
 // de_GetDeliverySourceResponse omitted.
 
+// de_GetLogAnomalyDetectorResponse omitted.
+
 // de_GetLogEventsResponse omitted.
 
 // de_GetLogGroupFieldsResponse omitted.
@@ -5219,6 +5751,8 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
   }) as any;
 };
 
+// de_Histogram omitted.
+
 // de_InheritedProperties omitted.
 
 // de_InvalidOperationException omitted.
@@ -5229,11 +5763,17 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 
 // de_LimitExceededException omitted.
 
+// de_ListAnomaliesResponse omitted.
+
+// de_ListLogAnomalyDetectorsResponse omitted.
+
 // de_ListTagsForResourceResponse omitted.
 
 // de_ListTagsLogGroupResponse omitted.
 
 // de_LogGroup omitted.
+
+// de_LogGroupArnList omitted.
 
 // de_LogGroupField omitted.
 
@@ -5244,6 +5784,8 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 // de_LogGroups omitted.
 
 // de_LogRecord omitted.
+
+// de_LogSamples omitted.
 
 // de_LogStream omitted.
 
@@ -5311,6 +5853,10 @@ const de_MetricTransformations = (output: any, context: __SerdeContext): MetricT
 // de_OutputLogEvent omitted.
 
 // de_OutputLogEvents omitted.
+
+// de_PatternToken omitted.
+
+// de_PatternTokens omitted.
 
 // de_Policy omitted.
 

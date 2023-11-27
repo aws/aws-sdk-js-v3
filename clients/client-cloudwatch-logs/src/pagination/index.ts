@@ -19,3 +19,5 @@ export * from "./FilterLogEventsPaginator";
 export * from "./GetLogEventsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListAnomaliesPaginator";
+export * from "./ListLogAnomalyDetectorsPaginator";

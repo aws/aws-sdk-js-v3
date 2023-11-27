@@ -54,6 +54,10 @@ import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "./com
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
 import { CreateDeliveryCommandInput, CreateDeliveryCommandOutput } from "./commands/CreateDeliveryCommand";
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./commands/CreateExportTaskCommand";
+import {
+  CreateLogAnomalyDetectorCommandInput,
+  CreateLogAnomalyDetectorCommandOutput,
+} from "./commands/CreateLogAnomalyDetectorCommand";
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand";
 import {
@@ -78,6 +82,10 @@ import {
   DeleteDeliverySourceCommandOutput,
 } from "./commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand";
+import {
+  DeleteLogAnomalyDetectorCommandInput,
+  DeleteLogAnomalyDetectorCommandOutput,
+} from "./commands/DeleteLogAnomalyDetectorCommand";
 import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./commands/DeleteLogGroupCommand";
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand";
 import { DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput } from "./commands/DeleteMetricFilterCommand";
@@ -153,10 +161,19 @@ import {
   GetDeliveryDestinationPolicyCommandOutput,
 } from "./commands/GetDeliveryDestinationPolicyCommand";
 import { GetDeliverySourceCommandInput, GetDeliverySourceCommandOutput } from "./commands/GetDeliverySourceCommand";
+import {
+  GetLogAnomalyDetectorCommandInput,
+  GetLogAnomalyDetectorCommandOutput,
+} from "./commands/GetLogAnomalyDetectorCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/GetLogEventsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "./commands/ListAnomaliesCommand";
+import {
+  ListLogAnomalyDetectorsCommandInput,
+  ListLogAnomalyDetectorsCommandOutput,
+} from "./commands/ListLogAnomalyDetectorsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -197,6 +214,11 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "./commands/TestMetricFilterCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "./commands/UntagLogGroupCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAnomalyCommandInput, UpdateAnomalyCommandOutput } from "./commands/UpdateAnomalyCommand";
+import {
+  UpdateLogAnomalyDetectorCommandInput,
+  UpdateLogAnomalyDetectorCommandOutput,
+} from "./commands/UpdateLogAnomalyDetectorCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -216,6 +238,7 @@ export type ServiceInputTypes =
   | CancelExportTaskCommandInput
   | CreateDeliveryCommandInput
   | CreateExportTaskCommandInput
+  | CreateLogAnomalyDetectorCommandInput
   | CreateLogGroupCommandInput
   | CreateLogStreamCommandInput
   | DeleteAccountPolicyCommandInput
@@ -225,6 +248,7 @@ export type ServiceInputTypes =
   | DeleteDeliveryDestinationPolicyCommandInput
   | DeleteDeliverySourceCommandInput
   | DeleteDestinationCommandInput
+  | DeleteLogAnomalyDetectorCommandInput
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
   | DeleteMetricFilterCommandInput
@@ -252,10 +276,13 @@ export type ServiceInputTypes =
   | GetDeliveryDestinationCommandInput
   | GetDeliveryDestinationPolicyCommandInput
   | GetDeliverySourceCommandInput
+  | GetLogAnomalyDetectorCommandInput
   | GetLogEventsCommandInput
   | GetLogGroupFieldsCommandInput
   | GetLogRecordCommandInput
   | GetQueryResultsCommandInput
+  | ListAnomaliesCommandInput
+  | ListLogAnomalyDetectorsCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
@@ -277,7 +304,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TestMetricFilterCommandInput
   | UntagLogGroupCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateAnomalyCommandInput
+  | UpdateLogAnomalyDetectorCommandInput;
 
 /**
  * @public
@@ -287,6 +316,7 @@ export type ServiceOutputTypes =
   | CancelExportTaskCommandOutput
   | CreateDeliveryCommandOutput
   | CreateExportTaskCommandOutput
+  | CreateLogAnomalyDetectorCommandOutput
   | CreateLogGroupCommandOutput
   | CreateLogStreamCommandOutput
   | DeleteAccountPolicyCommandOutput
@@ -296,6 +326,7 @@ export type ServiceOutputTypes =
   | DeleteDeliveryDestinationPolicyCommandOutput
   | DeleteDeliverySourceCommandOutput
   | DeleteDestinationCommandOutput
+  | DeleteLogAnomalyDetectorCommandOutput
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
   | DeleteMetricFilterCommandOutput
@@ -323,10 +354,13 @@ export type ServiceOutputTypes =
   | GetDeliveryDestinationCommandOutput
   | GetDeliveryDestinationPolicyCommandOutput
   | GetDeliverySourceCommandOutput
+  | GetLogAnomalyDetectorCommandOutput
   | GetLogEventsCommandOutput
   | GetLogGroupFieldsCommandOutput
   | GetLogRecordCommandOutput
   | GetQueryResultsCommandOutput
+  | ListAnomaliesCommandOutput
+  | ListLogAnomalyDetectorsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput
@@ -348,7 +382,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TestMetricFilterCommandOutput
   | UntagLogGroupCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateAnomalyCommandOutput
+  | UpdateLogAnomalyDetectorCommandOutput;
 
 /**
  * @public

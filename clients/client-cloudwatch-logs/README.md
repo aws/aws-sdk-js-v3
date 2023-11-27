@@ -57,16 +57,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudWatchLogsClient` and
-the commands you need, for example `ListTagsLogGroupCommand`:
+the commands you need, for example `ListAnomaliesCommand`:
 
 ```js
 // ES5 example
-const { CloudWatchLogsClient, ListTagsLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs");
+const { CloudWatchLogsClient, ListAnomaliesCommand } = require("@aws-sdk/client-cloudwatch-logs");
 ```
 
 ```ts
 // ES6+ example
-import { CloudWatchLogsClient, ListTagsLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs";
+import { CloudWatchLogsClient, ListAnomaliesCommand } from "@aws-sdk/client-cloudwatch-logs";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ const client = new CloudWatchLogsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListTagsLogGroupCommand(params);
+const command = new ListAnomaliesCommand(params);
 ```
 
 #### Async/await
@@ -164,7 +164,7 @@ const client = new AWS.CloudWatchLogs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listTagsLogGroup(params);
+  const data = await client.listAnomalies(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -172,7 +172,7 @@ try {
 
 // Promises.
 client
-  .listTagsLogGroup(params)
+  .listAnomalies(params)
   .then((data) => {
     // process data.
   })
@@ -181,7 +181,7 @@ client
   });
 
 // callbacks.
-client.listTagsLogGroup(params, (err, data) => {
+client.listAnomalies(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -271,6 +271,14 @@ CreateExportTask
 </details>
 <details>
 <summary>
+CreateLogAnomalyDetector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogAnomalyDetectorCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateLogGroup
 </summary>
 
@@ -339,6 +347,14 @@ DeleteDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDestinationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLogAnomalyDetector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -559,6 +575,14 @@ GetDeliverySource
 </details>
 <details>
 <summary>
+GetLogAnomalyDetector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogAnomalyDetectorCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetLogEvents
 </summary>
 
@@ -587,6 +611,22 @@ GetQueryResults
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetQueryResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetQueryResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetQueryResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAnomalies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListAnomaliesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAnomaliesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAnomaliesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListLogAnomalyDetectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListLogAnomalyDetectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogAnomalyDetectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogAnomalyDetectorsCommandOutput/)
 
 </details>
 <details>
@@ -763,5 +803,21 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateAnomaly
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UpdateAnomalyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateAnomalyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateAnomalyCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLogAnomalyDetector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UpdateLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateLogAnomalyDetectorCommandOutput/)
 
 </details>

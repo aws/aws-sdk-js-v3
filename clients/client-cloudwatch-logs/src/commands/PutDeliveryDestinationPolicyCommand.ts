@@ -68,7 +68,7 @@ export interface PutDeliveryDestinationPolicyCommandOutput
  *          </ul>
  *          <p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed
  *        as <b>Supported [V2 Permissions]</b> in the table at
- *        <a href="https://docs.aws.amazon.com/     AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions">Enabling
+ *        <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
  *          logging from Amazon Web Services services.</a>
  *          </p>
  *          <p>The contents of the policy must include two statements. One statement enables general logs delivery, and the other

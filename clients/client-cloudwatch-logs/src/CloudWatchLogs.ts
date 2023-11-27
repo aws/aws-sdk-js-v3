@@ -24,6 +24,11 @@ import {
   CreateExportTaskCommandOutput,
 } from "./commands/CreateExportTaskCommand";
 import {
+  CreateLogAnomalyDetectorCommand,
+  CreateLogAnomalyDetectorCommandInput,
+  CreateLogAnomalyDetectorCommandOutput,
+} from "./commands/CreateLogAnomalyDetectorCommand";
+import {
   CreateLogGroupCommand,
   CreateLogGroupCommandInput,
   CreateLogGroupCommandOutput,
@@ -68,6 +73,11 @@ import {
   DeleteDestinationCommandInput,
   DeleteDestinationCommandOutput,
 } from "./commands/DeleteDestinationCommand";
+import {
+  DeleteLogAnomalyDetectorCommand,
+  DeleteLogAnomalyDetectorCommandInput,
+  DeleteLogAnomalyDetectorCommandOutput,
+} from "./commands/DeleteLogAnomalyDetectorCommand";
 import {
   DeleteLogGroupCommand,
   DeleteLogGroupCommandInput,
@@ -200,6 +210,11 @@ import {
   GetDeliverySourceCommandOutput,
 } from "./commands/GetDeliverySourceCommand";
 import {
+  GetLogAnomalyDetectorCommand,
+  GetLogAnomalyDetectorCommandInput,
+  GetLogAnomalyDetectorCommandOutput,
+} from "./commands/GetLogAnomalyDetectorCommand";
+import {
   GetLogEventsCommand,
   GetLogEventsCommandInput,
   GetLogEventsCommandOutput,
@@ -219,6 +234,16 @@ import {
   GetQueryResultsCommandInput,
   GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
+import {
+  ListAnomaliesCommand,
+  ListAnomaliesCommandInput,
+  ListAnomaliesCommandOutput,
+} from "./commands/ListAnomaliesCommand";
+import {
+  ListLogAnomalyDetectorsCommand,
+  ListLogAnomalyDetectorsCommandInput,
+  ListLogAnomalyDetectorsCommandOutput,
+} from "./commands/ListLogAnomalyDetectorsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -313,12 +338,23 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAnomalyCommand,
+  UpdateAnomalyCommandInput,
+  UpdateAnomalyCommandOutput,
+} from "./commands/UpdateAnomalyCommand";
+import {
+  UpdateLogAnomalyDetectorCommand,
+  UpdateLogAnomalyDetectorCommandInput,
+  UpdateLogAnomalyDetectorCommandOutput,
+} from "./commands/UpdateLogAnomalyDetectorCommand";
 
 const commands = {
   AssociateKmsKeyCommand,
   CancelExportTaskCommand,
   CreateDeliveryCommand,
   CreateExportTaskCommand,
+  CreateLogAnomalyDetectorCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
   DeleteAccountPolicyCommand,
@@ -328,6 +364,7 @@ const commands = {
   DeleteDeliveryDestinationPolicyCommand,
   DeleteDeliverySourceCommand,
   DeleteDestinationCommand,
+  DeleteLogAnomalyDetectorCommand,
   DeleteLogGroupCommand,
   DeleteLogStreamCommand,
   DeleteMetricFilterCommand,
@@ -355,10 +392,13 @@ const commands = {
   GetDeliveryDestinationCommand,
   GetDeliveryDestinationPolicyCommand,
   GetDeliverySourceCommand,
+  GetLogAnomalyDetectorCommand,
   GetLogEventsCommand,
   GetLogGroupFieldsCommand,
   GetLogRecordCommand,
   GetQueryResultsCommand,
+  ListAnomaliesCommand,
+  ListLogAnomalyDetectorsCommand,
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
   PutAccountPolicyCommand,
@@ -381,6 +421,8 @@ const commands = {
   TestMetricFilterCommand,
   UntagLogGroupCommand,
   UntagResourceCommand,
+  UpdateAnomalyCommand,
+  UpdateLogAnomalyDetectorCommand,
 };
 
 export interface CloudWatchLogs {
@@ -444,6 +486,23 @@ export interface CloudWatchLogs {
     args: CreateExportTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateExportTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLogAnomalyDetectorCommand}
+   */
+  createLogAnomalyDetector(
+    args: CreateLogAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLogAnomalyDetectorCommandOutput>;
+  createLogAnomalyDetector(
+    args: CreateLogAnomalyDetectorCommandInput,
+    cb: (err: any, data?: CreateLogAnomalyDetectorCommandOutput) => void
+  ): void;
+  createLogAnomalyDetector(
+    args: CreateLogAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLogAnomalyDetectorCommandOutput) => void
   ): void;
 
   /**
@@ -588,6 +647,23 @@ export interface CloudWatchLogs {
     args: DeleteDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDestinationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLogAnomalyDetectorCommand}
+   */
+  deleteLogAnomalyDetector(
+    args: DeleteLogAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLogAnomalyDetectorCommandOutput>;
+  deleteLogAnomalyDetector(
+    args: DeleteLogAnomalyDetectorCommandInput,
+    cb: (err: any, data?: DeleteLogAnomalyDetectorCommandOutput) => void
+  ): void;
+  deleteLogAnomalyDetector(
+    args: DeleteLogAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLogAnomalyDetectorCommandOutput) => void
   ): void;
 
   /**
@@ -1032,6 +1108,23 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetLogAnomalyDetectorCommand}
+   */
+  getLogAnomalyDetector(
+    args: GetLogAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLogAnomalyDetectorCommandOutput>;
+  getLogAnomalyDetector(
+    args: GetLogAnomalyDetectorCommandInput,
+    cb: (err: any, data?: GetLogAnomalyDetectorCommandOutput) => void
+  ): void;
+  getLogAnomalyDetector(
+    args: GetLogAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLogAnomalyDetectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLogEventsCommand}
    */
   getLogEvents(args: GetLogEventsCommandInput, options?: __HttpHandlerOptions): Promise<GetLogEventsCommandOutput>;
@@ -1082,6 +1175,34 @@ export interface CloudWatchLogs {
     args: GetQueryResultsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnomaliesCommand}
+   */
+  listAnomalies(args: ListAnomaliesCommandInput, options?: __HttpHandlerOptions): Promise<ListAnomaliesCommandOutput>;
+  listAnomalies(args: ListAnomaliesCommandInput, cb: (err: any, data?: ListAnomaliesCommandOutput) => void): void;
+  listAnomalies(
+    args: ListAnomaliesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnomaliesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLogAnomalyDetectorsCommand}
+   */
+  listLogAnomalyDetectors(
+    args: ListLogAnomalyDetectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLogAnomalyDetectorsCommandOutput>;
+  listLogAnomalyDetectors(
+    args: ListLogAnomalyDetectorsCommandInput,
+    cb: (err: any, data?: ListLogAnomalyDetectorsCommandOutput) => void
+  ): void;
+  listLogAnomalyDetectors(
+    args: ListLogAnomalyDetectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLogAnomalyDetectorsCommandOutput) => void
   ): void;
 
   /**
@@ -1408,6 +1529,34 @@ export interface CloudWatchLogs {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnomalyCommand}
+   */
+  updateAnomaly(args: UpdateAnomalyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAnomalyCommandOutput>;
+  updateAnomaly(args: UpdateAnomalyCommandInput, cb: (err: any, data?: UpdateAnomalyCommandOutput) => void): void;
+  updateAnomaly(
+    args: UpdateAnomalyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnomalyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLogAnomalyDetectorCommand}
+   */
+  updateLogAnomalyDetector(
+    args: UpdateLogAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLogAnomalyDetectorCommandOutput>;
+  updateLogAnomalyDetector(
+    args: UpdateLogAnomalyDetectorCommandInput,
+    cb: (err: any, data?: UpdateLogAnomalyDetectorCommandOutput) => void
+  ): void;
+  updateLogAnomalyDetector(
+    args: UpdateLogAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLogAnomalyDetectorCommandOutput) => void
   ): void;
 }
 
