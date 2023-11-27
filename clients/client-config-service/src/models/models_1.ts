@@ -28,9 +28,67 @@ import {
   ResourceKey,
   RetentionConfiguration,
   StoredQuery,
-  Tag,
   TemplateSSMDocumentDetails,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
+ * 			Each tag consists of a key and an optional value, both of which you define.
+ * 			Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ */
+export interface Tag {
+  /**
+   * @public
+   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   */
+  Key?: string;
+
+  /**
+   * @public
+   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>The tags for the resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000.
+ * 			Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a>
+ *             <code></code>.</p>
+ */
+export class MaxActiveResourcesExceededException extends __BaseException {
+  readonly name: "MaxActiveResourcesExceededException" = "MaxActiveResourcesExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxActiveResourcesExceededException, __BaseException>) {
+    super({
+      name: "MaxActiveResourcesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxActiveResourcesExceededException.prototype);
+  }
+}
 
 /**
  * @public

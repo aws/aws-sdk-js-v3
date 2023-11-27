@@ -91,6 +91,8 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * //       supplementaryConfiguration: { // SupplementaryConfiguration
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       recordingFrequency: "CONTINUOUS" || "DAILY",
+ * //       configurationItemDeliveryTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   unprocessedResourceKeys: [ // ResourceKeys

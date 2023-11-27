@@ -1088,7 +1088,21 @@ export type ConfigurationItemStatus = (typeof ConfigurationItemStatus)[keyof typ
 
 /**
  * @public
- * <p>The detailed configuration of a specified resource.</p>
+ * @enum
+ */
+export const RecordingFrequency = {
+  CONTINUOUS: "CONTINUOUS",
+  DAILY: "DAILY",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordingFrequency = (typeof RecordingFrequency)[keyof typeof RecordingFrequency];
+
+/**
+ * @public
+ * <p>The detailed configurations of a specified resource.</p>
  */
 export interface BaseConfigurationItem {
   /**
@@ -1105,28 +1119,28 @@ export interface BaseConfigurationItem {
 
   /**
    * @public
-   * <p>The time when the configuration recording was initiated.</p>
+   * <p>The time when the recording of configuration changes was initiated for the resource.</p>
    */
   configurationItemCaptureTime?: Date;
 
   /**
    * @public
-   * <p>The configuration item status. The valid values are:</p>
+   * <p>The configuration item status. Valid values include:</p>
    *          <ul>
    *             <li>
-   *                <p>OK – The resource configuration has been updated</p>
+   *                <p>OK – The resource configuration has been updated.</p>
    *             </li>
    *             <li>
-   *                <p>ResourceDiscovered – The resource was newly discovered</p>
+   *                <p>ResourceDiscovered – The resource was newly discovered.</p>
    *             </li>
    *             <li>
-   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceNotRecorded – The resource was discovered, but its configuration was not recorded since the recorder doesn't record resources of this type.</p>
    *             </li>
    *             <li>
    *                <p>ResourceDeleted – The resource was deleted</p>
    *             </li>
    *             <li>
-   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.</p>
    *             </li>
    *          </ul>
    */
@@ -1194,6 +1208,18 @@ export interface BaseConfigurationItem {
    * 			configuration parameter.</p>
    */
   supplementaryConfiguration?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
+   */
+  recordingFrequency?: RecordingFrequency;
+
+  /**
+   * @public
+   * <p>The time when configuration changes for the resource were delivered.</p>
+   */
+  configurationItemDeliveryTime?: Date;
 }
 
 /**
@@ -2350,14 +2376,14 @@ export interface ConfigurationItem {
 
   /**
    * @public
-   * <p>The time when the configuration recording was
-   * 			initiated.</p>
+   * <p>The time when the recording of configuration changes was
+   * 			initiated for the resource.</p>
    */
   configurationItemCaptureTime?: Date;
 
   /**
    * @public
-   * <p>The configuration item status. The valid values are:</p>
+   * <p>The configuration item status. Valid values include:</p>
    *          <ul>
    *             <li>
    *                <p>OK – The resource configuration has been updated</p>
@@ -2366,13 +2392,13 @@ export interface ConfigurationItem {
    *                <p>ResourceDiscovered – The resource was newly discovered</p>
    *             </li>
    *             <li>
-   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder doesn't record resources of this type</p>
    *             </li>
    *             <li>
    *                <p>ResourceDeleted – The resource was deleted</p>
    *             </li>
    *             <li>
-   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't  record resources of this type</p>
    *             </li>
    *          </ul>
    */
@@ -2476,6 +2502,18 @@ export interface ConfigurationItem {
    * 				<code>configuration</code> parameter.</p>
    */
   supplementaryConfiguration?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
+   */
+  recordingFrequency?: RecordingFrequency;
+
+  /**
+   * @public
+   * <p>The time when configuration changes for the resource were delivered.</p>
+   */
+  configurationItemDeliveryTime?: Date;
 }
 
 /**
@@ -2486,19 +2524,19 @@ export interface ConfigurationItem {
  * 			including global resource types, Config starts recording resources of that type automatically.</p>
  *          <note>
  *             <p>
- *                <b>How to use</b>
+ *                <b>How to use the exclusion recording strategy </b>
  *             </p>
  *             <p>To use this option, you must set the <code>useOnly</code>
  * 				field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a>
  * 				to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
  *             <p>Config will then record configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded.</p>
  *             <p>
- *                <b>Globally recorded resources</b>
+ *                <b>Global resource types and the exclusion recording strategy </b>
  *             </p>
  *             <p>Unless specifically listed as exclusions,
- * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported  Config Regions were the configuration recorder is enabled.
- * 				IAM users, groups, roles, and customer managed policies will be recorded automatically in all enabled Config Regions where Config was available before February 2022.
- * 				This list does not include the following Regions:</p>
+ * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported  Config Regions were the configuration recorder is enabled.</p>
+ *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
+ * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p>
  *             <ul>
  *                <li>
  *                   <p>Asia Pacific (Hyderabad)</p>
@@ -2555,9 +2593,9 @@ export interface RecordingStrategy {
    * <p>The recording strategy for the configuration recorder.</p>
    *          <ul>
    *             <li>
-   *                <p>If you set this option to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported regionally recorded resource types.
+   *                <p>If you set this option to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, excluding the global IAM resource types.
    * 				You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.
-   * 				When Config adds support for a new regionally recorded resource type, Config automatically starts recording resources of that type. For a list of supported resource types,
+   * 				When Config adds support for a new resource type, Config automatically starts recording resources of that type. For a list of supported resource types,
    * 				see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a> in the <i>Config developer guide</i>.</p>
    *             </li>
    *             <li>
@@ -2587,7 +2625,7 @@ export interface RecordingStrategy {
    *                <b>Overriding fields</b>
    *             </p>
    *             <p>If you choose <code>EXCLUSION_BY_RESOURCE_TYPES</code> for the recording strategy, the <code>exclusionByResourceTypes</code> field will override other properties in the request.</p>
-   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, globally recorded IAM resource types will still be automatically
+   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global IAM resource types will still be automatically
    * 			recorded in this option unless those resource types are specifically listed as exclusions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
    *          </note>
    *          <note>
@@ -2597,10 +2635,10 @@ export interface RecordingStrategy {
    *             <p>By default, if you choose the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy,
    * 				when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types,
    * 				Config starts recording resources of that type automatically.</p>
-   *             <p>In addition, unless specifically listed as exclusions,
-   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported  Config Regions were the configuration recorder is enabled.
-   * 				IAM users, groups, roles, and customer managed policies will be recorded automatically in all enabled Config Regions where Config was available before February 2022.
-   * 				This list does not include the following Regions:</p>
+   *             <p>Unless specifically listed as exclusions,
+   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
+   *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
+   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p>
    *             <ul>
    *                <li>
    *                   <p>Asia Pacific (Hyderabad)</p>
@@ -2629,11 +2667,11 @@ export interface RecordingStrategy {
 /**
  * @public
  * <p>Specifies which resource types Config
- * 			records for configuration changes. By default, Config records configuration changes for all current and future supported resource types in the Amazon Web Services Region where you have enabled Config
- * 			(excluding the globally recorded IAM resource types: IAM users, groups, roles, and customer managed policies).</p>
+ * 			records for configuration changes. By default, Config records configuration changes for all current and future supported resource types in the Amazon Web Services Region where you have enabled Config,
+ * 			excluding the global IAM resource types: IAM users, groups, roles, and customer managed policies.</p>
  *          <p>In the recording group, you specify whether you want to record all supported current and future supported resource types or to include or exclude specific resources types.
  * 			For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a> in the <i>Config developer guide</i>.</p>
- *          <p>If you don't want Config to record all  current and future supported resource types, use one of the following recording strategies:</p>
+ *          <p>If you don't want Config to record all current and future supported resource types (excluding the global IAM resource types), use one of the following recording strategies:</p>
  *          <ol>
  *             <li>
  *                <p>
@@ -2644,9 +2682,11 @@ export interface RecordingStrategy {
  *                   <b>Record specific resource types</b> (<code>INCLUSION_BY_RESOURCE_TYPES</code>).</p>
  *             </li>
  *          </ol>
+ *          <p>If you use the recording strategy to <b>Record all current and future resource types</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>),
+ * 			you can use the flag <code>includeGlobalResourceTypes</code> to include the global IAM resource types in your recording.</p>
  *          <important>
  *             <p>
- *                <b>Aurora global clusters are automatically globally recorded</b>
+ *                <b>Aurora global clusters are recorded in all enabled Regions</b>
  *             </p>
  *             <p>The <code>AWS::RDS::GlobalCluster</code> resource type
  * 				will be recorded in all supported Config Regions where the configuration recorder is enabled.</p>
@@ -2656,14 +2696,14 @@ export interface RecordingStrategy {
 export interface RecordingGroup {
   /**
    * @public
-   * <p>Specifies whether Config records configuration changes for all supported regionally recorded resource types.</p>
+   * <p>Specifies whether Config records configuration changes for all supported resource types, excluding the global IAM resource types.</p>
    *          <p>If you set this field to <code>true</code>, when Config
-   * 			adds support for a new regionally recorded resource type, Config starts recording resources of that type automatically.</p>
+   * 			adds support for a new resource type, Config starts recording resources of that type automatically.</p>
    *          <p>If you set this field to <code>true</code>,
    * 			you cannot enumerate specific resource types to record in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>, or to exclude in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
    *          <note>
    *             <p>
-   *                <b>Region Availability</b>
+   *                <b>Region availability</b>
    *             </p>
    *             <p>Check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a>
    * 				to see if a resource type is supported in the Amazon Web Services Region where you set up Config.</p>
@@ -2673,9 +2713,11 @@ export interface RecordingGroup {
 
   /**
    * @public
-   * <p>A legacy field which <b>only applies to the globally recorded IAM resource types</b>: IAM users, groups, roles, and customer managed policies.
-   * 			If you select this option, these resource types will be recorded in all enabled Config regions where Config was available before February 2022.
-   * 			This list does not include the following Regions:</p>
+   * <p>This option is a bundle which only applies to the global IAM resource types:
+   * 			IAM users, groups, roles, and customer managed policies. These global IAM resource types can only be recorded
+   * 			by Config in Regions where Config was available before February 2022.
+   * 			You cannot be record the global IAM resouce types in Regions supported by Config after February 2022.
+   * 			This list where you cannot record the global IAM resource types includes the following Regions:</p>
    *          <ul>
    *             <li>
    *                <p>Asia Pacific (Hyderabad)</p>
@@ -2698,10 +2740,10 @@ export interface RecordingGroup {
    *          </ul>
    *          <important>
    *             <p>
-   *                <b>Aurora global clusters are automatically globally recorded</b>
+   *                <b>Aurora global clusters are recorded in all enabled Regions</b>
    *             </p>
    *             <p>The <code>AWS::RDS::GlobalCluster</code> resource type will be recorded in all supported Config Regions where the configuration recorder is enabled, even if <code>includeGlobalResourceTypes</code> is not set to <code>true</code>.
-   * 				<code>includeGlobalResourceTypes</code> is a legacy field which only applies to IAM users, groups, roles, and customer managed policies.
+   * 				The <code>includeGlobalResourceTypes</code> option is a bundle which only applies to IAM users, groups, roles, and customer managed policies.
    * 			</p>
    *             <p>If you do not want to record <code>AWS::RDS::GlobalCluster</code> in all enabled Regions, use one of the following recording strategies:</p>
    *             <ol>
@@ -2717,9 +2759,6 @@ export interface RecordingGroup {
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Selecting Which Resources are Recorded</a> in the <i>Config developer guide</i>.</p>
    *          </important>
    *          <note>
-   *             <p>
-   *                <b>Required and optional fields</b>
-   *             </p>
    *             <p>Before you set this field to <code>true</code>,
    * 			set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
    * 			<code>true</code>. Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>.</p>
@@ -2728,9 +2767,9 @@ export interface RecordingGroup {
    *             <p>
    *                <b>Overriding fields</b>
    *             </p>
-   *             <p>If you set this field to <code>false</code> but list globally recorded IAM resource types in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>,
+   *             <p>If you set this field to <code>false</code> but list global IAM resource types in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>,
    * 			Config will still record configuration changes for those specified resource types <i>regardless</i> of if you set the <code>includeGlobalResourceTypes</code> field to false.</p>
-   *             <p>If you do not want to record configuration changes to the globally recorded IAM resource types (IAM users, groups, roles, and customer managed policies), make sure to not list them in the <code>resourceTypes</code> field
+   *             <p>If you do not want to record configuration changes to the global IAM resource types (IAM users, groups, roles, and customer managed policies), make sure to not list them in the <code>resourceTypes</code> field
    * 			in addition to setting the <code>includeGlobalResourceTypes</code> field to false.</p>
    *          </note>
    */
@@ -2740,18 +2779,23 @@ export interface RecordingGroup {
    * @public
    * <p>A comma-separated list that specifies which resource types Config
    * 			records.</p>
-   *          <p>Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>.</p>
-   *          <p>To record all configuration changes,
-   * 				set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
-   * 				<code>true</code>, and either omit this field or don't specify any resource types in this field. If you set the <code>allSupported</code> field to <code>false</code> and specify values for <code>resourceTypes</code>,
-   * 					when Config adds support for a new type of resource,
-   * 					it will not record resources of that type unless you manually add that type to your recording group.</p>
    *          <p>For a list of valid <code>resourceTypes</code> values, see the
    * 				<b>Resource Type Value</b> column in
    * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Amazon Web Services resource Types</a> in the <i>Config developer guide</i>.</p>
    *          <note>
    *             <p>
-   *                <b>Region Availability</b>
+   *                <b>Required and optional fields</b>
+   *             </p>
+   *             <p>Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>.</p>
+   *             <p>To record all configuration changes,
+   * 				set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
+   * 				<code>true</code>, and either omit this field or don't specify any resource types in this field. If you set the <code>allSupported</code> field to <code>false</code> and specify values for <code>resourceTypes</code>,
+   * 				when Config adds support for a new type of resource,
+   * 				it will not record resources of that type unless you manually add that type to your recording group.</p>
+   *          </note>
+   *          <note>
+   *             <p>
+   *                <b>Region availability</b>
    *             </p>
    *             <p>Before specifying a resource type for Config to track,
    * 				check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a>
@@ -2766,7 +2810,12 @@ export interface RecordingGroup {
   /**
    * @public
    * <p>An object that specifies how Config excludes resource types from being recorded by the configuration recorder.</p>
-   *          <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
+   *          <note>
+   *             <p>
+   *                <b>Required fields</b>
+   *             </p>
+   *             <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
+   *          </note>
    */
   exclusionByResourceTypes?: ExclusionByResourceTypes;
 
@@ -2775,7 +2824,7 @@ export interface RecordingGroup {
    * <p>An object that specifies the recording strategy for the configuration recorder.</p>
    *          <ul>
    *             <li>
-   *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported regionally recorded resource types. You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>. When Config adds support for a new regionally recorded resource type, Config automatically starts recording resources of that type.</p>
+   *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>. When Config adds support for a new resource type, Config automatically starts recording resources of that type.</p>
    *             </li>
    *             <li>
    *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>, Config records configuration changes for only the resource types you specify in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>.</p>
@@ -2800,7 +2849,7 @@ export interface RecordingGroup {
    *                <b>Overriding fields</b>
    *             </p>
    *             <p>If you choose <code>EXCLUSION_BY_RESOURCE_TYPES</code> for the recording strategy, the <code>exclusionByResourceTypes</code> field will override other properties in the request.</p>
-   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, globally recorded IAM resource types will still be automatically
+   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global IAM resource types will still be automatically
    * 			recorded in this option unless those resource types are specifically listed as exclusions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
    *          </note>
    *          <note>
@@ -2810,10 +2859,10 @@ export interface RecordingGroup {
    *             <p>By default, if you choose the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy,
    * 			when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types,
    * 			Config starts recording resources of that type automatically.</p>
-   *             <p>In addition, unless specifically listed as exclusions,
-   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported  Config Regions were the configuration recorder is enabled.
-   * 				IAM users, groups, roles, and customer managed policies will be recorded automatically in all enabled Config Regions where Config was available before February 2022.
-   * 				This list does not include the following Regions:</p>
+   *             <p>Unless specifically listed as exclusions,
+   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
+   *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config  was available before February 2022.
+   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM  resource types includes the following Regions:</p>
    *             <ul>
    *                <li>
    *                   <p>Asia Pacific (Hyderabad)</p>
@@ -2841,7 +2890,119 @@ export interface RecordingGroup {
 
 /**
  * @public
- * <p>Records configuration changes to specified resource types.
+ * <p>An object for you to specify your overrides for the recording mode.</p>
+ */
+export interface RecordingModeOverride {
+  /**
+   * @public
+   * <p>A description that you provide for the override.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>A comma-separated list that specifies which resource types Config
+   * 			includes in the override.</p>
+   *          <important>
+   *             <p>Daily recording is not supported for the following resource types:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ResourceCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConformancePackCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConfigurationRecorder</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *          </important>
+   */
+  resourceTypes: ResourceType[] | undefined;
+
+  /**
+   * @public
+   * <p>The recording frequency that will be applied to all the resource types specified in the override.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
+   *             </li>
+   *             <li>
+   *                <p>Daily recording allows you record configuration data once every 24 hours, only if a change has occurred.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
+   * 			it is recommended that you set the recording frequency to Continuous.</p>
+   *          </note>
+   */
+  recordingFrequency: RecordingFrequency | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the default recording frequency that Config uses to record configuration changes.
+ *
+ * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
+ *             </li>
+ *             <li>
+ *                <p>Daily recording allows you record configuration data once every 24 hours, only if a change has occurred.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
+ * 			it is recommended that you set the recording frequency to Continuous.</p>
+ *          </note>
+ *          <p>You can also override the recording frequency for specific resource types.</p>
+ */
+export interface RecordingMode {
+  /**
+   * @public
+   * <p>The default recording frequency that Config uses to record configuration changes.</p>
+   *          <important>
+   *             <p>Daily recording is not supported for the following resource types:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ResourceCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConformancePackCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConfigurationRecorder</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *             <p>For the <b>allSupported</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>) recording strategy, these resource types will be set to Continuous recording.</p>
+   *          </important>
+   */
+  recordingFrequency: RecordingFrequency | undefined;
+
+  /**
+   * @public
+   * <p>An array of <code>recordingModeOverride</code> objects for you to specify your overrides for the recording mode.
+   * 			The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
+   */
+  recordingModeOverrides?: RecordingModeOverride[];
+}
+
+/**
+ * @public
+ * <p>Records configuration changes to your specified resource types.
  * 			For more information about the configuration recorder,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
  *                <b>Managing the Configuration Recorder</b>
@@ -2851,13 +3012,15 @@ export interface ConfigurationRecorder {
   /**
    * @public
    * <p>The name of the configuration recorder. Config automatically assigns the name of "default" when creating the configuration recorder.</p>
-   *          <p>You cannot change the name of the configuration recorder after it has been created. To change the configuration recorder name, you must delete it and create a new configuration recorder with a new name. </p>
+   *          <note>
+   *             <p>You cannot change the name of the configuration recorder after it has been created. To change the configuration recorder name, you must delete it and create a new configuration recorder with a new name. </p>
+   *          </note>
    */
   name?: string;
 
   /**
    * @public
-   * <p>Amazon Resource Name (ARN) of the IAM role assumed by  Config and used by the configuration recorder.</p>
+   * <p>Amazon Resource Name (ARN) of the IAM role assumed by Config and used by the configuration recorder.</p>
    *          <note>
    *             <p>While the API model does not require this field, the server will reject a request without a defined <code>roleARN</code> for the configuration recorder.</p>
    *          </note>
@@ -2904,6 +3067,27 @@ export interface ConfigurationRecorder {
    *          </note>
    */
   recordingGroup?: RecordingGroup;
+
+  /**
+   * @public
+   * <p>Specifies the default recording frequency that Config uses to record configuration changes.
+   *
+   * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
+   *             </li>
+   *             <li>
+   *                <p>Daily recording allows you record configuration data once every 24 hours, only if a change has occurred.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
+   * 			it is recommended that you set the recording frequency to Continuous.</p>
+   *          </note>
+   *          <p>You can also override the recording frequency for specific resource types.</p>
+   */
+  recordingMode?: RecordingMode;
 }
 
 /**
@@ -8734,63 +8918,4 @@ export interface ListTagsForResourceRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
- * 			Each tag consists of a key and an optional value, both of which you define.
- * 			Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
- */
-export interface Tag {
-  /**
-   * @public
-   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-   */
-  Key?: string;
-
-  /**
-   * @public
-   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-   */
-  Value?: string;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * @public
-   * <p>The tags for the resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000.
- * 			Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a>
- *             <code></code>.</p>
- */
-export class MaxActiveResourcesExceededException extends __BaseException {
-  readonly name: "MaxActiveResourcesExceededException" = "MaxActiveResourcesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaxActiveResourcesExceededException, __BaseException>) {
-    super({
-      name: "MaxActiveResourcesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaxActiveResourcesExceededException.prototype);
-  }
 }

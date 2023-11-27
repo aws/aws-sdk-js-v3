@@ -93,6 +93,8 @@ export interface BatchGetAggregateResourceConfigCommandOutput
  * //       supplementaryConfiguration: { // SupplementaryConfiguration
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       recordingFrequency: "CONTINUOUS" || "DAILY",
+ * //       configurationItemDeliveryTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   UnprocessedResourceIdentifiers: [ // UnprocessedResourceIdentifierList

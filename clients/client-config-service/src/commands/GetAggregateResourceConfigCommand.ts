@@ -89,6 +89,8 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
  * //     supplementaryConfiguration: { // SupplementaryConfiguration
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     recordingFrequency: "CONTINUOUS" || "DAILY",
+ * //     configurationItemDeliveryTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
