@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
+import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
@@ -15,8 +16,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UntagResourceRequest, UntagResourceResult } from "../models/models_1";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restXml";
+import { DeleteAccessGrantsInstanceResourcePolicyRequest } from "../models/models_0";
+import {
+  de_DeleteAccessGrantsInstanceResourcePolicyCommand,
+  se_DeleteAccessGrantsInstanceResourcePolicyCommand,
+} from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -26,64 +30,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link DeleteAccessGrantsInstanceResourcePolicyCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface DeleteAccessGrantsInstanceResourcePolicyCommandInput
+  extends DeleteAccessGrantsInstanceResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link DeleteAccessGrantsInstanceResourcePolicyCommand}.
  */
-export interface UntagResourceCommandOutput extends UntagResourceResult, __MetadataBearer {}
+export interface DeleteAccessGrantsInstanceResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p> This operation removes the specified Amazon Web Services resource tags from an S3 resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. </p>
- *          <note>
- *             <p>This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3 Storage Lens groups</a> and for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html">S3 Access Grants</a>. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant. </p>
- *          </note>
+ * <p>Deletes the resource policy of the S3 Access Grants instance. The resource policy is used to manage cross-account access to your S3 Access Grants instance. By deleting the resource policy, you delete any cross-account permissions to your S3 Access Grants instance. </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:UntagResource</code> permission to use this operation. </p>
+ *                <p>You must have the <code>s3:DeleteAccessGrantsInstanceResourcePolicy</code> permission to use this operation. </p>
  *             </dd>
  *          </dl>
- *          <p>For more information about the required Storage
- *          Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
- *          <p>For information about S3 Tagging errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList">List of Amazon S3
- *             Tagging error codes</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, UntagResourceCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, UntagResourceCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, DeleteAccessGrantsInstanceResourcePolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, DeleteAccessGrantsInstanceResourcePolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = { // UntagResourceRequest
+ * const input = { // DeleteAccessGrantsInstanceResourcePolicyRequest
  *   AccountId: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
- *   ],
  * };
- * const command = new UntagResourceCommand(input);
+ * const command = new DeleteAccessGrantsInstanceResourcePolicyCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param DeleteAccessGrantsInstanceResourcePolicyCommandInput - {@link DeleteAccessGrantsInstanceResourcePolicyCommandInput}
+ * @returns {@link DeleteAccessGrantsInstanceResourcePolicyCommandOutput}
+ * @see {@link DeleteAccessGrantsInstanceResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccessGrantsInstanceResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
-export class UntagResourceCommand extends $Command<
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+export class DeleteAccessGrantsInstanceResourcePolicyCommand extends $Command<
+  DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+  DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
   S3ControlClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +95,7 @@ export class UntagResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UntagResourceCommandInput) {
+  constructor(readonly input: DeleteAccessGrantsInstanceResourcePolicyCommandInput) {
     super();
   }
 
@@ -112,16 +106,25 @@ export class UntagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
+  ): Handler<
+    DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+    DeleteAccessGrantsInstanceResourcePolicyCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DeleteAccessGrantsInstanceResourcePolicyCommand.getEndpointParameterInstructions()
+      )
+    );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
+    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "S3ControlClient";
-    const commandName = "UntagResourceCommand";
+    const commandName = "DeleteAccessGrantsInstanceResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -130,7 +133,7 @@ export class UntagResourceCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSS3ControlServiceV20180820",
-        operation: "UntagResource",
+        operation: "DeleteAccessGrantsInstanceResourcePolicy",
       },
     };
     const { requestHandler } = configuration;
@@ -144,14 +147,20 @@ export class UntagResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UntagResourceCommand(input, context);
+  private serialize(
+    input: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_DeleteAccessGrantsInstanceResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return de_UntagResourceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteAccessGrantsInstanceResourcePolicyCommandOutput> {
+    return de_DeleteAccessGrantsInstanceResourcePolicyCommand(output, context);
   }
 }

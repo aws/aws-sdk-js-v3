@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutAccessPointConfigurationForObjectLambdaRequest } from "../models/models_0";
+import { PutAccessPointConfigurationForObjectLambdaRequest } from "../models/models_1";
 import {
   de_PutAccessPointConfigurationForObjectLambdaCommand,
   se_PutAccessPointConfigurationForObjectLambdaCommand,

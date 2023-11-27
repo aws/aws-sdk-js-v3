@@ -58,6 +58,19 @@ import {
 } from "@smithy/types";
 import { Readable } from "stream";
 
+import {
+  AssociateAccessGrantsIdentityCenterCommandInput,
+  AssociateAccessGrantsIdentityCenterCommandOutput,
+} from "./commands/AssociateAccessGrantsIdentityCenterCommand";
+import { CreateAccessGrantCommandInput, CreateAccessGrantCommandOutput } from "./commands/CreateAccessGrantCommand";
+import {
+  CreateAccessGrantsInstanceCommandInput,
+  CreateAccessGrantsInstanceCommandOutput,
+} from "./commands/CreateAccessGrantsInstanceCommand";
+import {
+  CreateAccessGrantsLocationCommandInput,
+  CreateAccessGrantsLocationCommandOutput,
+} from "./commands/CreateAccessGrantsLocationCommand";
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand";
 import {
   CreateAccessPointForObjectLambdaCommandInput,
@@ -73,6 +86,19 @@ import {
   CreateStorageLensGroupCommandInput,
   CreateStorageLensGroupCommandOutput,
 } from "./commands/CreateStorageLensGroupCommand";
+import { DeleteAccessGrantCommandInput, DeleteAccessGrantCommandOutput } from "./commands/DeleteAccessGrantCommand";
+import {
+  DeleteAccessGrantsInstanceCommandInput,
+  DeleteAccessGrantsInstanceCommandOutput,
+} from "./commands/DeleteAccessGrantsInstanceCommand";
+import {
+  DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+  DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/DeleteAccessGrantsInstanceResourcePolicyCommand";
+import {
+  DeleteAccessGrantsLocationCommandInput,
+  DeleteAccessGrantsLocationCommandOutput,
+} from "./commands/DeleteAccessGrantsLocationCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointForObjectLambdaCommandInput,
@@ -126,6 +152,27 @@ import {
   DescribeMultiRegionAccessPointOperationCommandInput,
   DescribeMultiRegionAccessPointOperationCommandOutput,
 } from "./commands/DescribeMultiRegionAccessPointOperationCommand";
+import {
+  DissociateAccessGrantsIdentityCenterCommandInput,
+  DissociateAccessGrantsIdentityCenterCommandOutput,
+} from "./commands/DissociateAccessGrantsIdentityCenterCommand";
+import { GetAccessGrantCommandInput, GetAccessGrantCommandOutput } from "./commands/GetAccessGrantCommand";
+import {
+  GetAccessGrantsInstanceCommandInput,
+  GetAccessGrantsInstanceCommandOutput,
+} from "./commands/GetAccessGrantsInstanceCommand";
+import {
+  GetAccessGrantsInstanceForPrefixCommandInput,
+  GetAccessGrantsInstanceForPrefixCommandOutput,
+} from "./commands/GetAccessGrantsInstanceForPrefixCommand";
+import {
+  GetAccessGrantsInstanceResourcePolicyCommandInput,
+  GetAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/GetAccessGrantsInstanceResourcePolicyCommand";
+import {
+  GetAccessGrantsLocationCommandInput,
+  GetAccessGrantsLocationCommandOutput,
+} from "./commands/GetAccessGrantsLocationCommand";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand";
 import {
   GetAccessPointConfigurationForObjectLambdaCommandInput,
@@ -166,6 +213,7 @@ import {
   GetBucketVersioningCommandInput,
   GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand";
+import { GetDataAccessCommandInput, GetDataAccessCommandOutput } from "./commands/GetDataAccessCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
 import {
   GetMultiRegionAccessPointCommandInput,
@@ -199,6 +247,15 @@ import {
   GetStorageLensGroupCommandInput,
   GetStorageLensGroupCommandOutput,
 } from "./commands/GetStorageLensGroupCommand";
+import { ListAccessGrantsCommandInput, ListAccessGrantsCommandOutput } from "./commands/ListAccessGrantsCommand";
+import {
+  ListAccessGrantsInstancesCommandInput,
+  ListAccessGrantsInstancesCommandOutput,
+} from "./commands/ListAccessGrantsInstancesCommand";
+import {
+  ListAccessGrantsLocationsCommandInput,
+  ListAccessGrantsLocationsCommandOutput,
+} from "./commands/ListAccessGrantsLocationsCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import {
   ListAccessPointsForObjectLambdaCommandInput,
@@ -225,6 +282,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutAccessGrantsInstanceResourcePolicyCommandInput,
+  PutAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/PutAccessGrantsInstanceResourcePolicyCommand";
 import {
   PutAccessPointConfigurationForObjectLambdaCommandInput,
   PutAccessPointConfigurationForObjectLambdaCommandOutput,
@@ -274,6 +335,10 @@ import {
 } from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccessGrantsLocationCommandInput,
+  UpdateAccessGrantsLocationCommandOutput,
+} from "./commands/UpdateAccessGrantsLocationCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
 import {
@@ -295,12 +360,20 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateAccessGrantsIdentityCenterCommandInput
+  | CreateAccessGrantCommandInput
+  | CreateAccessGrantsInstanceCommandInput
+  | CreateAccessGrantsLocationCommandInput
   | CreateAccessPointCommandInput
   | CreateAccessPointForObjectLambdaCommandInput
   | CreateBucketCommandInput
   | CreateJobCommandInput
   | CreateMultiRegionAccessPointCommandInput
   | CreateStorageLensGroupCommandInput
+  | DeleteAccessGrantCommandInput
+  | DeleteAccessGrantsInstanceCommandInput
+  | DeleteAccessGrantsInstanceResourcePolicyCommandInput
+  | DeleteAccessGrantsLocationCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointForObjectLambdaCommandInput
   | DeleteAccessPointPolicyCommandInput
@@ -318,6 +391,12 @@ export type ServiceInputTypes =
   | DeleteStorageLensGroupCommandInput
   | DescribeJobCommandInput
   | DescribeMultiRegionAccessPointOperationCommandInput
+  | DissociateAccessGrantsIdentityCenterCommandInput
+  | GetAccessGrantCommandInput
+  | GetAccessGrantsInstanceCommandInput
+  | GetAccessGrantsInstanceForPrefixCommandInput
+  | GetAccessGrantsInstanceResourcePolicyCommandInput
+  | GetAccessGrantsLocationCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointConfigurationForObjectLambdaCommandInput
   | GetAccessPointForObjectLambdaCommandInput
@@ -331,6 +410,7 @@ export type ServiceInputTypes =
   | GetBucketReplicationCommandInput
   | GetBucketTaggingCommandInput
   | GetBucketVersioningCommandInput
+  | GetDataAccessCommandInput
   | GetJobTaggingCommandInput
   | GetMultiRegionAccessPointCommandInput
   | GetMultiRegionAccessPointPolicyCommandInput
@@ -340,6 +420,9 @@ export type ServiceInputTypes =
   | GetStorageLensConfigurationCommandInput
   | GetStorageLensConfigurationTaggingCommandInput
   | GetStorageLensGroupCommandInput
+  | ListAccessGrantsCommandInput
+  | ListAccessGrantsInstancesCommandInput
+  | ListAccessGrantsLocationsCommandInput
   | ListAccessPointsCommandInput
   | ListAccessPointsForObjectLambdaCommandInput
   | ListJobsCommandInput
@@ -348,6 +431,7 @@ export type ServiceInputTypes =
   | ListStorageLensConfigurationsCommandInput
   | ListStorageLensGroupsCommandInput
   | ListTagsForResourceCommandInput
+  | PutAccessGrantsInstanceResourcePolicyCommandInput
   | PutAccessPointConfigurationForObjectLambdaCommandInput
   | PutAccessPointPolicyCommandInput
   | PutAccessPointPolicyForObjectLambdaCommandInput
@@ -364,6 +448,7 @@ export type ServiceInputTypes =
   | SubmitMultiRegionAccessPointRoutesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccessGrantsLocationCommandInput
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput
   | UpdateStorageLensGroupCommandInput;
@@ -372,12 +457,20 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateAccessGrantsIdentityCenterCommandOutput
+  | CreateAccessGrantCommandOutput
+  | CreateAccessGrantsInstanceCommandOutput
+  | CreateAccessGrantsLocationCommandOutput
   | CreateAccessPointCommandOutput
   | CreateAccessPointForObjectLambdaCommandOutput
   | CreateBucketCommandOutput
   | CreateJobCommandOutput
   | CreateMultiRegionAccessPointCommandOutput
   | CreateStorageLensGroupCommandOutput
+  | DeleteAccessGrantCommandOutput
+  | DeleteAccessGrantsInstanceCommandOutput
+  | DeleteAccessGrantsInstanceResourcePolicyCommandOutput
+  | DeleteAccessGrantsLocationCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointForObjectLambdaCommandOutput
   | DeleteAccessPointPolicyCommandOutput
@@ -395,6 +488,12 @@ export type ServiceOutputTypes =
   | DeleteStorageLensGroupCommandOutput
   | DescribeJobCommandOutput
   | DescribeMultiRegionAccessPointOperationCommandOutput
+  | DissociateAccessGrantsIdentityCenterCommandOutput
+  | GetAccessGrantCommandOutput
+  | GetAccessGrantsInstanceCommandOutput
+  | GetAccessGrantsInstanceForPrefixCommandOutput
+  | GetAccessGrantsInstanceResourcePolicyCommandOutput
+  | GetAccessGrantsLocationCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointConfigurationForObjectLambdaCommandOutput
   | GetAccessPointForObjectLambdaCommandOutput
@@ -408,6 +507,7 @@ export type ServiceOutputTypes =
   | GetBucketReplicationCommandOutput
   | GetBucketTaggingCommandOutput
   | GetBucketVersioningCommandOutput
+  | GetDataAccessCommandOutput
   | GetJobTaggingCommandOutput
   | GetMultiRegionAccessPointCommandOutput
   | GetMultiRegionAccessPointPolicyCommandOutput
@@ -417,6 +517,9 @@ export type ServiceOutputTypes =
   | GetStorageLensConfigurationCommandOutput
   | GetStorageLensConfigurationTaggingCommandOutput
   | GetStorageLensGroupCommandOutput
+  | ListAccessGrantsCommandOutput
+  | ListAccessGrantsInstancesCommandOutput
+  | ListAccessGrantsLocationsCommandOutput
   | ListAccessPointsCommandOutput
   | ListAccessPointsForObjectLambdaCommandOutput
   | ListJobsCommandOutput
@@ -425,6 +528,7 @@ export type ServiceOutputTypes =
   | ListStorageLensConfigurationsCommandOutput
   | ListStorageLensGroupsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutAccessGrantsInstanceResourcePolicyCommandOutput
   | PutAccessPointConfigurationForObjectLambdaCommandOutput
   | PutAccessPointPolicyCommandOutput
   | PutAccessPointPolicyForObjectLambdaCommandOutput
@@ -441,6 +545,7 @@ export type ServiceOutputTypes =
   | SubmitMultiRegionAccessPointRoutesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccessGrantsLocationCommandOutput
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput
   | UpdateStorageLensGroupCommandOutput;

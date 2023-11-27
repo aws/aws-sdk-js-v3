@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UpdateStorageLensGroupRequest } from "../models/models_0";
+import { UpdateStorageLensGroupRequest } from "../models/models_1";
 import { de_UpdateStorageLensGroupCommand, se_UpdateStorageLensGroupCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -38,12 +38,13 @@ export interface UpdateStorageLensGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p> Updates the existing Storage Lens group.</p>
+ * <p>
+ * Updates the existing Storage Lens group.</p>
  *          <p>To use this operation, you must have the permission to perform the
- *             <code>s3:UpdateStorageLensGroup</code> action. For more information about the required
- *          Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
+ *       <code>s3:UpdateStorageLensGroup</code> action. For more information about the required Storage Lens
+ *       Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
  *          <p>For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List of Amazon S3 Storage
- *             Lens error codes</a>.</p>
+ *       Lens error codes</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

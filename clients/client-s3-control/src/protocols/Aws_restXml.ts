@@ -32,6 +32,19 @@ import {
 import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  AssociateAccessGrantsIdentityCenterCommandInput,
+  AssociateAccessGrantsIdentityCenterCommandOutput,
+} from "../commands/AssociateAccessGrantsIdentityCenterCommand";
+import { CreateAccessGrantCommandInput, CreateAccessGrantCommandOutput } from "../commands/CreateAccessGrantCommand";
+import {
+  CreateAccessGrantsInstanceCommandInput,
+  CreateAccessGrantsInstanceCommandOutput,
+} from "../commands/CreateAccessGrantsInstanceCommand";
+import {
+  CreateAccessGrantsLocationCommandInput,
+  CreateAccessGrantsLocationCommandOutput,
+} from "../commands/CreateAccessGrantsLocationCommand";
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "../commands/CreateAccessPointCommand";
 import {
   CreateAccessPointForObjectLambdaCommandInput,
@@ -47,6 +60,19 @@ import {
   CreateStorageLensGroupCommandInput,
   CreateStorageLensGroupCommandOutput,
 } from "../commands/CreateStorageLensGroupCommand";
+import { DeleteAccessGrantCommandInput, DeleteAccessGrantCommandOutput } from "../commands/DeleteAccessGrantCommand";
+import {
+  DeleteAccessGrantsInstanceCommandInput,
+  DeleteAccessGrantsInstanceCommandOutput,
+} from "../commands/DeleteAccessGrantsInstanceCommand";
+import {
+  DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+  DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "../commands/DeleteAccessGrantsInstanceResourcePolicyCommand";
+import {
+  DeleteAccessGrantsLocationCommandInput,
+  DeleteAccessGrantsLocationCommandOutput,
+} from "../commands/DeleteAccessGrantsLocationCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "../commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointForObjectLambdaCommandInput,
@@ -100,6 +126,27 @@ import {
   DescribeMultiRegionAccessPointOperationCommandInput,
   DescribeMultiRegionAccessPointOperationCommandOutput,
 } from "../commands/DescribeMultiRegionAccessPointOperationCommand";
+import {
+  DissociateAccessGrantsIdentityCenterCommandInput,
+  DissociateAccessGrantsIdentityCenterCommandOutput,
+} from "../commands/DissociateAccessGrantsIdentityCenterCommand";
+import { GetAccessGrantCommandInput, GetAccessGrantCommandOutput } from "../commands/GetAccessGrantCommand";
+import {
+  GetAccessGrantsInstanceCommandInput,
+  GetAccessGrantsInstanceCommandOutput,
+} from "../commands/GetAccessGrantsInstanceCommand";
+import {
+  GetAccessGrantsInstanceForPrefixCommandInput,
+  GetAccessGrantsInstanceForPrefixCommandOutput,
+} from "../commands/GetAccessGrantsInstanceForPrefixCommand";
+import {
+  GetAccessGrantsInstanceResourcePolicyCommandInput,
+  GetAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "../commands/GetAccessGrantsInstanceResourcePolicyCommand";
+import {
+  GetAccessGrantsLocationCommandInput,
+  GetAccessGrantsLocationCommandOutput,
+} from "../commands/GetAccessGrantsLocationCommand";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "../commands/GetAccessPointCommand";
 import {
   GetAccessPointConfigurationForObjectLambdaCommandInput,
@@ -140,6 +187,7 @@ import {
   GetBucketVersioningCommandInput,
   GetBucketVersioningCommandOutput,
 } from "../commands/GetBucketVersioningCommand";
+import { GetDataAccessCommandInput, GetDataAccessCommandOutput } from "../commands/GetDataAccessCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "../commands/GetJobTaggingCommand";
 import {
   GetMultiRegionAccessPointCommandInput,
@@ -173,6 +221,15 @@ import {
   GetStorageLensGroupCommandInput,
   GetStorageLensGroupCommandOutput,
 } from "../commands/GetStorageLensGroupCommand";
+import { ListAccessGrantsCommandInput, ListAccessGrantsCommandOutput } from "../commands/ListAccessGrantsCommand";
+import {
+  ListAccessGrantsInstancesCommandInput,
+  ListAccessGrantsInstancesCommandOutput,
+} from "../commands/ListAccessGrantsInstancesCommand";
+import {
+  ListAccessGrantsLocationsCommandInput,
+  ListAccessGrantsLocationsCommandOutput,
+} from "../commands/ListAccessGrantsLocationsCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "../commands/ListAccessPointsCommand";
 import {
   ListAccessPointsForObjectLambdaCommandInput,
@@ -199,6 +256,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  PutAccessGrantsInstanceResourcePolicyCommandInput,
+  PutAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "../commands/PutAccessGrantsInstanceResourcePolicyCommand";
 import {
   PutAccessPointConfigurationForObjectLambdaCommandInput,
   PutAccessPointConfigurationForObjectLambdaCommandOutput,
@@ -248,6 +309,10 @@ import {
 } from "../commands/SubmitMultiRegionAccessPointRoutesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAccessGrantsLocationCommandInput,
+  UpdateAccessGrantsLocationCommandOutput,
+} from "../commands/UpdateAccessGrantsLocationCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "../commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "../commands/UpdateJobStatusCommand";
 import {
@@ -258,6 +323,7 @@ import {
   _Exclude,
   AbortIncompleteMultipartUpload,
   AccessControlTranslation,
+  AccessGrantsLocationConfiguration,
   AccessPoint,
   AccountLevel,
   ActivityMetrics,
@@ -275,6 +341,7 @@ import {
   CloudWatchMetrics,
   CreateBucketConfiguration,
   CreateMultiRegionAccessPointInput,
+  Credentials,
   DeleteMarkerReplication,
   DeleteMultiRegionAccessPointInput,
   Destination,
@@ -283,6 +350,7 @@ import {
   EstablishedMultiRegionAccessPointPolicy,
   ExistingObjectReplication,
   GeneratedManifestEncryption,
+  Grantee,
   IdempotencyException,
   Include,
   InternalServiceException,
@@ -300,17 +368,17 @@ import {
   JobOperation,
   JobProgressSummary,
   JobReport,
-  JobStatusException,
   JobTimers,
   KeyNameConstraint,
   LambdaInvokeOperation,
-  LifecycleConfiguration,
   LifecycleExpiration,
   LifecycleRule,
   LifecycleRuleAndOperator,
   LifecycleRuleFilter,
+  ListAccessGrantEntry,
+  ListAccessGrantsInstanceEntry,
+  ListAccessGrantsLocationsEntry,
   ListStorageLensConfigurationEntry,
-  ListStorageLensGroupEntry,
   MatchObjectAge,
   MatchObjectSize,
   Metrics,
@@ -388,14 +456,252 @@ import {
   StorageLensGroupOrOperator,
   StorageLensTag,
   Tag,
-  Tagging,
   TooManyRequestsException,
-  TooManyTagsException,
   Transition,
-  VersioningConfiguration,
   VpcConfiguration,
 } from "../models/models_0";
+import {
+  JobStatusException,
+  LifecycleConfiguration,
+  ListStorageLensGroupEntry,
+  Tagging,
+  TooManyTagsException,
+  VersioningConfiguration,
+} from "../models/models_1";
 import { S3ControlServiceException as __BaseException } from "../models/S3ControlServiceException";
+
+/**
+ * serializeAws_restXmlAssociateAccessGrantsIdentityCenterCommand
+ */
+export const se_AssociateAccessGrantsIdentityCenterCommand = async (
+  input: AssociateAccessGrantsIdentityCenterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/identitycenter";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("AssociateAccessGrantsIdentityCenterRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.IdentityCenterArn !== undefined) {
+    const node = __XmlNode.of("IdentityCenterArn", input.IdentityCenterArn).withName("IdentityCenterArn");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlCreateAccessGrantCommand
+ */
+export const se_CreateAccessGrantCommand = async (
+  input: CreateAccessGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/grant";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateAccessGrantRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.AccessGrantsLocationConfiguration !== undefined) {
+    const node = se_AccessGrantsLocationConfiguration(input.AccessGrantsLocationConfiguration, context).withName(
+      "AccessGrantsLocationConfiguration"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessGrantsLocationId !== undefined) {
+    const node = __XmlNode
+      .of("AccessGrantsLocationId", input.AccessGrantsLocationId)
+      .withName("AccessGrantsLocationId");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ApplicationArn !== undefined) {
+    const node = __XmlNode.of("IdentityCenterApplicationArn", input.ApplicationArn).withName("ApplicationArn");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Grantee !== undefined) {
+    const node = se_Grantee(input.Grantee, context).withName("Grantee");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Permission !== undefined) {
+    const node = __XmlNode.of("Permission", input.Permission).withName("Permission");
+    bodyNode.addChildNode(node);
+  }
+  if (input.S3PrefixType !== undefined) {
+    const node = __XmlNode.of("S3PrefixType", input.S3PrefixType).withName("S3PrefixType");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Tags !== undefined) {
+    const nodes = se_TagList(input.Tags, context);
+    const containerNode = new __XmlNode("Tags");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlCreateAccessGrantsInstanceCommand
+ */
+export const se_CreateAccessGrantsInstanceCommand = async (
+  input: CreateAccessGrantsInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateAccessGrantsInstanceRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.IdentityCenterArn !== undefined) {
+    const node = __XmlNode.of("IdentityCenterArn", input.IdentityCenterArn).withName("IdentityCenterArn");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Tags !== undefined) {
+    const nodes = se_TagList(input.Tags, context);
+    const containerNode = new __XmlNode("Tags");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlCreateAccessGrantsLocationCommand
+ */
+export const se_CreateAccessGrantsLocationCommand = async (
+  input: CreateAccessGrantsLocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/location";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateAccessGrantsLocationRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.IAMRoleArn !== undefined) {
+    const node = __XmlNode.of("IAMRoleArn", input.IAMRoleArn).withName("IAMRoleArn");
+    bodyNode.addChildNode(node);
+  }
+  if (input.LocationScope !== undefined) {
+    const node = __XmlNode.of("S3Prefix", input.LocationScope).withName("LocationScope");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Tags !== undefined) {
+    const nodes = se_TagList(input.Tags, context);
+    const containerNode = new __XmlNode("Tags");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restXmlCreateAccessPointCommand
@@ -739,6 +1045,169 @@ export const se_CreateStorageLensGroupCommand = async (
     hostname: resolvedHostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlDeleteAccessGrantCommand
+ */
+export const se_DeleteAccessGrantCommand = async (
+  input: DeleteAccessGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/grant/{AccessGrantId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AccessGrantId",
+    () => input.AccessGrantId!,
+    "{AccessGrantId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlDeleteAccessGrantsInstanceCommand
+ */
+export const se_DeleteAccessGrantsInstanceCommand = async (
+  input: DeleteAccessGrantsInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance";
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlDeleteAccessGrantsInstanceResourcePolicyCommand
+ */
+export const se_DeleteAccessGrantsInstanceResourcePolicyCommand = async (
+  input: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/resourcepolicy";
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlDeleteAccessGrantsLocationCommand
+ */
+export const se_DeleteAccessGrantsLocationCommand = async (
+  input: DeleteAccessGrantsLocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AccessGrantsLocationId",
+    () => input.AccessGrantsLocationId!,
+    "{AccessGrantsLocationId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -1400,6 +1869,246 @@ export const se_DescribeMultiRegionAccessPointOperationCommand = async (
 };
 
 /**
+ * serializeAws_restXmlDissociateAccessGrantsIdentityCenterCommand
+ */
+export const se_DissociateAccessGrantsIdentityCenterCommand = async (
+  input: DissociateAccessGrantsIdentityCenterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/identitycenter";
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlGetAccessGrantCommand
+ */
+export const se_GetAccessGrantCommand = async (
+  input: GetAccessGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/grant/{AccessGrantId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AccessGrantId",
+    () => input.AccessGrantId!,
+    "{AccessGrantId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlGetAccessGrantsInstanceCommand
+ */
+export const se_GetAccessGrantsInstanceCommand = async (
+  input: GetAccessGrantsInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance";
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlGetAccessGrantsInstanceForPrefixCommand
+ */
+export const se_GetAccessGrantsInstanceForPrefixCommand = async (
+  input: GetAccessGrantsInstanceForPrefixCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/prefix";
+  const query: any = map({
+    s3prefix: [, __expectNonNull(input.S3Prefix!, `S3Prefix`)],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlGetAccessGrantsInstanceResourcePolicyCommand
+ */
+export const se_GetAccessGrantsInstanceResourcePolicyCommand = async (
+  input: GetAccessGrantsInstanceResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/resourcepolicy";
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlGetAccessGrantsLocationCommand
+ */
+export const se_GetAccessGrantsLocationCommand = async (
+  input: GetAccessGrantsLocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AccessGrantsLocationId",
+    () => input.AccessGrantsLocationId!,
+    "{AccessGrantsLocationId}",
+    false
+  );
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlGetAccessPointCommand
  */
 export const se_GetAccessPointCommand = async (
@@ -1887,6 +2596,51 @@ export const se_GetBucketVersioningCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetDataAccessCommand
+ */
+export const se_GetDataAccessCommand = async (
+  input: GetDataAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/dataaccess";
+  const query: any = map({
+    target: [, __expectNonNull(input.Target!, `Target`)],
+    permission: [, __expectNonNull(input.Permission!, `Permission`)],
+    durationSeconds: [() => input.DurationSeconds !== void 0, () => input.DurationSeconds!.toString()],
+    privilege: [, input.Privilege!],
+    targetType: [, input.TargetType!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlGetJobTaggingCommand
  */
 export const se_GetJobTaggingCommand = async (
@@ -2221,6 +2975,135 @@ export const se_GetStorageLensGroupCommand = async (
 };
 
 /**
+ * serializeAws_restXmlListAccessGrantsCommand
+ */
+export const se_ListAccessGrantsCommand = async (
+  input: ListAccessGrantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/grants";
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    granteetype: [, input.GranteeType!],
+    granteeidentifier: [, input.GranteeIdentifier!],
+    permission: [, input.Permission!],
+    grantscope: [, input.GrantScope!],
+    application_arn: [, input.ApplicationArn!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlListAccessGrantsInstancesCommand
+ */
+export const se_ListAccessGrantsInstancesCommand = async (
+  input: ListAccessGrantsInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstances";
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlListAccessGrantsLocationsCommand
+ */
+export const se_ListAccessGrantsLocationsCommand = async (
+  input: ListAccessGrantsLocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/locations";
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    locationscope: [, input.LocationScope!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlListAccessPointsCommand
  */
 export const se_ListAccessPointsCommand = async (
@@ -2535,6 +3418,56 @@ export const se_ListTagsForResourceCommand = async (
     hostname: resolvedHostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlPutAccessGrantsInstanceResourcePolicyCommand
+ */
+export const se_PutAccessGrantsInstanceResourcePolicyCommand = async (
+  input: PutAccessGrantsInstanceResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/resourcepolicy";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("PutAccessGrantsInstanceResourcePolicyRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.Organization !== undefined) {
+    const node = __XmlNode.of("Organization", input.Organization).withName("Organization");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Policy !== undefined) {
+    const node = __XmlNode.of("PolicyDocument", input.Policy).withName("Policy");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -3326,6 +4259,60 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restXmlUpdateAccessGrantsLocationCommand
+ */
+export const se_UpdateAccessGrantsLocationCommand = async (
+  input: UpdateAccessGrantsLocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AccessGrantsLocationId",
+    () => input.AccessGrantsLocationId!,
+    "{AccessGrantsLocationId}",
+    false
+  );
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("UpdateAccessGrantsLocationRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.IAMRoleArn !== undefined) {
+    const node = __XmlNode.of("IAMRoleArn", input.IAMRoleArn).withName("IAMRoleArn");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlUpdateJobPriorityCommand
  */
 export const se_UpdateJobPriorityCommand = async (
@@ -3451,6 +4438,211 @@ export const se_UpdateStorageLensGroupCommand = async (
     headers,
     path: resolvedPath,
     body,
+  });
+};
+
+/**
+ * deserializeAws_restXmlAssociateAccessGrantsIdentityCenterCommand
+ */
+export const de_AssociateAccessGrantsIdentityCenterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAccessGrantsIdentityCenterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateAccessGrantsIdentityCenterCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAssociateAccessGrantsIdentityCenterCommandError
+ */
+const de_AssociateAccessGrantsIdentityCenterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAccessGrantsIdentityCenterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlCreateAccessGrantCommand
+ */
+export const de_CreateAccessGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessGrantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateAccessGrantCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantArn"] !== undefined) {
+    contents.AccessGrantArn = __expectString(data["AccessGrantArn"]);
+  }
+  if (data["AccessGrantId"] !== undefined) {
+    contents.AccessGrantId = __expectString(data["AccessGrantId"]);
+  }
+  if (data["AccessGrantsLocationConfiguration"] !== undefined) {
+    contents.AccessGrantsLocationConfiguration = de_AccessGrantsLocationConfiguration(
+      data["AccessGrantsLocationConfiguration"],
+      context
+    );
+  }
+  if (data["AccessGrantsLocationId"] !== undefined) {
+    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  }
+  if (data["ApplicationArn"] !== undefined) {
+    contents.ApplicationArn = __expectString(data["ApplicationArn"]);
+  }
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["GrantScope"] !== undefined) {
+    contents.GrantScope = __expectString(data["GrantScope"]);
+  }
+  if (data["Grantee"] !== undefined) {
+    contents.Grantee = de_Grantee(data["Grantee"], context);
+  }
+  if (data["Permission"] !== undefined) {
+    contents.Permission = __expectString(data["Permission"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateAccessGrantCommandError
+ */
+const de_CreateAccessGrantCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessGrantCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlCreateAccessGrantsInstanceCommand
+ */
+export const de_CreateAccessGrantsInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessGrantsInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateAccessGrantsInstanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantsInstanceArn"] !== undefined) {
+    contents.AccessGrantsInstanceArn = __expectString(data["AccessGrantsInstanceArn"]);
+  }
+  if (data["AccessGrantsInstanceId"] !== undefined) {
+    contents.AccessGrantsInstanceId = __expectString(data["AccessGrantsInstanceId"]);
+  }
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["IdentityCenterArn"] !== undefined) {
+    contents.IdentityCenterArn = __expectString(data["IdentityCenterArn"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateAccessGrantsInstanceCommandError
+ */
+const de_CreateAccessGrantsInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessGrantsInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlCreateAccessGrantsLocationCommand
+ */
+export const de_CreateAccessGrantsLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessGrantsLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateAccessGrantsLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantsLocationArn"] !== undefined) {
+    contents.AccessGrantsLocationArn = __expectString(data["AccessGrantsLocationArn"]);
+  }
+  if (data["AccessGrantsLocationId"] !== undefined) {
+    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  }
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["IAMRoleArn"] !== undefined) {
+    contents.IAMRoleArn = __expectString(data["IAMRoleArn"]);
+  }
+  if (data["LocationScope"] !== undefined) {
+    contents.LocationScope = __expectString(data["LocationScope"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateAccessGrantsLocationCommandError
+ */
+const de_CreateAccessGrantsLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessGrantsLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
   });
 };
 
@@ -3709,6 +4901,154 @@ const de_CreateStorageLensGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStorageLensGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantCommand
+ */
+export const de_DeleteAccessGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteAccessGrantCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantCommandError
+ */
+const de_DeleteAccessGrantCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantsInstanceCommand
+ */
+export const de_DeleteAccessGrantsInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantsInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteAccessGrantsInstanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantsInstanceCommandError
+ */
+const de_DeleteAccessGrantsInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantsInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantsInstanceResourcePolicyCommand
+ */
+export const de_DeleteAccessGrantsInstanceResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantsInstanceResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteAccessGrantsInstanceResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantsInstanceResourcePolicyCommandError
+ */
+const de_DeleteAccessGrantsInstanceResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantsInstanceResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantsLocationCommand
+ */
+export const de_DeleteAccessGrantsLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantsLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteAccessGrantsLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteAccessGrantsLocationCommandError
+ */
+const de_DeleteAccessGrantsLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessGrantsLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4388,6 +5728,300 @@ const de_DescribeMultiRegionAccessPointOperationCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlDissociateAccessGrantsIdentityCenterCommand
+ */
+export const de_DissociateAccessGrantsIdentityCenterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DissociateAccessGrantsIdentityCenterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DissociateAccessGrantsIdentityCenterCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDissociateAccessGrantsIdentityCenterCommandError
+ */
+const de_DissociateAccessGrantsIdentityCenterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DissociateAccessGrantsIdentityCenterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantCommand
+ */
+export const de_GetAccessGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAccessGrantCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantArn"] !== undefined) {
+    contents.AccessGrantArn = __expectString(data["AccessGrantArn"]);
+  }
+  if (data["AccessGrantId"] !== undefined) {
+    contents.AccessGrantId = __expectString(data["AccessGrantId"]);
+  }
+  if (data["AccessGrantsLocationConfiguration"] !== undefined) {
+    contents.AccessGrantsLocationConfiguration = de_AccessGrantsLocationConfiguration(
+      data["AccessGrantsLocationConfiguration"],
+      context
+    );
+  }
+  if (data["AccessGrantsLocationId"] !== undefined) {
+    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  }
+  if (data["ApplicationArn"] !== undefined) {
+    contents.ApplicationArn = __expectString(data["ApplicationArn"]);
+  }
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["GrantScope"] !== undefined) {
+    contents.GrantScope = __expectString(data["GrantScope"]);
+  }
+  if (data["Grantee"] !== undefined) {
+    contents.Grantee = de_Grantee(data["Grantee"], context);
+  }
+  if (data["Permission"] !== undefined) {
+    contents.Permission = __expectString(data["Permission"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantCommandError
+ */
+const de_GetAccessGrantCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsInstanceCommand
+ */
+export const de_GetAccessGrantsInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAccessGrantsInstanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantsInstanceArn"] !== undefined) {
+    contents.AccessGrantsInstanceArn = __expectString(data["AccessGrantsInstanceArn"]);
+  }
+  if (data["AccessGrantsInstanceId"] !== undefined) {
+    contents.AccessGrantsInstanceId = __expectString(data["AccessGrantsInstanceId"]);
+  }
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["IdentityCenterArn"] !== undefined) {
+    contents.IdentityCenterArn = __expectString(data["IdentityCenterArn"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsInstanceCommandError
+ */
+const de_GetAccessGrantsInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsInstanceForPrefixCommand
+ */
+export const de_GetAccessGrantsInstanceForPrefixCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsInstanceForPrefixCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAccessGrantsInstanceForPrefixCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantsInstanceArn"] !== undefined) {
+    contents.AccessGrantsInstanceArn = __expectString(data["AccessGrantsInstanceArn"]);
+  }
+  if (data["AccessGrantsInstanceId"] !== undefined) {
+    contents.AccessGrantsInstanceId = __expectString(data["AccessGrantsInstanceId"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsInstanceForPrefixCommandError
+ */
+const de_GetAccessGrantsInstanceForPrefixCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsInstanceForPrefixCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsInstanceResourcePolicyCommand
+ */
+export const de_GetAccessGrantsInstanceResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsInstanceResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAccessGrantsInstanceResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["Organization"] !== undefined) {
+    contents.Organization = __expectString(data["Organization"]);
+  }
+  if (data["Policy"] !== undefined) {
+    contents.Policy = __expectString(data["Policy"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsInstanceResourcePolicyCommandError
+ */
+const de_GetAccessGrantsInstanceResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsInstanceResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsLocationCommand
+ */
+export const de_GetAccessGrantsLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAccessGrantsLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantsLocationArn"] !== undefined) {
+    contents.AccessGrantsLocationArn = __expectString(data["AccessGrantsLocationArn"]);
+  }
+  if (data["AccessGrantsLocationId"] !== undefined) {
+    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  }
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["IAMRoleArn"] !== undefined) {
+    contents.IAMRoleArn = __expectString(data["IAMRoleArn"]);
+  }
+  if (data["LocationScope"] !== undefined) {
+    contents.LocationScope = __expectString(data["LocationScope"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetAccessGrantsLocationCommandError
+ */
+const de_GetAccessGrantsLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessGrantsLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlGetAccessPointCommand
  */
 export const de_GetAccessPointCommand = async (
@@ -4965,6 +6599,49 @@ const de_GetBucketVersioningCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlGetDataAccessCommand
+ */
+export const de_GetDataAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataAccessCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetDataAccessCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Credentials"] !== undefined) {
+    contents.Credentials = de_Credentials(data["Credentials"], context);
+  }
+  if (data["MatchedGrantTarget"] !== undefined) {
+    contents.MatchedGrantTarget = __expectString(data["MatchedGrantTarget"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetDataAccessCommandError
+ */
+const de_GetDataAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlGetJobTaggingCommand
  */
 export const de_GetJobTaggingCommand = async (
@@ -5332,6 +7009,156 @@ const de_GetStorageLensGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStorageLensGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsCommand
+ */
+export const de_ListAccessGrantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessGrantsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAccessGrantsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccessGrantsList === "") {
+    contents.AccessGrantsList = [];
+  } else if (data["AccessGrantsList"] !== undefined && data["AccessGrantsList"]["AccessGrant"] !== undefined) {
+    contents.AccessGrantsList = de_AccessGrantsList(
+      __getArrayIfSingleItem(data["AccessGrantsList"]["AccessGrant"]),
+      context
+    );
+  }
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(data["NextToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsCommandError
+ */
+const de_ListAccessGrantsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessGrantsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsInstancesCommand
+ */
+export const de_ListAccessGrantsInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessGrantsInstancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAccessGrantsInstancesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccessGrantsInstancesList === "") {
+    contents.AccessGrantsInstancesList = [];
+  } else if (
+    data["AccessGrantsInstancesList"] !== undefined &&
+    data["AccessGrantsInstancesList"]["AccessGrantsInstance"] !== undefined
+  ) {
+    contents.AccessGrantsInstancesList = de_AccessGrantsInstancesList(
+      __getArrayIfSingleItem(data["AccessGrantsInstancesList"]["AccessGrantsInstance"]),
+      context
+    );
+  }
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(data["NextToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsInstancesCommandError
+ */
+const de_ListAccessGrantsInstancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessGrantsInstancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsLocationsCommand
+ */
+export const de_ListAccessGrantsLocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessGrantsLocationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAccessGrantsLocationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccessGrantsLocationsList === "") {
+    contents.AccessGrantsLocationsList = [];
+  } else if (
+    data["AccessGrantsLocationsList"] !== undefined &&
+    data["AccessGrantsLocationsList"]["AccessGrantsLocation"] !== undefined
+  ) {
+    contents.AccessGrantsLocationsList = de_AccessGrantsLocationsList(
+      __getArrayIfSingleItem(data["AccessGrantsLocationsList"]["AccessGrantsLocation"]),
+      context
+    );
+  }
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(data["NextToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsLocationsCommandError
+ */
+const de_ListAccessGrantsLocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessGrantsLocationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5722,6 +7549,52 @@ const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlPutAccessGrantsInstanceResourcePolicyCommand
+ */
+export const de_PutAccessGrantsInstanceResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccessGrantsInstanceResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutAccessGrantsInstanceResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["Organization"] !== undefined) {
+    contents.Organization = __expectString(data["Organization"]);
+  }
+  if (data["Policy"] !== undefined) {
+    contents.Policy = __expectString(data["Policy"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlPutAccessGrantsInstanceResourcePolicyCommandError
+ */
+const de_PutAccessGrantsInstanceResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccessGrantsInstanceResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6346,6 +8219,58 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlUpdateAccessGrantsLocationCommand
+ */
+export const de_UpdateAccessGrantsLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccessGrantsLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateAccessGrantsLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["AccessGrantsLocationArn"] !== undefined) {
+    contents.AccessGrantsLocationArn = __expectString(data["AccessGrantsLocationArn"]);
+  }
+  if (data["AccessGrantsLocationId"] !== undefined) {
+    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  }
+  if (data["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  }
+  if (data["IAMRoleArn"] !== undefined) {
+    contents.IAMRoleArn = __expectString(data["IAMRoleArn"]);
+  }
+  if (data["LocationScope"] !== undefined) {
+    contents.LocationScope = __expectString(data["LocationScope"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlUpdateAccessGrantsLocationCommandError
+ */
+const de_UpdateAccessGrantsLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccessGrantsLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlUpdateJobPriorityCommand
  */
 export const de_UpdateJobPriorityCommand = async (
@@ -6740,6 +8665,21 @@ const se_AccessControlTranslation = (input: AccessControlTranslation, context: _
 };
 
 /**
+ * serializeAws_restXmlAccessGrantsLocationConfiguration
+ */
+const se_AccessGrantsLocationConfiguration = (
+  input: AccessGrantsLocationConfiguration,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("AccessGrantsLocationConfiguration");
+  if (input.S3SubPrefix != null) {
+    const node = __XmlNode.of("S3Prefix", input.S3SubPrefix).withName("S3SubPrefix");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
  * serializeAws_restXmlAccountLevel
  */
 const se_AccountLevel = (input: AccountLevel, context: __SerdeContext): any => {
@@ -7062,6 +9002,22 @@ const se_GeneratedManifestEncryption = (input: GeneratedManifestEncryption, cont
   }
   if (input.SSEKMS != null) {
     const node = se_SSEKMSEncryption(input.SSEKMS, context).withName("SSE-KMS");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
+ * serializeAws_restXmlGrantee
+ */
+const se_Grantee = (input: Grantee, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("Grantee");
+  if (input.GranteeType != null) {
+    const node = __XmlNode.of("GranteeType", input.GranteeType).withName("GranteeType");
+    bodyNode.addChildNode(node);
+  }
+  if (input.GranteeIdentifier != null) {
+    const node = __XmlNode.of("GranteeIdentifier", input.GranteeIdentifier).withName("GranteeIdentifier");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -9169,6 +11125,53 @@ const de_AccessControlTranslation = (output: any, context: __SerdeContext): Acce
 };
 
 /**
+ * deserializeAws_restXmlAccessGrantsInstancesList
+ */
+const de_AccessGrantsInstancesList = (output: any, context: __SerdeContext): ListAccessGrantsInstanceEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ListAccessGrantsInstanceEntry(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlAccessGrantsList
+ */
+const de_AccessGrantsList = (output: any, context: __SerdeContext): ListAccessGrantEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ListAccessGrantEntry(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlAccessGrantsLocationConfiguration
+ */
+const de_AccessGrantsLocationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AccessGrantsLocationConfiguration => {
+  const contents: any = {};
+  if (output["S3SubPrefix"] !== undefined) {
+    contents.S3SubPrefix = __expectString(output["S3SubPrefix"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAccessGrantsLocationsList
+ */
+const de_AccessGrantsLocationsList = (output: any, context: __SerdeContext): ListAccessGrantsLocationsEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ListAccessGrantsLocationsEntry(entry, context);
+    });
+};
+
+/**
  * deserializeAws_restXmlAccessPoint
  */
 const de_AccessPoint = (output: any, context: __SerdeContext): AccessPoint => {
@@ -9450,6 +11453,26 @@ const de_CreateMultiRegionAccessPointInput = (
 };
 
 /**
+ * deserializeAws_restXmlCredentials
+ */
+const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
+  const contents: any = {};
+  if (output["AccessKeyId"] !== undefined) {
+    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
+  }
+  if (output["SecretAccessKey"] !== undefined) {
+    contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
+  }
+  if (output["SessionToken"] !== undefined) {
+    contents.SessionToken = __expectString(output["SessionToken"]);
+  }
+  if (output["Expiration"] !== undefined) {
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDeleteMarkerReplication
  */
 const de_DeleteMarkerReplication = (output: any, context: __SerdeContext): DeleteMarkerReplication => {
@@ -9591,6 +11614,20 @@ const de_GeneratedManifestEncryption = (output: any, context: __SerdeContext): G
   }
   if (output["SSE-KMS"] !== undefined) {
     contents.SSEKMS = de_SSEKMSEncryption(output["SSE-KMS"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGrantee
+ */
+const de_Grantee = (output: any, context: __SerdeContext): Grantee => {
+  const contents: any = {};
+  if (output["GranteeType"] !== undefined) {
+    contents.GranteeType = __expectString(output["GranteeType"]);
+  }
+  if (output["GranteeIdentifier"] !== undefined) {
+    contents.GranteeIdentifier = __expectString(output["GranteeIdentifier"]);
   }
   return contents;
 };
@@ -10119,6 +12156,87 @@ const de_LifecycleRules = (output: any, context: __SerdeContext): LifecycleRule[
     .map((entry: any) => {
       return de_LifecycleRule(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantEntry
+ */
+const de_ListAccessGrantEntry = (output: any, context: __SerdeContext): ListAccessGrantEntry => {
+  const contents: any = {};
+  if (output["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  }
+  if (output["AccessGrantId"] !== undefined) {
+    contents.AccessGrantId = __expectString(output["AccessGrantId"]);
+  }
+  if (output["AccessGrantArn"] !== undefined) {
+    contents.AccessGrantArn = __expectString(output["AccessGrantArn"]);
+  }
+  if (output["Grantee"] !== undefined) {
+    contents.Grantee = de_Grantee(output["Grantee"], context);
+  }
+  if (output["Permission"] !== undefined) {
+    contents.Permission = __expectString(output["Permission"]);
+  }
+  if (output["AccessGrantsLocationId"] !== undefined) {
+    contents.AccessGrantsLocationId = __expectString(output["AccessGrantsLocationId"]);
+  }
+  if (output["AccessGrantsLocationConfiguration"] !== undefined) {
+    contents.AccessGrantsLocationConfiguration = de_AccessGrantsLocationConfiguration(
+      output["AccessGrantsLocationConfiguration"],
+      context
+    );
+  }
+  if (output["GrantScope"] !== undefined) {
+    contents.GrantScope = __expectString(output["GrantScope"]);
+  }
+  if (output["ApplicationArn"] !== undefined) {
+    contents.ApplicationArn = __expectString(output["ApplicationArn"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsInstanceEntry
+ */
+const de_ListAccessGrantsInstanceEntry = (output: any, context: __SerdeContext): ListAccessGrantsInstanceEntry => {
+  const contents: any = {};
+  if (output["AccessGrantsInstanceId"] !== undefined) {
+    contents.AccessGrantsInstanceId = __expectString(output["AccessGrantsInstanceId"]);
+  }
+  if (output["AccessGrantsInstanceArn"] !== undefined) {
+    contents.AccessGrantsInstanceArn = __expectString(output["AccessGrantsInstanceArn"]);
+  }
+  if (output["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  }
+  if (output["IdentityCenterArn"] !== undefined) {
+    contents.IdentityCenterArn = __expectString(output["IdentityCenterArn"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListAccessGrantsLocationsEntry
+ */
+const de_ListAccessGrantsLocationsEntry = (output: any, context: __SerdeContext): ListAccessGrantsLocationsEntry => {
+  const contents: any = {};
+  if (output["CreatedAt"] !== undefined) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  }
+  if (output["AccessGrantsLocationId"] !== undefined) {
+    contents.AccessGrantsLocationId = __expectString(output["AccessGrantsLocationId"]);
+  }
+  if (output["AccessGrantsLocationArn"] !== undefined) {
+    contents.AccessGrantsLocationArn = __expectString(output["AccessGrantsLocationArn"]);
+  }
+  if (output["LocationScope"] !== undefined) {
+    contents.LocationScope = __expectString(output["LocationScope"]);
+  }
+  if (output["IAMRoleArn"] !== undefined) {
+    contents.IAMRoleArn = __expectString(output["IAMRoleArn"]);
+  }
+  return contents;
 };
 
 /**

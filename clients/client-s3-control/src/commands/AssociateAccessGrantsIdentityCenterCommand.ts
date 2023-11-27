@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
+import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
@@ -15,13 +16,10 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
+import { AssociateAccessGrantsIdentityCenterRequest } from "../models/models_0";
 import {
-  PutStorageLensConfigurationTaggingRequest,
-  PutStorageLensConfigurationTaggingResult,
-} from "../models/models_1";
-import {
-  de_PutStorageLensConfigurationTaggingCommand,
-  se_PutStorageLensConfigurationTaggingCommand,
+  de_AssociateAccessGrantsIdentityCenterCommand,
+  se_AssociateAccessGrantsIdentityCenterCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -32,64 +30,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link PutStorageLensConfigurationTaggingCommand}.
+ * The input for {@link AssociateAccessGrantsIdentityCenterCommand}.
  */
-export interface PutStorageLensConfigurationTaggingCommandInput extends PutStorageLensConfigurationTaggingRequest {}
+export interface AssociateAccessGrantsIdentityCenterCommandInput extends AssociateAccessGrantsIdentityCenterRequest {}
 /**
  * @public
  *
- * The output of {@link PutStorageLensConfigurationTaggingCommand}.
+ * The output of {@link AssociateAccessGrantsIdentityCenterCommand}.
  */
-export interface PutStorageLensConfigurationTaggingCommandOutput
-  extends PutStorageLensConfigurationTaggingResult,
-    __MetadataBearer {}
+export interface AssociateAccessGrantsIdentityCenterCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Put or replace tags on an existing Amazon S3 Storage Lens configuration. For more information
- *          about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage activity and usage with Amazon S3 Storage Lens </a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *          <note>
- *             <p>To use this action, you must have permission to perform the
- *                <code>s3:PutStorageLensConfigurationTagging</code> action. For more information, see
- *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to
- *                use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          </note>
+ * <p>Associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance. Use this action if you want to create access grants for users or groups from your corporate identity directory. First, you must add your corporate identity directory to Amazon Web Services IAM Identity Center. Then, you can associate this IAM Identity Center instance with your S3 Access Grants instance.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3:AssociateAccessGrantsIdentityCenter</code> permission to use this operation. </p>
+ *             </dd>
+ *             <dt>Additional Permissions</dt>
+ *             <dd>
+ *                <p>You must also have the following permissions: <code>sso:CreateApplication</code>, <code>sso:PutApplicationGrant</code>, and <code>sso:PutApplicationAuthenticationMethod</code>. </p>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, PutStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, PutStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, AssociateAccessGrantsIdentityCenterCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, AssociateAccessGrantsIdentityCenterCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = { // PutStorageLensConfigurationTaggingRequest
- *   ConfigId: "STRING_VALUE", // required
+ * const input = { // AssociateAccessGrantsIdentityCenterRequest
  *   AccountId: "STRING_VALUE",
- *   Tags: [ // StorageLensTags // required
- *     { // StorageLensTag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
+ *   IdentityCenterArn: "STRING_VALUE", // required
  * };
- * const command = new PutStorageLensConfigurationTaggingCommand(input);
+ * const command = new AssociateAccessGrantsIdentityCenterCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param PutStorageLensConfigurationTaggingCommandInput - {@link PutStorageLensConfigurationTaggingCommandInput}
- * @returns {@link PutStorageLensConfigurationTaggingCommandOutput}
- * @see {@link PutStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
- * @see {@link PutStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
+ * @param AssociateAccessGrantsIdentityCenterCommandInput - {@link AssociateAccessGrantsIdentityCenterCommandInput}
+ * @returns {@link AssociateAccessGrantsIdentityCenterCommandOutput}
+ * @see {@link AssociateAccessGrantsIdentityCenterCommandInput} for command's `input` shape.
+ * @see {@link AssociateAccessGrantsIdentityCenterCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
-export class PutStorageLensConfigurationTaggingCommand extends $Command<
-  PutStorageLensConfigurationTaggingCommandInput,
-  PutStorageLensConfigurationTaggingCommandOutput,
+export class AssociateAccessGrantsIdentityCenterCommand extends $Command<
+  AssociateAccessGrantsIdentityCenterCommandInput,
+  AssociateAccessGrantsIdentityCenterCommandOutput,
   S3ControlClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -107,7 +99,7 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PutStorageLensConfigurationTaggingCommandInput) {
+  constructor(readonly input: AssociateAccessGrantsIdentityCenterCommandInput) {
     super();
   }
 
@@ -118,18 +110,19 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutStorageLensConfigurationTaggingCommandInput, PutStorageLensConfigurationTaggingCommandOutput> {
+  ): Handler<AssociateAccessGrantsIdentityCenterCommandInput, AssociateAccessGrantsIdentityCenterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutStorageLensConfigurationTaggingCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, AssociateAccessGrantsIdentityCenterCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
+    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "S3ControlClient";
-    const commandName = "PutStorageLensConfigurationTaggingCommand";
+    const commandName = "AssociateAccessGrantsIdentityCenterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -138,7 +131,7 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSS3ControlServiceV20180820",
-        operation: "PutStorageLensConfigurationTagging",
+        operation: "AssociateAccessGrantsIdentityCenter",
       },
     };
     const { requestHandler } = configuration;
@@ -153,10 +146,10 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: PutStorageLensConfigurationTaggingCommandInput,
+    input: AssociateAccessGrantsIdentityCenterCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_PutStorageLensConfigurationTaggingCommand(input, context);
+    return se_AssociateAccessGrantsIdentityCenterCommand(input, context);
   }
 
   /**
@@ -165,7 +158,7 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<PutStorageLensConfigurationTaggingCommandOutput> {
-    return de_PutStorageLensConfigurationTaggingCommand(output, context);
+  ): Promise<AssociateAccessGrantsIdentityCenterCommandOutput> {
+    return de_AssociateAccessGrantsIdentityCenterCommand(output, context);
   }
 }

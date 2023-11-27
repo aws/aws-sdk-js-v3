@@ -16,7 +16,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutBucketLifecycleConfigurationRequest } from "../models/models_0";
+import { PutBucketLifecycleConfigurationRequest } from "../models/models_1";
 import {
   de_PutBucketLifecycleConfigurationCommand,
   se_PutBucketLifecycleConfigurationCommand,

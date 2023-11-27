@@ -16,7 +16,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult } from "../models/models_0";
+import { PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult } from "../models/models_1";
 import {
   de_PutMultiRegionAccessPointPolicyCommand,
   se_PutMultiRegionAccessPointPolicyCommand,

@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UpdateJobPriorityRequest, UpdateJobPriorityResult } from "../models/models_0";
+import { UpdateJobPriorityRequest, UpdateJobPriorityResult } from "../models/models_1";
 import { de_UpdateJobPriorityCommand, se_UpdateJobPriorityCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 

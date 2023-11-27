@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_0";
+import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_1";
 import { de_UpdateJobStatusCommand, se_UpdateJobStatusCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 

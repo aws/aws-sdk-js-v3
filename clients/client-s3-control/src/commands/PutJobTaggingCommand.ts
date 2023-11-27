@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
+import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_1";
 import { de_PutJobTaggingCommand, se_PutJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 

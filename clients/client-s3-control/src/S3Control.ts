@@ -3,6 +3,26 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AssociateAccessGrantsIdentityCenterCommand,
+  AssociateAccessGrantsIdentityCenterCommandInput,
+  AssociateAccessGrantsIdentityCenterCommandOutput,
+} from "./commands/AssociateAccessGrantsIdentityCenterCommand";
+import {
+  CreateAccessGrantCommand,
+  CreateAccessGrantCommandInput,
+  CreateAccessGrantCommandOutput,
+} from "./commands/CreateAccessGrantCommand";
+import {
+  CreateAccessGrantsInstanceCommand,
+  CreateAccessGrantsInstanceCommandInput,
+  CreateAccessGrantsInstanceCommandOutput,
+} from "./commands/CreateAccessGrantsInstanceCommand";
+import {
+  CreateAccessGrantsLocationCommand,
+  CreateAccessGrantsLocationCommandInput,
+  CreateAccessGrantsLocationCommandOutput,
+} from "./commands/CreateAccessGrantsLocationCommand";
+import {
   CreateAccessPointCommand,
   CreateAccessPointCommandInput,
   CreateAccessPointCommandOutput,
@@ -28,6 +48,26 @@ import {
   CreateStorageLensGroupCommandInput,
   CreateStorageLensGroupCommandOutput,
 } from "./commands/CreateStorageLensGroupCommand";
+import {
+  DeleteAccessGrantCommand,
+  DeleteAccessGrantCommandInput,
+  DeleteAccessGrantCommandOutput,
+} from "./commands/DeleteAccessGrantCommand";
+import {
+  DeleteAccessGrantsInstanceCommand,
+  DeleteAccessGrantsInstanceCommandInput,
+  DeleteAccessGrantsInstanceCommandOutput,
+} from "./commands/DeleteAccessGrantsInstanceCommand";
+import {
+  DeleteAccessGrantsInstanceResourcePolicyCommand,
+  DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+  DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/DeleteAccessGrantsInstanceResourcePolicyCommand";
+import {
+  DeleteAccessGrantsLocationCommand,
+  DeleteAccessGrantsLocationCommandInput,
+  DeleteAccessGrantsLocationCommandOutput,
+} from "./commands/DeleteAccessGrantsLocationCommand";
 import {
   DeleteAccessPointCommand,
   DeleteAccessPointCommandInput,
@@ -110,6 +150,36 @@ import {
   DescribeMultiRegionAccessPointOperationCommandOutput,
 } from "./commands/DescribeMultiRegionAccessPointOperationCommand";
 import {
+  DissociateAccessGrantsIdentityCenterCommand,
+  DissociateAccessGrantsIdentityCenterCommandInput,
+  DissociateAccessGrantsIdentityCenterCommandOutput,
+} from "./commands/DissociateAccessGrantsIdentityCenterCommand";
+import {
+  GetAccessGrantCommand,
+  GetAccessGrantCommandInput,
+  GetAccessGrantCommandOutput,
+} from "./commands/GetAccessGrantCommand";
+import {
+  GetAccessGrantsInstanceCommand,
+  GetAccessGrantsInstanceCommandInput,
+  GetAccessGrantsInstanceCommandOutput,
+} from "./commands/GetAccessGrantsInstanceCommand";
+import {
+  GetAccessGrantsInstanceForPrefixCommand,
+  GetAccessGrantsInstanceForPrefixCommandInput,
+  GetAccessGrantsInstanceForPrefixCommandOutput,
+} from "./commands/GetAccessGrantsInstanceForPrefixCommand";
+import {
+  GetAccessGrantsInstanceResourcePolicyCommand,
+  GetAccessGrantsInstanceResourcePolicyCommandInput,
+  GetAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/GetAccessGrantsInstanceResourcePolicyCommand";
+import {
+  GetAccessGrantsLocationCommand,
+  GetAccessGrantsLocationCommandInput,
+  GetAccessGrantsLocationCommandOutput,
+} from "./commands/GetAccessGrantsLocationCommand";
+import {
   GetAccessPointCommand,
   GetAccessPointCommandInput,
   GetAccessPointCommandOutput,
@@ -171,6 +241,11 @@ import {
   GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand";
 import {
+  GetDataAccessCommand,
+  GetDataAccessCommandInput,
+  GetDataAccessCommandOutput,
+} from "./commands/GetDataAccessCommand";
+import {
   GetJobTaggingCommand,
   GetJobTaggingCommandInput,
   GetJobTaggingCommandOutput,
@@ -216,6 +291,21 @@ import {
   GetStorageLensGroupCommandOutput,
 } from "./commands/GetStorageLensGroupCommand";
 import {
+  ListAccessGrantsCommand,
+  ListAccessGrantsCommandInput,
+  ListAccessGrantsCommandOutput,
+} from "./commands/ListAccessGrantsCommand";
+import {
+  ListAccessGrantsInstancesCommand,
+  ListAccessGrantsInstancesCommandInput,
+  ListAccessGrantsInstancesCommandOutput,
+} from "./commands/ListAccessGrantsInstancesCommand";
+import {
+  ListAccessGrantsLocationsCommand,
+  ListAccessGrantsLocationsCommandInput,
+  ListAccessGrantsLocationsCommandOutput,
+} from "./commands/ListAccessGrantsLocationsCommand";
+import {
   ListAccessPointsCommand,
   ListAccessPointsCommandInput,
   ListAccessPointsCommandOutput,
@@ -251,6 +341,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutAccessGrantsInstanceResourcePolicyCommand,
+  PutAccessGrantsInstanceResourcePolicyCommandInput,
+  PutAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/PutAccessGrantsInstanceResourcePolicyCommand";
 import {
   PutAccessPointConfigurationForObjectLambdaCommand,
   PutAccessPointConfigurationForObjectLambdaCommandInput,
@@ -328,6 +423,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccessGrantsLocationCommand,
+  UpdateAccessGrantsLocationCommandInput,
+  UpdateAccessGrantsLocationCommandOutput,
+} from "./commands/UpdateAccessGrantsLocationCommand";
+import {
   UpdateJobPriorityCommand,
   UpdateJobPriorityCommandInput,
   UpdateJobPriorityCommandOutput,
@@ -345,12 +445,20 @@ import {
 import { S3ControlClient, S3ControlClientConfig } from "./S3ControlClient";
 
 const commands = {
+  AssociateAccessGrantsIdentityCenterCommand,
+  CreateAccessGrantCommand,
+  CreateAccessGrantsInstanceCommand,
+  CreateAccessGrantsLocationCommand,
   CreateAccessPointCommand,
   CreateAccessPointForObjectLambdaCommand,
   CreateBucketCommand,
   CreateJobCommand,
   CreateMultiRegionAccessPointCommand,
   CreateStorageLensGroupCommand,
+  DeleteAccessGrantCommand,
+  DeleteAccessGrantsInstanceCommand,
+  DeleteAccessGrantsInstanceResourcePolicyCommand,
+  DeleteAccessGrantsLocationCommand,
   DeleteAccessPointCommand,
   DeleteAccessPointForObjectLambdaCommand,
   DeleteAccessPointPolicyCommand,
@@ -368,6 +476,12 @@ const commands = {
   DeleteStorageLensGroupCommand,
   DescribeJobCommand,
   DescribeMultiRegionAccessPointOperationCommand,
+  DissociateAccessGrantsIdentityCenterCommand,
+  GetAccessGrantCommand,
+  GetAccessGrantsInstanceCommand,
+  GetAccessGrantsInstanceForPrefixCommand,
+  GetAccessGrantsInstanceResourcePolicyCommand,
+  GetAccessGrantsLocationCommand,
   GetAccessPointCommand,
   GetAccessPointConfigurationForObjectLambdaCommand,
   GetAccessPointForObjectLambdaCommand,
@@ -381,6 +495,7 @@ const commands = {
   GetBucketReplicationCommand,
   GetBucketTaggingCommand,
   GetBucketVersioningCommand,
+  GetDataAccessCommand,
   GetJobTaggingCommand,
   GetMultiRegionAccessPointCommand,
   GetMultiRegionAccessPointPolicyCommand,
@@ -390,6 +505,9 @@ const commands = {
   GetStorageLensConfigurationCommand,
   GetStorageLensConfigurationTaggingCommand,
   GetStorageLensGroupCommand,
+  ListAccessGrantsCommand,
+  ListAccessGrantsInstancesCommand,
+  ListAccessGrantsLocationsCommand,
   ListAccessPointsCommand,
   ListAccessPointsForObjectLambdaCommand,
   ListJobsCommand,
@@ -398,6 +516,7 @@ const commands = {
   ListStorageLensConfigurationsCommand,
   ListStorageLensGroupsCommand,
   ListTagsForResourceCommand,
+  PutAccessGrantsInstanceResourcePolicyCommand,
   PutAccessPointConfigurationForObjectLambdaCommand,
   PutAccessPointPolicyCommand,
   PutAccessPointPolicyForObjectLambdaCommand,
@@ -414,12 +533,81 @@ const commands = {
   SubmitMultiRegionAccessPointRoutesCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAccessGrantsLocationCommand,
   UpdateJobPriorityCommand,
   UpdateJobStatusCommand,
   UpdateStorageLensGroupCommand,
 };
 
 export interface S3Control {
+  /**
+   * @see {@link AssociateAccessGrantsIdentityCenterCommand}
+   */
+  associateAccessGrantsIdentityCenter(
+    args: AssociateAccessGrantsIdentityCenterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAccessGrantsIdentityCenterCommandOutput>;
+  associateAccessGrantsIdentityCenter(
+    args: AssociateAccessGrantsIdentityCenterCommandInput,
+    cb: (err: any, data?: AssociateAccessGrantsIdentityCenterCommandOutput) => void
+  ): void;
+  associateAccessGrantsIdentityCenter(
+    args: AssociateAccessGrantsIdentityCenterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAccessGrantsIdentityCenterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessGrantCommand}
+   */
+  createAccessGrant(
+    args: CreateAccessGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessGrantCommandOutput>;
+  createAccessGrant(
+    args: CreateAccessGrantCommandInput,
+    cb: (err: any, data?: CreateAccessGrantCommandOutput) => void
+  ): void;
+  createAccessGrant(
+    args: CreateAccessGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessGrantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessGrantsInstanceCommand}
+   */
+  createAccessGrantsInstance(
+    args: CreateAccessGrantsInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessGrantsInstanceCommandOutput>;
+  createAccessGrantsInstance(
+    args: CreateAccessGrantsInstanceCommandInput,
+    cb: (err: any, data?: CreateAccessGrantsInstanceCommandOutput) => void
+  ): void;
+  createAccessGrantsInstance(
+    args: CreateAccessGrantsInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessGrantsInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessGrantsLocationCommand}
+   */
+  createAccessGrantsLocation(
+    args: CreateAccessGrantsLocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessGrantsLocationCommandOutput>;
+  createAccessGrantsLocation(
+    args: CreateAccessGrantsLocationCommandInput,
+    cb: (err: any, data?: CreateAccessGrantsLocationCommandOutput) => void
+  ): void;
+  createAccessGrantsLocation(
+    args: CreateAccessGrantsLocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessGrantsLocationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateAccessPointCommand}
    */
@@ -508,6 +696,74 @@ export interface S3Control {
     args: CreateStorageLensGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateStorageLensGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessGrantCommand}
+   */
+  deleteAccessGrant(
+    args: DeleteAccessGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessGrantCommandOutput>;
+  deleteAccessGrant(
+    args: DeleteAccessGrantCommandInput,
+    cb: (err: any, data?: DeleteAccessGrantCommandOutput) => void
+  ): void;
+  deleteAccessGrant(
+    args: DeleteAccessGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessGrantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessGrantsInstanceCommand}
+   */
+  deleteAccessGrantsInstance(
+    args: DeleteAccessGrantsInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessGrantsInstanceCommandOutput>;
+  deleteAccessGrantsInstance(
+    args: DeleteAccessGrantsInstanceCommandInput,
+    cb: (err: any, data?: DeleteAccessGrantsInstanceCommandOutput) => void
+  ): void;
+  deleteAccessGrantsInstance(
+    args: DeleteAccessGrantsInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessGrantsInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessGrantsInstanceResourcePolicyCommand}
+   */
+  deleteAccessGrantsInstanceResourcePolicy(
+    args: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessGrantsInstanceResourcePolicyCommandOutput>;
+  deleteAccessGrantsInstanceResourcePolicy(
+    args: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteAccessGrantsInstanceResourcePolicyCommandOutput) => void
+  ): void;
+  deleteAccessGrantsInstanceResourcePolicy(
+    args: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessGrantsInstanceResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessGrantsLocationCommand}
+   */
+  deleteAccessGrantsLocation(
+    args: DeleteAccessGrantsLocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessGrantsLocationCommandOutput>;
+  deleteAccessGrantsLocation(
+    args: DeleteAccessGrantsLocationCommandInput,
+    cb: (err: any, data?: DeleteAccessGrantsLocationCommandOutput) => void
+  ): void;
+  deleteAccessGrantsLocation(
+    args: DeleteAccessGrantsLocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessGrantsLocationCommandOutput) => void
   ): void;
 
   /**
@@ -788,6 +1044,105 @@ export interface S3Control {
   ): void;
 
   /**
+   * @see {@link DissociateAccessGrantsIdentityCenterCommand}
+   */
+  dissociateAccessGrantsIdentityCenter(
+    args: DissociateAccessGrantsIdentityCenterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DissociateAccessGrantsIdentityCenterCommandOutput>;
+  dissociateAccessGrantsIdentityCenter(
+    args: DissociateAccessGrantsIdentityCenterCommandInput,
+    cb: (err: any, data?: DissociateAccessGrantsIdentityCenterCommandOutput) => void
+  ): void;
+  dissociateAccessGrantsIdentityCenter(
+    args: DissociateAccessGrantsIdentityCenterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DissociateAccessGrantsIdentityCenterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccessGrantCommand}
+   */
+  getAccessGrant(
+    args: GetAccessGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessGrantCommandOutput>;
+  getAccessGrant(args: GetAccessGrantCommandInput, cb: (err: any, data?: GetAccessGrantCommandOutput) => void): void;
+  getAccessGrant(
+    args: GetAccessGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessGrantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccessGrantsInstanceCommand}
+   */
+  getAccessGrantsInstance(
+    args: GetAccessGrantsInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessGrantsInstanceCommandOutput>;
+  getAccessGrantsInstance(
+    args: GetAccessGrantsInstanceCommandInput,
+    cb: (err: any, data?: GetAccessGrantsInstanceCommandOutput) => void
+  ): void;
+  getAccessGrantsInstance(
+    args: GetAccessGrantsInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessGrantsInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccessGrantsInstanceForPrefixCommand}
+   */
+  getAccessGrantsInstanceForPrefix(
+    args: GetAccessGrantsInstanceForPrefixCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessGrantsInstanceForPrefixCommandOutput>;
+  getAccessGrantsInstanceForPrefix(
+    args: GetAccessGrantsInstanceForPrefixCommandInput,
+    cb: (err: any, data?: GetAccessGrantsInstanceForPrefixCommandOutput) => void
+  ): void;
+  getAccessGrantsInstanceForPrefix(
+    args: GetAccessGrantsInstanceForPrefixCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessGrantsInstanceForPrefixCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccessGrantsInstanceResourcePolicyCommand}
+   */
+  getAccessGrantsInstanceResourcePolicy(
+    args: GetAccessGrantsInstanceResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessGrantsInstanceResourcePolicyCommandOutput>;
+  getAccessGrantsInstanceResourcePolicy(
+    args: GetAccessGrantsInstanceResourcePolicyCommandInput,
+    cb: (err: any, data?: GetAccessGrantsInstanceResourcePolicyCommandOutput) => void
+  ): void;
+  getAccessGrantsInstanceResourcePolicy(
+    args: GetAccessGrantsInstanceResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessGrantsInstanceResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccessGrantsLocationCommand}
+   */
+  getAccessGrantsLocation(
+    args: GetAccessGrantsLocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessGrantsLocationCommandOutput>;
+  getAccessGrantsLocation(
+    args: GetAccessGrantsLocationCommandInput,
+    cb: (err: any, data?: GetAccessGrantsLocationCommandOutput) => void
+  ): void;
+  getAccessGrantsLocation(
+    args: GetAccessGrantsLocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessGrantsLocationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAccessPointCommand}
    */
   getAccessPoint(
@@ -997,6 +1352,17 @@ export interface S3Control {
   ): void;
 
   /**
+   * @see {@link GetDataAccessCommand}
+   */
+  getDataAccess(args: GetDataAccessCommandInput, options?: __HttpHandlerOptions): Promise<GetDataAccessCommandOutput>;
+  getDataAccess(args: GetDataAccessCommandInput, cb: (err: any, data?: GetDataAccessCommandOutput) => void): void;
+  getDataAccess(
+    args: GetDataAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetJobTaggingCommand}
    */
   getJobTagging(args: GetJobTaggingCommandInput, options?: __HttpHandlerOptions): Promise<GetJobTaggingCommandOutput>;
@@ -1144,6 +1510,57 @@ export interface S3Control {
   ): void;
 
   /**
+   * @see {@link ListAccessGrantsCommand}
+   */
+  listAccessGrants(
+    args: ListAccessGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessGrantsCommandOutput>;
+  listAccessGrants(
+    args: ListAccessGrantsCommandInput,
+    cb: (err: any, data?: ListAccessGrantsCommandOutput) => void
+  ): void;
+  listAccessGrants(
+    args: ListAccessGrantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessGrantsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccessGrantsInstancesCommand}
+   */
+  listAccessGrantsInstances(
+    args: ListAccessGrantsInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessGrantsInstancesCommandOutput>;
+  listAccessGrantsInstances(
+    args: ListAccessGrantsInstancesCommandInput,
+    cb: (err: any, data?: ListAccessGrantsInstancesCommandOutput) => void
+  ): void;
+  listAccessGrantsInstances(
+    args: ListAccessGrantsInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessGrantsInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccessGrantsLocationsCommand}
+   */
+  listAccessGrantsLocations(
+    args: ListAccessGrantsLocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessGrantsLocationsCommandOutput>;
+  listAccessGrantsLocations(
+    args: ListAccessGrantsLocationsCommandInput,
+    cb: (err: any, data?: ListAccessGrantsLocationsCommandOutput) => void
+  ): void;
+  listAccessGrantsLocations(
+    args: ListAccessGrantsLocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessGrantsLocationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccessPointsCommand}
    */
   listAccessPoints(
@@ -1271,6 +1688,23 @@ export interface S3Control {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccessGrantsInstanceResourcePolicyCommand}
+   */
+  putAccessGrantsInstanceResourcePolicy(
+    args: PutAccessGrantsInstanceResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccessGrantsInstanceResourcePolicyCommandOutput>;
+  putAccessGrantsInstanceResourcePolicy(
+    args: PutAccessGrantsInstanceResourcePolicyCommandInput,
+    cb: (err: any, data?: PutAccessGrantsInstanceResourcePolicyCommandOutput) => void
+  ): void;
+  putAccessGrantsInstanceResourcePolicy(
+    args: PutAccessGrantsInstanceResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccessGrantsInstanceResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1522,6 +1956,23 @@ export interface S3Control {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccessGrantsLocationCommand}
+   */
+  updateAccessGrantsLocation(
+    args: UpdateAccessGrantsLocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccessGrantsLocationCommandOutput>;
+  updateAccessGrantsLocation(
+    args: UpdateAccessGrantsLocationCommandInput,
+    cb: (err: any, data?: UpdateAccessGrantsLocationCommandOutput) => void
+  ): void;
+  updateAccessGrantsLocation(
+    args: UpdateAccessGrantsLocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccessGrantsLocationCommandOutput) => void
   ): void;
 
   /**

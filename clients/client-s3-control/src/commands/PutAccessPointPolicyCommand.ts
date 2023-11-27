@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutAccessPointPolicyRequest } from "../models/models_0";
+import { PutAccessPointPolicyRequest } from "../models/models_1";
 import { de_PutAccessPointPolicyCommand, se_PutAccessPointPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 

@@ -19,7 +19,7 @@ import {
 import {
   SubmitMultiRegionAccessPointRoutesRequest,
   SubmitMultiRegionAccessPointRoutesResult,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_SubmitMultiRegionAccessPointRoutesCommand,
   se_SubmitMultiRegionAccessPointRoutesCommand,

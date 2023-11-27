@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
+import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
@@ -15,9 +16,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListStorageLensGroupsRequest } from "../models/models_0";
-import { ListStorageLensGroupsResult } from "../models/models_1";
-import { de_ListStorageLensGroupsCommand, se_ListStorageLensGroupsCommand } from "../protocols/Aws_restXml";
+import { DeleteAccessGrantsLocationRequest } from "../models/models_0";
+import { de_DeleteAccessGrantsLocationCommand, se_DeleteAccessGrantsLocationCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -27,64 +27,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListStorageLensGroupsCommand}.
+ * The input for {@link DeleteAccessGrantsLocationCommand}.
  */
-export interface ListStorageLensGroupsCommandInput extends ListStorageLensGroupsRequest {}
+export interface DeleteAccessGrantsLocationCommandInput extends DeleteAccessGrantsLocationRequest {}
 /**
  * @public
  *
- * The output of {@link ListStorageLensGroupsCommand}.
+ * The output of {@link DeleteAccessGrantsLocationCommand}.
  */
-export interface ListStorageLensGroupsCommandOutput extends ListStorageLensGroupsResult, __MetadataBearer {}
+export interface DeleteAccessGrantsLocationCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>
- * Lists all the Storage Lens groups in the specified home Region.
- * </p>
- *          <p>To use this operation, you must have the permission to perform the
- *       <code>s3:ListStorageLensGroups</code> action. For more information about the required Storage Lens
- *       Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
- *          <p>For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List of Amazon S3 Storage
- *       Lens error codes</a>.</p>
+ * <p>Deregisters a location from your S3 Access Grants instance. You can only delete a location registration from an S3 Access Grants instance if there are no grants associated with this location. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html">Delete a grant</a> for information on how to delete grants. You need to have at least one registered location in your S3 Access Grants instance in order to create access grants. </p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3:DeleteAccessGrantsLocation</code> permission to use this operation. </p>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, ListStorageLensGroupsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, ListStorageLensGroupsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, DeleteAccessGrantsLocationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, DeleteAccessGrantsLocationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = { // ListStorageLensGroupsRequest
+ * const input = { // DeleteAccessGrantsLocationRequest
  *   AccountId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   AccessGrantsLocationId: "STRING_VALUE", // required
  * };
- * const command = new ListStorageLensGroupsCommand(input);
+ * const command = new DeleteAccessGrantsLocationCommand(input);
  * const response = await client.send(command);
- * // { // ListStorageLensGroupsResult
- * //   NextToken: "STRING_VALUE",
- * //   StorageLensGroupList: [ // StorageLensGroupList
- * //     { // ListStorageLensGroupEntry
- * //       Name: "STRING_VALUE", // required
- * //       StorageLensGroupArn: "STRING_VALUE", // required
- * //       HomeRegion: "STRING_VALUE", // required
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListStorageLensGroupsCommandInput - {@link ListStorageLensGroupsCommandInput}
- * @returns {@link ListStorageLensGroupsCommandOutput}
- * @see {@link ListStorageLensGroupsCommandInput} for command's `input` shape.
- * @see {@link ListStorageLensGroupsCommandOutput} for command's `response` shape.
+ * @param DeleteAccessGrantsLocationCommandInput - {@link DeleteAccessGrantsLocationCommandInput}
+ * @returns {@link DeleteAccessGrantsLocationCommandOutput}
+ * @see {@link DeleteAccessGrantsLocationCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccessGrantsLocationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
-export class ListStorageLensGroupsCommand extends $Command<
-  ListStorageLensGroupsCommandInput,
-  ListStorageLensGroupsCommandOutput,
+export class DeleteAccessGrantsLocationCommand extends $Command<
+  DeleteAccessGrantsLocationCommandInput,
+  DeleteAccessGrantsLocationCommandOutput,
   S3ControlClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -102,7 +92,7 @@ export class ListStorageLensGroupsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListStorageLensGroupsCommandInput) {
+  constructor(readonly input: DeleteAccessGrantsLocationCommandInput) {
     super();
   }
 
@@ -113,18 +103,19 @@ export class ListStorageLensGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListStorageLensGroupsCommandInput, ListStorageLensGroupsCommandOutput> {
+  ): Handler<DeleteAccessGrantsLocationCommandInput, DeleteAccessGrantsLocationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListStorageLensGroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteAccessGrantsLocationCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
+    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "S3ControlClient";
-    const commandName = "ListStorageLensGroupsCommand";
+    const commandName = "DeleteAccessGrantsLocationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -133,7 +124,7 @@ export class ListStorageLensGroupsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSS3ControlServiceV20180820",
-        operation: "ListStorageLensGroups",
+        operation: "DeleteAccessGrantsLocation",
       },
     };
     const { requestHandler } = configuration;
@@ -147,14 +138,17 @@ export class ListStorageLensGroupsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListStorageLensGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListStorageLensGroupsCommand(input, context);
+  private serialize(input: DeleteAccessGrantsLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteAccessGrantsLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStorageLensGroupsCommandOutput> {
-    return de_ListStorageLensGroupsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteAccessGrantsLocationCommandOutput> {
+    return de_DeleteAccessGrantsLocationCommand(output, context);
   }
 }
