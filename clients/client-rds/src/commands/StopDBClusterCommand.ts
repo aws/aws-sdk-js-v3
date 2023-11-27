@@ -44,7 +44,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html">
  *                Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
+ *             <p>This operation only applies to Aurora DB clusters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

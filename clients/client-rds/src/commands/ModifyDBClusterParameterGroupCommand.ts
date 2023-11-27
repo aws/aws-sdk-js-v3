@@ -49,7 +49,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *          <important>
  *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
  *                 before creating your first DB cluster that uses that DB cluster parameter group as the default parameter
- *                 group. This allows Amazon RDS to fully complete the create action before the parameter
+ *                 group. This allows Amazon RDS to fully complete the create operation before the parameter
  *                 group is used as the default for a new DB cluster. This is especially important for parameters
  *                 that are critical when creating the default database for a DB cluster, such as the character set
  *                 for the default database defined by the <code>character_set_database</code> parameter. You can use the

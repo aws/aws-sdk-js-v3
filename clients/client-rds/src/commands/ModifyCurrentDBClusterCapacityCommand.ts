@@ -56,7 +56,7 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  *                   Autoscaling for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *          </important>
  *          <note>
- *             <p>This action only applies to Aurora Serverless v1 DB clusters.</p>
+ *             <p>This operation only applies to Aurora Serverless v1 DB clusters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -41,7 +41,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *         standalone cluster with read-write capability instead of being read-only and receiving data from a
  *         primary cluster in a different Region.</p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
+ *             <p>This operation only applies to Aurora DB clusters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

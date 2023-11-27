@@ -984,6 +984,16 @@ export interface DescribeDBEngineVersionsMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>mariadb</code>
    *                </p>
    *             </li>
@@ -2869,6 +2879,16 @@ export interface DescribeEngineDefaultParametersMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>mariadb10.2</code>
    *                </p>
    *             </li>
@@ -3643,9 +3663,19 @@ export interface DescribeIntegrationsResponse {
 export interface DescribeOptionGroupOptionsMessage {
   /**
    * @public
-   * <p>A required parameter. Options available for the given engine name are described.</p>
+   * <p>The name of the engine to describe options for.</p>
    *          <p>Valid Values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>mariadb</code>
@@ -4001,9 +4031,19 @@ export interface DescribeOptionGroupsMessage {
 
   /**
    * @public
-   * <p>Filters the list of option groups to only include groups associated with a specific database engine.</p>
+   * <p>A filter to only include option groups associated with this database engine.</p>
    *          <p>Valid Values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>mariadb</code>
@@ -4098,7 +4138,7 @@ export interface OptionGroups {
 export interface DescribeOrderableDBInstanceOptionsMessage {
   /**
    * @public
-   * <p>The name of the engine to retrieve DB instance options for.</p>
+   * <p>The name of the engine to describe DB instance options for.</p>
    *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
@@ -4114,6 +4154,16 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *             <li>
    *                <p>
    *                   <code>custom-oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4177,29 +4227,28 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 
   /**
    * @public
-   * <p>The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.</p>
+   * <p>A filter to include only the available options for the specified engine version.</p>
    */
   EngineVersion?: string;
 
   /**
    * @public
-   * <p>The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.</p>
+   * <p>A filter to include only the available options for the specified DB instance class.</p>
    */
   DBInstanceClass?: string;
 
   /**
    * @public
-   * <p>The license model filter value. Specify this parameter to show only the available offerings
-   *           matching the specified license model.</p>
+   * <p>A filter to include only the available options for the specified license model.</p>
    *          <p>RDS Custom supports only the BYOL licensing model.</p>
    */
   LicenseModel?: string;
 
   /**
    * @public
-   * <p>The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.</p>
-   *          <p>Omit this parameter to show the available offerings in the specified Amazon Web Services Region.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   * <p>The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available options for the Local Zones in the group.</p>
+   *          <p>Omit this parameter to show the available options in the specified Amazon Web Services Region.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   AvailabilityZoneGroup?: string;
 
@@ -6847,7 +6896,7 @@ export interface ModifyDBInstanceMessage {
   /**
    * @public
    * <p>The new amount of storage in gibibytes (GiB) to allocate for the DB instance.</p>
-   *          <p>For RDS for MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL,
+   *          <p>For RDS for Db2, MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL,
    *           the value supplied must be at least 10% greater than the current value.
    *           Values that are not at least 10% greater than the existing value are rounded up
    *           so that they are 10% greater than the current value.</p>
@@ -6962,7 +7011,7 @@ export interface ModifyDBInstanceMessage {
    *           <code>PendingModifiedValues</code> element of the operation response.</p>
    *          <note>
    *             <p>Amazon RDS API operations never return the password,
-   *               so this action provides a way to regain access to a primary instance user if the password is lost.
+   *               so this operation provides a way to regain access to a primary instance user if the password is lost.
    *               This includes restoring privileges that might have been accidentally revoked.</p>
    *          </note>
    *          <p>This setting doesn't apply to the following DB instances:</p>
@@ -6982,11 +7031,14 @@ export interface ModifyDBInstanceMessage {
    *                <p>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
    *             </li>
    *             <li>
-   *                <p>Can include any printable ASCII character except "/", """, or "@".</p>
+   *                <p>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle, can't include the "&" (ampersand) or  the "'" (single quotes) character.</p>
    *             </li>
    *          </ul>
    *          <p>Length Constraints:</p>
    *          <ul>
+   *             <li>
+   *                <p>RDS for Db2 - Must contain from 8 to 255 characters.</p>
+   *             </li>
    *             <li>
    *                <p>RDS for MariaDB - Must contain from 8 to 41 characters.</p>
    *             </li>
@@ -7198,6 +7250,10 @@ export interface ModifyDBInstanceMessage {
    *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
+   *                <p>RDS for Db2 - <code>bring-your-own-license</code>
+   *                </p>
+   *             </li>
+   *             <li>
    *                <p>RDS for MariaDB - <code>general-public-license</code>
    *                </p>
    *             </li>
@@ -7342,7 +7398,7 @@ export interface ModifyDBInstanceMessage {
    * @public
    * <p>The Active Directory directory ID to move the DB instance to.
    *           Specify <code>none</code> to remove the instance from its current domain.
-   *           You must create the domain before this operation. Currently, you can create only MySQL, Microsoft SQL
+   *           You must create the domain before this operation. Currently, you can create only Db2, MySQL, Microsoft SQL
    *           Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *           Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
@@ -7440,6 +7496,10 @@ export interface ModifyDBInstanceMessage {
    *          <ul>
    *             <li>
    *                <p>Amazon Aurora - <code>3306</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Db2 - <code>50000</code>
    *                </p>
    *             </li>
    *             <li>
@@ -7903,7 +7963,7 @@ export interface ModifyDBInstanceResult {
 /**
  * @public
  * <p>Contains the result of a successful invocation of the
- *         <code>ModifyDBParameterGroup</code> or <code>ResetDBParameterGroup</code> action.</p>
+ *         <code>ModifyDBParameterGroup</code> or <code>ResetDBParameterGroup</code> operation.</p>
  */
 export interface DBParameterGroupNameMessage {
   /**
@@ -10706,17 +10766,17 @@ export interface RestoreDBClusterToPointInTimeResult {
 export interface RestoreDBInstanceFromDBSnapshotMessage {
   /**
    * @public
-   * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</p>
+   * <p>The name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must contain from 1 to 63 numbers, letters, or hyphens</p>
+   *                <p>Must contain from 1 to 63 numbers, letters, or hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>First character must be a letter</p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>my-snapshot-id</code>
@@ -10730,7 +10790,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must match the identifier of an existing DBSnapshot.</p>
+   *                <p>Must match the identifier of an existing DB snapshot.</p>
    *             </li>
    *             <li>
    *                <p>Can't be specified when <code>DBClusterSnapshotIdentifier</code> is specified.</p>
@@ -10779,8 +10839,13 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * @public
-   * <p>The DB subnet group name to use for the new instance.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   * <p>The name of the DB subnet group to use for the new instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DB subnet group.</p>
+   *             </li>
+   *          </ul>
    *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
@@ -10826,8 +10891,8 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * @public
-   * <p>The database name for the restored DB instance.</p>
-   *          <p>This parameter doesn't apply to the MySQL, PostgreSQL, or MariaDB engines. It also doesn't apply to RDS
+   * <p>The name of the database for the restored DB instance.</p>
+   *          <p>This parameter only applies to RDS for Oracle and RDS for SQL Server DB instances. It doesn't apply to the other engines or to RDS
    *           Custom DB instances.</p>
    */
   DBName?: string;
@@ -10840,6 +10905,16 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          <p>Constraint: Must be compatible with the engine of the source. For example, you can restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot.</p>
    *          <p>Valid Values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>mariadb</code>
@@ -10967,9 +11042,9 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * @public
-   * <p>Specify the Active Directory directory ID to restore the DB instance in.
-   *            The domain/ must be created prior to this operation. Currently, you can create only MySQL, Microsoft SQL
-   *            Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</p>
+   * <p>The Active Directory directory ID to restore the DB instance in.
+   *            The domain/ must be created prior to this operation. Currently, you can create only Db2, MySQL, Microsoft SQL
+   *           Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *            Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting doesn't apply to RDS Custom.</p>
@@ -11067,8 +11142,8 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * @public
-   * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
+   * <p>The list of logs for the restored DB instance to export to CloudWatch Logs. The values
+   *             in the list depend on the DB engine. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting doesn't apply to RDS Custom.</p>
    */
@@ -11098,7 +11173,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
+   *                <p>If supplied, must match the name of an existing DB parameter group.</p>
    *             </li>
    *             <li>
    *                <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
@@ -11351,29 +11426,37 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * @public
-   * <p>The password for the master user.
-   *             The password can include any printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   *          <p>
-   *             <b>Microsoft SQL Server</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 30 characters.</p>
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
+   * <p>The password for the master user.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle, can't include the "&" (ampersand) or  the "'" (single quotes) character.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Length Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>RDS for Db2 - Must contain from 8 to 128 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MariaDB - Must contain from 8 to 41 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - Must contain from 8 to 41 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Oracle - Must contain from 8 to 30 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - Must contain from 8 to 128 characters.</p>
+   *             </li>
+   *          </ul>
    */
   MasterUserPassword?: string;
 
@@ -12048,9 +12131,21 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * @public
    * <p>The database name for the restored DB instance.</p>
-   *          <note>
-   *             <p>This parameter isn't supported for the MySQL or MariaDB engines. It also doesn't apply to RDS Custom.</p>
-   *          </note>
+   *          <p>This parameter doesn't apply to the following DB instances:</p>
+   *          <ul>
+   *             <li>
+   *                <p>RDS Custom</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Db2</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MariaDB</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL</p>
+   *             </li>
+   *          </ul>
    */
   DBName?: string;
 
@@ -12060,6 +12155,16 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Valid Values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>mariadb</code>
@@ -12410,8 +12515,20 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * @public
-   * <p>Specifies where automated backups and manual snapshots are stored for the restored DB instance.</p>
-   *          <p>Possible values are <code>outposts</code> (Amazon Web Services Outposts) and <code>region</code> (Amazon Web Services Region). The default is <code>region</code>.</p>
+   * <p>The location for storing automated backups and manual snapshots for the restored DB instance.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>outposts</code> (Amazon Web Services Outposts)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> (Amazon Web Services Region)</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>region</code>
+   *          </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
    *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
    */

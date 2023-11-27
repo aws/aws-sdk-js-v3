@@ -50,7 +50,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *             option group that is associated with mirroring; in this case, the instance becomes a
  *             mirrored deployment and not a single-AZ deployment.</p>
  *          <note>
- *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
+ *             <p>This operation doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

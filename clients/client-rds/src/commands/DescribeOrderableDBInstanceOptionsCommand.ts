@@ -42,7 +42,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
 
 /**
  * @public
- * <p>Returns a list of orderable DB instance options for the specified DB engine, DB engine version, and DB instance class.</p>
+ * <p>Describes the orderable DB instance options for a specified DB engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

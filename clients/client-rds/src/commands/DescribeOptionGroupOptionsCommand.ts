@@ -37,7 +37,7 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
 
 /**
  * @public
- * <p>Describes all available options.</p>
+ * <p>Describes all available options for the specified engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
