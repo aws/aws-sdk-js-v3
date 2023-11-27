@@ -103,6 +103,9 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //           Value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       FileSystemProtection: { // FileSystemProtectionDescription
+ * //         ReplicationOverwriteProtection: "ENABLED" || "DISABLED" || "REPLICATING",
+ * //       },
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

@@ -472,6 +472,44 @@ export class BadRequest extends __BaseException {
 
 /**
  * @public
+ * <p>Returned if the source file system in a replication is encrypted but the destination file system is unencrypted.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  */
 export interface CreateAccessPointRequest {
   /**
@@ -877,6 +915,56 @@ export class FileSystemAlreadyExists extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ReplicationOverwriteProtection = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  REPLICATING: "REPLICATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationOverwriteProtection =
+  (typeof ReplicationOverwriteProtection)[keyof typeof ReplicationOverwriteProtection];
+
+/**
+ * @public
+ * <p>Describes the protection on a file system. </p>
+ */
+export interface FileSystemProtectionDescription {
+  /**
+   * @public
+   * <p>The status of the file system's replication overwrite protection.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The file system cannot be used as the destination file
+   *           system in a replication configuration. The file system is writeable. Replication overwrite
+   *           protection is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The file system can be used as the destination file
+   *           system in a replication configuration. The file system is read-only and can only be
+   *           modified by EFS replication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICATING</code> – The file system is being used as the destination
+   *           file system in a replication configuration. The file system is read-only and is only
+   *           modified only by EFS replication.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the replication configuration is deleted, the file system's replication overwrite
+   *       protection is re-enabled, the file system becomes writeable.</p>
+   */
+  ReplicationOverwriteProtection?: ReplicationOverwriteProtection;
+}
+
+/**
+ * @public
  * <p>The latest known metered size (in bytes) of data stored in the file system, in its
  *         <code>Value</code> field, and the time at which that size was determined in its
  *         <code>Timestamp</code> field. The value doesn't represent the size of a consistent
@@ -1053,6 +1141,12 @@ export interface FileSystemDescription {
    *       objects.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * @public
+   * <p>Describes the protection on the file system. </p>
+   */
+  FileSystemProtection?: FileSystemProtectionDescription;
 }
 
 /**
@@ -1594,7 +1688,8 @@ export class SubnetNotFound extends __BaseException {
 
 /**
  * @public
- * <p>Describes the destination file system to create in the replication configuration.</p>
+ * <p>Describes the new or existing destination file system for the replication
+ *       configuration.</p>
  */
 export interface DestinationToCreate {
   /**
@@ -1612,7 +1707,7 @@ export interface DestinationToCreate {
 
   /**
    * @public
-   * <p>Specifies the Key Management Service (KMS) key that you want to use to
+   * <p>Specify the Key Management Service (KMS) key that you want to use to
    *       encrypt the destination file system. If you do not specify a KMS key, Amazon EFS uses your default KMS key for Amazon EFS,
    *         <code>/aws/elasticfilesystem</code>. This ID can be in one of the following formats:</p>
    *          <ul>
@@ -1635,6 +1730,14 @@ export interface DestinationToCreate {
    *          </ul>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the file system to use for the destination. The file system's replication
+   *       overwrite replication must be disabled. If you do not provide an ID, then EFS creates a new
+   *       file system for the replication destination.</p>
+   */
+  FileSystemId?: string;
 }
 
 /**
@@ -2406,8 +2509,8 @@ export type TransitionToPrimaryStorageClassRules =
 /**
  * @public
  * <p>Describes a policy used by Lifecycle management that specifies when to transition files
- *       into and out of the Infrequent Access (IA) and Archive storage
- *       classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">Managing file system storage</a>.</p>
+ *       into and out of storage classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">Managing file system
+ *       storage</a>.</p>
  *          <note>
  *             <p>When using the <code>put-lifecycle-configuration</code> CLI command or the
  *           <code>PutLifecycleConfiguration</code> API action, Amazon EFS requires that each
@@ -3032,4 +3135,81 @@ export interface UpdateFileSystemRequest {
    *         Guide</i>.</p>
    */
   ProvisionedThroughputInMibps?: number;
+}
+
+/**
+ * @public
+ * <p>Returned if the file system is already included in a replication configuration.></p>
+ */
+export class ReplicationAlreadyExists extends __BaseException {
+  readonly name: "ReplicationAlreadyExists" = "ReplicationAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationAlreadyExists, __BaseException>) {
+    super({
+      name: "ReplicationAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationAlreadyExists.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateFileSystemProtectionRequest {
+  /**
+   * @public
+   * <p>The ID of the file system to update. </p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the file system's replication overwrite protection.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The file system cannot be used as the destination file
+   *           system in a replication configuration. The file system is writeable. Replication overwrite
+   *           protection is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The file system can be used as the destination file
+   *           system in a replication configuration. The file system is read-only and can only be
+   *           modified by EFS replication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICATING</code> – The file system is being used as the destination file
+   *           system in a replication configuration. The file system is read-only and is only modified
+   *           only by EFS replication.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the replication configuration is deleted, the file system's replication overwrite
+   *       protection is re-enabled, the file system becomes writeable.</p>
+   */
+  ReplicationOverwriteProtection?: ReplicationOverwriteProtection;
 }

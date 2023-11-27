@@ -37,7 +37,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
 
 /**
  * @public
- * <p>Use this action to manage storage of your file system. A
+ * <p>Use this action to manage storage for your file system. A
  *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
  *       objects that define the following:</p>
  *          <ul>
@@ -63,24 +63,25 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * and the General Purpose Performance mode. </p>
  *                </note>
  *             </li>
+ *          </ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <b>
  *                      <code>TransitionToPrimaryStorageClass</code>
  *                   </b> –
- *         Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA
+ *           Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA
  *         or Archive storage.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">
- *       Managing file system storage</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html"> Managing file system
+ *       storage</a>.</p>
  *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to
  *       all files in the file system. If a <code>LifecycleConfiguration</code> object already exists
  *       for the specified file system, a <code>PutLifecycleConfiguration</code> call modifies the
  *       existing configuration. A <code>PutLifecycleConfiguration</code> call with an empty
  *         <code>LifecyclePolicies</code> array in the request body deletes any existing
- *         <code>LifecycleConfiguration</code> for the file system.</p>
- *          <p>In the request, specify the following: </p>
+ *         <code>LifecycleConfiguration</code>. In the request, specify the following: </p>
  *          <ul>
  *             <li>
  *                <p>The ID for the file system for which you are enabling, disabling, or modifying

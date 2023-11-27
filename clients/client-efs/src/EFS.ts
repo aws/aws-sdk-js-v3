@@ -140,6 +140,11 @@ import {
   UpdateFileSystemCommandInput,
   UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
+import {
+  UpdateFileSystemProtectionCommand,
+  UpdateFileSystemProtectionCommandInput,
+  UpdateFileSystemProtectionCommandOutput,
+} from "./commands/UpdateFileSystemProtectionCommand";
 import { EFSClient, EFSClientConfig } from "./EFSClient";
 
 const commands = {
@@ -173,6 +178,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateFileSystemCommand,
+  UpdateFileSystemProtectionCommand,
 };
 
 export interface EFS {
@@ -651,6 +657,23 @@ export interface EFS {
     args: UpdateFileSystemCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFileSystemProtectionCommand}
+   */
+  updateFileSystemProtection(
+    args: UpdateFileSystemProtectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFileSystemProtectionCommandOutput>;
+  updateFileSystemProtection(
+    args: UpdateFileSystemProtectionCommandInput,
+    cb: (err: any, data?: UpdateFileSystemProtectionCommandOutput) => void
+  ): void;
+  updateFileSystemProtection(
+    args: UpdateFileSystemProtectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFileSystemProtectionCommandOutput) => void
   ): void;
 }
 

@@ -148,6 +148,9 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * //       Value: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   FileSystemProtection: { // FileSystemProtectionDescription
+ * //     ReplicationOverwriteProtection: "ENABLED" || "DISABLED" || "REPLICATING",
+ * //   },
  * // };
  *
  * ```

@@ -49,39 +49,46 @@ export interface CreateReplicationConfigurationCommandOutput
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Source file system</b> - An existing EFS file system that you
- *           want replicated. The source file system cannot be a destination file system in an existing
- *           replication configuration.</p>
+ *                   <b>Source file system</b> – The EFS file system that
+ *           you want replicated. The source file system cannot be a destination file system in an
+ *           existing replication configuration.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Destination file system configuration</b> - The configuration of
- *           the destination file system to which the source file system will be replicated. There can
- *           only be one destination file system in a replication configuration. The destination file
- *           system configuration consists of the following properties:</p>
+ *                   <b>Amazon Web Services Region</b> – The Amazon Web Services Region in which the destination file system is created. Amazon EFS
+ *           replication is available in all Amazon Web Services Regions in which EFS is available. The
+ *           Region must be enabled. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference
+ *             Reference Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Destination file system configuration</b> – The
+ *           configuration of the destination file system to which the source file system will be
+ *           replicated. There can only be one destination file system in a replication configuration. </p>
+ *                <p>Parameters for the replication configuration include:</p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>Amazon Web Services Region</b> - The Amazon Web Services Region in which the destination file system is created. Amazon EFS replication is available in all Amazon Web Services Regions in which EFS is
- *               available. To use EFS replication in a Region that is disabled by default, you must
- *               first opt in to the Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference
- *                 Reference Guide</i>
- *                      </p>
+ *                         <b>File system ID</b> – The ID of the destination
+ *               file system for the replication. If no ID is provided, then EFS creates a new file
+ *               system with the default settings. For existing file systems, the file system's
+ *               replication overwrite protection must be disabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication#replicate-existing-destination"> Replicating to
+ *                 an existing file system</a>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Availability Zone</b> - If you want the destination file system
- *               to use EFS One Zone availability, you must specify the Availability Zone to create the
- *               file system in. For more information about EFS storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
- *                 Amazon EFS storage classes</a> in the <i>Amazon EFS User
+ *                         <b>Availability Zone</b> – If you want the destination file
+ *               system to use One Zone storage, you must specify the Availability Zone to create the
+ *               file system in. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
+ *                 EFS file system types</a> in the <i>Amazon EFS User
  *                 Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Encryption</b> - All destination file systems are created with
- *               encryption at rest enabled. You can specify the Key Management Service (KMS) key that is used to encrypt the destination file system. If you don't
+ *                         <b>Encryption</b> – All destination file systems are created
+ *               with encryption at rest enabled. You can specify the Key Management Service (KMS) key that is used to encrypt the destination file system. If you don't
  *               specify a KMS key, your service-managed KMS key for
- *                 Amazon EFS is used.  </p>
+ *                 Amazon EFS is used. </p>
  *                      <note>
  *                         <p>After the file system is created, you cannot change the KMS key.</p>
  *                      </note>
@@ -89,29 +96,31 @@ export interface CreateReplicationConfigurationCommandOutput
  *                </ul>
  *             </li>
  *          </ul>
- *          <p>The following properties are set by default:</p>
+ *          <note>
+ *             <p>After the file system is created, you cannot change the KMS key.</p>
+ *          </note>
+ *          <p>For new destination file systems, the following properties are set by default:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Performance mode</b> - The destination file system's performance
- *           mode matches that of the source file system, unless the destination file system uses EFS
- *           One Zone storage. In that case, the General Purpose performance mode is used. The
- *           performance mode cannot be changed.</p>
+ *                   <b>Performance mode</b> - The destination file system's
+ *           performance mode matches that of the source file system, unless the destination file
+ *           system uses EFS One Zone storage. In that case, the General Purpose performance mode is
+ *           used. The performance mode cannot be changed.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Throughput mode</b> - The destination file system's throughput
- *         mode matches that of the source file system. After the file system is created, you can modify the
- *           throughput mode.</p>
+ *                   <b>Throughput mode</b> - The destination file system's
+ *           throughput mode matches that of the source file system. After the file system is created,
+ *           you can modify the throughput mode.</p>
  *             </li>
  *          </ul>
- *          <p>The following properties are turned off by default:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Lifecycle management</b> – Lifecycle management is not enabled
  *           on the destination file system. After the destination file system is created, you can
- *           enable it.</p>
+ *           enable lifecycle management.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -135,6 +144,7 @@ export interface CreateReplicationConfigurationCommandOutput
  *       Region: "STRING_VALUE",
  *       AvailabilityZoneName: "STRING_VALUE",
  *       KmsKeyId: "STRING_VALUE",
+ *       FileSystemId: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -167,6 +177,9 @@ export interface CreateReplicationConfigurationCommandOutput
  * @throws {@link BadRequest} (client fault)
  *  <p>Returned if the request is malformed or contains an error such as an invalid
  *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Returned if the source file system in a replication is encrypted but the destination file system is unencrypted.</p>
  *
  * @throws {@link FileSystemLimitExceeded} (client fault)
  *  <p>Returned if the Amazon Web Services account has already created the maximum number of file systems

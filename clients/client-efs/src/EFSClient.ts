@@ -132,6 +132,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
 import {
+  UpdateFileSystemProtectionCommandInput,
+  UpdateFileSystemProtectionCommandOutput,
+} from "./commands/UpdateFileSystemProtectionCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -175,7 +179,8 @@ export type ServiceInputTypes =
   | PutLifecycleConfigurationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateFileSystemCommandInput;
+  | UpdateFileSystemCommandInput
+  | UpdateFileSystemProtectionCommandInput;
 
 /**
  * @public
@@ -210,7 +215,8 @@ export type ServiceOutputTypes =
   | PutLifecycleConfigurationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateFileSystemCommandOutput;
+  | UpdateFileSystemCommandOutput
+  | UpdateFileSystemProtectionCommandOutput;
 
 /**
  * @public

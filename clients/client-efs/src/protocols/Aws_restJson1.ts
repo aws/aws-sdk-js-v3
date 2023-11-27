@@ -108,6 +108,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "../commands/UpdateFileSystemCommand";
+import {
+  UpdateFileSystemProtectionCommandInput,
+  UpdateFileSystemProtectionCommandOutput,
+} from "../commands/UpdateFileSystemProtectionCommand";
 import { EFSServiceException as __BaseException } from "../models/EFSServiceException";
 import {
   AccessPointAlreadyExists,
@@ -116,6 +120,7 @@ import {
   AvailabilityZonesMismatch,
   BackupPolicy,
   BadRequest,
+  ConflictException,
   CreationInfo,
   DependencyTimeout,
   Destination,
@@ -139,6 +144,7 @@ import {
   NoFreeAddressesInSubnet,
   PolicyNotFound,
   PosixUser,
+  ReplicationAlreadyExists,
   ReplicationConfigurationDescription,
   ReplicationNotFound,
   RootDirectory,
@@ -1164,6 +1170,45 @@ export const se_UpdateFileSystemCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateFileSystemProtectionCommand
+ */
+export const se_UpdateFileSystemProtectionCommand = async (
+  input: UpdateFileSystemProtectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/protection";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FileSystemId",
+    () => input.FileSystemId!,
+    "{FileSystemId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ReplicationOverwriteProtection: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * deserializeAws_restJson1CreateAccessPointCommand
  */
 export const de_CreateAccessPointCommand = async (
@@ -1259,6 +1304,7 @@ export const de_CreateFileSystemCommand = async (
     Encrypted: __expectBoolean,
     FileSystemArn: __expectString,
     FileSystemId: __expectString,
+    FileSystemProtection: _json,
     KmsKeyId: __expectString,
     LifeCycleState: __expectString,
     Name: __expectString,
@@ -1452,6 +1498,9 @@ const de_CreateReplicationConfigurationCommandError = async (
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
       throw await de_BadRequestRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.efs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "FileSystemLimitExceeded":
     case "com.amazonaws.efs#FileSystemLimitExceeded":
       throw await de_FileSystemLimitExceededRes(parsedOutput, context);
@@ -2871,6 +2920,7 @@ export const de_UpdateFileSystemCommand = async (
     Encrypted: __expectBoolean,
     FileSystemArn: __expectString,
     FileSystemId: __expectString,
+    FileSystemProtection: _json,
     KmsKeyId: __expectString,
     LifeCycleState: __expectString,
     Name: __expectString,
@@ -2914,6 +2964,74 @@ const de_UpdateFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThroughputLimitExceeded":
+    case "com.amazonaws.efs#ThroughputLimitExceeded":
+      throw await de_ThroughputLimitExceededRes(parsedOutput, context);
+    case "TooManyRequests":
+    case "com.amazonaws.efs#TooManyRequests":
+      throw await de_TooManyRequestsRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateFileSystemProtectionCommand
+ */
+export const de_UpdateFileSystemProtectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemProtectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateFileSystemProtectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReplicationOverwriteProtection: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateFileSystemProtectionCommandError
+ */
+const de_UpdateFileSystemProtectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemProtectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.efs#BadRequest":
+      throw await de_BadRequestRes(parsedOutput, context);
+    case "FileSystemNotFound":
+    case "com.amazonaws.efs#FileSystemNotFound":
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
+    case "IncorrectFileSystemLifeCycleState":
+    case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
+    case "InsufficientThroughputCapacity":
+    case "com.amazonaws.efs#InsufficientThroughputCapacity":
+      throw await de_InsufficientThroughputCapacityRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.efs#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ReplicationAlreadyExists":
+    case "com.amazonaws.efs#ReplicationAlreadyExists":
+      throw await de_ReplicationAlreadyExistsRes(parsedOutput, context);
     case "ThroughputLimitExceeded":
     case "com.amazonaws.efs#ThroughputLimitExceeded":
       throw await de_ThroughputLimitExceededRes(parsedOutput, context);
@@ -3025,6 +3143,24 @@ const de_BadRequestRes = async (parsedOutput: any, context: __SerdeContext): Pro
   });
   Object.assign(contents, doc);
   const exception = new BadRequest({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3345,6 +3481,27 @@ const de_PolicyNotFoundRes = async (parsedOutput: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_restJson1ReplicationAlreadyExistsRes
+ */
+const de_ReplicationAlreadyExistsRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReplicationAlreadyExists> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ReplicationAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ReplicationNotFoundRes
  */
 const de_ReplicationNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ReplicationNotFound> => {
@@ -3588,6 +3745,7 @@ const de_FileSystemDescription = (output: any, context: __SerdeContext): FileSys
     Encrypted: __expectBoolean,
     FileSystemArn: __expectString,
     FileSystemId: __expectString,
+    FileSystemProtection: _json,
     KmsKeyId: __expectString,
     LifeCycleState: __expectString,
     Name: __expectString,
@@ -3612,6 +3770,8 @@ const de_FileSystemDescriptions = (output: any, context: __SerdeContext): FileSy
     });
   return retVal;
 };
+
+// de_FileSystemProtectionDescription omitted.
 
 /**
  * deserializeAws_restJson1FileSystemSize

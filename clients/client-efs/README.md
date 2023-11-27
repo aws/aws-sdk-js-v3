@@ -448,3 +448,11 @@ UpdateFileSystem
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/efs/command/UpdateFileSystemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-efs/Interface/UpdateFileSystemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-efs/Interface/UpdateFileSystemCommandOutput/)
 
 </details>
+<details>
+<summary>
+UpdateFileSystemProtection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/efs/command/UpdateFileSystemProtectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-efs/Interface/UpdateFileSystemProtectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-efs/Interface/UpdateFileSystemProtectionCommandOutput/)
+
+</details>

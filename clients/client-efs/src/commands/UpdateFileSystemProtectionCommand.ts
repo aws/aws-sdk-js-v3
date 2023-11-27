@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { FileSystemDescription, UpdateFileSystemRequest } from "../models/models_0";
-import { de_UpdateFileSystemCommand, se_UpdateFileSystemCommand } from "../protocols/Aws_restJson1";
+import { FileSystemProtectionDescription, UpdateFileSystemProtectionRequest } from "../models/models_0";
+import { de_UpdateFileSystemProtectionCommand, se_UpdateFileSystemProtectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,73 +25,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateFileSystemCommand}.
+ * The input for {@link UpdateFileSystemProtectionCommand}.
  */
-export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
+export interface UpdateFileSystemProtectionCommandInput extends UpdateFileSystemProtectionRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateFileSystemCommand}.
+ * The output of {@link UpdateFileSystemProtectionCommand}.
  */
-export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
+export interface UpdateFileSystemProtectionCommandOutput extends FileSystemProtectionDescription, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
- *       system.</p>
+ * <p>Updates protection on the file system.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>elasticfilesystem:UpdateFileSystemProtection</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, UpdateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, UpdateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, UpdateFileSystemProtectionCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, UpdateFileSystemProtectionCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = { // UpdateFileSystemRequest
+ * const input = { // UpdateFileSystemProtectionRequest
  *   FileSystemId: "STRING_VALUE", // required
- *   ThroughputMode: "bursting" || "provisioned" || "elastic",
- *   ProvisionedThroughputInMibps: Number("double"),
+ *   ReplicationOverwriteProtection: "ENABLED" || "DISABLED" || "REPLICATING",
  * };
- * const command = new UpdateFileSystemCommand(input);
+ * const command = new UpdateFileSystemProtectionCommand(input);
  * const response = await client.send(command);
- * // { // FileSystemDescription
- * //   OwnerId: "STRING_VALUE", // required
- * //   CreationToken: "STRING_VALUE", // required
- * //   FileSystemId: "STRING_VALUE", // required
- * //   FileSystemArn: "STRING_VALUE",
- * //   CreationTime: new Date("TIMESTAMP"), // required
- * //   LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error", // required
- * //   Name: "STRING_VALUE",
- * //   NumberOfMountTargets: Number("int"), // required
- * //   SizeInBytes: { // FileSystemSize
- * //     Value: Number("long"), // required
- * //     Timestamp: new Date("TIMESTAMP"),
- * //     ValueInIA: Number("long"),
- * //     ValueInStandard: Number("long"),
- * //     ValueInArchive: Number("long"),
- * //   },
- * //   PerformanceMode: "generalPurpose" || "maxIO", // required
- * //   Encrypted: true || false,
- * //   KmsKeyId: "STRING_VALUE",
- * //   ThroughputMode: "bursting" || "provisioned" || "elastic",
- * //   ProvisionedThroughputInMibps: Number("double"),
- * //   AvailabilityZoneName: "STRING_VALUE",
- * //   AvailabilityZoneId: "STRING_VALUE",
- * //   Tags: [ // Tags // required
- * //     { // Tag
- * //       Key: "STRING_VALUE", // required
- * //       Value: "STRING_VALUE", // required
- * //     },
- * //   ],
- * //   FileSystemProtection: { // FileSystemProtectionDescription
- * //     ReplicationOverwriteProtection: "ENABLED" || "DISABLED" || "REPLICATING",
- * //   },
+ * // { // FileSystemProtectionDescription
+ * //   ReplicationOverwriteProtection: "ENABLED" || "DISABLED" || "REPLICATING",
  * // };
  *
  * ```
  *
- * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
- * @returns {@link UpdateFileSystemCommandOutput}
- * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
- * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
+ * @param UpdateFileSystemProtectionCommandInput - {@link UpdateFileSystemProtectionCommandInput}
+ * @returns {@link UpdateFileSystemProtectionCommandOutput}
+ * @see {@link UpdateFileSystemProtectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateFileSystemProtectionCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
@@ -115,6 +85,9 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link ReplicationAlreadyExists} (client fault)
+ *  <p>Returned if the file system is already included in a replication configuration.></p>
+ *
  * @throws {@link ThroughputLimitExceeded} (client fault)
  *  <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
  *             because the throughput limit of 1024 MiB/s has been reached.</p>
@@ -127,9 +100,9 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
-export class UpdateFileSystemCommand extends $Command<
-  UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput,
+export class UpdateFileSystemProtectionCommand extends $Command<
+  UpdateFileSystemProtectionCommandInput,
+  UpdateFileSystemProtectionCommandOutput,
   EFSClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -144,7 +117,7 @@ export class UpdateFileSystemCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateFileSystemCommandInput) {
+  constructor(readonly input: UpdateFileSystemProtectionCommandInput) {
     super();
   }
 
@@ -155,17 +128,17 @@ export class UpdateFileSystemCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput> {
+  ): Handler<UpdateFileSystemProtectionCommandInput, UpdateFileSystemProtectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateFileSystemCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateFileSystemProtectionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EFSClient";
-    const commandName = "UpdateFileSystemCommand";
+    const commandName = "UpdateFileSystemProtectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,7 +147,7 @@ export class UpdateFileSystemCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "MagnolioAPIService_v20150201",
-        operation: "UpdateFileSystem",
+        operation: "UpdateFileSystemProtection",
       },
     };
     const { requestHandler } = configuration;
@@ -188,14 +161,17 @@ export class UpdateFileSystemCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateFileSystemCommand(input, context);
+  private serialize(input: UpdateFileSystemProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateFileSystemProtectionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileSystemCommandOutput> {
-    return de_UpdateFileSystemCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateFileSystemProtectionCommandOutput> {
+    return de_UpdateFileSystemProtectionCommand(output, context);
   }
 }
