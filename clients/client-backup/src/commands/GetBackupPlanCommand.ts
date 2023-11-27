@@ -64,6 +64,7 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * //         Lifecycle: { // Lifecycle
  * //           MoveToColdStorageAfterDays: Number("long"),
  * //           DeleteAfterDays: Number("long"),
+ * //           OptInToArchiveForSupportedResources: true || false,
  * //         },
  * //         RecoveryPointTags: { // Tags
  * //           "<keys>": "STRING_VALUE",
@@ -74,6 +75,7 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * //             Lifecycle: {
  * //               MoveToColdStorageAfterDays: Number("long"),
  * //               DeleteAfterDays: Number("long"),
+ * //               OptInToArchiveForSupportedResources: true || false,
  * //             },
  * //             DestinationBackupVaultArn: "STRING_VALUE", // required
  * //           },

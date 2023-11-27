@@ -63,6 +63,14 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * //   ExpectedCompletionTimeMinutes: Number("long"),
  * //   CreatedResourceArn: "STRING_VALUE",
  * //   ResourceType: "STRING_VALUE",
+ * //   RecoveryPointCreationDate: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // RestoreJobCreator
+ * //     RestoreTestingPlanArn: "STRING_VALUE",
+ * //   },
+ * //   ValidationStatus: "FAILED" || "SUCCESSFUL" || "TIMED_OUT" || "VALIDATING",
+ * //   ValidationStatusMessage: "STRING_VALUE",
+ * //   DeletionStatus: "DELETING" || "FAILED" || "SUCCESSFUL",
+ * //   DeletionStatusMessage: "STRING_VALUE",
  * // };
  *
  * ```

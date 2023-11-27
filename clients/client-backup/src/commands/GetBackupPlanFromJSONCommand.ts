@@ -66,6 +66,7 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * //         Lifecycle: { // Lifecycle
  * //           MoveToColdStorageAfterDays: Number("long"),
  * //           DeleteAfterDays: Number("long"),
+ * //           OptInToArchiveForSupportedResources: true || false,
  * //         },
  * //         RecoveryPointTags: { // Tags
  * //           "<keys>": "STRING_VALUE",
@@ -76,6 +77,7 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * //             Lifecycle: {
  * //               MoveToColdStorageAfterDays: Number("long"),
  * //               DeleteAfterDays: Number("long"),
+ * //               OptInToArchiveForSupportedResources: true || false,
  * //             },
  * //             DestinationBackupVaultArn: "STRING_VALUE", // required
  * //           },

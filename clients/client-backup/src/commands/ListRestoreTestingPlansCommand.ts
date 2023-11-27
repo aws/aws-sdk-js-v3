@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { StartCopyJobInput, StartCopyJobOutput } from "../models/models_0";
-import { de_StartCopyJobCommand, se_StartCopyJobCommand } from "../protocols/Aws_restJson1";
+import { ListRestoreTestingPlansInput, ListRestoreTestingPlansOutput } from "../models/models_0";
+import { de_ListRestoreTestingPlansCommand, se_ListRestoreTestingPlansCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,71 +25,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartCopyJobCommand}.
+ * The input for {@link ListRestoreTestingPlansCommand}.
  */
-export interface StartCopyJobCommandInput extends StartCopyJobInput {}
+export interface ListRestoreTestingPlansCommandInput extends ListRestoreTestingPlansInput {}
 /**
  * @public
  *
- * The output of {@link StartCopyJobCommand}.
+ * The output of {@link ListRestoreTestingPlansCommand}.
  */
-export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __MetadataBearer {}
+export interface ListRestoreTestingPlansCommandOutput extends ListRestoreTestingPlansOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Starts a job to create a one-time copy of the specified resource.</p>
- *          <p>Does not support continuous backups.</p>
+ * <p>Returns a list of restore testing plans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StartCopyJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StartCopyJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRestoreTestingPlansCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListRestoreTestingPlansCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // StartCopyJobInput
- *   RecoveryPointArn: "STRING_VALUE", // required
- *   SourceBackupVaultName: "STRING_VALUE", // required
- *   DestinationBackupVaultArn: "STRING_VALUE", // required
- *   IamRoleArn: "STRING_VALUE", // required
- *   IdempotencyToken: "STRING_VALUE",
- *   Lifecycle: { // Lifecycle
- *     MoveToColdStorageAfterDays: Number("long"),
- *     DeleteAfterDays: Number("long"),
- *     OptInToArchiveForSupportedResources: true || false,
- *   },
+ * const input = { // ListRestoreTestingPlansInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new StartCopyJobCommand(input);
+ * const command = new ListRestoreTestingPlansCommand(input);
  * const response = await client.send(command);
- * // { // StartCopyJobOutput
- * //   CopyJobId: "STRING_VALUE",
- * //   CreationDate: new Date("TIMESTAMP"),
- * //   IsParent: true || false,
+ * // { // ListRestoreTestingPlansOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   RestoreTestingPlans: [ // RestoreTestingPlans // required
+ * //     { // RestoreTestingPlanForList
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastExecutionTime: new Date("TIMESTAMP"),
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //       RestoreTestingPlanArn: "STRING_VALUE", // required
+ * //       RestoreTestingPlanName: "STRING_VALUE", // required
+ * //       ScheduleExpression: "STRING_VALUE", // required
+ * //       ScheduleExpressionTimezone: "STRING_VALUE",
+ * //       StartWindowHours: Number("int"),
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param StartCopyJobCommandInput - {@link StartCopyJobCommandInput}
- * @returns {@link StartCopyJobCommandOutput}
- * @see {@link StartCopyJobCommandInput} for command's `input` shape.
- * @see {@link StartCopyJobCommandOutput} for command's `response` shape.
+ * @param ListRestoreTestingPlansCommandInput - {@link ListRestoreTestingPlansCommandInput}
+ * @returns {@link ListRestoreTestingPlansCommandOutput}
+ * @see {@link ListRestoreTestingPlansCommandInput} for command's `input` shape.
+ * @see {@link ListRestoreTestingPlansCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
- *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
- *
- * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
@@ -98,9 +85,9 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class StartCopyJobCommand extends $Command<
-  StartCopyJobCommandInput,
-  StartCopyJobCommandOutput,
+export class ListRestoreTestingPlansCommand extends $Command<
+  ListRestoreTestingPlansCommandInput,
+  ListRestoreTestingPlansCommandOutput,
   BackupClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -115,7 +102,7 @@ export class StartCopyJobCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartCopyJobCommandInput) {
+  constructor(readonly input: ListRestoreTestingPlansCommandInput) {
     super();
   }
 
@@ -126,15 +113,17 @@ export class StartCopyJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartCopyJobCommandInput, StartCopyJobCommandOutput> {
+  ): Handler<ListRestoreTestingPlansCommandInput, ListRestoreTestingPlansCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StartCopyJobCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListRestoreTestingPlansCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "StartCopyJobCommand";
+    const commandName = "ListRestoreTestingPlansCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -143,7 +132,7 @@ export class StartCopyJobCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CryoControllerUserManager",
-        operation: "StartCopyJob",
+        operation: "ListRestoreTestingPlans",
       },
     };
     const { requestHandler } = configuration;
@@ -157,14 +146,14 @@ export class StartCopyJobCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartCopyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartCopyJobCommand(input, context);
+  private serialize(input: ListRestoreTestingPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListRestoreTestingPlansCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCopyJobCommandOutput> {
-    return de_StartCopyJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRestoreTestingPlansCommandOutput> {
+    return de_ListRestoreTestingPlansCommand(output, context);
   }
 }

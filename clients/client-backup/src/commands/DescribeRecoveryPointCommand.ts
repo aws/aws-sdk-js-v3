@@ -78,6 +78,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * //   Lifecycle: { // Lifecycle
  * //     MoveToColdStorageAfterDays: Number("long"),
  * //     DeleteAfterDays: Number("long"),
+ * //     OptInToArchiveForSupportedResources: true || false,
  * //   },
  * //   EncryptionKeyArn: "STRING_VALUE",
  * //   IsEncrypted: true || false,

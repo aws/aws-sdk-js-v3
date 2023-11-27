@@ -39,6 +39,14 @@ import {
   CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "../commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "../commands/CreateReportPlanCommand";
+import {
+  CreateRestoreTestingPlanCommandInput,
+  CreateRestoreTestingPlanCommandOutput,
+} from "../commands/CreateRestoreTestingPlanCommand";
+import {
+  CreateRestoreTestingSelectionCommandInput,
+  CreateRestoreTestingSelectionCommandOutput,
+} from "../commands/CreateRestoreTestingSelectionCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "../commands/DeleteBackupPlanCommand";
 import {
   DeleteBackupSelectionCommandInput,
@@ -63,6 +71,14 @@ import {
   DeleteRecoveryPointCommandOutput,
 } from "../commands/DeleteRecoveryPointCommand";
 import { DeleteReportPlanCommandInput, DeleteReportPlanCommandOutput } from "../commands/DeleteReportPlanCommand";
+import {
+  DeleteRestoreTestingPlanCommandInput,
+  DeleteRestoreTestingPlanCommandOutput,
+} from "../commands/DeleteRestoreTestingPlanCommand";
+import {
+  DeleteRestoreTestingSelectionCommandInput,
+  DeleteRestoreTestingSelectionCommandOutput,
+} from "../commands/DeleteRestoreTestingSelectionCommand";
 import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "../commands/DescribeBackupJobCommand";
 import {
   DescribeBackupVaultCommandInput,
@@ -125,6 +141,22 @@ import {
   GetRecoveryPointRestoreMetadataCommandOutput,
 } from "../commands/GetRecoveryPointRestoreMetadataCommand";
 import {
+  GetRestoreJobMetadataCommandInput,
+  GetRestoreJobMetadataCommandOutput,
+} from "../commands/GetRestoreJobMetadataCommand";
+import {
+  GetRestoreTestingInferredMetadataCommandInput,
+  GetRestoreTestingInferredMetadataCommandOutput,
+} from "../commands/GetRestoreTestingInferredMetadataCommand";
+import {
+  GetRestoreTestingPlanCommandInput,
+  GetRestoreTestingPlanCommandOutput,
+} from "../commands/GetRestoreTestingPlanCommand";
+import {
+  GetRestoreTestingSelectionCommandInput,
+  GetRestoreTestingSelectionCommandOutput,
+} from "../commands/GetRestoreTestingSelectionCommand";
+import {
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput,
 } from "../commands/GetSupportedResourceTypesCommand";
@@ -176,11 +208,23 @@ import {
 } from "../commands/ListRecoveryPointsByResourceCommand";
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "../commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "../commands/ListReportPlansCommand";
+import {
+  ListRestoreJobsByProtectedResourceCommandInput,
+  ListRestoreJobsByProtectedResourceCommandOutput,
+} from "../commands/ListRestoreJobsByProtectedResourceCommand";
 import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "../commands/ListRestoreJobsCommand";
 import {
   ListRestoreJobSummariesCommandInput,
   ListRestoreJobSummariesCommandOutput,
 } from "../commands/ListRestoreJobSummariesCommand";
+import {
+  ListRestoreTestingPlansCommandInput,
+  ListRestoreTestingPlansCommandOutput,
+} from "../commands/ListRestoreTestingPlansCommand";
+import {
+  ListRestoreTestingSelectionsCommandInput,
+  ListRestoreTestingSelectionsCommandOutput,
+} from "../commands/ListRestoreTestingSelectionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommandInput,
@@ -194,6 +238,10 @@ import {
   PutBackupVaultNotificationsCommandInput,
   PutBackupVaultNotificationsCommandOutput,
 } from "../commands/PutBackupVaultNotificationsCommand";
+import {
+  PutRestoreValidationResultCommandInput,
+  PutRestoreValidationResultCommandOutput,
+} from "../commands/PutRestoreValidationResultCommand";
 import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "../commands/StartBackupJobCommand";
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "../commands/StartCopyJobCommand";
 import { StartReportJobCommandInput, StartReportJobCommandOutput } from "../commands/StartReportJobCommand";
@@ -216,6 +264,14 @@ import {
   UpdateRegionSettingsCommandOutput,
 } from "../commands/UpdateRegionSettingsCommand";
 import { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "../commands/UpdateReportPlanCommand";
+import {
+  UpdateRestoreTestingPlanCommandInput,
+  UpdateRestoreTestingPlanCommandOutput,
+} from "../commands/UpdateRestoreTestingPlanCommand";
+import {
+  UpdateRestoreTestingSelectionCommandInput,
+  UpdateRestoreTestingSelectionCommandOutput,
+} from "../commands/UpdateRestoreTestingSelectionCommand";
 import { BackupServiceException as __BaseException } from "../models/BackupServiceException";
 import {
   AdvancedBackupSetting,
@@ -246,11 +302,13 @@ import {
   InvalidParameterValueException,
   InvalidRequestException,
   InvalidResourceStateException,
+  KeyValue,
   LegalHold,
   Lifecycle,
   LimitExceededException,
   MissingParameterValueException,
   ProtectedResource,
+  ProtectedResourceConditions,
   RecoveryPointByBackupVault,
   RecoveryPointByResource,
   RecoveryPointSelection,
@@ -261,6 +319,16 @@ import {
   ResourceNotFoundException,
   RestoreJobsListMember,
   RestoreJobSummary,
+  RestoreTestingPlanForCreate,
+  RestoreTestingPlanForGet,
+  RestoreTestingPlanForList,
+  RestoreTestingPlanForUpdate,
+  RestoreTestingRecoveryPointSelection,
+  RestoreTestingRecoveryPointType,
+  RestoreTestingSelectionForCreate,
+  RestoreTestingSelectionForGet,
+  RestoreTestingSelectionForList,
+  RestoreTestingSelectionForUpdate,
   ServiceUnavailableException,
 } from "../models/models_0";
 
@@ -546,6 +614,77 @@ export const se_CreateReportPlanCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateRestoreTestingPlanCommand
+ */
+export const se_CreateRestoreTestingPlanCommand = async (
+  input: CreateRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-testing/plans";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CreatorRequestId: [],
+      RestoreTestingPlan: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateRestoreTestingSelectionCommand
+ */
+export const se_CreateRestoreTestingSelectionCommand = async (
+  input: CreateRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}/selections";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CreatorRequestId: [],
+      RestoreTestingSelection: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteBackupPlanCommand
  */
 export const se_DeleteBackupPlanCommand = async (
@@ -824,6 +963,78 @@ export const se_DeleteReportPlanCommand = async (
     "ReportPlanName",
     () => input.ReportPlanName!,
     "{ReportPlanName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteRestoreTestingPlanCommand
+ */
+export const se_DeleteRestoreTestingPlanCommand = async (
+  input: DeleteRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteRestoreTestingSelectionCommand
+ */
+export const se_DeleteRestoreTestingSelectionCommand = async (
+  input: DeleteRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingSelectionName",
+    () => input.RestoreTestingSelectionName!,
+    "{RestoreTestingSelectionName}",
     false
   );
   let body: any;
@@ -1528,6 +1739,138 @@ export const se_GetRecoveryPointRestoreMetadataCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetRestoreJobMetadataCommand
+ */
+export const se_GetRestoreJobMetadataCommand = async (
+  input: GetRestoreJobMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs/{RestoreJobId}/metadata";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreJobId",
+    () => input.RestoreJobId!,
+    "{RestoreJobId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetRestoreTestingInferredMetadataCommand
+ */
+export const se_GetRestoreTestingInferredMetadataCommand = async (
+  input: GetRestoreTestingInferredMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-testing/inferred-metadata";
+  const query: any = map({
+    BackupVaultAccountId: [, input.BackupVaultAccountId!],
+    BackupVaultName: [, __expectNonNull(input.BackupVaultName!, `BackupVaultName`)],
+    RecoveryPointArn: [, __expectNonNull(input.RecoveryPointArn!, `RecoveryPointArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetRestoreTestingPlanCommand
+ */
+export const se_GetRestoreTestingPlanCommand = async (
+  input: GetRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetRestoreTestingSelectionCommand
+ */
+export const se_GetRestoreTestingSelectionCommand = async (
+  input: GetRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingSelectionName",
+    () => input.RestoreTestingSelectionName!,
+    "{RestoreTestingSelectionName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetSupportedResourceTypesCommand
  */
 export const se_GetSupportedResourceTypesCommand = async (
@@ -2198,6 +2541,45 @@ export const se_ListRestoreJobsCommand = async (
       () => input.ByCompleteAfter !== void 0,
       () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
+    restoreTestingPlanArn: [, input.ByRestoreTestingPlanArn!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListRestoreJobsByProtectedResourceCommand
+ */
+export const se_ListRestoreJobsByProtectedResourceCommand = async (
+  input: ListRestoreJobsByProtectedResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/restore-jobs";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    status: [, input.ByStatus!],
+    recoveryPointCreationDateAfter: [
+      () => input.ByRecoveryPointCreationDateAfter !== void 0,
+      () => (input.ByRecoveryPointCreationDateAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    recoveryPointCreationDateBefore: [
+      () => input.ByRecoveryPointCreationDateBefore !== void 0,
+      () => (input.ByRecoveryPointCreationDateBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -2228,6 +2610,70 @@ export const se_ListRestoreJobSummariesCommand = async (
     State: [, input.State!],
     ResourceType: [, input.ResourceType!],
     AggregationPeriod: [, input.AggregationPeriod!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListRestoreTestingPlansCommand
+ */
+export const se_ListRestoreTestingPlansCommand = async (
+  input: ListRestoreTestingPlansCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-testing/plans";
+  const query: any = map({
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListRestoreTestingSelectionsCommand
+ */
+export const se_ListRestoreTestingSelectionsCommand = async (
+  input: ListRestoreTestingSelectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}/selections";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  const query: any = map({
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     NextToken: [, input.NextToken!],
   });
@@ -2379,6 +2825,45 @@ export const se_PutBackupVaultNotificationsCommand = async (
     take(input, {
       BackupVaultEvents: (_) => _json(_),
       SNSTopicArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutRestoreValidationResultCommand
+ */
+export const se_PutRestoreValidationResultCommand = async (
+  input: PutRestoreValidationResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs/{RestoreJobId}/validations";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreJobId",
+    () => input.RestoreJobId!,
+    "{RestoreJobId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ValidationStatus: [],
+      ValidationStatusMessage: [],
     })
   );
   return new __HttpRequest({
@@ -2831,6 +3316,92 @@ export const se_UpdateReportPlanCommand = async (
       ReportDeliveryChannel: (_) => _json(_),
       ReportPlanDescription: [],
       ReportSetting: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateRestoreTestingPlanCommand
+ */
+export const se_UpdateRestoreTestingPlanCommand = async (
+  input: UpdateRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RestoreTestingPlan: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateRestoreTestingSelectionCommand
+ */
+export const se_UpdateRestoreTestingSelectionCommand = async (
+  input: UpdateRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingPlanName",
+    () => input.RestoreTestingPlanName!,
+    "{RestoreTestingPlanName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreTestingSelectionName",
+    () => input.RestoreTestingSelectionName!,
+    "{RestoreTestingSelectionName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RestoreTestingSelection: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -3319,6 +3890,135 @@ const de_CreateReportPlanCommandError = async (
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingPlanCommand
+ */
+export const de_CreateRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingPlanCommandError
+ */
+const de_CreateRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.backup#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.backup#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingSelectionCommand
+ */
+export const de_CreateRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingSelectionCommandError
+ */
+const de_CreateRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.backup#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -3829,6 +4529,98 @@ const de_DeleteReportPlanCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteRestoreTestingPlanCommand
+ */
+export const de_DeleteRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRestoreTestingPlanCommandError
+ */
+const de_DeleteRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteRestoreTestingSelectionCommand
+ */
+export const de_DeleteRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRestoreTestingSelectionCommandError
+ */
+const de_DeleteRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeBackupJobCommand
  */
 export const de_DescribeBackupJobCommand = async (
@@ -3857,6 +4649,7 @@ export const de_DescribeBackupJobCommand = async (
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ExpectedCompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IamRoleArn: __expectString,
+    InitiationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IsParent: __expectBoolean,
     MessageCategory: __expectString,
     NumberOfChildJobs: __expectLong,
@@ -4164,6 +4957,11 @@ export const de_DescribeProtectedResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     LastBackupTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastBackupVaultArn: __expectString,
+    LastRecoveryPointArn: __expectString,
+    LatestRestoreExecutionTimeMinutes: __expectLong,
+    LatestRestoreJobCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestRestoreRecoveryPointCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ResourceArn: __expectString,
     ResourceName: __expectString,
     ResourceType: __expectString,
@@ -4460,16 +5258,22 @@ export const de_DescribeRestoreJobCommand = async (
     AccountId: __expectString,
     BackupSizeInBytes: __expectLong,
     CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
     CreatedResourceArn: __expectString,
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionStatus: __expectString,
+    DeletionStatusMessage: __expectString,
     ExpectedCompletionTimeMinutes: __expectLong,
     IamRoleArn: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
+    RecoveryPointCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ResourceType: __expectString,
     RestoreJobId: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
+    ValidationStatus: __expectString,
+    ValidationStatusMessage: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5120,6 +5924,7 @@ export const de_GetRecoveryPointRestoreMetadataCommand = async (
   const doc = take(data, {
     BackupVaultArn: __expectString,
     RecoveryPointArn: __expectString,
+    ResourceType: __expectString,
     RestoreMetadata: _json,
   });
   Object.assign(contents, doc);
@@ -5145,6 +5950,219 @@ const de_GetRecoveryPointRestoreMetadataCommandError = async (
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreJobMetadataCommand
+ */
+export const de_GetRestoreJobMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreJobMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreJobMetadataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Metadata: _json,
+    RestoreJobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreJobMetadataCommandError
+ */
+const de_GetRestoreJobMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreJobMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingInferredMetadataCommand
+ */
+export const de_GetRestoreTestingInferredMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingInferredMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreTestingInferredMetadataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InferredMetadata: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingInferredMetadataCommandError
+ */
+const de_GetRestoreTestingInferredMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingInferredMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingPlanCommand
+ */
+export const de_GetRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RestoreTestingPlan: (_) => de_RestoreTestingPlanForGet(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingPlanCommandError
+ */
+const de_GetRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingSelectionCommand
+ */
+export const de_GetRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RestoreTestingSelection: (_) => de_RestoreTestingSelectionForGet(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingSelectionCommandError
+ */
+const de_GetRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -6237,6 +7255,63 @@ const de_ListRestoreJobsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRestoreJobsByProtectedResourceCommand
+ */
+export const de_ListRestoreJobsByProtectedResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobsByProtectedResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreJobsByProtectedResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreJobs: (_) => de_RestoreJobsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreJobsByProtectedResourceCommandError
+ */
+const de_ListRestoreJobsByProtectedResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobsByProtectedResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListRestoreJobSummariesCommand
  */
 export const de_ListRestoreJobSummariesCommand = async (
@@ -6275,6 +7350,111 @@ const de_ListRestoreJobSummariesCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingPlansCommand
+ */
+export const de_ListRestoreTestingPlansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingPlansCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreTestingPlansCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreTestingPlans: (_) => de_RestoreTestingPlans(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingPlansCommandError
+ */
+const de_ListRestoreTestingPlansCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingPlansCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingSelectionsCommand
+ */
+export const de_ListRestoreTestingSelectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingSelectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreTestingSelectionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreTestingSelections: (_) => de_RestoreTestingSelections(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingSelectionsCommandError
+ */
+const de_ListRestoreTestingSelectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingSelectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -6485,6 +7665,61 @@ const de_PutBackupVaultNotificationsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutRestoreValidationResultCommand
+ */
+export const de_PutRestoreValidationResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRestoreValidationResultCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_PutRestoreValidationResultCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutRestoreValidationResultCommandError
+ */
+const de_PutRestoreValidationResultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRestoreValidationResultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
@@ -7261,6 +8496,131 @@ const de_UpdateReportPlanCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingPlanCommand
+ */
+export const de_UpdateRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingPlanCommandError
+ */
+const de_UpdateRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.backup#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingSelectionCommand
+ */
+export const de_UpdateRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingSelectionCommandError
+ */
+const de_UpdateRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.backup#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AlreadyExistsExceptionRes
@@ -7545,11 +8905,17 @@ const se_DateRange = (input: DateRange, context: __SerdeContext): any => {
 
 // se_GlobalSettings omitted.
 
+// se_KeyValue omitted.
+
+// se_KeyValueList omitted.
+
 // se_Lifecycle omitted.
 
 // se_ListOfTags omitted.
 
 // se_Metadata omitted.
+
+// se_ProtectedResourceConditions omitted.
 
 /**
  * serializeAws_restJson1RecoveryPointSelection
@@ -7575,6 +8941,20 @@ const se_RecoveryPointSelection = (input: RecoveryPointSelection, context: __Ser
 // se_ResourceTypeManagementPreference omitted.
 
 // se_ResourceTypeOptInPreference omitted.
+
+// se_RestoreTestingPlanForCreate omitted.
+
+// se_RestoreTestingPlanForUpdate omitted.
+
+// se_RestoreTestingRecoveryPointSelection omitted.
+
+// se_RestoreTestingRecoveryPointTypeList omitted.
+
+// se_RestoreTestingSelectionForCreate omitted.
+
+// se_RestoreTestingSelectionForUpdate omitted.
+
+// se_SensitiveStringMap omitted.
 
 // se_stringList omitted.
 
@@ -7608,6 +8988,7 @@ const de_BackupJob = (output: any, context: __SerdeContext): BackupJob => {
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ExpectedCompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IamRoleArn: __expectString,
+    InitiationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IsParent: __expectBoolean,
     MessageCategory: __expectString,
     ParentJobId: __expectString,
@@ -7923,6 +9304,10 @@ const de_FrameworkList = (output: any, context: __SerdeContext): Framework[] => 
 
 // de_GlobalSettings omitted.
 
+// de_KeyValue omitted.
+
+// de_KeyValueList omitted.
+
 /**
  * deserializeAws_restJson1LegalHold
  */
@@ -7962,11 +9347,15 @@ const de_LegalHoldsList = (output: any, context: __SerdeContext): LegalHold[] =>
 const de_ProtectedResource = (output: any, context: __SerdeContext): ProtectedResource => {
   return take(output, {
     LastBackupTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastBackupVaultArn: __expectString,
+    LastRecoveryPointArn: __expectString,
     ResourceArn: __expectString,
     ResourceName: __expectString,
     ResourceType: __expectString,
   }) as any;
 };
+
+// de_ProtectedResourceConditions omitted.
 
 /**
  * deserializeAws_restJson1ProtectedResourcesList
@@ -8144,6 +9533,8 @@ const de_ReportPlanList = (output: any, context: __SerdeContext): ReportPlan[] =
 
 // de_ResourceTypes omitted.
 
+// de_RestoreJobCreator omitted.
+
 /**
  * deserializeAws_restJson1RestoreJobsList
  */
@@ -8164,16 +9555,22 @@ const de_RestoreJobsListMember = (output: any, context: __SerdeContext): Restore
     AccountId: __expectString,
     BackupSizeInBytes: __expectLong,
     CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
     CreatedResourceArn: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionStatus: __expectString,
+    DeletionStatusMessage: __expectString,
     ExpectedCompletionTimeMinutes: __expectLong,
     IamRoleArn: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
+    RecoveryPointCreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ResourceType: __expectString,
     RestoreJobId: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
+    ValidationStatus: __expectString,
+    ValidationStatusMessage: __expectString,
   }) as any;
 };
 
@@ -8203,6 +9600,102 @@ const de_RestoreJobSummaryList = (output: any, context: __SerdeContext): Restore
     });
   return retVal;
 };
+
+/**
+ * deserializeAws_restJson1RestoreTestingPlanForGet
+ */
+const de_RestoreTestingPlanForGet = (output: any, context: __SerdeContext): RestoreTestingPlanForGet => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    LastExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecoveryPointSelection: _json,
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    ScheduleExpression: __expectString,
+    ScheduleExpressionTimezone: __expectString,
+    StartWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingPlanForList
+ */
+const de_RestoreTestingPlanForList = (output: any, context: __SerdeContext): RestoreTestingPlanForList => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    ScheduleExpression: __expectString,
+    ScheduleExpressionTimezone: __expectString,
+    StartWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingPlans
+ */
+const de_RestoreTestingPlans = (output: any, context: __SerdeContext): RestoreTestingPlanForList[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RestoreTestingPlanForList(entry, context);
+    });
+  return retVal;
+};
+
+// de_RestoreTestingRecoveryPointSelection omitted.
+
+// de_RestoreTestingRecoveryPointTypeList omitted.
+
+/**
+ * deserializeAws_restJson1RestoreTestingSelectionForGet
+ */
+const de_RestoreTestingSelectionForGet = (output: any, context: __SerdeContext): RestoreTestingSelectionForGet => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    IamRoleArn: __expectString,
+    ProtectedResourceArns: _json,
+    ProtectedResourceConditions: _json,
+    ProtectedResourceType: __expectString,
+    RestoreMetadataOverrides: _json,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+    ValidationWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingSelectionForList
+ */
+const de_RestoreTestingSelectionForList = (output: any, context: __SerdeContext): RestoreTestingSelectionForList => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IamRoleArn: __expectString,
+    ProtectedResourceType: __expectString,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+    ValidationWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingSelections
+ */
+const de_RestoreTestingSelections = (output: any, context: __SerdeContext): RestoreTestingSelectionForList[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RestoreTestingSelectionForList(entry, context);
+    });
+  return retVal;
+};
+
+// de_SensitiveStringMap omitted.
 
 // de_stringList omitted.
 

@@ -15,15 +15,8 @@ import {
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  GetRecoveryPointRestoreMetadataInput,
-  GetRecoveryPointRestoreMetadataOutput,
-  GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetRecoveryPointRestoreMetadataCommand,
-  se_GetRecoveryPointRestoreMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { PutRestoreValidationResultInput } from "../models/models_0";
+import { de_PutRestoreValidationResultCommand, se_PutRestoreValidationResultCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -32,54 +25,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The input for {@link PutRestoreValidationResultCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecoveryPointRestoreMetadataInput {}
+export interface PutRestoreValidationResultCommandInput extends PutRestoreValidationResultInput {}
 /**
  * @public
  *
- * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The output of {@link PutRestoreValidationResultCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandOutput
-  extends GetRecoveryPointRestoreMetadataOutput,
-    __MetadataBearer {}
+export interface PutRestoreValidationResultCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
+ * <p>This request allows you to send your independent self-run
+ *          restore test validation results.
+ *          <code>RestoreJobId</code> and <code>ValidationStatus</code>
+ *          are required. Optionally, you can input a
+ *          <code>ValidationStatusMessage</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, PutRestoreValidationResultCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, PutRestoreValidationResultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // GetRecoveryPointRestoreMetadataInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   RecoveryPointArn: "STRING_VALUE", // required
- *   BackupVaultAccountId: "STRING_VALUE",
+ * const input = { // PutRestoreValidationResultInput
+ *   RestoreJobId: "STRING_VALUE", // required
+ *   ValidationStatus: "FAILED" || "SUCCESSFUL" || "TIMED_OUT" || "VALIDATING", // required
+ *   ValidationStatusMessage: "STRING_VALUE",
  * };
- * const command = new GetRecoveryPointRestoreMetadataCommand(input);
+ * const command = new PutRestoreValidationResultCommand(input);
  * const response = await client.send(command);
- * // { // GetRecoveryPointRestoreMetadataOutput
- * //   BackupVaultArn: "STRING_VALUE",
- * //   RecoveryPointArn: "STRING_VALUE",
- * //   RestoreMetadata: { // Metadata
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   ResourceType: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
- * @returns {@link GetRecoveryPointRestoreMetadataCommandOutput}
- * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
- * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
+ * @param PutRestoreValidationResultCommandInput - {@link PutRestoreValidationResultCommandInput}
+ * @returns {@link PutRestoreValidationResultCommandOutput}
+ * @see {@link PutRestoreValidationResultCommandInput} for command's `input` shape.
+ * @see {@link PutRestoreValidationResultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Indicates that a required parameter is missing.</p>
@@ -94,9 +86,9 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class GetRecoveryPointRestoreMetadataCommand extends $Command<
-  GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput,
+export class PutRestoreValidationResultCommand extends $Command<
+  PutRestoreValidationResultCommandInput,
+  PutRestoreValidationResultCommandOutput,
   BackupClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -111,7 +103,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetRecoveryPointRestoreMetadataCommandInput) {
+  constructor(readonly input: PutRestoreValidationResultCommandInput) {
     super();
   }
 
@@ -122,26 +114,26 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRecoveryPointRestoreMetadataCommandInput, GetRecoveryPointRestoreMetadataCommandOutput> {
+  ): Handler<PutRestoreValidationResultCommandInput, PutRestoreValidationResultCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRecoveryPointRestoreMetadataCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PutRestoreValidationResultCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "GetRecoveryPointRestoreMetadataCommand";
+    const commandName = "PutRestoreValidationResultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CryoControllerUserManager",
-        operation: "GetRecoveryPointRestoreMetadata",
+        operation: "PutRestoreValidationResult",
       },
     };
     const { requestHandler } = configuration;
@@ -155,11 +147,8 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: GetRecoveryPointRestoreMetadataCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetRecoveryPointRestoreMetadataCommand(input, context);
+  private serialize(input: PutRestoreValidationResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PutRestoreValidationResultCommand(input, context);
   }
 
   /**
@@ -168,7 +157,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-    return de_GetRecoveryPointRestoreMetadataCommand(output, context);
+  ): Promise<PutRestoreValidationResultCommandOutput> {
+    return de_PutRestoreValidationResultCommand(output, context);
   }
 }

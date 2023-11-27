@@ -16,14 +16,11 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import {
-  GetRecoveryPointRestoreMetadataInput,
-  GetRecoveryPointRestoreMetadataOutput,
-  GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+  GetRestoreJobMetadataInput,
+  GetRestoreJobMetadataOutput,
+  GetRestoreJobMetadataOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_GetRecoveryPointRestoreMetadataCommand,
-  se_GetRecoveryPointRestoreMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRestoreJobMetadataCommand, se_GetRestoreJobMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -32,49 +29,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The input for {@link GetRestoreJobMetadataCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecoveryPointRestoreMetadataInput {}
+export interface GetRestoreJobMetadataCommandInput extends GetRestoreJobMetadataInput {}
 /**
  * @public
  *
- * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The output of {@link GetRestoreJobMetadataCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandOutput
-  extends GetRecoveryPointRestoreMetadataOutput,
-    __MetadataBearer {}
+export interface GetRestoreJobMetadataCommandOutput extends GetRestoreJobMetadataOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
+ * <p>This request returns the metadata for the specified restore job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, GetRestoreJobMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, GetRestoreJobMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // GetRecoveryPointRestoreMetadataInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   RecoveryPointArn: "STRING_VALUE", // required
- *   BackupVaultAccountId: "STRING_VALUE",
+ * const input = { // GetRestoreJobMetadataInput
+ *   RestoreJobId: "STRING_VALUE", // required
  * };
- * const command = new GetRecoveryPointRestoreMetadataCommand(input);
+ * const command = new GetRestoreJobMetadataCommand(input);
  * const response = await client.send(command);
- * // { // GetRecoveryPointRestoreMetadataOutput
- * //   BackupVaultArn: "STRING_VALUE",
- * //   RecoveryPointArn: "STRING_VALUE",
- * //   RestoreMetadata: { // Metadata
+ * // { // GetRestoreJobMetadataOutput
+ * //   RestoreJobId: "STRING_VALUE",
+ * //   Metadata: { // Metadata
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   ResourceType: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
- * @returns {@link GetRecoveryPointRestoreMetadataCommandOutput}
- * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
- * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
+ * @param GetRestoreJobMetadataCommandInput - {@link GetRestoreJobMetadataCommandInput}
+ * @returns {@link GetRestoreJobMetadataCommandOutput}
+ * @see {@link GetRestoreJobMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetRestoreJobMetadataCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
@@ -94,9 +85,9 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class GetRecoveryPointRestoreMetadataCommand extends $Command<
-  GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput,
+export class GetRestoreJobMetadataCommand extends $Command<
+  GetRestoreJobMetadataCommandInput,
+  GetRestoreJobMetadataCommandOutput,
   BackupClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -111,7 +102,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetRecoveryPointRestoreMetadataCommandInput) {
+  constructor(readonly input: GetRestoreJobMetadataCommandInput) {
     super();
   }
 
@@ -122,26 +113,26 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRecoveryPointRestoreMetadataCommandInput, GetRecoveryPointRestoreMetadataCommandOutput> {
+  ): Handler<GetRestoreJobMetadataCommandInput, GetRestoreJobMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRecoveryPointRestoreMetadataCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetRestoreJobMetadataCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "GetRecoveryPointRestoreMetadataCommand";
+    const commandName = "GetRestoreJobMetadataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRestoreJobMetadataOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "CryoControllerUserManager",
-        operation: "GetRecoveryPointRestoreMetadata",
+        operation: "GetRestoreJobMetadata",
       },
     };
     const { requestHandler } = configuration;
@@ -155,20 +146,14 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: GetRecoveryPointRestoreMetadataCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetRecoveryPointRestoreMetadataCommand(input, context);
+  private serialize(input: GetRestoreJobMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetRestoreJobMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-    return de_GetRecoveryPointRestoreMetadataCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRestoreJobMetadataCommandOutput> {
+    return de_GetRestoreJobMetadataCommand(output, context);
   }
 }

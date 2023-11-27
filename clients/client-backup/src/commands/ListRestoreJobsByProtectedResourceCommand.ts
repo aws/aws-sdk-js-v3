@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/models_0";
-import { de_ListRestoreJobsCommand, se_ListRestoreJobsCommand } from "../protocols/Aws_restJson1";
+import { ListRestoreJobsByProtectedResourceInput, ListRestoreJobsByProtectedResourceOutput } from "../models/models_0";
+import {
+  de_ListRestoreJobsByProtectedResourceCommand,
+  se_ListRestoreJobsByProtectedResourceCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,40 +28,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListRestoreJobsCommand}.
+ * The input for {@link ListRestoreJobsByProtectedResourceCommand}.
  */
-export interface ListRestoreJobsCommandInput extends ListRestoreJobsInput {}
+export interface ListRestoreJobsByProtectedResourceCommandInput extends ListRestoreJobsByProtectedResourceInput {}
 /**
  * @public
  *
- * The output of {@link ListRestoreJobsCommand}.
+ * The output of {@link ListRestoreJobsByProtectedResourceCommand}.
  */
-export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __MetadataBearer {}
+export interface ListRestoreJobsByProtectedResourceCommandOutput
+  extends ListRestoreJobsByProtectedResourceOutput,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a list of jobs that Backup initiated to restore a saved resource,
- *          including details about the recovery process.</p>
+ * <p>This returns restore jobs that contain the specified protected resource.</p>
+ *          <p>You must include <code>ResourceArn</code>. You can optionally include
+ *             <code>NextToken</code>, <code>ByStatus</code>, <code>MaxResults</code>,
+ *             <code>ByRecoveryPointCreationDateAfter</code> , and
+ *             <code>ByRecoveryPointCreationDateBefore</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListRestoreJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListRestoreJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRestoreJobsByProtectedResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListRestoreJobsByProtectedResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // ListRestoreJobsInput
+ * const input = { // ListRestoreJobsByProtectedResourceInput
+ *   ResourceArn: "STRING_VALUE", // required
+ *   ByStatus: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
+ *   ByRecoveryPointCreationDateAfter: new Date("TIMESTAMP"),
+ *   ByRecoveryPointCreationDateBefore: new Date("TIMESTAMP"),
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ByAccountId: "STRING_VALUE",
- *   ByCreatedBefore: new Date("TIMESTAMP"),
- *   ByCreatedAfter: new Date("TIMESTAMP"),
- *   ByStatus: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
- *   ByCompleteBefore: new Date("TIMESTAMP"),
- *   ByCompleteAfter: new Date("TIMESTAMP"),
- *   ByRestoreTestingPlanArn: "STRING_VALUE",
  * };
- * const command = new ListRestoreJobsCommand(input);
+ * const command = new ListRestoreJobsByProtectedResourceCommand(input);
  * const response = await client.send(command);
- * // { // ListRestoreJobsOutput
+ * // { // ListRestoreJobsByProtectedResourceOutput
  * //   RestoreJobs: [ // RestoreJobsList
  * //     { // RestoreJobsListMember
  * //       AccountId: "STRING_VALUE",
@@ -89,10 +94,10 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  *
  * ```
  *
- * @param ListRestoreJobsCommandInput - {@link ListRestoreJobsCommandInput}
- * @returns {@link ListRestoreJobsCommandOutput}
- * @see {@link ListRestoreJobsCommandInput} for command's `input` shape.
- * @see {@link ListRestoreJobsCommandOutput} for command's `response` shape.
+ * @param ListRestoreJobsByProtectedResourceCommandInput - {@link ListRestoreJobsByProtectedResourceCommandInput}
+ * @returns {@link ListRestoreJobsByProtectedResourceCommandOutput}
+ * @see {@link ListRestoreJobsByProtectedResourceCommandInput} for command's `input` shape.
+ * @see {@link ListRestoreJobsByProtectedResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
@@ -112,9 +117,9 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class ListRestoreJobsCommand extends $Command<
-  ListRestoreJobsCommandInput,
-  ListRestoreJobsCommandOutput,
+export class ListRestoreJobsByProtectedResourceCommand extends $Command<
+  ListRestoreJobsByProtectedResourceCommandInput,
+  ListRestoreJobsByProtectedResourceCommandOutput,
   BackupClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -129,7 +134,7 @@ export class ListRestoreJobsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListRestoreJobsCommandInput) {
+  constructor(readonly input: ListRestoreJobsByProtectedResourceCommandInput) {
     super();
   }
 
@@ -140,17 +145,17 @@ export class ListRestoreJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput> {
+  ): Handler<ListRestoreJobsByProtectedResourceCommandInput, ListRestoreJobsByProtectedResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListRestoreJobsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListRestoreJobsByProtectedResourceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "ListRestoreJobsCommand";
+    const commandName = "ListRestoreJobsByProtectedResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -159,7 +164,7 @@ export class ListRestoreJobsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CryoControllerUserManager",
-        operation: "ListRestoreJobs",
+        operation: "ListRestoreJobsByProtectedResource",
       },
     };
     const { requestHandler } = configuration;
@@ -173,14 +178,20 @@ export class ListRestoreJobsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListRestoreJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListRestoreJobsCommand(input, context);
+  private serialize(
+    input: ListRestoreJobsByProtectedResourceCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_ListRestoreJobsByProtectedResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRestoreJobsCommandOutput> {
-    return de_ListRestoreJobsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListRestoreJobsByProtectedResourceCommandOutput> {
+    return de_ListRestoreJobsByProtectedResourceCommand(output, context);
   }
 }

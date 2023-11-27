@@ -65,6 +65,7 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *         Lifecycle: { // Lifecycle
  *           MoveToColdStorageAfterDays: Number("long"),
  *           DeleteAfterDays: Number("long"),
+ *           OptInToArchiveForSupportedResources: true || false,
  *         },
  *         RecoveryPointTags: { // Tags
  *           "<keys>": "STRING_VALUE",
@@ -74,6 +75,7 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *             Lifecycle: {
  *               MoveToColdStorageAfterDays: Number("long"),
  *               DeleteAfterDays: Number("long"),
+ *               OptInToArchiveForSupportedResources: true || false,
  *             },
  *             DestinationBackupVaultArn: "STRING_VALUE", // required
  *           },

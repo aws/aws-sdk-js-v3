@@ -15,14 +15,10 @@ import {
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ListRestoreTestingSelectionsInput, ListRestoreTestingSelectionsOutput } from "../models/models_0";
 import {
-  GetRecoveryPointRestoreMetadataInput,
-  GetRecoveryPointRestoreMetadataOutput,
-  GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetRecoveryPointRestoreMetadataCommand,
-  se_GetRecoveryPointRestoreMetadataCommand,
+  de_ListRestoreTestingSelectionsCommand,
+  se_ListRestoreTestingSelectionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -32,57 +28,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The input for {@link ListRestoreTestingSelectionsCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecoveryPointRestoreMetadataInput {}
+export interface ListRestoreTestingSelectionsCommandInput extends ListRestoreTestingSelectionsInput {}
 /**
  * @public
  *
- * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The output of {@link ListRestoreTestingSelectionsCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandOutput
-  extends GetRecoveryPointRestoreMetadataOutput,
+export interface ListRestoreTestingSelectionsCommandOutput
+  extends ListRestoreTestingSelectionsOutput,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
+ * <p>Returns a list of restore testing selections. Can be filtered
+ *          by <code>MaxResults</code> and <code>RestoreTestingPlanName</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRestoreTestingSelectionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListRestoreTestingSelectionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // GetRecoveryPointRestoreMetadataInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   RecoveryPointArn: "STRING_VALUE", // required
- *   BackupVaultAccountId: "STRING_VALUE",
+ * const input = { // ListRestoreTestingSelectionsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RestoreTestingPlanName: "STRING_VALUE", // required
  * };
- * const command = new GetRecoveryPointRestoreMetadataCommand(input);
+ * const command = new ListRestoreTestingSelectionsCommand(input);
  * const response = await client.send(command);
- * // { // GetRecoveryPointRestoreMetadataOutput
- * //   BackupVaultArn: "STRING_VALUE",
- * //   RecoveryPointArn: "STRING_VALUE",
- * //   RestoreMetadata: { // Metadata
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   ResourceType: "STRING_VALUE",
+ * // { // ListRestoreTestingSelectionsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   RestoreTestingSelections: [ // RestoreTestingSelections // required
+ * //     { // RestoreTestingSelectionForList
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       IamRoleArn: "STRING_VALUE", // required
+ * //       ProtectedResourceType: "STRING_VALUE", // required
+ * //       RestoreTestingPlanName: "STRING_VALUE", // required
+ * //       RestoreTestingSelectionName: "STRING_VALUE", // required
+ * //       ValidationWindowHours: Number("int"),
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
- * @returns {@link GetRecoveryPointRestoreMetadataCommandOutput}
- * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
- * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
+ * @param ListRestoreTestingSelectionsCommandInput - {@link ListRestoreTestingSelectionsCommandInput}
+ * @returns {@link ListRestoreTestingSelectionsCommandOutput}
+ * @see {@link ListRestoreTestingSelectionsCommandInput} for command's `input` shape.
+ * @see {@link ListRestoreTestingSelectionsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
- *
- * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource that is required for the action doesn't exist.</p>
@@ -94,9 +93,9 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class GetRecoveryPointRestoreMetadataCommand extends $Command<
-  GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput,
+export class ListRestoreTestingSelectionsCommand extends $Command<
+  ListRestoreTestingSelectionsCommandInput,
+  ListRestoreTestingSelectionsCommandOutput,
   BackupClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -111,7 +110,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetRecoveryPointRestoreMetadataCommandInput) {
+  constructor(readonly input: ListRestoreTestingSelectionsCommandInput) {
     super();
   }
 
@@ -122,26 +121,26 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRecoveryPointRestoreMetadataCommandInput, GetRecoveryPointRestoreMetadataCommandOutput> {
+  ): Handler<ListRestoreTestingSelectionsCommandInput, ListRestoreTestingSelectionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRecoveryPointRestoreMetadataCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListRestoreTestingSelectionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "GetRecoveryPointRestoreMetadataCommand";
+    const commandName = "ListRestoreTestingSelectionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CryoControllerUserManager",
-        operation: "GetRecoveryPointRestoreMetadata",
+        operation: "ListRestoreTestingSelections",
       },
     };
     const { requestHandler } = configuration;
@@ -155,11 +154,8 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: GetRecoveryPointRestoreMetadataCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetRecoveryPointRestoreMetadataCommand(input, context);
+  private serialize(input: ListRestoreTestingSelectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListRestoreTestingSelectionsCommand(input, context);
   }
 
   /**
@@ -168,7 +164,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-    return de_GetRecoveryPointRestoreMetadataCommand(output, context);
+  ): Promise<ListRestoreTestingSelectionsCommandOutput> {
+    return de_ListRestoreTestingSelectionsCommand(output, context);
   }
 }

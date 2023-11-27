@@ -67,6 +67,8 @@ export interface ListProtectedResourcesByBackupVaultCommandOutput
  * //       ResourceType: "STRING_VALUE",
  * //       LastBackupTime: new Date("TIMESTAMP"),
  * //       ResourceName: "STRING_VALUE",
+ * //       LastBackupVaultArn: "STRING_VALUE",
+ * //       LastRecoveryPointArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

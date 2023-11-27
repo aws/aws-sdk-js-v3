@@ -95,6 +95,7 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * //       ParentJobId: "STRING_VALUE",
  * //       IsParent: true || false,
  * //       ResourceName: "STRING_VALUE",
+ * //       InitiationDate: new Date("TIMESTAMP"),
  * //       MessageCategory: "STRING_VALUE",
  * //     },
  * //   ],

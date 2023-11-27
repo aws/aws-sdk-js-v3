@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DescribeProtectedResourceInput, DescribeProtectedResourceOutput } from "../models/models_0";
-import { de_DescribeProtectedResourceCommand, se_DescribeProtectedResourceCommand } from "../protocols/Aws_restJson1";
+import { DeleteRestoreTestingSelectionInput } from "../models/models_0";
+import {
+  de_DeleteRestoreTestingSelectionCommand,
+  se_DeleteRestoreTestingSelectionCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,58 +28,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeProtectedResourceCommand}.
+ * The input for {@link DeleteRestoreTestingSelectionCommand}.
  */
-export interface DescribeProtectedResourceCommandInput extends DescribeProtectedResourceInput {}
+export interface DeleteRestoreTestingSelectionCommandInput extends DeleteRestoreTestingSelectionInput {}
 /**
  * @public
  *
- * The output of {@link DescribeProtectedResourceCommand}.
+ * The output of {@link DeleteRestoreTestingSelectionCommand}.
  */
-export interface DescribeProtectedResourceCommandOutput extends DescribeProtectedResourceOutput, __MetadataBearer {}
+export interface DeleteRestoreTestingSelectionCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a saved resource, including the last time it was backed up,
- *          its Amazon Resource Name (ARN), and the Amazon Web Services service type of the saved
- *          resource.</p>
+ * <p>Input the Restore Testing Plan name and Restore Testing Selection
+ *          name.</p>
+ *          <p>All testing selections associated with a restore testing plan must
+ *          be deleted before the restore testing plan can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DescribeProtectedResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DescribeProtectedResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DeleteRestoreTestingSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, DeleteRestoreTestingSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // DescribeProtectedResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ * const input = { // DeleteRestoreTestingSelectionInput
+ *   RestoreTestingPlanName: "STRING_VALUE", // required
+ *   RestoreTestingSelectionName: "STRING_VALUE", // required
  * };
- * const command = new DescribeProtectedResourceCommand(input);
+ * const command = new DeleteRestoreTestingSelectionCommand(input);
  * const response = await client.send(command);
- * // { // DescribeProtectedResourceOutput
- * //   ResourceArn: "STRING_VALUE",
- * //   ResourceType: "STRING_VALUE",
- * //   LastBackupTime: new Date("TIMESTAMP"),
- * //   ResourceName: "STRING_VALUE",
- * //   LastBackupVaultArn: "STRING_VALUE",
- * //   LastRecoveryPointArn: "STRING_VALUE",
- * //   LatestRestoreExecutionTimeMinutes: Number("long"),
- * //   LatestRestoreJobCreationDate: new Date("TIMESTAMP"),
- * //   LatestRestoreRecoveryPointCreationDate: new Date("TIMESTAMP"),
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribeProtectedResourceCommandInput - {@link DescribeProtectedResourceCommandInput}
- * @returns {@link DescribeProtectedResourceCommandOutput}
- * @see {@link DescribeProtectedResourceCommandInput} for command's `input` shape.
- * @see {@link DescribeProtectedResourceCommandOutput} for command's `response` shape.
+ * @param DeleteRestoreTestingSelectionCommandInput - {@link DeleteRestoreTestingSelectionCommandInput}
+ * @returns {@link DeleteRestoreTestingSelectionCommandOutput}
+ * @see {@link DeleteRestoreTestingSelectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteRestoreTestingSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
- *
- * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
- *
- * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource that is required for the action doesn't exist.</p>
@@ -88,9 +76,9 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class DescribeProtectedResourceCommand extends $Command<
-  DescribeProtectedResourceCommandInput,
-  DescribeProtectedResourceCommandOutput,
+export class DeleteRestoreTestingSelectionCommand extends $Command<
+  DeleteRestoreTestingSelectionCommandInput,
+  DeleteRestoreTestingSelectionCommandOutput,
   BackupClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -105,7 +93,7 @@ export class DescribeProtectedResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeProtectedResourceCommandInput) {
+  constructor(readonly input: DeleteRestoreTestingSelectionCommandInput) {
     super();
   }
 
@@ -116,17 +104,17 @@ export class DescribeProtectedResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeProtectedResourceCommandInput, DescribeProtectedResourceCommandOutput> {
+  ): Handler<DeleteRestoreTestingSelectionCommandInput, DeleteRestoreTestingSelectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeProtectedResourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteRestoreTestingSelectionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "DescribeProtectedResourceCommand";
+    const commandName = "DeleteRestoreTestingSelectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -135,7 +123,7 @@ export class DescribeProtectedResourceCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CryoControllerUserManager",
-        operation: "DescribeProtectedResource",
+        operation: "DeleteRestoreTestingSelection",
       },
     };
     const { requestHandler } = configuration;
@@ -149,8 +137,8 @@ export class DescribeProtectedResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeProtectedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeProtectedResourceCommand(input, context);
+  private serialize(input: DeleteRestoreTestingSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteRestoreTestingSelectionCommand(input, context);
   }
 
   /**
@@ -159,7 +147,7 @@ export class DescribeProtectedResourceCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeProtectedResourceCommandOutput> {
-    return de_DescribeProtectedResourceCommand(output, context);
+  ): Promise<DeleteRestoreTestingSelectionCommandOutput> {
+    return de_DeleteRestoreTestingSelectionCommand(output, context);
   }
 }

@@ -67,6 +67,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *   Lifecycle: { // Lifecycle
  *     MoveToColdStorageAfterDays: Number("long"),
  *     DeleteAfterDays: Number("long"),
+ *     OptInToArchiveForSupportedResources: true || false,
  *   },
  * };
  * const command = new UpdateRecoveryPointLifecycleCommand(input);
@@ -77,6 +78,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * //   Lifecycle: { // Lifecycle
  * //     MoveToColdStorageAfterDays: Number("long"),
  * //     DeleteAfterDays: Number("long"),
+ * //     OptInToArchiveForSupportedResources: true || false,
  * //   },
  * //   CalculatedLifecycle: { // CalculatedLifecycle
  * //     MoveToColdStorageAt: new Date("TIMESTAMP"),

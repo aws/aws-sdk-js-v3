@@ -15,14 +15,10 @@ import {
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetRestoreTestingInferredMetadataInput, GetRestoreTestingInferredMetadataOutput } from "../models/models_0";
 import {
-  GetRecoveryPointRestoreMetadataInput,
-  GetRecoveryPointRestoreMetadataOutput,
-  GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetRecoveryPointRestoreMetadataCommand,
-  se_GetRecoveryPointRestoreMetadataCommand,
+  de_GetRestoreTestingInferredMetadataCommand,
+  se_GetRestoreTestingInferredMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -32,49 +28,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The input for {@link GetRestoreTestingInferredMetadataCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecoveryPointRestoreMetadataInput {}
+export interface GetRestoreTestingInferredMetadataCommandInput extends GetRestoreTestingInferredMetadataInput {}
 /**
  * @public
  *
- * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The output of {@link GetRestoreTestingInferredMetadataCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandOutput
-  extends GetRecoveryPointRestoreMetadataOutput,
+export interface GetRestoreTestingInferredMetadataCommandOutput
+  extends GetRestoreTestingInferredMetadataOutput,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
+ * <p>This request returns the minimal required set of metadata needed to
+ *          start a restore job with secure default settings. <code>BackupVaultName</code>
+ *          and <code>RecoveryPointArn</code> are required parameters.
+ *          <code>BackupVaultAccountId</code> is an optional parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, GetRestoreTestingInferredMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, GetRestoreTestingInferredMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // GetRecoveryPointRestoreMetadataInput
+ * const input = { // GetRestoreTestingInferredMetadataInput
+ *   BackupVaultAccountId: "STRING_VALUE",
  *   BackupVaultName: "STRING_VALUE", // required
  *   RecoveryPointArn: "STRING_VALUE", // required
- *   BackupVaultAccountId: "STRING_VALUE",
  * };
- * const command = new GetRecoveryPointRestoreMetadataCommand(input);
+ * const command = new GetRestoreTestingInferredMetadataCommand(input);
  * const response = await client.send(command);
- * // { // GetRecoveryPointRestoreMetadataOutput
- * //   BackupVaultArn: "STRING_VALUE",
- * //   RecoveryPointArn: "STRING_VALUE",
- * //   RestoreMetadata: { // Metadata
+ * // { // GetRestoreTestingInferredMetadataOutput
+ * //   InferredMetadata: { // stringMap // required
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   ResourceType: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
- * @returns {@link GetRecoveryPointRestoreMetadataCommandOutput}
- * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
- * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
+ * @param GetRestoreTestingInferredMetadataCommandInput - {@link GetRestoreTestingInferredMetadataCommandInput}
+ * @returns {@link GetRestoreTestingInferredMetadataCommandOutput}
+ * @see {@link GetRestoreTestingInferredMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetRestoreTestingInferredMetadataCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
@@ -94,9 +90,9 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class GetRecoveryPointRestoreMetadataCommand extends $Command<
-  GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput,
+export class GetRestoreTestingInferredMetadataCommand extends $Command<
+  GetRestoreTestingInferredMetadataCommandInput,
+  GetRestoreTestingInferredMetadataCommandOutput,
   BackupClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -111,7 +107,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetRecoveryPointRestoreMetadataCommandInput) {
+  constructor(readonly input: GetRestoreTestingInferredMetadataCommandInput) {
     super();
   }
 
@@ -122,26 +118,26 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRecoveryPointRestoreMetadataCommandInput, GetRecoveryPointRestoreMetadataCommandOutput> {
+  ): Handler<GetRestoreTestingInferredMetadataCommandInput, GetRestoreTestingInferredMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRecoveryPointRestoreMetadataCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetRestoreTestingInferredMetadataCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "GetRecoveryPointRestoreMetadataCommand";
+    const commandName = "GetRestoreTestingInferredMetadataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CryoControllerUserManager",
-        operation: "GetRecoveryPointRestoreMetadata",
+        operation: "GetRestoreTestingInferredMetadata",
       },
     };
     const { requestHandler } = configuration;
@@ -156,10 +152,10 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: GetRecoveryPointRestoreMetadataCommandInput,
+    input: GetRestoreTestingInferredMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_GetRecoveryPointRestoreMetadataCommand(input, context);
+    return se_GetRestoreTestingInferredMetadataCommand(input, context);
   }
 
   /**
@@ -168,7 +164,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-    return de_GetRecoveryPointRestoreMetadataCommand(output, context);
+  ): Promise<GetRestoreTestingInferredMetadataCommandOutput> {
+    return de_GetRestoreTestingInferredMetadataCommand(output, context);
   }
 }

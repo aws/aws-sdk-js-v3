@@ -54,6 +54,7 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  *   Lifecycle: { // Lifecycle
  *     MoveToColdStorageAfterDays: Number("long"),
  *     DeleteAfterDays: Number("long"),
+ *     OptInToArchiveForSupportedResources: true || false,
  *   },
  *   RecoveryPointTags: { // Tags
  *     "<keys>": "STRING_VALUE",

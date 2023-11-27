@@ -84,6 +84,7 @@ export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput,
  * //     "<keys>": Number("long"),
  * //   },
  * //   ResourceName: "STRING_VALUE",
+ * //   InitiationDate: new Date("TIMESTAMP"),
  * //   MessageCategory: "STRING_VALUE",
  * // };
  *
