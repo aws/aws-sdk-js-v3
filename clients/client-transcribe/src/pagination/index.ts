@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./ListCallAnalyticsCategoriesPaginator";
 export * from "./ListCallAnalyticsJobsPaginator";
 export * from "./ListLanguageModelsPaginator";
+export * from "./ListMedicalScribeJobsPaginator";
 export * from "./ListMedicalTranscriptionJobsPaginator";
 export * from "./ListMedicalVocabulariesPaginator";
 export * from "./ListTranscriptionJobsPaginator";

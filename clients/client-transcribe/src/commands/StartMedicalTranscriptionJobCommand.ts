@@ -50,7 +50,7 @@ export interface StartMedicalTranscriptionJobCommandOutput
  *             features, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works-med.html">How Amazon Transcribe Medical
  *                 works</a>.</p>
  *          <p>To make a <code>StartMedicalTranscriptionJob</code> request, you must first upload
- *             your media file into an Amazon S3 bucket; you can then specify the S3 location
+ *             your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location
  *             of the file using the <code>Media</code> parameter.</p>
  *          <p>You must include the following parameters in your
  *                 <code>StartMedicalTranscriptionJob</code> request:</p>

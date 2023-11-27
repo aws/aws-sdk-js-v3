@@ -262,7 +262,8 @@ export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
  * @public
  * <p>Describes the Amazon S3 location of the media file you want to use in your
  *             request.</p>
- *          <p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
+ *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
+ *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
  *             in the Amazon S3 Developer Guide.</p>
  */
 export interface Media {
@@ -390,17 +391,19 @@ export type RedactionType = (typeof RedactionType)[keyof typeof RedactionType];
 
 /**
  * @public
- * <p>Makes it possible to redact or flag specified personally identifiable information
- *             (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also
- *             include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>,
- *             and <code>RedactionType</code>.</p>
+ * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
+ *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
+ *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
+ *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to
+ *             redact.</p>
  */
 export interface ContentRedaction {
   /**
    * @public
    * <p>Specify the category of information you want to redact; <code>PII</code> (personally
-   *             identifiable information) is the only valid value. You can use
-   *                 <code>PiiEntityTypes</code> to choose which types of PII you want to redact.</p>
+   *             identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code> to
+   *             choose which types of PII you want to redact. If you do not include <code>PiiEntityTypes</code> in
+   *             your request, all PII is redacted.</p>
    */
   RedactionType: RedactionType | undefined;
 
@@ -420,7 +423,8 @@ export interface ContentRedaction {
    * @public
    * <p>Specify which types of personally identifiable information (PII) you want to redact in
    *             your transcript. You can include as many types as you'd like, or you can select
-   *                 <code>ALL</code>.</p>
+   *             <code>ALL</code>. If you do not include <code>PiiEntityTypes</code> in your request, all PII is
+   *             redacted.</p>
    */
   PiiEntityTypes?: PiiEntityType[];
 }
@@ -462,7 +466,7 @@ export interface LanguageIdSettings {
    * <p>The name of the custom vocabulary you want to use when processing your transcription
    *             job. Custom vocabulary names are case sensitive.</p>
    *          <p>The language of the specified custom vocabulary must match the language code that you
-   *             specify in your transcription request. If the languages don't match, the custom
+   *             specify in your transcription request. If the languages do not match, the custom
    *             vocabulary isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
    */
@@ -473,7 +477,7 @@ export interface LanguageIdSettings {
    * <p>The name of the custom vocabulary filter you want to use when processing your
    *             transcription job. Custom vocabulary filter names are case sensitive.</p>
    *          <p>The language of the specified custom vocabulary filter must match the language code
-   *             that you specify in your transcription request. If the languages don't match, the custom
+   *             that you specify in your transcription request. If the languages do not match, the custom
    *             vocabulary filter isn't applied. There are no errors or warnings associated with a
    *             language mismatch.</p>
    *          <p>Note that if you include <code>VocabularyFilterName</code> in your request, you must
@@ -486,7 +490,7 @@ export interface LanguageIdSettings {
    * <p>The name of the custom language model you want to use when processing your
    *             transcription job. Note that custom language model names are case sensitive.</p>
    *          <p>The language of the specified custom language model must match the language code that
-   *             you specify in your transcription request. If the languages don't match, the custom
+   *             you specify in your transcription request. If the languages do not match, the custom
    *             language model isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
    */
@@ -562,7 +566,7 @@ export interface CallAnalyticsJobSettings {
    * <p>The name of the custom language model you want to use when processing your Call
    *             Analytics job. Note that custom language model names are case sensitive.</p>
    *          <p>The language of the specified custom language model must match the language code that
-   *             you specify in your transcription request. If the languages don't match, the custom
+   *             you specify in your transcription request. If the languages do not match, the custom
    *             language model isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
    */
@@ -570,10 +574,11 @@ export interface CallAnalyticsJobSettings {
 
   /**
    * @public
-   * <p>Makes it possible to redact or flag specified personally identifiable information
-   *             (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also
-   *             include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>,
-   *             and <code>RedactionType</code>.</p>
+   * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
+   *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
+   *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
+   *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to
+   *             redact.</p>
    */
   ContentRedaction?: ContentRedaction;
 
@@ -715,7 +720,7 @@ export interface CallAnalyticsJob {
    * <p>The language code used to create your Call Analytics job. For a list of supported
    *             languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a>
    *             table.</p>
-   *          <p>If you don't know the language spoken in your media file, you can omit this field and
+   *          <p>If you do not know the language spoken in your media file, you can omit this field and
    *             let Amazon Transcribe automatically identify the language of your media. To improve the
    *             accuracy of language identification, you can include several language codes and Amazon Transcribe chooses the closest match for your transcription.</p>
    */
@@ -785,7 +790,7 @@ export interface CallAnalyticsJob {
    *                <p>
    *                   <code>Unsupported media format</code>.</p>
    *                <p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to
-   *                         <b>MediaFormat</b> for a list of supported
+   *                     refer to the <code>MediaFormat</code> parameter for a list of supported
    *                     formats.</p>
    *             </li>
    *             <li>
@@ -814,14 +819,14 @@ export interface CallAnalyticsJob {
    *                <p>
    *                   <code>Invalid file size: file size too large</code>.</p>
    *                <p>The size of your media file is larger than what Amazon Transcribe can
-   *                     process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and
+   *                     process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service
    *                         quotas</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Invalid number of channels: number of channels too large</code>.</p>
    *                <p>Your audio contains more channels than Amazon Transcribe is able to process.
-   *                     For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and
+   *                     For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service
    *                         quotas</a>.</p>
    *             </li>
    *          </ul>
@@ -1622,10 +1627,8 @@ export interface CreateLanguageModelRequest {
    *             model must contain terms in only one language, and the language you select for your
    *             custom language model must match the language of your training and tuning data.</p>
    *          <p>For a list of supported languages and their associated language codes, refer to the
-   *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that
-   *             US English
-   *                 (<code>en-US</code>) is the only language supported with Amazon Transcribe
-   *             Medical.</p>
+   *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that US English (<code>en-US</code>) is the
+   *             only language supported with Amazon Transcribe Medical.</p>
    *          <p>A custom language model can only be used to transcribe files in the same language as
    *             the model. For example, if you create a custom language model using US English
    *                 (<code>en-US</code>), you can only apply this model to files that contain English
@@ -2133,6 +2136,18 @@ export interface DeleteLanguageModelRequest {
 /**
  * @public
  */
+export interface DeleteMedicalScribeJobRequest {
+  /**
+   * @public
+   * <p>The name of the Medical Scribe job you want to delete. Job names are case
+   *             sensitive.</p>
+   */
+  MedicalScribeJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteMedicalTranscriptionJobRequest {
   /**
    * @public
@@ -2265,7 +2280,7 @@ export interface LanguageModel {
    *             model must contain terms in only one language, and the language you select for your
    *             custom language model must match the language of your training and tuning data.</p>
    *          <p>For a list of supported languages and their associated language codes, refer to the
-   *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that U.S. English (<code>en-US</code>) is
+   *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that US English (<code>en-US</code>) is
    *             the only language supported with Amazon Transcribe Medical.</p>
    */
   LanguageCode?: CLMLanguageCode;
@@ -2383,6 +2398,322 @@ export interface GetCallAnalyticsJobResponse {
 /**
  * @public
  */
+export interface GetMedicalScribeJobRequest {
+  /**
+   * @public
+   * <p>The name of the Medical Scribe job you want information about. Job names are
+   *             case sensitive.</p>
+   */
+  MedicalScribeJobName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeParticipantRole = {
+  CLINICIAN: "CLINICIAN",
+  PATIENT: "PATIENT",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeParticipantRole =
+  (typeof MedicalScribeParticipantRole)[keyof typeof MedicalScribeParticipantRole];
+
+/**
+ * @public
+ * <p>Indicates which speaker is on which channel. The options are
+ *       <code>CLINICIAN</code> and <code>PATIENT</code>
+ *          </p>
+ */
+export interface MedicalScribeChannelDefinition {
+  /**
+   * @public
+   * <p>Specify the audio channel you want to define.</p>
+   */
+  ChannelId: number | undefined;
+
+  /**
+   * @public
+   * <p>Specify the participant that you want to flag.
+   *       The options are <code>CLINICIAN</code> and <code>PATIENT</code>
+   *          </p>
+   */
+  ParticipantRole: MedicalScribeParticipantRole | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeLanguageCode = {
+  EN_US: "en-US",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeLanguageCode = (typeof MedicalScribeLanguageCode)[keyof typeof MedicalScribeLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeJobStatus = (typeof MedicalScribeJobStatus)[keyof typeof MedicalScribeJobStatus];
+
+/**
+ * @public
+ * <p>The location of the output of your Medical Scribe job.
+ *       <code>ClinicalDocumentUri</code> holds the Amazon S3 URI for the Clinical Document
+ *       and <code>TranscriptFileUri</code> holds the Amazon S3 URI for the Transcript.</p>
+ */
+export interface MedicalScribeOutput {
+  /**
+   * @public
+   * <p>Holds the Amazon S3 URI for the Transcript.</p>
+   */
+  TranscriptFileUri: string | undefined;
+
+  /**
+   * @public
+   * <p>Holds the Amazon S3 URI for the Clinical Document.</p>
+   */
+  ClinicalDocumentUri: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Makes it possible to control how your Medical Scribe job is processed using a
+ *             <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if
+ *             <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code>
+ *             and <code>ChannelDefinitions</code> are not set. One and only one of <code>ChannelIdentification</code> and <code>ShowSpeakerLabels</code>
+ *             must be set. If <code>ShowSpeakerLabels</code> is set, <code>MaxSpeakerLabels</code> must also be set. Use <code>Settings</code>
+ *             to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>.
+ *             <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set.
+ *         </p>
+ */
+export interface MedicalScribeSettings {
+  /**
+   * @public
+   * <p>Enables speaker partitioning (diarization) in your Medical Scribe output. Speaker
+   *             partitioning labels the speech from individual speakers in your media file.</p>
+   *          <p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
+   *                 <code>MaxSpeakerLabels</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers
+   *                 (diarization)</a>.</p>
+   */
+  ShowSpeakerLabels?: boolean;
+
+  /**
+   * @public
+   * <p>Specify the maximum number of speakers you want to partition in your media.</p>
+   *          <p>Note that if your media contains more speakers than the specified number, multiple
+   *             speakers are treated as a single speaker.</p>
+   *          <p>If you specify the <code>MaxSpeakerLabels</code> field, you must set the
+   *                 <code>ShowSpeakerLabels</code> field to true.</p>
+   */
+  MaxSpeakerLabels?: number;
+
+  /**
+   * @public
+   * <p>Enables channel identification in multi-channel audio.</p>
+   *          <p>Channel identification transcribes the audio on each channel independently, then
+   *             appends the output for each channel into one transcript.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel
+   *             audio</a>.</p>
+   */
+  ChannelIdentification?: boolean;
+
+  /**
+   * @public
+   * <p>The name of the custom vocabulary you want to include in your Medical Scribe
+   *             request. Custom vocabulary names are case sensitive.</p>
+   */
+  VocabularyName?: string;
+
+  /**
+   * @public
+   * <p>The name of the custom vocabulary filter you want to include in your Medical Scribe
+   *             request. Custom vocabulary filter names are case sensitive.</p>
+   *          <p>Note that if you include <code>VocabularyFilterName</code> in your request, you must
+   *             also include <code>VocabularyFilterMethod</code>.</p>
+   */
+  VocabularyFilterName?: string;
+
+  /**
+   * @public
+   * <p>Specify how you want your custom vocabulary filter applied to your transcript.</p>
+   *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
+   *          <p>To delete words, choose <code>remove</code>.</p>
+   *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   */
+  VocabularyFilterMethod?: VocabularyFilterMethod;
+}
+
+/**
+ * @public
+ * <p>Provides detailed information about a Medical Scribe job.</p>
+ *          <p>To view the status of the specified Medical Scribe job, check the
+ *                 <code>MedicalScribeJobStatus</code> field. If the status is <code>COMPLETED</code>,
+ *             the job is finished and you can find the results at the locations specified in
+ *                 <code>MedicalScribeOutput</code>. If the status is <code>FAILED</code>,
+ *                 <code>FailureReason</code> provides details on why your Medical Scribe job
+ *             failed.</p>
+ */
+export interface MedicalScribeJob {
+  /**
+   * @public
+   * <p>The name of the Medical Scribe job. Job names are case sensitive and must be
+   *             unique within an Amazon Web Services account.</p>
+   */
+  MedicalScribeJobName?: string;
+
+  /**
+   * @public
+   * <p>Provides the status of the specified Medical Scribe job.</p>
+   *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
+   *             results at the location specified in <code>MedicalScribeOutput</code> If
+   *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
+   *             your Medical Scribe job failed.</p>
+   */
+  MedicalScribeJobStatus?: MedicalScribeJobStatus;
+
+  /**
+   * @public
+   * <p>The language code used to create your Medical Scribe job. US English
+   *                 (<code>en-US</code>) is the only supported language for Medical Scribe jobs. </p>
+   */
+  LanguageCode?: MedicalScribeLanguageCode;
+
+  /**
+   * @public
+   * <p>Describes the Amazon S3 location of the media file you want to use in your
+   *             request.</p>
+   *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
+   *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
+   *             in the Amazon S3 Developer Guide.</p>
+   */
+  Media?: Media;
+
+  /**
+   * @public
+   * <p>The location of the output of your Medical Scribe job.
+   *       <code>ClinicalDocumentUri</code> holds the Amazon S3 URI for the Clinical Document
+   *       and <code>TranscriptFileUri</code> holds the Amazon S3 URI for the Transcript.</p>
+   */
+  MedicalScribeOutput?: MedicalScribeOutput;
+
+  /**
+   * @public
+   * <p>The date and time your Medical Scribe job began processing.</p>
+   *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
+   *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a Medical Scribe job
+   *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time the specified Medical Scribe job request was made.</p>
+   *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
+   *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
+   *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time the specified Medical Scribe job finished processing.</p>
+   *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
+   *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
+   *             that finished processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * @public
+   * <p>If <code>MedicalScribeJobStatus</code> is <code>FAILED</code>,
+   *                 <code>FailureReason</code> contains information about why the transcription job
+   *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>Makes it possible to control how your Medical Scribe job is processed using a
+   *             <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if
+   *             <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code>
+   *             and <code>ChannelDefinitions</code> are not set. One and only one of <code>ChannelIdentification</code> and <code>ShowSpeakerLabels</code>
+   *             must be set. If <code>ShowSpeakerLabels</code> is set, <code>MaxSpeakerLabels</code> must also be set. Use <code>Settings</code>
+   *             to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>.
+   *             <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set.
+   *         </p>
+   */
+  Settings?: MedicalScribeSettings;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
+   *             access the Amazon S3 bucket that contains your input files,
+   *             write to the output bucket, and use your KMS key if supplied.
+   *              If the role that you specify doesn’t have the appropriate permissions your request fails.</p>
+   *          <p>IAM role ARNs have the format
+   *             <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
+   *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+   *             ARNs</a>.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * @public
+   * <p>Makes it possible to specify which speaker is on which channel. For example, if the clinician
+   *             is the first participant to speak, you would set <code>ChannelId</code> of the first <code>ChannelDefinition</code>
+   *             in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
+   *             <code>CLINICIAN</code> (to indicate that it's the clinician speaking).
+   *             Then you would set the <code>ChannelId</code> of the second <code>ChannelDefinition</code> in the list to
+   *             <code>1</code> (to indicate the second channel) and <code>ParticipantRole</code> to
+   *             <code>PATIENT</code> (to indicate that it's the patient speaking).
+   *         </p>
+   */
+  ChannelDefinitions?: MedicalScribeChannelDefinition[];
+
+  /**
+   * @public
+   * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p>
+   *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+   *                 resources</a>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface GetMedicalScribeJobResponse {
+  /**
+   * @public
+   * <p>Provides detailed information about the specified Medical Scribe job, including
+   *             job status and, if applicable, failure reason</p>
+   */
+  MedicalScribeJob?: MedicalScribeJob;
+}
+
+/**
+ * @public
+ */
 export interface GetMedicalTranscriptionJobRequest {
   /**
    * @public
@@ -2419,9 +2750,6 @@ export interface MedicalTranscriptionSetting {
    *             partitioning labels the speech from individual speakers in your media file.</p>
    *          <p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
    *                 <code>MaxSpeakerLabels</code>.</p>
-   *          <p>You can't include <code>ShowSpeakerLabels</code> and
-   *                 <code>ChannelIdentification</code> in the same request. Including both parameters
-   *             returns a <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers
    *                 (diarization)</a>.</p>
    */
@@ -2445,9 +2773,6 @@ export interface MedicalTranscriptionSetting {
    *          <p>If you have multi-channel audio and do not enable channel identification, your audio
    *             is transcribed in a continuous manner and your transcript does not separate the speech
    *             by channel.</p>
-   *          <p>You can't include both <code>ShowSpeakerLabels</code> and
-   *                 <code>ChannelIdentification</code> in the same request. Including both parameters
-   *             returns a <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel
    *             audio</a>.</p>
    */
@@ -2484,7 +2809,7 @@ export interface MedicalTranscriptionSetting {
    * <p>The name of the custom vocabulary you want to use when processing your medical
    *             transcription job. Custom vocabulary names are case sensitive.</p>
    *          <p>The language of the specified custom vocabulary must match the language code that you
-   *             specify in your transcription request. If the languages don't match, the custom
+   *             specify in your transcription request. If the languages do not match, the custom
    *             vocabulary isn't applied. There are no errors or warnings associated with a language
    *             mismatch. US English (<code>en-US</code>) is the only valid language for Amazon Transcribe Medical.</p>
    */
@@ -2602,7 +2927,8 @@ export interface MedicalTranscriptionJob {
    * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             request.</p>
-   *          <p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
+   *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
+   *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
    *             in the Amazon S3 Developer Guide.</p>
    */
   Media?: Media;
@@ -2652,7 +2978,7 @@ export interface MedicalTranscriptionJob {
    *                <p>
    *                   <code>Unsupported media format</code>.</p>
    *                <p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to
-   *                         <b>MediaFormat</b> for a list of supported
+   *                     refer to the <code>MediaFormat</code> parameter for a list of supported
    *                     formats.</p>
    *             </li>
    *             <li>
@@ -2681,14 +3007,14 @@ export interface MedicalTranscriptionJob {
    *                <p>
    *                   <code>Invalid file size: file size too large</code>.</p>
    *                <p>The size of your media file is larger than what Amazon Transcribe can
-   *                     process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and
+   *                     process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service
    *                         quotas</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Invalid number of channels: number of channels too large</code>.</p>
    *                <p>Your audio contains more channels than Amazon Transcribe is able to process.
-   *                     For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and
+   *                     For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service
    *                         quotas</a>.</p>
    *             </li>
    *          </ul>
@@ -2800,7 +3126,7 @@ export interface GetMedicalVocabularyResponse {
 
   /**
    * @public
-   * <p>The S3 location where the specified custom medical vocabulary is stored; use this URI
+   * <p>The Amazon S3 location where the specified custom medical vocabulary is stored; use this URI
    *             to view or download the custom vocabulary.</p>
    */
   DownloadUri?: string;
@@ -2895,7 +3221,7 @@ export interface ModelSettings {
    * <p>The name of the custom language model you want to use when processing your
    *             transcription job. Note that custom language model names are case sensitive.</p>
    *          <p>The language of the specified custom language model must match the language code that
-   *             you specify in your transcription request. If the languages don't match, the custom
+   *             you specify in your transcription request. If the languages do not match, the custom
    *             language model isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
    */
@@ -2904,7 +3230,8 @@ export interface ModelSettings {
 
 /**
  * @public
- * <p>Allows additional optional settings in your  request, including channel identification, alternative transcriptions, and speaker
+ * <p>Allows additional optional settings in your
+ *             request, including channel identification, alternative transcriptions, and speaker
  *             partitioning. You can use that to apply custom vocabularies to your transcription
  *             job.</p>
  */
@@ -2922,9 +3249,6 @@ export interface Settings {
    *             partitioning labels the speech from individual speakers in your media file.</p>
    *          <p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
    *                 <code>MaxSpeakerLabels</code>.</p>
-   *          <p>You can't include both <code>ShowSpeakerLabels</code> and
-   *                 <code>ChannelIdentification</code> in the same request. Including both parameters
-   *             returns a <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers
    *                 (diarization)</a>.</p>
    */
@@ -2945,9 +3269,6 @@ export interface Settings {
    * <p>Enables channel identification in multi-channel audio.</p>
    *          <p>Channel identification transcribes the audio on each channel independently, then
    *             appends the output for each channel into one transcript.</p>
-   *          <p>You can't include both <code>ShowSpeakerLabels</code> and
-   *                 <code>ChannelIdentification</code> in the same request. Including both parameters
-   *             returns a <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel
    *             audio</a>.</p>
    */
@@ -3192,7 +3513,7 @@ export interface TranscriptionJob {
    *                <p>
    *                   <code>Unsupported media format</code>.</p>
    *                <p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to
-   *                         <b>MediaFormat</b> for a list of supported
+   *                     refer to the <code>MediaFormat</code> parameter for a list of supported
    *                     formats.</p>
    *             </li>
    *             <li>
@@ -3221,14 +3542,14 @@ export interface TranscriptionJob {
    *                <p>
    *                   <code>Invalid file size: file size too large</code>.</p>
    *                <p>The size of your media file is larger than what Amazon Transcribe can
-   *                     process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and
+   *                     process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service
    *                         quotas</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Invalid number of channels: number of channels too large</code>.</p>
    *                <p>Your audio contains more channels than Amazon Transcribe is able to process.
-   *                     For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and
+   *                     For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service
    *                         quotas</a>.</p>
    *             </li>
    *          </ul>
@@ -3394,7 +3715,7 @@ export interface GetVocabularyResponse {
 
   /**
    * @public
-   * <p>The S3 location where the custom vocabulary is stored; use this URI to view or
+   * <p>The Amazon S3 location where the custom vocabulary is stored; use this URI to view or
    *             download the custom vocabulary.</p>
    */
   DownloadUri?: string;
@@ -3463,7 +3784,7 @@ export interface ListCallAnalyticsCategoriesRequest {
    * @public
    * <p>The maximum number of Call Analytics categories to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
-   *             returned. If you don't specify a value, a default of 5 is used.</p>
+   *             returned. If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 }
@@ -3497,7 +3818,7 @@ export interface ListCallAnalyticsJobsRequest {
   /**
    * @public
    * <p>Returns only Call Analytics jobs with the specified status. Jobs are ordered by
-   *             creation date, with the newest job first. If you don't include <code>Status</code>, all
+   *             creation date, with the newest job first. If you do not include <code>Status</code>, all
    *             Call Analytics jobs are returned.</p>
    */
   Status?: CallAnalyticsJobStatus;
@@ -3523,7 +3844,7 @@ export interface ListCallAnalyticsJobsRequest {
    * @public
    * <p>The maximum number of Call Analytics jobs to return in each page of results. If there
    *             are fewer results than the value that you specify, only the actual results are returned.
-   *             If you don't specify a value, a default of 5 is used.</p>
+   *             If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 }
@@ -3563,7 +3884,7 @@ export interface ListLanguageModelsRequest {
   /**
    * @public
    * <p>Returns only custom language models with the specified status. Language models are
-   *             ordered by creation date, with the newest model first. If you don't include
+   *             ordered by creation date, with the newest model first. If you do not include
    *                 <code>StatusEquals</code>, all custom language models are returned.</p>
    */
   StatusEquals?: ModelStatus;
@@ -3589,7 +3910,7 @@ export interface ListLanguageModelsRequest {
    * @public
    * <p>The maximum number of custom language models to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
-   *             returned. If you don't specify a value, a default of 5 is used.</p>
+   *             returned. If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 }
@@ -3619,11 +3940,142 @@ export interface ListLanguageModelsResponse {
 /**
  * @public
  */
+export interface ListMedicalScribeJobsRequest {
+  /**
+   * @public
+   * <p>Returns only Medical Scribe jobs with the specified status. Jobs are ordered by
+   *             creation date, with the newest job first. If you do not include <code>Status</code>, all
+   *             Medical Scribe jobs are returned.</p>
+   */
+  Status?: MedicalScribeJobStatus;
+
+  /**
+   * @public
+   * <p>Returns only the Medical Scribe jobs that contain the specified string. The
+   *             search is not case sensitive.</p>
+   */
+  JobNameContains?: string;
+
+  /**
+   * @public
+   * <p>If your <code>ListMedicalScribeJobs</code> request returns more results than
+   *             can be displayed, <code>NextToken</code> is displayed in the response with an associated
+   *             string. To get the next page of results, copy this string and repeat your request,
+   *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
+   *             to view all your results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of Medical Scribe jobs to return in each page of results. If
+   *             there are fewer results than the value that you specify, only the actual results are
+   *             returned. If you do not specify a value, a default of 5 is used.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Provides detailed information about a specific Medical Scribe job.</p>
+ */
+export interface MedicalScribeJobSummary {
+  /**
+   * @public
+   * <p>The name of the Medical Scribe job. Job names are case sensitive and must be
+   *             unique within an Amazon Web Services account.</p>
+   */
+  MedicalScribeJobName?: string;
+
+  /**
+   * @public
+   * <p>The date and time the specified Medical Scribe job request was made.</p>
+   *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
+   *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
+   *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time your Medical Scribe job began processing.</p>
+   *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
+   *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a Medical Scribe job
+   *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time the specified Medical Scribe job finished processing.</p>
+   *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
+   *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
+   *             that finished processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * @public
+   * <p>The language code used to create your Medical Scribe job. US English
+   *                 (<code>en-US</code>) is the only supported language for Medical Scribe jobs. </p>
+   */
+  LanguageCode?: MedicalScribeLanguageCode;
+
+  /**
+   * @public
+   * <p>Provides the status of the specified Medical Scribe job.</p>
+   *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
+   *             results at the location specified in <code>MedicalScribeOutput</code> If
+   *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
+   *             your Medical Scribe job failed.</p>
+   */
+  MedicalScribeJobStatus?: MedicalScribeJobStatus;
+
+  /**
+   * @public
+   * <p>If <code>MedicalScribeJobStatus</code> is <code>FAILED</code>,
+   *             <code>FailureReason</code> contains information about why the transcription job
+   *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   */
+  FailureReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMedicalScribeJobsResponse {
+  /**
+   * @public
+   * <p>Lists all Medical Scribe jobs that have the status specified in your request.
+   *             Jobs are ordered by creation date, with the newest job first.</p>
+   */
+  Status?: MedicalScribeJobStatus;
+
+  /**
+   * @public
+   * <p>If <code>NextToken</code> is present in your response, it indicates that not all
+   *             results are displayed. To view the next set of results, copy the string associated with
+   *             the <code>NextToken</code> parameter in your results output, then run your request again
+   *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
+   *             to view all your results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Provides a summary of information about each result.</p>
+   */
+  MedicalScribeJobSummaries?: MedicalScribeJobSummary[];
+}
+
+/**
+ * @public
+ */
 export interface ListMedicalTranscriptionJobsRequest {
   /**
    * @public
    * <p>Returns only medical transcription jobs with the specified status. Jobs are ordered by
-   *             creation date, with the newest job first. If you don't include <code>Status</code>, all
+   *             creation date, with the newest job first. If you do not include <code>Status</code>, all
    *             medical transcription jobs are returned.</p>
    */
   Status?: TranscriptionJobStatus;
@@ -3649,7 +4101,7 @@ export interface ListMedicalTranscriptionJobsRequest {
    * @public
    * <p>The maximum number of medical transcription jobs to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
-   *             returned. If you don't specify a value, a default of 5 is used.</p>
+   *             returned. If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 }
@@ -3812,14 +4264,14 @@ export interface ListMedicalVocabulariesRequest {
    * @public
    * <p>The maximum number of custom medical vocabularies to return in each page of results.
    *             If there are fewer results than the value that you specify, only the actual results are
-   *             returned. If you don't specify a value, a default of 5 is used.</p>
+   *             returned. If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 
   /**
    * @public
    * <p>Returns only custom medical vocabularies with the specified state. Custom vocabularies
-   *             are ordered by creation date, with the newest vocabulary first. If you don't include
+   *             are ordered by creation date, with the newest vocabulary first. If you do not include
    *                 <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
    */
   StateEquals?: VocabularyState;
@@ -3948,7 +4400,7 @@ export interface ListTranscriptionJobsRequest {
   /**
    * @public
    * <p>Returns only transcription jobs with the specified status. Jobs are ordered by
-   *             creation date, with the newest job first. If you don't include <code>Status</code>, all
+   *             creation date, with the newest job first. If you do not include <code>Status</code>, all
    *             transcription jobs are returned.</p>
    */
   Status?: TranscriptionJobStatus;
@@ -3974,7 +4426,7 @@ export interface ListTranscriptionJobsRequest {
    * @public
    * <p>The maximum number of transcription jobs to return in each page of results. If there
    *             are fewer results than the value that you specify, only the actual results are returned.
-   *             If you don't specify a value, a default of 5 is used.</p>
+   *             If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 }
@@ -4160,14 +4612,14 @@ export interface ListVocabulariesRequest {
    * @public
    * <p>The maximum number of custom vocabularies to return in each page of results. If there
    *             are fewer results than the value that you specify, only the actual results are returned.
-   *             If you don't specify a value, a default of 5 is used.</p>
+   *             If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 
   /**
    * @public
    * <p>Returns only custom vocabularies with the specified state. Vocabularies are ordered by
-   *             creation date, with the newest vocabulary first. If you don't include
+   *             creation date, with the newest vocabulary first. If you do not include
    *                 <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
    */
   StateEquals?: VocabularyState;
@@ -4227,7 +4679,7 @@ export interface ListVocabularyFiltersRequest {
    * @public
    * <p>The maximum number of custom vocabulary filters to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
-   *             returned. If you don't specify a value, a default of 5 is used.</p>
+   *             returned. If you do not specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
 
@@ -4336,9 +4788,9 @@ export interface StartCallAnalyticsJobRequest {
    *             value that matches the name you specified for your transcription job using the
    *                 <code>CallAnalyticsJobName</code> parameter.</p>
    *          <p>You can specify a KMS key to encrypt your output using the
-   *                 <code>OutputEncryptionKMSKeyId</code> parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for
+   *                 <code>OutputEncryptionKMSKeyId</code> parameter. If you do not specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for
    *             server-side encryption.</p>
-   *          <p>If you don't specify <code>OutputLocation</code>, your transcript is placed in a
+   *          <p>If you do not specify <code>OutputLocation</code>, your transcript is placed in a
    *             service-managed Amazon S3 bucket and you are provided with a URI to access your
    *             transcript.</p>
    */
@@ -4383,7 +4835,7 @@ export interface StartCallAnalyticsJobRequest {
    *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
    *             </li>
    *          </ol>
-   *          <p>If you don't specify an encryption key, your output is encrypted with the default
+   *          <p>If you do not specify an encryption key, your output is encrypted with the default
    *                 Amazon S3 key (SSE-S3).</p>
    *          <p>If you specify a KMS key to encrypt your output, you must also specify
    *             an output location using the <code>OutputLocation</code> parameter.</p>
@@ -4437,6 +4889,154 @@ export interface StartCallAnalyticsJobResponse {
 /**
  * @public
  */
+export interface StartMedicalScribeJobRequest {
+  /**
+   * @public
+   * <p>A unique name, chosen by you, for your Medical Scribe job.</p>
+   *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
+   *                 Amazon Web Services account. If you try to create a new job with the same name as an
+   *             existing job, you get a <code>ConflictException</code> error.</p>
+   */
+  MedicalScribeJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>Describes the Amazon S3 location of the media file you want to use in your
+   *             request.</p>
+   *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
+   *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
+   *             in the Amazon S3 Developer Guide.</p>
+   */
+  Media: Media | undefined;
+
+  /**
+   * @public
+   * <p>The name of the Amazon S3 bucket where you want your Medical Scribe
+   *             output stored. Do not include the <code>S3://</code> prefix of the specified
+   *             bucket.</p>
+   *          <p>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter
+   *             must have permission to use the specified location. You
+   *             can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p>
+   */
+  OutputBucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The KMS key you want to use to encrypt your Medical Scribe
+   *             output.</p>
+   *          <p>If using a key located in the <b>current</b>
+   *             Amazon Web Services account, you can specify your KMS key in one of four
+   *             ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the KMS key ID itself. For example,
+   *                         <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use an alias for the KMS key ID. For example,
+   *                         <code>alias/ExampleAlias</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For
+   *                     example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
+   *          <p>If using a key located in a <b>different</b>
+   *             Amazon Web Services account than the current Amazon Web Services account, you can specify
+   *             your KMS key in one of two ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the ARN for the KMS key ID. For example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
+   *          <p>If you do not specify an encryption key, your output is encrypted with the default
+   *                 Amazon S3 key (SSE-S3).</p>
+   *          <p>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter
+   *             must have permission to use the specified KMS key.</p>
+   */
+  OutputEncryptionKMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
+   *             that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in KMS</a>.</p>
+   */
+  KMSEncryptionContext?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
+   *             access the Amazon S3 bucket that contains your input files,
+   *             write to the output bucket, and use your KMS key if supplied.
+   *              If the role that you specify doesn’t have the appropriate permissions your request fails.</p>
+   *          <p>IAM role ARNs have the format
+   *             <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
+   *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+   *             ARNs</a>.</p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Makes it possible to control how your Medical Scribe job is processed using a
+   *             <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if
+   *             <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code>
+   *             and <code>ChannelDefinitions</code> are not set. One and only one of <code>ChannelIdentification</code> and <code>ShowSpeakerLabels</code>
+   *             must be set. If <code>ShowSpeakerLabels</code> is set, <code>MaxSpeakerLabels</code> must also be set. Use <code>Settings</code>
+   *             to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>.
+   *             <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set.
+   *         </p>
+   */
+  Settings: MedicalScribeSettings | undefined;
+
+  /**
+   * @public
+   * <p>Makes it possible to specify which speaker is on which channel. For example, if the clinician
+   *              is the first participant to speak, you would set <code>ChannelId</code> of the first <code>ChannelDefinition</code>
+   *              in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
+   *                 <code>CLINICIAN</code> (to indicate that it's the clinician speaking).
+   *                 Then you would set the <code>ChannelId</code> of the second <code>ChannelDefinition</code> in the list to
+   *                 <code>1</code> (to indicate the second channel) and <code>ParticipantRole</code> to
+   *                 <code>PATIENT</code> (to indicate that it's the patient speaking).
+   *                 </p>
+   */
+  ChannelDefinitions?: MedicalScribeChannelDefinition[];
+
+  /**
+   * @public
+   * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p>
+   *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+   *                 resources</a>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface StartMedicalScribeJobResponse {
+  /**
+   * @public
+   * <p>Provides detailed information about the current Medical Scribe job, including
+   *             job status and, if applicable, failure reason.</p>
+   */
+  MedicalScribeJob?: MedicalScribeJob;
+}
+
+/**
+ * @public
+ */
 export interface StartMedicalTranscriptionJobRequest {
   /**
    * @public
@@ -4462,7 +5062,7 @@ export interface StartMedicalTranscriptionJobRequest {
   /**
    * @public
    * <p>The sample rate, in hertz, of the audio track in your input media file.</p>
-   *          <p>If you don't specify the media sample rate, Amazon Transcribe Medical determines it
+   *          <p>If you do not specify the media sample rate, Amazon Transcribe Medical determines it
    *             for you. If you specify the sample rate, it must match the rate detected by Amazon Transcribe Medical; if there's a mismatch between the value that you specify and the
    *             value detected, your job fails. Therefore, in most cases, it's advised to omit
    *                 <code>MediaSampleRateHertz</code> and let Amazon Transcribe Medical determine the
@@ -4480,7 +5080,8 @@ export interface StartMedicalTranscriptionJobRequest {
    * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             request.</p>
-   *          <p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
+   *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
+   *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
    *             in the Amazon S3 Developer Guide.</p>
    */
   Media: Media | undefined;
@@ -4581,7 +5182,7 @@ export interface StartMedicalTranscriptionJobRequest {
    *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
    *             </li>
    *          </ol>
-   *          <p>If you don't specify an encryption key, your output is encrypted with the default
+   *          <p>If you do not specify an encryption key, your output is encrypted with the default
    *                 Amazon S3 key (SSE-S3).</p>
    *          <p>If you specify a KMS key to encrypt your output, you must also specify
    *             an output location using the <code>OutputLocation</code> parameter.</p>
@@ -4718,7 +5319,7 @@ export interface StartTranscriptionJobRequest {
   /**
    * @public
    * <p>The sample rate, in hertz, of the audio track in your input media file.</p>
-   *          <p>If you don't specify the media sample rate, Amazon Transcribe determines it for you.
+   *          <p>If you do not specify the media sample rate, Amazon Transcribe determines it for you.
    *             If you specify the sample rate, it must match the rate detected by Amazon Transcribe.
    *             If there's a mismatch between the value that you specify and the value detected, your
    *             job fails. In most cases, you can omit <code>MediaSampleRateHertz</code> and let Amazon Transcribe determine the sample rate.</p>
@@ -4752,7 +5353,7 @@ export interface StartTranscriptionJobRequest {
    *                 <code>OutputKey</code> to <code>test-files/</code>.</p>
    *          <p>Note that Amazon Transcribe must have permission to use the specified location. You
    *             can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p>
-   *          <p>If you don't specify <code>OutputBucketName</code>, your transcript is placed in a
+   *          <p>If you do not specify <code>OutputBucketName</code>, your transcript is placed in a
    *             service-managed Amazon S3 bucket and you are provided with a URI to access your
    *             transcript.</p>
    */
@@ -4836,7 +5437,7 @@ export interface StartTranscriptionJobRequest {
    *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
    *             </li>
    *          </ol>
-   *          <p>If you don't specify an encryption key, your output is encrypted with the default
+   *          <p>If you do not specify an encryption key, your output is encrypted with the default
    *                 Amazon S3 key (SSE-S3).</p>
    *          <p>If you specify a KMS key to encrypt your output, you must also specify
    *             an output location using the <code>OutputLocation</code> parameter.</p>
@@ -4854,7 +5455,8 @@ export interface StartTranscriptionJobRequest {
 
   /**
    * @public
-   * <p>Specify additional optional settings in your  request, including channel identification, alternative transcriptions, speaker
+   * <p>Specify additional optional settings in your
+   *             request, including channel identification, alternative transcriptions, speaker
    *             partitioning. You can use that to apply custom vocabularies and vocabulary filters.</p>
    *          <p>If you want to include a custom vocabulary or a custom vocabulary filter (or both)
    *             with your request but <b>do not</b> want to use automatic
@@ -4891,10 +5493,11 @@ export interface StartTranscriptionJobRequest {
 
   /**
    * @public
-   * <p>Makes it possible to redact or flag specified personally identifiable information
-   *             (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also
-   *             include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>,
-   *             and <code>RedactionType</code>.</p>
+   * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
+   *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
+   *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
+   *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to redact.
+   *             If you do not include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>
    */
   ContentRedaction?: ContentRedaction;
 

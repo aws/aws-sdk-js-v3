@@ -43,6 +43,11 @@ import {
   DeleteLanguageModelCommandOutput,
 } from "./commands/DeleteLanguageModelCommand";
 import {
+  DeleteMedicalScribeJobCommand,
+  DeleteMedicalScribeJobCommandInput,
+  DeleteMedicalScribeJobCommandOutput,
+} from "./commands/DeleteMedicalScribeJobCommand";
+import {
   DeleteMedicalTranscriptionJobCommand,
   DeleteMedicalTranscriptionJobCommandInput,
   DeleteMedicalTranscriptionJobCommandOutput,
@@ -82,6 +87,11 @@ import {
   GetCallAnalyticsJobCommandInput,
   GetCallAnalyticsJobCommandOutput,
 } from "./commands/GetCallAnalyticsJobCommand";
+import {
+  GetMedicalScribeJobCommand,
+  GetMedicalScribeJobCommandInput,
+  GetMedicalScribeJobCommandOutput,
+} from "./commands/GetMedicalScribeJobCommand";
 import {
   GetMedicalTranscriptionJobCommand,
   GetMedicalTranscriptionJobCommandInput,
@@ -123,6 +133,11 @@ import {
   ListLanguageModelsCommandOutput,
 } from "./commands/ListLanguageModelsCommand";
 import {
+  ListMedicalScribeJobsCommand,
+  ListMedicalScribeJobsCommandInput,
+  ListMedicalScribeJobsCommandOutput,
+} from "./commands/ListMedicalScribeJobsCommand";
+import {
   ListMedicalTranscriptionJobsCommand,
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
@@ -157,6 +172,11 @@ import {
   StartCallAnalyticsJobCommandInput,
   StartCallAnalyticsJobCommandOutput,
 } from "./commands/StartCallAnalyticsJobCommand";
+import {
+  StartMedicalScribeJobCommand,
+  StartMedicalScribeJobCommandInput,
+  StartMedicalScribeJobCommandOutput,
+} from "./commands/StartMedicalScribeJobCommand";
 import {
   StartMedicalTranscriptionJobCommand,
   StartMedicalTranscriptionJobCommandInput,
@@ -204,6 +224,7 @@ const commands = {
   DeleteCallAnalyticsCategoryCommand,
   DeleteCallAnalyticsJobCommand,
   DeleteLanguageModelCommand,
+  DeleteMedicalScribeJobCommand,
   DeleteMedicalTranscriptionJobCommand,
   DeleteMedicalVocabularyCommand,
   DeleteTranscriptionJobCommand,
@@ -212,6 +233,7 @@ const commands = {
   DescribeLanguageModelCommand,
   GetCallAnalyticsCategoryCommand,
   GetCallAnalyticsJobCommand,
+  GetMedicalScribeJobCommand,
   GetMedicalTranscriptionJobCommand,
   GetMedicalVocabularyCommand,
   GetTranscriptionJobCommand,
@@ -220,6 +242,7 @@ const commands = {
   ListCallAnalyticsCategoriesCommand,
   ListCallAnalyticsJobsCommand,
   ListLanguageModelsCommand,
+  ListMedicalScribeJobsCommand,
   ListMedicalTranscriptionJobsCommand,
   ListMedicalVocabulariesCommand,
   ListTagsForResourceCommand,
@@ -227,6 +250,7 @@ const commands = {
   ListVocabulariesCommand,
   ListVocabularyFiltersCommand,
   StartCallAnalyticsJobCommand,
+  StartMedicalScribeJobCommand,
   StartMedicalTranscriptionJobCommand,
   StartTranscriptionJobCommand,
   TagResourceCommand,
@@ -375,6 +399,23 @@ export interface Transcribe {
   ): void;
 
   /**
+   * @see {@link DeleteMedicalScribeJobCommand}
+   */
+  deleteMedicalScribeJob(
+    args: DeleteMedicalScribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMedicalScribeJobCommandOutput>;
+  deleteMedicalScribeJob(
+    args: DeleteMedicalScribeJobCommandInput,
+    cb: (err: any, data?: DeleteMedicalScribeJobCommandOutput) => void
+  ): void;
+  deleteMedicalScribeJob(
+    args: DeleteMedicalScribeJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMedicalScribeJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMedicalTranscriptionJobCommand}
    */
   deleteMedicalTranscriptionJob(
@@ -511,6 +552,23 @@ export interface Transcribe {
   ): void;
 
   /**
+   * @see {@link GetMedicalScribeJobCommand}
+   */
+  getMedicalScribeJob(
+    args: GetMedicalScribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMedicalScribeJobCommandOutput>;
+  getMedicalScribeJob(
+    args: GetMedicalScribeJobCommandInput,
+    cb: (err: any, data?: GetMedicalScribeJobCommandOutput) => void
+  ): void;
+  getMedicalScribeJob(
+    args: GetMedicalScribeJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMedicalScribeJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMedicalTranscriptionJobCommand}
    */
   getMedicalTranscriptionJob(
@@ -641,6 +699,23 @@ export interface Transcribe {
   ): void;
 
   /**
+   * @see {@link ListMedicalScribeJobsCommand}
+   */
+  listMedicalScribeJobs(
+    args: ListMedicalScribeJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMedicalScribeJobsCommandOutput>;
+  listMedicalScribeJobs(
+    args: ListMedicalScribeJobsCommandInput,
+    cb: (err: any, data?: ListMedicalScribeJobsCommandOutput) => void
+  ): void;
+  listMedicalScribeJobs(
+    args: ListMedicalScribeJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMedicalScribeJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMedicalTranscriptionJobsCommand}
    */
   listMedicalTranscriptionJobs(
@@ -757,6 +832,23 @@ export interface Transcribe {
     args: StartCallAnalyticsJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartCallAnalyticsJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMedicalScribeJobCommand}
+   */
+  startMedicalScribeJob(
+    args: StartMedicalScribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMedicalScribeJobCommandOutput>;
+  startMedicalScribeJob(
+    args: StartMedicalScribeJobCommandInput,
+    cb: (err: any, data?: StartMedicalScribeJobCommandOutput) => void
+  ): void;
+  startMedicalScribeJob(
+    args: StartMedicalScribeJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMedicalScribeJobCommandOutput) => void
   ): void;
 
   /**

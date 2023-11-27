@@ -66,7 +66,7 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  *                         <code>IdentifyMultipleLanguages</code>: If you know the language of your
  *                     media file, specify it using the <code>LanguageCode</code> parameter; you can
  *                     find all valid language codes in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
- *                         languages</a> table. If you don't know the languages spoken in your
+ *                         languages</a> table. If you do not know the languages spoken in your
  *                     media, use either <code>IdentifyLanguage</code> or
  *                         <code>IdentifyMultipleLanguages</code> and let Amazon Transcribe identify
  *                     the languages for you.</p>

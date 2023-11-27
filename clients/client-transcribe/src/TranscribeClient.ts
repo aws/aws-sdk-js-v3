@@ -80,6 +80,10 @@ import {
   DeleteLanguageModelCommandOutput,
 } from "./commands/DeleteLanguageModelCommand";
 import {
+  DeleteMedicalScribeJobCommandInput,
+  DeleteMedicalScribeJobCommandOutput,
+} from "./commands/DeleteMedicalScribeJobCommand";
+import {
   DeleteMedicalTranscriptionJobCommandInput,
   DeleteMedicalTranscriptionJobCommandOutput,
 } from "./commands/DeleteMedicalTranscriptionJobCommand";
@@ -109,6 +113,10 @@ import {
   GetCallAnalyticsJobCommandOutput,
 } from "./commands/GetCallAnalyticsJobCommand";
 import {
+  GetMedicalScribeJobCommandInput,
+  GetMedicalScribeJobCommandOutput,
+} from "./commands/GetMedicalScribeJobCommand";
+import {
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
 } from "./commands/GetMedicalTranscriptionJobCommand";
@@ -135,6 +143,10 @@ import {
 } from "./commands/ListCallAnalyticsJobsCommand";
 import { ListLanguageModelsCommandInput, ListLanguageModelsCommandOutput } from "./commands/ListLanguageModelsCommand";
 import {
+  ListMedicalScribeJobsCommandInput,
+  ListMedicalScribeJobsCommandOutput,
+} from "./commands/ListMedicalScribeJobsCommand";
+import {
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
 } from "./commands/ListMedicalTranscriptionJobsCommand";
@@ -159,6 +171,10 @@ import {
   StartCallAnalyticsJobCommandInput,
   StartCallAnalyticsJobCommandOutput,
 } from "./commands/StartCallAnalyticsJobCommand";
+import {
+  StartMedicalScribeJobCommandInput,
+  StartMedicalScribeJobCommandOutput,
+} from "./commands/StartMedicalScribeJobCommand";
 import {
   StartMedicalTranscriptionJobCommandInput,
   StartMedicalTranscriptionJobCommandOutput,
@@ -205,6 +221,7 @@ export type ServiceInputTypes =
   | DeleteCallAnalyticsCategoryCommandInput
   | DeleteCallAnalyticsJobCommandInput
   | DeleteLanguageModelCommandInput
+  | DeleteMedicalScribeJobCommandInput
   | DeleteMedicalTranscriptionJobCommandInput
   | DeleteMedicalVocabularyCommandInput
   | DeleteTranscriptionJobCommandInput
@@ -213,6 +230,7 @@ export type ServiceInputTypes =
   | DescribeLanguageModelCommandInput
   | GetCallAnalyticsCategoryCommandInput
   | GetCallAnalyticsJobCommandInput
+  | GetMedicalScribeJobCommandInput
   | GetMedicalTranscriptionJobCommandInput
   | GetMedicalVocabularyCommandInput
   | GetTranscriptionJobCommandInput
@@ -221,6 +239,7 @@ export type ServiceInputTypes =
   | ListCallAnalyticsCategoriesCommandInput
   | ListCallAnalyticsJobsCommandInput
   | ListLanguageModelsCommandInput
+  | ListMedicalScribeJobsCommandInput
   | ListMedicalTranscriptionJobsCommandInput
   | ListMedicalVocabulariesCommandInput
   | ListTagsForResourceCommandInput
@@ -228,6 +247,7 @@ export type ServiceInputTypes =
   | ListVocabulariesCommandInput
   | ListVocabularyFiltersCommandInput
   | StartCallAnalyticsJobCommandInput
+  | StartMedicalScribeJobCommandInput
   | StartMedicalTranscriptionJobCommandInput
   | StartTranscriptionJobCommandInput
   | TagResourceCommandInput
@@ -249,6 +269,7 @@ export type ServiceOutputTypes =
   | DeleteCallAnalyticsCategoryCommandOutput
   | DeleteCallAnalyticsJobCommandOutput
   | DeleteLanguageModelCommandOutput
+  | DeleteMedicalScribeJobCommandOutput
   | DeleteMedicalTranscriptionJobCommandOutput
   | DeleteMedicalVocabularyCommandOutput
   | DeleteTranscriptionJobCommandOutput
@@ -257,6 +278,7 @@ export type ServiceOutputTypes =
   | DescribeLanguageModelCommandOutput
   | GetCallAnalyticsCategoryCommandOutput
   | GetCallAnalyticsJobCommandOutput
+  | GetMedicalScribeJobCommandOutput
   | GetMedicalTranscriptionJobCommandOutput
   | GetMedicalVocabularyCommandOutput
   | GetTranscriptionJobCommandOutput
@@ -265,6 +287,7 @@ export type ServiceOutputTypes =
   | ListCallAnalyticsCategoriesCommandOutput
   | ListCallAnalyticsJobsCommandOutput
   | ListLanguageModelsCommandOutput
+  | ListMedicalScribeJobsCommandOutput
   | ListMedicalTranscriptionJobsCommandOutput
   | ListMedicalVocabulariesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -272,6 +295,7 @@ export type ServiceOutputTypes =
   | ListVocabulariesCommandOutput
   | ListVocabularyFiltersCommandOutput
   | StartCallAnalyticsJobCommandOutput
+  | StartMedicalScribeJobCommandOutput
   | StartMedicalTranscriptionJobCommandOutput
   | StartTranscriptionJobCommandOutput
   | TagResourceCommandOutput
