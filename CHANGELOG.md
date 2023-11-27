@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.459.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.458.0...v3.459.0) (2023-11-27)
+
+
+### Features
+
+* **client-appsync:** This update enables introspection of Aurora cluster databases using the RDS Data API ([defc236](https://github.com/aws/aws-sdk-js-v3/commit/defc2361e9d7c39c9cd4bbb45a22a7e725906b7a))
+* **client-b2bi:** This is the initial SDK release for AWS B2B Data Interchange. ([cae0b67](https://github.com/aws/aws-sdk-js-v3/commit/cae0b676fdcaa6a5e55081aaf9a4804be50b7e54))
+* **client-backup:** AWS Backup now supports restore testing, a new feature that allows customers to automate restore testing and validating their backups. Additionally, this release adds support for EBS Snapshots Archive tier. ([b63e1b2](https://github.com/aws/aws-sdk-js-v3/commit/b63e1b238b8399e7042f24e7ec3e7ca6c4d938ec))
+* **client-controltower:** This release adds the following support: 1. The EnableControl API can configure controls that are configurable.  2. The GetEnabledControl API shows the configured parameters on an enabled control. 3. The new UpdateEnabledControl API can change parameters on an enabled control. ([4b14e8f](https://github.com/aws/aws-sdk-js-v3/commit/4b14e8f5443c5c2a63cdcdd886136ea1ef04b3d8))
+* **client-efs:** Adding support for EFS Replication to existing file system. ([15498ce](https://github.com/aws/aws-sdk-js-v3/commit/15498ce95a984b049617977bf29061d80cf652ab))
+* **client-fis:** AWS FIS adds support for multi-account experiments & empty target resolution. This release also introduces the CreateTargetAccountConfiguration API that allows experiments across multiple AWS accounts, and the ListExperimentResolvedTargets API to list target details. ([8de01a6](https://github.com/aws/aws-sdk-js-v3/commit/8de01a61e320e49bc29a14ef65c97990cdfd09bc))
+* **client-glue:** add observations support to DQ CodeGen config model + update document for connectiontypes supported by ConnectorData entities ([465c757](https://github.com/aws/aws-sdk-js-v3/commit/465c757fde12a56851a6bbbd1d4ae39df2960455))
+* **client-securityhub:** Adds and updates APIs to support central configuration. This feature allows the Security Hub delegated administrator to configure Security Hub for their entire AWS Org across multiple regions from a home Region. With this release, findings also include account name and application metadata. ([59a2041](https://github.com/aws/aws-sdk-js-v3/commit/59a204176e3c7cea66bc2229dac90372ffd2baa9))
+* **client-transcribe:** This release adds support for AWS HealthScribe APIs within Amazon Transcribe ([8797f64](https://github.com/aws/aws-sdk-js-v3/commit/8797f6465be931f4c331b9a69ee2ab4ea79c5717))
+
+
+
+
+
 # [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
 
 

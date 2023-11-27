@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.459.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.458.0...v3.459.0) (2023-11-27)
+
+
+### Features
+
+* **client-appsync:** This update enables introspection of Aurora cluster databases using the RDS Data API ([defc236](https://github.com/aws/aws-sdk-js-v3/commit/defc2361e9d7c39c9cd4bbb45a22a7e725906b7a))
+
+
+
+
+
 # [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
 
 **Note:** Version bump only for package @aws-sdk/client-appsync

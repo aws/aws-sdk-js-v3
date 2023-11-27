@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.459.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.458.0...v3.459.0) (2023-11-27)
+
+
+### Features
+
+* **client-glue:** add observations support to DQ CodeGen config model + update document for connectiontypes supported by ConnectorData entities ([465c757](https://github.com/aws/aws-sdk-js-v3/commit/465c757fde12a56851a6bbbd1d4ae39df2960455))
+
+
+
+
+
 # [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.459.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.458.0...v3.459.0) (2023-11-27)
+
+
+### Features
+
+* **client-transcribe:** This release adds support for AWS HealthScribe APIs within Amazon Transcribe ([8797f64](https://github.com/aws/aws-sdk-js-v3/commit/8797f6465be931f4c331b9a69ee2ab4ea79c5717))
+
+
+
+
+
 # [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
 
 
