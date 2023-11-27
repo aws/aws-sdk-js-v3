@@ -15,11 +15,11 @@ import {
 } from "@smithy/types";
 
 import {
-  GetSecretValueRequest,
-  GetSecretValueResponse,
-  GetSecretValueResponseFilterSensitiveLog,
+  BatchGetSecretValueRequest,
+  BatchGetSecretValueResponse,
+  BatchGetSecretValueResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_GetSecretValueCommand, se_GetSecretValueCommand } from "../protocols/Aws_json1_1";
+import { de_BatchGetSecretValueCommand, se_BatchGetSecretValueCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -29,67 +29,81 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetSecretValueCommand}.
+ * The input for {@link BatchGetSecretValueCommand}.
  */
-export interface GetSecretValueCommandInput extends GetSecretValueRequest {}
+export interface BatchGetSecretValueCommandInput extends BatchGetSecretValueRequest {}
 /**
  * @public
  *
- * The output of {@link GetSecretValueCommand}.
+ * The output of {@link BatchGetSecretValueCommand}.
  */
-export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __MetadataBearer {}
+export interface BatchGetSecretValueCommandOutput extends BatchGetSecretValueResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
- *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
- *       content.</p>
- *          <p>To retrieve the values for a group of secrets, call <a>BatchGetSecretValue</a>.</p>
- *          <p>We recommend that you cache your secret values by using client-side caching.
- *       Caching secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache secrets for
- *         your applications</a>.</p>
- *          <p>To retrieve the previous version of a secret, use <code>VersionStage</code> and specify
- *       AWSPREVIOUS. To revert to the previous version of a secret, call <a href="https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html">UpdateSecretVersionStage</a>.</p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
+ * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or <code>SecretBinary</code> for up to 20 secrets.  To retrieve a single secret, call <a>GetSecretValue</a>. </p>
+ *          <p>To choose which secrets to retrieve, you can specify a list of secrets by name or ARN, or you can use filters. If Secrets Manager encounters errors such as <code>AccessDeniedException</code> while attempting to retrieve any of the secrets, you can see the errors in <code>Errors</code> in the response.</p>
+ *          <p>Secrets Manager generates CloudTrail <code>GetSecretValue</code> log entries for each secret you request when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
- *             <code>secretsmanager:GetSecretValue</code>.
- *       If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key
- *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.
+ *             <code>secretsmanager:BatchGetSecretValue</code>, and you must have <code>secretsmanager:GetSecretValue</code> for each secret. If you use filters, you must also have <code>secretsmanager:ListSecrets</code>. If the secrets are encrypted using customer-managed keys instead of the Amazon Web Services managed key
+ *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for the keys.
  *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, GetSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, BatchGetSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, BatchGetSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = { // GetSecretValueRequest
- *   SecretId: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
- *   VersionStage: "STRING_VALUE",
+ * const input = { // BatchGetSecretValueRequest
+ *   SecretIdList: [ // SecretIdListType
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FiltersListType
+ *     { // Filter
+ *       Key: "description" || "name" || "tag-key" || "tag-value" || "primary-region" || "owning-service" || "all",
+ *       Values: [ // FilterValuesStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new GetSecretValueCommand(input);
+ * const command = new BatchGetSecretValueCommand(input);
  * const response = await client.send(command);
- * // { // GetSecretValueResponse
- * //   ARN: "STRING_VALUE",
- * //   Name: "STRING_VALUE",
- * //   VersionId: "STRING_VALUE",
- * //   SecretBinary: "BLOB_VALUE",
- * //   SecretString: "STRING_VALUE",
- * //   VersionStages: [ // SecretVersionStagesType
- * //     "STRING_VALUE",
+ * // { // BatchGetSecretValueResponse
+ * //   SecretValues: [ // SecretValuesType
+ * //     { // SecretValueEntry
+ * //       ARN: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       SecretBinary: "BLOB_VALUE",
+ * //       SecretString: "STRING_VALUE",
+ * //       VersionStages: [ // SecretVersionStagesType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //     },
  * //   ],
- * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   NextToken: "STRING_VALUE",
+ * //   Errors: [ // APIErrorListType
+ * //     { // APIErrorType
+ * //       SecretId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param GetSecretValueCommandInput - {@link GetSecretValueCommandInput}
- * @returns {@link GetSecretValueCommandOutput}
- * @see {@link GetSecretValueCommandInput} for command's `input` shape.
- * @see {@link GetSecretValueCommandOutput} for command's `response` shape.
+ * @param BatchGetSecretValueCommandInput - {@link BatchGetSecretValueCommandInput}
+ * @returns {@link BatchGetSecretValueCommandOutput}
+ * @see {@link BatchGetSecretValueCommandInput} for command's `input` shape.
+ * @see {@link BatchGetSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  * @throws {@link DecryptionFailure} (client fault)
@@ -97,6 +111,9 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  *
  * @throws {@link InternalServiceError} (server fault)
  *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is invalid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The parameter name or value is invalid.</p>
@@ -125,33 +142,10 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @example To retrieve the encrypted secret value of a secret
- * ```javascript
- * // The following example shows how to retrieve a secret string value.
- * const input = {
- *   "SecretId": "MyTestDatabaseSecret"
- * };
- * const command = new GetSecretValueCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "CreatedDate": 1523477145.713,
- *   "Name": "MyTestDatabaseSecret",
- *   "SecretString": "{\n  \"username\":\"david\",\n  \"password\":\"EXAMPLE-PASSWORD\"\n}\n",
- *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
- *   "VersionStages": [
- *     "AWSPREVIOUS"
- *   ]
- * }
- * *\/
- * // example id: to-retrieve-the-encrypted-secret-value-of-a-secret-1524000702484
- * ```
- *
  */
-export class GetSecretValueCommand extends $Command<
-  GetSecretValueCommandInput,
-  GetSecretValueCommandOutput,
+export class BatchGetSecretValueCommand extends $Command<
+  BatchGetSecretValueCommandInput,
+  BatchGetSecretValueCommandOutput,
   SecretsManagerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -166,7 +160,7 @@ export class GetSecretValueCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetSecretValueCommandInput) {
+  constructor(readonly input: BatchGetSecretValueCommandInput) {
     super();
   }
 
@@ -177,26 +171,26 @@ export class GetSecretValueCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetSecretValueCommandInput, GetSecretValueCommandOutput> {
+  ): Handler<BatchGetSecretValueCommandInput, BatchGetSecretValueCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetSecretValueCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchGetSecretValueCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecretsManagerClient";
-    const commandName = "GetSecretValueCommand";
+    const commandName = "BatchGetSecretValueCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetSecretValueResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetSecretValueResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "secretsmanager",
-        operation: "GetSecretValue",
+        operation: "BatchGetSecretValue",
       },
     };
     const { requestHandler } = configuration;
@@ -210,14 +204,14 @@ export class GetSecretValueCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetSecretValueCommand(input, context);
+  private serialize(input: BatchGetSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_BatchGetSecretValueCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecretValueCommandOutput> {
-    return de_GetSecretValueCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSecretValueCommandOutput> {
+    return de_BatchGetSecretValueCommand(output, context);
   }
 }

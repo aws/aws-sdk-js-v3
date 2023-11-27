@@ -231,6 +231,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchGetSecretValue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/secrets-manager/command/BatchGetSecretValueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/BatchGetSecretValueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-secrets-manager/Interface/BatchGetSecretValueCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelRotateSecret
 </summary>
 

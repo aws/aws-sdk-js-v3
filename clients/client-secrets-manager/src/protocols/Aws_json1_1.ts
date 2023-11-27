@@ -20,6 +20,10 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  BatchGetSecretValueCommandInput,
+  BatchGetSecretValueCommandOutput,
+} from "../commands/BatchGetSecretValueCommand";
 import { CancelRotateSecretCommandInput, CancelRotateSecretCommandOutput } from "../commands/CancelRotateSecretCommand";
 import { CreateSecretCommandInput, CreateSecretCommandOutput } from "../commands/CreateSecretCommand";
 import {
@@ -64,6 +68,8 @@ import {
   ValidateResourcePolicyCommandOutput,
 } from "../commands/ValidateResourcePolicyCommand";
 import {
+  BatchGetSecretValueRequest,
+  BatchGetSecretValueResponse,
   CancelRotateSecretRequest,
   CreateSecretRequest,
   CreateSecretResponse,
@@ -105,6 +111,7 @@ import {
   RotateSecretRequest,
   RotationRulesType,
   SecretListEntry,
+  SecretValueEntry,
   SecretVersionsListEntry,
   StopReplicationToReplicaRequest,
   Tag,
@@ -115,6 +122,19 @@ import {
   ValidateResourcePolicyRequest,
 } from "../models/models_0";
 import { SecretsManagerServiceException as __BaseException } from "../models/SecretsManagerServiceException";
+
+/**
+ * serializeAws_json1_1BatchGetSecretValueCommand
+ */
+export const se_BatchGetSecretValueCommand = async (
+  input: BatchGetSecretValueCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetSecretValue");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_1CancelRotateSecretCommand
@@ -400,6 +420,67 @@ export const se_ValidateResourcePolicyCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1BatchGetSecretValueCommand
+ */
+export const de_BatchGetSecretValueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetSecretValueCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_BatchGetSecretValueCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetSecretValueResponse(data, context);
+  const response: BatchGetSecretValueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetSecretValueCommandError
+ */
+const de_BatchGetSecretValueCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetSecretValueCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DecryptionFailure":
+    case "com.amazonaws.secretsmanager#DecryptionFailure":
+      throw await de_DecryptionFailureRes(parsedOutput, context);
+    case "InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.secretsmanager#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1851,6 +1932,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_AddReplicaRegionListType omitted.
 
+// se_BatchGetSecretValueRequest omitted.
+
 // se_CancelRotateSecretRequest omitted.
 
 /**
@@ -1932,6 +2015,8 @@ const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeCont
 
 // se_RotationRulesType omitted.
 
+// se_SecretIdListType omitted.
+
 // se_SecretVersionStagesType omitted.
 
 // se_StopReplicationToReplicaRequest omitted.
@@ -1963,6 +2048,21 @@ const se_UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeCont
 // se_UpdateSecretVersionStageRequest omitted.
 
 // se_ValidateResourcePolicyRequest omitted.
+
+// de_APIErrorListType omitted.
+
+// de_APIErrorType omitted.
+
+/**
+ * deserializeAws_json1_1BatchGetSecretValueResponse
+ */
+const de_BatchGetSecretValueResponse = (output: any, context: __SerdeContext): BatchGetSecretValueResponse => {
+  return take(output, {
+    Errors: _json,
+    NextToken: __expectString,
+    SecretValues: (_: any) => de_SecretValuesType(_, context),
+  }) as any;
+};
 
 // de_CancelRotateSecretResponse omitted.
 
@@ -2178,6 +2278,33 @@ const de_SecretListType = (output: any, context: __SerdeContext): SecretListEntr
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SecretListEntry(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1SecretValueEntry
+ */
+const de_SecretValueEntry = (output: any, context: __SerdeContext): SecretValueEntry => {
+  return take(output, {
+    ARN: __expectString,
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    SecretBinary: context.base64Decoder,
+    SecretString: __expectString,
+    VersionId: __expectString,
+    VersionStages: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SecretValuesType
+ */
+const de_SecretValuesType = (output: any, context: __SerdeContext): SecretValueEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecretValueEntry(entry, context);
     });
   return retVal;
 };

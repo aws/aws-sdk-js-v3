@@ -50,6 +50,10 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  BatchGetSecretValueCommandInput,
+  BatchGetSecretValueCommandOutput,
+} from "./commands/BatchGetSecretValueCommand";
 import { CancelRotateSecretCommandInput, CancelRotateSecretCommandOutput } from "./commands/CancelRotateSecretCommand";
 import { CreateSecretCommandInput, CreateSecretCommandOutput } from "./commands/CreateSecretCommand";
 import {
@@ -108,6 +112,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchGetSecretValueCommandInput
   | CancelRotateSecretCommandInput
   | CreateSecretCommandInput
   | DeleteResourcePolicyCommandInput
@@ -135,6 +140,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchGetSecretValueCommandOutput
   | CancelRotateSecretCommandOutput
   | CreateSecretCommandOutput
   | DeleteResourcePolicyCommandOutput

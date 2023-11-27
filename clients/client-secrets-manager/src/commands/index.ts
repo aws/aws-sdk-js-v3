@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./BatchGetSecretValueCommand";
 export * from "./CancelRotateSecretCommand";
 export * from "./CreateSecretCommand";
 export * from "./DeleteResourcePolicyCommand";
