@@ -49,6 +49,7 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * const input = { // AuthorizeDataShareMessage
  *   DataShareArn: "STRING_VALUE", // required
  *   ConsumerIdentifier: "STRING_VALUE", // required
+ *   AllowWrites: true || false,
  * };
  * const command = new AuthorizeDataShareCommand(input);
  * const response = await client.send(command);
@@ -63,6 +64,8 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * //       ConsumerRegion: "STRING_VALUE",
  * //       CreatedDate: new Date("TIMESTAMP"),
  * //       StatusChangeDate: new Date("TIMESTAMP"),
+ * //       ProducerAllowedWrites: true || false,
+ * //       ConsumerAcceptedWrites: true || false,
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",

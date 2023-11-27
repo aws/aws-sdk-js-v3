@@ -68,6 +68,8 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * //       ConsumerRegion: "STRING_VALUE",
  * //       CreatedDate: new Date("TIMESTAMP"),
  * //       StatusChangeDate: new Date("TIMESTAMP"),
+ * //       ProducerAllowedWrites: true || false,
+ * //       ConsumerAcceptedWrites: true || false,
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",

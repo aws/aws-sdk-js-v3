@@ -51,6 +51,7 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  *   AssociateEntireAccount: true || false,
  *   ConsumerArn: "STRING_VALUE",
  *   ConsumerRegion: "STRING_VALUE",
+ *   AllowWrites: true || false,
  * };
  * const command = new AssociateDataShareConsumerCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,8 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  * //       ConsumerRegion: "STRING_VALUE",
  * //       CreatedDate: new Date("TIMESTAMP"),
  * //       StatusChangeDate: new Date("TIMESTAMP"),
+ * //       ProducerAllowedWrites: true || false,
+ * //       ConsumerAcceptedWrites: true || false,
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",

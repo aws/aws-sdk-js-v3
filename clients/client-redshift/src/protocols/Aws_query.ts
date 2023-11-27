@@ -12535,6 +12535,9 @@ const se_AssociateDataShareConsumerMessage = (
   if (input.ConsumerRegion != null) {
     entries["ConsumerRegion"] = input.ConsumerRegion;
   }
+  if (input.AllowWrites != null) {
+    entries["AllowWrites"] = input.AllowWrites;
+  }
   return entries;
 };
 
@@ -12587,6 +12590,9 @@ const se_AuthorizeDataShareMessage = (input: AuthorizeDataShareMessage, context:
   }
   if (input.ConsumerIdentifier != null) {
     entries["ConsumerIdentifier"] = input.ConsumerIdentifier;
+  }
+  if (input.AllowWrites != null) {
+    entries["AllowWrites"] = input.AllowWrites;
   }
   return entries;
 };
@@ -18378,6 +18384,12 @@ const de_DataShareAssociation = (output: any, context: __SerdeContext): DataShar
   }
   if (output["StatusChangeDate"] !== undefined) {
     contents.StatusChangeDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StatusChangeDate"]));
+  }
+  if (output["ProducerAllowedWrites"] !== undefined) {
+    contents.ProducerAllowedWrites = __parseBoolean(output["ProducerAllowedWrites"]);
+  }
+  if (output["ConsumerAcceptedWrites"] !== undefined) {
+    contents.ConsumerAcceptedWrites = __parseBoolean(output["ConsumerAcceptedWrites"]);
   }
   return contents;
 };

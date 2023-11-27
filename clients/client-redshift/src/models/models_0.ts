@@ -616,6 +616,12 @@ export interface AssociateDataShareConsumerMessage {
    * <p>From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified Amazon Web Services Region.</p>
    */
   ConsumerRegion?: string;
+
+  /**
+   * @public
+   * <p>If set to true, allows write operations for a datashare.</p>
+   */
+  AllowWrites?: boolean;
 }
 
 /**
@@ -672,6 +678,18 @@ export interface DataShareAssociation {
    * <p>The status change data of the datashare that is associated.</p>
    */
   StatusChangeDate?: Date;
+
+  /**
+   * @public
+   * <p>Specifies whether write operations were allowed during data share authorization.</p>
+   */
+  ProducerAllowedWrites?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether write operations were allowed during data share association.</p>
+   */
+  ConsumerAcceptedWrites?: boolean;
 }
 
 /**
@@ -1196,6 +1214,12 @@ export interface AuthorizeDataShareMessage {
    * <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
    */
   ConsumerIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>If set to true, allows write operations for a datashare.</p>
+   */
+  AllowWrites?: boolean;
 }
 
 /**
