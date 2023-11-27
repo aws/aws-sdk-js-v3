@@ -93,6 +93,10 @@ import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./command
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "./commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import {
+  GetDataSourceIntrospectionCommandInput,
+  GetDataSourceIntrospectionCommandOutput,
+} from "./commands/GetDataSourceIntrospectionCommand";
 import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "./commands/GetGraphqlApiCommand";
@@ -133,6 +137,10 @@ import {
   ListTypesByAssociationCommandOutput,
 } from "./commands/ListTypesByAssociationCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import {
+  StartDataSourceIntrospectionCommandInput,
+  StartDataSourceIntrospectionCommandOutput,
+} from "./commands/StartDataSourceIntrospectionCommand";
 import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
@@ -195,6 +203,7 @@ export type ServiceInputTypes =
   | GetApiAssociationCommandInput
   | GetApiCacheCommandInput
   | GetDataSourceCommandInput
+  | GetDataSourceIntrospectionCommandInput
   | GetDomainNameCommandInput
   | GetFunctionCommandInput
   | GetGraphqlApiCommandInput
@@ -214,6 +223,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTypesByAssociationCommandInput
   | ListTypesCommandInput
+  | StartDataSourceIntrospectionCommandInput
   | StartSchemaCreationCommandInput
   | StartSchemaMergeCommandInput
   | TagResourceCommandInput
@@ -260,6 +270,7 @@ export type ServiceOutputTypes =
   | GetApiAssociationCommandOutput
   | GetApiCacheCommandOutput
   | GetDataSourceCommandOutput
+  | GetDataSourceIntrospectionCommandOutput
   | GetDomainNameCommandOutput
   | GetFunctionCommandOutput
   | GetGraphqlApiCommandOutput
@@ -279,6 +290,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTypesByAssociationCommandOutput
   | ListTypesCommandOutput
+  | StartDataSourceIntrospectionCommandOutput
   | StartSchemaCreationCommandOutput
   | StartSchemaMergeCommandOutput
   | TagResourceCommandOutput

@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -64,6 +65,10 @@ import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "../comman
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "../commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "../commands/GetApiCacheCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
+import {
+  GetDataSourceIntrospectionCommandInput,
+  GetDataSourceIntrospectionCommandOutput,
+} from "../commands/GetDataSourceIntrospectionCommand";
 import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "../commands/GetDomainNameCommand";
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "../commands/GetFunctionCommand";
 import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "../commands/GetGraphqlApiCommand";
@@ -105,6 +110,10 @@ import {
 } from "../commands/ListTypesByAssociationCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
 import {
+  StartDataSourceIntrospectionCommandInput,
+  StartDataSourceIntrospectionCommandOutput,
+} from "../commands/StartDataSourceIntrospectionCommand";
+import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
 } from "../commands/StartSchemaCreationCommand";
@@ -137,6 +146,10 @@ import {
   CachingConfig,
   CognitoUserPoolConfig,
   ConcurrentModificationException,
+  DataSourceIntrospectionModel,
+  DataSourceIntrospectionModelField,
+  DataSourceIntrospectionModelFieldType,
+  DataSourceIntrospectionResult,
   DeltaSyncConfig,
   DynamodbDataSourceConfig,
   ElasticsearchDataSourceConfig,
@@ -153,6 +166,7 @@ import {
   OpenIDConnectConfig,
   OpenSearchServiceDataSourceConfig,
   PipelineConfig,
+  RdsDataApiConfig,
   RdsHttpEndpointConfig,
   RelationalDatabaseDataSourceConfig,
   SourceApiAssociation,
@@ -1035,6 +1049,44 @@ export const se_GetDataSourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDataSourceIntrospectionCommand
+ */
+export const se_GetDataSourceIntrospectionCommand = async (
+  input: GetDataSourceIntrospectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/datasources/introspections/{introspectionId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "introspectionId",
+    () => input.introspectionId!,
+    "{introspectionId}",
+    false
+  );
+  const query: any = map({
+    includeModelsSDL: [() => input.includeModelsSDL !== void 0, () => input.includeModelsSDL!.toString()],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetDomainNameCommand
  */
 export const se_GetDomainNameCommand = async (
@@ -1581,6 +1633,36 @@ export const se_ListTypesByAssociationCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartDataSourceIntrospectionCommand
+ */
+export const se_StartDataSourceIntrospectionCommand = async (
+  input: StartDataSourceIntrospectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datasources/introspections";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      rdsDataApiConfig: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3660,6 +3742,62 @@ const de_GetDataSourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDataSourceIntrospectionCommand
+ */
+export const de_GetDataSourceIntrospectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataSourceIntrospectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetDataSourceIntrospectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    introspectionId: __expectString,
+    introspectionResult: (_) => de_DataSourceIntrospectionResult(_, context),
+    introspectionStatus: __expectString,
+    introspectionStatusDetail: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataSourceIntrospectionCommandError
+ */
+const de_GetDataSourceIntrospectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataSourceIntrospectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetDomainNameCommand
  */
 export const de_GetDomainNameCommand = async (
@@ -4738,6 +4876,64 @@ const de_ListTypesByAssociationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartDataSourceIntrospectionCommand
+ */
+export const de_StartDataSourceIntrospectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDataSourceIntrospectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartDataSourceIntrospectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    introspectionId: __expectString,
+    introspectionStatus: __expectString,
+    introspectionStatusDetail: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartDataSourceIntrospectionCommandError
+ */
+const de_StartDataSourceIntrospectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDataSourceIntrospectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartSchemaCreationCommand
  */
 export const de_StartSchemaCreationCommand = async (
@@ -5764,6 +5960,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_PipelineConfig omitted.
 
+// se_RdsDataApiConfig omitted.
+
 // se_RdsHttpEndpointConfig omitted.
 
 // se_RelationalDatabaseDataSourceConfig omitted.
@@ -5809,6 +6007,93 @@ const de_UnauthorizedExceptionRes = async (
 // de_CognitoUserPoolConfig omitted.
 
 // de_DataSource omitted.
+
+/**
+ * deserializeAws_restJson1DataSourceIntrospectionModel
+ */
+const de_DataSourceIntrospectionModel = (output: any, context: __SerdeContext): DataSourceIntrospectionModel => {
+  return take(output, {
+    fields: (_: any) => de_DataSourceIntrospectionModelFields(_, context),
+    indexes: _json,
+    name: __expectString,
+    primaryKey: _json,
+    sdl: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSourceIntrospectionModelField
+ */
+const de_DataSourceIntrospectionModelField = (
+  output: any,
+  context: __SerdeContext
+): DataSourceIntrospectionModelField => {
+  return take(output, {
+    length: __expectLong,
+    name: __expectString,
+    type: (_: any) => de_DataSourceIntrospectionModelFieldType(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSourceIntrospectionModelFields
+ */
+const de_DataSourceIntrospectionModelFields = (
+  output: any,
+  context: __SerdeContext
+): DataSourceIntrospectionModelField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataSourceIntrospectionModelField(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DataSourceIntrospectionModelFieldType
+ */
+const de_DataSourceIntrospectionModelFieldType = (
+  output: any,
+  context: __SerdeContext
+): DataSourceIntrospectionModelFieldType => {
+  return take(output, {
+    kind: __expectString,
+    name: __expectString,
+    type: (_: any) => de_DataSourceIntrospectionModelFieldType(_, context),
+    values: _json,
+  }) as any;
+};
+
+// de_DataSourceIntrospectionModelFieldTypeValues omitted.
+
+// de_DataSourceIntrospectionModelIndex omitted.
+
+// de_DataSourceIntrospectionModelIndexes omitted.
+
+// de_DataSourceIntrospectionModelIndexFields omitted.
+
+/**
+ * deserializeAws_restJson1DataSourceIntrospectionModels
+ */
+const de_DataSourceIntrospectionModels = (output: any, context: __SerdeContext): DataSourceIntrospectionModel[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataSourceIntrospectionModel(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DataSourceIntrospectionResult
+ */
+const de_DataSourceIntrospectionResult = (output: any, context: __SerdeContext): DataSourceIntrospectionResult => {
+  return take(output, {
+    models: (_: any) => de_DataSourceIntrospectionModels(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
 
 // de_DataSources omitted.
 

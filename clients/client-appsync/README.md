@@ -430,6 +430,14 @@ GetDataSource
 </details>
 <details>
 <summary>
+GetDataSourceIntrospection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/GetDataSourceIntrospectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetDataSourceIntrospectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetDataSourceIntrospectionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDomainName
 </summary>
 
@@ -578,6 +586,14 @@ ListTypesByAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/ListTypesByAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListTypesByAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListTypesByAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartDataSourceIntrospection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/StartDataSourceIntrospectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/StartDataSourceIntrospectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/StartDataSourceIntrospectionCommandOutput/)
 
 </details>
 <details>

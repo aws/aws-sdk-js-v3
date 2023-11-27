@@ -132,6 +132,11 @@ import {
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import {
+  GetDataSourceIntrospectionCommand,
+  GetDataSourceIntrospectionCommandInput,
+  GetDataSourceIntrospectionCommandOutput,
+} from "./commands/GetDataSourceIntrospectionCommand";
+import {
   GetDomainNameCommand,
   GetDomainNameCommandInput,
   GetDomainNameCommandOutput,
@@ -206,6 +211,11 @@ import {
   ListTypesByAssociationCommandOutput,
 } from "./commands/ListTypesByAssociationCommand";
 import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import {
+  StartDataSourceIntrospectionCommand,
+  StartDataSourceIntrospectionCommandInput,
+  StartDataSourceIntrospectionCommandOutput,
+} from "./commands/StartDataSourceIntrospectionCommand";
 import {
   StartSchemaCreationCommand,
   StartSchemaCreationCommandInput,
@@ -293,6 +303,7 @@ const commands = {
   GetApiAssociationCommand,
   GetApiCacheCommand,
   GetDataSourceCommand,
+  GetDataSourceIntrospectionCommand,
   GetDomainNameCommand,
   GetFunctionCommand,
   GetGraphqlApiCommand,
@@ -312,6 +323,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListTypesCommand,
   ListTypesByAssociationCommand,
+  StartDataSourceIntrospectionCommand,
   StartSchemaCreationCommand,
   StartSchemaMergeCommand,
   TagResourceCommand,
@@ -730,6 +742,23 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link GetDataSourceIntrospectionCommand}
+   */
+  getDataSourceIntrospection(
+    args: GetDataSourceIntrospectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataSourceIntrospectionCommandOutput>;
+  getDataSourceIntrospection(
+    args: GetDataSourceIntrospectionCommandInput,
+    cb: (err: any, data?: GetDataSourceIntrospectionCommandOutput) => void
+  ): void;
+  getDataSourceIntrospection(
+    args: GetDataSourceIntrospectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataSourceIntrospectionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDomainNameCommand}
    */
   getDomainName(args: GetDomainNameCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainNameCommandOutput>;
@@ -987,6 +1016,23 @@ export interface AppSync {
     args: ListTypesByAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTypesByAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDataSourceIntrospectionCommand}
+   */
+  startDataSourceIntrospection(
+    args: StartDataSourceIntrospectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDataSourceIntrospectionCommandOutput>;
+  startDataSourceIntrospection(
+    args: StartDataSourceIntrospectionCommandInput,
+    cb: (err: any, data?: StartDataSourceIntrospectionCommandOutput) => void
+  ): void;
+  startDataSourceIntrospection(
+    args: StartDataSourceIntrospectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDataSourceIntrospectionCommandOutput) => void
   ): void;
 
   /**

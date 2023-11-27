@@ -3349,6 +3349,73 @@ export interface GetDataSourceResponse {
 /**
  * @public
  */
+export interface GetDataSourceIntrospectionRequest {
+  /**
+   * @public
+   * <p>The introspection ID. Each introspection contains a unique ID that can be used to reference the
+   *          instrospection record.</p>
+   */
+  introspectionId: string | undefined;
+
+  /**
+   * @public
+   * <p>A boolean flag that determines whether SDL should be generated for introspected types or not. If set to
+   *             <code>true</code>, each model will contain an <code>sdl</code> property that contains the SDL for that type.
+   *          The SDL only contains the type data and no additional metadata or directives. </p>
+   */
+  includeModelsSDL?: boolean;
+
+  /**
+   * @public
+   * <p>Determines the number of types to be returned in a single response before paginating. This value is
+   *          typically taken from <code>nextToken</code> value from the previous response.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of introspected types that will be returned in a single response.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>The index that was retrieved from the introspected data.</p>
+ */
+export interface DataSourceIntrospectionModelIndex {
+  /**
+   * @public
+   * <p>The name of the index.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The fields of the index.</p>
+   */
+  fields?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceIntrospectionStatus = {
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceIntrospectionStatus =
+  (typeof DataSourceIntrospectionStatus)[keyof typeof DataSourceIntrospectionStatus];
+
+/**
+ * @public
+ */
 export interface GetDomainNameRequest {
   /**
    * @public
@@ -4167,6 +4234,73 @@ export interface ListTypesByAssociationResponse {
 
 /**
  * @public
+ * <p>Contains the metadata required to introspect the RDS cluster.</p>
+ */
+export interface RdsDataApiConfig {
+  /**
+   * @public
+   * <p>The resource ARN of the RDS cluster.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The secret's ARN that was obtained from Secrets Manager. A secret consists of secret information, the secret
+   *          value, plus metadata about the secret. A secret value can be a string or binary. It typically includes the ARN,
+   *          secret name and description, policies, tags, encryption key from the Key Management Service, and key rotation
+   *          data.</p>
+   */
+  secretArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database in the cluster.</p>
+   */
+  databaseName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDataSourceIntrospectionRequest {
+  /**
+   * @public
+   * <p>The <code>rdsDataApiConfig</code> object data.</p>
+   */
+  rdsDataApiConfig?: RdsDataApiConfig;
+}
+
+/**
+ * @public
+ */
+export interface StartDataSourceIntrospectionResponse {
+  /**
+   * @public
+   * <p>The introspection ID. Each introspection contains a unique ID that can be used to reference the
+   *          instrospection record.</p>
+   */
+  introspectionId?: string;
+
+  /**
+   * @public
+   * <p>The status of the introspection during creation. By default, when a new instrospection has been created, the
+   *          status will be set to <code>PROCESSING</code>. Once the operation has been completed, the status will change to
+   *             <code>SUCCESS</code> or <code>FAILED</code> depending on how the data was parsed. A <code>FAILED</code>
+   *          operation will return an error and its details as an <code>introspectionStatusDetail</code>.</p>
+   */
+  introspectionStatus?: DataSourceIntrospectionStatus;
+
+  /**
+   * @public
+   * <p>The error detail field. When a <code>FAILED</code>
+   *             <code>introspectionStatus</code> is returned, the <code>introspectionStatusDetail</code> will also return the
+   *          exact error that was generated during the operation.</p>
+   */
+  introspectionStatusDetail?: string;
+}
+
+/**
+ * @public
  */
 export interface StartSchemaCreationRequest {
   /**
@@ -4935,4 +5069,174 @@ export interface UpdateTypeResponse {
    * <p>The updated <code>Type</code> object.</p>
    */
   type?: Type;
+}
+
+/**
+ * @public
+ * <p>Represents the type data for each field retrieved from the introspection.</p>
+ */
+export interface DataSourceIntrospectionModelFieldType {
+  /**
+   * @public
+   * <p>Specifies the classification of data. For example, this could be set to values like <code>Scalar</code> or
+   *             <code>NonNull</code> to indicate a fundamental property of the field.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Scalar</code>: Indicates the value is a primitive type (scalar).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NonNull</code>: Indicates the field cannot be <code>null</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>List</code>: Indicates the field contains a list.</p>
+   *             </li>
+   *          </ul>
+   */
+  kind?: string;
+
+  /**
+   * @public
+   * <p>The name of the data type that represents the field. For example, <code>String</code> is a valid
+   *             <code>name</code> value.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The <code>DataSourceIntrospectionModelFieldType</code> object data. The <code>type</code> is only present if
+   *             <code>DataSourceIntrospectionModelFieldType.kind</code> is set to <code>NonNull</code> or <code>List</code>. </p>
+   *          <p>The <code>type</code> typically contains its own <code>kind</code> and <code>name</code> fields to represent
+   *          the actual type data. For instance, <code>type</code> could contain a <code>kind</code> value of
+   *             <code>Scalar</code> with a <code>name</code> value of <code>String</code>. The values <code>Scalar</code>
+   *          and <code>String</code> will be collectively stored in the <code>values</code> field.</p>
+   */
+  type?: DataSourceIntrospectionModelFieldType;
+
+  /**
+   * @public
+   * <p>The values of the <code>type</code> field. This field represents the AppSync data type equivalent of the
+   *          introspected field.</p>
+   */
+  values?: string[];
+}
+
+/**
+ * @public
+ * <p>Represents the fields that were retrieved from the introspected data.</p>
+ */
+export interface DataSourceIntrospectionModelField {
+  /**
+   * @public
+   * <p>The name of the field that was retrieved from the introspected data.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The <code>DataSourceIntrospectionModelFieldType</code> object data.</p>
+   */
+  type?: DataSourceIntrospectionModelFieldType;
+
+  /**
+   * @public
+   * <p>The length value of the introspected field.</p>
+   */
+  length?: number;
+}
+
+/**
+ * @public
+ * <p>Contains the introspected data that was retrieved from the data source.</p>
+ */
+export interface DataSourceIntrospectionModel {
+  /**
+   * @public
+   * <p>The name of the model. For example, this could be the name of a single table in a database.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The <code>DataSourceIntrospectionModelField</code> object data.</p>
+   */
+  fields?: DataSourceIntrospectionModelField[];
+
+  /**
+   * @public
+   * <p>The primary key stored as a <code>DataSourceIntrospectionModelIndex</code> object.</p>
+   */
+  primaryKey?: DataSourceIntrospectionModelIndex;
+
+  /**
+   * @public
+   * <p>The array of <code>DataSourceIntrospectionModelIndex</code> objects.</p>
+   */
+  indexes?: DataSourceIntrospectionModelIndex[];
+
+  /**
+   * @public
+   * <p>Contains the output of the SDL that was generated from the introspected types. This is controlled by the
+   *          <code>includeModelsSDL</code> parameter of the <code>GetDataSourceIntrospection</code> operation.</p>
+   */
+  sdl?: string;
+}
+
+/**
+ * @public
+ * <p>Represents the output of a <code>DataSourceIntrospectionResult</code>. This is the populated result of a
+ *             <code>GetDataSourceIntrospection</code> operation.</p>
+ */
+export interface DataSourceIntrospectionResult {
+  /**
+   * @public
+   * <p>The array of <code>DataSourceIntrospectionModel</code> objects.</p>
+   */
+  models?: DataSourceIntrospectionModel[];
+
+  /**
+   * @public
+   * <p>Determines the number of types to be returned in a single response before paginating. This value is
+   *          typically taken from <code>nextToken</code> value from the previous response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDataSourceIntrospectionResponse {
+  /**
+   * @public
+   * <p>The introspection ID. Each introspection contains a unique ID that can be used to reference the
+   *          instrospection record.</p>
+   */
+  introspectionId?: string;
+
+  /**
+   * @public
+   * <p>The status of the introspection during retrieval. By default, when a new instrospection is being retrieved,
+   *          the status will be set to <code>PROCESSING</code>. Once the operation has been completed, the status will
+   *          change to <code>SUCCESS</code> or <code>FAILED</code> depending on how the data was parsed. A
+   *             <code>FAILED</code> operation will return an error and its details as an
+   *             <code>introspectionStatusDetail</code>.</p>
+   */
+  introspectionStatus?: DataSourceIntrospectionStatus;
+
+  /**
+   * @public
+   * <p>The error detail field. When a <code>FAILED</code>
+   *             <code>introspectionStatus</code> is returned, the <code>introspectionStatusDetail</code> will also return the
+   *          exact error that was generated during the operation.</p>
+   */
+  introspectionStatusDetail?: string;
+
+  /**
+   * @public
+   * <p>The <code>DataSourceIntrospectionResult</code> object data.</p>
+   */
+  introspectionResult?: DataSourceIntrospectionResult;
 }
