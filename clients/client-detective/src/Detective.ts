@@ -49,6 +49,11 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
+import {
+  GetInvestigationCommand,
+  GetInvestigationCommandInput,
+  GetInvestigationCommandOutput,
+} from "./commands/GetInvestigationCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
   ListDatasourcePackagesCommand,
@@ -56,6 +61,16 @@ import {
   ListDatasourcePackagesCommandOutput,
 } from "./commands/ListDatasourcePackagesCommand";
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
+import {
+  ListIndicatorsCommand,
+  ListIndicatorsCommandInput,
+  ListIndicatorsCommandOutput,
+} from "./commands/ListIndicatorsCommand";
+import {
+  ListInvestigationsCommand,
+  ListInvestigationsCommandInput,
+  ListInvestigationsCommandOutput,
+} from "./commands/ListInvestigationsCommand";
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
@@ -78,6 +93,11 @@ import {
   RejectInvitationCommandOutput,
 } from "./commands/RejectInvitationCommand";
 import {
+  StartInvestigationCommand,
+  StartInvestigationCommandInput,
+  StartInvestigationCommandOutput,
+} from "./commands/StartInvestigationCommand";
+import {
   StartMonitoringMemberCommand,
   StartMonitoringMemberCommandInput,
   StartMonitoringMemberCommandOutput,
@@ -93,6 +113,11 @@ import {
   UpdateDatasourcePackagesCommandInput,
   UpdateDatasourcePackagesCommandOutput,
 } from "./commands/UpdateDatasourcePackagesCommand";
+import {
+  UpdateInvestigationStateCommand,
+  UpdateInvestigationStateCommandInput,
+  UpdateInvestigationStateCommandOutput,
+} from "./commands/UpdateInvestigationStateCommand";
 import {
   UpdateOrganizationConfigurationCommand,
   UpdateOrganizationConfigurationCommandInput,
@@ -112,18 +137,23 @@ const commands = {
   DisableOrganizationAdminAccountCommand,
   DisassociateMembershipCommand,
   EnableOrganizationAdminAccountCommand,
+  GetInvestigationCommand,
   GetMembersCommand,
   ListDatasourcePackagesCommand,
   ListGraphsCommand,
+  ListIndicatorsCommand,
+  ListInvestigationsCommand,
   ListInvitationsCommand,
   ListMembersCommand,
   ListOrganizationAdminAccountsCommand,
   ListTagsForResourceCommand,
   RejectInvitationCommand,
+  StartInvestigationCommand,
   StartMonitoringMemberCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDatasourcePackagesCommand,
+  UpdateInvestigationStateCommand,
   UpdateOrganizationConfigurationCommand,
 };
 
@@ -292,6 +322,23 @@ export interface Detective {
   ): void;
 
   /**
+   * @see {@link GetInvestigationCommand}
+   */
+  getInvestigation(
+    args: GetInvestigationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInvestigationCommandOutput>;
+  getInvestigation(
+    args: GetInvestigationCommandInput,
+    cb: (err: any, data?: GetInvestigationCommandOutput) => void
+  ): void;
+  getInvestigation(
+    args: GetInvestigationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInvestigationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMembersCommand}
    */
   getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
@@ -328,6 +375,37 @@ export interface Detective {
     args: ListGraphsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListGraphsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIndicatorsCommand}
+   */
+  listIndicators(
+    args: ListIndicatorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndicatorsCommandOutput>;
+  listIndicators(args: ListIndicatorsCommandInput, cb: (err: any, data?: ListIndicatorsCommandOutput) => void): void;
+  listIndicators(
+    args: ListIndicatorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIndicatorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInvestigationsCommand}
+   */
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInvestigationsCommandOutput>;
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    cb: (err: any, data?: ListInvestigationsCommandOutput) => void
+  ): void;
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInvestigationsCommandOutput) => void
   ): void;
 
   /**
@@ -407,6 +485,23 @@ export interface Detective {
   ): void;
 
   /**
+   * @see {@link StartInvestigationCommand}
+   */
+  startInvestigation(
+    args: StartInvestigationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartInvestigationCommandOutput>;
+  startInvestigation(
+    args: StartInvestigationCommandInput,
+    cb: (err: any, data?: StartInvestigationCommandOutput) => void
+  ): void;
+  startInvestigation(
+    args: StartInvestigationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartInvestigationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartMonitoringMemberCommand}
    */
   startMonitoringMember(
@@ -460,6 +555,23 @@ export interface Detective {
     args: UpdateDatasourcePackagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDatasourcePackagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInvestigationStateCommand}
+   */
+  updateInvestigationState(
+    args: UpdateInvestigationStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInvestigationStateCommandOutput>;
+  updateInvestigationState(
+    args: UpdateInvestigationStateCommandInput,
+    cb: (err: any, data?: UpdateInvestigationStateCommandOutput) => void
+  ): void;
+  updateInvestigationState(
+    args: UpdateInvestigationStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInvestigationStateCommandOutput) => void
   ): void;
 
   /**

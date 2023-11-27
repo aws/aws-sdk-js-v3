@@ -368,6 +368,14 @@ EnableOrganizationAdminAccount
 </details>
 <details>
 <summary>
+GetInvestigation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/GetInvestigationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/GetInvestigationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/GetInvestigationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMembers
 </summary>
 
@@ -388,6 +396,22 @@ ListGraphs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListGraphsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListGraphsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListGraphsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListIndicators
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListIndicatorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListIndicatorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListIndicatorsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListInvestigations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListInvestigationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListInvestigationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListInvestigationsCommandOutput/)
 
 </details>
 <details>
@@ -432,6 +456,14 @@ RejectInvitation
 </details>
 <details>
 <summary>
+StartInvestigation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/StartInvestigationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/StartInvestigationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/StartInvestigationCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartMonitoringMember
 </summary>
 
@@ -460,6 +492,14 @@ UpdateDatasourcePackages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/UpdateDatasourcePackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateDatasourcePackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateDatasourcePackagesCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateInvestigationState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/UpdateInvestigationStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateInvestigationStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateInvestigationStateCommandOutput/)
 
 </details>
 <details>

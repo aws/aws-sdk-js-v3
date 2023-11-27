@@ -52,12 +52,15 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "../commands/EnableOrganizationAdminAccountCommand";
+import { GetInvestigationCommandInput, GetInvestigationCommandOutput } from "../commands/GetInvestigationCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
 import {
   ListDatasourcePackagesCommandInput,
   ListDatasourcePackagesCommandOutput,
 } from "../commands/ListDatasourcePackagesCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
+import { ListIndicatorsCommandInput, ListIndicatorsCommandOutput } from "../commands/ListIndicatorsCommand";
+import { ListInvestigationsCommandInput, ListInvestigationsCommandOutput } from "../commands/ListInvestigationsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import {
@@ -69,6 +72,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "../commands/RejectInvitationCommand";
+import { StartInvestigationCommandInput, StartInvestigationCommandOutput } from "../commands/StartInvestigationCommand";
 import {
   StartMonitoringMemberCommandInput,
   StartMonitoringMemberCommandOutput,
@@ -79,6 +83,10 @@ import {
   UpdateDatasourcePackagesCommandInput,
   UpdateDatasourcePackagesCommandOutput,
 } from "../commands/UpdateDatasourcePackagesCommand";
+import {
+  UpdateInvestigationStateCommandInput,
+  UpdateInvestigationStateCommandOutput,
+} from "../commands/UpdateInvestigationStateCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
@@ -93,12 +101,17 @@ import {
   DatasourcePackageIngestDetail,
   DatasourcePackageIngestState,
   DatasourcePackageUsageInfo,
+  DateFilter,
+  FilterCriteria,
   Graph,
   InternalServerException,
+  InvestigationDetail,
   MemberDetail,
   MembershipDatasources,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SortCriteria,
+  StringFilter,
   TimestampForCollection,
   TooManyRequestsException,
   ValidationException,
@@ -429,6 +442,37 @@ export const se_EnableOrganizationAdminAccountCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetInvestigationCommand
+ */
+export const se_GetInvestigationCommand = async (
+  input: GetInvestigationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/investigations/getInvestigation";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      InvestigationId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetMembersCommand
  */
 export const se_GetMembersCommand = async (
@@ -507,6 +551,74 @@ export const se_ListGraphsCommand = async (
     take(input, {
       MaxResults: [],
       NextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListIndicatorsCommand
+ */
+export const se_ListIndicatorsCommand = async (
+  input: ListIndicatorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/investigations/listIndicators";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      IndicatorType: [],
+      InvestigationId: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListInvestigationsCommand
+ */
+export const se_ListInvestigationsCommand = async (
+  input: ListInvestigationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/investigations/listInvestigations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      FilterCriteria: (_) => se_FilterCriteria(_, context),
+      GraphArn: [],
+      MaxResults: [],
+      NextToken: [],
+      SortCriteria: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -665,6 +777,39 @@ export const se_RejectInvitationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartInvestigationCommand
+ */
+export const se_StartInvestigationCommand = async (
+  input: StartInvestigationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/investigations/startInvestigation";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EntityArn: [],
+      GraphArn: [],
+      ScopeEndTime: (_) => _.toISOString().split(".")[0] + "Z",
+      ScopeStartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StartMonitoringMemberCommand
  */
 export const se_StartMonitoringMemberCommand = async (
@@ -773,6 +918,38 @@ export const se_UpdateDatasourcePackagesCommand = async (
     take(input, {
       DatasourcePackages: (_) => _json(_),
       GraphArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateInvestigationStateCommand
+ */
+export const se_UpdateInvestigationStateCommand = async (
+  input: UpdateInvestigationStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/investigations/updateInvestigationState";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      InvestigationId: [],
+      State: [],
     })
   );
   return new __HttpRequest({
@@ -1430,6 +1607,74 @@ const de_EnableOrganizationAdminAccountCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetInvestigationCommand
+ */
+export const de_GetInvestigationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInvestigationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetInvestigationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EntityArn: __expectString,
+    EntityType: __expectString,
+    GraphArn: __expectString,
+    InvestigationId: __expectString,
+    ScopeEndTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ScopeStartTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Severity: __expectString,
+    State: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetInvestigationCommandError
+ */
+const de_GetInvestigationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInvestigationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetMembersCommand
  */
 export const de_GetMembersCommand = async (
@@ -1584,6 +1829,128 @@ const de_ListGraphsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListIndicatorsCommand
+ */
+export const de_ListIndicatorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIndicatorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIndicatorsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GraphArn: __expectString,
+    Indicators: _json,
+    InvestigationId: __expectString,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIndicatorsCommandError
+ */
+const de_ListIndicatorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIndicatorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListInvestigationsCommand
+ */
+export const de_ListInvestigationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvestigationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListInvestigationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InvestigationDetails: (_) => de_InvestigationDetails(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInvestigationsCommandError
+ */
+const de_ListInvestigationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvestigationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1877,6 +2244,65 @@ const de_RejectInvitationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartInvestigationCommand
+ */
+export const de_StartInvestigationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInvestigationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartInvestigationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InvestigationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartInvestigationCommandError
+ */
+const de_StartInvestigationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInvestigationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartMonitoringMemberCommand
  */
 export const de_StartMonitoringMemberCommand = async (
@@ -2094,6 +2520,61 @@ const de_UpdateDatasourcePackagesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateInvestigationStateCommand
+ */
+export const de_UpdateInvestigationStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInvestigationStateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateInvestigationStateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateInvestigationStateCommandError
+ */
+const de_UpdateInvestigationStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInvestigationStateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateOrganizationConfigurationCommand
  */
 export const de_UpdateOrganizationConfigurationCommand = async (
@@ -2297,7 +2778,34 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DatasourcePackageList omitted.
 
+/**
+ * serializeAws_restJson1DateFilter
+ */
+const se_DateFilter = (input: DateFilter, context: __SerdeContext): any => {
+  return take(input, {
+    EndInclusive: (_) => _.toISOString().split(".")[0] + "Z",
+    StartInclusive: (_) => _.toISOString().split(".")[0] + "Z",
+  });
+};
+
+/**
+ * serializeAws_restJson1FilterCriteria
+ */
+const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    CreatedTime: (_) => se_DateFilter(_, context),
+    EntityArn: _json,
+    Severity: _json,
+    State: _json,
+    Status: _json,
+  });
+};
+
 // se_GraphArnList omitted.
+
+// se_SortCriteria omitted.
+
+// se_StringFilter omitted.
 
 // se_TagMap omitted.
 
@@ -2389,6 +2897,8 @@ const de_DatasourcePackageUsageInfo = (output: any, context: __SerdeContext): Da
   }) as any;
 };
 
+// de_FlaggedIpAddressDetail omitted.
+
 /**
  * deserializeAws_restJson1Graph
  */
@@ -2407,6 +2917,41 @@ const de_GraphList = (output: any, context: __SerdeContext): Graph[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_Graph(entry, context);
+    });
+  return retVal;
+};
+
+// de_ImpossibleTravelDetail omitted.
+
+// de_Indicator omitted.
+
+// de_IndicatorDetail omitted.
+
+// de_Indicators omitted.
+
+/**
+ * deserializeAws_restJson1InvestigationDetail
+ */
+const de_InvestigationDetail = (output: any, context: __SerdeContext): InvestigationDetail => {
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EntityArn: __expectString,
+    EntityType: __expectString,
+    InvestigationId: __expectString,
+    Severity: __expectString,
+    State: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InvestigationDetails
+ */
+const de_InvestigationDetails = (output: any, context: __SerdeContext): InvestigationDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InvestigationDetail(entry, context);
     });
   return retVal;
 };
@@ -2489,6 +3034,16 @@ const de_MembershipDatasourcesList = (output: any, context: __SerdeContext): Mem
   return retVal;
 };
 
+// de_NewAsoDetail omitted.
+
+// de_NewGeolocationDetail omitted.
+
+// de_NewUserAgentDetail omitted.
+
+// de_RelatedFindingDetail omitted.
+
+// de_RelatedFindingGroupDetail omitted.
+
 // de_ResourceList omitted.
 
 // de_TagMap omitted.
@@ -2501,6 +3056,8 @@ const de_TimestampForCollection = (output: any, context: __SerdeContext): Timest
     Timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_TTPsObservedDetail omitted.
 
 // de_UnprocessedAccount omitted.
 

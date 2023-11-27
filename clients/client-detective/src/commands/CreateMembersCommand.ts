@@ -45,9 +45,9 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * <p>
  *             <code>CreateMembers</code> is used to send invitations to accounts. For the organization
  *          behavior graph, the Detective administrator account uses
- *             <code>CreateMembers</code> to enable organization accounts as member accounts.</p>
+ *          <code>CreateMembers</code> to enable organization accounts as member accounts.</p>
  *          <p>For invited accounts, <code>CreateMembers</code> sends a request to invite the specified
- *             Amazon Web Services accounts to be member accounts in the behavior graph. This operation
+ *          Amazon Web Services accounts to be member accounts in the behavior graph. This operation
  *          can only be called by the administrator account for a behavior graph. </p>
  *          <p>
  *             <code>CreateMembers</code> verifies the accounts and then invites the verified accounts.
