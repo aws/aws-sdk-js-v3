@@ -323,6 +323,7 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * //             state: "Failed" || "Fulfilled" || "InProgress" || "ReadyForFulfillment" || "Waiting" || "FulfillmentInProgress",
  * //             confirmationState: "Confirmed" || "Denied" || "None",
  * //           },
+ * //           interpretationSource: "Bedrock" || "Lex",
  * //         },
  * //       ],
  * //       sessionState: { // SessionState

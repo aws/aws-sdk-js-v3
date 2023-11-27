@@ -307,6 +307,7 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  * //         state: "Failed" || "Fulfilled" || "InProgress" || "ReadyForFulfillment" || "Waiting" || "FulfillmentInProgress",
  * //         confirmationState: "Confirmed" || "Denied" || "None",
  * //       },
+ * //       interpretationSource: "Bedrock" || "Lex",
  * //     },
  * //   ],
  * //   requestAttributes: {

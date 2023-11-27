@@ -1387,6 +1387,7 @@ const de_IntentResultEvent = (output: any, context: __SerdeContext): IntentResul
 const de_Interpretation = (output: any, context: __SerdeContext): Interpretation => {
   return take(output, {
     intent: (_: any) => de_Intent(_, context),
+    interpretationSource: __expectString,
     nluConfidence: (_: any) => de_ConfidenceScore(_, context),
     sentimentResponse: (_: any) => de_SentimentResponse(_, context),
   }) as any;

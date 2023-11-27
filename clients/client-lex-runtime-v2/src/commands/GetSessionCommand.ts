@@ -129,6 +129,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //         state: "Failed" || "Fulfilled" || "InProgress" || "ReadyForFulfillment" || "Waiting" || "FulfillmentInProgress",
  * //         confirmationState: "Confirmed" || "Denied" || "None",
  * //       },
+ * //       interpretationSource: "Bedrock" || "Lex",
  * //     },
  * //   ],
  * //   sessionState: { // SessionState
