@@ -43,7 +43,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @public
  * <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your
  *       Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
- *       listeners, and rules.</p>
+ *       trust stores, listeners, and rules.</p>
  *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with the
  *       same key, <code>AddTags</code> updates its value.</p>
  * @example
@@ -91,7 +91,10 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *  <p>The specified target group does not exist.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *  <p>You've reached the limit on the number of tags for this resource.</p>
+ *
+ * @throws {@link TrustStoreNotFoundException} (client fault)
+ *  <p>The specified trust store does not exist.</p>
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>

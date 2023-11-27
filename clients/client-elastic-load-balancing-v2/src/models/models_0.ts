@@ -713,7 +713,7 @@ export class TargetGroupNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>You've reached the limit on the number of tags per load balancer.</p>
+ * <p>You've reached the limit on the number of tags for this resource.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -729,6 +729,195 @@ export class TooManyTagsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified trust store does not exist.</p>
+ */
+export class TrustStoreNotFoundException extends __BaseException {
+  readonly name: "TrustStoreNotFoundException" = "TrustStoreNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustStoreNotFoundException, __BaseException>) {
+    super({
+      name: "TrustStoreNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustStoreNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RevocationType = {
+  CRL: "CRL",
+} as const;
+
+/**
+ * @public
+ */
+export type RevocationType = (typeof RevocationType)[keyof typeof RevocationType];
+
+/**
+ * @public
+ * <p>Information about a revocation file.</p>
+ */
+export interface RevocationContent {
+  /**
+   * @public
+   * <p>The Amazon S3 bucket for the revocation file.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path for the revocation file.</p>
+   */
+  S3Key?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 object version of the revocation file.</p>
+   */
+  S3ObjectVersion?: string;
+
+  /**
+   * @public
+   * <p>The type of revocation file.</p>
+   */
+  RevocationType?: RevocationType;
+}
+
+/**
+ * @public
+ */
+export interface AddTrustStoreRevocationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation file to add.</p>
+   */
+  RevocationContents?: RevocationContent[];
+}
+
+/**
+ * @public
+ * <p>Information about a revocation file in use by a trust store.</p>
+ */
+export interface TrustStoreRevocation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>The revocation ID of the revocation file.</p>
+   */
+  RevocationId?: number;
+
+  /**
+   * @public
+   * <p>The type of revocation file.</p>
+   */
+  RevocationType?: RevocationType;
+
+  /**
+   * @public
+   * <p>The number of revoked certificates.</p>
+   */
+  NumberOfRevokedEntries?: number;
+}
+
+/**
+ * @public
+ */
+export interface AddTrustStoreRevocationsOutput {
+  /**
+   * @public
+   * <p>Information about the revocation file added to the trust store.</p>
+   */
+  TrustStoreRevocations?: TrustStoreRevocation[];
+}
+
+/**
+ * @public
+ * <p>The provided revocation file is an invalid format, or uses an incorrect algorithm.</p>
+ */
+export class InvalidRevocationContentException extends __BaseException {
+  readonly name: "InvalidRevocationContentException" = "InvalidRevocationContentException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRevocationContentException, __BaseException>) {
+    super({
+      name: "InvalidRevocationContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRevocationContentException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified revocation file does not exist.</p>
+ */
+export class RevocationContentNotFoundException extends __BaseException {
+  readonly name: "RevocationContentNotFoundException" = "RevocationContentNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RevocationContentNotFoundException, __BaseException>) {
+    super({
+      name: "RevocationContentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RevocationContentNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified trust store has too many revocation entries.</p>
+ */
+export class TooManyTrustStoreRevocationEntriesException extends __BaseException {
+  readonly name: "TooManyTrustStoreRevocationEntriesException" = "TooManyTrustStoreRevocationEntriesException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTrustStoreRevocationEntriesException, __BaseException>) {
+    super({
+      name: "TooManyTrustStoreRevocationEntriesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrustStoreRevocationEntriesException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -775,6 +964,52 @@ export class ALPNPolicyNotSupportedException extends __BaseException {
     Object.setPrototypeOf(this, ALPNPolicyNotSupportedException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MitigationInEffectEnum = {
+  NO: "no",
+  YES: "yes",
+} as const;
+
+/**
+ * @public
+ */
+export type MitigationInEffectEnum = (typeof MitigationInEffectEnum)[keyof typeof MitigationInEffectEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyResultEnum = {
+  ANOMALOUS: "anomalous",
+  NORMAL: "normal",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalyResultEnum = (typeof AnomalyResultEnum)[keyof typeof AnomalyResultEnum];
+
+/**
+ * @public
+ * <p>Information about anomaly detection and mitigation.</p>
+ */
+export interface AnomalyDetection {
+  /**
+   * @public
+   * <p>The latest anomaly detection result.</p>
+   */
+  Result?: AnomalyResultEnum;
+
+  /**
+   * @public
+   * <p>Indicates whether anomaly mitigation is in progress.</p>
+   */
+  MitigationInEffect?: MitigationInEffectEnum;
 }
 
 /**
@@ -865,6 +1100,28 @@ export class AvailabilityZoneNotSupportedException extends __BaseException {
 
 /**
  * @public
+ * <p>The specified ca certificate bundle does not exist.</p>
+ */
+export class CaCertificatesBundleNotFoundException extends __BaseException {
+  readonly name: "CaCertificatesBundleNotFoundException" = "CaCertificatesBundleNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CaCertificatesBundleNotFoundException, __BaseException>) {
+    super({
+      name: "CaCertificatesBundleNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CaCertificatesBundleNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>Information about a cipher used in a policy.</p>
  */
 export interface Cipher {
@@ -879,6 +1136,32 @@ export interface Cipher {
    * <p>The priority of the cipher.</p>
    */
   Priority?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the mutual authentication attributes of a listener.</p>
+ */
+export interface MutualAuthenticationAttributes {
+  /**
+   * @public
+   * <p>The client certificate handling method. Options are <code>off</code>,
+   *       <code>passthrough</code> or <code>verify</code>. The default value is
+   *       <code>off</code>.</p>
+   */
+  Mode?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether expired client certificates are ignored.</p>
+   */
+  IgnoreClientCertificateExpiry?: boolean;
 }
 
 /**
@@ -991,6 +1274,12 @@ export interface CreateListenerInput {
    * <p>The tags to assign to the listener.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The mutual authentication configuration information.</p>
+   */
+  MutualAuthentication?: MutualAuthenticationAttributes;
 }
 
 /**
@@ -1047,6 +1336,12 @@ export interface Listener {
    *       policy.</p>
    */
   AlpnPolicy?: string[];
+
+  /**
+   * @public
+   * <p>The mutual authentication configuration information.</p>
+   */
+  MutualAuthentication?: MutualAuthenticationAttributes;
 }
 
 /**
@@ -1302,6 +1597,28 @@ export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseExc
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyUniqueTargetGroupsPerLoadBalancerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified trust store is not active.</p>
+ */
+export class TrustStoreNotReadyException extends __BaseException {
+  readonly name: "TrustStoreNotReadyException" = "TrustStoreNotReadyException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustStoreNotReadyException, __BaseException>) {
+    super({
+      name: "TrustStoreNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustStoreNotReadyException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2660,6 +2977,169 @@ export class DuplicateTargetGroupNameException extends __BaseException {
 /**
  * @public
  */
+export interface CreateTrustStoreInput {
+  /**
+   * @public
+   * <p>The name of the trust store.</p>
+   *          <p>This name must be unique per region and cannot be changed after creation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 bucket for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Bucket: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Key: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
+   */
+  CaCertificatesBundleS3ObjectVersion?: string;
+
+  /**
+   * @public
+   * <p>The tags to assign to the trust store.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustStoreStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+} as const;
+
+/**
+ * @public
+ */
+export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];
+
+/**
+ * @public
+ * <p>Information about a trust store.</p>
+ */
+export interface TrustStore {
+  /**
+   * @public
+   * <p>The name of the trust store.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>The current status of the trust store.</p>
+   */
+  Status?: TrustStoreStatus;
+
+  /**
+   * @public
+   * <p>The number of ca certificates in the trust store.</p>
+   */
+  NumberOfCaCertificates?: number;
+
+  /**
+   * @public
+   * <p>The number of revoked certificates in the trust store.</p>
+   */
+  TotalRevokedEntries?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrustStoreOutput {
+  /**
+   * @public
+   * <p>Information about the trust store created.</p>
+   */
+  TrustStores?: TrustStore[];
+}
+
+/**
+ * @public
+ * <p>A trust store with the specified name already exists.</p>
+ */
+export class DuplicateTrustStoreNameException extends __BaseException {
+  readonly name: "DuplicateTrustStoreNameException" = "DuplicateTrustStoreNameException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateTrustStoreNameException, __BaseException>) {
+    super({
+      name: "DuplicateTrustStoreNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateTrustStoreNameException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified ca certificate bundle is in an invalid format, or corrupt.</p>
+ */
+export class InvalidCaCertificatesBundleException extends __BaseException {
+  readonly name: "InvalidCaCertificatesBundleException" = "InvalidCaCertificatesBundleException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCaCertificatesBundleException, __BaseException>) {
+    super({
+      name: "InvalidCaCertificatesBundleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCaCertificatesBundleException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>You've reached the limit on the number of trust stores for your Amazon Web Services account.</p>
+ */
+export class TooManyTrustStoresException extends __BaseException {
+  readonly name: "TooManyTrustStoresException" = "TooManyTrustStoresException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTrustStoresException, __BaseException>) {
+    super({
+      name: "TooManyTrustStoresException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrustStoresException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
 export interface DeleteListenerInput {
   /**
    * @public
@@ -2720,6 +3200,44 @@ export interface DeleteTargetGroupInput {
  * @public
  */
 export interface DeleteTargetGroupOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteTrustStoreInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrustStoreOutput {}
+
+/**
+ * @public
+ * <p>The specified trust store is currently in use.</p>
+ */
+export class TrustStoreInUseException extends __BaseException {
+  readonly name: "TrustStoreInUseException" = "TrustStoreInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustStoreInUseException, __BaseException>) {
+    super({
+      name: "TrustStoreInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustStoreInUseException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -3104,6 +3622,23 @@ export interface LoadBalancerAttribute {
    *                <p>
    *                   <code>idle_timeout.timeout_seconds</code> - The idle timeout value, in seconds. The
    *           valid range is 1-4000 seconds. The default is 60 seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection_logs.s3.enabled</code> - Indicates whether connection logs are enabled. The
+   *           value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection_logs.s3.bucket</code> - The name of the S3 bucket for the connection logs.
+   *           This attribute is required if connection logs are enabled. The bucket must exist in the same
+   *           region as the load balancer and have a bucket policy that grants Elastic Load Balancing
+   *           permissions to write to the bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the
+   *           connection logs.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3536,8 +4071,14 @@ export interface TargetGroupAttribute {
    *                <p>
    *                   <code>load_balancing.algorithm.type</code> - The load balancing algorithm determines
    *           how the load balancer selects targets when routing requests. The value is
-   *             <code>round_robin</code> or <code>least_outstanding_requests</code>. The default is
+   *             <code>round_robin</code>, <code>least_outstanding_requests</code>, or <code>weighted_random</code>. The default is
    *             <code>round_robin</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>load_balancing.algorithm.anomaly_mitigation</code> - Only available when <code>load_balancing.algorithm.type</code>
+   *           is <code>weighted_random</code>. Indicates whether anomaly mitigation is enabled. The value is <code>on</code>
+   *           or <code>off</code>. The default is <code>off</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3711,6 +4252,21 @@ export interface DescribeTargetGroupsOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const DescribeTargetHealthInputIncludeEnum = {
+  ALL: "All",
+  ANOMALY: "AnomalyDetection",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeTargetHealthInputIncludeEnum =
+  (typeof DescribeTargetHealthInputIncludeEnum)[keyof typeof DescribeTargetHealthInputIncludeEnum];
+
+/**
+ * @public
  */
 export interface DescribeTargetHealthInput {
   /**
@@ -3724,6 +4280,12 @@ export interface DescribeTargetHealthInput {
    * <p>The targets.</p>
    */
   Targets?: TargetDescription[];
+
+  /**
+   * @public
+   * <p>Used to inclue anomaly detection information.</p>
+   */
+  Include?: DescribeTargetHealthInputIncludeEnum[];
 }
 
 /**
@@ -3902,6 +4464,14 @@ export interface TargetHealthDescription {
    * <p>The health information for the target.</p>
    */
   TargetHealth?: TargetHealth;
+
+  /**
+   * @public
+   * <p>The anomaly detection result for the target.</p>
+   *          <p>If no anomalies were detected, the result is <code>normal</code>.</p>
+   *          <p>If anomalies were detected, the result is <code>anomalous</code>.</p>
+   */
+  AnomalyDetection?: AnomalyDetection;
 }
 
 /**
@@ -3936,6 +4506,255 @@ export class HealthUnavailableException extends __BaseException {
     Object.setPrototypeOf(this, HealthUnavailableException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoreAssociationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with this call.</p>
+   */
+  PageSize?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the resources a trust store is associated with.</p>
+ */
+export interface TrustStoreAssociation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoreAssociationsOutput {
+  /**
+   * @public
+   * <p>Information about the resources the trust store is associated to.</p>
+   */
+  TrustStoreAssociations?: TrustStoreAssociation[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the marker for the next set of results.
+   *       Otherwise, this is null.</p>
+   */
+  NextMarker?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the revocations used by a trust store.</p>
+ */
+export interface DescribeTrustStoreRevocation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>The revocation ID of a revocation file in use.</p>
+   */
+  RevocationId?: number;
+
+  /**
+   * @public
+   * <p>The type of revocation file.</p>
+   */
+  RevocationType?: RevocationType;
+
+  /**
+   * @public
+   * <p>The number of revoked certificates.</p>
+   */
+  NumberOfRevokedEntries?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoreRevocationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation IDs of the revocation files you want to describe.</p>
+   */
+  RevocationIds?: number[];
+
+  /**
+   * @public
+   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with this call.</p>
+   */
+  PageSize?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoreRevocationsOutput {
+  /**
+   * @public
+   * <p>Information about the revocation file in the trust store.</p>
+   */
+  TrustStoreRevocations?: DescribeTrustStoreRevocation[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the marker for the next set of results.
+   *       Otherwise, this is null.</p>
+   */
+  NextMarker?: string;
+}
+
+/**
+ * @public
+ * <p>The specified revocation ID does not exist.</p>
+ */
+export class RevocationIdNotFoundException extends __BaseException {
+  readonly name: "RevocationIdNotFoundException" = "RevocationIdNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RevocationIdNotFoundException, __BaseException>) {
+    super({
+      name: "RevocationIdNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RevocationIdNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoresInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArns?: string[];
+
+  /**
+   * @public
+   * <p>The names of the trust stores.</p>
+   */
+  Names?: string[];
+
+  /**
+   * @public
+   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with this call.</p>
+   */
+  PageSize?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoresOutput {
+  /**
+   * @public
+   * <p>Information about the trust stores.</p>
+   */
+  TrustStores?: TrustStore[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the marker for the next set of results.
+   *       Otherwise, this is null.</p>
+   */
+  NextMarker?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreCaCertificatesBundleInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreCaCertificatesBundleOutput {
+  /**
+   * @public
+   * <p>The ca certificate bundles Amazon S3 URI.</p>
+   */
+  Location?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreRevocationContentInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation ID of the revocation file.</p>
+   */
+  RevocationId: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreRevocationContentOutput {
+  /**
+   * @public
+   * <p>The revocation files Amazon S3 URI.</p>
+   */
+  Location?: string;
 }
 
 /**
@@ -4022,6 +4841,12 @@ export interface ModifyListenerInput {
    *         policies</a> in the <i>Network Load Balancers Guide</i>.</p>
    */
   AlpnPolicy?: string[];
+
+  /**
+   * @public
+   * <p>The mutual authentication configuration information.</p>
+   */
+  MutualAuthentication?: MutualAuthenticationAttributes;
 }
 
 /**
@@ -4218,6 +5043,46 @@ export interface ModifyTargetGroupAttributesOutput {
 /**
  * @public
  */
+export interface ModifyTrustStoreInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 bucket for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Bucket: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Key: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
+   */
+  CaCertificatesBundleS3ObjectVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrustStoreOutput {
+  /**
+   * @public
+   * <p>Information about the modified trust store.</p>
+   */
+  TrustStores?: TrustStore[];
+}
+
+/**
+ * @public
+ */
 export interface RegisterTargetsInput {
   /**
    * @public
@@ -4282,6 +5147,28 @@ export interface RemoveTagsInput {
  * @public
  */
 export interface RemoveTagsOutput {}
+
+/**
+ * @public
+ */
+export interface RemoveTrustStoreRevocationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation IDs of the revocation files you want to remove.</p>
+   */
+  RevocationIds: number[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveTrustStoreRevocationsOutput {}
 
 /**
  * @public

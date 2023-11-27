@@ -129,6 +129,11 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *   AlpnPolicy: [ // AlpnPolicyName
  *     "STRING_VALUE",
  *   ],
+ *   MutualAuthentication: { // MutualAuthenticationAttributes
+ *     Mode: "STRING_VALUE",
+ *     TrustStoreArn: "STRING_VALUE",
+ *     IgnoreClientCertificateExpiry: true || false,
+ *   },
  * };
  * const command = new ModifyListenerCommand(input);
  * const response = await client.send(command);
@@ -209,6 +214,11 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * //       AlpnPolicy: [ // AlpnPolicyName
  * //         "STRING_VALUE",
  * //       ],
+ * //       MutualAuthentication: { // MutualAuthenticationAttributes
+ * //         Mode: "STRING_VALUE",
+ * //         TrustStoreArn: "STRING_VALUE",
+ * //         IgnoreClientCertificateExpiry: true || false,
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -271,6 +281,12 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *  <p>You've reached the limit on the number of unique target groups per load balancer across
  *       all listeners. If a target group is used by multiple actions for a load balancer, it is
  *       counted as only one use.</p>
+ *
+ * @throws {@link TrustStoreNotFoundException} (client fault)
+ *  <p>The specified trust store does not exist.</p>
+ *
+ * @throws {@link TrustStoreNotReadyException} (client fault)
+ *  <p>The specified trust store is not active.</p>
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol is not supported.</p>

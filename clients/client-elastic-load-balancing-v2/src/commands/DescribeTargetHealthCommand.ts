@@ -57,6 +57,9 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  *       AvailabilityZone: "STRING_VALUE",
  *     },
  *   ],
+ *   Include: [ // ListOfDescribeTargetHealthIncludeOptions
+ *     "AnomalyDetection" || "All",
+ *   ],
  * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
@@ -73,6 +76,10 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * //         State: "initial" || "healthy" || "unhealthy" || "unused" || "draining" || "unavailable",
  * //         Reason: "Elb.RegistrationInProgress" || "Elb.InitialHealthChecking" || "Target.ResponseCodeMismatch" || "Target.Timeout" || "Target.FailedHealthChecks" || "Target.NotRegistered" || "Target.NotInUse" || "Target.DeregistrationInProgress" || "Target.InvalidState" || "Target.IpUnusable" || "Target.HealthCheckDisabled" || "Elb.InternalError",
  * //         Description: "STRING_VALUE",
+ * //       },
+ * //       AnomalyDetection: { // AnomalyDetection
+ * //         Result: "anomalous" || "normal",
+ * //         MitigationInEffect: "yes" || "no",
  * //       },
  * //     },
  * //   ],

@@ -9,6 +9,11 @@ import {
 } from "./commands/AddListenerCertificatesCommand";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
+  AddTrustStoreRevocationsCommand,
+  AddTrustStoreRevocationsCommandInput,
+  AddTrustStoreRevocationsCommandOutput,
+} from "./commands/AddTrustStoreRevocationsCommand";
+import {
   CreateListenerCommand,
   CreateListenerCommandInput,
   CreateListenerCommandOutput,
@@ -25,6 +30,11 @@ import {
   CreateTargetGroupCommandOutput,
 } from "./commands/CreateTargetGroupCommand";
 import {
+  CreateTrustStoreCommand,
+  CreateTrustStoreCommandInput,
+  CreateTrustStoreCommandOutput,
+} from "./commands/CreateTrustStoreCommand";
+import {
   DeleteListenerCommand,
   DeleteListenerCommandInput,
   DeleteListenerCommandOutput,
@@ -40,6 +50,11 @@ import {
   DeleteTargetGroupCommandInput,
   DeleteTargetGroupCommandOutput,
 } from "./commands/DeleteTargetGroupCommand";
+import {
+  DeleteTrustStoreCommand,
+  DeleteTrustStoreCommandInput,
+  DeleteTrustStoreCommandOutput,
+} from "./commands/DeleteTrustStoreCommand";
 import {
   DeregisterTargetsCommand,
   DeregisterTargetsCommandInput,
@@ -101,6 +116,31 @@ import {
   DescribeTargetHealthCommandOutput,
 } from "./commands/DescribeTargetHealthCommand";
 import {
+  DescribeTrustStoreAssociationsCommand,
+  DescribeTrustStoreAssociationsCommandInput,
+  DescribeTrustStoreAssociationsCommandOutput,
+} from "./commands/DescribeTrustStoreAssociationsCommand";
+import {
+  DescribeTrustStoreRevocationsCommand,
+  DescribeTrustStoreRevocationsCommandInput,
+  DescribeTrustStoreRevocationsCommandOutput,
+} from "./commands/DescribeTrustStoreRevocationsCommand";
+import {
+  DescribeTrustStoresCommand,
+  DescribeTrustStoresCommandInput,
+  DescribeTrustStoresCommandOutput,
+} from "./commands/DescribeTrustStoresCommand";
+import {
+  GetTrustStoreCaCertificatesBundleCommand,
+  GetTrustStoreCaCertificatesBundleCommandInput,
+  GetTrustStoreCaCertificatesBundleCommandOutput,
+} from "./commands/GetTrustStoreCaCertificatesBundleCommand";
+import {
+  GetTrustStoreRevocationContentCommand,
+  GetTrustStoreRevocationContentCommandInput,
+  GetTrustStoreRevocationContentCommandOutput,
+} from "./commands/GetTrustStoreRevocationContentCommand";
+import {
   ModifyListenerCommand,
   ModifyListenerCommandInput,
   ModifyListenerCommandOutput,
@@ -122,6 +162,11 @@ import {
   ModifyTargetGroupCommandOutput,
 } from "./commands/ModifyTargetGroupCommand";
 import {
+  ModifyTrustStoreCommand,
+  ModifyTrustStoreCommandInput,
+  ModifyTrustStoreCommandOutput,
+} from "./commands/ModifyTrustStoreCommand";
+import {
   RegisterTargetsCommand,
   RegisterTargetsCommandInput,
   RegisterTargetsCommandOutput,
@@ -132,6 +177,11 @@ import {
   RemoveListenerCertificatesCommandOutput,
 } from "./commands/RemoveListenerCertificatesCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import {
+  RemoveTrustStoreRevocationsCommand,
+  RemoveTrustStoreRevocationsCommandInput,
+  RemoveTrustStoreRevocationsCommandOutput,
+} from "./commands/RemoveTrustStoreRevocationsCommand";
 import {
   SetIpAddressTypeCommand,
   SetIpAddressTypeCommandInput,
@@ -153,14 +203,17 @@ import { ElasticLoadBalancingV2Client, ElasticLoadBalancingV2ClientConfig } from
 const commands = {
   AddListenerCertificatesCommand,
   AddTagsCommand,
+  AddTrustStoreRevocationsCommand,
   CreateListenerCommand,
   CreateLoadBalancerCommand,
   CreateRuleCommand,
   CreateTargetGroupCommand,
+  CreateTrustStoreCommand,
   DeleteListenerCommand,
   DeleteLoadBalancerCommand,
   DeleteRuleCommand,
   DeleteTargetGroupCommand,
+  DeleteTrustStoreCommand,
   DeregisterTargetsCommand,
   DescribeAccountLimitsCommand,
   DescribeListenerCertificatesCommand,
@@ -173,14 +226,21 @@ const commands = {
   DescribeTargetGroupAttributesCommand,
   DescribeTargetGroupsCommand,
   DescribeTargetHealthCommand,
+  DescribeTrustStoreAssociationsCommand,
+  DescribeTrustStoreRevocationsCommand,
+  DescribeTrustStoresCommand,
+  GetTrustStoreCaCertificatesBundleCommand,
+  GetTrustStoreRevocationContentCommand,
   ModifyListenerCommand,
   ModifyLoadBalancerAttributesCommand,
   ModifyRuleCommand,
   ModifyTargetGroupCommand,
   ModifyTargetGroupAttributesCommand,
+  ModifyTrustStoreCommand,
   RegisterTargetsCommand,
   RemoveListenerCertificatesCommand,
   RemoveTagsCommand,
+  RemoveTrustStoreRevocationsCommand,
   SetIpAddressTypeCommand,
   SetRulePrioritiesCommand,
   SetSecurityGroupsCommand,
@@ -214,6 +274,23 @@ export interface ElasticLoadBalancingV2 {
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddTrustStoreRevocationsCommand}
+   */
+  addTrustStoreRevocations(
+    args: AddTrustStoreRevocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTrustStoreRevocationsCommandOutput>;
+  addTrustStoreRevocations(
+    args: AddTrustStoreRevocationsCommandInput,
+    cb: (err: any, data?: AddTrustStoreRevocationsCommandOutput) => void
+  ): void;
+  addTrustStoreRevocations(
+    args: AddTrustStoreRevocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddTrustStoreRevocationsCommandOutput) => void
   ): void;
 
   /**
@@ -276,6 +353,23 @@ export interface ElasticLoadBalancingV2 {
   ): void;
 
   /**
+   * @see {@link CreateTrustStoreCommand}
+   */
+  createTrustStore(
+    args: CreateTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrustStoreCommandOutput>;
+  createTrustStore(
+    args: CreateTrustStoreCommandInput,
+    cb: (err: any, data?: CreateTrustStoreCommandOutput) => void
+  ): void;
+  createTrustStore(
+    args: CreateTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrustStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteListenerCommand}
    */
   deleteListener(
@@ -332,6 +426,23 @@ export interface ElasticLoadBalancingV2 {
     args: DeleteTargetGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTargetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTrustStoreCommand}
+   */
+  deleteTrustStore(
+    args: DeleteTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrustStoreCommandOutput>;
+  deleteTrustStore(
+    args: DeleteTrustStoreCommandInput,
+    cb: (err: any, data?: DeleteTrustStoreCommandOutput) => void
+  ): void;
+  deleteTrustStore(
+    args: DeleteTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTrustStoreCommandOutput) => void
   ): void;
 
   /**
@@ -527,6 +638,91 @@ export interface ElasticLoadBalancingV2 {
   ): void;
 
   /**
+   * @see {@link DescribeTrustStoreAssociationsCommand}
+   */
+  describeTrustStoreAssociations(
+    args: DescribeTrustStoreAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrustStoreAssociationsCommandOutput>;
+  describeTrustStoreAssociations(
+    args: DescribeTrustStoreAssociationsCommandInput,
+    cb: (err: any, data?: DescribeTrustStoreAssociationsCommandOutput) => void
+  ): void;
+  describeTrustStoreAssociations(
+    args: DescribeTrustStoreAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrustStoreAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTrustStoreRevocationsCommand}
+   */
+  describeTrustStoreRevocations(
+    args: DescribeTrustStoreRevocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrustStoreRevocationsCommandOutput>;
+  describeTrustStoreRevocations(
+    args: DescribeTrustStoreRevocationsCommandInput,
+    cb: (err: any, data?: DescribeTrustStoreRevocationsCommandOutput) => void
+  ): void;
+  describeTrustStoreRevocations(
+    args: DescribeTrustStoreRevocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrustStoreRevocationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTrustStoresCommand}
+   */
+  describeTrustStores(
+    args: DescribeTrustStoresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrustStoresCommandOutput>;
+  describeTrustStores(
+    args: DescribeTrustStoresCommandInput,
+    cb: (err: any, data?: DescribeTrustStoresCommandOutput) => void
+  ): void;
+  describeTrustStores(
+    args: DescribeTrustStoresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrustStoresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrustStoreCaCertificatesBundleCommand}
+   */
+  getTrustStoreCaCertificatesBundle(
+    args: GetTrustStoreCaCertificatesBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrustStoreCaCertificatesBundleCommandOutput>;
+  getTrustStoreCaCertificatesBundle(
+    args: GetTrustStoreCaCertificatesBundleCommandInput,
+    cb: (err: any, data?: GetTrustStoreCaCertificatesBundleCommandOutput) => void
+  ): void;
+  getTrustStoreCaCertificatesBundle(
+    args: GetTrustStoreCaCertificatesBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrustStoreCaCertificatesBundleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrustStoreRevocationContentCommand}
+   */
+  getTrustStoreRevocationContent(
+    args: GetTrustStoreRevocationContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrustStoreRevocationContentCommandOutput>;
+  getTrustStoreRevocationContent(
+    args: GetTrustStoreRevocationContentCommandInput,
+    cb: (err: any, data?: GetTrustStoreRevocationContentCommandOutput) => void
+  ): void;
+  getTrustStoreRevocationContent(
+    args: GetTrustStoreRevocationContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrustStoreRevocationContentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyListenerCommand}
    */
   modifyListener(
@@ -603,6 +799,23 @@ export interface ElasticLoadBalancingV2 {
   ): void;
 
   /**
+   * @see {@link ModifyTrustStoreCommand}
+   */
+  modifyTrustStore(
+    args: ModifyTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyTrustStoreCommandOutput>;
+  modifyTrustStore(
+    args: ModifyTrustStoreCommandInput,
+    cb: (err: any, data?: ModifyTrustStoreCommandOutput) => void
+  ): void;
+  modifyTrustStore(
+    args: ModifyTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyTrustStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RegisterTargetsCommand}
    */
   registerTargets(
@@ -642,6 +855,23 @@ export interface ElasticLoadBalancingV2 {
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveTrustStoreRevocationsCommand}
+   */
+  removeTrustStoreRevocations(
+    args: RemoveTrustStoreRevocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTrustStoreRevocationsCommandOutput>;
+  removeTrustStoreRevocations(
+    args: RemoveTrustStoreRevocationsCommandInput,
+    cb: (err: any, data?: RemoveTrustStoreRevocationsCommandOutput) => void
+  ): void;
+  removeTrustStoreRevocations(
+    args: RemoveTrustStoreRevocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveTrustStoreRevocationsCommandOutput) => void
   ): void;
 
   /**

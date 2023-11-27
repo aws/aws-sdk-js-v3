@@ -27,14 +27,20 @@ import {
   AddListenerCertificatesCommandOutput,
 } from "../commands/AddListenerCertificatesCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
+import {
+  AddTrustStoreRevocationsCommandInput,
+  AddTrustStoreRevocationsCommandOutput,
+} from "../commands/AddTrustStoreRevocationsCommand";
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "../commands/CreateListenerCommand";
 import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "../commands/CreateLoadBalancerCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import { CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput } from "../commands/CreateTargetGroupCommand";
+import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "../commands/CreateTrustStoreCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand";
 import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "../commands/DeleteLoadBalancerCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
 import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "../commands/DeleteTargetGroupCommand";
+import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "../commands/DeleteTrustStoreCommand";
 import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "../commands/DeregisterTargetsCommand";
 import {
   DescribeAccountLimitsCommandInput,
@@ -71,6 +77,26 @@ import {
   DescribeTargetHealthCommandInput,
   DescribeTargetHealthCommandOutput,
 } from "../commands/DescribeTargetHealthCommand";
+import {
+  DescribeTrustStoreAssociationsCommandInput,
+  DescribeTrustStoreAssociationsCommandOutput,
+} from "../commands/DescribeTrustStoreAssociationsCommand";
+import {
+  DescribeTrustStoreRevocationsCommandInput,
+  DescribeTrustStoreRevocationsCommandOutput,
+} from "../commands/DescribeTrustStoreRevocationsCommand";
+import {
+  DescribeTrustStoresCommandInput,
+  DescribeTrustStoresCommandOutput,
+} from "../commands/DescribeTrustStoresCommand";
+import {
+  GetTrustStoreCaCertificatesBundleCommandInput,
+  GetTrustStoreCaCertificatesBundleCommandOutput,
+} from "../commands/GetTrustStoreCaCertificatesBundleCommand";
+import {
+  GetTrustStoreRevocationContentCommandInput,
+  GetTrustStoreRevocationContentCommandOutput,
+} from "../commands/GetTrustStoreRevocationContentCommand";
 import { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "../commands/ModifyListenerCommand";
 import {
   ModifyLoadBalancerAttributesCommandInput,
@@ -82,12 +108,17 @@ import {
   ModifyTargetGroupAttributesCommandOutput,
 } from "../commands/ModifyTargetGroupAttributesCommand";
 import { ModifyTargetGroupCommandInput, ModifyTargetGroupCommandOutput } from "../commands/ModifyTargetGroupCommand";
+import { ModifyTrustStoreCommandInput, ModifyTrustStoreCommandOutput } from "../commands/ModifyTrustStoreCommand";
 import { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "../commands/RegisterTargetsCommand";
 import {
   RemoveListenerCertificatesCommandInput,
   RemoveListenerCertificatesCommandOutput,
 } from "../commands/RemoveListenerCertificatesCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
+import {
+  RemoveTrustStoreRevocationsCommandInput,
+  RemoveTrustStoreRevocationsCommandOutput,
+} from "../commands/RemoveTrustStoreRevocationsCommand";
 import { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "../commands/SetIpAddressTypeCommand";
 import { SetRulePrioritiesCommandInput, SetRulePrioritiesCommandOutput } from "../commands/SetRulePrioritiesCommand";
 import { SetSecurityGroupsCommandInput, SetSecurityGroupsCommandOutput } from "../commands/SetSecurityGroupsCommand";
@@ -99,12 +130,16 @@ import {
   AddListenerCertificatesOutput,
   AddTagsInput,
   AddTagsOutput,
+  AddTrustStoreRevocationsInput,
+  AddTrustStoreRevocationsOutput,
   AllocationIdNotFoundException,
   ALPNPolicyNotSupportedException,
+  AnomalyDetection,
   AuthenticateCognitoActionConfig,
   AuthenticateOidcActionConfig,
   AvailabilityZone,
   AvailabilityZoneNotSupportedException,
+  CaCertificatesBundleNotFoundException,
   Certificate,
   CertificateNotFoundException,
   Cipher,
@@ -116,6 +151,8 @@ import {
   CreateRuleOutput,
   CreateTargetGroupInput,
   CreateTargetGroupOutput,
+  CreateTrustStoreInput,
+  CreateTrustStoreOutput,
   DeleteListenerInput,
   DeleteListenerOutput,
   DeleteLoadBalancerInput,
@@ -124,6 +161,8 @@ import {
   DeleteRuleOutput,
   DeleteTargetGroupInput,
   DeleteTargetGroupOutput,
+  DeleteTrustStoreInput,
+  DeleteTrustStoreOutput,
   DeregisterTargetsInput,
   DeregisterTargetsOutput,
   DescribeAccountLimitsInput,
@@ -147,20 +186,35 @@ import {
   DescribeTargetGroupsInput,
   DescribeTargetGroupsOutput,
   DescribeTargetHealthInput,
+  DescribeTargetHealthInputIncludeEnum,
   DescribeTargetHealthOutput,
+  DescribeTrustStoreAssociationsInput,
+  DescribeTrustStoreAssociationsOutput,
+  DescribeTrustStoreRevocation,
+  DescribeTrustStoreRevocationsInput,
+  DescribeTrustStoreRevocationsOutput,
+  DescribeTrustStoresInput,
+  DescribeTrustStoresOutput,
   DuplicateListenerException,
   DuplicateLoadBalancerNameException,
   DuplicateTagKeysException,
   DuplicateTargetGroupNameException,
+  DuplicateTrustStoreNameException,
   FixedResponseActionConfig,
   ForwardActionConfig,
+  GetTrustStoreCaCertificatesBundleInput,
+  GetTrustStoreCaCertificatesBundleOutput,
+  GetTrustStoreRevocationContentInput,
+  GetTrustStoreRevocationContentOutput,
   HealthUnavailableException,
   HostHeaderConditionConfig,
   HttpHeaderConditionConfig,
   HttpRequestMethodConditionConfig,
   IncompatibleProtocolsException,
+  InvalidCaCertificatesBundleException,
   InvalidConfigurationRequestException,
   InvalidLoadBalancerActionException,
+  InvalidRevocationContentException,
   InvalidSchemeException,
   InvalidSecurityGroupException,
   InvalidSubnetException,
@@ -184,6 +238,9 @@ import {
   ModifyTargetGroupAttributesOutput,
   ModifyTargetGroupInput,
   ModifyTargetGroupOutput,
+  ModifyTrustStoreInput,
+  ModifyTrustStoreOutput,
+  MutualAuthenticationAttributes,
   OperationNotPermittedException,
   PathPatternConditionConfig,
   PriorityInUseException,
@@ -196,7 +253,12 @@ import {
   RemoveListenerCertificatesOutput,
   RemoveTagsInput,
   RemoveTagsOutput,
+  RemoveTrustStoreRevocationsInput,
+  RemoveTrustStoreRevocationsOutput,
   ResourceInUseException,
+  RevocationContent,
+  RevocationContentNotFoundException,
+  RevocationIdNotFoundException,
   Rule,
   RuleCondition,
   RuleNotFoundException,
@@ -234,7 +296,15 @@ import {
   TooManyTagsException,
   TooManyTargetGroupsException,
   TooManyTargetsException,
+  TooManyTrustStoreRevocationEntriesException,
+  TooManyTrustStoresException,
   TooManyUniqueTargetGroupsPerLoadBalancerException,
+  TrustStore,
+  TrustStoreAssociation,
+  TrustStoreInUseException,
+  TrustStoreNotFoundException,
+  TrustStoreNotReadyException,
+  TrustStoreRevocation,
   UnsupportedProtocolException,
 } from "../models/models_0";
 
@@ -267,6 +337,23 @@ export const se_AddTagsCommand = async (
   body = buildFormUrlencodedString({
     ...se_AddTagsInput(input, context),
     Action: "AddTags",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryAddTrustStoreRevocationsCommand
+ */
+export const se_AddTrustStoreRevocationsCommand = async (
+  input: AddTrustStoreRevocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_AddTrustStoreRevocationsInput(input, context),
+    Action: "AddTrustStoreRevocations",
     Version: "2015-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -341,6 +428,23 @@ export const se_CreateTargetGroupCommand = async (
 };
 
 /**
+ * serializeAws_queryCreateTrustStoreCommand
+ */
+export const se_CreateTrustStoreCommand = async (
+  input: CreateTrustStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateTrustStoreInput(input, context),
+    Action: "CreateTrustStore",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDeleteListenerCommand
  */
 export const se_DeleteListenerCommand = async (
@@ -403,6 +507,23 @@ export const se_DeleteTargetGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteTargetGroupInput(input, context),
     Action: "DeleteTargetGroup",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeleteTrustStoreCommand
+ */
+export const se_DeleteTrustStoreCommand = async (
+  input: DeleteTrustStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteTrustStoreInput(input, context),
+    Action: "DeleteTrustStore",
     Version: "2015-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -613,6 +734,91 @@ export const se_DescribeTargetHealthCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeTrustStoreAssociationsCommand
+ */
+export const se_DescribeTrustStoreAssociationsCommand = async (
+  input: DescribeTrustStoreAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeTrustStoreAssociationsInput(input, context),
+    Action: "DescribeTrustStoreAssociations",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeTrustStoreRevocationsCommand
+ */
+export const se_DescribeTrustStoreRevocationsCommand = async (
+  input: DescribeTrustStoreRevocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeTrustStoreRevocationsInput(input, context),
+    Action: "DescribeTrustStoreRevocations",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeTrustStoresCommand
+ */
+export const se_DescribeTrustStoresCommand = async (
+  input: DescribeTrustStoresCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeTrustStoresInput(input, context),
+    Action: "DescribeTrustStores",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryGetTrustStoreCaCertificatesBundleCommand
+ */
+export const se_GetTrustStoreCaCertificatesBundleCommand = async (
+  input: GetTrustStoreCaCertificatesBundleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetTrustStoreCaCertificatesBundleInput(input, context),
+    Action: "GetTrustStoreCaCertificatesBundle",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryGetTrustStoreRevocationContentCommand
+ */
+export const se_GetTrustStoreRevocationContentCommand = async (
+  input: GetTrustStoreRevocationContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetTrustStoreRevocationContentInput(input, context),
+    Action: "GetTrustStoreRevocationContent",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryModifyListenerCommand
  */
 export const se_ModifyListenerCommand = async (
@@ -698,6 +904,23 @@ export const se_ModifyTargetGroupAttributesCommand = async (
 };
 
 /**
+ * serializeAws_queryModifyTrustStoreCommand
+ */
+export const se_ModifyTrustStoreCommand = async (
+  input: ModifyTrustStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyTrustStoreInput(input, context),
+    Action: "ModifyTrustStore",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryRegisterTargetsCommand
  */
 export const se_RegisterTargetsCommand = async (
@@ -743,6 +966,23 @@ export const se_RemoveTagsCommand = async (
   body = buildFormUrlencodedString({
     ...se_RemoveTagsInput(input, context),
     Action: "RemoveTags",
+    Version: "2015-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryRemoveTrustStoreRevocationsCommand
+ */
+export const se_RemoveTrustStoreRevocationsCommand = async (
+  input: RemoveTrustStoreRevocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_RemoveTrustStoreRevocationsInput(input, context),
+    Action: "RemoveTrustStoreRevocations",
     Version: "2015-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -919,6 +1159,64 @@ const de_AddTagsCommandError = async (
     case "TooManyTags":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryAddTrustStoreRevocationsCommand
+ */
+export const de_AddTrustStoreRevocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddTrustStoreRevocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_AddTrustStoreRevocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AddTrustStoreRevocationsOutput(data.AddTrustStoreRevocationsResult, context);
+  const response: AddTrustStoreRevocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAddTrustStoreRevocationsCommandError
+ */
+const de_AddTrustStoreRevocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddTrustStoreRevocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRevocationContent":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidRevocationContentException":
+      throw await de_InvalidRevocationContentExceptionRes(parsedOutput, context);
+    case "RevocationContentNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#RevocationContentNotFoundException":
+      throw await de_RevocationContentNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTrustStoreRevocationEntries":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTrustStoreRevocationEntriesException":
+      throw await de_TooManyTrustStoreRevocationEntriesExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1013,6 +1311,12 @@ const de_CreateListenerCommandError = async (
     case "TooManyUniqueTargetGroupsPerLoadBalancer":
     case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
       throw await de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    case "TrustStoreNotReady":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotReadyException":
+      throw await de_TrustStoreNotReadyExceptionRes(parsedOutput, context);
     case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
@@ -1252,6 +1556,67 @@ const de_CreateTargetGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_queryCreateTrustStoreCommand
+ */
+export const de_CreateTrustStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrustStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateTrustStoreCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTrustStoreOutput(data.CreateTrustStoreResult, context);
+  const response: CreateTrustStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateTrustStoreCommandError
+ */
+const de_CreateTrustStoreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrustStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CaCertificatesBundleNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#CaCertificatesBundleNotFoundException":
+      throw await de_CaCertificatesBundleNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicateTagKeys":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateTagKeysException":
+      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
+    case "DuplicateTrustStoreName":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateTrustStoreNameException":
+      throw await de_DuplicateTrustStoreNameExceptionRes(parsedOutput, context);
+    case "InvalidCaCertificatesBundle":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidCaCertificatesBundleException":
+      throw await de_InvalidCaCertificatesBundleExceptionRes(parsedOutput, context);
+    case "TooManyTags":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "TooManyTrustStores":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTrustStoresException":
+      throw await de_TooManyTrustStoresExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDeleteListenerCommand
  */
 export const de_DeleteListenerCommand = async (
@@ -1437,6 +1802,55 @@ const de_DeleteTargetGroupCommandError = async (
     case "ResourceInUse":
     case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteTrustStoreCommand
+ */
+export const de_DeleteTrustStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrustStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteTrustStoreCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTrustStoreOutput(data.DeleteTrustStoreResult, context);
+  const response: DeleteTrustStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteTrustStoreCommandError
+ */
+const de_DeleteTrustStoreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrustStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "TrustStoreInUse":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreInUseException":
+      throw await de_TrustStoreInUseExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1869,6 +2283,9 @@ const de_DescribeTagsCommandError = async (
     case "TargetGroupNotFound":
     case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2027,6 +2444,242 @@ const de_DescribeTargetHealthCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeTrustStoreAssociationsCommand
+ */
+export const de_DescribeTrustStoreAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoreAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeTrustStoreAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustStoreAssociationsOutput(data.DescribeTrustStoreAssociationsResult, context);
+  const response: DescribeTrustStoreAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreAssociationsCommandError
+ */
+const de_DescribeTrustStoreAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoreAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreRevocationsCommand
+ */
+export const de_DescribeTrustStoreRevocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoreRevocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeTrustStoreRevocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustStoreRevocationsOutput(data.DescribeTrustStoreRevocationsResult, context);
+  const response: DescribeTrustStoreRevocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreRevocationsCommandError
+ */
+const de_DescribeTrustStoreRevocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoreRevocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "RevocationIdNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException":
+      throw await de_RevocationIdNotFoundExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoresCommand
+ */
+export const de_DescribeTrustStoresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeTrustStoresCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustStoresOutput(data.DescribeTrustStoresResult, context);
+  const response: DescribeTrustStoresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoresCommandError
+ */
+const de_DescribeTrustStoresCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreCaCertificatesBundleCommand
+ */
+export const de_GetTrustStoreCaCertificatesBundleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrustStoreCaCertificatesBundleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetTrustStoreCaCertificatesBundleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTrustStoreCaCertificatesBundleOutput(data.GetTrustStoreCaCertificatesBundleResult, context);
+  const response: GetTrustStoreCaCertificatesBundleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreCaCertificatesBundleCommandError
+ */
+const de_GetTrustStoreCaCertificatesBundleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrustStoreCaCertificatesBundleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreRevocationContentCommand
+ */
+export const de_GetTrustStoreRevocationContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrustStoreRevocationContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetTrustStoreRevocationContentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTrustStoreRevocationContentOutput(data.GetTrustStoreRevocationContentResult, context);
+  const response: GetTrustStoreRevocationContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreRevocationContentCommandError
+ */
+const de_GetTrustStoreRevocationContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrustStoreRevocationContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "RevocationIdNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException":
+      throw await de_RevocationIdNotFoundExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryModifyListenerCommand
  */
 export const de_ModifyListenerCommand = async (
@@ -2107,6 +2760,12 @@ const de_ModifyListenerCommandError = async (
     case "TooManyUniqueTargetGroupsPerLoadBalancer":
     case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
       throw await de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    case "TrustStoreNotReady":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotReadyException":
+      throw await de_TrustStoreNotReadyExceptionRes(parsedOutput, context);
     case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
@@ -2344,6 +3003,58 @@ const de_ModifyTargetGroupAttributesCommandError = async (
 };
 
 /**
+ * deserializeAws_queryModifyTrustStoreCommand
+ */
+export const de_ModifyTrustStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTrustStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyTrustStoreCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyTrustStoreOutput(data.ModifyTrustStoreResult, context);
+  const response: ModifyTrustStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyTrustStoreCommandError
+ */
+const de_ModifyTrustStoreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTrustStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CaCertificatesBundleNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#CaCertificatesBundleNotFoundException":
+      throw await de_CaCertificatesBundleNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidCaCertificatesBundle":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidCaCertificatesBundleException":
+      throw await de_InvalidCaCertificatesBundleExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryRegisterTargetsCommand
  */
 export const de_RegisterTargetsCommand = async (
@@ -2495,6 +3206,58 @@ const de_RemoveTagsCommandError = async (
     case "TooManyTags":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryRemoveTrustStoreRevocationsCommand
+ */
+export const de_RemoveTrustStoreRevocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTrustStoreRevocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RemoveTrustStoreRevocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveTrustStoreRevocationsOutput(data.RemoveTrustStoreRevocationsResult, context);
+  const response: RemoveTrustStoreRevocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveTrustStoreRevocationsCommandError
+ */
+const de_RemoveTrustStoreRevocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTrustStoreRevocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "RevocationIdNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException":
+      throw await de_RevocationIdNotFoundExceptionRes(parsedOutput, context);
+    case "TrustStoreNotFound":
+    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
+      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2771,6 +3534,22 @@ const de_AvailabilityZoneNotSupportedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryCaCertificatesBundleNotFoundExceptionRes
+ */
+const de_CaCertificatesBundleNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CaCertificatesBundleNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CaCertificatesBundleNotFoundException(body.Error, context);
+  const exception = new CaCertificatesBundleNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryCertificateNotFoundExceptionRes
  */
 const de_CertificateNotFoundExceptionRes = async (
@@ -2851,6 +3630,22 @@ const de_DuplicateTargetGroupNameExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryDuplicateTrustStoreNameExceptionRes
+ */
+const de_DuplicateTrustStoreNameExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DuplicateTrustStoreNameException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DuplicateTrustStoreNameException(body.Error, context);
+  const exception = new DuplicateTrustStoreNameException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryHealthUnavailableExceptionRes
  */
 const de_HealthUnavailableExceptionRes = async (
@@ -2883,6 +3678,22 @@ const de_IncompatibleProtocolsExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryInvalidCaCertificatesBundleExceptionRes
+ */
+const de_InvalidCaCertificatesBundleExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidCaCertificatesBundleException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidCaCertificatesBundleException(body.Error, context);
+  const exception = new InvalidCaCertificatesBundleException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryInvalidConfigurationRequestExceptionRes
  */
 const de_InvalidConfigurationRequestExceptionRes = async (
@@ -2908,6 +3719,22 @@ const de_InvalidLoadBalancerActionExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_InvalidLoadBalancerActionException(body.Error, context);
   const exception = new InvalidLoadBalancerActionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInvalidRevocationContentExceptionRes
+ */
+const de_InvalidRevocationContentExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidRevocationContentException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidRevocationContentException(body.Error, context);
+  const exception = new InvalidRevocationContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3052,6 +3879,38 @@ const de_ResourceInUseExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_ResourceInUseException(body.Error, context);
   const exception = new ResourceInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryRevocationContentNotFoundExceptionRes
+ */
+const de_RevocationContentNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RevocationContentNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_RevocationContentNotFoundException(body.Error, context);
+  const exception = new RevocationContentNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryRevocationIdNotFoundExceptionRes
+ */
+const de_RevocationIdNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RevocationIdNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_RevocationIdNotFoundException(body.Error, context);
+  const exception = new RevocationIdNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3283,6 +4142,38 @@ const de_TooManyTargetsExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryTooManyTrustStoreRevocationEntriesExceptionRes
+ */
+const de_TooManyTrustStoreRevocationEntriesExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTrustStoreRevocationEntriesException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TooManyTrustStoreRevocationEntriesException(body.Error, context);
+  const exception = new TooManyTrustStoreRevocationEntriesException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryTooManyTrustStoresExceptionRes
+ */
+const de_TooManyTrustStoresExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTrustStoresException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TooManyTrustStoresException(body.Error, context);
+  const exception = new TooManyTrustStoresException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionRes
  */
 const de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes = async (
@@ -3292,6 +4183,54 @@ const de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_TooManyUniqueTargetGroupsPerLoadBalancerException(body.Error, context);
   const exception = new TooManyUniqueTargetGroupsPerLoadBalancerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryTrustStoreInUseExceptionRes
+ */
+const de_TrustStoreInUseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TrustStoreInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TrustStoreInUseException(body.Error, context);
+  const exception = new TrustStoreInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryTrustStoreNotFoundExceptionRes
+ */
+const de_TrustStoreNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TrustStoreNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TrustStoreNotFoundException(body.Error, context);
+  const exception = new TrustStoreNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryTrustStoreNotReadyExceptionRes
+ */
+const de_TrustStoreNotReadyExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TrustStoreNotReadyException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_TrustStoreNotReadyException(body.Error, context);
+  const exception = new TrustStoreNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3428,6 +4367,27 @@ const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryAddTrustStoreRevocationsInput
+ */
+const se_AddTrustStoreRevocationsInput = (input: AddTrustStoreRevocationsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  if (input.RevocationContents != null) {
+    const memberEntries = se_RevocationContents(input.RevocationContents, context);
+    if (input.RevocationContents?.length === 0) {
+      entries.RevocationContents = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RevocationContents.${key}`;
       entries[loc] = value;
     });
   }
@@ -3668,6 +4628,13 @@ const se_CreateListenerInput = (input: CreateListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
+  if (input.MutualAuthentication != null) {
+    const memberEntries = se_MutualAuthenticationAttributes(input.MutualAuthentication, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MutualAuthentication.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -3849,6 +4816,36 @@ const se_CreateTargetGroupInput = (input: CreateTargetGroupInput, context: __Ser
 };
 
 /**
+ * serializeAws_queryCreateTrustStoreInput
+ */
+const se_CreateTrustStoreInput = (input: CreateTrustStoreInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Name != null) {
+    entries["Name"] = input.Name;
+  }
+  if (input.CaCertificatesBundleS3Bucket != null) {
+    entries["CaCertificatesBundleS3Bucket"] = input.CaCertificatesBundleS3Bucket;
+  }
+  if (input.CaCertificatesBundleS3Key != null) {
+    entries["CaCertificatesBundleS3Key"] = input.CaCertificatesBundleS3Key;
+  }
+  if (input.CaCertificatesBundleS3ObjectVersion != null) {
+    entries["CaCertificatesBundleS3ObjectVersion"] = input.CaCertificatesBundleS3ObjectVersion;
+  }
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDeleteListenerInput
  */
 const se_DeleteListenerInput = (input: DeleteListenerInput, context: __SerdeContext): any => {
@@ -3888,6 +4885,17 @@ const se_DeleteTargetGroupInput = (input: DeleteTargetGroupInput, context: __Ser
   const entries: any = {};
   if (input.TargetGroupArn != null) {
     entries["TargetGroupArn"] = input.TargetGroupArn;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeleteTrustStoreInput
+ */
+const se_DeleteTrustStoreInput = (input: DeleteTrustStoreInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
   }
   return entries;
 };
@@ -4163,6 +5171,100 @@ const se_DescribeTargetHealthInput = (input: DescribeTargetHealthInput, context:
       entries[loc] = value;
     });
   }
+  if (input.Include != null) {
+    const memberEntries = se_ListOfDescribeTargetHealthIncludeOptions(input.Include, context);
+    if (input.Include?.length === 0) {
+      entries.Include = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Include.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeTrustStoreAssociationsInput
+ */
+const se_DescribeTrustStoreAssociationsInput = (
+  input: DescribeTrustStoreAssociationsInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.PageSize != null) {
+    entries["PageSize"] = input.PageSize;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeTrustStoreRevocationsInput
+ */
+const se_DescribeTrustStoreRevocationsInput = (
+  input: DescribeTrustStoreRevocationsInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  if (input.RevocationIds != null) {
+    const memberEntries = se_RevocationIds(input.RevocationIds, context);
+    if (input.RevocationIds?.length === 0) {
+      entries.RevocationIds = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RevocationIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.PageSize != null) {
+    entries["PageSize"] = input.PageSize;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeTrustStoresInput
+ */
+const se_DescribeTrustStoresInput = (input: DescribeTrustStoresInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TrustStoreArns != null) {
+    const memberEntries = se_TrustStoreArns(input.TrustStoreArns, context);
+    if (input.TrustStoreArns?.length === 0) {
+      entries.TrustStoreArns = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TrustStoreArns.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Names != null) {
+    const memberEntries = se_TrustStoreNames(input.Names, context);
+    if (input.Names?.length === 0) {
+      entries.Names = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Names.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.PageSize != null) {
+    entries["PageSize"] = input.PageSize;
+  }
   return entries;
 };
 
@@ -4204,6 +5306,37 @@ const se_ForwardActionConfig = (input: ForwardActionConfig, context: __SerdeCont
       const loc = `TargetGroupStickinessConfig.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryGetTrustStoreCaCertificatesBundleInput
+ */
+const se_GetTrustStoreCaCertificatesBundleInput = (
+  input: GetTrustStoreCaCertificatesBundleInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryGetTrustStoreRevocationContentInput
+ */
+const se_GetTrustStoreRevocationContentInput = (
+  input: GetTrustStoreRevocationContentInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  if (input.RevocationId != null) {
+    entries["RevocationId"] = input.RevocationId;
   }
   return entries;
 };
@@ -4269,6 +5402,25 @@ const se_HttpRequestMethodConditionConfig = (input: HttpRequestMethodConditionCo
  * serializeAws_queryListenerArns
  */
 const se_ListenerArns = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListOfDescribeTargetHealthIncludeOptions
+ */
+const se_ListOfDescribeTargetHealthIncludeOptions = (
+  input: DescribeTargetHealthInputIncludeEnum[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -4423,6 +5575,13 @@ const se_ModifyListenerInput = (input: ModifyListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
+  if (input.MutualAuthentication != null) {
+    const memberEntries = se_MutualAuthenticationAttributes(input.MutualAuthentication, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MutualAuthentication.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -4540,6 +5699,43 @@ const se_ModifyTargetGroupInput = (input: ModifyTargetGroupInput, context: __Ser
       const loc = `Matcher.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyTrustStoreInput
+ */
+const se_ModifyTrustStoreInput = (input: ModifyTrustStoreInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  if (input.CaCertificatesBundleS3Bucket != null) {
+    entries["CaCertificatesBundleS3Bucket"] = input.CaCertificatesBundleS3Bucket;
+  }
+  if (input.CaCertificatesBundleS3Key != null) {
+    entries["CaCertificatesBundleS3Key"] = input.CaCertificatesBundleS3Key;
+  }
+  if (input.CaCertificatesBundleS3ObjectVersion != null) {
+    entries["CaCertificatesBundleS3ObjectVersion"] = input.CaCertificatesBundleS3ObjectVersion;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryMutualAuthenticationAttributes
+ */
+const se_MutualAuthenticationAttributes = (input: MutualAuthenticationAttributes, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Mode != null) {
+    entries["Mode"] = input.Mode;
+  }
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  if (input.IgnoreClientCertificateExpiry != null) {
+    entries["IgnoreClientCertificateExpiry"] = input.IgnoreClientCertificateExpiry;
   }
   return entries;
 };
@@ -4710,9 +5906,85 @@ const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_queryRemoveTrustStoreRevocationsInput
+ */
+const se_RemoveTrustStoreRevocationsInput = (input: RemoveTrustStoreRevocationsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TrustStoreArn != null) {
+    entries["TrustStoreArn"] = input.TrustStoreArn;
+  }
+  if (input.RevocationIds != null) {
+    const memberEntries = se_RevocationIds(input.RevocationIds, context);
+    if (input.RevocationIds?.length === 0) {
+      entries.RevocationIds = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RevocationIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryResourceArns
  */
 const se_ResourceArns = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRevocationContent
+ */
+const se_RevocationContent = (input: RevocationContent, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.S3Bucket != null) {
+    entries["S3Bucket"] = input.S3Bucket;
+  }
+  if (input.S3Key != null) {
+    entries["S3Key"] = input.S3Key;
+  }
+  if (input.S3ObjectVersion != null) {
+    entries["S3ObjectVersion"] = input.S3ObjectVersion;
+  }
+  if (input.RevocationType != null) {
+    entries["RevocationType"] = input.RevocationType;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRevocationContents
+ */
+const se_RevocationContents = (input: RevocationContent[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_RevocationContent(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRevocationIds
+ */
+const se_RevocationIds = (input: number[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -5250,6 +6522,38 @@ const se_TargetGroupTuple = (input: TargetGroupTuple, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_queryTrustStoreArns
+ */
+const se_TrustStoreArns = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryTrustStoreNames
+ */
+const se_TrustStoreNames = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * deserializeAws_queryAction
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
@@ -5317,6 +6621,22 @@ const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput =
 };
 
 /**
+ * deserializeAws_queryAddTrustStoreRevocationsOutput
+ */
+const de_AddTrustStoreRevocationsOutput = (output: any, context: __SerdeContext): AddTrustStoreRevocationsOutput => {
+  const contents: any = {};
+  if (output.TrustStoreRevocations === "") {
+    contents.TrustStoreRevocations = [];
+  } else if (output["TrustStoreRevocations"] !== undefined && output["TrustStoreRevocations"]["member"] !== undefined) {
+    contents.TrustStoreRevocations = de_TrustStoreRevocations(
+      __getArrayIfSingleItem(output["TrustStoreRevocations"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryAllocationIdNotFoundException
  */
 const de_AllocationIdNotFoundException = (output: any, context: __SerdeContext): AllocationIdNotFoundException => {
@@ -5345,6 +6665,20 @@ const de_ALPNPolicyNotSupportedException = (output: any, context: __SerdeContext
   const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryAnomalyDetection
+ */
+const de_AnomalyDetection = (output: any, context: __SerdeContext): AnomalyDetection => {
+  const contents: any = {};
+  if (output["Result"] !== undefined) {
+    contents.Result = __expectString(output["Result"]);
+  }
+  if (output["MitigationInEffect"] !== undefined) {
+    contents.MitigationInEffect = __expectString(output["MitigationInEffect"]);
   }
   return contents;
 };
@@ -5524,6 +6858,20 @@ const de_AvailabilityZones = (output: any, context: __SerdeContext): Availabilit
 };
 
 /**
+ * deserializeAws_queryCaCertificatesBundleNotFoundException
+ */
+const de_CaCertificatesBundleNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): CaCertificatesBundleNotFoundException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCertificate
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
@@ -5637,6 +6985,19 @@ const de_CreateTargetGroupOutput = (output: any, context: __SerdeContext): Creat
 };
 
 /**
+ * deserializeAws_queryCreateTrustStoreOutput
+ */
+const de_CreateTrustStoreOutput = (output: any, context: __SerdeContext): CreateTrustStoreOutput => {
+  const contents: any = {};
+  if (output.TrustStores === "") {
+    contents.TrustStores = [];
+  } else if (output["TrustStores"] !== undefined && output["TrustStores"]["member"] !== undefined) {
+    contents.TrustStores = de_TrustStores(__getArrayIfSingleItem(output["TrustStores"]["member"]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDeleteListenerOutput
  */
 const de_DeleteListenerOutput = (output: any, context: __SerdeContext): DeleteListenerOutput => {
@@ -5664,6 +7025,14 @@ const de_DeleteRuleOutput = (output: any, context: __SerdeContext): DeleteRuleOu
  * deserializeAws_queryDeleteTargetGroupOutput
  */
 const de_DeleteTargetGroupOutput = (output: any, context: __SerdeContext): DeleteTargetGroupOutput => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDeleteTrustStoreOutput
+ */
+const de_DeleteTrustStoreOutput = (output: any, context: __SerdeContext): DeleteTrustStoreOutput => {
   const contents: any = {};
   return contents;
 };
@@ -5856,6 +7225,103 @@ const de_DescribeTargetHealthOutput = (output: any, context: __SerdeContext): De
 };
 
 /**
+ * deserializeAws_queryDescribeTrustStoreAssociationsOutput
+ */
+const de_DescribeTrustStoreAssociationsOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeTrustStoreAssociationsOutput => {
+  const contents: any = {};
+  if (output.TrustStoreAssociations === "") {
+    contents.TrustStoreAssociations = [];
+  } else if (
+    output["TrustStoreAssociations"] !== undefined &&
+    output["TrustStoreAssociations"]["member"] !== undefined
+  ) {
+    contents.TrustStoreAssociations = de_TrustStoreAssociations(
+      __getArrayIfSingleItem(output["TrustStoreAssociations"]["member"]),
+      context
+    );
+  }
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = __expectString(output["NextMarker"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreRevocation
+ */
+const de_DescribeTrustStoreRevocation = (output: any, context: __SerdeContext): DescribeTrustStoreRevocation => {
+  const contents: any = {};
+  if (output["TrustStoreArn"] !== undefined) {
+    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  }
+  if (output["RevocationId"] !== undefined) {
+    contents.RevocationId = __strictParseLong(output["RevocationId"]) as number;
+  }
+  if (output["RevocationType"] !== undefined) {
+    contents.RevocationType = __expectString(output["RevocationType"]);
+  }
+  if (output["NumberOfRevokedEntries"] !== undefined) {
+    contents.NumberOfRevokedEntries = __strictParseLong(output["NumberOfRevokedEntries"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreRevocationResponse
+ */
+const de_DescribeTrustStoreRevocationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeTrustStoreRevocation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DescribeTrustStoreRevocation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreRevocationsOutput
+ */
+const de_DescribeTrustStoreRevocationsOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeTrustStoreRevocationsOutput => {
+  const contents: any = {};
+  if (output.TrustStoreRevocations === "") {
+    contents.TrustStoreRevocations = [];
+  } else if (output["TrustStoreRevocations"] !== undefined && output["TrustStoreRevocations"]["member"] !== undefined) {
+    contents.TrustStoreRevocations = de_DescribeTrustStoreRevocationResponse(
+      __getArrayIfSingleItem(output["TrustStoreRevocations"]["member"]),
+      context
+    );
+  }
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = __expectString(output["NextMarker"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoresOutput
+ */
+const de_DescribeTrustStoresOutput = (output: any, context: __SerdeContext): DescribeTrustStoresOutput => {
+  const contents: any = {};
+  if (output.TrustStores === "") {
+    contents.TrustStores = [];
+  } else if (output["TrustStores"] !== undefined && output["TrustStores"]["member"] !== undefined) {
+    contents.TrustStores = de_TrustStores(__getArrayIfSingleItem(output["TrustStores"]["member"]), context);
+  }
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = __expectString(output["NextMarker"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDuplicateListenerException
  */
 const de_DuplicateListenerException = (output: any, context: __SerdeContext): DuplicateListenerException => {
@@ -5906,6 +7372,20 @@ const de_DuplicateTargetGroupNameException = (
 };
 
 /**
+ * deserializeAws_queryDuplicateTrustStoreNameException
+ */
+const de_DuplicateTrustStoreNameException = (
+  output: any,
+  context: __SerdeContext
+): DuplicateTrustStoreNameException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryFixedResponseActionConfig
  */
 const de_FixedResponseActionConfig = (output: any, context: __SerdeContext): FixedResponseActionConfig => {
@@ -5937,6 +7417,34 @@ const de_ForwardActionConfig = (output: any, context: __SerdeContext): ForwardAc
       output["TargetGroupStickinessConfig"],
       context
     );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreCaCertificatesBundleOutput
+ */
+const de_GetTrustStoreCaCertificatesBundleOutput = (
+  output: any,
+  context: __SerdeContext
+): GetTrustStoreCaCertificatesBundleOutput => {
+  const contents: any = {};
+  if (output["Location"] !== undefined) {
+    contents.Location = __expectString(output["Location"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreRevocationContentOutput
+ */
+const de_GetTrustStoreRevocationContentOutput = (
+  output: any,
+  context: __SerdeContext
+): GetTrustStoreRevocationContentOutput => {
+  const contents: any = {};
+  if (output["Location"] !== undefined) {
+    contents.Location = __expectString(output["Location"]);
   }
   return contents;
 };
@@ -6009,6 +7517,20 @@ const de_IncompatibleProtocolsException = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_queryInvalidCaCertificatesBundleException
+ */
+const de_InvalidCaCertificatesBundleException = (
+  output: any,
+  context: __SerdeContext
+): InvalidCaCertificatesBundleException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryInvalidConfigurationRequestException
  */
 const de_InvalidConfigurationRequestException = (
@@ -6029,6 +7551,20 @@ const de_InvalidLoadBalancerActionException = (
   output: any,
   context: __SerdeContext
 ): InvalidLoadBalancerActionException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidRevocationContentException
+ */
+const de_InvalidRevocationContentException = (
+  output: any,
+  context: __SerdeContext
+): InvalidRevocationContentException => {
   const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
@@ -6139,6 +7675,9 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
     contents.AlpnPolicy = [];
   } else if (output["AlpnPolicy"] !== undefined && output["AlpnPolicy"]["member"] !== undefined) {
     contents.AlpnPolicy = de_AlpnPolicyName(__getArrayIfSingleItem(output["AlpnPolicy"]["member"]), context);
+  }
+  if (output["MutualAuthentication"] !== undefined) {
+    contents.MutualAuthentication = de_MutualAuthenticationAttributes(output["MutualAuthentication"], context);
   }
   return contents;
 };
@@ -6424,6 +7963,36 @@ const de_ModifyTargetGroupOutput = (output: any, context: __SerdeContext): Modif
 };
 
 /**
+ * deserializeAws_queryModifyTrustStoreOutput
+ */
+const de_ModifyTrustStoreOutput = (output: any, context: __SerdeContext): ModifyTrustStoreOutput => {
+  const contents: any = {};
+  if (output.TrustStores === "") {
+    contents.TrustStores = [];
+  } else if (output["TrustStores"] !== undefined && output["TrustStores"]["member"] !== undefined) {
+    contents.TrustStores = de_TrustStores(__getArrayIfSingleItem(output["TrustStores"]["member"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryMutualAuthenticationAttributes
+ */
+const de_MutualAuthenticationAttributes = (output: any, context: __SerdeContext): MutualAuthenticationAttributes => {
+  const contents: any = {};
+  if (output["Mode"] !== undefined) {
+    contents.Mode = __expectString(output["Mode"]);
+  }
+  if (output["TrustStoreArn"] !== undefined) {
+    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  }
+  if (output["IgnoreClientCertificateExpiry"] !== undefined) {
+    contents.IgnoreClientCertificateExpiry = __parseBoolean(output["IgnoreClientCertificateExpiry"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryOperationNotPermittedException
  */
 const de_OperationNotPermittedException = (output: any, context: __SerdeContext): OperationNotPermittedException => {
@@ -6550,9 +8119,45 @@ const de_RemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOu
 };
 
 /**
+ * deserializeAws_queryRemoveTrustStoreRevocationsOutput
+ */
+const de_RemoveTrustStoreRevocationsOutput = (
+  output: any,
+  context: __SerdeContext
+): RemoveTrustStoreRevocationsOutput => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
  * deserializeAws_queryResourceInUseException
  */
 const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRevocationContentNotFoundException
+ */
+const de_RevocationContentNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): RevocationContentNotFoundException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRevocationIdNotFoundException
+ */
+const de_RevocationIdNotFoundException = (output: any, context: __SerdeContext): RevocationIdNotFoundException => {
   const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
@@ -7085,6 +8690,9 @@ const de_TargetHealthDescription = (output: any, context: __SerdeContext): Targe
   if (output["TargetHealth"] !== undefined) {
     contents.TargetHealth = de_TargetHealth(output["TargetHealth"], context);
   }
+  if (output["AnomalyDetection"] !== undefined) {
+    contents.AnomalyDetection = de_AnomalyDetection(output["AnomalyDetection"], context);
+  }
   return contents;
 };
 
@@ -7202,6 +8810,31 @@ const de_TooManyTargetsException = (output: any, context: __SerdeContext): TooMa
 };
 
 /**
+ * deserializeAws_queryTooManyTrustStoreRevocationEntriesException
+ */
+const de_TooManyTrustStoreRevocationEntriesException = (
+  output: any,
+  context: __SerdeContext
+): TooManyTrustStoreRevocationEntriesException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTooManyTrustStoresException
+ */
+const de_TooManyTrustStoresException = (output: any, context: __SerdeContext): TooManyTrustStoresException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerException
  */
 const de_TooManyUniqueTargetGroupsPerLoadBalancerException = (
@@ -7213,6 +8846,126 @@ const de_TooManyUniqueTargetGroupsPerLoadBalancerException = (
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryTrustStore
+ */
+const de_TrustStore = (output: any, context: __SerdeContext): TrustStore => {
+  const contents: any = {};
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["TrustStoreArn"] !== undefined) {
+    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["NumberOfCaCertificates"] !== undefined) {
+    contents.NumberOfCaCertificates = __strictParseInt32(output["NumberOfCaCertificates"]) as number;
+  }
+  if (output["TotalRevokedEntries"] !== undefined) {
+    contents.TotalRevokedEntries = __strictParseLong(output["TotalRevokedEntries"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTrustStoreAssociation
+ */
+const de_TrustStoreAssociation = (output: any, context: __SerdeContext): TrustStoreAssociation => {
+  const contents: any = {};
+  if (output["ResourceArn"] !== undefined) {
+    contents.ResourceArn = __expectString(output["ResourceArn"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTrustStoreAssociations
+ */
+const de_TrustStoreAssociations = (output: any, context: __SerdeContext): TrustStoreAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrustStoreAssociation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryTrustStoreInUseException
+ */
+const de_TrustStoreInUseException = (output: any, context: __SerdeContext): TrustStoreInUseException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTrustStoreNotFoundException
+ */
+const de_TrustStoreNotFoundException = (output: any, context: __SerdeContext): TrustStoreNotFoundException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTrustStoreNotReadyException
+ */
+const de_TrustStoreNotReadyException = (output: any, context: __SerdeContext): TrustStoreNotReadyException => {
+  const contents: any = {};
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTrustStoreRevocation
+ */
+const de_TrustStoreRevocation = (output: any, context: __SerdeContext): TrustStoreRevocation => {
+  const contents: any = {};
+  if (output["TrustStoreArn"] !== undefined) {
+    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  }
+  if (output["RevocationId"] !== undefined) {
+    contents.RevocationId = __strictParseLong(output["RevocationId"]) as number;
+  }
+  if (output["RevocationType"] !== undefined) {
+    contents.RevocationType = __expectString(output["RevocationType"]);
+  }
+  if (output["NumberOfRevokedEntries"] !== undefined) {
+    contents.NumberOfRevokedEntries = __strictParseLong(output["NumberOfRevokedEntries"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTrustStoreRevocations
+ */
+const de_TrustStoreRevocations = (output: any, context: __SerdeContext): TrustStoreRevocation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrustStoreRevocation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryTrustStores
+ */
+const de_TrustStores = (output: any, context: __SerdeContext): TrustStore[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrustStore(entry, context);
+    });
 };
 
 /**

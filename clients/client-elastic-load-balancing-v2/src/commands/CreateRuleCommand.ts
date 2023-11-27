@@ -315,7 +315,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *  <p>You've reached the limit on the number of rules per load balancer.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *  <p>You've reached the limit on the number of tags for this resource.</p>
  *
  * @throws {@link TooManyTargetGroupsException} (client fault)
  *  <p>You've reached the limit on the number of target groups for your Amazon Web Services

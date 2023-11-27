@@ -137,6 +137,11 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * //       AlpnPolicy: [ // AlpnPolicyName
  * //         "STRING_VALUE",
  * //       ],
+ * //       MutualAuthentication: { // MutualAuthenticationAttributes
+ * //         Mode: "STRING_VALUE",
+ * //         TrustStoreArn: "STRING_VALUE",
+ * //         IgnoreClientCertificateExpiry: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

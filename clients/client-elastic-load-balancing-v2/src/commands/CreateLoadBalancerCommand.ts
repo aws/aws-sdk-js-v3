@@ -186,7 +186,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *       account.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *  <p>You've reached the limit on the number of tags for this resource.</p>
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>

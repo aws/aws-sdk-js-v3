@@ -83,7 +83,10 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  *  <p>The specified target group does not exist.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *  <p>You've reached the limit on the number of tags for this resource.</p>
+ *
+ * @throws {@link TrustStoreNotFoundException} (client fault)
+ *  <p>The specified trust store does not exist.</p>
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>

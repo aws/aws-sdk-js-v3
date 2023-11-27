@@ -145,7 +145,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *  <p>The requested configuration is not valid.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *  <p>You've reached the limit on the number of tags for this resource.</p>
  *
  * @throws {@link TooManyTargetGroupsException} (client fault)
  *  <p>You've reached the limit on the number of target groups for your Amazon Web Services

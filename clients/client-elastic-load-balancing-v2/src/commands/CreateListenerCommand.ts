@@ -152,6 +152,11 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   MutualAuthentication: { // MutualAuthenticationAttributes
+ *     Mode: "STRING_VALUE",
+ *     TrustStoreArn: "STRING_VALUE",
+ *     IgnoreClientCertificateExpiry: true || false,
+ *   },
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
@@ -232,6 +237,11 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * //       AlpnPolicy: [ // AlpnPolicyName
  * //         "STRING_VALUE",
  * //       ],
+ * //       MutualAuthentication: { // MutualAuthenticationAttributes
+ * //         Mode: "STRING_VALUE",
+ * //         TrustStoreArn: "STRING_VALUE",
+ * //         IgnoreClientCertificateExpiry: true || false,
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -288,7 +298,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *       balancer.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *  <p>You've reached the limit on the number of tags for this resource.</p>
  *
  * @throws {@link TooManyTargetsException} (client fault)
  *  <p>You've reached the limit on the number of targets.</p>
@@ -297,6 +307,12 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *  <p>You've reached the limit on the number of unique target groups per load balancer across
  *       all listeners. If a target group is used by multiple actions for a load balancer, it is
  *       counted as only one use.</p>
+ *
+ * @throws {@link TrustStoreNotFoundException} (client fault)
+ *  <p>The specified trust store does not exist.</p>
+ *
+ * @throws {@link TrustStoreNotReadyException} (client fault)
+ *  <p>The specified trust store is not active.</p>
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol is not supported.</p>
