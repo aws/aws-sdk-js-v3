@@ -14,13 +14,13 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutUsersRequest, PutUsersRequestFilterSensitiveLog } from "../models/models_0";
+import { PutActionsRequest, PutActionsRequestFilterSensitiveLog } from "../models/models_0";
 import {
   PersonalizeEventsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import { de_PutUsersCommand, se_PutUsersCommand } from "../protocols/Aws_restJson1";
+import { de_PutActionsCommand, se_PutActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,45 +29,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link PutUsersCommand}.
+ * The input for {@link PutActionsCommand}.
  */
-export interface PutUsersCommandInput extends PutUsersRequest {}
+export interface PutActionsCommandInput extends PutActionsRequest {}
 /**
  * @public
  *
- * The output of {@link PutUsersCommand}.
+ * The output of {@link PutActionsCommand}.
  */
-export interface PutUsersCommandOutput extends __MetadataBearer {}
+export interface PutActionsCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds one or more users to a Users dataset. For more information see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing users individually</a>.</p>
+ * <p>Adds one or more actions to an Actions dataset. For more information see
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html">Importing actions individually</a>.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeEventsClient, PutUsersCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
- * // const { PersonalizeEventsClient, PutUsersCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
+ * import { PersonalizeEventsClient, PutActionsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
+ * // const { PersonalizeEventsClient, PutActionsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
- * const input = { // PutUsersRequest
+ * const input = { // PutActionsRequest
  *   datasetArn: "STRING_VALUE", // required
- *   users: [ // UserList // required
- *     { // User
- *       userId: "STRING_VALUE", // required
+ *   actions: [ // ActionList // required
+ *     { // Action
+ *       actionId: "STRING_VALUE", // required
  *       properties: "STRING_VALUE",
  *     },
  *   ],
  * };
- * const command = new PutUsersCommand(input);
+ * const command = new PutActionsCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param PutUsersCommandInput - {@link PutUsersCommandInput}
- * @returns {@link PutUsersCommandOutput}
- * @see {@link PutUsersCommandInput} for command's `input` shape.
- * @see {@link PutUsersCommandOutput} for command's `response` shape.
+ * @param PutActionsCommandInput - {@link PutActionsCommandInput}
+ * @returns {@link PutActionsCommandOutput}
+ * @see {@link PutActionsCommandInput} for command's `input` shape.
+ * @see {@link PutActionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
@@ -83,9 +84,9 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
  */
-export class PutUsersCommand extends $Command<
-  PutUsersCommandInput,
-  PutUsersCommandOutput,
+export class PutActionsCommand extends $Command<
+  PutActionsCommandInput,
+  PutActionsCommandOutput,
   PersonalizeEventsClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -100,7 +101,7 @@ export class PutUsersCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PutUsersCommandInput) {
+  constructor(readonly input: PutActionsCommandInput) {
     super();
   }
 
@@ -111,24 +112,24 @@ export class PutUsersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutUsersCommandInput, PutUsersCommandOutput> {
+  ): Handler<PutActionsCommandInput, PutActionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutUsersCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutActionsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "PersonalizeEventsClient";
-    const commandName = "PutUsersCommand";
+    const commandName = "PutActionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutUsersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: PutActionsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonPersonalizeEvents",
-        operation: "PutUsers",
+        operation: "PutActions",
       },
     };
     const { requestHandler } = configuration;
@@ -142,14 +143,14 @@ export class PutUsersCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: PutUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutUsersCommand(input, context);
+  private serialize(input: PutActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PutActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUsersCommandOutput> {
-    return de_PutUsersCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutActionsCommandOutput> {
+    return de_PutActionsCommand(output, context);
   }
 }

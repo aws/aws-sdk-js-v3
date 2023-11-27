@@ -50,6 +50,11 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  PutActionInteractionsCommandInput,
+  PutActionInteractionsCommandOutput,
+} from "./commands/PutActionInteractionsCommand";
+import { PutActionsCommandInput, PutActionsCommandOutput } from "./commands/PutActionsCommand";
 import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
 import { PutItemsCommandInput, PutItemsCommandOutput } from "./commands/PutItemsCommand";
 import { PutUsersCommandInput, PutUsersCommandOutput } from "./commands/PutUsersCommand";
@@ -67,12 +72,22 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = PutEventsCommandInput | PutItemsCommandInput | PutUsersCommandInput;
+export type ServiceInputTypes =
+  | PutActionInteractionsCommandInput
+  | PutActionsCommandInput
+  | PutEventsCommandInput
+  | PutItemsCommandInput
+  | PutUsersCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = PutEventsCommandOutput | PutItemsCommandOutput | PutUsersCommandOutput;
+export type ServiceOutputTypes =
+  | PutActionInteractionsCommandOutput
+  | PutActionsCommandOutput
+  | PutEventsCommandOutput
+  | PutItemsCommandOutput
+  | PutUsersCommandOutput;
 
 /**
  * @public
@@ -248,7 +263,7 @@ export interface PersonalizeEventsClientResolvedConfig extends PersonalizeEvents
  * @public
  * <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
  *       it for model training either alone or combined with historical data. For more information see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
  */
 export class PersonalizeEventsClient extends __Client<
   __HttpHandlerOptions,

@@ -8,7 +8,7 @@ AWS SDK for JavaScript PersonalizeEvents Client for Node.js, Browser and React N
 
 <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
 it for model training either alone or combined with historical data. For more information see
-<a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
+<a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
 
 ## Installing
 
@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PersonalizeEventsClient` and
-the commands you need, for example `PutItemsCommand`:
+the commands you need, for example `PutActionsCommand`:
 
 ```js
 // ES5 example
-const { PersonalizeEventsClient, PutItemsCommand } = require("@aws-sdk/client-personalize-events");
+const { PersonalizeEventsClient, PutActionsCommand } = require("@aws-sdk/client-personalize-events");
 ```
 
 ```ts
 // ES6+ example
-import { PersonalizeEventsClient, PutItemsCommand } from "@aws-sdk/client-personalize-events";
+import { PersonalizeEventsClient, PutActionsCommand } from "@aws-sdk/client-personalize-events";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new PersonalizeEventsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new PutItemsCommand(params);
+const command = new PutActionsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.PersonalizeEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.putItems(params);
+  const data = await client.putActions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .putItems(params)
+  .putActions(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.putItems(params, (err, data) => {
+client.putActions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -205,6 +205,22 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+PutActionInteractions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutActionInteractionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionInteractionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionInteractionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionsCommandOutput/)
+
+</details>
 <details>
 <summary>
 PutEvents

@@ -42,7 +42,7 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Adds one or more items to an Items dataset. For more information see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing items individually</a>.
  *      </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

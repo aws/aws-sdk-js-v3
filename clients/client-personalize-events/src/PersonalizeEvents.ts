@@ -2,18 +2,54 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  PutActionInteractionsCommand,
+  PutActionInteractionsCommandInput,
+  PutActionInteractionsCommandOutput,
+} from "./commands/PutActionInteractionsCommand";
+import { PutActionsCommand, PutActionsCommandInput, PutActionsCommandOutput } from "./commands/PutActionsCommand";
 import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
 import { PutItemsCommand, PutItemsCommandInput, PutItemsCommandOutput } from "./commands/PutItemsCommand";
 import { PutUsersCommand, PutUsersCommandInput, PutUsersCommandOutput } from "./commands/PutUsersCommand";
 import { PersonalizeEventsClient, PersonalizeEventsClientConfig } from "./PersonalizeEventsClient";
 
 const commands = {
+  PutActionInteractionsCommand,
+  PutActionsCommand,
   PutEventsCommand,
   PutItemsCommand,
   PutUsersCommand,
 };
 
 export interface PersonalizeEvents {
+  /**
+   * @see {@link PutActionInteractionsCommand}
+   */
+  putActionInteractions(
+    args: PutActionInteractionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutActionInteractionsCommandOutput>;
+  putActionInteractions(
+    args: PutActionInteractionsCommandInput,
+    cb: (err: any, data?: PutActionInteractionsCommandOutput) => void
+  ): void;
+  putActionInteractions(
+    args: PutActionInteractionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutActionInteractionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutActionsCommand}
+   */
+  putActions(args: PutActionsCommandInput, options?: __HttpHandlerOptions): Promise<PutActionsCommandOutput>;
+  putActions(args: PutActionsCommandInput, cb: (err: any, data?: PutActionsCommandOutput) => void): void;
+  putActions(
+    args: PutActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutActionsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link PutEventsCommand}
    */
@@ -52,7 +88,7 @@ export interface PersonalizeEvents {
  * @public
  * <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
  *       it for model training either alone or combined with historical data. For more information see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
  */
 export class PersonalizeEvents extends PersonalizeEventsClient implements PersonalizeEvents {}
 createAggregatedClient(commands, PersonalizeEvents);

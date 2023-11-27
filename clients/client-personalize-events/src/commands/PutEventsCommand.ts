@@ -41,8 +41,8 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Records user interaction event data. For more information see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
+ * <p>Records item interaction event data. For more information see
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
