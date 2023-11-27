@@ -38,7 +38,7 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
 /**
  * @public
  * <p> Retrieves a list of summaries of created vehicles. </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example

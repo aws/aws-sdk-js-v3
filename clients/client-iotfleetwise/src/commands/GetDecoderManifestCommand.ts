@@ -57,6 +57,7 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * //   status: "STRING_VALUE",
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * //   message: "STRING_VALUE",
  * // };
  *
  * ```

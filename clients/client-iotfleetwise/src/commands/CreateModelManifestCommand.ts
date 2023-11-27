@@ -39,7 +39,7 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * @public
  * <p> Creates a vehicle model (model manifest) that specifies signals (attributes,
  *             branches, sensors, and actuators). </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html">Vehicle models</a>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html">Vehicle models</a>
  *             in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

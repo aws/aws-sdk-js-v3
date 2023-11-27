@@ -39,10 +39,10 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * @public
  * <p>Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from a
  *             fleet doesn't delete the vehicle.</p>
- *         <note>
+ *          <note>
  *             <p>If the vehicle is successfully dissociated from a fleet, Amazon Web Services IoT FleetWise sends back an
  *                 HTTP 200 response with an empty body.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

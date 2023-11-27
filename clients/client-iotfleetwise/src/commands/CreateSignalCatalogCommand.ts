@@ -68,6 +68,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         max: Number("double"),
  *         deprecationMessage: "STRING_VALUE",
  *         comment: "STRING_VALUE",
+ *         structFullyQualifiedName: "STRING_VALUE",
  *       },
  *       actuator: { // Actuator
  *         fullyQualifiedName: "STRING_VALUE", // required
@@ -82,6 +83,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         assignedValue: "STRING_VALUE",
  *         deprecationMessage: "STRING_VALUE",
  *         comment: "STRING_VALUE",
+ *         structFullyQualifiedName: "STRING_VALUE",
  *       },
  *       attribute: { // Attribute
  *         fullyQualifiedName: "STRING_VALUE", // required
@@ -97,6 +99,21 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         defaultValue: "STRING_VALUE",
  *         deprecationMessage: "STRING_VALUE",
  *         comment: "STRING_VALUE",
+ *       },
+ *       struct: { // CustomStruct
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
+ *       },
+ *       property: { // CustomProperty
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         dataEncoding: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
+ *         structFullyQualifiedName: "STRING_VALUE",
  *       },
  *     },
  *   ],

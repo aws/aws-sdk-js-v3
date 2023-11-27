@@ -38,7 +38,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
 /**
  * @public
  * <p> Updates a decoder manifest.</p>
- *         <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only
+ *          <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only
  *                 <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +75,52 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
  *       },
+ *       messageSignal: { // MessageSignal
+ *         topicName: "STRING_VALUE", // required
+ *         structuredMessage: { // StructuredMessage Union: only one key present
+ *           primitiveMessageDefinition: { // PrimitiveMessageDefinition Union: only one key present
+ *             ros2PrimitiveMessageDefinition: { // ROS2PrimitiveMessageDefinition
+ *               primitiveType: "STRING_VALUE", // required
+ *               offset: Number("double"),
+ *               scaling: Number("double"),
+ *               upperBound: Number("long"),
+ *             },
+ *           },
+ *           structuredMessageListDefinition: { // StructuredMessageListDefinition
+ *             name: "STRING_VALUE", // required
+ *             memberType: {//  Union: only one key present
+ *               primitiveMessageDefinition: {//  Union: only one key present
+ *                 ros2PrimitiveMessageDefinition: {
+ *                   primitiveType: "STRING_VALUE", // required
+ *                   offset: Number("double"),
+ *                   scaling: Number("double"),
+ *                   upperBound: Number("long"),
+ *                 },
+ *               },
+ *               structuredMessageListDefinition: {
+ *                 name: "STRING_VALUE", // required
+ *                 memberType: "<StructuredMessage>", // required
+ *                 listType: "STRING_VALUE", // required
+ *                 capacity: Number("int"),
+ *               },
+ *               structuredMessageDefinition: [ // StructuredMessageDefinition
+ *                 { // StructuredMessageFieldNameAndDataTypePair
+ *                   fieldName: "STRING_VALUE", // required
+ *                   dataType: "<StructuredMessage>", // required
+ *                 },
+ *               ],
+ *             },
+ *             listType: "STRING_VALUE", // required
+ *             capacity: Number("int"),
+ *           },
+ *           structuredMessageDefinition: [
+ *             {
+ *               fieldName: "STRING_VALUE", // required
+ *               dataType: "<StructuredMessage>", // required
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   ],
  *   signalDecodersToUpdate: [
@@ -103,6 +149,10 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
  *       },
+ *       messageSignal: {
+ *         topicName: "STRING_VALUE", // required
+ *         structuredMessage: "<StructuredMessage>", // required
+ *       },
  *     },
  *   ],
  *   signalDecodersToRemove: [ // Fqns
@@ -126,6 +176,10 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         useExtendedIds: true || false,
  *         hasTransmissionEcu: true || false,
  *       },
+ *       vehicleMiddleware: { // VehicleMiddleware
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
  *   networkInterfacesToUpdate: [
@@ -145,6 +199,10 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         dtcRequestIntervalSeconds: Number("int"),
  *         useExtendedIds: true || false,
  *         hasTransmissionEcu: true || false,
+ *       },
+ *       vehicleMiddleware: {
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "STRING_VALUE", // required
  *       },
  *     },
  *   ],

@@ -38,7 +38,7 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
 /**
  * @public
  * <p> Retrieves a list of vehicle models (model manifests). </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example

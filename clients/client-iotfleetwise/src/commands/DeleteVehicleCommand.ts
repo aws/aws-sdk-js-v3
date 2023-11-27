@@ -38,10 +38,10 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
 /**
  * @public
  * <p> Deletes a vehicle and removes it from any campaigns.</p>
- *         <note>
+ *          <note>
  *             <p>If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
  *                 with an empty body.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

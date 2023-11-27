@@ -476,7 +476,7 @@ export interface IoTFleetWiseClientResolvedConfig extends IoTFleetWiseClientReso
  *             your vehicle data models, independent of the in-vehicle communication architecture, and
  *             define data collection rules to transfer only high-value data to the cloud.
  *             </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
  *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  */
 export class IoTFleetWiseClient extends __Client<

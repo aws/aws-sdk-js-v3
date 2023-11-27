@@ -38,9 +38,9 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
 /**
  * @public
  * <p> Lists all the created signal catalogs in an Amazon Web Services account. </p>
- *         <p>You can use  to list information about
+ *          <p>You can use  to list information about
  *             each signal (node) specified in a signal catalog.</p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example

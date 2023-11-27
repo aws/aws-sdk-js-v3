@@ -38,7 +38,7 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
 /**
  * @public
  * <p> A list of information about signal decoders specified in a decoder manifest. </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example
@@ -80,6 +80,52 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * //         byteLength: Number("int"), // required
  * //         bitRightShift: Number("int"),
  * //         bitMaskLength: Number("int"),
+ * //       },
+ * //       messageSignal: { // MessageSignal
+ * //         topicName: "STRING_VALUE", // required
+ * //         structuredMessage: { // StructuredMessage Union: only one key present
+ * //           primitiveMessageDefinition: { // PrimitiveMessageDefinition Union: only one key present
+ * //             ros2PrimitiveMessageDefinition: { // ROS2PrimitiveMessageDefinition
+ * //               primitiveType: "STRING_VALUE", // required
+ * //               offset: Number("double"),
+ * //               scaling: Number("double"),
+ * //               upperBound: Number("long"),
+ * //             },
+ * //           },
+ * //           structuredMessageListDefinition: { // StructuredMessageListDefinition
+ * //             name: "STRING_VALUE", // required
+ * //             memberType: {//  Union: only one key present
+ * //               primitiveMessageDefinition: {//  Union: only one key present
+ * //                 ros2PrimitiveMessageDefinition: {
+ * //                   primitiveType: "STRING_VALUE", // required
+ * //                   offset: Number("double"),
+ * //                   scaling: Number("double"),
+ * //                   upperBound: Number("long"),
+ * //                 },
+ * //               },
+ * //               structuredMessageListDefinition: {
+ * //                 name: "STRING_VALUE", // required
+ * //                 memberType: "<StructuredMessage>", // required
+ * //                 listType: "STRING_VALUE", // required
+ * //                 capacity: Number("int"),
+ * //               },
+ * //               structuredMessageDefinition: [ // StructuredMessageDefinition
+ * //                 { // StructuredMessageFieldNameAndDataTypePair
+ * //                   fieldName: "STRING_VALUE", // required
+ * //                   dataType: "<StructuredMessage>", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             listType: "STRING_VALUE", // required
+ * //             capacity: Number("int"),
+ * //           },
+ * //           structuredMessageDefinition: [
+ * //             {
+ * //               fieldName: "STRING_VALUE", // required
+ * //               dataType: "<StructuredMessage>", // required
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   ],

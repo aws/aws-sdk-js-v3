@@ -46,7 +46,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
 /**
  * @public
  * <p> Lists the network interfaces specified in a decoder manifest. </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example
@@ -80,6 +80,10 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * //         dtcRequestIntervalSeconds: Number("int"),
  * //         useExtendedIds: true || false,
  * //         hasTransmissionEcu: true || false,
+ * //       },
+ * //       vehicleMiddleware: { // VehicleMiddleware
+ * //         name: "STRING_VALUE", // required
+ * //         protocolName: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],

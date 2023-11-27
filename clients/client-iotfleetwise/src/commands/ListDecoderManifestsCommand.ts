@@ -38,7 +38,7 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
 /**
  * @public
  * <p> Lists decoder manifests. </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example
@@ -64,6 +64,7 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * //       status: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       lastModificationTime: new Date("TIMESTAMP"), // required
+ * //       message: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

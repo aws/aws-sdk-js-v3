@@ -39,18 +39,18 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * @public
  * <p>Creates the decoder manifest associated with a model manifest. To create a decoder
  *             manifest, the following must be true:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Every signal decoder has a unique name.</p>
+ *                <p>Every signal decoder has a unique name.</p>
  *             </li>
  *             <li>
- *                 <p>Each signal decoder is associated with a network interface.</p>
+ *                <p>Each signal decoder is associated with a network interface.</p>
  *             </li>
  *             <li>
- *                 <p>Each network interface has a unique ID.</p>
+ *                <p>Each network interface has a unique ID.</p>
  *             </li>
  *             <li>
- *                 <p>The signal decoders are specified in the model manifest.</p>
+ *                <p>The signal decoders are specified in the model manifest.</p>
  *             </li>
  *          </ul>
  * @example
@@ -89,6 +89,52 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
  *       },
+ *       messageSignal: { // MessageSignal
+ *         topicName: "STRING_VALUE", // required
+ *         structuredMessage: { // StructuredMessage Union: only one key present
+ *           primitiveMessageDefinition: { // PrimitiveMessageDefinition Union: only one key present
+ *             ros2PrimitiveMessageDefinition: { // ROS2PrimitiveMessageDefinition
+ *               primitiveType: "STRING_VALUE", // required
+ *               offset: Number("double"),
+ *               scaling: Number("double"),
+ *               upperBound: Number("long"),
+ *             },
+ *           },
+ *           structuredMessageListDefinition: { // StructuredMessageListDefinition
+ *             name: "STRING_VALUE", // required
+ *             memberType: {//  Union: only one key present
+ *               primitiveMessageDefinition: {//  Union: only one key present
+ *                 ros2PrimitiveMessageDefinition: {
+ *                   primitiveType: "STRING_VALUE", // required
+ *                   offset: Number("double"),
+ *                   scaling: Number("double"),
+ *                   upperBound: Number("long"),
+ *                 },
+ *               },
+ *               structuredMessageListDefinition: {
+ *                 name: "STRING_VALUE", // required
+ *                 memberType: "<StructuredMessage>", // required
+ *                 listType: "STRING_VALUE", // required
+ *                 capacity: Number("int"),
+ *               },
+ *               structuredMessageDefinition: [ // StructuredMessageDefinition
+ *                 { // StructuredMessageFieldNameAndDataTypePair
+ *                   fieldName: "STRING_VALUE", // required
+ *                   dataType: "<StructuredMessage>", // required
+ *                 },
+ *               ],
+ *             },
+ *             listType: "STRING_VALUE", // required
+ *             capacity: Number("int"),
+ *           },
+ *           structuredMessageDefinition: [
+ *             {
+ *               fieldName: "STRING_VALUE", // required
+ *               dataType: "<StructuredMessage>", // required
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   ],
  *   networkInterfaces: [ // NetworkInterfaces
@@ -108,6 +154,10 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         dtcRequestIntervalSeconds: Number("int"),
  *         useExtendedIds: true || false,
  *         hasTransmissionEcu: true || false,
+ *       },
+ *       vehicleMiddleware: { // VehicleMiddleware
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "STRING_VALUE", // required
  *       },
  *     },
  *   ],

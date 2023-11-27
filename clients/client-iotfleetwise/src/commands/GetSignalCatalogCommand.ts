@@ -59,6 +59,8 @@ export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse,
  * //     totalSensors: Number("int"),
  * //     totalAttributes: Number("int"),
  * //     totalActuators: Number("int"),
+ * //     totalStructs: Number("int"),
+ * //     totalProperties: Number("int"),
  * //   },
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   lastModificationTime: new Date("TIMESTAMP"), // required

@@ -38,7 +38,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
 /**
  * @public
  * <p> Retrieves information for each created fleet in an Amazon Web Services account. </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example

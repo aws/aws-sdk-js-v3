@@ -38,11 +38,11 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
 /**
  * @public
  * <p> Creates a group, or batch, of vehicles. </p>
- *         <note>
+ *          <note>
  *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
  *                 vehicle. </p>
- *         </note>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicles-cli.html">Create multiple
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicles-cli.html">Create multiple
  *                 vehicles (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

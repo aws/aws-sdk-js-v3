@@ -39,11 +39,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @public
  * <p> Creates a fleet that represents a group of vehicles.
  *             </p>
- *         <note>
+ *          <note>
  *             <p>You must create both a signal catalog and vehicles before you can create a fleet.
  *             </p>
- *         </note>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html">Fleets</a> in the
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html">Fleets</a> in the
  *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

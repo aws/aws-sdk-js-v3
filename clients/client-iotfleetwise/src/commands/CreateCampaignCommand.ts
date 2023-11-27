@@ -41,7 +41,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *             running in vehicles uses campaigns to decide how to collect and transfer data to the
  *             cloud. You create campaigns in the cloud. After you or your team approve campaigns,
  *             Amazon Web Services IoT FleetWise automatically deploys them to vehicles. </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html">Collect and transfer data
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html">Collect and transfer data
  *                 with campaigns</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

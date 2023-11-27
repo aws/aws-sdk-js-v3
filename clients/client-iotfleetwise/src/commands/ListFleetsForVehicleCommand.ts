@@ -38,7 +38,7 @@ export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleR
 /**
  * @public
  * <p>Retrieves a list of IDs for all fleets that the vehicle is associated with.</p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example

@@ -38,7 +38,7 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
 /**
  * @public
  * <p> Lists information about nodes specified in a vehicle model (model manifest). </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example
@@ -75,6 +75,7 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * //         max: Number("double"),
  * //         deprecationMessage: "STRING_VALUE",
  * //         comment: "STRING_VALUE",
+ * //         structFullyQualifiedName: "STRING_VALUE",
  * //       },
  * //       actuator: { // Actuator
  * //         fullyQualifiedName: "STRING_VALUE", // required
@@ -89,6 +90,7 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * //         assignedValue: "STRING_VALUE",
  * //         deprecationMessage: "STRING_VALUE",
  * //         comment: "STRING_VALUE",
+ * //         structFullyQualifiedName: "STRING_VALUE",
  * //       },
  * //       attribute: { // Attribute
  * //         fullyQualifiedName: "STRING_VALUE", // required
@@ -104,6 +106,21 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * //         defaultValue: "STRING_VALUE",
  * //         deprecationMessage: "STRING_VALUE",
  * //         comment: "STRING_VALUE",
+ * //       },
+ * //       struct: { // CustomStruct
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
+ * //       },
+ * //       property: { // CustomProperty
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         dataType: "STRING_VALUE", // required
+ * //         dataEncoding: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
+ * //         structFullyQualifiedName: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

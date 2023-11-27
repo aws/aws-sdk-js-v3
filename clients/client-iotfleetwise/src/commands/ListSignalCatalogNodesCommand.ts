@@ -38,7 +38,7 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
 /**
  * @public
  * <p> Lists of information about the signals (nodes) specified in a signal catalog. </p>
- *         <note>
+ *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
  *          </note>
  * @example
@@ -75,6 +75,7 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * //         max: Number("double"),
  * //         deprecationMessage: "STRING_VALUE",
  * //         comment: "STRING_VALUE",
+ * //         structFullyQualifiedName: "STRING_VALUE",
  * //       },
  * //       actuator: { // Actuator
  * //         fullyQualifiedName: "STRING_VALUE", // required
@@ -89,6 +90,7 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * //         assignedValue: "STRING_VALUE",
  * //         deprecationMessage: "STRING_VALUE",
  * //         comment: "STRING_VALUE",
+ * //         structFullyQualifiedName: "STRING_VALUE",
  * //       },
  * //       attribute: { // Attribute
  * //         fullyQualifiedName: "STRING_VALUE", // required
@@ -104,6 +106,21 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * //         defaultValue: "STRING_VALUE",
  * //         deprecationMessage: "STRING_VALUE",
  * //         comment: "STRING_VALUE",
+ * //       },
+ * //       struct: { // CustomStruct
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
+ * //       },
+ * //       property: { // CustomProperty
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         dataType: "STRING_VALUE", // required
+ * //         dataEncoding: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
+ * //         structFullyQualifiedName: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
