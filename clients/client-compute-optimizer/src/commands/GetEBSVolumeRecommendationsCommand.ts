@@ -114,6 +114,13 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           savingsOpportunityAfterDiscounts: { // EBSSavingsOpportunityAfterDiscounts
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // EBSEstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -124,6 +131,11 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       effectiveRecommendationPreferences: { // EBSEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // EBSSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors

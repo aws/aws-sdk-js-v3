@@ -113,6 +113,13 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           savingsOpportunityAfterDiscounts: { // LambdaSavingsOpportunityAfterDiscounts
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // LambdaEstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
@@ -122,6 +129,11 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       effectiveRecommendationPreferences: { // LambdaEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // LambdaSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

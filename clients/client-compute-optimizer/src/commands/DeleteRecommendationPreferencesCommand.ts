@@ -59,7 +59,7 @@ export interface DeleteRecommendationPreferencesCommandOutput
  *     value: "STRING_VALUE",
  *   },
  *   recommendationPreferenceNames: [ // RecommendationPreferenceNames // required
- *     "EnhancedInfrastructureMetrics" || "InferredWorkloadTypes" || "ExternalMetricsPreference",
+ *     "EnhancedInfrastructureMetrics" || "InferredWorkloadTypes" || "ExternalMetricsPreference" || "LookBackPeriodPreference" || "PreferredResources" || "UtilizationPreferences",
  *   ],
  * };
  * const command = new DeleteRecommendationPreferencesCommand(input);

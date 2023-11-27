@@ -143,6 +143,13 @@ export interface GetECSServiceRecommendationsCommandOutput
  * //               cpu: Number("int"),
  * //             },
  * //           ],
+ * //           savingsOpportunityAfterDiscounts: { // ECSSavingsOpportunityAfterDiscounts
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // ECSEstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
@@ -152,6 +159,11 @@ export interface GetECSServiceRecommendationsCommandOutput
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       effectiveRecommendationPreferences: { // ECSEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // ECSSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors

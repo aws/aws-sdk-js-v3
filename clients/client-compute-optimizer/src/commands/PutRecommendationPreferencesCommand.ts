@@ -64,6 +64,28 @@ export interface PutRecommendationPreferencesCommandOutput
  *   externalMetricsPreference: { // ExternalMetricsPreference
  *     source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
  *   },
+ *   lookBackPeriod: "DAYS_14" || "DAYS_32" || "DAYS_93",
+ *   utilizationPreferences: [ // UtilizationPreferences
+ *     { // UtilizationPreference
+ *       metricName: "CpuUtilization",
+ *       metricParameters: { // CustomizableMetricParameters
+ *         threshold: "P90" || "P95" || "P99_5",
+ *         headroom: "PERCENT_30" || "PERCENT_20" || "PERCENT_0",
+ *       },
+ *     },
+ *   ],
+ *   preferredResources: [ // PreferredResources
+ *     { // PreferredResource
+ *       name: "Ec2InstanceTypes",
+ *       includeList: [ // PreferredResourceValues
+ *         "STRING_VALUE",
+ *       ],
+ *       excludeList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   savingsEstimationMode: "AfterDiscounts" || "BeforeDiscounts",
  * };
  * const command = new PutRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
