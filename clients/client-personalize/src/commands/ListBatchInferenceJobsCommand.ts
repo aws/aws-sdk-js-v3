@@ -62,6 +62,7 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
  * //       failureReason: "STRING_VALUE",
  * //       solutionVersionArn: "STRING_VALUE",
+ * //       batchInferenceJobMode: "BATCH_INFERENCE" || "THEME_GENERATION",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

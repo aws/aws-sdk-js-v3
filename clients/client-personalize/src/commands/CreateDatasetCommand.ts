@@ -40,10 +40,10 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * <p>Creates an empty dataset and adds it to the specified dataset group.
  *       Use <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> to import your training data to a
  *       dataset.</p>
- *          <p>There are three types of datasets:</p>
+ *          <p>There are 5 types of datasets:</p>
  *          <ul>
  *             <li>
- *                <p>Interactions</p>
+ *                <p>Item interactions</p>
  *             </li>
  *             <li>
  *                <p>Items</p>
@@ -51,9 +51,15 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *             <li>
  *                <p>Users</p>
  *             </li>
+ *             <li>
+ *                <p>Action interactions</p>
+ *             </li>
+ *             <li>
+ *                <p>Actions</p>
+ *             </li>
  *          </ul>
  *          <p>Each dataset type has an associated schema with required field types.
- *       Only the <code>Interactions</code> dataset is required in order to train a
+ *       Only the <code>Item interactions</code> dataset is required in order to train a
  *       model (also referred to as creating a solution).</p>
  *          <p>A dataset can be in one of the following states:</p>
  *          <ul>

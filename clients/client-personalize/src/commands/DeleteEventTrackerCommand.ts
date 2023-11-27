@@ -37,8 +37,8 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the event tracker. Does not delete the event-interactions dataset from
- *         the associated dataset group. For more
+ * <p>Deletes the event tracker. Does not delete the dataset from
+ *         the dataset group. For more
  *         information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

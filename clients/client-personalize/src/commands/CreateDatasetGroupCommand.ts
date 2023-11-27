@@ -42,13 +42,19 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *       for each type of dataset:</p>
  *          <ul>
  *             <li>
- *                <p>Interactions</p>
+ *                <p>Item interactions</p>
  *             </li>
  *             <li>
  *                <p>Items</p>
  *             </li>
  *             <li>
  *                <p>Users</p>
+ *             </li>
+ *             <li>
+ *                <p>Actions</p>
+ *             </li>
+ *             <li>
+ *                <p>Action interactions</p>
  *             </li>
  *          </ul>
  *          <p> A dataset group can be a Domain dataset group, where you specify a

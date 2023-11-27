@@ -44,6 +44,9 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *       processes it internally. For information on granting access to your Amazon S3
  *       bucket, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html">Giving
  *         Amazon Personalize Access to Amazon S3 Resources</a>. </p>
+ *          <p>If you already created a recommender or deployed a custom solution version with a campaign, how new bulk records
+ *       influence recommendations depends on the domain use case or recipe that you use. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/how-new-data-influences-recommendations.html">How new data influences
+ *         real-time recommendations</a>.</p>
  *          <important>
  *             <p>By default, a dataset import job replaces any existing data in the
  *         dataset that you imported in bulk. To add new records without replacing

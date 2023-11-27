@@ -263,6 +263,7 @@ import {
   EventTracker,
   EventTrackerSummary,
   FeatureTransformation,
+  FieldsForThemeGeneration,
   Filter,
   FilterSummary,
   GetSolutionMetricsRequest,
@@ -332,6 +333,7 @@ import {
   StopSolutionVersionCreationRequest,
   Tag,
   TagResourceRequest,
+  ThemeGenerationConfig,
   TooManyTagKeysException,
   TooManyTagsException,
   TrainingDataConfig,
@@ -4959,6 +4961,8 @@ const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __Serde
 
 // se_FeatureTransformationParameters omitted.
 
+// se_FieldsForThemeGeneration omitted.
+
 // se_GetSolutionMetricsRequest omitted.
 
 /**
@@ -5070,6 +5074,8 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
 
 // se_Tags omitted.
 
+// se_ThemeGenerationConfig omitted.
+
 // se_TrainingDataConfig omitted.
 
 // se_UntagResourceRequest omitted.
@@ -5115,6 +5121,7 @@ const de_BatchInferenceJob = (output: any, context: __SerdeContext): BatchInfere
   return take(output, {
     batchInferenceJobArn: __expectString,
     batchInferenceJobConfig: _json,
+    batchInferenceJobMode: __expectString,
     creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     failureReason: __expectString,
     filterArn: __expectString,
@@ -5126,6 +5133,7 @@ const de_BatchInferenceJob = (output: any, context: __SerdeContext): BatchInfere
     roleArn: __expectString,
     solutionVersionArn: __expectString,
     status: __expectString,
+    themeGenerationConfig: _json,
   }) as any;
 };
 
@@ -5153,6 +5161,7 @@ const de_BatchInferenceJobs = (output: any, context: __SerdeContext): BatchInfer
 const de_BatchInferenceJobSummary = (output: any, context: __SerdeContext): BatchInferenceJobSummary => {
   return take(output, {
     batchInferenceJobArn: __expectString,
+    batchInferenceJobMode: __expectString,
     creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     failureReason: __expectString,
     jobName: __expectString,
@@ -5347,6 +5356,7 @@ const de_Dataset = (output: any, context: __SerdeContext): Dataset => {
     name: __expectString,
     schemaArn: __expectString,
     status: __expectString,
+    trackingId: __expectString,
   }) as any;
 };
 
@@ -5831,6 +5841,8 @@ const de_FeatureTransformation = (output: any, context: __SerdeContext): Feature
 // de_FeatureTransformationParameters omitted.
 
 // de_FeaturizationParameters omitted.
+
+// de_FieldsForThemeGeneration omitted.
 
 /**
  * deserializeAws_json1_1Filter
@@ -6387,6 +6399,8 @@ const de_SolutionVersionSummary = (output: any, context: __SerdeContext): Soluti
 // de_TagResourceResponse omitted.
 
 // de_Tags omitted.
+
+// de_ThemeGenerationConfig omitted.
 
 // de_TooManyTagKeysException omitted.
 

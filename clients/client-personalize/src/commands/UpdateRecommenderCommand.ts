@@ -65,6 +65,7 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *         ],
  *       },
  *     },
+ *     enableMetadataWithRecommendations: true || false,
  *   },
  * };
  * const command = new UpdateRecommenderCommand(input);

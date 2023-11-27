@@ -77,6 +77,12 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * //       },
  * //     },
  * //     roleArn: "STRING_VALUE",
+ * //     batchInferenceJobMode: "BATCH_INFERENCE" || "THEME_GENERATION",
+ * //     themeGenerationConfig: { // ThemeGenerationConfig
+ * //       fieldsForThemeGeneration: { // FieldsForThemeGeneration
+ * //         itemName: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //     status: "STRING_VALUE",
  * //     creationDateTime: new Date("TIMESTAMP"),
  * //     lastUpdatedDateTime: new Date("TIMESTAMP"),

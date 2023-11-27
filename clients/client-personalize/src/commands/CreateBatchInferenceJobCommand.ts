@@ -37,10 +37,24 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
 
 /**
  * @public
- * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
- *       input file must be in JSON format. For more information, see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating a batch inference job</a>.
+ * <p>Generates batch recommendations based on a list of items or users stored in Amazon S3
+ *       and exports the recommendations to an Amazon S3 bucket.</p>
+ *          <p>To generate batch recommendations, specify the ARN of a solution version and an Amazon S3 URI for the input and output data.
+ *       For user personalization, popular items, and personalized ranking solutions, the batch inference job generates a list of
+ *       recommended items for each user ID in the input file. For related items solutions, the job generates a list of recommended
+ *       items for each item ID in the input file.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/getting-batch-recommendations.html">Creating a batch inference job
+ *     </a>.</p>
+ *          <p>
+ *       If you use the Similar-Items recipe, Amazon Personalize can add descriptive themes to batch recommendations.
+ *       To generate themes, set the job's mode to
+ *       <code>THEME_GENERATION</code> and specify the name of the field that contains item names in the
+ *       input data.</p>
+ *          <p>
+ *       For more information about generating themes, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/themed-batch-recommendations.html">Batch recommendations with themes from Content Generator
+ *       </a>.
  *     </p>
+ *          <p>You can't get batch recommendations with the Trending-Now or Next-Best-Action recipes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +90,12 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  *       tagValue: "STRING_VALUE", // required
  *     },
  *   ],
+ *   batchInferenceJobMode: "BATCH_INFERENCE" || "THEME_GENERATION",
+ *   themeGenerationConfig: { // ThemeGenerationConfig
+ *     fieldsForThemeGeneration: { // FieldsForThemeGeneration
+ *       itemName: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateBatchInferenceJobCommand(input);
  * const response = await client.send(command);

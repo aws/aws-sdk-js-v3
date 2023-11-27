@@ -67,6 +67,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * //       creationDateTime: new Date("TIMESTAMP"),
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
  * //     },
+ * //     trackingId: "STRING_VALUE",
  * //   },
  * // };
  *

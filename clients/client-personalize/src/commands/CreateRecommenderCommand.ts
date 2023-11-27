@@ -137,6 +137,7 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *         ],
  *       },
  *     },
+ *     enableMetadataWithRecommendations: true || false,
  *   },
  *   tags: [ // Tags
  *     { // Tag
