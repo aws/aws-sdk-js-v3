@@ -3,6 +3,16 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateLandingZoneCommand,
+  CreateLandingZoneCommandInput,
+  CreateLandingZoneCommandOutput,
+} from "./commands/CreateLandingZoneCommand";
+import {
+  DeleteLandingZoneCommand,
+  DeleteLandingZoneCommandInput,
+  DeleteLandingZoneCommandOutput,
+} from "./commands/DeleteLandingZoneCommand";
+import {
   DisableControlCommand,
   DisableControlCommandInput,
   DisableControlCommandOutput,
@@ -23,35 +33,101 @@ import {
   GetEnabledControlCommandOutput,
 } from "./commands/GetEnabledControlCommand";
 import {
+  GetLandingZoneCommand,
+  GetLandingZoneCommandInput,
+  GetLandingZoneCommandOutput,
+} from "./commands/GetLandingZoneCommand";
+import {
+  GetLandingZoneOperationCommand,
+  GetLandingZoneOperationCommandInput,
+  GetLandingZoneOperationCommandOutput,
+} from "./commands/GetLandingZoneOperationCommand";
+import {
   ListEnabledControlsCommand,
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
 } from "./commands/ListEnabledControlsCommand";
 import {
+  ListLandingZonesCommand,
+  ListLandingZonesCommandInput,
+  ListLandingZonesCommandOutput,
+} from "./commands/ListLandingZonesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ResetLandingZoneCommand,
+  ResetLandingZoneCommandInput,
+  ResetLandingZoneCommandOutput,
+} from "./commands/ResetLandingZoneCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateLandingZoneCommand,
+  UpdateLandingZoneCommandInput,
+  UpdateLandingZoneCommandOutput,
+} from "./commands/UpdateLandingZoneCommand";
 import { ControlTowerClient, ControlTowerClientConfig } from "./ControlTowerClient";
 
 const commands = {
+  CreateLandingZoneCommand,
+  DeleteLandingZoneCommand,
   DisableControlCommand,
   EnableControlCommand,
   GetControlOperationCommand,
   GetEnabledControlCommand,
+  GetLandingZoneCommand,
+  GetLandingZoneOperationCommand,
   ListEnabledControlsCommand,
+  ListLandingZonesCommand,
   ListTagsForResourceCommand,
+  ResetLandingZoneCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateLandingZoneCommand,
 };
 
 export interface ControlTower {
+  /**
+   * @see {@link CreateLandingZoneCommand}
+   */
+  createLandingZone(
+    args: CreateLandingZoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLandingZoneCommandOutput>;
+  createLandingZone(
+    args: CreateLandingZoneCommandInput,
+    cb: (err: any, data?: CreateLandingZoneCommandOutput) => void
+  ): void;
+  createLandingZone(
+    args: CreateLandingZoneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLandingZoneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLandingZoneCommand}
+   */
+  deleteLandingZone(
+    args: DeleteLandingZoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLandingZoneCommandOutput>;
+  deleteLandingZone(
+    args: DeleteLandingZoneCommandInput,
+    cb: (err: any, data?: DeleteLandingZoneCommandOutput) => void
+  ): void;
+  deleteLandingZone(
+    args: DeleteLandingZoneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLandingZoneCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DisableControlCommand}
    */
@@ -112,6 +188,37 @@ export interface ControlTower {
   ): void;
 
   /**
+   * @see {@link GetLandingZoneCommand}
+   */
+  getLandingZone(
+    args: GetLandingZoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLandingZoneCommandOutput>;
+  getLandingZone(args: GetLandingZoneCommandInput, cb: (err: any, data?: GetLandingZoneCommandOutput) => void): void;
+  getLandingZone(
+    args: GetLandingZoneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLandingZoneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLandingZoneOperationCommand}
+   */
+  getLandingZoneOperation(
+    args: GetLandingZoneOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLandingZoneOperationCommandOutput>;
+  getLandingZoneOperation(
+    args: GetLandingZoneOperationCommandInput,
+    cb: (err: any, data?: GetLandingZoneOperationCommandOutput) => void
+  ): void;
+  getLandingZoneOperation(
+    args: GetLandingZoneOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLandingZoneOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEnabledControlsCommand}
    */
   listEnabledControls(
@@ -129,6 +236,23 @@ export interface ControlTower {
   ): void;
 
   /**
+   * @see {@link ListLandingZonesCommand}
+   */
+  listLandingZones(
+    args: ListLandingZonesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLandingZonesCommandOutput>;
+  listLandingZones(
+    args: ListLandingZonesCommandInput,
+    cb: (err: any, data?: ListLandingZonesCommandOutput) => void
+  ): void;
+  listLandingZones(
+    args: ListLandingZonesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLandingZonesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -143,6 +267,23 @@ export interface ControlTower {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResetLandingZoneCommand}
+   */
+  resetLandingZone(
+    args: ResetLandingZoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetLandingZoneCommandOutput>;
+  resetLandingZone(
+    args: ResetLandingZoneCommandInput,
+    cb: (err: any, data?: ResetLandingZoneCommandOutput) => void
+  ): void;
+  resetLandingZone(
+    args: ResetLandingZoneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetLandingZoneCommandOutput) => void
   ): void;
 
   /**
@@ -166,12 +307,29 @@ export interface ControlTower {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateLandingZoneCommand}
+   */
+  updateLandingZone(
+    args: UpdateLandingZoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLandingZoneCommandOutput>;
+  updateLandingZone(
+    args: UpdateLandingZoneCommandInput,
+    cb: (err: any, data?: UpdateLandingZoneCommandOutput) => void
+  ): void;
+  updateLandingZone(
+    args: UpdateLandingZoneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLandingZoneCommandOutput) => void
+  ): void;
 }
 
 /**
  * @public
- * <p>These interfaces allow you to apply the AWS library of pre-defined
- *          <i>controls</i> to your organizational units, programmatically. In AWS Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+ * <p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
+ *          <i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
  *          <p>To call these APIs, you'll need to know:</p>
  *          <ul>
  *             <li>
@@ -190,13 +348,13 @@ export interface ControlTower {
  *          </p>
  *          <p>The <code>controlIdentifier</code> is an ARN that is specified for each
  *          control. You can view the <code>controlIdentifier</code> in the console on the <b>Control details</b> page, as well as in the documentation.</p>
- *          <p>The <code>controlIdentifier</code> is unique in each AWS Region for each control. You can
- *          find the <code>controlIdentifier</code> for each Region and control in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html">Tables of control metadata</a> in the <i>AWS Control Tower User Guide.</i>
+ *          <p>The <code>controlIdentifier</code> is unique in each Amazon Web Services Region for each control. You can
+ *          find the <code>controlIdentifier</code> for each Region and control in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html">Tables of control metadata</a> in the <i>Amazon Web Services Control Tower User Guide.</i>
  *          </p>
- *          <p>A quick-reference list of control identifers for the AWS Control Tower legacy <i>Strongly recommended</i> and
+ *          <p>A quick-reference list of control identifers for the Amazon Web Services Control Tower legacy <i>Strongly recommended</i> and
  *          <i>Elective</i> controls is given in <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html">Resource identifiers for
  *             APIs and controls</a> in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html">Controls reference guide section</a>
- *          of the <i>AWS Control Tower User Guide</i>. Remember that <i>Mandatory</i> controls
+ *          of the <i>Amazon Web Services Control Tower User Guide</i>. Remember that <i>Mandatory</i> controls
  *          cannot be added or removed.</p>
  *          <note>
  *             <p>
@@ -214,7 +372,7 @@ export interface ControlTower {
  *             <b>To get the <code>targetIdentifier</code>:</b>
  *          </p>
  *          <p>The <code>targetIdentifier</code> is the ARN for an OU.</p>
- *          <p>In the AWS Organizations console, you can find the ARN for the OU on the <b>Organizational unit details</b> page associated with that OU.</p>
+ *          <p>In the Amazon Web Services Organizations console, you can find the ARN for the OU on the <b>Organizational unit details</b> page associated with that OU.</p>
  *          <note>
  *             <p>
  *                <b>OU ARN format:</b>
@@ -259,7 +417,7 @@ export interface ControlTower {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/creating-resources-with-cloudformation.html">Creating AWS Control Tower resources with AWS CloudFormation</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/creating-resources-with-cloudformation.html">Creating Amazon Web Services Control Tower resources with Amazon Web Services CloudFormation</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -268,13 +426,13 @@ export interface ControlTower {
  *          <p>
  *             <b>Recording API Requests</b>
  *          </p>
- *          <p>AWS Control Tower supports AWS CloudTrail, a service that records AWS API calls for your
- *          AWS account and delivers log files to an Amazon S3 bucket. By using information collected by
- *          CloudTrail, you can determine which requests the AWS Control Tower service received, who made
- *          the request and when, and so on. For more about AWS Control Tower and its support for
- *          CloudTrail, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/logging-using-cloudtrail.html">Logging AWS Control Tower
- *             Actions with AWS CloudTrail</a> in the AWS Control Tower User Guide. To learn more about
- *          CloudTrail, including how to turn it on and find your log files, see the AWS CloudTrail User
+ *          <p>Amazon Web Services Control Tower supports Amazon Web Services CloudTrail, a service that records Amazon Web Services API calls for your
+ *          Amazon Web Services account and delivers log files to an Amazon S3 bucket. By using information collected by
+ *          CloudTrail, you can determine which requests the Amazon Web Services Control Tower service received, who made
+ *          the request and when, and so on. For more about Amazon Web Services Control Tower and its support for
+ *          CloudTrail, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/logging-using-cloudtrail.html">Logging Amazon Web Services Control Tower
+ *             Actions with Amazon Web Services CloudTrail</a> in the Amazon Web Services Control Tower User Guide. To learn more about
+ *          CloudTrail, including how to turn it on and find your log files, see the Amazon Web Services CloudTrail User
  *          Guide.</p>
  */
 export class ControlTower extends ControlTowerClient implements ControlTower {}

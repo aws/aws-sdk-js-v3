@@ -38,7 +38,7 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
 /**
  * @public
  * <p>Retrieves details about an enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the AWS Control Tower User Guide</i>
+ *                <i>the Amazon Web Services Control Tower User Guide</i>
  *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,11 +62,11 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  * //       },
  * //     ],
  * //     statusSummary: { // EnablementStatusSummary
- * //       status: "STRING_VALUE",
+ * //       status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
  * //       lastOperationIdentifier: "STRING_VALUE",
  * //     },
  * //     driftStatusSummary: { // DriftStatusSummary
- * //       driftStatus: "STRING_VALUE",
+ * //       driftStatus: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
  * //     },
  * //   },
  * // };
@@ -80,7 +80,7 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
@@ -89,10 +89,10 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  *  <p>Request references a resource which does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> Request was denied due to request throttling.</p>
+ *  <p>Request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>

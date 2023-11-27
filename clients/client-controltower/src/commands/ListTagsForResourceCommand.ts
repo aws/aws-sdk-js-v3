@@ -38,7 +38,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 /**
  * @public
  * <p>Returns a list of tags associated with the resource. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the AWS Control Tower User Guide</i>
+ *                <i>the Amazon Web Services Control Tower User Guide</i>
  *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,7 +72,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *  <p>Request references a resource which does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>

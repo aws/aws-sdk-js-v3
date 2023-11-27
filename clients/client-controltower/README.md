@@ -6,8 +6,8 @@
 
 AWS SDK for JavaScript ControlTower Client for Node.js, Browser and React Native.
 
-<p>These interfaces allow you to apply the AWS library of pre-defined
-<i>controls</i> to your organizational units, programmatically. In AWS Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+<p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
+<i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
 <p>To call these APIs, you'll need to know:</p>
 <ul>
 <li>
@@ -26,13 +26,13 @@ control:</b>
 </p>
 <p>The <code>controlIdentifier</code> is an ARN that is specified for each
 control. You can view the <code>controlIdentifier</code> in the console on the <b>Control details</b> page, as well as in the documentation.</p>
-<p>The <code>controlIdentifier</code> is unique in each AWS Region for each control. You can
-find the <code>controlIdentifier</code> for each Region and control in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html">Tables of control metadata</a> in the <i>AWS Control Tower User Guide.</i>
+<p>The <code>controlIdentifier</code> is unique in each Amazon Web Services Region for each control. You can
+find the <code>controlIdentifier</code> for each Region and control in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html">Tables of control metadata</a> in the <i>Amazon Web Services Control Tower User Guide.</i>
 </p>
-<p>A quick-reference list of control identifers for the AWS Control Tower legacy <i>Strongly recommended</i> and
+<p>A quick-reference list of control identifers for the Amazon Web Services Control Tower legacy <i>Strongly recommended</i> and
 <i>Elective</i> controls is given in <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html">Resource identifiers for
 APIs and controls</a> in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html">Controls reference guide section</a>
-of the <i>AWS Control Tower User Guide</i>. Remember that <i>Mandatory</i> controls
+of the <i>Amazon Web Services Control Tower User Guide</i>. Remember that <i>Mandatory</i> controls
 cannot be added or removed.</p>
 <note>
 <p>
@@ -50,7 +50,7 @@ cannot be added or removed.</p>
 <b>To get the <code>targetIdentifier</code>:</b>
 </p>
 <p>The <code>targetIdentifier</code> is the ARN for an OU.</p>
-<p>In the AWS Organizations console, you can find the ARN for the OU on the <b>Organizational unit details</b> page associated with that OU.</p>
+<p>In the Amazon Web Services Organizations console, you can find the ARN for the OU on the <b>Organizational unit details</b> page associated with that OU.</p>
 <note>
 <p>
 <b>OU ARN format:</b>
@@ -95,7 +95,7 @@ cannot be added or removed.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/controltower/latest/userguide/creating-resources-with-cloudformation.html">Creating AWS Control Tower resources with AWS CloudFormation</a>
+<a href="https://docs.aws.amazon.com/controltower/latest/userguide/creating-resources-with-cloudformation.html">Creating Amazon Web Services Control Tower resources with Amazon Web Services CloudFormation</a>
 </p>
 </li>
 </ul>
@@ -104,13 +104,13 @@ cannot be added or removed.</p>
 <p>
 <b>Recording API Requests</b>
 </p>
-<p>AWS Control Tower supports AWS CloudTrail, a service that records AWS API calls for your
-AWS account and delivers log files to an Amazon S3 bucket. By using information collected by
-CloudTrail, you can determine which requests the AWS Control Tower service received, who made
-the request and when, and so on. For more about AWS Control Tower and its support for
-CloudTrail, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/logging-using-cloudtrail.html">Logging AWS Control Tower
-Actions with AWS CloudTrail</a> in the AWS Control Tower User Guide. To learn more about
-CloudTrail, including how to turn it on and find your log files, see the AWS CloudTrail User
+<p>Amazon Web Services Control Tower supports Amazon Web Services CloudTrail, a service that records Amazon Web Services API calls for your
+Amazon Web Services account and delivers log files to an Amazon S3 bucket. By using information collected by
+CloudTrail, you can determine which requests the Amazon Web Services Control Tower service received, who made
+the request and when, and so on. For more about Amazon Web Services Control Tower and its support for
+CloudTrail, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/logging-using-cloudtrail.html">Logging Amazon Web Services Control Tower
+Actions with Amazon Web Services CloudTrail</a> in the Amazon Web Services Control Tower User Guide. To learn more about
+CloudTrail, including how to turn it on and find your log files, see the Amazon Web Services CloudTrail User
 Guide.</p>
 
 ## Installing
@@ -128,16 +128,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ControlTowerClient` and
-the commands you need, for example `ListEnabledControlsCommand`:
+the commands you need, for example `ListLandingZonesCommand`:
 
 ```js
 // ES5 example
-const { ControlTowerClient, ListEnabledControlsCommand } = require("@aws-sdk/client-controltower");
+const { ControlTowerClient, ListLandingZonesCommand } = require("@aws-sdk/client-controltower");
 ```
 
 ```ts
 // ES6+ example
-import { ControlTowerClient, ListEnabledControlsCommand } from "@aws-sdk/client-controltower";
+import { ControlTowerClient, ListLandingZonesCommand } from "@aws-sdk/client-controltower";
 ```
 
 ### Usage
@@ -156,7 +156,7 @@ const client = new ControlTowerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListEnabledControlsCommand(params);
+const command = new ListLandingZonesCommand(params);
 ```
 
 #### Async/await
@@ -235,7 +235,7 @@ const client = new AWS.ControlTower({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listEnabledControls(params);
+  const data = await client.listLandingZones(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -243,7 +243,7 @@ try {
 
 // Promises.
 client
-  .listEnabledControls(params)
+  .listLandingZones(params)
   .then((data) => {
     // process data.
   })
@@ -252,7 +252,7 @@ client
   });
 
 // callbacks.
-client.listEnabledControls(params, (err, data) => {
+client.listLandingZones(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -310,6 +310,22 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateLandingZone
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/CreateLandingZoneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/CreateLandingZoneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/CreateLandingZoneCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLandingZone
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/DeleteLandingZoneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/DeleteLandingZoneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/DeleteLandingZoneCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableControl
 </summary>
 
@@ -342,6 +358,22 @@ GetEnabledControl
 </details>
 <details>
 <summary>
+GetLandingZone
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/GetLandingZoneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetLandingZoneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetLandingZoneCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetLandingZoneOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/GetLandingZoneOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetLandingZoneOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetLandingZoneOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListEnabledControls
 </summary>
 
@@ -350,10 +382,26 @@ ListEnabledControls
 </details>
 <details>
 <summary>
+ListLandingZones
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/ListLandingZonesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListLandingZonesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListLandingZonesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ResetLandingZone
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/ResetLandingZoneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ResetLandingZoneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ResetLandingZoneCommandOutput/)
 
 </details>
 <details>
@@ -370,5 +418,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLandingZone
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/UpdateLandingZoneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UpdateLandingZoneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UpdateLandingZoneCommandOutput/)
 
 </details>

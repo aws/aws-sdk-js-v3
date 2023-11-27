@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { EnableControlInput, EnableControlOutput } from "../models/models_0";
-import { de_EnableControlCommand, se_EnableControlCommand } from "../protocols/Aws_restJson1";
+import { GetLandingZoneOperationInput, GetLandingZoneOperationOutput } from "../models/models_0";
+import { de_GetLandingZoneOperationCommand, se_GetLandingZoneOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,65 +25,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link EnableControlCommand}.
+ * The input for {@link GetLandingZoneOperationCommand}.
  */
-export interface EnableControlCommandInput extends EnableControlInput {}
+export interface GetLandingZoneOperationCommandInput extends GetLandingZoneOperationInput {}
 /**
  * @public
  *
- * The output of {@link EnableControlCommand}.
+ * The output of {@link GetLandingZoneOperationCommand}.
  */
-export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
+export interface GetLandingZoneOperationCommandOutput extends GetLandingZoneOperationOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services
- *          resources on the specified organizational unit and the accounts it contains. The resources
- *          created will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Returns the status of the specified landing zone operation. Details for an operation are available for
+ *          X days. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, EnableControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, EnableControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, GetLandingZoneOperationCommand } from "@aws-sdk/client-controltower"; // ES Modules import
+ * // const { ControlTowerClient, GetLandingZoneOperationCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = { // EnableControlInput
- *   controlIdentifier: "STRING_VALUE", // required
- *   targetIdentifier: "STRING_VALUE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // GetLandingZoneOperationInput
+ *   operationIdentifier: "STRING_VALUE", // required
  * };
- * const command = new EnableControlCommand(input);
+ * const command = new GetLandingZoneOperationCommand(input);
  * const response = await client.send(command);
- * // { // EnableControlOutput
- * //   operationIdentifier: "STRING_VALUE", // required
- * //   arn: "STRING_VALUE",
+ * // { // GetLandingZoneOperationOutput
+ * //   operationDetails: { // LandingZoneOperationDetail
+ * //     operationType: "DELETE" || "CREATE" || "UPDATE" || "RESET",
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
+ * //     statusMessage: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param EnableControlCommandInput - {@link EnableControlCommandInput}
- * @returns {@link EnableControlCommandOutput}
- * @see {@link EnableControlCommandInput} for command's `input` shape.
- * @see {@link EnableControlCommandOutput} for command's `response` shape.
+ * @param GetLandingZoneOperationCommandInput - {@link GetLandingZoneOperationCommandInput}
+ * @returns {@link GetLandingZoneOperationCommandOutput}
+ * @see {@link GetLandingZoneOperationCommandInput} for command's `input` shape.
+ * @see {@link GetLandingZoneOperationCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
@@ -95,9 +87,9 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class EnableControlCommand extends $Command<
-  EnableControlCommandInput,
-  EnableControlCommandOutput,
+export class GetLandingZoneOperationCommand extends $Command<
+  GetLandingZoneOperationCommandInput,
+  GetLandingZoneOperationCommandOutput,
   ControlTowerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -112,7 +104,7 @@ export class EnableControlCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: EnableControlCommandInput) {
+  constructor(readonly input: GetLandingZoneOperationCommandInput) {
     super();
   }
 
@@ -123,15 +115,17 @@ export class EnableControlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ControlTowerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableControlCommandInput, EnableControlCommandOutput> {
+  ): Handler<GetLandingZoneOperationCommandInput, GetLandingZoneOperationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, EnableControlCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetLandingZoneOperationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ControlTowerClient";
-    const commandName = "EnableControlCommand";
+    const commandName = "GetLandingZoneOperationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -140,7 +134,7 @@ export class EnableControlCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSControlTowerApis",
-        operation: "EnableControl",
+        operation: "GetLandingZoneOperation",
       },
     };
     const { requestHandler } = configuration;
@@ -154,14 +148,14 @@ export class EnableControlCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: EnableControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_EnableControlCommand(input, context);
+  private serialize(input: GetLandingZoneOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetLandingZoneOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableControlCommandOutput> {
-    return de_EnableControlCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLandingZoneOperationCommandOutput> {
+    return de_GetLandingZoneOperationCommand(output, context);
   }
 }

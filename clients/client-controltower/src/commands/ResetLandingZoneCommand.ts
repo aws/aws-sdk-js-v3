@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { EnableControlInput, EnableControlOutput } from "../models/models_0";
-import { de_EnableControlCommand, se_EnableControlCommand } from "../protocols/Aws_restJson1";
+import { ResetLandingZoneInput, ResetLandingZoneOutput } from "../models/models_0";
+import { de_ResetLandingZoneCommand, se_ResetLandingZoneCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,49 +25,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link EnableControlCommand}.
+ * The input for {@link ResetLandingZoneCommand}.
  */
-export interface EnableControlCommandInput extends EnableControlInput {}
+export interface ResetLandingZoneCommandInput extends ResetLandingZoneInput {}
 /**
  * @public
  *
- * The output of {@link EnableControlCommand}.
+ * The output of {@link ResetLandingZoneCommand}.
  */
-export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
+export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services
- *          resources on the specified organizational unit and the accounts it contains. The resources
- *          created will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>This API call resets a landing zone. It starts an asynchronous operation that resets the
+ *          landing zone to the parameters specified in its original configuration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, EnableControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, EnableControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, ResetLandingZoneCommand } from "@aws-sdk/client-controltower"; // ES Modules import
+ * // const { ControlTowerClient, ResetLandingZoneCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = { // EnableControlInput
- *   controlIdentifier: "STRING_VALUE", // required
- *   targetIdentifier: "STRING_VALUE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // ResetLandingZoneInput
+ *   landingZoneIdentifier: "STRING_VALUE", // required
  * };
- * const command = new EnableControlCommand(input);
+ * const command = new ResetLandingZoneCommand(input);
  * const response = await client.send(command);
- * // { // EnableControlOutput
+ * // { // ResetLandingZoneOutput
  * //   operationIdentifier: "STRING_VALUE", // required
- * //   arn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param EnableControlCommandInput - {@link EnableControlCommandInput}
- * @returns {@link EnableControlCommandOutput}
- * @see {@link EnableControlCommandInput} for command's `input` shape.
- * @see {@link EnableControlCommandOutput} for command's `response` shape.
+ * @param ResetLandingZoneCommandInput - {@link ResetLandingZoneCommandInput}
+ * @returns {@link ResetLandingZoneCommandOutput}
+ * @see {@link ResetLandingZoneCommandInput} for command's `input` shape.
+ * @see {@link ResetLandingZoneCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -82,9 +74,6 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
  *
@@ -95,9 +84,9 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class EnableControlCommand extends $Command<
-  EnableControlCommandInput,
-  EnableControlCommandOutput,
+export class ResetLandingZoneCommand extends $Command<
+  ResetLandingZoneCommandInput,
+  ResetLandingZoneCommandOutput,
   ControlTowerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -112,7 +101,7 @@ export class EnableControlCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: EnableControlCommandInput) {
+  constructor(readonly input: ResetLandingZoneCommandInput) {
     super();
   }
 
@@ -123,15 +112,17 @@ export class EnableControlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ControlTowerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableControlCommandInput, EnableControlCommandOutput> {
+  ): Handler<ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, EnableControlCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResetLandingZoneCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ControlTowerClient";
-    const commandName = "EnableControlCommand";
+    const commandName = "ResetLandingZoneCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -140,7 +131,7 @@ export class EnableControlCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSControlTowerApis",
-        operation: "EnableControl",
+        operation: "ResetLandingZone",
       },
     };
     const { requestHandler } = configuration;
@@ -154,14 +145,14 @@ export class EnableControlCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: EnableControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_EnableControlCommand(input, context);
+  private serialize(input: ResetLandingZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ResetLandingZoneCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableControlCommandOutput> {
-    return de_EnableControlCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetLandingZoneCommandOutput> {
+    return de_ResetLandingZoneCommand(output, context);
   }
 }
