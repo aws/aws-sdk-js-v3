@@ -14,6 +14,11 @@ import {
 } from "./commands/CancelDataRepositoryTaskCommand";
 import { CopyBackupCommand, CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
 import {
+  CopySnapshotAndUpdateVolumeCommand,
+  CopySnapshotAndUpdateVolumeCommandInput,
+  CopySnapshotAndUpdateVolumeCommandOutput,
+} from "./commands/CopySnapshotAndUpdateVolumeCommand";
+import {
   CreateBackupCommand,
   CreateBackupCommandInput,
   CreateBackupCommandOutput,
@@ -129,6 +134,11 @@ import {
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
 import {
+  DescribeSharedVpcConfigurationCommand,
+  DescribeSharedVpcConfigurationCommandInput,
+  DescribeSharedVpcConfigurationCommandOutput,
+} from "./commands/DescribeSharedVpcConfigurationCommand";
+import {
   DescribeSnapshotsCommand,
   DescribeSnapshotsCommandInput,
   DescribeSnapshotsCommandOutput,
@@ -190,6 +200,11 @@ import {
   UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
 import {
+  UpdateSharedVpcConfigurationCommand,
+  UpdateSharedVpcConfigurationCommandInput,
+  UpdateSharedVpcConfigurationCommandOutput,
+} from "./commands/UpdateSharedVpcConfigurationCommand";
+import {
   UpdateSnapshotCommand,
   UpdateSnapshotCommandInput,
   UpdateSnapshotCommandOutput,
@@ -210,6 +225,7 @@ const commands = {
   AssociateFileSystemAliasesCommand,
   CancelDataRepositoryTaskCommand,
   CopyBackupCommand,
+  CopySnapshotAndUpdateVolumeCommand,
   CreateBackupCommand,
   CreateDataRepositoryAssociationCommand,
   CreateDataRepositoryTaskCommand,
@@ -233,6 +249,7 @@ const commands = {
   DescribeFileCachesCommand,
   DescribeFileSystemAliasesCommand,
   DescribeFileSystemsCommand,
+  DescribeSharedVpcConfigurationCommand,
   DescribeSnapshotsCommand,
   DescribeStorageVirtualMachinesCommand,
   DescribeVolumesCommand,
@@ -246,6 +263,7 @@ const commands = {
   UpdateDataRepositoryAssociationCommand,
   UpdateFileCacheCommand,
   UpdateFileSystemCommand,
+  UpdateSharedVpcConfigurationCommand,
   UpdateSnapshotCommand,
   UpdateStorageVirtualMachineCommand,
   UpdateVolumeCommand,
@@ -295,6 +313,23 @@ export interface FSx {
     args: CopyBackupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopyBackupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CopySnapshotAndUpdateVolumeCommand}
+   */
+  copySnapshotAndUpdateVolume(
+    args: CopySnapshotAndUpdateVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopySnapshotAndUpdateVolumeCommandOutput>;
+  copySnapshotAndUpdateVolume(
+    args: CopySnapshotAndUpdateVolumeCommandInput,
+    cb: (err: any, data?: CopySnapshotAndUpdateVolumeCommandOutput) => void
+  ): void;
+  copySnapshotAndUpdateVolume(
+    args: CopySnapshotAndUpdateVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CopySnapshotAndUpdateVolumeCommandOutput) => void
   ): void;
 
   /**
@@ -650,6 +685,23 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link DescribeSharedVpcConfigurationCommand}
+   */
+  describeSharedVpcConfiguration(
+    args: DescribeSharedVpcConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSharedVpcConfigurationCommandOutput>;
+  describeSharedVpcConfiguration(
+    args: DescribeSharedVpcConfigurationCommandInput,
+    cb: (err: any, data?: DescribeSharedVpcConfigurationCommandOutput) => void
+  ): void;
+  describeSharedVpcConfiguration(
+    args: DescribeSharedVpcConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSharedVpcConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSnapshotsCommand}
    */
   describeSnapshots(
@@ -850,6 +902,23 @@ export interface FSx {
     args: UpdateFileSystemCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSharedVpcConfigurationCommand}
+   */
+  updateSharedVpcConfiguration(
+    args: UpdateSharedVpcConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSharedVpcConfigurationCommandOutput>;
+  updateSharedVpcConfiguration(
+    args: UpdateSharedVpcConfigurationCommandInput,
+    cb: (err: any, data?: UpdateSharedVpcConfigurationCommandOutput) => void
+  ): void;
+  updateSharedVpcConfiguration(
+    args: UpdateSharedVpcConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSharedVpcConfigurationCommandOutput) => void
   ): void;
 
   /**

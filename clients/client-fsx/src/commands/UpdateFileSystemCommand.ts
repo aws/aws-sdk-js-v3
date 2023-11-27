@@ -172,6 +172,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>HAPairs</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>RemoveRouteTableIds</code>
  *                </p>
  *             </li>
@@ -183,6 +188,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             <li>
  *                <p>
  *                   <code>ThroughputCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ThroughputCapacityPerHAPair</code>
  *                </p>
  *             </li>
  *             <li>
@@ -314,6 +324,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *     RemoveRouteTableIds: [
  *       "STRING_VALUE",
  *     ],
+ *     ThroughputCapacityPerHAPair: Number("int"),
  *   },
  *   OpenZFSConfiguration: { // UpdateFileSystemOpenZFSConfiguration
  *     AutomaticBackupRetentionDays: Number("int"),
@@ -437,7 +448,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
  * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -540,7 +551,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
  * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -593,6 +604,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //                     SnaplockType: "COMPLIANCE" || "ENTERPRISE",
  * //                     VolumeAppendModeEnabled: true || false,
  * //                   },
+ * //                   VolumeStyle: "FLEXVOL" || "FLEXGROUP",
+ * //                   AggregateConfiguration: { // AggregateConfiguration
+ * //                     Aggregates: [ // Aggregates
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     TotalConstituents: Number("int"),
+ * //                   },
+ * //                   SizeInBytes: Number("long"),
  * //                 },
  * //                 ResourceARN: "STRING_VALUE",
  * //                 Tags: "<Tags>",
@@ -612,7 +631,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //                   CopyTagsToSnapshots: true || false,
  * //                   OriginSnapshot: { // OpenZFSOriginSnapshotConfiguration
  * //                     SnapshotARN: "STRING_VALUE",
- * //                     CopyStrategy: "CLONE" || "FULL_COPY",
+ * //                     CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //                   },
  * //                   ReadOnly: true || false,
  * //                   NfsExports: [ // OpenZFSNfsExports
@@ -637,6 +656,9 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //                   RestoreToSnapshot: "STRING_VALUE",
  * //                   DeleteIntermediateSnaphots: true || false,
  * //                   DeleteClonedVolumes: true || false,
+ * //                   DeleteIntermediateData: true || false,
+ * //                   SourceSnapshotARN: "STRING_VALUE",
+ * //                   DestinationSnapshot: "STRING_VALUE",
  * //                 },
  * //               },
  * //               TargetSnapshotValues: { // Snapshot
@@ -652,12 +674,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //                 Tags: "<Tags>",
  * //                 AdministrativeActions: "<AdministrativeActions>",
  * //               },
+ * //               TotalTransferBytes: Number("long"),
+ * //               RemainingTransferBytes: Number("long"),
  * //             },
  * //           ],
  * //           OntapConfiguration: { // OntapFileSystemConfiguration
  * //             AutomaticBackupRetentionDays: Number("int"),
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1",
+ * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //             EndpointIpAddressRange: "STRING_VALUE",
  * //             Endpoints: { // FileSystemEndpoints
  * //               Intercluster: { // FileSystemEndpoint
@@ -684,6 +708,8 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //             FsxAdminPassword: "STRING_VALUE",
+ * //             HAPairs: Number("int"),
+ * //             ThroughputCapacityPerHAPair: Number("int"),
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -752,6 +778,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               SnaplockType: "COMPLIANCE" || "ENTERPRISE",
  * //               VolumeAppendModeEnabled: true || false,
  * //             },
+ * //             VolumeStyle: "FLEXVOL" || "FLEXGROUP",
+ * //             AggregateConfiguration: {
+ * //               Aggregates: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               TotalConstituents: Number("int"),
+ * //             },
+ * //             SizeInBytes: Number("long"),
  * //           },
  * //           ResourceARN: "STRING_VALUE",
  * //           Tags: "<Tags>",
@@ -771,7 +805,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             CopyTagsToSnapshots: true || false,
  * //             OriginSnapshot: {
  * //               SnapshotARN: "STRING_VALUE",
- * //               CopyStrategy: "CLONE" || "FULL_COPY",
+ * //               CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //             },
  * //             ReadOnly: true || false,
  * //             NfsExports: [
@@ -796,6 +830,9 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             RestoreToSnapshot: "STRING_VALUE",
  * //             DeleteIntermediateSnaphots: true || false,
  * //             DeleteClonedVolumes: true || false,
+ * //             DeleteIntermediateData: true || false,
+ * //             SourceSnapshotARN: "STRING_VALUE",
+ * //             DestinationSnapshot: "STRING_VALUE",
  * //           },
  * //         },
  * //         TargetSnapshotValues: {
@@ -811,12 +848,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //           Tags: "<Tags>",
  * //           AdministrativeActions: "<AdministrativeActions>",
  * //         },
+ * //         TotalTransferBytes: Number("long"),
+ * //         RemainingTransferBytes: Number("long"),
  * //       },
  * //     ],
  * //     OntapConfiguration: {
  * //       AutomaticBackupRetentionDays: Number("int"),
  * //       DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1",
+ * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //       EndpointIpAddressRange: "STRING_VALUE",
  * //       Endpoints: {
  * //         Intercluster: {
@@ -843,6 +882,8 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //       FsxAdminPassword: "STRING_VALUE",
+ * //       HAPairs: Number("int"),
+ * //       ThroughputCapacityPerHAPair: Number("int"),
  * //     },
  * //     FileSystemTypeVersion: "STRING_VALUE",
  * //     OpenZFSConfiguration: {

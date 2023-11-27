@@ -230,6 +230,14 @@ CopyBackup
 </details>
 <details>
 <summary>
+CopySnapshotAndUpdateVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CopySnapshotAndUpdateVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CopySnapshotAndUpdateVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CopySnapshotAndUpdateVolumeCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateBackup
 </summary>
 
@@ -414,6 +422,14 @@ DescribeFileSystems
 </details>
 <details>
 <summary>
+DescribeSharedVpcConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeSharedVpcConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSharedVpcConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSharedVpcConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeSnapshots
 </summary>
 
@@ -514,6 +530,14 @@ UpdateFileSystem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateFileSystemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateFileSystemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateFileSystemCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSharedVpcConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateSharedVpcConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSharedVpcConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSharedVpcConfigurationCommandOutput/)
 
 </details>
 <details>

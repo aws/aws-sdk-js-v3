@@ -59,6 +59,10 @@ import {
   CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand";
 import { CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
+import {
+  CopySnapshotAndUpdateVolumeCommandInput,
+  CopySnapshotAndUpdateVolumeCommandOutput,
+} from "./commands/CopySnapshotAndUpdateVolumeCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import {
   CreateDataRepositoryAssociationCommandInput,
@@ -115,6 +119,10 @@ import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
+import {
+  DescribeSharedVpcConfigurationCommandInput,
+  DescribeSharedVpcConfigurationCommandOutput,
+} from "./commands/DescribeSharedVpcConfigurationCommand";
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeStorageVirtualMachinesCommandInput,
@@ -149,6 +157,10 @@ import {
 } from "./commands/UpdateDataRepositoryAssociationCommand";
 import { UpdateFileCacheCommandInput, UpdateFileCacheCommandOutput } from "./commands/UpdateFileCacheCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
+import {
+  UpdateSharedVpcConfigurationCommandInput,
+  UpdateSharedVpcConfigurationCommandOutput,
+} from "./commands/UpdateSharedVpcConfigurationCommand";
 import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
 import {
   UpdateStorageVirtualMachineCommandInput,
@@ -173,6 +185,7 @@ export type ServiceInputTypes =
   | AssociateFileSystemAliasesCommandInput
   | CancelDataRepositoryTaskCommandInput
   | CopyBackupCommandInput
+  | CopySnapshotAndUpdateVolumeCommandInput
   | CreateBackupCommandInput
   | CreateDataRepositoryAssociationCommandInput
   | CreateDataRepositoryTaskCommandInput
@@ -196,6 +209,7 @@ export type ServiceInputTypes =
   | DescribeFileCachesCommandInput
   | DescribeFileSystemAliasesCommandInput
   | DescribeFileSystemsCommandInput
+  | DescribeSharedVpcConfigurationCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeStorageVirtualMachinesCommandInput
   | DescribeVolumesCommandInput
@@ -209,6 +223,7 @@ export type ServiceInputTypes =
   | UpdateDataRepositoryAssociationCommandInput
   | UpdateFileCacheCommandInput
   | UpdateFileSystemCommandInput
+  | UpdateSharedVpcConfigurationCommandInput
   | UpdateSnapshotCommandInput
   | UpdateStorageVirtualMachineCommandInput
   | UpdateVolumeCommandInput;
@@ -220,6 +235,7 @@ export type ServiceOutputTypes =
   | AssociateFileSystemAliasesCommandOutput
   | CancelDataRepositoryTaskCommandOutput
   | CopyBackupCommandOutput
+  | CopySnapshotAndUpdateVolumeCommandOutput
   | CreateBackupCommandOutput
   | CreateDataRepositoryAssociationCommandOutput
   | CreateDataRepositoryTaskCommandOutput
@@ -243,6 +259,7 @@ export type ServiceOutputTypes =
   | DescribeFileCachesCommandOutput
   | DescribeFileSystemAliasesCommandOutput
   | DescribeFileSystemsCommandOutput
+  | DescribeSharedVpcConfigurationCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeStorageVirtualMachinesCommandOutput
   | DescribeVolumesCommandOutput
@@ -256,6 +273,7 @@ export type ServiceOutputTypes =
   | UpdateDataRepositoryAssociationCommandOutput
   | UpdateFileCacheCommandOutput
   | UpdateFileSystemCommandOutput
+  | UpdateSharedVpcConfigurationCommandOutput
   | UpdateSnapshotCommandOutput
   | UpdateStorageVirtualMachineCommandOutput
   | UpdateVolumeCommandOutput;

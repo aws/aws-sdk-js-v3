@@ -16,11 +16,11 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import {
-  RestoreVolumeFromSnapshotRequest,
-  RestoreVolumeFromSnapshotResponse,
-  RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
+  CopySnapshotAndUpdateVolumeRequest,
+  CopySnapshotAndUpdateVolumeResponse,
+  CopySnapshotAndUpdateVolumeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_RestoreVolumeFromSnapshotCommand, se_RestoreVolumeFromSnapshotCommand } from "../protocols/Aws_json1_1";
+import { de_CopySnapshotAndUpdateVolumeCommand, se_CopySnapshotAndUpdateVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -29,37 +29,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link RestoreVolumeFromSnapshotCommand}.
+ * The input for {@link CopySnapshotAndUpdateVolumeCommand}.
  */
-export interface RestoreVolumeFromSnapshotCommandInput extends RestoreVolumeFromSnapshotRequest {}
+export interface CopySnapshotAndUpdateVolumeCommandInput extends CopySnapshotAndUpdateVolumeRequest {}
 /**
  * @public
  *
- * The output of {@link RestoreVolumeFromSnapshotCommand}.
+ * The output of {@link CopySnapshotAndUpdateVolumeCommand}.
  */
-export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFromSnapshotResponse, __MetadataBearer {}
+export interface CopySnapshotAndUpdateVolumeCommandOutput
+  extends CopySnapshotAndUpdateVolumeResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
- *             snapshot.</p>
+ * <p>Updates an existing volume by using a snapshot from another Amazon FSx for OpenZFS file system. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html">on-demand data replication</a> in the Amazon FSx for OpenZFS User
+ *             Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, RestoreVolumeFromSnapshotCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, RestoreVolumeFromSnapshotCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, CopySnapshotAndUpdateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, CopySnapshotAndUpdateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = { // RestoreVolumeFromSnapshotRequest
+ * const input = { // CopySnapshotAndUpdateVolumeRequest
  *   ClientRequestToken: "STRING_VALUE",
  *   VolumeId: "STRING_VALUE", // required
- *   SnapshotId: "STRING_VALUE", // required
- *   Options: [ // RestoreOpenZFSVolumeOptions
- *     "DELETE_INTERMEDIATE_SNAPSHOTS" || "DELETE_CLONED_VOLUMES",
+ *   SourceSnapshotARN: "STRING_VALUE", // required
+ *   CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
+ *   Options: [ // UpdateOpenZFSVolumeOptions
+ *     "DELETE_INTERMEDIATE_SNAPSHOTS" || "DELETE_CLONED_VOLUMES" || "DELETE_INTERMEDIATE_DATA",
  *   ],
  * };
- * const command = new RestoreVolumeFromSnapshotCommand(input);
+ * const command = new CopySnapshotAndUpdateVolumeCommand(input);
  * const response = await client.send(command);
- * // { // RestoreVolumeFromSnapshotResponse
+ * // { // CopySnapshotAndUpdateVolumeResponse
  * //   VolumeId: "STRING_VALUE",
  * //   Lifecycle: "CREATING" || "CREATED" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING" || "AVAILABLE",
  * //   AdministrativeActions: [ // AdministrativeActions
@@ -636,28 +639,34 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  *
  * ```
  *
- * @param RestoreVolumeFromSnapshotCommandInput - {@link RestoreVolumeFromSnapshotCommandInput}
- * @returns {@link RestoreVolumeFromSnapshotCommandOutput}
- * @see {@link RestoreVolumeFromSnapshotCommandInput} for command's `input` shape.
- * @see {@link RestoreVolumeFromSnapshotCommandOutput} for command's `response` shape.
+ * @param CopySnapshotAndUpdateVolumeCommandInput - {@link CopySnapshotAndUpdateVolumeCommandInput}
+ * @returns {@link CopySnapshotAndUpdateVolumeCommandOutput}
+ * @see {@link CopySnapshotAndUpdateVolumeCommandInput} for command's `input` shape.
+ * @see {@link CopySnapshotAndUpdateVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
  *  <p>A generic error indicating a failure with a client request.</p>
  *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
- * @throws {@link VolumeNotFound} (client fault)
- *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
-export class RestoreVolumeFromSnapshotCommand extends $Command<
-  RestoreVolumeFromSnapshotCommandInput,
-  RestoreVolumeFromSnapshotCommandOutput,
+export class CopySnapshotAndUpdateVolumeCommand extends $Command<
+  CopySnapshotAndUpdateVolumeCommandInput,
+  CopySnapshotAndUpdateVolumeCommandOutput,
   FSxClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -672,7 +681,7 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: RestoreVolumeFromSnapshotCommandInput) {
+  constructor(readonly input: CopySnapshotAndUpdateVolumeCommandInput) {
     super();
   }
 
@@ -683,26 +692,26 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RestoreVolumeFromSnapshotCommandInput, RestoreVolumeFromSnapshotCommandOutput> {
+  ): Handler<CopySnapshotAndUpdateVolumeCommandInput, CopySnapshotAndUpdateVolumeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, RestoreVolumeFromSnapshotCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CopySnapshotAndUpdateVolumeCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FSxClient";
-    const commandName = "RestoreVolumeFromSnapshotCommand";
+    const commandName = "CopySnapshotAndUpdateVolumeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: CopySnapshotAndUpdateVolumeResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSSimbaAPIService_v20180301",
-        operation: "RestoreVolumeFromSnapshot",
+        operation: "CopySnapshotAndUpdateVolume",
       },
     };
     const { requestHandler } = configuration;
@@ -716,8 +725,8 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: RestoreVolumeFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RestoreVolumeFromSnapshotCommand(input, context);
+  private serialize(input: CopySnapshotAndUpdateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CopySnapshotAndUpdateVolumeCommand(input, context);
   }
 
   /**
@@ -726,7 +735,7 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<RestoreVolumeFromSnapshotCommandOutput> {
-    return de_RestoreVolumeFromSnapshotCommand(output, context);
+  ): Promise<CopySnapshotAndUpdateVolumeCommandOutput> {
+    return de_CopySnapshotAndUpdateVolumeCommand(output, context);
   }
 }

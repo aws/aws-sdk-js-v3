@@ -44,7 +44,7 @@ export interface DisassociateFileSystemAliasesCommandOutput
  * @public
  * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases
  *             from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not
- *             associated with the file system, Amazon FSx responds with a 400 Bad Request. For more information, see
+ *             associated with the file system, Amazon FSx responds with an HTTP status code 400 (Bad Request). For more information, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a>.</p>
  *          <p>The system generated response showing the DNS aliases that
  *             Amazon FSx is attempting to disassociate from the file system.

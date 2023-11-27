@@ -31,6 +31,10 @@ import {
   CancelDataRepositoryTaskCommandOutput,
 } from "../commands/CancelDataRepositoryTaskCommand";
 import { CopyBackupCommandInput, CopyBackupCommandOutput } from "../commands/CopyBackupCommand";
+import {
+  CopySnapshotAndUpdateVolumeCommandInput,
+  CopySnapshotAndUpdateVolumeCommandOutput,
+} from "../commands/CopySnapshotAndUpdateVolumeCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "../commands/CreateBackupCommand";
 import {
   CreateDataRepositoryAssociationCommandInput,
@@ -87,6 +91,10 @@ import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "../commands/DescribeFileSystemsCommand";
+import {
+  DescribeSharedVpcConfigurationCommandInput,
+  DescribeSharedVpcConfigurationCommandOutput,
+} from "../commands/DescribeSharedVpcConfigurationCommand";
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "../commands/DescribeSnapshotsCommand";
 import {
   DescribeStorageVirtualMachinesCommandInput,
@@ -121,6 +129,10 @@ import {
 } from "../commands/UpdateDataRepositoryAssociationCommand";
 import { UpdateFileCacheCommandInput, UpdateFileCacheCommandOutput } from "../commands/UpdateFileCacheCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "../commands/UpdateFileSystemCommand";
+import {
+  UpdateSharedVpcConfigurationCommandInput,
+  UpdateSharedVpcConfigurationCommandOutput,
+} from "../commands/UpdateSharedVpcConfigurationCommand";
 import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "../commands/UpdateSnapshotCommand";
 import {
   UpdateStorageVirtualMachineCommandInput,
@@ -145,6 +157,9 @@ import {
   CompletionReport,
   CopyBackupRequest,
   CopyBackupResponse,
+  CopySnapshotAndUpdateVolumeRequest,
+  CopySnapshotAndUpdateVolumeResponse,
+  CreateAggregateConfiguration,
   CreateBackupRequest,
   CreateBackupResponse,
   CreateDataRepositoryAssociationRequest,
@@ -208,6 +223,7 @@ import {
   DescribeFileSystemAliasesRequest,
   DescribeFileSystemsRequest,
   DescribeFileSystemsResponse,
+  DescribeSharedVpcConfigurationRequest,
   DescribeSnapshotsRequest,
   DescribeSnapshotsResponse,
   DescribeStorageVirtualMachinesRequest,
@@ -290,6 +306,8 @@ import {
   UpdateFileSystemWindowsConfiguration,
   UpdateOntapVolumeConfiguration,
   UpdateOpenZFSVolumeConfiguration,
+  UpdateOpenZFSVolumeOption,
+  UpdateSharedVpcConfigurationRequest,
   UpdateSnaplockConfiguration,
   UpdateSnapshotRequest,
   UpdateSnapshotResponse,
@@ -340,6 +358,19 @@ export const se_CopyBackupCommand = async (
   const headers: __HeaderBag = sharedHeaders("CopyBackup");
   let body: any;
   body = JSON.stringify(se_CopyBackupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CopySnapshotAndUpdateVolumeCommand
+ */
+export const se_CopySnapshotAndUpdateVolumeCommand = async (
+  input: CopySnapshotAndUpdateVolumeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CopySnapshotAndUpdateVolume");
+  let body: any;
+  body = JSON.stringify(se_CopySnapshotAndUpdateVolumeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -643,6 +674,19 @@ export const se_DescribeFileSystemsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeSharedVpcConfigurationCommand
+ */
+export const se_DescribeSharedVpcConfigurationCommand = async (
+  input: DescribeSharedVpcConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeSharedVpcConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeSnapshotsCommand
  */
 export const se_DescribeSnapshotsCommand = async (
@@ -808,6 +852,19 @@ export const se_UpdateFileSystemCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateFileSystem");
   let body: any;
   body = JSON.stringify(se_UpdateFileSystemRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateSharedVpcConfigurationCommand
+ */
+export const se_UpdateSharedVpcConfigurationCommand = async (
+  input: UpdateSharedVpcConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateSharedVpcConfiguration");
+  let body: any;
+  body = JSON.stringify(se_UpdateSharedVpcConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1026,6 +1083,61 @@ const de_CopyBackupCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.fsx#UnsupportedOperation":
       throw await de_UnsupportedOperationRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CopySnapshotAndUpdateVolumeCommand
+ */
+export const de_CopySnapshotAndUpdateVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopySnapshotAndUpdateVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CopySnapshotAndUpdateVolumeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopySnapshotAndUpdateVolumeResponse(data, context);
+  const response: CopySnapshotAndUpdateVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CopySnapshotAndUpdateVolumeCommandError
+ */
+const de_CopySnapshotAndUpdateVolumeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopySnapshotAndUpdateVolumeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await de_BadRequestRes(parsedOutput, context);
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      throw await de_ServiceLimitExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2419,6 +2531,55 @@ const de_DescribeFileSystemsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeSharedVpcConfigurationCommand
+ */
+export const de_DescribeSharedVpcConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSharedVpcConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeSharedVpcConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSharedVpcConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSharedVpcConfigurationCommandError
+ */
+const de_DescribeSharedVpcConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSharedVpcConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await de_BadRequestRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeSnapshotsCommand
  */
 export const de_DescribeSnapshotsCommand = async (
@@ -3152,6 +3313,58 @@ const de_UpdateFileSystemCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateSharedVpcConfigurationCommand
+ */
+export const de_UpdateSharedVpcConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSharedVpcConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateSharedVpcConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSharedVpcConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSharedVpcConfigurationCommandError
+ */
+const de_UpdateSharedVpcConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSharedVpcConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await de_BadRequestRes(parsedOutput, context);
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateSnapshotCommand
  */
 export const de_UpdateSnapshotCommand = async (
@@ -3834,6 +4047,8 @@ const de_VolumeNotFoundRes = async (parsedOutput: any, context: __SerdeContext):
   return __decorateServiceException(exception, body);
 };
 
+// se_Aggregates omitted.
+
 // se_AlternateDNSNames omitted.
 
 /**
@@ -3875,6 +4090,24 @@ const se_CopyBackupRequest = (input: CopyBackupRequest, context: __SerdeContext)
     Tags: _json,
   });
 };
+
+/**
+ * serializeAws_json1_1CopySnapshotAndUpdateVolumeRequest
+ */
+const se_CopySnapshotAndUpdateVolumeRequest = (
+  input: CopySnapshotAndUpdateVolumeRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    CopyStrategy: [],
+    Options: _json,
+    SourceSnapshotARN: [],
+    VolumeId: [],
+  });
+};
+
+// se_CreateAggregateConfiguration omitted.
 
 /**
  * serializeAws_json1_1CreateBackupRequest
@@ -4193,6 +4426,8 @@ const se_DescribeFileSystemAliasesRequest = (input: DescribeFileSystemAliasesReq
 
 // se_DescribeFileSystemsRequest omitted.
 
+// se_DescribeSharedVpcConfigurationRequest omitted.
+
 // se_DescribeSnapshotsRequest omitted.
 
 // se_DescribeStorageVirtualMachinesRequest omitted.
@@ -4409,6 +4644,21 @@ const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __S
 
 // se_UpdateOpenZFSVolumeConfiguration omitted.
 
+// se_UpdateOpenZFSVolumeOptions omitted.
+
+/**
+ * serializeAws_json1_1UpdateSharedVpcConfigurationRequest
+ */
+const se_UpdateSharedVpcConfigurationRequest = (
+  input: UpdateSharedVpcConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    EnableFsxRouteTableUpdatesFromParticipantAccounts: [],
+  });
+};
+
 // se_UpdateSnaplockConfiguration omitted.
 
 /**
@@ -4474,11 +4724,13 @@ const de_AdministrativeAction = (output: any, context: __SerdeContext): Administ
     AdministrativeActionType: __expectString,
     FailureDetails: _json,
     ProgressPercent: __expectInt32,
+    RemainingTransferBytes: __expectLong,
     RequestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     TargetFileSystemValues: (_: any) => de_FileSystem(_, context),
     TargetSnapshotValues: (_: any) => de_Snapshot(_, context),
     TargetVolumeValues: (_: any) => de_Volume(_, context),
+    TotalTransferBytes: __expectLong,
   }) as any;
 };
 
@@ -4495,6 +4747,10 @@ const de_AdministrativeActions = (output: any, context: __SerdeContext): Adminis
     });
   return retVal;
 };
+
+// de_AggregateConfiguration omitted.
+
+// de_Aggregates omitted.
 
 // de_Alias omitted.
 
@@ -4566,6 +4822,20 @@ const de_Backups = (output: any, context: __SerdeContext): Backup[] => {
 const de_CopyBackupResponse = (output: any, context: __SerdeContext): CopyBackupResponse => {
   return take(output, {
     Backup: (_: any) => de_Backup(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CopySnapshotAndUpdateVolumeResponse
+ */
+const de_CopySnapshotAndUpdateVolumeResponse = (
+  output: any,
+  context: __SerdeContext
+): CopySnapshotAndUpdateVolumeResponse => {
+  return take(output, {
+    AdministrativeActions: (_: any) => de_AdministrativeActions(_, context),
+    Lifecycle: __expectString,
+    VolumeId: __expectString,
   }) as any;
 };
 
@@ -4853,6 +5123,8 @@ const de_DescribeFileSystemsResponse = (output: any, context: __SerdeContext): D
     NextToken: __expectString,
   }) as any;
 };
+
+// de_DescribeSharedVpcConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeSnapshotsResponse
@@ -5269,6 +5541,8 @@ const de_UpdateFileSystemResponse = (output: any, context: __SerdeContext): Upda
     FileSystem: (_: any) => de_FileSystem(_, context),
   }) as any;
 };
+
+// de_UpdateSharedVpcConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateSnapshotResponse
