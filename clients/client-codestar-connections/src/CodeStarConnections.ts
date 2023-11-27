@@ -10,11 +10,31 @@ import {
 } from "./commands/CreateConnectionCommand";
 import { CreateHostCommand, CreateHostCommandInput, CreateHostCommandOutput } from "./commands/CreateHostCommand";
 import {
+  CreateRepositoryLinkCommand,
+  CreateRepositoryLinkCommandInput,
+  CreateRepositoryLinkCommandOutput,
+} from "./commands/CreateRepositoryLinkCommand";
+import {
+  CreateSyncConfigurationCommand,
+  CreateSyncConfigurationCommandInput,
+  CreateSyncConfigurationCommandOutput,
+} from "./commands/CreateSyncConfigurationCommand";
+import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import { DeleteHostCommand, DeleteHostCommandInput, DeleteHostCommandOutput } from "./commands/DeleteHostCommand";
+import {
+  DeleteRepositoryLinkCommand,
+  DeleteRepositoryLinkCommandInput,
+  DeleteRepositoryLinkCommandOutput,
+} from "./commands/DeleteRepositoryLinkCommand";
+import {
+  DeleteSyncConfigurationCommand,
+  DeleteSyncConfigurationCommandInput,
+  DeleteSyncConfigurationCommandOutput,
+} from "./commands/DeleteSyncConfigurationCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
@@ -22,11 +42,51 @@ import {
 } from "./commands/GetConnectionCommand";
 import { GetHostCommand, GetHostCommandInput, GetHostCommandOutput } from "./commands/GetHostCommand";
 import {
+  GetRepositoryLinkCommand,
+  GetRepositoryLinkCommandInput,
+  GetRepositoryLinkCommandOutput,
+} from "./commands/GetRepositoryLinkCommand";
+import {
+  GetRepositorySyncStatusCommand,
+  GetRepositorySyncStatusCommandInput,
+  GetRepositorySyncStatusCommandOutput,
+} from "./commands/GetRepositorySyncStatusCommand";
+import {
+  GetResourceSyncStatusCommand,
+  GetResourceSyncStatusCommandInput,
+  GetResourceSyncStatusCommandOutput,
+} from "./commands/GetResourceSyncStatusCommand";
+import {
+  GetSyncBlockerSummaryCommand,
+  GetSyncBlockerSummaryCommandInput,
+  GetSyncBlockerSummaryCommandOutput,
+} from "./commands/GetSyncBlockerSummaryCommand";
+import {
+  GetSyncConfigurationCommand,
+  GetSyncConfigurationCommandInput,
+  GetSyncConfigurationCommandOutput,
+} from "./commands/GetSyncConfigurationCommand";
+import {
   ListConnectionsCommand,
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
 } from "./commands/ListConnectionsCommand";
 import { ListHostsCommand, ListHostsCommandInput, ListHostsCommandOutput } from "./commands/ListHostsCommand";
+import {
+  ListRepositoryLinksCommand,
+  ListRepositoryLinksCommandInput,
+  ListRepositoryLinksCommandOutput,
+} from "./commands/ListRepositoryLinksCommand";
+import {
+  ListRepositorySyncDefinitionsCommand,
+  ListRepositorySyncDefinitionsCommandInput,
+  ListRepositorySyncDefinitionsCommandOutput,
+} from "./commands/ListRepositorySyncDefinitionsCommand";
+import {
+  ListSyncConfigurationsCommand,
+  ListSyncConfigurationsCommandInput,
+  ListSyncConfigurationsCommandOutput,
+} from "./commands/ListSyncConfigurationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -39,20 +99,50 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateHostCommand, UpdateHostCommandInput, UpdateHostCommandOutput } from "./commands/UpdateHostCommand";
+import {
+  UpdateRepositoryLinkCommand,
+  UpdateRepositoryLinkCommandInput,
+  UpdateRepositoryLinkCommandOutput,
+} from "./commands/UpdateRepositoryLinkCommand";
+import {
+  UpdateSyncBlockerCommand,
+  UpdateSyncBlockerCommandInput,
+  UpdateSyncBlockerCommandOutput,
+} from "./commands/UpdateSyncBlockerCommand";
+import {
+  UpdateSyncConfigurationCommand,
+  UpdateSyncConfigurationCommandInput,
+  UpdateSyncConfigurationCommandOutput,
+} from "./commands/UpdateSyncConfigurationCommand";
 
 const commands = {
   CreateConnectionCommand,
   CreateHostCommand,
+  CreateRepositoryLinkCommand,
+  CreateSyncConfigurationCommand,
   DeleteConnectionCommand,
   DeleteHostCommand,
+  DeleteRepositoryLinkCommand,
+  DeleteSyncConfigurationCommand,
   GetConnectionCommand,
   GetHostCommand,
+  GetRepositoryLinkCommand,
+  GetRepositorySyncStatusCommand,
+  GetResourceSyncStatusCommand,
+  GetSyncBlockerSummaryCommand,
+  GetSyncConfigurationCommand,
   ListConnectionsCommand,
   ListHostsCommand,
+  ListRepositoryLinksCommand,
+  ListRepositorySyncDefinitionsCommand,
+  ListSyncConfigurationsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateHostCommand,
+  UpdateRepositoryLinkCommand,
+  UpdateSyncBlockerCommand,
+  UpdateSyncConfigurationCommand,
 };
 
 export interface CodeStarConnections {
@@ -85,6 +175,40 @@ export interface CodeStarConnections {
   ): void;
 
   /**
+   * @see {@link CreateRepositoryLinkCommand}
+   */
+  createRepositoryLink(
+    args: CreateRepositoryLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRepositoryLinkCommandOutput>;
+  createRepositoryLink(
+    args: CreateRepositoryLinkCommandInput,
+    cb: (err: any, data?: CreateRepositoryLinkCommandOutput) => void
+  ): void;
+  createRepositoryLink(
+    args: CreateRepositoryLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRepositoryLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSyncConfigurationCommand}
+   */
+  createSyncConfiguration(
+    args: CreateSyncConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSyncConfigurationCommandOutput>;
+  createSyncConfiguration(
+    args: CreateSyncConfigurationCommandInput,
+    cb: (err: any, data?: CreateSyncConfigurationCommandOutput) => void
+  ): void;
+  createSyncConfiguration(
+    args: CreateSyncConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSyncConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteConnectionCommand}
    */
   deleteConnection(
@@ -113,6 +237,40 @@ export interface CodeStarConnections {
   ): void;
 
   /**
+   * @see {@link DeleteRepositoryLinkCommand}
+   */
+  deleteRepositoryLink(
+    args: DeleteRepositoryLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRepositoryLinkCommandOutput>;
+  deleteRepositoryLink(
+    args: DeleteRepositoryLinkCommandInput,
+    cb: (err: any, data?: DeleteRepositoryLinkCommandOutput) => void
+  ): void;
+  deleteRepositoryLink(
+    args: DeleteRepositoryLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRepositoryLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSyncConfigurationCommand}
+   */
+  deleteSyncConfiguration(
+    args: DeleteSyncConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSyncConfigurationCommandOutput>;
+  deleteSyncConfiguration(
+    args: DeleteSyncConfigurationCommandInput,
+    cb: (err: any, data?: DeleteSyncConfigurationCommandOutput) => void
+  ): void;
+  deleteSyncConfiguration(
+    args: DeleteSyncConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSyncConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetConnectionCommand}
    */
   getConnection(args: GetConnectionCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectionCommandOutput>;
@@ -132,6 +290,91 @@ export interface CodeStarConnections {
     args: GetHostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetHostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRepositoryLinkCommand}
+   */
+  getRepositoryLink(
+    args: GetRepositoryLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRepositoryLinkCommandOutput>;
+  getRepositoryLink(
+    args: GetRepositoryLinkCommandInput,
+    cb: (err: any, data?: GetRepositoryLinkCommandOutput) => void
+  ): void;
+  getRepositoryLink(
+    args: GetRepositoryLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRepositoryLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRepositorySyncStatusCommand}
+   */
+  getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRepositorySyncStatusCommandOutput>;
+  getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
+  ): void;
+  getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourceSyncStatusCommand}
+   */
+  getResourceSyncStatus(
+    args: GetResourceSyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceSyncStatusCommandOutput>;
+  getResourceSyncStatus(
+    args: GetResourceSyncStatusCommandInput,
+    cb: (err: any, data?: GetResourceSyncStatusCommandOutput) => void
+  ): void;
+  getResourceSyncStatus(
+    args: GetResourceSyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceSyncStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSyncBlockerSummaryCommand}
+   */
+  getSyncBlockerSummary(
+    args: GetSyncBlockerSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSyncBlockerSummaryCommandOutput>;
+  getSyncBlockerSummary(
+    args: GetSyncBlockerSummaryCommandInput,
+    cb: (err: any, data?: GetSyncBlockerSummaryCommandOutput) => void
+  ): void;
+  getSyncBlockerSummary(
+    args: GetSyncBlockerSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSyncBlockerSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSyncConfigurationCommand}
+   */
+  getSyncConfiguration(
+    args: GetSyncConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSyncConfigurationCommandOutput>;
+  getSyncConfiguration(
+    args: GetSyncConfigurationCommandInput,
+    cb: (err: any, data?: GetSyncConfigurationCommandOutput) => void
+  ): void;
+  getSyncConfiguration(
+    args: GetSyncConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSyncConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -157,6 +400,57 @@ export interface CodeStarConnections {
     args: ListHostsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListHostsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRepositoryLinksCommand}
+   */
+  listRepositoryLinks(
+    args: ListRepositoryLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRepositoryLinksCommandOutput>;
+  listRepositoryLinks(
+    args: ListRepositoryLinksCommandInput,
+    cb: (err: any, data?: ListRepositoryLinksCommandOutput) => void
+  ): void;
+  listRepositoryLinks(
+    args: ListRepositoryLinksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRepositoryLinksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRepositorySyncDefinitionsCommand}
+   */
+  listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRepositorySyncDefinitionsCommandOutput>;
+  listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
+  ): void;
+  listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSyncConfigurationsCommand}
+   */
+  listSyncConfigurations(
+    args: ListSyncConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSyncConfigurationsCommandOutput>;
+  listSyncConfigurations(
+    args: ListSyncConfigurationsCommandInput,
+    cb: (err: any, data?: ListSyncConfigurationsCommandOutput) => void
+  ): void;
+  listSyncConfigurations(
+    args: ListSyncConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSyncConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -207,6 +501,57 @@ export interface CodeStarConnections {
     args: UpdateHostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateHostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRepositoryLinkCommand}
+   */
+  updateRepositoryLink(
+    args: UpdateRepositoryLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRepositoryLinkCommandOutput>;
+  updateRepositoryLink(
+    args: UpdateRepositoryLinkCommandInput,
+    cb: (err: any, data?: UpdateRepositoryLinkCommandOutput) => void
+  ): void;
+  updateRepositoryLink(
+    args: UpdateRepositoryLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRepositoryLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSyncBlockerCommand}
+   */
+  updateSyncBlocker(
+    args: UpdateSyncBlockerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSyncBlockerCommandOutput>;
+  updateSyncBlocker(
+    args: UpdateSyncBlockerCommandInput,
+    cb: (err: any, data?: UpdateSyncBlockerCommandOutput) => void
+  ): void;
+  updateSyncBlocker(
+    args: UpdateSyncBlockerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSyncBlockerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSyncConfigurationCommand}
+   */
+  updateSyncConfiguration(
+    args: UpdateSyncConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSyncConfigurationCommandOutput>;
+  updateSyncConfiguration(
+    args: UpdateSyncConfigurationCommandInput,
+    cb: (err: any, data?: UpdateSyncConfigurationCommandOutput) => void
+  ): void;
+  updateSyncConfiguration(
+    args: UpdateSyncConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSyncConfigurationCommandOutput) => void
   ): void;
 }
 
