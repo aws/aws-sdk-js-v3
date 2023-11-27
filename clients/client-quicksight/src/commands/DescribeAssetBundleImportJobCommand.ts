@@ -181,6 +181,9 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //               ],
  * //               AutoCreateDatabaseUser: true || false,
  * //             },
+ * //             IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ * //               EnableIdentityPropagation: true || false,
+ * //             },
  * //           },
  * //           S3Parameters: { // S3Parameters
  * //             ManifestFileLocation: { // ManifestFileLocation

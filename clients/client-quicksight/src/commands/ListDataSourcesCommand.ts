@@ -127,6 +127,9 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //             ],
  * //             AutoCreateDatabaseUser: true || false,
  * //           },
+ * //           IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ * //             EnableIdentityPropagation: true || false,
+ * //           },
  * //         },
  * //         S3Parameters: { // S3Parameters
  * //           ManifestFileLocation: { // ManifestFileLocation
@@ -255,6 +258,9 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //                 "STRING_VALUE",
  * //               ],
  * //               AutoCreateDatabaseUser: true || false,
+ * //             },
+ * //             IdentityCenterConfiguration: {
+ * //               EnableIdentityPropagation: true || false,
  * //             },
  * //           },
  * //           S3Parameters: {

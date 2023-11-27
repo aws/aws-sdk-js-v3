@@ -118,6 +118,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *         ],
  *         AutoCreateDatabaseUser: true || false,
  *       },
+ *       IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ *         EnableIdentityPropagation: true || false,
+ *       },
  *     },
  *     S3Parameters: { // S3Parameters
  *       ManifestFileLocation: { // ManifestFileLocation
@@ -250,6 +253,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *                 "STRING_VALUE",
  *               ],
  *               AutoCreateDatabaseUser: true || false,
+ *             },
+ *             IdentityCenterConfiguration: {
+ *               EnableIdentityPropagation: true || false,
  *             },
  *           },
  *           S3Parameters: {

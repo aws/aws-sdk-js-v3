@@ -110,6 +110,10 @@ import {
   DeleteIAMPolicyAssignmentCommandInput,
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "../commands/DeleteIAMPolicyAssignmentCommand";
+import {
+  DeleteIdentityPropagationConfigCommandInput,
+  DeleteIdentityPropagationConfigCommandOutput,
+} from "../commands/DeleteIdentityPropagationConfigCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "../commands/DeleteNamespaceCommand";
 import {
   DeleteRefreshScheduleCommandInput,
@@ -317,6 +321,10 @@ import {
   ListIAMPolicyAssignmentsForUserCommandInput,
   ListIAMPolicyAssignmentsForUserCommandOutput,
 } from "../commands/ListIAMPolicyAssignmentsForUserCommand";
+import {
+  ListIdentityPropagationConfigsCommandInput,
+  ListIdentityPropagationConfigsCommandOutput,
+} from "../commands/ListIdentityPropagationConfigsCommand";
 import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "../commands/ListIngestionsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import {
@@ -419,6 +427,10 @@ import {
   UpdateIAMPolicyAssignmentCommandInput,
   UpdateIAMPolicyAssignmentCommandOutput,
 } from "../commands/UpdateIAMPolicyAssignmentCommand";
+import {
+  UpdateIdentityPropagationConfigCommandInput,
+  UpdateIdentityPropagationConfigCommandOutput,
+} from "../commands/UpdateIdentityPropagationConfigCommand";
 import {
   UpdateIpRestrictionCommandInput,
   UpdateIpRestrictionCommandOutput,
@@ -1053,6 +1065,7 @@ import {
   Font,
   GeoSpatialColumnGroup,
   GutterStyle,
+  IdentityCenterConfiguration,
   InputColumn,
   IntegerDatasetParameter,
   IntegerDatasetParameterDefaultValues,
@@ -1129,7 +1142,6 @@ import {
   TopicCategoryFilter,
   TopicCategoryFilterConstant,
   TopicColumn,
-  TopicDateRangeFilter,
   TopicRangeFilterConstant,
   TransformOperation,
   TrinoParameters,
@@ -1188,11 +1200,10 @@ import {
   SnapshotFileGroup,
   StatePersistenceConfigurations,
   Template,
-  TemplateSummary,
   TemplateVersion,
-  TemplateVersionSummary,
   Theme,
   ThemeVersion,
+  TopicDateRangeFilter,
   TopicDetails,
   TopicFilter,
   TopicNamedEntity,
@@ -1207,6 +1218,8 @@ import {
 import {
   SnapshotAnonymousUser,
   SnapshotUserConfiguration,
+  TemplateSummary,
+  TemplateVersionSummary,
   ThemeSummary,
   ThemeVersionSummary,
   TopicRefreshScheduleSummary,
@@ -2609,6 +2622,39 @@ export const se_DeleteIAMPolicyAssignmentCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteIdentityPropagationConfigCommand
+ */
+export const se_DeleteIdentityPropagationConfigCommand = async (
+  input: DeleteIdentityPropagationConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/identity-propagation-config/{Service}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Service", () => input.Service!, "{Service}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -5225,6 +5271,43 @@ export const se_ListIAMPolicyAssignmentsForUserCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListIdentityPropagationConfigsCommand
+ */
+export const se_ListIdentityPropagationConfigsCommand = async (
+  input: ListIdentityPropagationConfigsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/identity-propagation-config";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  const query: any = map({
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    "next-token": [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListIngestionsCommand
  */
 export const se_ListIngestionsCommand = async (
@@ -7021,6 +7104,46 @@ export const se_UpdateIAMPolicyAssignmentCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateIdentityPropagationConfigCommand
+ */
+export const se_UpdateIdentityPropagationConfigCommand = async (
+  input: UpdateIdentityPropagationConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/identity-propagation-config/{Service}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Service", () => input.Service!, "{Service}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AuthorizedTargets: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -10145,6 +10268,68 @@ const de_DeleteIAMPolicyAssignmentCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.quicksight#ResourceExistsException":
       throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteIdentityPropagationConfigCommand
+ */
+export const de_DeleteIdentityPropagationConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdentityPropagationConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteIdentityPropagationConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteIdentityPropagationConfigCommandError
+ */
+const de_DeleteIdentityPropagationConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdentityPropagationConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -15081,6 +15266,70 @@ const de_ListIAMPolicyAssignmentsForUserCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListIdentityPropagationConfigsCommand
+ */
+export const de_ListIdentityPropagationConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdentityPropagationConfigsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIdentityPropagationConfigsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RequestId: __expectString,
+    Services: _json,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIdentityPropagationConfigsCommandError
+ */
+const de_ListIdentityPropagationConfigsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdentityPropagationConfigsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListIngestionsCommand
  */
 export const de_ListIngestionsCommand = async (
@@ -18205,6 +18454,68 @@ const de_UpdateIAMPolicyAssignmentCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateIdentityPropagationConfigCommand
+ */
+export const de_UpdateIdentityPropagationConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIdentityPropagationConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateIdentityPropagationConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateIdentityPropagationConfigCommandError
+ */
+const de_UpdateIdentityPropagationConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIdentityPropagationConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateIpRestrictionCommand
  */
 export const de_UpdateIpRestrictionCommand = async (
@@ -19981,6 +20292,8 @@ const se_AssetBundleImportSource = (input: AssetBundleImportSource, context: __S
 // se_AuroraParameters omitted.
 
 // se_AuroraPostgreSqlParameters omitted.
+
+// se_AuthorizedTargetsList omitted.
 
 // se_AuthorSpecifiedAggregations omitted.
 
@@ -21948,6 +22261,8 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
     VisualId: [],
   });
 };
+
+// se_IdentityCenterConfiguration omitted.
 
 // se_IdentityMap omitted.
 
@@ -24838,6 +25153,12 @@ const de_AssetBundleImportJobSummaryList = (output: any, context: __SerdeContext
 
 // de_AuroraPostgreSqlParameters omitted.
 
+// de_AuthorizedTargetsByService omitted.
+
+// de_AuthorizedTargetsByServices omitted.
+
+// de_AuthorizedTargetsList omitted.
+
 // de_AuthorSpecifiedAggregations omitted.
 
 // de_AwsIotAnalyticsParameters omitted.
@@ -27064,6 +27385,8 @@ const de_HistogramVisual = (output: any, context: __SerdeContext): HistogramVisu
 // de_IAMPolicyAssignmentSummary omitted.
 
 // de_IAMPolicyAssignmentSummaryList omitted.
+
+// de_IdentityCenterConfiguration omitted.
 
 // de_IdentityMap omitted.
 

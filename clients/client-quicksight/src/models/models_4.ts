@@ -39,6 +39,7 @@ import {
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
+  ServiceType,
   SslProperties,
   Tag,
   TemplateAlias,
@@ -73,6 +74,229 @@ import {
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>The template summary.</p>
+ */
+export interface TemplateSummary {
+  /**
+   * @public
+   * <p>A summary of a template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the template. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * @public
+   * <p>A display name for the template.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A structure containing a list of version numbers for the template summary.</p>
+   */
+  LatestVersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The last time that this template was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that this template was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplatesResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the templates in the list.</p>
+   */
+  TemplateSummaryList?: TemplateSummary[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateVersionsRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>The template version.</p>
+ */
+export interface TemplateVersionSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the template version.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The version number of the template version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The time that this template version was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The status of the template version.</p>
+   */
+  Status?: ResourceStatus;
+
+  /**
+   * @public
+   * <p>The description of the template version.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateVersionsResponse {
+  /**
+   * @public
+   * <p>A structure containing a list of all the versions of the specified template.</p>
+   */
+  TemplateVersionSummaryList?: TemplateVersionSummary[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListThemeAliasesRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the theme aliases that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListThemeAliasesResponse {
+  /**
+   * @public
+   * <p>A structure containing the list of the theme's aliases.</p>
+   */
+  ThemeAliasList?: ThemeAlias[];
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -2916,6 +3140,46 @@ export interface UpdateIAMPolicyAssignmentResponse {
    */
   AssignmentStatus?: AssignmentStatus;
 
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIdentityPropagationConfigRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the identity propagation configuration that you want to update.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services service that contains the authorized targets that you want to add or update.</p>
+   */
+  Service: ServiceType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies a list of application ARNs that represent the authorized targets for a service.</p>
+   */
+  AuthorizedTargets?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateIdentityPropagationConfigResponse {
   /**
    * @public
    * <p>The Amazon Web Services request ID for this operation.</p>

@@ -162,6 +162,11 @@ import {
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
 import {
+  DeleteIdentityPropagationConfigCommand,
+  DeleteIdentityPropagationConfigCommandInput,
+  DeleteIdentityPropagationConfigCommandOutput,
+} from "./commands/DeleteIdentityPropagationConfigCommand";
+import {
   DeleteNamespaceCommand,
   DeleteNamespaceCommandInput,
   DeleteNamespaceCommandOutput,
@@ -502,6 +507,11 @@ import {
   ListIAMPolicyAssignmentsForUserCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsForUserCommand";
 import {
+  ListIdentityPropagationConfigsCommand,
+  ListIdentityPropagationConfigsCommandInput,
+  ListIdentityPropagationConfigsCommandOutput,
+} from "./commands/ListIdentityPropagationConfigsCommand";
+import {
   ListIngestionsCommand,
   ListIngestionsCommandInput,
   ListIngestionsCommandOutput,
@@ -707,6 +717,11 @@ import {
   UpdateIAMPolicyAssignmentCommandOutput,
 } from "./commands/UpdateIAMPolicyAssignmentCommand";
 import {
+  UpdateIdentityPropagationConfigCommand,
+  UpdateIdentityPropagationConfigCommandInput,
+  UpdateIdentityPropagationConfigCommandOutput,
+} from "./commands/UpdateIdentityPropagationConfigCommand";
+import {
   UpdateIpRestrictionCommand,
   UpdateIpRestrictionCommandInput,
   UpdateIpRestrictionCommandOutput,
@@ -807,6 +822,7 @@ const commands = {
   DeleteGroupCommand,
   DeleteGroupMembershipCommand,
   DeleteIAMPolicyAssignmentCommand,
+  DeleteIdentityPropagationConfigCommand,
   DeleteNamespaceCommand,
   DeleteRefreshScheduleCommand,
   DeleteRoleCustomPermissionCommand,
@@ -879,6 +895,7 @@ const commands = {
   ListGroupsCommand,
   ListIAMPolicyAssignmentsCommand,
   ListIAMPolicyAssignmentsForUserCommand,
+  ListIdentityPropagationConfigsCommand,
   ListIngestionsCommand,
   ListNamespacesCommand,
   ListRefreshSchedulesCommand,
@@ -924,6 +941,7 @@ const commands = {
   UpdateFolderPermissionsCommand,
   UpdateGroupCommand,
   UpdateIAMPolicyAssignmentCommand,
+  UpdateIdentityPropagationConfigCommand,
   UpdateIpRestrictionCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateRefreshScheduleCommand,
@@ -1463,6 +1481,23 @@ export interface QuickSight {
     args: DeleteIAMPolicyAssignmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIdentityPropagationConfigCommand}
+   */
+  deleteIdentityPropagationConfig(
+    args: DeleteIdentityPropagationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIdentityPropagationConfigCommandOutput>;
+  deleteIdentityPropagationConfig(
+    args: DeleteIdentityPropagationConfigCommandInput,
+    cb: (err: any, data?: DeleteIdentityPropagationConfigCommandOutput) => void
+  ): void;
+  deleteIdentityPropagationConfig(
+    args: DeleteIdentityPropagationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIdentityPropagationConfigCommandOutput) => void
   ): void;
 
   /**
@@ -2606,6 +2641,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListIdentityPropagationConfigsCommand}
+   */
+  listIdentityPropagationConfigs(
+    args: ListIdentityPropagationConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIdentityPropagationConfigsCommandOutput>;
+  listIdentityPropagationConfigs(
+    args: ListIdentityPropagationConfigsCommandInput,
+    cb: (err: any, data?: ListIdentityPropagationConfigsCommandOutput) => void
+  ): void;
+  listIdentityPropagationConfigs(
+    args: ListIdentityPropagationConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIdentityPropagationConfigsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListIngestionsCommand}
    */
   listIngestions(
@@ -3272,6 +3324,23 @@ export interface QuickSight {
     args: UpdateIAMPolicyAssignmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIdentityPropagationConfigCommand}
+   */
+  updateIdentityPropagationConfig(
+    args: UpdateIdentityPropagationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIdentityPropagationConfigCommandOutput>;
+  updateIdentityPropagationConfig(
+    args: UpdateIdentityPropagationConfigCommandInput,
+    cb: (err: any, data?: UpdateIdentityPropagationConfigCommandOutput) => void
+  ): void;
+  updateIdentityPropagationConfig(
+    args: UpdateIdentityPropagationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIdentityPropagationConfigCommandOutput) => void
   ): void;
 
   /**

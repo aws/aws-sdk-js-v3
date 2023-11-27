@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/models_4";
-import { de_ListTemplateVersionsCommand, se_ListTemplateVersionsCommand } from "../protocols/Aws_restJson1";
+import { UpdateIdentityPropagationConfigRequest, UpdateIdentityPropagationConfigResponse } from "../models/models_4";
+import {
+  de_UpdateIdentityPropagationConfigCommand,
+  se_UpdateIdentityPropagationConfigCommand,
+} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -25,61 +28,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTemplateVersionsCommand}.
+ * The input for {@link UpdateIdentityPropagationConfigCommand}.
  */
-export interface ListTemplateVersionsCommandInput extends ListTemplateVersionsRequest {}
+export interface UpdateIdentityPropagationConfigCommandInput extends UpdateIdentityPropagationConfigRequest {}
 /**
  * @public
  *
- * The output of {@link ListTemplateVersionsCommand}.
+ * The output of {@link UpdateIdentityPropagationConfigCommand}.
  */
-export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsResponse, __MetadataBearer {}
+export interface UpdateIdentityPropagationConfigCommandOutput
+  extends UpdateIdentityPropagationConfigResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists all the versions of the templates in the current Amazon QuickSight account.</p>
+ * <p>Adds or updates services and authorized targets to configure what the Amazon QuickSight IAM Identity Center application can access.</p>
+ *          <p>This operation is only supported for Amazon QuickSight accounts using IAM Identity Center</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListTemplateVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListTemplateVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateIdentityPropagationConfigCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateIdentityPropagationConfigCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListTemplateVersionsRequest
+ * const input = { // UpdateIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   TemplateId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Service: "REDSHIFT", // required
+ *   AuthorizedTargets: [ // AuthorizedTargetsList
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new ListTemplateVersionsCommand(input);
+ * const command = new UpdateIdentityPropagationConfigCommand(input);
  * const response = await client.send(command);
- * // { // ListTemplateVersionsResponse
- * //   TemplateVersionSummaryList: [ // TemplateVersionSummaryList
- * //     { // TemplateVersionSummary
- * //       Arn: "STRING_VALUE",
- * //       VersionNumber: Number("long"),
- * //       CreatedTime: new Date("TIMESTAMP"),
- * //       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- * //       Description: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * //   Status: Number("int"),
+ * // { // UpdateIdentityPropagationConfigResponse
  * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param ListTemplateVersionsCommandInput - {@link ListTemplateVersionsCommandInput}
- * @returns {@link ListTemplateVersionsCommandOutput}
- * @see {@link ListTemplateVersionsCommandInput} for command's `input` shape.
- * @see {@link ListTemplateVersionsCommandOutput} for command's `response` shape.
+ * @param UpdateIdentityPropagationConfigCommandInput - {@link UpdateIdentityPropagationConfigCommandInput}
+ * @returns {@link UpdateIdentityPropagationConfigCommandOutput}
+ * @see {@link UpdateIdentityPropagationConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateIdentityPropagationConfigCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
- *
- * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> value isn't valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
@@ -90,19 +90,13 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
- * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
- *
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class ListTemplateVersionsCommand extends $Command<
-  ListTemplateVersionsCommandInput,
-  ListTemplateVersionsCommandOutput,
+export class UpdateIdentityPropagationConfigCommand extends $Command<
+  UpdateIdentityPropagationConfigCommandInput,
+  UpdateIdentityPropagationConfigCommandOutput,
   QuickSightClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -117,7 +111,7 @@ export class ListTemplateVersionsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListTemplateVersionsCommandInput) {
+  constructor(readonly input: UpdateIdentityPropagationConfigCommandInput) {
     super();
   }
 
@@ -128,17 +122,17 @@ export class ListTemplateVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTemplateVersionsCommandInput, ListTemplateVersionsCommandOutput> {
+  ): Handler<UpdateIdentityPropagationConfigCommandInput, UpdateIdentityPropagationConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListTemplateVersionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateIdentityPropagationConfigCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListTemplateVersionsCommand";
+    const commandName = "UpdateIdentityPropagationConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -147,7 +141,7 @@ export class ListTemplateVersionsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "QuickSight_20180401",
-        operation: "ListTemplateVersions",
+        operation: "UpdateIdentityPropagationConfig",
       },
     };
     const { requestHandler } = configuration;
@@ -161,14 +155,20 @@ export class ListTemplateVersionsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTemplateVersionsCommand(input, context);
+  private serialize(
+    input: UpdateIdentityPropagationConfigCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_UpdateIdentityPropagationConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateVersionsCommandOutput> {
-    return de_ListTemplateVersionsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateIdentityPropagationConfigCommandOutput> {
+    return de_UpdateIdentityPropagationConfigCommand(output, context);
   }
 }

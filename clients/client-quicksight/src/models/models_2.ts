@@ -1255,6 +1255,18 @@ export interface RedshiftIAMParameters {
 
 /**
  * @public
+ * <p>The parameters for an IAM Identity Center configuration.</p>
+ */
+export interface IdentityCenterConfiguration {
+  /**
+   * @public
+   * <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
+   */
+  EnableIdentityPropagation?: boolean;
+}
+
+/**
+ * @public
  * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
  *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
  */
@@ -1289,6 +1301,13 @@ export interface RedshiftParameters {
    * <p>An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html">DataSourceCredentials</a>.</p>
    */
   IAMParameters?: RedshiftIAMParameters;
+
+  /**
+   * @public
+   * <p>An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.</p>
+   *          <p>This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.</p>
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration;
 }
 
 /**
@@ -3090,6 +3109,37 @@ export const AuthenticationMethodOption = {
  * @public
  */
 export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[keyof typeof AuthenticationMethodOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceType = {
+  REDSHIFT: "REDSHIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
+
+/**
+ * @public
+ * <p>The authorized targets that are associated with a service.</p>
+ */
+export interface AuthorizedTargetsByService {
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services service.</p>
+   */
+  Service?: ServiceType;
+
+  /**
+   * @public
+   * <p>Aist of authorized targets that are represented by IAM Identity Center application ARNs.</p>
+   */
+  AuthorizedTargets?: string[];
+}
 
 /**
  * @public
@@ -8901,58 +8951,6 @@ export interface TopicRangeFilterConstant {
 }
 
 /**
- * @public
- * <p>A filter used to restrict data based on a range of dates or times.</p>
- */
-export interface TopicDateRangeFilter {
-  /**
-   * @public
-   * <p>A Boolean value that indicates whether the date range filter should include the boundary values. If
-   *          set to true, the filter includes the start and end dates. If set to false, the filter
-   *          excludes them.</p>
-   */
-  Inclusive?: boolean;
-
-  /**
-   * @public
-   * <p>The constant used in a date range filter.</p>
-   */
-  Constant?: TopicRangeFilterConstant;
-}
-
-/**
- * @public
- * @enum
- */
-export const FilterClass = {
-  CONDITIONAL_VALUE_FILTER: "CONDITIONAL_VALUE_FILTER",
-  ENFORCED_VALUE_FILTER: "ENFORCED_VALUE_FILTER",
-  NAMED_VALUE_FILTER: "NAMED_VALUE_FILTER",
-} as const;
-
-/**
- * @public
- */
-export type FilterClass = (typeof FilterClass)[keyof typeof FilterClass];
-
-/**
- * @public
- * @enum
- */
-export const NamedFilterType = {
-  CATEGORY_FILTER: "CATEGORY_FILTER",
-  DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
-  NUMERIC_EQUALITY_FILTER: "NUMERIC_EQUALITY_FILTER",
-  NUMERIC_RANGE_FILTER: "NUMERIC_RANGE_FILTER",
-  RELATIVE_DATE_FILTER: "RELATIVE_DATE_FILTER",
-} as const;
-
-/**
- * @public
- */
-export type NamedFilterType = (typeof NamedFilterType)[keyof typeof NamedFilterType];
-
-/**
  * @internal
  */
 export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
@@ -9298,12 +9296,4 @@ export const TopicCategoryFilterFilterSensitiveLog = (obj: TopicCategoryFilter):
  */
 export const TopicRangeFilterConstantFilterSensitiveLog = (obj: TopicRangeFilterConstant): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicDateRangeFilterFilterSensitiveLog = (obj: TopicDateRangeFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
 });

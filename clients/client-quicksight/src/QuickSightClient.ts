@@ -133,6 +133,10 @@ import {
   DeleteIAMPolicyAssignmentCommandInput,
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
+import {
+  DeleteIdentityPropagationConfigCommandInput,
+  DeleteIdentityPropagationConfigCommandOutput,
+} from "./commands/DeleteIdentityPropagationConfigCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import {
   DeleteRefreshScheduleCommandInput,
@@ -340,6 +344,10 @@ import {
   ListIAMPolicyAssignmentsForUserCommandInput,
   ListIAMPolicyAssignmentsForUserCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsForUserCommand";
+import {
+  ListIdentityPropagationConfigsCommandInput,
+  ListIdentityPropagationConfigsCommandOutput,
+} from "./commands/ListIdentityPropagationConfigsCommand";
 import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import {
@@ -443,6 +451,10 @@ import {
   UpdateIAMPolicyAssignmentCommandOutput,
 } from "./commands/UpdateIAMPolicyAssignmentCommand";
 import {
+  UpdateIdentityPropagationConfigCommandInput,
+  UpdateIdentityPropagationConfigCommandOutput,
+} from "./commands/UpdateIdentityPropagationConfigCommand";
+import {
   UpdateIpRestrictionCommandInput,
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
@@ -537,6 +549,7 @@ export type ServiceInputTypes =
   | DeleteGroupCommandInput
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
+  | DeleteIdentityPropagationConfigCommandInput
   | DeleteNamespaceCommandInput
   | DeleteRefreshScheduleCommandInput
   | DeleteRoleCustomPermissionCommandInput
@@ -609,6 +622,7 @@ export type ServiceInputTypes =
   | ListGroupsCommandInput
   | ListIAMPolicyAssignmentsCommandInput
   | ListIAMPolicyAssignmentsForUserCommandInput
+  | ListIdentityPropagationConfigsCommandInput
   | ListIngestionsCommandInput
   | ListNamespacesCommandInput
   | ListRefreshSchedulesCommandInput
@@ -654,6 +668,7 @@ export type ServiceInputTypes =
   | UpdateFolderPermissionsCommandInput
   | UpdateGroupCommandInput
   | UpdateIAMPolicyAssignmentCommandInput
+  | UpdateIdentityPropagationConfigCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateRefreshScheduleCommandInput
@@ -709,6 +724,7 @@ export type ServiceOutputTypes =
   | DeleteGroupCommandOutput
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
+  | DeleteIdentityPropagationConfigCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteRefreshScheduleCommandOutput
   | DeleteRoleCustomPermissionCommandOutput
@@ -781,6 +797,7 @@ export type ServiceOutputTypes =
   | ListGroupsCommandOutput
   | ListIAMPolicyAssignmentsCommandOutput
   | ListIAMPolicyAssignmentsForUserCommandOutput
+  | ListIdentityPropagationConfigsCommandOutput
   | ListIngestionsCommandOutput
   | ListNamespacesCommandOutput
   | ListRefreshSchedulesCommandOutput
@@ -826,6 +843,7 @@ export type ServiceOutputTypes =
   | UpdateFolderPermissionsCommandOutput
   | UpdateGroupCommandOutput
   | UpdateIAMPolicyAssignmentCommandOutput
+  | UpdateIdentityPropagationConfigCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateRefreshScheduleCommandOutput

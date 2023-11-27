@@ -490,6 +490,14 @@ DeleteIAMPolicyAssignment
 </details>
 <details>
 <summary>
+DeleteIdentityPropagationConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteIdentityPropagationConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteIdentityPropagationConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteIdentityPropagationConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteNamespace
 </summary>
 
@@ -1066,6 +1074,14 @@ ListIAMPolicyAssignmentsForUser
 </details>
 <details>
 <summary>
+ListIdentityPropagationConfigs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListIdentityPropagationConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListIdentityPropagationConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListIdentityPropagationConfigsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListIngestions
 </summary>
 
@@ -1422,6 +1438,14 @@ UpdateIAMPolicyAssignment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateIAMPolicyAssignmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateIAMPolicyAssignmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateIAMPolicyAssignmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateIdentityPropagationConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateIdentityPropagationConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateIdentityPropagationConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateIdentityPropagationConfigCommandOutput/)
 
 </details>
 <details>

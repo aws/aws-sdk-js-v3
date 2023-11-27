@@ -41,6 +41,7 @@ import {
   AssetBundleImportSourceDescription,
   AssetBundleImportSourceDescriptionFilterSensitiveLog,
   AssignmentStatus,
+  AuthorizedTargetsByService,
   BookmarksConfigurations,
   ColumnDataSubType,
   ColumnDataType,
@@ -57,7 +58,6 @@ import {
   DataSourceParameters,
   DataSourceType,
   FieldFolder,
-  FilterClass,
   FolderType,
   Group,
   GroupMember,
@@ -67,7 +67,6 @@ import {
   LogicalTable,
   LogicalTableFilterSensitiveLog,
   MemberType,
-  NamedFilterType,
   NamespaceStatus,
   PhysicalTable,
   RefreshSchedule,
@@ -76,6 +75,7 @@ import {
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
+  ServiceType,
   SharingModel,
   SnapshotFile,
   SnapshotS3DestinationConfiguration,
@@ -91,13 +91,63 @@ import {
   TopicCategoryFilterFilterSensitiveLog,
   TopicColumn,
   TopicColumnFilterSensitiveLog,
-  TopicDateRangeFilter,
-  TopicDateRangeFilterFilterSensitiveLog,
   TopicRangeFilterConstant,
   TopicTimeGranularity,
   VpcConnectionProperties,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A filter used to restrict data based on a range of dates or times.</p>
+ */
+export interface TopicDateRangeFilter {
+  /**
+   * @public
+   * <p>A Boolean value that indicates whether the date range filter should include the boundary values. If
+   *          set to true, the filter includes the start and end dates. If set to false, the filter
+   *          excludes them.</p>
+   */
+  Inclusive?: boolean;
+
+  /**
+   * @public
+   * <p>The constant used in a date range filter.</p>
+   */
+  Constant?: TopicRangeFilterConstant;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterClass = {
+  CONDITIONAL_VALUE_FILTER: "CONDITIONAL_VALUE_FILTER",
+  ENFORCED_VALUE_FILTER: "ENFORCED_VALUE_FILTER",
+  NAMED_VALUE_FILTER: "NAMED_VALUE_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterClass = (typeof FilterClass)[keyof typeof FilterClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const NamedFilterType = {
+  CATEGORY_FILTER: "CATEGORY_FILTER",
+  DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
+  NUMERIC_EQUALITY_FILTER: "NUMERIC_EQUALITY_FILTER",
+  NUMERIC_RANGE_FILTER: "NUMERIC_RANGE_FILTER",
+  RELATIVE_DATE_FILTER: "RELATIVE_DATE_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type NamedFilterType = (typeof NamedFilterType)[keyof typeof NamedFilterType];
 
 /**
  * @public
@@ -2357,6 +2407,40 @@ export interface DeleteIAMPolicyAssignmentResponse {
    */
   AssignmentName?: string;
 
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityPropagationConfigRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that you want to delete an identity propagation configuration from.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services service that you want to delete the associated access scopes and authorized targets from.</p>
+   */
+  Service: ServiceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityPropagationConfigResponse {
   /**
    * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -8619,6 +8703,58 @@ export interface ListIAMPolicyAssignmentsForUserResponse {
 /**
  * @public
  */
+export interface ListIdentityPropagationConfigsRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contain the identity propagation configurations of.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIdentityPropagationConfigsResponse {
+  /**
+   * @public
+   * <p>A list of services and their authorized targets that the Amazon QuickSight IAM Identity Center application can access.</p>
+   */
+  Services?: AuthorizedTargetsByService[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListIngestionsRequest {
   /**
    * @public
@@ -8949,227 +9085,12 @@ export interface ListTemplatesRequest {
 }
 
 /**
- * @public
- * <p>The template summary.</p>
+ * @internal
  */
-export interface TemplateSummary {
-  /**
-   * @public
-   * <p>A summary of a template.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the template. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * @public
-   * <p>A display name for the template.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>A structure containing a list of version numbers for the template summary.</p>
-   */
-  LatestVersionNumber?: number;
-
-  /**
-   * @public
-   * <p>The last time that this template was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that this template was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-}
-
-/**
- * @public
- */
-export interface ListTemplatesResponse {
-  /**
-   * @public
-   * <p>A structure containing information about the templates in the list.</p>
-   */
-  TemplateSummaryList?: TemplateSummary[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface ListTemplateVersionsRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * <p>The template version.</p>
- */
-export interface TemplateVersionSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the template version.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The version number of the template version.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * @public
-   * <p>The time that this template version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The status of the template version.</p>
-   */
-  Status?: ResourceStatus;
-
-  /**
-   * @public
-   * <p>The description of the template version.</p>
-   */
-  Description?: string;
-}
-
-/**
- * @public
- */
-export interface ListTemplateVersionsResponse {
-  /**
-   * @public
-   * <p>A structure containing a list of all the versions of the specified template.</p>
-   */
-  TemplateVersionSummaryList?: TemplateVersionSummary[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface ListThemeAliasesRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the theme aliases that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListThemeAliasesResponse {
-  /**
-   * @public
-   * <p>A structure containing the list of the theme's aliases.</p>
-   */
-  ThemeAliasList?: ThemeAlias[];
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
+export const TopicDateRangeFilterFilterSensitiveLog = (obj: TopicDateRangeFilter): any => ({
+  ...obj,
+  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
