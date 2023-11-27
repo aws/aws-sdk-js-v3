@@ -5,6 +5,34 @@ import { CloudTrailServiceException as __BaseException } from "./CloudTrailServi
 
 /**
  * @public
+ * <p>
+ *          You do not have sufficient access to perform this action.
+ *       </p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p> This exception is thrown when you start a new import and a previous import is still in
  *          progress. </p>
  */
@@ -3032,6 +3060,35 @@ export interface DeleteEventDataStoreResponse {}
 
 /**
  * @public
+ * <p>
+ *         You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the <code>DisableFederation</code> operation to
+ *          disable Lake query federation on the event data store.
+ *       </p>
+ */
+export class EventDataStoreFederationEnabledException extends __BaseException {
+  readonly name: "EventDataStoreFederationEnabledException" = "EventDataStoreFederationEnabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreFederationEnabledException, __BaseException>) {
+    super({
+      name: "EventDataStoreFederationEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreFederationEnabledException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p> This exception is thrown when you try to update or delete an event data store that
  *          currently has an import in progress. </p>
  */
@@ -3616,6 +3673,133 @@ export interface DescribeTrailsResponse {
 
 /**
  * @public
+ * <p>
+ *          You are trying to update a resource when another request is in progress. Allow sufficient wait time for the previous request to complete, then retry your request.
+ *       </p>
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DisableFederationRequest {
+  /**
+   * @public
+   * <p>
+   *          The ARN (or ID suffix of the ARN) of the event data store for which you want to disable Lake query federation.
+   *       </p>
+   */
+  EventDataStore: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FederationStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type FederationStatus = (typeof FederationStatus)[keyof typeof FederationStatus];
+
+/**
+ * @public
+ */
+export interface DisableFederationResponse {
+  /**
+   * @public
+   * <p>
+   *          The ARN of the event data store for which you disabled Lake query federation.
+   *       </p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The federation status.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+}
+
+/**
+ * @public
+ */
+export interface EnableFederationRequest {
+  /**
+   * @public
+   * <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to enable Lake query federation.</p>
+   */
+  EventDataStore: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the federation role to use for the event data store. Amazon Web Services services like Lake Formation use this federation role to access data for the federated event
+   *          data store. The federation role must exist in your account and provide the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html#query-federation-permissions-role">required minimum permissions</a>.
+   *       </p>
+   */
+  FederationRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableFederationResponse {
+  /**
+   * @public
+   * <p>
+   *          The ARN of the event data store for which you enabled Lake query federation.
+   *       </p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The federation status.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the federation role.
+   *       </p>
+   */
+  FederationRoleArn?: string;
+}
+
+/**
+ * @public
  */
 export interface GetChannelRequest {
   /**
@@ -3824,6 +4008,23 @@ export interface GetEventDataStoreResponse {
    * <p>The billing mode for the event data store.</p>
    */
   BillingMode?: BillingMode;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html">Lake query federation</a> status. The status is
+   *          <code>ENABLED</code> if Lake query federation is enabled, or <code>DISABLED</code> if Lake query federation is disabled. You cannot delete an event data store if the <code>FederationStatus</code> is <code>ENABLED</code>.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+
+  /**
+   * @public
+   * <p>
+   *          If Lake query federation is enabled, provides the ARN of the federation role used to access the resources for the federated event data store.
+   *       </p>
+   */
+  FederationRoleArn?: string;
 }
 
 /**
@@ -7111,6 +7312,23 @@ export interface UpdateEventDataStoreResponse {
    * <p>The billing mode for the event data store.</p>
    */
   BillingMode?: BillingMode;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html">Lake query federation</a> status. The status is
+   *          <code>ENABLED</code> if Lake query federation is enabled, or <code>DISABLED</code> if Lake query federation is disabled. You cannot delete an event data store if the <code>FederationStatus</code> is <code>ENABLED</code>.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+
+  /**
+   * @public
+   * <p>
+   *          If Lake query federation is enabled, provides the ARN of the federation role used to access the resources for the federated event data store.
+   *       </p>
+   */
+  FederationRoleArn?: string;
 }
 
 /**

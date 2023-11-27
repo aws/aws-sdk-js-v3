@@ -45,6 +45,8 @@ import {
 } from "../commands/DeregisterOrganizationDelegatedAdminCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "../commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "../commands/DescribeTrailsCommand";
+import { DisableFederationCommandInput, DisableFederationCommandOutput } from "../commands/DisableFederationCommand";
+import { EnableFederationCommandInput, EnableFederationCommandOutput } from "../commands/EnableFederationCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "../commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "../commands/GetEventSelectorsCommand";
@@ -105,6 +107,7 @@ import {
 import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "../commands/UpdateTrailCommand";
 import { CloudTrailServiceException as __BaseException } from "../models/CloudTrailServiceException";
 import {
+  AccessDeniedException,
   AccountHasOngoingImportException,
   AccountNotFoundException,
   AccountNotRegisteredException,
@@ -123,6 +126,7 @@ import {
   CloudTrailARNInvalidException,
   CloudTrailInvalidClientTokenIdException,
   CloudWatchLogsDeliveryUnavailableException,
+  ConcurrentModificationException,
   ConflictException,
   CreateChannelRequest,
   CreateEventDataStoreRequest,
@@ -139,10 +143,13 @@ import {
   DescribeQueryResponse,
   DescribeTrailsRequest,
   Destination,
+  DisableFederationRequest,
+  EnableFederationRequest,
   Event,
   EventDataStore,
   EventDataStoreAlreadyExistsException,
   EventDataStoreARNInvalidException,
+  EventDataStoreFederationEnabledException,
   EventDataStoreHasOngoingImportException,
   EventDataStoreMaxLimitExceededException,
   EventDataStoreNotFoundException,
@@ -418,6 +425,32 @@ export const se_DescribeTrailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTrails");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DisableFederationCommand
+ */
+export const se_DisableFederationCommand = async (
+  input: DisableFederationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisableFederation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1EnableFederationCommand
+ */
+export const se_EnableFederationCommand = async (
+  input: EnableFederationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("EnableFederation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1435,9 +1468,15 @@ const de_DeleteEventDataStoreCommandError = async (
     case "ChannelExistsForEDSException":
     case "com.amazonaws.cloudtrail#ChannelExistsForEDSException":
       throw await de_ChannelExistsForEDSExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
+    case "EventDataStoreFederationEnabledException":
+    case "com.amazonaws.cloudtrail#EventDataStoreFederationEnabledException":
+      throw await de_EventDataStoreFederationEnabledExceptionRes(parsedOutput, context);
     case "EventDataStoreHasOngoingImportException":
     case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
       throw await de_EventDataStoreHasOngoingImportExceptionRes(parsedOutput, context);
@@ -1800,6 +1839,179 @@ const de_DescribeTrailsCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DisableFederationCommand
+ */
+export const de_DisableFederationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableFederationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisableFederationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisableFederationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisableFederationCommandError
+ */
+const de_DisableFederationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableFederationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cloudtrail#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
+      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudtrail#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
+    case "InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
+      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
+    case "NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
+      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
+      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
+    case "OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
+      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1EnableFederationCommand
+ */
+export const de_EnableFederationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableFederationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_EnableFederationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EnableFederationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableFederationCommandError
+ */
+const de_EnableFederationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableFederationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cloudtrail#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
+      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudtrail#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
+    case "EventDataStoreFederationEnabledException":
+    case "com.amazonaws.cloudtrail#EventDataStoreFederationEnabledException":
+      throw await de_EventDataStoreFederationEnabledExceptionRes(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
+    case "InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
+      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
+    case "NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
+      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
+      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
+    case "OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
+      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
@@ -4230,6 +4442,22 @@ const de_UpdateTrailCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1AccountHasOngoingImportExceptionRes
  */
 const de_AccountHasOngoingImportExceptionRes = async (
@@ -4454,6 +4682,22 @@ const de_CloudWatchLogsDeliveryUnavailableExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConcurrentModificationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConcurrentModificationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
@@ -4508,6 +4752,22 @@ const de_EventDataStoreARNInvalidExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new EventDataStoreARNInvalidException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1EventDataStoreFederationEnabledExceptionRes
+ */
+const de_EventDataStoreFederationEnabledExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EventDataStoreFederationEnabledException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new EventDataStoreFederationEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5542,6 +5802,10 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_Destinations omitted.
 
+// se_DisableFederationRequest omitted.
+
+// se_EnableFederationRequest omitted.
+
 // se_EventSelector omitted.
 
 // se_EventSelectors omitted.
@@ -5686,6 +5950,8 @@ const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContex
 
 // se_UpdateTrailRequest omitted.
 
+// de_AccessDeniedException omitted.
+
 // de_AccountHasOngoingImportException omitted.
 
 // de_AccountNotFoundException omitted.
@@ -5729,6 +5995,8 @@ const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContex
 // de_CloudTrailInvalidClientTokenIdException omitted.
 
 // de_CloudWatchLogsDeliveryUnavailableException omitted.
+
+// de_ConcurrentModificationException omitted.
 
 // de_ConflictException omitted.
 
@@ -5796,6 +6064,10 @@ const de_DescribeQueryResponse = (output: any, context: __SerdeContext): Describ
 
 // de_Destinations omitted.
 
+// de_DisableFederationResponse omitted.
+
+// de_EnableFederationResponse omitted.
+
 /**
  * deserializeAws_json1_1Event
  */
@@ -5834,6 +6106,8 @@ const de_EventDataStore = (output: any, context: __SerdeContext): EventDataStore
 // de_EventDataStoreAlreadyExistsException omitted.
 
 // de_EventDataStoreARNInvalidException omitted.
+
+// de_EventDataStoreFederationEnabledException omitted.
 
 // de_EventDataStoreHasOngoingImportException omitted.
 
@@ -5896,6 +6170,8 @@ const de_GetEventDataStoreResponse = (output: any, context: __SerdeContext): Get
     BillingMode: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EventDataStoreArn: __expectString,
+    FederationRoleArn: __expectString,
+    FederationStatus: __expectString,
     KmsKeyId: __expectString,
     MultiRegionEnabled: __expectBoolean,
     Name: __expectString,
@@ -6392,6 +6668,8 @@ const de_UpdateEventDataStoreResponse = (output: any, context: __SerdeContext): 
     BillingMode: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EventDataStoreArn: __expectString,
+    FederationRoleArn: __expectString,
+    FederationStatus: __expectString,
     KmsKeyId: __expectString,
     MultiRegionEnabled: __expectBoolean,
     Name: __expectString,

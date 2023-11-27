@@ -11,6 +11,8 @@ export * from "./DeleteTrailCommand";
 export * from "./DeregisterOrganizationDelegatedAdminCommand";
 export * from "./DescribeQueryCommand";
 export * from "./DescribeTrailsCommand";
+export * from "./DisableFederationCommand";
+export * from "./EnableFederationCommand";
 export * from "./GetChannelCommand";
 export * from "./GetEventDataStoreCommand";
 export * from "./GetEventSelectorsCommand";

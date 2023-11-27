@@ -88,6 +88,8 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  * //   UpdatedTimestamp: new Date("TIMESTAMP"),
  * //   KmsKeyId: "STRING_VALUE",
  * //   BillingMode: "EXTENDABLE_RETENTION_PRICING" || "FIXED_RETENTION_PRICING",
+ * //   FederationStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
+ * //   FederationRoleArn: "STRING_VALUE",
  * // };
  *
  * ```

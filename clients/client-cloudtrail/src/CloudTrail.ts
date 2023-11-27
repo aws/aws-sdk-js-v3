@@ -47,6 +47,16 @@ import {
   DescribeTrailsCommandInput,
   DescribeTrailsCommandOutput,
 } from "./commands/DescribeTrailsCommand";
+import {
+  DisableFederationCommand,
+  DisableFederationCommandInput,
+  DisableFederationCommandOutput,
+} from "./commands/DisableFederationCommand";
+import {
+  EnableFederationCommand,
+  EnableFederationCommandInput,
+  EnableFederationCommandOutput,
+} from "./commands/EnableFederationCommand";
 import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
   GetEventDataStoreCommand,
@@ -179,6 +189,8 @@ const commands = {
   DeregisterOrganizationDelegatedAdminCommand,
   DescribeQueryCommand,
   DescribeTrailsCommand,
+  DisableFederationCommand,
+  EnableFederationCommand,
   GetChannelCommand,
   GetEventDataStoreCommand,
   GetEventSelectorsCommand,
@@ -373,6 +385,40 @@ export interface CloudTrail {
     args: DescribeTrailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTrailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisableFederationCommand}
+   */
+  disableFederation(
+    args: DisableFederationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableFederationCommandOutput>;
+  disableFederation(
+    args: DisableFederationCommandInput,
+    cb: (err: any, data?: DisableFederationCommandOutput) => void
+  ): void;
+  disableFederation(
+    args: DisableFederationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableFederationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableFederationCommand}
+   */
+  enableFederation(
+    args: EnableFederationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableFederationCommandOutput>;
+  enableFederation(
+    args: EnableFederationCommandInput,
+    cb: (err: any, data?: EnableFederationCommandOutput) => void
+  ): void;
+  enableFederation(
+    args: EnableFederationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableFederationCommandOutput) => void
   ): void;
 
   /**

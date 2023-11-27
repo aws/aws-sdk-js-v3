@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { DeleteEventDataStoreRequest, DeleteEventDataStoreResponse } from "../models/models_0";
-import { de_DeleteEventDataStoreCommand, se_DeleteEventDataStoreCommand } from "../protocols/Aws_json1_1";
+import { DisableFederationRequest, DisableFederationResponse } from "../models/models_0";
+import { de_DisableFederationCommand, se_DisableFederationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -25,80 +25,67 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteEventDataStoreCommand}.
+ * The input for {@link DisableFederationCommand}.
  */
-export interface DeleteEventDataStoreCommandInput extends DeleteEventDataStoreRequest {}
+export interface DisableFederationCommandInput extends DisableFederationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteEventDataStoreCommand}.
+ * The output of {@link DisableFederationCommand}.
  */
-export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreResponse, __MetadataBearer {}
+export interface DisableFederationCommandOutput extends DisableFederationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
- *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
- *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
- *          period of seven days. <code>TerminationProtectionEnabled</code> must be set to
- *             <code>False</code> on the event data store and the <code>FederationStatus</code> must be <code>DISABLED</code>.
- *          You cannot delete an event data store if <code>TerminationProtectionEnabled</code>
- *          is <code>True</code> or the <code>FederationStatus</code> is <code>ENABLED</code>.</p>
- *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run
- *             <code>ListQueries</code>, <code>DescribeQuery</code>, or <code>GetQueryResults</code> on
- *          queries that are using an event data store in a <code>PENDING_DELETION</code> state. An
- *          event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
+ * <p>
+ *          Disables Lake query federation on the specified event data store. When you disable federation, CloudTrail
+ *          removes the metadata associated with the federated event data store in the Glue Data Catalog and removes registration for
+ *          the federation role ARN and event data store in Lake Formation. No CloudTrail Lake data is deleted
+ *          when you disable federation.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, DeleteEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, DeleteEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DisableFederationCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, DisableFederationCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = { // DeleteEventDataStoreRequest
+ * const input = { // DisableFederationRequest
  *   EventDataStore: "STRING_VALUE", // required
  * };
- * const command = new DeleteEventDataStoreCommand(input);
+ * const command = new DisableFederationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DisableFederationResponse
+ * //   EventDataStoreArn: "STRING_VALUE",
+ * //   FederationStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
+ * // };
  *
  * ```
  *
- * @param DeleteEventDataStoreCommandInput - {@link DeleteEventDataStoreCommandInput}
- * @returns {@link DeleteEventDataStoreCommandOutput}
- * @see {@link DeleteEventDataStoreCommandInput} for command's `input` shape.
- * @see {@link DeleteEventDataStoreCommandOutput} for command's `response` shape.
+ * @param DisableFederationCommandInput - {@link DisableFederationCommandInput}
+ * @returns {@link DisableFederationCommandOutput}
+ * @see {@link DisableFederationCommandInput} for command's `input` shape.
+ * @see {@link DisableFederationCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
- * @throws {@link ChannelExistsForEDSException} (client fault)
- *  <p>This exception is thrown when the specified event data store cannot yet be deleted because it
- *          is in use by a channel.</p>
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *          You do not have sufficient access to perform this action.
+ *       </p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when the specified resource is not ready for an operation. This
- *          can occur when you try to run an operation on a resource before CloudTrail has time
- *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
- *          operation again.</p>
+ * @throws {@link CloudTrailAccessNotEnabledException} (client fault)
+ *  <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>
+ *          You are trying to update a resource when another request is in progress. Allow sufficient wait time for the previous request to complete, then retry your request.
+ *       </p>
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
  *  <p>The specified event data store ARN is not valid or does not map to an event data store
  *          in your account.</p>
  *
- * @throws {@link EventDataStoreFederationEnabledException} (client fault)
- *  <p>
- *         You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the <code>DisableFederation</code> operation to
- *          disable Lake query federation on the event data store.
- *       </p>
- *
- * @throws {@link EventDataStoreHasOngoingImportException} (client fault)
- *  <p> This exception is thrown when you try to update or delete an event data store that
- *          currently has an import in progress. </p>
- *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
  *  <p>The specified event data store was not found.</p>
- *
- * @throws {@link EventDataStoreTerminationProtectedException} (client fault)
- *  <p>The event data store cannot be deleted because termination protection is enabled for
- *          it.</p>
  *
  * @throws {@link InactiveEventDataStoreException} (client fault)
  *  <p>The event data store is inactive.</p>
@@ -123,6 +110,16 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
  *
+ * @throws {@link OrganizationNotInAllFeaturesModeException} (client fault)
+ *  <p>This exception is thrown when Organizations is not configured to support all
+ *          features. All features must be enabled in Organizations to support creating an
+ *          organization trail or event data store.</p>
+ *
+ * @throws {@link OrganizationsNotInUseException} (client fault)
+ *  <p>This exception is thrown when the request is made from an Amazon Web Services account
+ *          that is not a member of an organization. To make this request, sign in using the
+ *          credentials of an account that belongs to an organization.</p>
+ *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
@@ -130,9 +127,9 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
-export class DeleteEventDataStoreCommand extends $Command<
-  DeleteEventDataStoreCommandInput,
-  DeleteEventDataStoreCommandOutput,
+export class DisableFederationCommand extends $Command<
+  DisableFederationCommandInput,
+  DisableFederationCommandOutput,
   CloudTrailClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -147,7 +144,7 @@ export class DeleteEventDataStoreCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteEventDataStoreCommandInput) {
+  constructor(readonly input: DisableFederationCommandInput) {
     super();
   }
 
@@ -158,17 +155,17 @@ export class DeleteEventDataStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteEventDataStoreCommandInput, DeleteEventDataStoreCommandOutput> {
+  ): Handler<DisableFederationCommandInput, DisableFederationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteEventDataStoreCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DisableFederationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudTrailClient";
-    const commandName = "DeleteEventDataStoreCommand";
+    const commandName = "DisableFederationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,7 +174,7 @@ export class DeleteEventDataStoreCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CloudTrail_20131101",
-        operation: "DeleteEventDataStore",
+        operation: "DisableFederation",
       },
     };
     const { requestHandler } = configuration;
@@ -191,14 +188,14 @@ export class DeleteEventDataStoreCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteEventDataStoreCommand(input, context);
+  private serialize(input: DisableFederationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DisableFederationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventDataStoreCommandOutput> {
-    return de_DeleteEventDataStoreCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableFederationCommandOutput> {
+    return de_DisableFederationCommand(output, context);
   }
 }

@@ -74,6 +74,8 @@ import {
 } from "./commands/DeregisterOrganizationDelegatedAdminCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
+import { DisableFederationCommandInput, DisableFederationCommandOutput } from "./commands/DisableFederationCommand";
+import { EnableFederationCommandInput, EnableFederationCommandOutput } from "./commands/EnableFederationCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
@@ -159,6 +161,8 @@ export type ServiceInputTypes =
   | DeregisterOrganizationDelegatedAdminCommandInput
   | DescribeQueryCommandInput
   | DescribeTrailsCommandInput
+  | DisableFederationCommandInput
+  | EnableFederationCommandInput
   | GetChannelCommandInput
   | GetEventDataStoreCommandInput
   | GetEventSelectorsCommandInput
@@ -210,6 +214,8 @@ export type ServiceOutputTypes =
   | DeregisterOrganizationDelegatedAdminCommandOutput
   | DescribeQueryCommandOutput
   | DescribeTrailsCommandOutput
+  | DisableFederationCommandOutput
+  | EnableFederationCommandOutput
   | GetChannelCommandOutput
   | GetEventDataStoreCommandOutput
   | GetEventSelectorsCommandOutput
