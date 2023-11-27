@@ -51,6 +51,10 @@ import {
 } from "@smithy/types";
 
 import {
+  GetActionRecommendationsCommandInput,
+  GetActionRecommendationsCommandOutput,
+} from "./commands/GetActionRecommendationsCommand";
+import {
   GetPersonalizedRankingCommandInput,
   GetPersonalizedRankingCommandOutput,
 } from "./commands/GetPersonalizedRankingCommand";
@@ -69,12 +73,18 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetPersonalizedRankingCommandInput | GetRecommendationsCommandInput;
+export type ServiceInputTypes =
+  | GetActionRecommendationsCommandInput
+  | GetPersonalizedRankingCommandInput
+  | GetRecommendationsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetPersonalizedRankingCommandOutput | GetRecommendationsCommandOutput;
+export type ServiceOutputTypes =
+  | GetActionRecommendationsCommandOutput
+  | GetPersonalizedRankingCommandOutput
+  | GetRecommendationsCommandOutput;
 
 /**
  * @public

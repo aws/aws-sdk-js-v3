@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+GetActionRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-runtime/command/GetActionRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetActionRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetActionRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetPersonalizedRanking
 </summary>
 

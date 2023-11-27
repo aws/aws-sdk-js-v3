@@ -5,41 +5,51 @@ import { PersonalizeRuntimeServiceException as __BaseException } from "./Persona
 
 /**
  * @public
+ * <p>An object that identifies an action.</p>
+ *          <p>The  API returns a list of
+ *       <code>PredictedAction</code>s.</p>
  */
-export interface GetPersonalizedRankingRequest {
+export interface PredictedAction {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the campaign to use for generating the personalized
-   *       ranking.</p>
+   * <p>The ID of the recommended action.</p>
    */
-  campaignArn: string | undefined;
+  actionId?: string;
 
   /**
    * @public
-   * <p>A list of items (by <code>itemId</code>) to rank. If an item was not included in the training dataset,
-   *       the item is appended to the end of the reranked list. The maximum is 500.</p>
+   * <p>The score of the recommended action. For information about action scores, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/how-action-recommendation-scoring-works.html">How action recommendation scoring works</a>.</p>
    */
-  inputList: string[] | undefined;
+  score?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetActionRecommendationsRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the campaign to use for getting action recommendations. This campaign must deploy a solution version trained with a PERSONALIZED_ACTIONS recipe.</p>
+   */
+  campaignArn?: string;
 
   /**
    * @public
-   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
+   * <p>The user ID of the user to provide action recommendations for.</p>
    */
-  userId: string | undefined;
+  userId?: string;
 
   /**
    * @public
-   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
-   *       any interaction information that might be relevant when getting a user's recommendations, such
-   *       as the user's current location or device type.</p>
+   * <p>The number of results to return. The default is 5. The maximum is 100.</p>
    */
-  context?: Record<string, string>;
+  numResults?: number;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user.
-   *       For more information, see
+   * <p>The ARN of the filter to apply to the returned recommendations. For more information, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
+   *          <p>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</p>
    */
   filterArn?: string;
 
@@ -48,53 +58,28 @@ export interface GetPersonalizedRankingRequest {
    * <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case)
    *       as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma.
    *     </p>
-   *          <p>For filter expressions that use an <code>INCLUDE</code> element to include items,
-   *       you must provide values for all parameters that are defined in the expression. For
-   *       filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you
-   *       can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of
-   *       the expression to filter recommendations.</p>
+   *          <p>For filter expressions that use an <code>INCLUDE</code> element to include actions,
+   *     you must provide values for all parameters that are defined in the expression. For
+   *     filters with expressions that use an <code>EXCLUDE</code> element to exclude actions, you
+   *       can omit the <code>filter-values</code>. In this case, Amazon Personalize doesn't use that portion of
+   *     the expression to filter recommendations.</p>
    *          <p>For more information, see
-   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
    */
   filterValues?: Record<string, string>;
 }
 
 /**
  * @public
- * <p>An object that identifies an item.</p>
- *          <p>The  and  APIs return a list of
- *       <code>PredictedItem</code>s.</p>
  */
-export interface PredictedItem {
+export interface GetActionRecommendationsResponse {
   /**
    * @public
-   * <p>The recommended item ID.</p>
+   * <p>A list of action recommendations sorted in descending order by prediction score. There can be a maximum of 100 actions
+   *       in the list. For information about action scores, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/how-action-recommendation-scoring-works.html">How action recommendation scoring
+   *       works</a>.</p>
    */
-  itemId?: string;
-
-  /**
-   * @public
-   * <p>A numeric representation of the model's certainty that the item will be the next user
-   *       selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>
-   */
-  score?: number;
-
-  /**
-   * @public
-   * <p>The name of the promotion that included the predicted item.</p>
-   */
-  promotionName?: string;
-}
-
-/**
- * @public
- */
-export interface GetPersonalizedRankingResponse {
-  /**
-   * @public
-   * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
-   */
-  personalizedRanking?: PredictedItem[];
+  actionList?: PredictedAction[];
 
   /**
    * @public
@@ -141,6 +126,125 @@ export class ResourceNotFoundException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface GetPersonalizedRankingRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the campaign to use for generating the personalized
+   *       ranking.</p>
+   */
+  campaignArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of items (by <code>itemId</code>) to rank. If an item was not included in the training dataset,
+   *       the item is appended to the end of the reranked list. If you are including
+   *       metadata in recommendations, the maximum is 50. Otherwise, the maximum is 500.</p>
+   */
+  inputList: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * @public
+   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
+   *       any interaction information that might be relevant when getting a user's recommendations, such
+   *       as the user's current location or device type.</p>
+   */
+  context?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user.
+   *       For more information, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
+   */
+  filterArn?: string;
+
+  /**
+   * @public
+   * <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case)
+   *       as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma.
+   *     </p>
+   *          <p>For filter expressions that use an <code>INCLUDE</code> element to include items,
+   *       you must provide values for all parameters that are defined in the expression. For
+   *       filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you
+   *       can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of
+   *       the expression to filter recommendations.</p>
+   *          <p>For more information, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
+   */
+  filterValues?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>If you enabled metadata in recommendations when you created or updated the campaign, specify metadata columns from your Items dataset to include
+   *       in the personalized ranking.
+   *       The map key is <code>ITEMS</code> and the value is a list of column names from your Items dataset.
+   *       The maximum number of columns you can provide is 10.</p>
+   *          <p>
+   *       For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling metadata in recommendations for a campaign</a>.
+   *     </p>
+   */
+  metadataColumns?: Record<string, string[]>;
+}
+
+/**
+ * @public
+ * <p>An object that identifies an item.</p>
+ *          <p>The  and  APIs return a list of
+ *       <code>PredictedItem</code>s.</p>
+ */
+export interface PredictedItem {
+  /**
+   * @public
+   * <p>The recommended item ID.</p>
+   */
+  itemId?: string;
+
+  /**
+   * @public
+   * <p>A numeric representation of the model's certainty that the item will be the next user
+   *       selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>
+   */
+  score?: number;
+
+  /**
+   * @public
+   * <p>The name of the promotion that included the predicted item.</p>
+   */
+  promotionName?: string;
+
+  /**
+   * @public
+   * <p>Metadata about the item from your Items dataset.</p>
+   */
+  metadata?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetPersonalizedRankingResponse {
+  /**
+   * @public
+   * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
+   */
+  personalizedRanking?: PredictedItem[];
+
+  /**
+   * @public
+   * <p>The ID of the recommendation.</p>
+   */
+  recommendationId?: string;
 }
 
 /**
@@ -209,7 +313,8 @@ export interface GetRecommendationsRequest {
 
   /**
    * @public
-   * <p>The number of results to return. The default is 25. The maximum is 500.</p>
+   * <p>The number of results to return. The default is 25. If you are including
+   *       metadata in recommendations, the maximum is 50. Otherwise, the maximum is 500.</p>
    */
   numResults?: number;
 
@@ -257,6 +362,18 @@ export interface GetRecommendationsRequest {
    *       A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>
    */
   promotions?: Promotion[];
+
+  /**
+   * @public
+   * <p>If you enabled metadata in recommendations when you created or updated the campaign or recommender, specify the metadata columns from your Items dataset to include in item recommendations.
+   *       The map key is <code>ITEMS</code> and the value is a list of column names from your Items dataset.
+   *     The maximum number of columns you can provide is 10.</p>
+   *          <p>
+   *       For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling metadata in recommendations for a campaign</a>.
+   *       For information about enabling metadata for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-recommender-return-metadata.html">Enabling metadata in recommendations for a recommender</a>.
+   *     </p>
+   */
+  metadataColumns?: Record<string, string[]>;
 }
 
 /**
@@ -276,6 +393,14 @@ export interface GetRecommendationsResponse {
    */
   recommendationId?: string;
 }
+
+/**
+ * @internal
+ */
+export const GetActionRecommendationsRequestFilterSensitiveLog = (obj: GetActionRecommendationsRequest): any => ({
+  ...obj,
+  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

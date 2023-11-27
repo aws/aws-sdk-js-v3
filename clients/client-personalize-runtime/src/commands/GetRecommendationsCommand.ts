@@ -92,6 +92,11 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *       },
  *     },
  *   ],
+ *   metadataColumns: { // MetadataColumns
+ *     "<keys>": [ // ColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
@@ -101,6 +106,9 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //       itemId: "STRING_VALUE",
  * //       score: Number("double"),
  * //       promotionName: "STRING_VALUE",
+ * //       metadata: { // Metadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   recommendationId: "STRING_VALUE",

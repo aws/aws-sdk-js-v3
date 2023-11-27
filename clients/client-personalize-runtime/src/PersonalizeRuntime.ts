@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  GetActionRecommendationsCommand,
+  GetActionRecommendationsCommandInput,
+  GetActionRecommendationsCommandOutput,
+} from "./commands/GetActionRecommendationsCommand";
+import {
   GetPersonalizedRankingCommand,
   GetPersonalizedRankingCommandInput,
   GetPersonalizedRankingCommandOutput,
@@ -15,11 +20,29 @@ import {
 import { PersonalizeRuntimeClient, PersonalizeRuntimeClientConfig } from "./PersonalizeRuntimeClient";
 
 const commands = {
+  GetActionRecommendationsCommand,
   GetPersonalizedRankingCommand,
   GetRecommendationsCommand,
 };
 
 export interface PersonalizeRuntime {
+  /**
+   * @see {@link GetActionRecommendationsCommand}
+   */
+  getActionRecommendations(
+    args: GetActionRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetActionRecommendationsCommandOutput>;
+  getActionRecommendations(
+    args: GetActionRecommendationsCommandInput,
+    cb: (err: any, data?: GetActionRecommendationsCommandOutput) => void
+  ): void;
+  getActionRecommendations(
+    args: GetActionRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetActionRecommendationsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link GetPersonalizedRankingCommand}
    */

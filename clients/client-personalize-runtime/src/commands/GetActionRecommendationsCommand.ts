@@ -15,16 +15,16 @@ import {
 } from "@smithy/types";
 
 import {
-  GetPersonalizedRankingRequest,
-  GetPersonalizedRankingRequestFilterSensitiveLog,
-  GetPersonalizedRankingResponse,
+  GetActionRecommendationsRequest,
+  GetActionRecommendationsRequestFilterSensitiveLog,
+  GetActionRecommendationsResponse,
 } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import { de_GetPersonalizedRankingCommand, se_GetPersonalizedRankingCommand } from "../protocols/Aws_restJson1";
+import { de_GetActionRecommendationsCommand, se_GetActionRecommendationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -33,60 +33,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetPersonalizedRankingCommand}.
+ * The input for {@link GetActionRecommendationsCommand}.
  */
-export interface GetPersonalizedRankingCommandInput extends GetPersonalizedRankingRequest {}
+export interface GetActionRecommendationsCommandInput extends GetActionRecommendationsRequest {}
 /**
  * @public
  *
- * The output of {@link GetPersonalizedRankingCommand}.
+ * The output of {@link GetActionRecommendationsCommand}.
  */
-export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRankingResponse, __MetadataBearer {}
+export interface GetActionRecommendationsCommandOutput extends GetActionRecommendationsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
- *       deemed the most likely item to be of interest to the user.</p>
- *          <note>
- *             <p>The solution backing the campaign must have been created using a recipe of type
- *         PERSONALIZED_RANKING.</p>
- *          </note>
+ * <p>Returns a list of recommended actions in sorted in descending order by prediction score.
+ *       Use the <code>GetActionRecommendations</code> API if you have a custom
+ *        campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
+ *     </p>
+ *          <p>For more information about PERSONALIZED_ACTIONS recipes, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html">PERSONALIZED_ACTIONS recipes</a>.
+ *       For more information about getting action recommendations, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html">Getting action recommendations</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
- * // const { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
+ * import { PersonalizeRuntimeClient, GetActionRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
+ * // const { PersonalizeRuntimeClient, GetActionRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
- * const input = { // GetPersonalizedRankingRequest
- *   campaignArn: "STRING_VALUE", // required
- *   inputList: [ // InputList // required
- *     "STRING_VALUE",
- *   ],
- *   userId: "STRING_VALUE", // required
- *   context: { // Context
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // GetActionRecommendationsRequest
+ *   campaignArn: "STRING_VALUE",
+ *   userId: "STRING_VALUE",
+ *   numResults: Number("int"),
  *   filterArn: "STRING_VALUE",
  *   filterValues: { // FilterValues
  *     "<keys>": "STRING_VALUE",
  *   },
- *   metadataColumns: { // MetadataColumns
- *     "<keys>": [ // ColumnNamesList
- *       "STRING_VALUE",
- *     ],
- *   },
  * };
- * const command = new GetPersonalizedRankingCommand(input);
+ * const command = new GetActionRecommendationsCommand(input);
  * const response = await client.send(command);
- * // { // GetPersonalizedRankingResponse
- * //   personalizedRanking: [ // ItemList
- * //     { // PredictedItem
- * //       itemId: "STRING_VALUE",
+ * // { // GetActionRecommendationsResponse
+ * //   actionList: [ // ActionList
+ * //     { // PredictedAction
+ * //       actionId: "STRING_VALUE",
  * //       score: Number("double"),
- * //       promotionName: "STRING_VALUE",
- * //       metadata: { // Metadata
- * //         "<keys>": "STRING_VALUE",
- * //       },
  * //     },
  * //   ],
  * //   recommendationId: "STRING_VALUE",
@@ -94,10 +80,10 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  *
  * ```
  *
- * @param GetPersonalizedRankingCommandInput - {@link GetPersonalizedRankingCommandInput}
- * @returns {@link GetPersonalizedRankingCommandOutput}
- * @see {@link GetPersonalizedRankingCommandInput} for command's `input` shape.
- * @see {@link GetPersonalizedRankingCommandOutput} for command's `response` shape.
+ * @param GetActionRecommendationsCommandInput - {@link GetActionRecommendationsCommandInput}
+ * @returns {@link GetActionRecommendationsCommandOutput}
+ * @see {@link GetActionRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link GetActionRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
@@ -110,9 +96,9 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
  */
-export class GetPersonalizedRankingCommand extends $Command<
-  GetPersonalizedRankingCommandInput,
-  GetPersonalizedRankingCommandOutput,
+export class GetActionRecommendationsCommand extends $Command<
+  GetActionRecommendationsCommandInput,
+  GetActionRecommendationsCommandOutput,
   PersonalizeRuntimeClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -127,7 +113,7 @@ export class GetPersonalizedRankingCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetPersonalizedRankingCommandInput) {
+  constructor(readonly input: GetActionRecommendationsCommandInput) {
     super();
   }
 
@@ -138,26 +124,26 @@ export class GetPersonalizedRankingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetPersonalizedRankingCommandInput, GetPersonalizedRankingCommandOutput> {
+  ): Handler<GetActionRecommendationsCommandInput, GetActionRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetPersonalizedRankingCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetActionRecommendationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "PersonalizeRuntimeClient";
-    const commandName = "GetPersonalizedRankingCommand";
+    const commandName = "GetActionRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPersonalizedRankingRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: GetActionRecommendationsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonPersonalizeRuntime",
-        operation: "GetPersonalizedRanking",
+        operation: "GetActionRecommendations",
       },
     };
     const { requestHandler } = configuration;
@@ -171,14 +157,14 @@ export class GetPersonalizedRankingCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetPersonalizedRankingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetPersonalizedRankingCommand(input, context);
+  private serialize(input: GetActionRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetActionRecommendationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPersonalizedRankingCommandOutput> {
-    return de_GetPersonalizedRankingCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActionRecommendationsCommandOutput> {
+    return de_GetActionRecommendationsCommand(output, context);
   }
 }

@@ -19,12 +19,56 @@ import {
 } from "@smithy/types";
 
 import {
+  GetActionRecommendationsCommandInput,
+  GetActionRecommendationsCommandOutput,
+} from "../commands/GetActionRecommendationsCommand";
+import {
   GetPersonalizedRankingCommandInput,
   GetPersonalizedRankingCommandOutput,
 } from "../commands/GetPersonalizedRankingCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
-import { InvalidInputException, PredictedItem, Promotion, ResourceNotFoundException } from "../models/models_0";
+import {
+  InvalidInputException,
+  PredictedAction,
+  PredictedItem,
+  Promotion,
+  ResourceNotFoundException,
+} from "../models/models_0";
 import { PersonalizeRuntimeServiceException as __BaseException } from "../models/PersonalizeRuntimeServiceException";
+
+/**
+ * serializeAws_restJson1GetActionRecommendationsCommand
+ */
+export const se_GetActionRecommendationsCommand = async (
+  input: GetActionRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/action-recommendations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      campaignArn: [],
+      filterArn: [],
+      filterValues: (_) => _json(_),
+      numResults: [],
+      userId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1GetPersonalizedRankingCommand
@@ -46,6 +90,7 @@ export const se_GetPersonalizedRankingCommand = async (
       filterArn: [],
       filterValues: (_) => _json(_),
       inputList: (_) => _json(_),
+      metadataColumns: (_) => _json(_),
       userId: [],
     })
   );
@@ -80,6 +125,7 @@ export const se_GetRecommendationsCommand = async (
       filterArn: [],
       filterValues: (_) => _json(_),
       itemId: [],
+      metadataColumns: (_) => _json(_),
       numResults: [],
       promotions: (_) => _json(_),
       recommenderArn: [],
@@ -95,6 +141,57 @@ export const se_GetRecommendationsCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+/**
+ * deserializeAws_restJson1GetActionRecommendationsCommand
+ */
+export const de_GetActionRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetActionRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetActionRecommendationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionList: (_) => de_ActionList(_, context),
+    recommendationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetActionRecommendationsCommandError
+ */
+const de_GetActionRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetActionRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalizeruntime#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalizeruntime#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -240,15 +337,31 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_ColumnNamesList omitted.
+
 // se_Context omitted.
 
 // se_FilterValues omitted.
 
 // se_InputList omitted.
 
+// se_MetadataColumns omitted.
+
 // se_Promotion omitted.
 
 // se_PromotionList omitted.
+
+/**
+ * deserializeAws_restJson1ActionList
+ */
+const de_ActionList = (output: any, context: __SerdeContext): PredictedAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PredictedAction(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1ItemList
@@ -262,12 +375,25 @@ const de_ItemList = (output: any, context: __SerdeContext): PredictedItem[] => {
   return retVal;
 };
 
+// de_Metadata omitted.
+
+/**
+ * deserializeAws_restJson1PredictedAction
+ */
+const de_PredictedAction = (output: any, context: __SerdeContext): PredictedAction => {
+  return take(output, {
+    actionId: __expectString,
+    score: __limitedParseDouble,
+  }) as any;
+};
+
 /**
  * deserializeAws_restJson1PredictedItem
  */
 const de_PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return take(output, {
     itemId: __expectString,
+    metadata: _json,
     promotionName: __expectString,
     score: __limitedParseDouble,
   }) as any;
