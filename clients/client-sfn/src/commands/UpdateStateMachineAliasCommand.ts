@@ -121,6 +121,9 @@ export interface UpdateStateMachineAliasCommandOutput extends UpdateStateMachine
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Could not find the referenced resource.</p>
  *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *

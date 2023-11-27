@@ -1237,7 +1237,7 @@ export interface DescribeExecutionOutput {
 
   /**
    * @public
-   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is only updated if you successfully redrive an execution.</p>
    */
   redriveCount?: number;
 
@@ -1397,7 +1397,7 @@ export interface MapRunExecutionCounts {
 
   /**
    * @public
-   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> child workflow executions that cannot be redriven because their execution status is terminal. For example, if your execution event history contains 25,000 entries, or the <code>toleratedFailureCount</code> or <code>toleratedFailurePercentage</code> for the Distributed Map has exceeded.</p>
+   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> child workflow executions that cannot be redriven because their execution status is terminal. For example, child workflows with an execution status of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> and a <code>redriveStatus</code> of <code>NOT_REDRIVABLE</code>.</p>
    */
   failuresNotRedrivable?: number;
 
@@ -1463,7 +1463,7 @@ export interface MapRunItemCounts {
 
   /**
    * @public
-   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> items in child workflow executions that cannot be redriven because the execution status of those child workflows is terminal. For example, if your execution event history contains 25,000 entries, or the <code>toleratedFailureCount</code> or <code>toleratedFailurePercentage</code> for the Distributed Map has exceeded.</p>
+   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> items in child workflow executions that cannot be redriven because the execution status of those child workflows is terminal. For example, child workflows with an execution status of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> and a <code>redriveStatus</code> of <code>NOT_REDRIVABLE</code>.</p>
    */
   failuresNotRedrivable?: number;
 
@@ -1556,7 +1556,7 @@ export interface DescribeMapRunOutput {
 
   /**
    * @public
-   * <p>The number of times you've redriven a Map Run. If you have not yet redriven a Map Run, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   * <p>The number of times you've redriven a Map Run. If you have not yet redriven a Map Run, the <code>redriveCount</code> is 0. This count is only updated if you successfully redrive a Map Run.</p>
    */
   redriveCount?: number;
 
@@ -3141,7 +3141,7 @@ export interface ExecutionListItem {
 
   /**
    * @public
-   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is only updated when you successfully redrive an execution.</p>
    */
   redriveCount?: number;
 
@@ -3584,7 +3584,7 @@ export interface RedriveExecutionInput {
 
   /**
    * @public
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don’t specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The API uses one of the last 10 client tokens provided.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don’t specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The API will return idempotent responses for the last 10 client tokens used to successfully redrive the execution. These client tokens are valid for up to 15 minutes after they are first used.</p>
    */
   clientToken?: string;
 }
@@ -4110,6 +4110,256 @@ export interface TagResourceInput {
  * @public
  */
 export interface TagResourceOutput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const InspectionLevel = {
+  DEBUG: "DEBUG",
+  INFO: "INFO",
+  TRACE: "TRACE",
+} as const;
+
+/**
+ * @public
+ */
+export type InspectionLevel = (typeof InspectionLevel)[keyof typeof InspectionLevel];
+
+/**
+ * @public
+ */
+export interface TestStateInput {
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL) definition of the state.</p>
+   */
+  definition: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the execution role with the required IAM permissions for the state.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A string that contains the JSON input data for the state.</p>
+   */
+  input?: string;
+
+  /**
+   * @public
+   * <p>Determines the values to return when a state is tested. You can specify one of the following types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFO</code>: Shows the final state output. By default, Step Functions sets <code>inspectionLevel</code> to <code>INFO</code> if you don't specify a level.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEBUG</code>: Shows the final state output along with the input and output data processing result.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRACE</code>: Shows the HTTP request and response for an HTTP Task. This level also shows the final state output along with the input and output data processing result.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Each of these levels also provide information about the status of the state execution and the next state to transition to.</p>
+   */
+  inspectionLevel?: InspectionLevel;
+
+  /**
+   * @public
+   * <p>Specifies whether or not to include secret information in the test result. For HTTP Tasks, a secret includes the data that an EventBridge connection adds to modify the HTTP request headers, query parameters, and body. Step Functions doesn't omit any information included in the state definition or the HTTP response.</p>
+   *          <p>If you set <code>revealSecrets</code> to <code>true</code>, you must make sure that the IAM user that calls the <code>TestState</code> API has permission for the <code>states:RevealSecrets</code> action. For an example of IAM policy that sets the <code>states:RevealSecrets</code> permission, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions">IAM permissions to test a state</a>. Without this permission, Step Functions throws an access denied error.</p>
+   *          <p>By default, <code>revealSecrets</code> is set to <code>false</code>.</p>
+   */
+  revealSecrets?: boolean;
+}
+
+/**
+ * @public
+ * <p>Contains additional details about the state's execution, including its input and output data processing flow, and HTTP request information.</p>
+ */
+export interface InspectionDataRequest {
+  /**
+   * @public
+   * <p>The protocol used to make the HTTP request.</p>
+   */
+  protocol?: string;
+
+  /**
+   * @public
+   * <p>The HTTP method used for the HTTP request.</p>
+   */
+  method?: string;
+
+  /**
+   * @public
+   * <p>The API endpoint used for the HTTP request.</p>
+   */
+  url?: string;
+
+  /**
+   * @public
+   * <p>The request headers associated with the HTTP request.</p>
+   */
+  headers?: string;
+
+  /**
+   * @public
+   * <p>The request body for the HTTP request.</p>
+   */
+  body?: string;
+}
+
+/**
+ * @public
+ * <p>Contains additional details about the state's execution, including its input and output data processing flow, and HTTP response information. The <code>inspectionLevel</code> request parameter specifies which details are returned.</p>
+ */
+export interface InspectionDataResponse {
+  /**
+   * @public
+   * <p>The protocol used to return the HTTP response.</p>
+   */
+  protocol?: string;
+
+  /**
+   * @public
+   * <p>The HTTP response status code for the HTTP response.</p>
+   */
+  statusCode?: string;
+
+  /**
+   * @public
+   * <p>The message associated with the HTTP status code.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * @public
+   * <p>The response headers associated with the HTTP response.</p>
+   */
+  headers?: string;
+
+  /**
+   * @public
+   * <p>The HTTP response returned.</p>
+   */
+  body?: string;
+}
+
+/**
+ * @public
+ * <p>Contains additional details about the state's execution, including its input and output data processing flow, and HTTP request and response information.</p>
+ */
+export interface InspectionData {
+  /**
+   * @public
+   * <p>The raw state input.</p>
+   */
+  input?: string;
+
+  /**
+   * @public
+   * <p>The input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">InputPath</a> filter.</p>
+   */
+  afterInputPath?: string;
+
+  /**
+   * @public
+   * <p>The effective input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">Parameters</a> filter.</p>
+   */
+  afterParameters?: string;
+
+  /**
+   * @public
+   * <p>The state's raw result.</p>
+   */
+  result?: string;
+
+  /**
+   * @public
+   * <p>The effective result after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">ResultSelector</a> filter.</p>
+   */
+  afterResultSelector?: string;
+
+  /**
+   * @public
+   * <p>The effective result combined with the raw state input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">ResultPath</a> filter.</p>
+   */
+  afterResultPath?: string;
+
+  /**
+   * @public
+   * <p>The raw HTTP request that is sent when you test an HTTP Task.</p>
+   */
+  request?: InspectionDataRequest;
+
+  /**
+   * @public
+   * <p>The raw HTTP response that is returned when you test an HTTP Task.</p>
+   */
+  response?: InspectionDataResponse;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestExecutionStatus = {
+  CAUGHT_ERROR: "CAUGHT_ERROR",
+  FAILED: "FAILED",
+  RETRIABLE: "RETRIABLE",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type TestExecutionStatus = (typeof TestExecutionStatus)[keyof typeof TestExecutionStatus];
+
+/**
+ * @public
+ */
+export interface TestStateOutput {
+  /**
+   * @public
+   * <p>The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+   */
+  output?: string;
+
+  /**
+   * @public
+   * <p>The error returned when the execution of a state fails.</p>
+   */
+  error?: string;
+
+  /**
+   * @public
+   * <p>A detailed explanation of the cause for the error when the execution of a state fails.</p>
+   */
+  cause?: string;
+
+  /**
+   * @public
+   * <p>Returns additional details about the state's execution, including its input and output data processing flow, and HTTP request and response information. The <code>inspectionLevel</code> request parameter specifies which details are returned.</p>
+   */
+  inspectionData?: InspectionData;
+
+  /**
+   * @public
+   * <p>The name of the next state to transition to. If you haven't defined a next state in your definition or if the execution of the state fails, this ﬁeld doesn't contain a value.</p>
+   */
+  nextState?: string;
+
+  /**
+   * @public
+   * <p>The execution status of the state.</p>
+   */
+  status?: TestExecutionStatus;
+}
 
 /**
  * @public
@@ -4761,6 +5011,39 @@ export const StopExecutionInputFilterSensitiveLog = (obj: StopExecutionInput): a
   ...obj,
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TestStateInputFilterSensitiveLog = (obj: TestStateInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.input && { input: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InspectionDataFilterSensitiveLog = (obj: InspectionData): any => ({
+  ...obj,
+  ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.afterInputPath && { afterInputPath: SENSITIVE_STRING }),
+  ...(obj.afterParameters && { afterParameters: SENSITIVE_STRING }),
+  ...(obj.result && { result: SENSITIVE_STRING }),
+  ...(obj.afterResultSelector && { afterResultSelector: SENSITIVE_STRING }),
+  ...(obj.afterResultPath && { afterResultPath: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TestStateOutputFilterSensitiveLog = (obj: TestStateOutput): any => ({
+  ...obj,
+  ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+  ...(obj.inspectionData && { inspectionData: SENSITIVE_STRING }),
 });
 
 /**

@@ -472,6 +472,14 @@ TagResource
 </details>
 <details>
 <summary>
+TestState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sfn/command/TestStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sfn/Interface/TestStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sfn/Interface/TestStateCommandOutput/)
+
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 

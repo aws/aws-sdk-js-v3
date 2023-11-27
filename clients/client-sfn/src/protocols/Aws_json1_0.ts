@@ -91,6 +91,7 @@ import { StartExecutionCommandInput, StartExecutionCommandOutput } from "../comm
 import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from "../commands/StartSyncExecutionCommand";
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "../commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestStateCommandInput, TestStateCommandOutput } from "../commands/TestStateCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "../commands/UpdateMapRunCommand";
 import {
@@ -189,6 +190,7 @@ import {
   TagResourceInput,
   TaskDoesNotExist,
   TaskTimedOut,
+  TestStateInput,
   TooManyTags,
   TracingConfiguration,
   UntagResourceInput,
@@ -609,6 +611,26 @@ export const se_TagResourceCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0TestStateCommand
+ */
+export const se_TestStateCommand = async (
+  input: TestStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TestState");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "sync-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 /**
@@ -2333,6 +2355,61 @@ const de_TagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0TestStateCommand
+ */
+export const de_TestStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TestStateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TestStateCommandError
+ */
+const de_TestStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestStateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "InvalidDefinition":
+    case "com.amazonaws.sfn#InvalidDefinition":
+      throw await de_InvalidDefinitionRes(parsedOutput, context);
+    case "InvalidExecutionInput":
+    case "com.amazonaws.sfn#InvalidExecutionInput":
+      throw await de_InvalidExecutionInputRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2548,6 +2625,9 @@ const de_UpdateStateMachineAliasCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
+    case "StateMachineDeleting":
+    case "com.amazonaws.sfn#StateMachineDeleting":
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -3064,6 +3144,8 @@ const se_RedriveExecutionInput = (input: RedriveExecutionInput, context: __Serde
 
 // se_TagResourceInput omitted.
 
+// se_TestStateInput omitted.
+
 // se_TracingConfiguration omitted.
 
 // se_UntagResourceInput omitted.
@@ -3412,6 +3494,12 @@ const de_HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent
   return retVal;
 };
 
+// de_InspectionData omitted.
+
+// de_InspectionDataRequest omitted.
+
+// de_InspectionDataResponse omitted.
+
 // de_InvalidArn omitted.
 
 // de_InvalidDefinition omitted.
@@ -3735,6 +3823,8 @@ const de_StopExecutionOutput = (output: any, context: __SerdeContext): StopExecu
 // de_TaskTimedOut omitted.
 
 // de_TaskTimedOutEventDetails omitted.
+
+// de_TestStateOutput omitted.
 
 // de_TooManyTags omitted.
 

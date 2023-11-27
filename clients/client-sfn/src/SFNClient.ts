@@ -114,6 +114,7 @@ import { StartExecutionCommandInput, StartExecutionCommandOutput } from "./comma
 import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from "./commands/StartSyncExecutionCommand";
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "./commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestStateCommandInput, TestStateCommandOutput } from "./commands/TestStateCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "./commands/UpdateMapRunCommand";
 import {
@@ -167,6 +168,7 @@ export type ServiceInputTypes =
   | StartSyncExecutionCommandInput
   | StopExecutionCommandInput
   | TagResourceCommandInput
+  | TestStateCommandInput
   | UntagResourceCommandInput
   | UpdateMapRunCommandInput
   | UpdateStateMachineAliasCommandInput
@@ -207,6 +209,7 @@ export type ServiceOutputTypes =
   | StartSyncExecutionCommandOutput
   | StopExecutionCommandOutput
   | TagResourceCommandOutput
+  | TestStateCommandOutput
   | UntagResourceCommandOutput
   | UpdateMapRunCommandOutput
   | UpdateStateMachineAliasCommandOutput

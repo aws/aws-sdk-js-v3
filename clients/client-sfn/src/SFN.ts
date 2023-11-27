@@ -149,6 +149,7 @@ import {
   StopExecutionCommandOutput,
 } from "./commands/StopExecutionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestStateCommand, TestStateCommandInput, TestStateCommandOutput } from "./commands/TestStateCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -203,6 +204,7 @@ const commands = {
   StartSyncExecutionCommand,
   StopExecutionCommand,
   TagResourceCommand,
+  TestStateCommand,
   UntagResourceCommand,
   UpdateMapRunCommand,
   UpdateStateMachineCommand,
@@ -690,6 +692,17 @@ export interface SFN {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestStateCommand}
+   */
+  testState(args: TestStateCommandInput, options?: __HttpHandlerOptions): Promise<TestStateCommandOutput>;
+  testState(args: TestStateCommandInput, cb: (err: any, data?: TestStateCommandOutput) => void): void;
+  testState(
+    args: TestStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestStateCommandOutput) => void
   ): void;
 
   /**

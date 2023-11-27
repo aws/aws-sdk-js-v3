@@ -30,6 +30,7 @@ export * from "./StartExecutionCommand";
 export * from "./StartSyncExecutionCommand";
 export * from "./StopExecutionCommand";
 export * from "./TagResourceCommand";
+export * from "./TestStateCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateMapRunCommand";
 export * from "./UpdateStateMachineAliasCommand";
