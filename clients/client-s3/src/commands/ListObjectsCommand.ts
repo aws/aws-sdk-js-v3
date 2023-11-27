@@ -195,6 +195,7 @@ export class ListObjectsCommand extends $Command<
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
       Bucket: { type: "contextParams", name: "Bucket" },
+      Prefix: { type: "contextParams", name: "Prefix" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },

@@ -53,8 +53,9 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  *                      <code>Days</code> and <code>Years</code> at the same time.</p>
  *                </li>
  *                <li>
- *                   <p>You can only enable Object Lock for new buckets. If you want to turn on Object
- *                   Lock for an existing bucket, contact Amazon Web Services Support.</p>
+ *                   <p>You can enable Object Lock for new or existing buckets. For more
+ *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html">Configuring Object
+ *                      Lock</a>.</p>
  *                </li>
  *             </ul>
  *          </note>

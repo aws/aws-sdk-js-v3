@@ -45,6 +45,8 @@ export interface EndpointParameters extends __EndpointParameters {
   Accelerate?: boolean;
   UseGlobalEndpoint?: boolean;
   UseObjectLambdaEndpoint?: boolean;
+  Key?: string;
+  Prefix?: string;
   DisableAccessPoints?: boolean;
   DisableMultiRegionAccessPoints?: boolean;
   UseArnRegion?: boolean;
