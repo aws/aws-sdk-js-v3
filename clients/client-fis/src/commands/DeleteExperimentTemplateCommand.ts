@@ -113,6 +113,11 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  * //       },
  * //       logSchemaVersion: Number("int"),
  * //     },
+ * //     experimentOptions: { // ExperimentTemplateExperimentOptions
+ * //       accountTargeting: "single-account" || "multi-account",
+ * //       emptyTargetResolutionMode: "fail" || "skip",
+ * //     },
+ * //     targetAccountConfigurationsCount: Number("long"),
  * //   },
  * // };
  *

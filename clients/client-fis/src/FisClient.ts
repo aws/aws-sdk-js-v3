@@ -55,21 +55,45 @@ import {
   CreateExperimentTemplateCommandOutput,
 } from "./commands/CreateExperimentTemplateCommand";
 import {
+  CreateTargetAccountConfigurationCommandInput,
+  CreateTargetAccountConfigurationCommandOutput,
+} from "./commands/CreateTargetAccountConfigurationCommand";
+import {
   DeleteExperimentTemplateCommandInput,
   DeleteExperimentTemplateCommandOutput,
 } from "./commands/DeleteExperimentTemplateCommand";
+import {
+  DeleteTargetAccountConfigurationCommandInput,
+  DeleteTargetAccountConfigurationCommandOutput,
+} from "./commands/DeleteTargetAccountConfigurationCommand";
 import { GetActionCommandInput, GetActionCommandOutput } from "./commands/GetActionCommand";
 import { GetExperimentCommandInput, GetExperimentCommandOutput } from "./commands/GetExperimentCommand";
+import {
+  GetExperimentTargetAccountConfigurationCommandInput,
+  GetExperimentTargetAccountConfigurationCommandOutput,
+} from "./commands/GetExperimentTargetAccountConfigurationCommand";
 import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
 import {
+  GetTargetAccountConfigurationCommandInput,
+  GetTargetAccountConfigurationCommandOutput,
+} from "./commands/GetTargetAccountConfigurationCommand";
+import {
   GetTargetResourceTypeCommandInput,
   GetTargetResourceTypeCommandOutput,
 } from "./commands/GetTargetResourceTypeCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
+import {
+  ListExperimentResolvedTargetsCommandInput,
+  ListExperimentResolvedTargetsCommandOutput,
+} from "./commands/ListExperimentResolvedTargetsCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
+import {
+  ListExperimentTargetAccountConfigurationsCommandInput,
+  ListExperimentTargetAccountConfigurationsCommandOutput,
+} from "./commands/ListExperimentTargetAccountConfigurationsCommand";
 import {
   ListExperimentTemplatesCommandInput,
   ListExperimentTemplatesCommandOutput,
@@ -78,6 +102,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetAccountConfigurationsCommandInput,
+  ListTargetAccountConfigurationsCommandOutput,
+} from "./commands/ListTargetAccountConfigurationsCommand";
 import {
   ListTargetResourceTypesCommandInput,
   ListTargetResourceTypesCommandOutput,
@@ -90,6 +118,10 @@ import {
   UpdateExperimentTemplateCommandInput,
   UpdateExperimentTemplateCommandOutput,
 } from "./commands/UpdateExperimentTemplateCommand";
+import {
+  UpdateTargetAccountConfigurationCommandInput,
+  UpdateTargetAccountConfigurationCommandOutput,
+} from "./commands/UpdateTargetAccountConfigurationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -106,42 +138,58 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateExperimentTemplateCommandInput
+  | CreateTargetAccountConfigurationCommandInput
   | DeleteExperimentTemplateCommandInput
+  | DeleteTargetAccountConfigurationCommandInput
   | GetActionCommandInput
   | GetExperimentCommandInput
+  | GetExperimentTargetAccountConfigurationCommandInput
   | GetExperimentTemplateCommandInput
+  | GetTargetAccountConfigurationCommandInput
   | GetTargetResourceTypeCommandInput
   | ListActionsCommandInput
+  | ListExperimentResolvedTargetsCommandInput
+  | ListExperimentTargetAccountConfigurationsCommandInput
   | ListExperimentTemplatesCommandInput
   | ListExperimentsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTargetAccountConfigurationsCommandInput
   | ListTargetResourceTypesCommandInput
   | StartExperimentCommandInput
   | StopExperimentCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateExperimentTemplateCommandInput;
+  | UpdateExperimentTemplateCommandInput
+  | UpdateTargetAccountConfigurationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateExperimentTemplateCommandOutput
+  | CreateTargetAccountConfigurationCommandOutput
   | DeleteExperimentTemplateCommandOutput
+  | DeleteTargetAccountConfigurationCommandOutput
   | GetActionCommandOutput
   | GetExperimentCommandOutput
+  | GetExperimentTargetAccountConfigurationCommandOutput
   | GetExperimentTemplateCommandOutput
+  | GetTargetAccountConfigurationCommandOutput
   | GetTargetResourceTypeCommandOutput
   | ListActionsCommandOutput
+  | ListExperimentResolvedTargetsCommandOutput
+  | ListExperimentTargetAccountConfigurationsCommandOutput
   | ListExperimentTemplatesCommandOutput
   | ListExperimentsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTargetAccountConfigurationsCommandOutput
   | ListTargetResourceTypesCommandOutput
   | StartExperimentCommandOutput
   | StopExperimentCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateExperimentTemplateCommandOutput;
+  | UpdateExperimentTemplateCommandOutput
+  | UpdateTargetAccountConfigurationCommandOutput;
 
 /**
  * @public

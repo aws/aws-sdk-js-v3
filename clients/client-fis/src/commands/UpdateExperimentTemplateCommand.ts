@@ -102,6 +102,9 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  *     },
  *     logSchemaVersion: Number("int"),
  *   },
+ *   experimentOptions: { // UpdateExperimentTemplateExperimentOptionsInput
+ *     emptyTargetResolutionMode: "fail" || "skip",
+ *   },
  * };
  * const command = new UpdateExperimentTemplateCommand(input);
  * const response = await client.send(command);
@@ -169,6 +172,11 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * //       },
  * //       logSchemaVersion: Number("int"),
  * //     },
+ * //     experimentOptions: { // ExperimentTemplateExperimentOptions
+ * //       accountTargeting: "single-account" || "multi-account",
+ * //       emptyTargetResolutionMode: "fail" || "skip",
+ * //     },
+ * //     targetAccountConfigurationsCount: Number("long"),
  * //   },
  * // };
  *

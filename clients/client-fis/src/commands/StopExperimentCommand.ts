@@ -95,7 +95,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * //           "STRING_VALUE",
  * //         ],
  * //         state: { // ExperimentActionState
- * //           status: "pending" || "initiating" || "running" || "completed" || "cancelled" || "stopping" || "stopped" || "failed",
+ * //           status: "pending" || "initiating" || "running" || "completed" || "cancelled" || "stopping" || "stopped" || "failed" || "skipped",
  * //           reason: "STRING_VALUE",
  * //         },
  * //         startTime: new Date("TIMESTAMP"),
@@ -124,6 +124,11 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * //       },
  * //       logSchemaVersion: Number("int"),
  * //     },
+ * //     experimentOptions: { // ExperimentOptions
+ * //       accountTargeting: "single-account" || "multi-account",
+ * //       emptyTargetResolutionMode: "fail" || "skip",
+ * //     },
+ * //     targetAccountConfigurationsCount: Number("long"),
  * //   },
  * // };
  *

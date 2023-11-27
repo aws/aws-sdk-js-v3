@@ -58,7 +58,7 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *                stopped. You can define a stop condition as a CloudWatch alarm.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">Experiment templates</a>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">experiment templates</a>
  *          in the <i>Fault Injection Simulator User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +127,10 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *     },
  *     logSchemaVersion: Number("int"), // required
  *   },
+ *   experimentOptions: { // CreateExperimentTemplateExperimentOptionsInput
+ *     accountTargeting: "single-account" || "multi-account",
+ *     emptyTargetResolutionMode: "fail" || "skip",
+ *   },
  * };
  * const command = new CreateExperimentTemplateCommand(input);
  * const response = await client.send(command);
@@ -194,6 +198,11 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * //       },
  * //       logSchemaVersion: Number("int"),
  * //     },
+ * //     experimentOptions: { // ExperimentTemplateExperimentOptions
+ * //       accountTargeting: "single-account" || "multi-account",
+ * //       emptyTargetResolutionMode: "fail" || "skip",
+ * //     },
+ * //     targetAccountConfigurationsCount: Number("long"),
  * //   },
  * // };
  *

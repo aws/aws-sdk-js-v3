@@ -5,6 +5,20 @@ import { FisServiceException as __BaseException } from "./FisServiceException";
 
 /**
  * @public
+ * @enum
+ */
+export const AccountTargeting = {
+  MULTI_ACCOUNT: "multi-account",
+  SINGLE_ACCOUNT: "single-account",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountTargeting = (typeof AccountTargeting)[keyof typeof AccountTargeting];
+
+/**
+ * @public
  * <p>Describes a parameter for an action.</p>
  */
 export interface ActionParameter {
@@ -156,6 +170,38 @@ export interface CreateExperimentTemplateActionInput {
    * <p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>
    */
   startAfter?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EmptyTargetResolutionMode = {
+  FAIL: "fail",
+  SKIP: "skip",
+} as const;
+
+/**
+ * @public
+ */
+export type EmptyTargetResolutionMode = (typeof EmptyTargetResolutionMode)[keyof typeof EmptyTargetResolutionMode];
+
+/**
+ * @public
+ * <p>Specifies experiment options for an experiment template.</p>
+ */
+export interface CreateExperimentTemplateExperimentOptionsInput {
+  /**
+   * @public
+   * <p>Specifies the account targeting setting for experiment options.</p>
+   */
+  accountTargeting?: AccountTargeting;
+
+  /**
+   * @public
+   * <p>Specifies the empty target resolution mode for experiment options.</p>
+   */
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 }
 
 /**
@@ -362,6 +408,12 @@ export interface CreateExperimentTemplateRequest {
    * <p>The configuration for experiment logging.</p>
    */
   logConfiguration?: CreateExperimentTemplateLogConfigurationInput;
+
+  /**
+   * @public
+   * <p>The experiment options for the experiment template.</p>
+   */
+  experimentOptions?: CreateExperimentTemplateExperimentOptionsInput;
 }
 
 /**
@@ -398,6 +450,24 @@ export interface ExperimentTemplateAction {
    * <p>The name of the action that must be completed before the current action starts.</p>
    */
   startAfter?: string[];
+}
+
+/**
+ * @public
+ * <p>Describes the experiment options for an experiment template.</p>
+ */
+export interface ExperimentTemplateExperimentOptions {
+  /**
+   * @public
+   * <p>The account targeting setting for an experiment template. </p>
+   */
+  accountTargeting?: AccountTargeting;
+
+  /**
+   * @public
+   * <p>The empty target resolution mode for an experiment template.</p>
+   */
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 }
 
 /**
@@ -596,6 +666,18 @@ export interface ExperimentTemplate {
    * <p>The configuration for experiment logging.</p>
    */
   logConfiguration?: ExperimentTemplateLogConfiguration;
+
+  /**
+   * @public
+   * <p>The experiment options for an experiment template.</p>
+   */
+  experimentOptions?: ExperimentTemplateExperimentOptions;
+
+  /**
+   * @public
+   * <p>The count of target account configurations for the experiment template.</p>
+   */
+  targetAccountConfigurationsCount?: number;
 }
 
 /**
@@ -672,6 +754,76 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
+export interface CreateTargetAccountConfigurationRequest {
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The experiment template ID.</p>
+   */
+  experimentTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the target account.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a target account configuration.</p>
+ */
+export interface TargetAccountConfiguration {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The description of the target account.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateTargetAccountConfigurationResponse {
+  /**
+   * @public
+   * <p>Information about the target account configuration.</p>
+   */
+  targetAccountConfiguration?: TargetAccountConfiguration;
+}
+
+/**
+ * @public
+ */
 export interface DeleteExperimentTemplateRequest {
   /**
    * @public
@@ -693,6 +845,34 @@ export interface DeleteExperimentTemplateResponse {
 
 /**
  * @public
+ */
+export interface DeleteTargetAccountConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the experiment template.</p>
+   */
+  experimentTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTargetAccountConfigurationResponse {
+  /**
+   * @public
+   * <p>Information about the target account configuration.</p>
+   */
+  targetAccountConfiguration?: TargetAccountConfiguration;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ExperimentActionStatus = {
@@ -702,6 +882,7 @@ export const ExperimentActionStatus = {
   initiating: "initiating",
   pending: "pending",
   running: "running",
+  skipped: "skipped",
   stopped: "stopped",
   stopping: "stopping",
 } as const;
@@ -781,6 +962,24 @@ export interface ExperimentAction {
    * <p>The time that the action ended.</p>
    */
   endTime?: Date;
+}
+
+/**
+ * @public
+ * <p>Describes the options for an experiment.</p>
+ */
+export interface ExperimentOptions {
+  /**
+   * @public
+   * <p>The account targeting setting for an experiment.</p>
+   */
+  accountTargeting?: AccountTargeting;
+
+  /**
+   * @public
+   * <p>The empty target resolution mode for an experiment.</p>
+   */
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 }
 
 /**
@@ -1028,6 +1227,18 @@ export interface Experiment {
    * <p>The configuration for experiment logging.</p>
    */
   logConfiguration?: ExperimentLogConfiguration;
+
+  /**
+   * @public
+   * <p>The experiment options for the experiment.</p>
+   */
+  experimentOptions?: ExperimentOptions;
+
+  /**
+   * @public
+   * <p>The count of target account configurations for the experiment.</p>
+   */
+  targetAccountConfigurationsCount?: number;
 }
 
 /**
@@ -1064,6 +1275,54 @@ export interface ExperimentSummary {
    * <p>The tags for the experiment.</p>
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Describes a target account configuration for an experiment.</p>
+ */
+export interface ExperimentTargetAccountConfiguration {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The description of the target account.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ * <p>Provides a summary of a target account configuration.</p>
+ */
+export interface ExperimentTargetAccountConfigurationSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The description of the target account.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -1149,6 +1408,34 @@ export interface GetExperimentResponse {
 /**
  * @public
  */
+export interface GetExperimentTargetAccountConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the experiment.</p>
+   */
+  experimentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExperimentTargetAccountConfigurationResponse {
+  /**
+   * @public
+   * <p>Information about the target account configuration.</p>
+   */
+  targetAccountConfiguration?: ExperimentTargetAccountConfiguration;
+}
+
+/**
+ * @public
+ */
 export interface GetExperimentTemplateRequest {
   /**
    * @public
@@ -1166,6 +1453,34 @@ export interface GetExperimentTemplateResponse {
    * <p>Information about the experiment template.</p>
    */
   experimentTemplate?: ExperimentTemplate;
+}
+
+/**
+ * @public
+ */
+export interface GetTargetAccountConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the experiment template.</p>
+   */
+  experimentTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTargetAccountConfigurationResponse {
+  /**
+   * @public
+   * <p>Information about the target account configuration.</p>
+   */
+  targetAccountConfiguration?: TargetAccountConfiguration;
 }
 
 /**
@@ -1270,6 +1585,78 @@ export interface ListActionsResponse {
 /**
  * @public
  */
+export interface ListExperimentResolvedTargetsRequest {
+  /**
+   * @public
+   * <p>The ID of the experiment.</p>
+   */
+  experimentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining results,
+   *       make another call with the returned nextToken value.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The name of the target.</p>
+   */
+  targetName?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a resolved target.</p>
+ */
+export interface ResolvedTarget {
+  /**
+   * @public
+   * <p>The resource type of the target.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * @public
+   * <p>The name of the target.</p>
+   */
+  targetName?: string;
+
+  /**
+   * @public
+   * <p>Information about the target.</p>
+   */
+  targetInformation?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentResolvedTargetsResponse {
+  /**
+   * @public
+   * <p>The resolved targets.</p>
+   */
+  resolvedTargets?: ResolvedTarget[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results.
+   *       This value is null when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListExperimentsRequest {
   /**
    * @public
@@ -1297,6 +1684,41 @@ export interface ListExperimentsResponse {
   /**
    * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentTargetAccountConfigurationsRequest {
+  /**
+   * @public
+   * <p>The ID of the experiment.</p>
+   */
+  experimentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentTargetAccountConfigurationsResponse {
+  /**
+   * @public
+   * <p>The target account configurations.</p>
+   */
+  targetAccountConfigurations?: ExperimentTargetAccountConfigurationSummary[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results.
+   *       This value is null when there are no more results to return.</p>
    */
   nextToken?: string;
 }
@@ -1355,6 +1777,72 @@ export interface ListTagsForResourceResponse {
    * <p>The tags for the resource.</p>
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListTargetAccountConfigurationsRequest {
+  /**
+   * @public
+   * <p>The ID of the experiment template.</p>
+   */
+  experimentTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining results,
+   *       make another call with the returned nextToken value.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Provides a summary of a target account configuration.</p>
+ */
+export interface TargetAccountConfigurationSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The description of the target account.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTargetAccountConfigurationsResponse {
+  /**
+   * @public
+   * <p>The target account configurations.</p>
+   */
+  targetAccountConfigurations?: TargetAccountConfigurationSummary[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results.
+   *       This value is null when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -1547,6 +2035,18 @@ export interface UpdateExperimentTemplateActionInputItem {
 
 /**
  * @public
+ * <p>Specifies an experiment option for an experiment template.</p>
+ */
+export interface UpdateExperimentTemplateExperimentOptionsInput {
+  /**
+   * @public
+   * <p>The empty target resolution mode of the experiment template.</p>
+   */
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
+}
+
+/**
+ * @public
  * <p>Specifies the configuration for experiment logging.</p>
  */
 export interface UpdateExperimentTemplateLogConfigurationInput {
@@ -1676,6 +2176,12 @@ export interface UpdateExperimentTemplateRequest {
    * <p>The configuration for experiment logging.</p>
    */
   logConfiguration?: UpdateExperimentTemplateLogConfigurationInput;
+
+  /**
+   * @public
+   * <p>The experiment options for the experiment template.</p>
+   */
+  experimentOptions?: UpdateExperimentTemplateExperimentOptionsInput;
 }
 
 /**
@@ -1687,4 +2193,44 @@ export interface UpdateExperimentTemplateResponse {
    * <p>Information about the experiment template.</p>
    */
   experimentTemplate?: ExperimentTemplate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTargetAccountConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the experiment template.</p>
+   */
+  experimentTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The AWS account ID of the target account.</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>The description of the target account.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTargetAccountConfigurationResponse {
+  /**
+   * @public
+   * <p>Information about the target account configuration.</p>
+   */
+  targetAccountConfiguration?: TargetAccountConfiguration;
 }

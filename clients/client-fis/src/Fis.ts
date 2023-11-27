@@ -8,10 +8,20 @@ import {
   CreateExperimentTemplateCommandOutput,
 } from "./commands/CreateExperimentTemplateCommand";
 import {
+  CreateTargetAccountConfigurationCommand,
+  CreateTargetAccountConfigurationCommandInput,
+  CreateTargetAccountConfigurationCommandOutput,
+} from "./commands/CreateTargetAccountConfigurationCommand";
+import {
   DeleteExperimentTemplateCommand,
   DeleteExperimentTemplateCommandInput,
   DeleteExperimentTemplateCommandOutput,
 } from "./commands/DeleteExperimentTemplateCommand";
+import {
+  DeleteTargetAccountConfigurationCommand,
+  DeleteTargetAccountConfigurationCommandInput,
+  DeleteTargetAccountConfigurationCommandOutput,
+} from "./commands/DeleteTargetAccountConfigurationCommand";
 import { GetActionCommand, GetActionCommandInput, GetActionCommandOutput } from "./commands/GetActionCommand";
 import {
   GetExperimentCommand,
@@ -19,10 +29,20 @@ import {
   GetExperimentCommandOutput,
 } from "./commands/GetExperimentCommand";
 import {
+  GetExperimentTargetAccountConfigurationCommand,
+  GetExperimentTargetAccountConfigurationCommandInput,
+  GetExperimentTargetAccountConfigurationCommandOutput,
+} from "./commands/GetExperimentTargetAccountConfigurationCommand";
+import {
   GetExperimentTemplateCommand,
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
+import {
+  GetTargetAccountConfigurationCommand,
+  GetTargetAccountConfigurationCommandInput,
+  GetTargetAccountConfigurationCommandOutput,
+} from "./commands/GetTargetAccountConfigurationCommand";
 import {
   GetTargetResourceTypeCommand,
   GetTargetResourceTypeCommandInput,
@@ -30,10 +50,20 @@ import {
 } from "./commands/GetTargetResourceTypeCommand";
 import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
+  ListExperimentResolvedTargetsCommand,
+  ListExperimentResolvedTargetsCommandInput,
+  ListExperimentResolvedTargetsCommandOutput,
+} from "./commands/ListExperimentResolvedTargetsCommand";
+import {
   ListExperimentsCommand,
   ListExperimentsCommandInput,
   ListExperimentsCommandOutput,
 } from "./commands/ListExperimentsCommand";
+import {
+  ListExperimentTargetAccountConfigurationsCommand,
+  ListExperimentTargetAccountConfigurationsCommandInput,
+  ListExperimentTargetAccountConfigurationsCommandOutput,
+} from "./commands/ListExperimentTargetAccountConfigurationsCommand";
 import {
   ListExperimentTemplatesCommand,
   ListExperimentTemplatesCommandInput,
@@ -44,6 +74,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetAccountConfigurationsCommand,
+  ListTargetAccountConfigurationsCommandInput,
+  ListTargetAccountConfigurationsCommandOutput,
+} from "./commands/ListTargetAccountConfigurationsCommand";
 import {
   ListTargetResourceTypesCommand,
   ListTargetResourceTypesCommandInput,
@@ -70,25 +105,38 @@ import {
   UpdateExperimentTemplateCommandInput,
   UpdateExperimentTemplateCommandOutput,
 } from "./commands/UpdateExperimentTemplateCommand";
+import {
+  UpdateTargetAccountConfigurationCommand,
+  UpdateTargetAccountConfigurationCommandInput,
+  UpdateTargetAccountConfigurationCommandOutput,
+} from "./commands/UpdateTargetAccountConfigurationCommand";
 import { FisClient, FisClientConfig } from "./FisClient";
 
 const commands = {
   CreateExperimentTemplateCommand,
+  CreateTargetAccountConfigurationCommand,
   DeleteExperimentTemplateCommand,
+  DeleteTargetAccountConfigurationCommand,
   GetActionCommand,
   GetExperimentCommand,
+  GetExperimentTargetAccountConfigurationCommand,
   GetExperimentTemplateCommand,
+  GetTargetAccountConfigurationCommand,
   GetTargetResourceTypeCommand,
   ListActionsCommand,
+  ListExperimentResolvedTargetsCommand,
   ListExperimentsCommand,
+  ListExperimentTargetAccountConfigurationsCommand,
   ListExperimentTemplatesCommand,
   ListTagsForResourceCommand,
+  ListTargetAccountConfigurationsCommand,
   ListTargetResourceTypesCommand,
   StartExperimentCommand,
   StopExperimentCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateExperimentTemplateCommand,
+  UpdateTargetAccountConfigurationCommand,
 };
 
 export interface Fis {
@@ -110,6 +158,23 @@ export interface Fis {
   ): void;
 
   /**
+   * @see {@link CreateTargetAccountConfigurationCommand}
+   */
+  createTargetAccountConfiguration(
+    args: CreateTargetAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTargetAccountConfigurationCommandOutput>;
+  createTargetAccountConfiguration(
+    args: CreateTargetAccountConfigurationCommandInput,
+    cb: (err: any, data?: CreateTargetAccountConfigurationCommandOutput) => void
+  ): void;
+  createTargetAccountConfiguration(
+    args: CreateTargetAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTargetAccountConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteExperimentTemplateCommand}
    */
   deleteExperimentTemplate(
@@ -124,6 +189,23 @@ export interface Fis {
     args: DeleteExperimentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteExperimentTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTargetAccountConfigurationCommand}
+   */
+  deleteTargetAccountConfiguration(
+    args: DeleteTargetAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTargetAccountConfigurationCommandOutput>;
+  deleteTargetAccountConfiguration(
+    args: DeleteTargetAccountConfigurationCommandInput,
+    cb: (err: any, data?: DeleteTargetAccountConfigurationCommandOutput) => void
+  ): void;
+  deleteTargetAccountConfiguration(
+    args: DeleteTargetAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTargetAccountConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -149,6 +231,23 @@ export interface Fis {
   ): void;
 
   /**
+   * @see {@link GetExperimentTargetAccountConfigurationCommand}
+   */
+  getExperimentTargetAccountConfiguration(
+    args: GetExperimentTargetAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExperimentTargetAccountConfigurationCommandOutput>;
+  getExperimentTargetAccountConfiguration(
+    args: GetExperimentTargetAccountConfigurationCommandInput,
+    cb: (err: any, data?: GetExperimentTargetAccountConfigurationCommandOutput) => void
+  ): void;
+  getExperimentTargetAccountConfiguration(
+    args: GetExperimentTargetAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExperimentTargetAccountConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetExperimentTemplateCommand}
    */
   getExperimentTemplate(
@@ -163,6 +262,23 @@ export interface Fis {
     args: GetExperimentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetExperimentTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTargetAccountConfigurationCommand}
+   */
+  getTargetAccountConfiguration(
+    args: GetTargetAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTargetAccountConfigurationCommandOutput>;
+  getTargetAccountConfiguration(
+    args: GetTargetAccountConfigurationCommandInput,
+    cb: (err: any, data?: GetTargetAccountConfigurationCommandOutput) => void
+  ): void;
+  getTargetAccountConfiguration(
+    args: GetTargetAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTargetAccountConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -194,6 +310,23 @@ export interface Fis {
   ): void;
 
   /**
+   * @see {@link ListExperimentResolvedTargetsCommand}
+   */
+  listExperimentResolvedTargets(
+    args: ListExperimentResolvedTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExperimentResolvedTargetsCommandOutput>;
+  listExperimentResolvedTargets(
+    args: ListExperimentResolvedTargetsCommandInput,
+    cb: (err: any, data?: ListExperimentResolvedTargetsCommandOutput) => void
+  ): void;
+  listExperimentResolvedTargets(
+    args: ListExperimentResolvedTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExperimentResolvedTargetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListExperimentsCommand}
    */
   listExperiments(
@@ -205,6 +338,23 @@ export interface Fis {
     args: ListExperimentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListExperimentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExperimentTargetAccountConfigurationsCommand}
+   */
+  listExperimentTargetAccountConfigurations(
+    args: ListExperimentTargetAccountConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExperimentTargetAccountConfigurationsCommandOutput>;
+  listExperimentTargetAccountConfigurations(
+    args: ListExperimentTargetAccountConfigurationsCommandInput,
+    cb: (err: any, data?: ListExperimentTargetAccountConfigurationsCommandOutput) => void
+  ): void;
+  listExperimentTargetAccountConfigurations(
+    args: ListExperimentTargetAccountConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExperimentTargetAccountConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -239,6 +389,23 @@ export interface Fis {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTargetAccountConfigurationsCommand}
+   */
+  listTargetAccountConfigurations(
+    args: ListTargetAccountConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTargetAccountConfigurationsCommandOutput>;
+  listTargetAccountConfigurations(
+    args: ListTargetAccountConfigurationsCommandInput,
+    cb: (err: any, data?: ListTargetAccountConfigurationsCommandOutput) => void
+  ): void;
+  listTargetAccountConfigurations(
+    args: ListTargetAccountConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTargetAccountConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -323,6 +490,23 @@ export interface Fis {
     args: UpdateExperimentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateExperimentTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTargetAccountConfigurationCommand}
+   */
+  updateTargetAccountConfiguration(
+    args: UpdateTargetAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTargetAccountConfigurationCommandOutput>;
+  updateTargetAccountConfiguration(
+    args: UpdateTargetAccountConfigurationCommandInput,
+    cb: (err: any, data?: UpdateTargetAccountConfigurationCommandOutput) => void
+  ): void;
+  updateTargetAccountConfiguration(
+    args: UpdateTargetAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTargetAccountConfigurationCommandOutput) => void
   ): void;
 }
 
