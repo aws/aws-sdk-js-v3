@@ -72,6 +72,10 @@ import {
   BatchGetAutomationRulesCommandOutput,
 } from "./commands/BatchGetAutomationRulesCommand";
 import {
+  BatchGetConfigurationPolicyAssociationsCommandInput,
+  BatchGetConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/BatchGetConfigurationPolicyAssociationsCommand";
+import {
   BatchGetSecurityControlsCommandInput,
   BatchGetSecurityControlsCommandOutput,
 } from "./commands/BatchGetSecurityControlsCommand";
@@ -101,6 +105,10 @@ import {
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  CreateConfigurationPolicyCommandInput,
+  CreateConfigurationPolicyCommandOutput,
+} from "./commands/CreateConfigurationPolicyCommand";
+import {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
 } from "./commands/CreateFindingAggregatorCommand";
@@ -108,6 +116,10 @@ import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./command
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand";
+import {
+  DeleteConfigurationPolicyCommandInput,
+  DeleteConfigurationPolicyCommandOutput,
+} from "./commands/DeleteConfigurationPolicyCommand";
 import {
   DeleteFindingAggregatorCommandInput,
   DeleteFindingAggregatorCommandOutput,
@@ -165,6 +177,14 @@ import {
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
 import {
+  GetConfigurationPolicyAssociationCommandInput,
+  GetConfigurationPolicyAssociationCommandOutput,
+} from "./commands/GetConfigurationPolicyAssociationCommand";
+import {
+  GetConfigurationPolicyCommandInput,
+  GetConfigurationPolicyCommandOutput,
+} from "./commands/GetConfigurationPolicyCommand";
+import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand";
@@ -192,6 +212,14 @@ import {
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
 import {
+  ListConfigurationPoliciesCommandInput,
+  ListConfigurationPoliciesCommandOutput,
+} from "./commands/ListConfigurationPoliciesCommand";
+import {
+  ListConfigurationPolicyAssociationsCommandInput,
+  ListConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/ListConfigurationPolicyAssociationsCommand";
+import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
@@ -217,9 +245,21 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartConfigurationPolicyAssociationCommandInput,
+  StartConfigurationPolicyAssociationCommandOutput,
+} from "./commands/StartConfigurationPolicyAssociationCommand";
+import {
+  StartConfigurationPolicyDisassociationCommandInput,
+  StartConfigurationPolicyDisassociationCommandOutput,
+} from "./commands/StartConfigurationPolicyDisassociationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
+import {
+  UpdateConfigurationPolicyCommandInput,
+  UpdateConfigurationPolicyCommandOutput,
+} from "./commands/UpdateConfigurationPolicyCommand";
 import {
   UpdateFindingAggregatorCommandInput,
   UpdateFindingAggregatorCommandOutput,
@@ -263,6 +303,7 @@ export type ServiceInputTypes =
   | BatchDisableStandardsCommandInput
   | BatchEnableStandardsCommandInput
   | BatchGetAutomationRulesCommandInput
+  | BatchGetConfigurationPolicyAssociationsCommandInput
   | BatchGetSecurityControlsCommandInput
   | BatchGetStandardsControlAssociationsCommandInput
   | BatchImportFindingsCommandInput
@@ -271,11 +312,13 @@ export type ServiceInputTypes =
   | BatchUpdateStandardsControlAssociationsCommandInput
   | CreateActionTargetCommandInput
   | CreateAutomationRuleCommandInput
+  | CreateConfigurationPolicyCommandInput
   | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
   | DeclineInvitationsCommandInput
   | DeleteActionTargetCommandInput
+  | DeleteConfigurationPolicyCommandInput
   | DeleteFindingAggregatorCommandInput
   | DeleteInsightCommandInput
   | DeleteInvitationsCommandInput
@@ -296,6 +339,8 @@ export type ServiceInputTypes =
   | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
   | GetAdministratorAccountCommandInput
+  | GetConfigurationPolicyAssociationCommandInput
+  | GetConfigurationPolicyCommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingAggregatorCommandInput
   | GetFindingHistoryCommandInput
@@ -308,6 +353,8 @@ export type ServiceInputTypes =
   | GetSecurityControlDefinitionCommandInput
   | InviteMembersCommandInput
   | ListAutomationRulesCommandInput
+  | ListConfigurationPoliciesCommandInput
+  | ListConfigurationPolicyAssociationsCommandInput
   | ListEnabledProductsForImportCommandInput
   | ListFindingAggregatorsCommandInput
   | ListInvitationsCommandInput
@@ -316,9 +363,12 @@ export type ServiceInputTypes =
   | ListSecurityControlDefinitionsCommandInput
   | ListStandardsControlAssociationsCommandInput
   | ListTagsForResourceCommandInput
+  | StartConfigurationPolicyAssociationCommandInput
+  | StartConfigurationPolicyDisassociationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActionTargetCommandInput
+  | UpdateConfigurationPolicyCommandInput
   | UpdateFindingAggregatorCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
@@ -337,6 +387,7 @@ export type ServiceOutputTypes =
   | BatchDisableStandardsCommandOutput
   | BatchEnableStandardsCommandOutput
   | BatchGetAutomationRulesCommandOutput
+  | BatchGetConfigurationPolicyAssociationsCommandOutput
   | BatchGetSecurityControlsCommandOutput
   | BatchGetStandardsControlAssociationsCommandOutput
   | BatchImportFindingsCommandOutput
@@ -345,11 +396,13 @@ export type ServiceOutputTypes =
   | BatchUpdateStandardsControlAssociationsCommandOutput
   | CreateActionTargetCommandOutput
   | CreateAutomationRuleCommandOutput
+  | CreateConfigurationPolicyCommandOutput
   | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
   | DeclineInvitationsCommandOutput
   | DeleteActionTargetCommandOutput
+  | DeleteConfigurationPolicyCommandOutput
   | DeleteFindingAggregatorCommandOutput
   | DeleteInsightCommandOutput
   | DeleteInvitationsCommandOutput
@@ -370,6 +423,8 @@ export type ServiceOutputTypes =
   | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
   | GetAdministratorAccountCommandOutput
+  | GetConfigurationPolicyAssociationCommandOutput
+  | GetConfigurationPolicyCommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingAggregatorCommandOutput
   | GetFindingHistoryCommandOutput
@@ -382,6 +437,8 @@ export type ServiceOutputTypes =
   | GetSecurityControlDefinitionCommandOutput
   | InviteMembersCommandOutput
   | ListAutomationRulesCommandOutput
+  | ListConfigurationPoliciesCommandOutput
+  | ListConfigurationPolicyAssociationsCommandOutput
   | ListEnabledProductsForImportCommandOutput
   | ListFindingAggregatorsCommandOutput
   | ListInvitationsCommandOutput
@@ -390,9 +447,12 @@ export type ServiceOutputTypes =
   | ListSecurityControlDefinitionsCommandOutput
   | ListStandardsControlAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartConfigurationPolicyAssociationCommandOutput
+  | StartConfigurationPolicyDisassociationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActionTargetCommandOutput
+  | UpdateConfigurationPolicyCommandOutput
   | UpdateFindingAggregatorCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput

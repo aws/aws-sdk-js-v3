@@ -14,8 +14,14 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UpdateSecurityControlRequest, UpdateSecurityControlResponse } from "../models/models_2";
-import { de_UpdateSecurityControlCommand, se_UpdateSecurityControlCommand } from "../protocols/Aws_restJson1";
+import {
+  GetConfigurationPolicyAssociationRequest,
+  GetConfigurationPolicyAssociationResponse,
+} from "../models/models_2";
+import {
+  de_GetConfigurationPolicyAssociationCommand,
+  se_GetConfigurationPolicyAssociationCommand,
+} from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -25,62 +31,56 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateSecurityControlCommand}.
+ * The input for {@link GetConfigurationPolicyAssociationCommand}.
  */
-export interface UpdateSecurityControlCommandInput extends UpdateSecurityControlRequest {}
+export interface GetConfigurationPolicyAssociationCommandInput extends GetConfigurationPolicyAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateSecurityControlCommand}.
+ * The output of {@link GetConfigurationPolicyAssociationCommand}.
  */
-export interface UpdateSecurityControlCommandOutput extends UpdateSecurityControlResponse, __MetadataBearer {}
+export interface GetConfigurationPolicyAssociationCommandOutput
+  extends GetConfigurationPolicyAssociationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
  * <p>
- *             Updates the properties of a security control.
+ *             Returns the association between a configuration and a target account, organizational unit, or the root. The
+ *             configuration can be a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can
+ *             invoke this operation from the home Region.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, UpdateSecurityControlCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, UpdateSecurityControlCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, GetConfigurationPolicyAssociationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, GetConfigurationPolicyAssociationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = { // UpdateSecurityControlRequest
- *   SecurityControlId: "STRING_VALUE", // required
- *   Parameters: { // Parameters // required
- *     "<keys>": { // ParameterConfiguration
- *       ValueType: "DEFAULT" || "CUSTOM", // required
- *       Value: { // ParameterValue Union: only one key present
- *         Integer: Number("int"),
- *         IntegerList: [ // IntegerList
- *           Number("int"),
- *         ],
- *         Double: Number("double"),
- *         String: "STRING_VALUE",
- *         StringList: [ // StringList
- *           "STRING_VALUE",
- *         ],
- *         Boolean: true || false,
- *         Enum: "STRING_VALUE",
- *         EnumList: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
+ * const input = { // GetConfigurationPolicyAssociationRequest
+ *   Target: { // Target Union: only one key present
+ *     AccountId: "STRING_VALUE",
+ *     OrganizationalUnitId: "STRING_VALUE",
+ *     RootId: "STRING_VALUE",
  *   },
- *   LastUpdateReason: "STRING_VALUE",
  * };
- * const command = new UpdateSecurityControlCommand(input);
+ * const command = new GetConfigurationPolicyAssociationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetConfigurationPolicyAssociationResponse
+ * //   ConfigurationPolicyId: "STRING_VALUE",
+ * //   TargetId: "STRING_VALUE",
+ * //   TargetType: "ACCOUNT" || "ORGANIZATIONAL_UNIT",
+ * //   AssociationType: "INHERITED" || "APPLIED",
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",
+ * //   AssociationStatusMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UpdateSecurityControlCommandInput - {@link UpdateSecurityControlCommandInput}
- * @returns {@link UpdateSecurityControlCommandOutput}
- * @see {@link UpdateSecurityControlCommandInput} for command's `input` shape.
- * @see {@link UpdateSecurityControlCommandOutput} for command's `response` shape.
+ * @param GetConfigurationPolicyAssociationCommandInput - {@link GetConfigurationPolicyAssociationCommandInput}
+ * @returns {@link GetConfigurationPolicyAssociationCommandOutput}
+ * @see {@link GetConfigurationPolicyAssociationCommandInput} for command's `input` shape.
+ * @see {@link GetConfigurationPolicyAssociationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,42 +100,16 @@ export interface UpdateSecurityControlCommandOutput extends UpdateSecurityContro
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
- * @throws {@link ResourceInUseException} (client fault)
- *  <p>
- *             The request was rejected because it conflicts with the resource's availability. For example, you tried
- *             to update a security control that's currently in the <code>UPDATING</code> state.
- *         </p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @example To update security control properties
- * ```javascript
- * // The following example updates the specified security control. Specifically, this example updates control parameters.
- * const input = {
- *   "LastUpdateReason": "Comply with internal requirements",
- *   "Parameters": {
- *     "maxCredentialUsageAge": {
- *       "Value": {
- *         "Integer": 15
- *       },
- *       "ValueType": "CUSTOM"
- *     }
- *   },
- *   "SecurityControlId": "ACM.1"
- * };
- * const command = new UpdateSecurityControlCommand(input);
- * await client.send(command);
- * // example id: to-update-security-control-properties-1699282942434
- * ```
- *
  */
-export class UpdateSecurityControlCommand extends $Command<
-  UpdateSecurityControlCommandInput,
-  UpdateSecurityControlCommandOutput,
+export class GetConfigurationPolicyAssociationCommand extends $Command<
+  GetConfigurationPolicyAssociationCommandInput,
+  GetConfigurationPolicyAssociationCommandOutput,
   SecurityHubClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -150,7 +124,7 @@ export class UpdateSecurityControlCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateSecurityControlCommandInput) {
+  constructor(readonly input: GetConfigurationPolicyAssociationCommandInput) {
     super();
   }
 
@@ -161,17 +135,17 @@ export class UpdateSecurityControlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateSecurityControlCommandInput, UpdateSecurityControlCommandOutput> {
+  ): Handler<GetConfigurationPolicyAssociationCommandInput, GetConfigurationPolicyAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateSecurityControlCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetConfigurationPolicyAssociationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityHubClient";
-    const commandName = "UpdateSecurityControlCommand";
+    const commandName = "GetConfigurationPolicyAssociationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -180,7 +154,7 @@ export class UpdateSecurityControlCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SecurityHubAPIService",
-        operation: "UpdateSecurityControl",
+        operation: "GetConfigurationPolicyAssociation",
       },
     };
     const { requestHandler } = configuration;
@@ -194,14 +168,20 @@ export class UpdateSecurityControlCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateSecurityControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateSecurityControlCommand(input, context);
+  private serialize(
+    input: GetConfigurationPolicyAssociationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_GetConfigurationPolicyAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityControlCommandOutput> {
-    return de_UpdateSecurityControlCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetConfigurationPolicyAssociationCommandOutput> {
+    return de_GetConfigurationPolicyAssociationCommand(output, context);
   }
 }

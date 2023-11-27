@@ -15,12 +15,12 @@ import {
 } from "@smithy/types";
 
 import {
-  DescribeOrganizationConfigurationRequest,
-  DescribeOrganizationConfigurationResponse,
+  ListConfigurationPolicyAssociationsRequest,
+  ListConfigurationPolicyAssociationsResponse,
 } from "../models/models_2";
 import {
-  de_DescribeOrganizationConfigurationCommand,
-  se_DescribeOrganizationConfigurationCommand,
+  de_ListConfigurationPolicyAssociationsCommand,
+  se_ListConfigurationPolicyAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -31,49 +31,66 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeOrganizationConfigurationCommand}.
+ * The input for {@link ListConfigurationPolicyAssociationsCommand}.
  */
-export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
+export interface ListConfigurationPolicyAssociationsCommandInput extends ListConfigurationPolicyAssociationsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeOrganizationConfigurationCommand}.
+ * The output of {@link ListConfigurationPolicyAssociationsCommand}.
  */
-export interface DescribeOrganizationConfigurationCommandOutput
-  extends DescribeOrganizationConfigurationResponse,
+export interface ListConfigurationPolicyAssociationsCommandOutput
+  extends ListConfigurationPolicyAssociationsResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about the way your organization is configured in Security Hub. Only the
- *          Security Hub administrator account can invoke this operation.</p>
+ * <p>
+ *             Provides information about the associations for your configuration policies and self-managed behavior. Only the
+ *             Security Hub delegated administrator can invoke this operation from the home Region.
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, ListConfigurationPolicyAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, ListConfigurationPolicyAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {};
- * const command = new DescribeOrganizationConfigurationCommand(input);
+ * const input = { // ListConfigurationPolicyAssociationsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: { // AssociationFilters
+ *     ConfigurationPolicyId: "STRING_VALUE",
+ *     AssociationType: "INHERITED" || "APPLIED",
+ *     AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",
+ *   },
+ * };
+ * const command = new ListConfigurationPolicyAssociationsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeOrganizationConfigurationResponse
- * //   AutoEnable: true || false,
- * //   MemberAccountLimitReached: true || false,
- * //   AutoEnableStandards: "NONE" || "DEFAULT",
- * //   OrganizationConfiguration: { // OrganizationConfiguration
- * //     ConfigurationType: "CENTRAL" || "LOCAL",
- * //     Status: "PENDING" || "ENABLED" || "FAILED",
- * //     StatusMessage: "STRING_VALUE",
- * //   },
+ * // { // ListConfigurationPolicyAssociationsResponse
+ * //   ConfigurationPolicyAssociationSummaries: [ // ConfigurationPolicyAssociationSummaryList
+ * //     { // ConfigurationPolicyAssociationSummary
+ * //       ConfigurationPolicyId: "STRING_VALUE",
+ * //       TargetId: "STRING_VALUE",
+ * //       TargetType: "ACCOUNT" || "ORGANIZATIONAL_UNIT",
+ * //       AssociationType: "INHERITED" || "APPLIED",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",
+ * //       AssociationStatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
- * @returns {@link DescribeOrganizationConfigurationCommandOutput}
- * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @param ListConfigurationPolicyAssociationsCommandInput - {@link ListConfigurationPolicyAssociationsCommandInput}
+ * @returns {@link ListConfigurationPolicyAssociationsCommandOutput}
+ * @see {@link ListConfigurationPolicyAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationPolicyAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action specified in the request.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Internal server error.</p>
@@ -92,26 +109,10 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @example To get information about Organizations configuration
- * ```javascript
- * // The following example returns details about the way in which AWS Organizations is configured for a Security Hub account that belongs to an organization. Only a Security Hub administrator account can call this operation.
- * const input = {};
- * const command = new DescribeOrganizationConfigurationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AutoEnable": true,
- *   "AutoEnableStandards": "DEFAULT",
- *   "MemberAccountLimitReached": true
- * }
- * *\/
- * // example id: to-get-information-about-organizations-configuration-1676059786304
- * ```
- *
  */
-export class DescribeOrganizationConfigurationCommand extends $Command<
-  DescribeOrganizationConfigurationCommandInput,
-  DescribeOrganizationConfigurationCommandOutput,
+export class ListConfigurationPolicyAssociationsCommand extends $Command<
+  ListConfigurationPolicyAssociationsCommandInput,
+  ListConfigurationPolicyAssociationsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -126,7 +127,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeOrganizationConfigurationCommandInput) {
+  constructor(readonly input: ListConfigurationPolicyAssociationsCommandInput) {
     super();
   }
 
@@ -137,17 +138,17 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeOrganizationConfigurationCommandInput, DescribeOrganizationConfigurationCommandOutput> {
+  ): Handler<ListConfigurationPolicyAssociationsCommandInput, ListConfigurationPolicyAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeOrganizationConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListConfigurationPolicyAssociationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityHubClient";
-    const commandName = "DescribeOrganizationConfigurationCommand";
+    const commandName = "ListConfigurationPolicyAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -156,7 +157,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SecurityHubAPIService",
-        operation: "DescribeOrganizationConfiguration",
+        operation: "ListConfigurationPolicyAssociations",
       },
     };
     const { requestHandler } = configuration;
@@ -171,10 +172,10 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: DescribeOrganizationConfigurationCommandInput,
+    input: ListConfigurationPolicyAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_DescribeOrganizationConfigurationCommand(input, context);
+    return se_ListConfigurationPolicyAssociationsCommand(input, context);
   }
 
   /**
@@ -183,7 +184,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeOrganizationConfigurationCommandOutput> {
-    return de_DescribeOrganizationConfigurationCommand(output, context);
+  ): Promise<ListConfigurationPolicyAssociationsCommandOutput> {
+    return de_ListConfigurationPolicyAssociationsCommand(output, context);
   }
 }

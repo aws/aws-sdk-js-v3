@@ -172,6 +172,9 @@ export interface ListSecurityControlDefinitionsCommandOutput
  *   "SecurityControlDefinitions": [
  *     {
  *       "CurrentRegionAvailability": "AVAILABLE",
+ *       "CustomizableProperties": [
+ *         "Parameters"
+ *       ],
  *       "Description": "This AWS control checks whether ACM Certificates in your account are marked for expiration within a specified time period. Certificates provided by ACM are automatically renewed. ACM does not automatically renew certificates that you import.",
  *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/ACM.1/remediation",
  *       "SecurityControlId": "ACM.1",
@@ -180,6 +183,9 @@ export interface ListSecurityControlDefinitionsCommandOutput
  *     },
  *     {
  *       "CurrentRegionAvailability": "AVAILABLE",
+ *       "CustomizableProperties": [
+ *         "Parameters"
+ *       ],
  *       "Description": "This control checks whether all stages of Amazon API Gateway REST and WebSocket APIs have logging enabled. The control fails if logging is not enabled for all methods of a stage or if loggingLevel is neither ERROR nor INFO.",
  *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/APIGateway.1/remediation",
  *       "SecurityControlId": "APIGateway.1",

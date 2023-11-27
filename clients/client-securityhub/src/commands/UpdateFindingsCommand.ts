@@ -314,6 +314,9 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *     VulnerabilitiesFixAvailable: "<StringFilterList>",
  *     ComplianceSecurityControlParametersName: "<StringFilterList>",
  *     ComplianceSecurityControlParametersValue: "<StringFilterList>",
+ *     AwsAccountName: "<StringFilterList>",
+ *     ResourceApplicationName: "<StringFilterList>",
+ *     ResourceApplicationArn: "<StringFilterList>",
  *   },
  *   Note: { // NoteUpdate
  *     Text: "STRING_VALUE", // required

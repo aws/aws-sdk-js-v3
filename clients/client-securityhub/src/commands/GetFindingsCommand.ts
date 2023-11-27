@@ -310,6 +310,9 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *     VulnerabilitiesFixAvailable: "<StringFilterList>",
  *     ComplianceSecurityControlParametersName: "<StringFilterList>",
  *     ComplianceSecurityControlParametersValue: "<StringFilterList>",
+ *     AwsAccountName: "<StringFilterList>",
+ *     ResourceApplicationName: "<StringFilterList>",
+ *     ResourceApplicationArn: "<StringFilterList>",
  *   },
  *   SortCriteria: [ // SortCriteria
  *     { // SortCriterion
@@ -4190,6 +4193,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               },
  * //             },
  * //           },
+ * //           ApplicationName: "STRING_VALUE",
+ * //           ApplicationArn: "STRING_VALUE",
  * //         },
  * //       ],
  * //       Compliance: { // Compliance
@@ -4433,6 +4438,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //         Description: "STRING_VALUE",
  * //         Labels: "<TypeList>",
  * //       },
+ * //       ProcessedAt: "STRING_VALUE",
+ * //       AwsAccountName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

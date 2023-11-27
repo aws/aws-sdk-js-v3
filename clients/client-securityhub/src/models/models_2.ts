@@ -7,7 +7,9 @@ import {
   ActionTarget,
   Adjustment,
   AdminAccount,
+  AssociationFilters,
   AssociationStatus,
+  AssociationType,
   AutoEnableStandards,
   AutomationRulesAction,
   AutomationRulesConfig,
@@ -54,7 +56,7 @@ import {
   AwsEcsClusterDetails,
   AwsEcsContainerDetails,
   AwsEcsServiceDetails,
-  AwsEcsTaskDefinitionDetails,
+  ConfigurationPolicyAssociationStatus,
   DateFilter,
   MapFilter,
   NoteUpdate,
@@ -69,6 +71,7 @@ import {
   WorkflowUpdate,
 } from "./models_0";
 import {
+  AwsEcsTaskDefinitionDetails,
   AwsEcsTaskDetails,
   AwsEfsAccessPointDetails,
   AwsEksClusterDetails,
@@ -119,9 +122,8 @@ import {
   AwsWafRuleDetails,
   AwsWafRuleGroupDetails,
   AwsWafv2ActionAllowDetails,
-  AwsWafv2ActionBlockDetails,
-  AwsWafv2RulesActionCaptchaDetails,
-  AwsWafv2RulesActionCountDetails,
+  AwsWafv2CustomRequestHandlingDetails,
+  AwsWafv2CustomResponseDetails,
   Compliance,
   DataClassificationDetails,
   FindingProviderFields,
@@ -136,6 +138,57 @@ import {
   Remediation,
 } from "./models_1";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request.
+ *       </p>
+ */
+export interface AwsWafv2ActionBlockDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines a custom response for the web request. For information, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomResponse?: AwsWafv2CustomResponseDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should run a CAPTCHA check against the request.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionCaptchaDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines custom handling for the web request, used when the CAPTCHA inspection determines that the request's token is valid and unexpired. For more information,
+   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should count the request.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionCountDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines custom handling for the web request. For more information,
+   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
 
 /**
  * @public
@@ -1472,6 +1525,22 @@ export interface Resource {
    * <p>Additional details about the resource related to a finding.</p>
    */
   Details?: ResourceDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the application that is related to a finding.
+   *         </p>
+   */
+  ApplicationName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the application that is related to a finding.
+   *         </p>
+   */
+  ApplicationArn?: string;
 }
 
 /**
@@ -2472,6 +2541,20 @@ export interface AwsSecurityFinding {
    *         </p>
    */
   GeneratorDetails?: GeneratorDetails;
+
+  /**
+   * @public
+   * <p>An ISO8601-formatted timestamp that indicates when Security Hub received a finding and begins to process it.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   */
+  ProcessedAt?: string;
+
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services account from which a finding was generated.
+   *         </p>
+   */
+  AwsAccountName?: string;
 }
 
 /**
@@ -2527,7 +2610,7 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * @public
-   * <p>The Amazon Web Services account ID that a finding is generated in.</p>
+   * <p>The Amazon Web Services account ID in which a finding is generated.</p>
    */
   AwsAccountId?: StringFilter[];
 
@@ -3258,6 +3341,28 @@ export interface AwsSecurityFindingFilters {
    *         </p>
    */
   ComplianceSecurityControlParametersValue?: StringFilter[];
+
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services account in which a finding is generated.</p>
+   */
+  AwsAccountName?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The name of the application that is related to a finding.
+   *         </p>
+   */
+  ResourceApplicationName?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the application that is related to a finding.
+   *         </p>
+   */
+  ResourceApplicationArn?: StringFilter[];
 }
 
 /**
@@ -3546,6 +3651,255 @@ export interface BatchGetAutomationRulesResponse {
    *       </p>
    */
   UnprocessedAutomationRules?: UnprocessedAutomationRule[];
+}
+
+/**
+ * @public
+ * <p>
+ *             The target account, organizational unit, or the root that is associated with an Security Hub configuration. The configuration
+ *             can be a configuration policy or self-managed behavior.
+ *         </p>
+ */
+export type Target =
+  | Target.AccountIdMember
+  | Target.OrganizationalUnitIdMember
+  | Target.RootIdMember
+  | Target.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Target {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Services account ID of the target account.
+   *         </p>
+   */
+  export interface AccountIdMember {
+    AccountId: string;
+    OrganizationalUnitId?: never;
+    RootId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The organizational unit ID of the target organizational unit.
+   *         </p>
+   */
+  export interface OrganizationalUnitIdMember {
+    AccountId?: never;
+    OrganizationalUnitId: string;
+    RootId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The ID of the organization root.
+   *         </p>
+   */
+  export interface RootIdMember {
+    AccountId?: never;
+    OrganizationalUnitId?: never;
+    RootId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AccountId?: never;
+    OrganizationalUnitId?: never;
+    RootId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AccountId: (value: string) => T;
+    OrganizationalUnitId: (value: string) => T;
+    RootId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Target, visitor: Visitor<T>): T => {
+    if (value.AccountId !== undefined) return visitor.AccountId(value.AccountId);
+    if (value.OrganizationalUnitId !== undefined) return visitor.OrganizationalUnitId(value.OrganizationalUnitId);
+    if (value.RootId !== undefined) return visitor.RootId(value.RootId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the association between an Security Hub configuration and a target account, organizational unit, or
+ *             the root. An association can exist between a target and a configuration policy, or between a target and self-managed
+ *             behavior.
+ *         </p>
+ */
+export interface ConfigurationPolicyAssociation {
+  /**
+   * @public
+   * <p>
+   *             The target account, organizational unit, or the root.
+   *         </p>
+   */
+  Target?: Target;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetConfigurationPolicyAssociationsRequest {
+  /**
+   * @public
+   * <p>
+   *             Specifies one or more target account IDs, organizational unit (OU) IDs, or the root ID to retrieve associations for.
+   *         </p>
+   */
+  ConfigurationPolicyAssociationIdentifiers: ConfigurationPolicyAssociation[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
+ * <p>
+ *             An object that contains the details of a configuration policy association that’s returned in a
+ *             <code>ListConfigurationPolicyAssociations</code> request.
+ *         </p>
+ */
+export interface ConfigurationPolicyAssociationSummary {
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root.
+   *         </p>
+   */
+  TargetId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies whether the target is an Amazon Web Services account, organizational unit, or the root.
+   *         </p>
+   */
+  TargetType?: TargetType;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   */
+  AssociationType?: AssociationType;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             The explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   */
+  AssociationStatusMessage?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             An array of configuration policy associations, one for each configuration policy association identifier, that
+ *             was specified in a <code>BatchGetConfigurationPolicyAssociations</code> request but couldn’t be processed due
+ *             to an error.
+ *         </p>
+ */
+export interface UnprocessedConfigurationPolicyAssociation {
+  /**
+   * @public
+   * <p>
+   *             Configuration policy association identifiers that were specified in a <code>BatchGetConfigurationPolicyAssociations</code>
+   *             request but couldn’t be processed due to an error.
+   *         </p>
+   */
+  ConfigurationPolicyAssociationIdentifiers?: ConfigurationPolicyAssociation;
+
+  /**
+   * @public
+   * <p>
+   *             An HTTP status code that identifies why the configuration policy association failed.
+   *         </p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A string that identifies why the configuration policy association failed.
+   *         </p>
+   */
+  ErrorReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetConfigurationPolicyAssociationsResponse {
+  /**
+   * @public
+   * <p>
+   *             Describes associations for the target accounts, OUs, or the root.
+   *         </p>
+   */
+  ConfigurationPolicyAssociations?: ConfigurationPolicyAssociationSummary[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of configuration policy associations, one for each configuration policy association identifier, that was
+   *             specified in the request but couldn’t be processed due to an error.
+   *         </p>
+   */
+  UnprocessedConfigurationPolicyAssociations?: UnprocessedConfigurationPolicyAssociation[];
 }
 
 /**
@@ -5141,6 +5495,63 @@ export namespace ConfigurationOptions {
 
 /**
  * @public
+ * <p>
+ *             An object that contains the details of an Security Hub configuration policy that’s returned in a
+ *             <code>ListConfigurationPolicies</code> request.
+ *         </p>
+ */
+export interface ConfigurationPolicySummary {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the service that the configuration policy applies to is enabled in the policy.
+   *         </p>
+   */
+  ServiceEnabled?: boolean;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ControlFindingGenerator = {
@@ -5218,7 +5629,7 @@ export interface CreateAutomationRuleRequest {
   /**
    * @public
    * <p>
-   *             User-defined tags that help you label the purpose of a rule.
+   *             User-defined tags associated with an automation rule.
    *         </p>
    */
   Tags?: Record<string, string>;
@@ -5300,6 +5711,258 @@ export interface CreateAutomationRuleResponse {
    *       </p>
    */
   RuleArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             A list of security controls and control parameter values that are included in a configuration policy.
+ *         </p>
+ */
+export interface SecurityControlCustomParameter {
+  /**
+   * @public
+   * <p>
+   *             The ID of the security control.
+   *         </p>
+   */
+  SecurityControlId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that specifies parameter values for a control in a configuration policy.
+   *         </p>
+   */
+  Parameters?: Record<string, ParameterConfiguration>;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that defines which security controls are enabled in an Security Hub configuration policy.
+ *             The enablement status of a control is aligned across all of the enabled standards in an account.
+ *         </p>
+ */
+export interface SecurityControlsConfiguration {
+  /**
+   * @public
+   * <p>
+   *             A list of security controls that are enabled in the configuration policy. Security Hub disables all other
+   *             controls (including newly released controls) other than the listed controls.
+   *         </p>
+   */
+  EnabledSecurityControlIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             A list of security controls that are disabled in the configuration policy. Security Hub enables all other
+   *             controls (including newly released controls) other than the listed controls.
+   *         </p>
+   */
+  DisabledSecurityControlIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             A list of security controls and control parameter values that are included in a configuration policy.
+   *         </p>
+   */
+  SecurityControlCustomParameters?: SecurityControlCustomParameter[];
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that defines how Security Hub is configured. The configuration policy includes whether
+ *             Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or
+ *             disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration
+ *             policy, Security Hub disables all other controls (including newly released controls). If you provide a
+ *             list of security controls that are disabled in the configuration policy, Security Hub enables all other
+ *             controls (including newly released controls).
+ *         </p>
+ */
+export interface SecurityHubPolicy {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether Security Hub is enabled in the policy.
+   *         </p>
+   */
+  ServiceEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             A list that defines which security standards are enabled in the configuration policy.
+   *         </p>
+   */
+  EnabledStandardIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines which security controls are enabled in the configuration policy. The enablement status
+   *             of a control is aligned across all of the enabled standards in an account.
+   *         </p>
+   */
+  SecurityControlsConfiguration?: SecurityControlsConfiguration;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that defines how Security Hub is configured. It includes whether Security Hub is
+ *             enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+ *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub
+ *             disables all other controls (including newly released controls). If you provide a list of security controls that
+ *             are disabled in the configuration policy, Security Hub enables all other controls (including newly
+ *             released controls).
+ *         </p>
+ */
+export type Policy = Policy.SecurityHubMember | Policy.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Policy {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Service that the configuration policy applies to.
+   *         </p>
+   */
+  export interface SecurityHubMember {
+    SecurityHub: SecurityHubPolicy;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SecurityHub?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    SecurityHub: (value: SecurityHubPolicy) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Policy, visitor: Visitor<T>): T => {
+    if (value.SecurityHub !== undefined) return visitor.SecurityHub(value.SecurityHub);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
+   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub
+   *             enables all other controls (including newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy: Policy | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             User-defined tags associated with a configuration policy. For more information, see
+   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html">Tagging Security Hub resources</a>
+   *             in the <i>Security Hub user guide</i>.
+   *         </p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationPolicyResponse {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *         </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a
+   *             list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If the request included a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
+   *             released controls). If the request included a list of security controls that are disabled in the configuration policy,
+   *             Security Hub enables all other controls (including newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy?: Policy;
 }
 
 /**
@@ -5510,6 +6173,24 @@ export interface DeleteActionTargetResponse {
 /**
  * @public
  */
+export interface DeleteConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationPolicyResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteFindingAggregatorRequest {
   /**
    * @public
@@ -5695,13 +6376,95 @@ export interface DescribeOrganizationConfigurationRequest {}
 
 /**
  * @public
+ * @enum
+ */
+export const OrganizationConfigurationConfigurationType = {
+  CENTRAL: "CENTRAL",
+  LOCAL: "LOCAL",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationConfigurationConfigurationType =
+  (typeof OrganizationConfigurationConfigurationType)[keyof typeof OrganizationConfigurationConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationConfigurationStatus = {
+  ENABLED: "ENABLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationConfigurationStatus =
+  (typeof OrganizationConfigurationStatus)[keyof typeof OrganizationConfigurationStatus];
+
+/**
+ * @public
+ * <p>
+ *             Provides information about the way an organization is configured in Security Hub.
+ *         </p>
+ */
+export interface OrganizationConfiguration {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the organization uses local or central configuration.
+   *         </p>
+   *          <p>If you use local configuration, the
+   *             Security Hub delegated administrator can set <code>AutoEnable</code> to <code>true</code> and
+   *             <code>AutoEnableStandards</code> to <code>DEFAULT</code>. This automatically enables Security Hub and
+   *             default security standards in new organization accounts. These new account settings must be set separately in
+   *             each Amazon Web Services Region, and settings may be different in each Region.
+   *         </p>
+   *          <p>
+   *             If you use central configuration, the delegated administrator can create configuration policies. Configuration
+   *             policies can be used to configure Security Hub, security standards, and security controls in multiple
+   *             accounts and Regions. If you want new organization accounts to use a specific configuration, you can create a
+   *             configuration policy and associate it with the root or specific organizational units (OUs). New accounts will
+   *             inherit the policy from the root or their assigned OU.
+   *         </p>
+   */
+  ConfigurationType?: OrganizationConfigurationConfigurationType;
+
+  /**
+   * @public
+   * <p>
+   *             Describes whether central configuration could be enabled as the <code>ConfigurationType</code> for the
+   *             organization. If your <code>ConfigurationType</code> is local configuration, then the value of <code>Status</code>
+   *             is always <code>ENABLED</code>.
+   *         </p>
+   */
+  Status?: OrganizationConfigurationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             Provides an explanation if the value of <code>Status</code> is equal to <code>FAILED</code> when <code>ConfigurationType</code>
+   *             is equal to <code>CENTRAL</code>.
+   *         </p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * @public
-   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
-   *          <p>If set to <code>true</code>, then Security Hub is enabled for new accounts. If set to false,
-   *          then new accounts are not added automatically.</p>
+   * <p>Whether to automatically enable Security Hub in new member accounts when they join the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts. If set to <code>false</code>,
+   *            then Security Hub isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which Security Hub is enabled and associate the policy with new organization accounts.</p>
    */
   AutoEnable?: boolean;
 
@@ -5715,13 +6478,23 @@ export interface DescribeOrganizationConfigurationResponse {
   /**
    * @public
    * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *          for new member accounts in the organization.</p>
-   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          in new member accounts when they join the organization.</p>
    *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
    *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
-   *          accounts.</p>
+   *           accounts. The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
    */
   AutoEnableStandards?: AutoEnableStandards;
+
+  /**
+   * @public
+   * <p>
+   *             Provides information about the way an organization is configured in Security Hub.
+   *         </p>
+   */
+  OrganizationConfiguration?: OrganizationConfiguration;
 }
 
 /**
@@ -6438,6 +7211,160 @@ export interface GetAdministratorAccountResponse {
    * <p>Details about an invitation.</p>
    */
   Administrator?: Invitation;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyResponse {
+  /**
+   * @public
+   * <p>
+   *             The ARN of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *         </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If the policy includes a list of security controls that are enabled, Security Hub disables all other controls (including newly released controls).
+   *             If the policy includes a list of security controls that are disabled, Security Hub enables all other controls (including
+   *             newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyAssociationRequest {
+  /**
+   * @public
+   * <p>
+   *             The target account ID, organizational unit ID, or the root ID to retrieve the association for.
+   *         </p>
+   */
+  Target: Target | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyAssociationResponse {
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of a configuration policy. For self-managed behavior, the value is
+   *             <code>SELF_MANAGED_SECURITY_HUB</code>.
+   *         </p>
+   */
+  ConfigurationPolicyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The target account ID, organizational unit ID, or the root ID for which the association is retrieved.
+   *         </p>
+   */
+  TargetId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *         </p>
+   */
+  TargetType?: TargetType;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   */
+  AssociationType?: AssociationType;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             The explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   */
+  AssociationStatusMessage?: string;
 }
 
 /**
@@ -7219,6 +8146,119 @@ export interface ListAutomationRulesResponse {
 /**
  * @public
  */
+export interface ListConfigurationPoliciesRequest {
+  /**
+   * @public
+   * <p>
+   *             The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when
+   *             there are no more results to return.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a
+   *             single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request
+   *             by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A
+   *             valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPoliciesResponse {
+  /**
+   * @public
+   * <p>
+   *             Provides metadata for each of your configuration policies.
+   *         </p>
+   */
+  ConfigurationPolicySummaries?: ConfigurationPolicySummary[];
+
+  /**
+   * @public
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicies</code> request. When the
+   *             results of a <code>ListConfigurationPolicies</code> request exceed <code>MaxResults</code>, this value can be used to
+   *             retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsRequest {
+  /**
+   * @public
+   * <p>
+   *             The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code>
+   *             request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination
+   *             continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code>
+   *             when there are no more results to return.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results
+   *             in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial
+   *             request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code>
+   *             value. A valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>
+   *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
+   *             universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>.
+   *         </p>
+   */
+  Filters?: AssociationFilters;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsResponse {
+  /**
+   * @public
+   * <p>
+   *             An object that contains the details of each configuration policy association that’s returned in a
+   *             <code>ListConfigurationPolicyAssociations</code> request.
+   *         </p>
+   */
+  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[];
+
+  /**
+   * @public
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicyAssociations</code> request. When
+   *             the results of a <code>ListConfigurationPolicyAssociations</code> request exceed <code>MaxResults</code>, this value
+   *             can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListEnabledProductsForImportRequest {
   /**
    * @public
@@ -7548,13 +8588,13 @@ export interface StandardsControlAssociationSummary {
 
   /**
    * @public
-   * <p> The last time that a control's enablement status in a specified standard was updated. </p>
+   * <p>The last time that a control's enablement status in a specified standard was updated.</p>
    */
   UpdatedAt?: Date;
 
   /**
    * @public
-   * <p> The reason for updating the control's enablement status in a specified standard. </p>
+   * <p>The reason for updating a control's enablement status in a specified standard.</p>
    */
   UpdatedReason?: string;
 
@@ -7647,6 +8687,115 @@ export class ResourceInUseException extends __BaseException {
 /**
  * @public
  */
+export interface StartConfigurationPolicyAssociationRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
+   *         </p>
+   */
+  Target: Target | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyAssociationResponse {
+  /**
+   * @public
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
+   *         </p>
+   */
+  TargetId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *         </p>
+   */
+  TargetType?: TargetType;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   */
+  AssociationType?: AssociationType;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             An explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   */
+  AssociationStatusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationRequest {
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
+   *         </p>
+   */
+  Target?: Target;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationResponse {}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * @public
@@ -7715,6 +8864,122 @@ export interface UpdateActionTargetRequest {
  * @public
  */
 export interface UpdateActionTargetResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The reason for updating the configuration policy.
+   *         </p>
+   */
+  UpdatedReason?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
+   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub
+   *             enables all other controls (including newly released controls).
+   *         </p>
+   *          <p>When updating a configuration policy, provide a complete list of standards that you want to enable and a complete list
+   *             of controls that you want to enable or disable. The updated configuration replaces the current configuration.</p>
+   */
+  ConfigurationPolicy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConfigurationPolicyResponse {
+  /**
+   * @public
+   * <p>
+   *             The ARN of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *         </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the request included a
+   *             list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including
+   *             newly released controls). If the request included a list of security controls that are disabled in the configuration policy,
+   *             Security Hub enables all other controls (including newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy?: Policy;
+}
 
 /**
  * @public
@@ -7856,21 +9121,36 @@ export interface UpdateInsightResponse {}
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * @public
-   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
-   *          <p>By default, this is <code>false</code>, and new accounts are not added
-   *          automatically.</p>
-   *          <p>To automatically enable Security Hub for new accounts, set this to <code>true</code>.</p>
+   * <p>Whether to automatically enable Security Hub in new member accounts when they join the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts. If set to <code>false</code>,
+   *            then Security Hub isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which Security Hub is enabled and associate the policy with new organization accounts.</p>
    */
   AutoEnable: boolean | undefined;
 
   /**
    * @public
    * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *          for new member accounts in the organization.</p>
-   *          <p>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts are automatically enabled with default Security Hub standards.</p>
-   *          <p>To opt out of enabling default standards for new member accounts, set this parameter equal to <code>NONE</code>.</p>
+   *            in new member accounts when they join the organization.</p>
+   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
+   *            accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
+   *            accounts.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
    */
   AutoEnableStandards?: AutoEnableStandards;
+
+  /**
+   * @public
+   * <p>
+   *             Provides information about the way an organization is configured in Security Hub.
+   *         </p>
+   */
+  OrganizationConfiguration?: OrganizationConfiguration;
 }
 
 /**

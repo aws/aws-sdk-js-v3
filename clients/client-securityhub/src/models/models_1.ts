@@ -3,9 +3,226 @@ import {
   AssociatedStandard,
   AvailabilityZone,
   AwsEcsContainerDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsDetails,
+  AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
+  AwsEcsTaskDefinitionPlacementConstraintsDetails,
+  AwsEcsTaskDefinitionProxyConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
   RelatedFinding,
   SeverityLabel,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Information about a bind mount host volume.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesHostDetails {
+  /**
+   * @public
+   * <p>The path on the host container instance that is presented to the container.</p>
+   */
+  SourcePath?: string;
+}
+
+/**
+ * @public
+ * <p>A data volume to mount from another container.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesDetails {
+  /**
+   * @public
+   * <p>Information about a Docker volume.</p>
+   */
+  DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails;
+
+  /**
+   * @public
+   * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+   */
+  EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails;
+
+  /**
+   * @public
+   * <p>Information about a bind mount host volume.</p>
+   */
+  Host?: AwsEcsTaskDefinitionVolumesHostDetails;
+
+  /**
+   * @public
+   * <p>The name of the data volume.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>Details about a task definition. A task definition describes the container and volume definitions
+ *          of an Amazon Elastic Container Service task.</p>
+ */
+export interface AwsEcsTaskDefinitionDetails {
+  /**
+   * @public
+   * <p>The container definitions that describe the containers that make up the task.</p>
+   */
+  ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[];
+
+  /**
+   * @public
+   * <p>The number of CPU units used by the task.Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>256 (.25 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>512 (.5 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>1024 (1 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2048 (2 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>4096 (4 vCPU)</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Cpu?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the task execution role that grants the container agent permission to make API calls on behalf of the container user.</p>
+   */
+  ExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The name of a family that this task definition is registered to.</p>
+   */
+  Family?: string;
+
+  /**
+   * @public
+   * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+   */
+  InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[];
+
+  /**
+   * @public
+   * <p>The inter-process communication (IPC) resource namespace to use for the containers in the task. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>host</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>task</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  IpcMode?: string;
+
+  /**
+   * @public
+   * <p>The amount (in MiB) of memory used by the task. </p>
+   *          <p>For tasks that are hosted on Amazon EC2, you can provide a task-level memory value or a container-level memory value.
+   *       For tasks that are hosted on Fargate, you must use one of the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">specified values</a> in the <i>
+   *                <i>Amazon Elastic Container Service Developer Guide</i>
+   *             </i>, which determines your range of supported values for the <code>Cpu</code> and <code>Memory</code> parameters.</p>
+   */
+  Memory?: string;
+
+  /**
+   * @public
+   * <p>The Docker networking mode to use for the containers in the task. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsvpc</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bridge</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>host</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  NetworkMode?: string;
+
+  /**
+   * @public
+   * <p>The process namespace to use for the containers in the task. Valid values are <code>host</code> or <code>task</code>.</p>
+   */
+  PidMode?: string;
+
+  /**
+   * @public
+   * <p>The placement constraint objects to use for tasks.</p>
+   */
+  PlacementConstraints?: AwsEcsTaskDefinitionPlacementConstraintsDetails[];
+
+  /**
+   * @public
+   * <p>The configuration details for the App Mesh proxy.</p>
+   */
+  ProxyConfiguration?: AwsEcsTaskDefinitionProxyConfigurationDetails;
+
+  /**
+   * @public
+   * <p>The task launch types that the task definition was validated against.</p>
+   */
+  RequiresCompatibilities?: string[];
+
+  /**
+   * @public
+   * <p>The short name or ARN of the IAM role that grants containers in the task permission to call Amazon Web Services API operations on your behalf.</p>
+   */
+  TaskRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The data volume definitions for the task.</p>
+   */
+  Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
+
+  /**
+   * @public
+   * <p>
+   *             The status of the task definition.
+   *         </p>
+   */
+  Status?: string;
+}
 
 /**
  * @public
@@ -10622,55 +10839,4 @@ export interface AwsWafv2CustomResponseDetails {
    *       </p>
    */
   ResponseHeaders?: AwsWafv2CustomHttpHeader[];
-}
-
-/**
- * @public
- * <p>
- *          Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request.
- *       </p>
- */
-export interface AwsWafv2ActionBlockDetails {
-  /**
-   * @public
-   * <p>
-   *          Defines a custom response for the web request. For information, see
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
-   */
-  CustomResponse?: AwsWafv2CustomResponseDetails;
-}
-
-/**
- * @public
- * <p>
- *          Specifies that WAF should run a CAPTCHA check against the request.
- *       </p>
- */
-export interface AwsWafv2RulesActionCaptchaDetails {
-  /**
-   * @public
-   * <p>
-   *          Defines custom handling for the web request, used when the CAPTCHA inspection determines that the request's token is valid and unexpired. For more information,
-   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
-   */
-  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
-}
-
-/**
- * @public
- * <p>
- *          Specifies that WAF should count the request.
- *       </p>
- */
-export interface AwsWafv2RulesActionCountDetails {
-  /**
-   * @public
-   * <p>
-   *          Defines custom handling for the web request. For more information,
-   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
-   */
-  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
 }

@@ -322,6 +322,9 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //         VulnerabilitiesFixAvailable: "<StringFilterList>",
  * //         ComplianceSecurityControlParametersName: "<StringFilterList>",
  * //         ComplianceSecurityControlParametersValue: "<StringFilterList>",
+ * //         AwsAccountName: "<StringFilterList>",
+ * //         ResourceApplicationName: "<StringFilterList>",
+ * //         ResourceApplicationArn: "<StringFilterList>",
  * //       },
  * //       GroupByAttribute: "STRING_VALUE", // required
  * //     },

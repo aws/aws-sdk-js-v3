@@ -33,6 +33,11 @@ import {
   BatchGetAutomationRulesCommandOutput,
 } from "./commands/BatchGetAutomationRulesCommand";
 import {
+  BatchGetConfigurationPolicyAssociationsCommand,
+  BatchGetConfigurationPolicyAssociationsCommandInput,
+  BatchGetConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/BatchGetConfigurationPolicyAssociationsCommand";
+import {
   BatchGetSecurityControlsCommand,
   BatchGetSecurityControlsCommandInput,
   BatchGetSecurityControlsCommandOutput,
@@ -73,6 +78,11 @@ import {
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  CreateConfigurationPolicyCommand,
+  CreateConfigurationPolicyCommandInput,
+  CreateConfigurationPolicyCommandOutput,
+} from "./commands/CreateConfigurationPolicyCommand";
+import {
   CreateFindingAggregatorCommand,
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
@@ -97,6 +107,11 @@ import {
   DeleteActionTargetCommandInput,
   DeleteActionTargetCommandOutput,
 } from "./commands/DeleteActionTargetCommand";
+import {
+  DeleteConfigurationPolicyCommand,
+  DeleteConfigurationPolicyCommandInput,
+  DeleteConfigurationPolicyCommandOutput,
+} from "./commands/DeleteConfigurationPolicyCommand";
 import {
   DeleteFindingAggregatorCommand,
   DeleteFindingAggregatorCommandInput,
@@ -194,6 +209,16 @@ import {
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
 import {
+  GetConfigurationPolicyAssociationCommand,
+  GetConfigurationPolicyAssociationCommandInput,
+  GetConfigurationPolicyAssociationCommandOutput,
+} from "./commands/GetConfigurationPolicyAssociationCommand";
+import {
+  GetConfigurationPolicyCommand,
+  GetConfigurationPolicyCommandInput,
+  GetConfigurationPolicyCommandOutput,
+} from "./commands/GetConfigurationPolicyCommand";
+import {
   GetEnabledStandardsCommand,
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -242,6 +267,16 @@ import {
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
 import {
+  ListConfigurationPoliciesCommand,
+  ListConfigurationPoliciesCommandInput,
+  ListConfigurationPoliciesCommandOutput,
+} from "./commands/ListConfigurationPoliciesCommand";
+import {
+  ListConfigurationPolicyAssociationsCommand,
+  ListConfigurationPolicyAssociationsCommandInput,
+  ListConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/ListConfigurationPolicyAssociationsCommand";
+import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -277,6 +312,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartConfigurationPolicyAssociationCommand,
+  StartConfigurationPolicyAssociationCommandInput,
+  StartConfigurationPolicyAssociationCommandOutput,
+} from "./commands/StartConfigurationPolicyAssociationCommand";
+import {
+  StartConfigurationPolicyDisassociationCommand,
+  StartConfigurationPolicyDisassociationCommandInput,
+  StartConfigurationPolicyDisassociationCommandOutput,
+} from "./commands/StartConfigurationPolicyDisassociationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -288,6 +333,11 @@ import {
   UpdateActionTargetCommandInput,
   UpdateActionTargetCommandOutput,
 } from "./commands/UpdateActionTargetCommand";
+import {
+  UpdateConfigurationPolicyCommand,
+  UpdateConfigurationPolicyCommandInput,
+  UpdateConfigurationPolicyCommandOutput,
+} from "./commands/UpdateConfigurationPolicyCommand";
 import {
   UpdateFindingAggregatorCommand,
   UpdateFindingAggregatorCommandInput,
@@ -332,6 +382,7 @@ const commands = {
   BatchDisableStandardsCommand,
   BatchEnableStandardsCommand,
   BatchGetAutomationRulesCommand,
+  BatchGetConfigurationPolicyAssociationsCommand,
   BatchGetSecurityControlsCommand,
   BatchGetStandardsControlAssociationsCommand,
   BatchImportFindingsCommand,
@@ -340,11 +391,13 @@ const commands = {
   BatchUpdateStandardsControlAssociationsCommand,
   CreateActionTargetCommand,
   CreateAutomationRuleCommand,
+  CreateConfigurationPolicyCommand,
   CreateFindingAggregatorCommand,
   CreateInsightCommand,
   CreateMembersCommand,
   DeclineInvitationsCommand,
   DeleteActionTargetCommand,
+  DeleteConfigurationPolicyCommand,
   DeleteFindingAggregatorCommand,
   DeleteInsightCommand,
   DeleteInvitationsCommand,
@@ -365,6 +418,8 @@ const commands = {
   EnableOrganizationAdminAccountCommand,
   EnableSecurityHubCommand,
   GetAdministratorAccountCommand,
+  GetConfigurationPolicyCommand,
+  GetConfigurationPolicyAssociationCommand,
   GetEnabledStandardsCommand,
   GetFindingAggregatorCommand,
   GetFindingHistoryCommand,
@@ -377,6 +432,8 @@ const commands = {
   GetSecurityControlDefinitionCommand,
   InviteMembersCommand,
   ListAutomationRulesCommand,
+  ListConfigurationPoliciesCommand,
+  ListConfigurationPolicyAssociationsCommand,
   ListEnabledProductsForImportCommand,
   ListFindingAggregatorsCommand,
   ListInvitationsCommand,
@@ -385,9 +442,12 @@ const commands = {
   ListSecurityControlDefinitionsCommand,
   ListStandardsControlAssociationsCommand,
   ListTagsForResourceCommand,
+  StartConfigurationPolicyAssociationCommand,
+  StartConfigurationPolicyDisassociationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateActionTargetCommand,
+  UpdateConfigurationPolicyCommand,
   UpdateFindingAggregatorCommand,
   UpdateFindingsCommand,
   UpdateInsightCommand,
@@ -498,6 +558,23 @@ export interface SecurityHub {
     args: BatchGetAutomationRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetAutomationRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetConfigurationPolicyAssociationsCommand}
+   */
+  batchGetConfigurationPolicyAssociations(
+    args: BatchGetConfigurationPolicyAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetConfigurationPolicyAssociationsCommandOutput>;
+  batchGetConfigurationPolicyAssociations(
+    args: BatchGetConfigurationPolicyAssociationsCommandInput,
+    cb: (err: any, data?: BatchGetConfigurationPolicyAssociationsCommandOutput) => void
+  ): void;
+  batchGetConfigurationPolicyAssociations(
+    args: BatchGetConfigurationPolicyAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetConfigurationPolicyAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -637,6 +714,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link CreateConfigurationPolicyCommand}
+   */
+  createConfigurationPolicy(
+    args: CreateConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfigurationPolicyCommandOutput>;
+  createConfigurationPolicy(
+    args: CreateConfigurationPolicyCommandInput,
+    cb: (err: any, data?: CreateConfigurationPolicyCommandOutput) => void
+  ): void;
+  createConfigurationPolicy(
+    args: CreateConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFindingAggregatorCommand}
    */
   createFindingAggregator(
@@ -707,6 +801,23 @@ export interface SecurityHub {
     args: DeleteActionTargetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteActionTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConfigurationPolicyCommand}
+   */
+  deleteConfigurationPolicy(
+    args: DeleteConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationPolicyCommandOutput>;
+  deleteConfigurationPolicy(
+    args: DeleteConfigurationPolicyCommandInput,
+    cb: (err: any, data?: DeleteConfigurationPolicyCommandOutput) => void
+  ): void;
+  deleteConfigurationPolicy(
+    args: DeleteConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfigurationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1032,6 +1143,40 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetConfigurationPolicyCommand}
+   */
+  getConfigurationPolicy(
+    args: GetConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationPolicyCommandOutput>;
+  getConfigurationPolicy(
+    args: GetConfigurationPolicyCommandInput,
+    cb: (err: any, data?: GetConfigurationPolicyCommandOutput) => void
+  ): void;
+  getConfigurationPolicy(
+    args: GetConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationPolicyAssociationCommand}
+   */
+  getConfigurationPolicyAssociation(
+    args: GetConfigurationPolicyAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationPolicyAssociationCommandOutput>;
+  getConfigurationPolicyAssociation(
+    args: GetConfigurationPolicyAssociationCommandInput,
+    cb: (err: any, data?: GetConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+  getConfigurationPolicyAssociation(
+    args: GetConfigurationPolicyAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEnabledStandardsCommand}
    */
   getEnabledStandards(
@@ -1212,6 +1357,40 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link ListConfigurationPoliciesCommand}
+   */
+  listConfigurationPolicies(
+    args: ListConfigurationPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationPoliciesCommandOutput>;
+  listConfigurationPolicies(
+    args: ListConfigurationPoliciesCommandInput,
+    cb: (err: any, data?: ListConfigurationPoliciesCommandOutput) => void
+  ): void;
+  listConfigurationPolicies(
+    args: ListConfigurationPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationPolicyAssociationsCommand}
+   */
+  listConfigurationPolicyAssociations(
+    args: ListConfigurationPolicyAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationPolicyAssociationsCommandOutput>;
+  listConfigurationPolicyAssociations(
+    args: ListConfigurationPolicyAssociationsCommandInput,
+    cb: (err: any, data?: ListConfigurationPolicyAssociationsCommandOutput) => void
+  ): void;
+  listConfigurationPolicyAssociations(
+    args: ListConfigurationPolicyAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationPolicyAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEnabledProductsForImportCommand}
    */
   listEnabledProductsForImport(
@@ -1339,6 +1518,40 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link StartConfigurationPolicyAssociationCommand}
+   */
+  startConfigurationPolicyAssociation(
+    args: StartConfigurationPolicyAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartConfigurationPolicyAssociationCommandOutput>;
+  startConfigurationPolicyAssociation(
+    args: StartConfigurationPolicyAssociationCommandInput,
+    cb: (err: any, data?: StartConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+  startConfigurationPolicyAssociation(
+    args: StartConfigurationPolicyAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartConfigurationPolicyDisassociationCommand}
+   */
+  startConfigurationPolicyDisassociation(
+    args: StartConfigurationPolicyDisassociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartConfigurationPolicyDisassociationCommandOutput>;
+  startConfigurationPolicyDisassociation(
+    args: StartConfigurationPolicyDisassociationCommandInput,
+    cb: (err: any, data?: StartConfigurationPolicyDisassociationCommandOutput) => void
+  ): void;
+  startConfigurationPolicyDisassociation(
+    args: StartConfigurationPolicyDisassociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartConfigurationPolicyDisassociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1375,6 +1588,23 @@ export interface SecurityHub {
     args: UpdateActionTargetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateActionTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConfigurationPolicyCommand}
+   */
+  updateConfigurationPolicy(
+    args: UpdateConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationPolicyCommandOutput>;
+  updateConfigurationPolicy(
+    args: UpdateConfigurationPolicyCommandInput,
+    cb: (err: any, data?: UpdateConfigurationPolicyCommandOutput) => void
+  ): void;
+  updateConfigurationPolicy(
+    args: UpdateConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationPolicyCommandOutput) => void
   ): void;
 
   /**

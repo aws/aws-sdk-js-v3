@@ -105,6 +105,9 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
  * @throws {@link InternalException} (server fault)
  *  <p>Internal server error.</p>
  *

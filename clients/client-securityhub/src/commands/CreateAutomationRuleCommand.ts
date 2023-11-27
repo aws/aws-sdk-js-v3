@@ -195,6 +195,9 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *         Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
+ *     ResourceApplicationArn: "<StringFilterList>",
+ *     ResourceApplicationName: "<StringFilterList>",
+ *     AwsAccountName: "<StringFilterList>",
  *   },
  *   Actions: [ // ActionList // required
  *     { // AutomationRulesAction

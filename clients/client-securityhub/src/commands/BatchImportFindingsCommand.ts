@@ -3986,6 +3986,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               },
  *             },
  *           },
+ *           ApplicationName: "STRING_VALUE",
+ *           ApplicationArn: "STRING_VALUE",
  *         },
  *       ],
  *       Compliance: { // Compliance
@@ -4229,6 +4231,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *         Description: "STRING_VALUE",
  *         Labels: "<TypeList>",
  *       },
+ *       ProcessedAt: "STRING_VALUE",
+ *       AwsAccountName: "STRING_VALUE",
  *     },
  *   ],
  * };

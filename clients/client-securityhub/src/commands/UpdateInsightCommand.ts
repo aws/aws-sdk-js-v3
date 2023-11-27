@@ -311,6 +311,9 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *     VulnerabilitiesFixAvailable: "<StringFilterList>",
  *     ComplianceSecurityControlParametersName: "<StringFilterList>",
  *     ComplianceSecurityControlParametersValue: "<StringFilterList>",
+ *     AwsAccountName: "<StringFilterList>",
+ *     ResourceApplicationName: "<StringFilterList>",
+ *     ResourceApplicationArn: "<StringFilterList>",
  *   },
  *   GroupByAttribute: "STRING_VALUE",
  * };

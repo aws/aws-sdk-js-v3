@@ -15,6 +15,8 @@ export * from "./GetFindingsPaginator";
 export * from "./GetInsightsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListConfigurationPoliciesPaginator";
+export * from "./ListConfigurationPolicyAssociationsPaginator";
 export * from "./ListEnabledProductsForImportPaginator";
 export * from "./ListFindingAggregatorsPaginator";
 export * from "./ListInvitationsPaginator";
