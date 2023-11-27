@@ -43,6 +43,10 @@ import {
   CreateFargateProfileCommandOutput,
 } from "../commands/CreateFargateProfileCommand";
 import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "../commands/CreateNodegroupCommand";
+import {
+  CreatePodIdentityAssociationCommandInput,
+  CreatePodIdentityAssociationCommandOutput,
+} from "../commands/CreatePodIdentityAssociationCommand";
 import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "../commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import {
@@ -54,6 +58,10 @@ import {
   DeleteFargateProfileCommandOutput,
 } from "../commands/DeleteFargateProfileCommand";
 import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "../commands/DeleteNodegroupCommand";
+import {
+  DeletePodIdentityAssociationCommandInput,
+  DeletePodIdentityAssociationCommandOutput,
+} from "../commands/DeletePodIdentityAssociationCommand";
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "../commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "../commands/DescribeAddonCommand";
 import {
@@ -78,6 +86,10 @@ import {
   DescribeIdentityProviderConfigCommandOutput,
 } from "../commands/DescribeIdentityProviderConfigCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "../commands/DescribeNodegroupCommand";
+import {
+  DescribePodIdentityAssociationCommandInput,
+  DescribePodIdentityAssociationCommandOutput,
+} from "../commands/DescribePodIdentityAssociationCommand";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "../commands/DescribeUpdateCommand";
 import {
   DisassociateIdentityProviderConfigCommandInput,
@@ -98,6 +110,10 @@ import {
   ListIdentityProviderConfigsCommandOutput,
 } from "../commands/ListIdentityProviderConfigsCommand";
 import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "../commands/ListNodegroupsCommand";
+import {
+  ListPodIdentityAssociationsCommandInput,
+  ListPodIdentityAssociationsCommandOutput,
+} from "../commands/ListPodIdentityAssociationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -127,6 +143,10 @@ import {
   UpdateNodegroupVersionCommandInput,
   UpdateNodegroupVersionCommandOutput,
 } from "../commands/UpdateNodegroupVersionCommand";
+import {
+  UpdatePodIdentityAssociationCommandInput,
+  UpdatePodIdentityAssociationCommandOutput,
+} from "../commands/UpdatePodIdentityAssociationCommand";
 import { EKSServiceException as __BaseException } from "../models/EKSServiceException";
 import {
   AccessDeniedException,
@@ -156,6 +176,7 @@ import {
   NotFoundException,
   OidcIdentityProviderConfigRequest,
   OutpostConfigRequest,
+  PodIdentityAssociation,
   Provider,
   RemoteAccessConfig,
   ResourceInUseException,
@@ -434,6 +455,42 @@ export const se_CreateNodegroupCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePodIdentityAssociationCommand
+ */
+export const se_CreatePodIdentityAssociationCommand = async (
+  input: CreatePodIdentityAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/pod-identity-associations";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      namespace: [],
+      roleArn: [],
+      serviceAccount: [],
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteAddonCommand
  */
 export const se_DeleteAddonCommand = async (
@@ -562,6 +619,39 @@ export const se_DeleteNodegroupCommand = async (
     "nodegroupName",
     () => input.nodegroupName!,
     "{nodegroupName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeletePodIdentityAssociationCommand
+ */
+export const se_DeletePodIdentityAssociationCommand = async (
+  input: DeletePodIdentityAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/pod-identity-associations/{associationId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
     false
   );
   let body: any;
@@ -833,6 +923,39 @@ export const se_DescribeNodegroupCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribePodIdentityAssociationCommand
+ */
+export const se_DescribePodIdentityAssociationCommand = async (
+  input: DescribePodIdentityAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/pod-identity-associations/{associationId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeUpdateCommand
  */
 export const se_DescribeUpdateCommand = async (
@@ -1056,6 +1179,38 @@ export const se_ListNodegroupsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/node-groups";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListPodIdentityAssociationsCommand
+ */
+export const se_ListPodIdentityAssociationsCommand = async (
+  input: ListPodIdentityAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/pod-identity-associations";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  const query: any = map({
+    namespace: [, input.namespace!],
+    serviceAccount: [, input.serviceAccount!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -1425,6 +1580,47 @@ export const se_UpdateNodegroupVersionCommand = async (
       launchTemplate: (_) => _json(_),
       releaseVersion: [],
       version: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdatePodIdentityAssociationCommand
+ */
+export const se_UpdatePodIdentityAssociationCommand = async (
+  input: UpdatePodIdentityAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/pod-identity-associations/{associationId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      roleArn: [],
     })
   );
   return new __HttpRequest({
@@ -1877,6 +2073,68 @@ const de_CreateNodegroupCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePodIdentityAssociationCommand
+ */
+export const de_CreatePodIdentityAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePodIdentityAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePodIdentityAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    association: (_) => de_PodIdentityAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePodIdentityAssociationCommandError
+ */
+const de_CreatePodIdentityAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePodIdentityAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.eks#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteAddonCommand
  */
 export const de_DeleteAddonCommand = async (
@@ -2158,6 +2416,62 @@ const de_DeleteNodegroupCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.eks#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeletePodIdentityAssociationCommand
+ */
+export const de_DeletePodIdentityAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePodIdentityAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeletePodIdentityAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    association: (_) => de_PodIdentityAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePodIdentityAssociationCommandError
+ */
+const de_DeletePodIdentityAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePodIdentityAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2685,6 +2999,62 @@ const de_DescribeNodegroupCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribePodIdentityAssociationCommand
+ */
+export const de_DescribePodIdentityAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePodIdentityAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribePodIdentityAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    association: (_) => de_PodIdentityAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribePodIdentityAssociationCommandError
+ */
+const de_DescribePodIdentityAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePodIdentityAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeUpdateCommand
  */
 export const de_DescribeUpdateCommand = async (
@@ -3143,6 +3513,63 @@ const de_ListNodegroupsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.eks#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListPodIdentityAssociationsCommand
+ */
+export const de_ListPodIdentityAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPodIdentityAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPodIdentityAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    associations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPodIdentityAssociationsCommandError
+ */
+const de_ListPodIdentityAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPodIdentityAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3789,6 +4216,62 @@ const de_UpdateNodegroupVersionCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdatePodIdentityAssociationCommand
+ */
+export const de_UpdatePodIdentityAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePodIdentityAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePodIdentityAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    association: (_) => de_PodIdentityAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePodIdentityAssociationCommandError
+ */
+const de_UpdatePodIdentityAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePodIdentityAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -4363,6 +4846,27 @@ const de_Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
 // de_OidcIdentityProviderConfig omitted.
 
 // de_OutpostConfigResponse omitted.
+
+/**
+ * deserializeAws_restJson1PodIdentityAssociation
+ */
+const de_PodIdentityAssociation = (output: any, context: __SerdeContext): PodIdentityAssociation => {
+  return take(output, {
+    associationArn: __expectString,
+    associationId: __expectString,
+    clusterName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    namespace: __expectString,
+    roleArn: __expectString,
+    serviceAccount: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+// de_PodIdentityAssociationSummaries omitted.
+
+// de_PodIdentityAssociationSummary omitted.
 
 // de_Provider omitted.
 

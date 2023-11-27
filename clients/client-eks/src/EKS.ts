@@ -33,6 +33,11 @@ import {
   CreateNodegroupCommandInput,
   CreateNodegroupCommandOutput,
 } from "./commands/CreateNodegroupCommand";
+import {
+  CreatePodIdentityAssociationCommand,
+  CreatePodIdentityAssociationCommandInput,
+  CreatePodIdentityAssociationCommandOutput,
+} from "./commands/CreatePodIdentityAssociationCommand";
 import { DeleteAddonCommand, DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import {
   DeleteClusterCommand,
@@ -54,6 +59,11 @@ import {
   DeleteNodegroupCommandInput,
   DeleteNodegroupCommandOutput,
 } from "./commands/DeleteNodegroupCommand";
+import {
+  DeletePodIdentityAssociationCommand,
+  DeletePodIdentityAssociationCommandInput,
+  DeletePodIdentityAssociationCommandOutput,
+} from "./commands/DeletePodIdentityAssociationCommand";
 import {
   DeregisterClusterCommand,
   DeregisterClusterCommandInput,
@@ -100,6 +110,11 @@ import {
   DescribeNodegroupCommandOutput,
 } from "./commands/DescribeNodegroupCommand";
 import {
+  DescribePodIdentityAssociationCommand,
+  DescribePodIdentityAssociationCommandInput,
+  DescribePodIdentityAssociationCommandOutput,
+} from "./commands/DescribePodIdentityAssociationCommand";
+import {
   DescribeUpdateCommand,
   DescribeUpdateCommandInput,
   DescribeUpdateCommandOutput,
@@ -135,6 +150,11 @@ import {
   ListNodegroupsCommandInput,
   ListNodegroupsCommandOutput,
 } from "./commands/ListNodegroupsCommand";
+import {
+  ListPodIdentityAssociationsCommand,
+  ListPodIdentityAssociationsCommandInput,
+  ListPodIdentityAssociationsCommandOutput,
+} from "./commands/ListPodIdentityAssociationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -178,6 +198,11 @@ import {
   UpdateNodegroupVersionCommandInput,
   UpdateNodegroupVersionCommandOutput,
 } from "./commands/UpdateNodegroupVersionCommand";
+import {
+  UpdatePodIdentityAssociationCommand,
+  UpdatePodIdentityAssociationCommandInput,
+  UpdatePodIdentityAssociationCommandOutput,
+} from "./commands/UpdatePodIdentityAssociationCommand";
 import { EKSClient, EKSClientConfig } from "./EKSClient";
 
 const commands = {
@@ -188,11 +213,13 @@ const commands = {
   CreateEksAnywhereSubscriptionCommand,
   CreateFargateProfileCommand,
   CreateNodegroupCommand,
+  CreatePodIdentityAssociationCommand,
   DeleteAddonCommand,
   DeleteClusterCommand,
   DeleteEksAnywhereSubscriptionCommand,
   DeleteFargateProfileCommand,
   DeleteNodegroupCommand,
+  DeletePodIdentityAssociationCommand,
   DeregisterClusterCommand,
   DescribeAddonCommand,
   DescribeAddonConfigurationCommand,
@@ -202,6 +229,7 @@ const commands = {
   DescribeFargateProfileCommand,
   DescribeIdentityProviderConfigCommand,
   DescribeNodegroupCommand,
+  DescribePodIdentityAssociationCommand,
   DescribeUpdateCommand,
   DisassociateIdentityProviderConfigCommand,
   ListAddonsCommand,
@@ -210,6 +238,7 @@ const commands = {
   ListFargateProfilesCommand,
   ListIdentityProviderConfigsCommand,
   ListNodegroupsCommand,
+  ListPodIdentityAssociationsCommand,
   ListTagsForResourceCommand,
   ListUpdatesCommand,
   RegisterClusterCommand,
@@ -221,6 +250,7 @@ const commands = {
   UpdateEksAnywhereSubscriptionCommand,
   UpdateNodegroupConfigCommand,
   UpdateNodegroupVersionCommand,
+  UpdatePodIdentityAssociationCommand,
 };
 
 export interface EKS {
@@ -329,6 +359,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link CreatePodIdentityAssociationCommand}
+   */
+  createPodIdentityAssociation(
+    args: CreatePodIdentityAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePodIdentityAssociationCommandOutput>;
+  createPodIdentityAssociation(
+    args: CreatePodIdentityAssociationCommandInput,
+    cb: (err: any, data?: CreatePodIdentityAssociationCommandOutput) => void
+  ): void;
+  createPodIdentityAssociation(
+    args: CreatePodIdentityAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePodIdentityAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAddonCommand}
    */
   deleteAddon(args: DeleteAddonCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAddonCommandOutput>;
@@ -396,6 +443,23 @@ export interface EKS {
     args: DeleteNodegroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteNodegroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePodIdentityAssociationCommand}
+   */
+  deletePodIdentityAssociation(
+    args: DeletePodIdentityAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePodIdentityAssociationCommandOutput>;
+  deletePodIdentityAssociation(
+    args: DeletePodIdentityAssociationCommandInput,
+    cb: (err: any, data?: DeletePodIdentityAssociationCommandOutput) => void
+  ): void;
+  deletePodIdentityAssociation(
+    args: DeletePodIdentityAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePodIdentityAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -543,6 +607,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link DescribePodIdentityAssociationCommand}
+   */
+  describePodIdentityAssociation(
+    args: DescribePodIdentityAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePodIdentityAssociationCommandOutput>;
+  describePodIdentityAssociation(
+    args: DescribePodIdentityAssociationCommandInput,
+    cb: (err: any, data?: DescribePodIdentityAssociationCommandOutput) => void
+  ): void;
+  describePodIdentityAssociation(
+    args: DescribePodIdentityAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePodIdentityAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeUpdateCommand}
    */
   describeUpdate(
@@ -658,6 +739,23 @@ export interface EKS {
     args: ListNodegroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListNodegroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPodIdentityAssociationsCommand}
+   */
+  listPodIdentityAssociations(
+    args: ListPodIdentityAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPodIdentityAssociationsCommandOutput>;
+  listPodIdentityAssociations(
+    args: ListPodIdentityAssociationsCommandInput,
+    cb: (err: any, data?: ListPodIdentityAssociationsCommandOutput) => void
+  ): void;
+  listPodIdentityAssociations(
+    args: ListPodIdentityAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPodIdentityAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -818,6 +916,23 @@ export interface EKS {
     args: UpdateNodegroupVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateNodegroupVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePodIdentityAssociationCommand}
+   */
+  updatePodIdentityAssociation(
+    args: UpdatePodIdentityAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePodIdentityAssociationCommandOutput>;
+  updatePodIdentityAssociation(
+    args: UpdatePodIdentityAssociationCommandInput,
+    cb: (err: any, data?: UpdatePodIdentityAssociationCommandOutput) => void
+  ): void;
+  updatePodIdentityAssociation(
+    args: UpdatePodIdentityAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePodIdentityAssociationCommandOutput) => void
   ): void;
 }
 

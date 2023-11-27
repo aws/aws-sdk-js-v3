@@ -69,6 +69,10 @@ import {
   CreateFargateProfileCommandOutput,
 } from "./commands/CreateFargateProfileCommand";
 import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "./commands/CreateNodegroupCommand";
+import {
+  CreatePodIdentityAssociationCommandInput,
+  CreatePodIdentityAssociationCommandOutput,
+} from "./commands/CreatePodIdentityAssociationCommand";
 import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
@@ -80,6 +84,10 @@ import {
   DeleteFargateProfileCommandOutput,
 } from "./commands/DeleteFargateProfileCommand";
 import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./commands/DeleteNodegroupCommand";
+import {
+  DeletePodIdentityAssociationCommandInput,
+  DeletePodIdentityAssociationCommandOutput,
+} from "./commands/DeletePodIdentityAssociationCommand";
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "./commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
 import {
@@ -104,6 +112,10 @@ import {
   DescribeIdentityProviderConfigCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "./commands/DescribeNodegroupCommand";
+import {
+  DescribePodIdentityAssociationCommandInput,
+  DescribePodIdentityAssociationCommandOutput,
+} from "./commands/DescribePodIdentityAssociationCommand";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "./commands/DescribeUpdateCommand";
 import {
   DisassociateIdentityProviderConfigCommandInput,
@@ -124,6 +136,10 @@ import {
   ListIdentityProviderConfigsCommandOutput,
 } from "./commands/ListIdentityProviderConfigsCommand";
 import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "./commands/ListNodegroupsCommand";
+import {
+  ListPodIdentityAssociationsCommandInput,
+  ListPodIdentityAssociationsCommandOutput,
+} from "./commands/ListPodIdentityAssociationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -154,6 +170,10 @@ import {
   UpdateNodegroupVersionCommandOutput,
 } from "./commands/UpdateNodegroupVersionCommand";
 import {
+  UpdatePodIdentityAssociationCommandInput,
+  UpdatePodIdentityAssociationCommandOutput,
+} from "./commands/UpdatePodIdentityAssociationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -175,11 +195,13 @@ export type ServiceInputTypes =
   | CreateEksAnywhereSubscriptionCommandInput
   | CreateFargateProfileCommandInput
   | CreateNodegroupCommandInput
+  | CreatePodIdentityAssociationCommandInput
   | DeleteAddonCommandInput
   | DeleteClusterCommandInput
   | DeleteEksAnywhereSubscriptionCommandInput
   | DeleteFargateProfileCommandInput
   | DeleteNodegroupCommandInput
+  | DeletePodIdentityAssociationCommandInput
   | DeregisterClusterCommandInput
   | DescribeAddonCommandInput
   | DescribeAddonConfigurationCommandInput
@@ -189,6 +211,7 @@ export type ServiceInputTypes =
   | DescribeFargateProfileCommandInput
   | DescribeIdentityProviderConfigCommandInput
   | DescribeNodegroupCommandInput
+  | DescribePodIdentityAssociationCommandInput
   | DescribeUpdateCommandInput
   | DisassociateIdentityProviderConfigCommandInput
   | ListAddonsCommandInput
@@ -197,6 +220,7 @@ export type ServiceInputTypes =
   | ListFargateProfilesCommandInput
   | ListIdentityProviderConfigsCommandInput
   | ListNodegroupsCommandInput
+  | ListPodIdentityAssociationsCommandInput
   | ListTagsForResourceCommandInput
   | ListUpdatesCommandInput
   | RegisterClusterCommandInput
@@ -207,7 +231,8 @@ export type ServiceInputTypes =
   | UpdateClusterVersionCommandInput
   | UpdateEksAnywhereSubscriptionCommandInput
   | UpdateNodegroupConfigCommandInput
-  | UpdateNodegroupVersionCommandInput;
+  | UpdateNodegroupVersionCommandInput
+  | UpdatePodIdentityAssociationCommandInput;
 
 /**
  * @public
@@ -220,11 +245,13 @@ export type ServiceOutputTypes =
   | CreateEksAnywhereSubscriptionCommandOutput
   | CreateFargateProfileCommandOutput
   | CreateNodegroupCommandOutput
+  | CreatePodIdentityAssociationCommandOutput
   | DeleteAddonCommandOutput
   | DeleteClusterCommandOutput
   | DeleteEksAnywhereSubscriptionCommandOutput
   | DeleteFargateProfileCommandOutput
   | DeleteNodegroupCommandOutput
+  | DeletePodIdentityAssociationCommandOutput
   | DeregisterClusterCommandOutput
   | DescribeAddonCommandOutput
   | DescribeAddonConfigurationCommandOutput
@@ -234,6 +261,7 @@ export type ServiceOutputTypes =
   | DescribeFargateProfileCommandOutput
   | DescribeIdentityProviderConfigCommandOutput
   | DescribeNodegroupCommandOutput
+  | DescribePodIdentityAssociationCommandOutput
   | DescribeUpdateCommandOutput
   | DisassociateIdentityProviderConfigCommandOutput
   | ListAddonsCommandOutput
@@ -242,6 +270,7 @@ export type ServiceOutputTypes =
   | ListFargateProfilesCommandOutput
   | ListIdentityProviderConfigsCommandOutput
   | ListNodegroupsCommandOutput
+  | ListPodIdentityAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUpdatesCommandOutput
   | RegisterClusterCommandOutput
@@ -252,7 +281,8 @@ export type ServiceOutputTypes =
   | UpdateClusterVersionCommandOutput
   | UpdateEksAnywhereSubscriptionCommandOutput
   | UpdateNodegroupConfigCommandOutput
-  | UpdateNodegroupVersionCommandOutput;
+  | UpdateNodegroupVersionCommandOutput
+  | UpdatePodIdentityAssociationCommandOutput;
 
 /**
  * @public

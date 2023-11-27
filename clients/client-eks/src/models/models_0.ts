@@ -654,7 +654,12 @@ export class ClientException extends __BaseException {
    */
   nodegroupName?: string;
 
+  /**
+   * @public
+   * <p>The Amazon EKS add-on name associated with the exception.</p>
+   */
   addonName?: string;
+
   /**
    * @public
    * <p>The Amazon EKS  subscription ID with the exception.</p>
@@ -704,7 +709,13 @@ export class InvalidParameterException extends __BaseException {
    */
   fargateProfileName?: string;
 
+  /**
+   * @public
+   * <p>The specified parameter for the add-on name is invalid. Review the available
+   *             parameters for the API request</p>
+   */
   addonName?: string;
+
   /**
    * @public
    * <p>The Amazon EKS  subscription ID with the exception.</p>
@@ -749,7 +760,13 @@ export class InvalidRequestException extends __BaseException {
    */
   nodegroupName?: string;
 
+  /**
+   * @public
+   * <p>The request is invalid given the state of the add-on name. Check the state of the
+   *             cluster and the associated operations.</p>
+   */
   addonName?: string;
+
   /**
    * @public
    * <p>The Amazon EKS  subscription ID with the exception.</p>
@@ -792,7 +809,12 @@ export class ResourceInUseException extends __BaseException {
    */
   nodegroupName?: string;
 
+  /**
+   * @public
+   * <p>The specified add-on name is in use.</p>
+   */
   addonName?: string;
+
   /**
    * @internal
    */
@@ -837,7 +859,12 @@ export class ResourceNotFoundException extends __BaseException {
    */
   fargateProfileName?: string;
 
+  /**
+   * @public
+   * <p>The Amazon EKS add-on name associated with the exception.</p>
+   */
   addonName?: string;
+
   /**
    * @public
    * <p>The Amazon EKS  subscription ID with the exception.</p>
@@ -881,7 +908,12 @@ export class ServerException extends __BaseException {
    */
   nodegroupName?: string;
 
+  /**
+   * @public
+   * <p>The Amazon EKS add-on name associated with the exception.</p>
+   */
   addonName?: string;
+
   /**
    * @public
    * <p>The Amazon EKS  subscription ID with the exception.</p>
@@ -2125,7 +2157,7 @@ export interface EksAnywhereSubscriptionTerm {
 
   /**
    * @public
-   * <p>The term unit of the subscription. Valid value is MONTHS.</p>
+   * <p>The term unit of the subscription. Valid value is <code>MONTHS</code>.</p>
    */
   unit?: EksAnywhereSubscriptionTermUnit;
 }
@@ -2155,7 +2187,7 @@ export interface CreateEksAnywhereSubscriptionRequest {
   /**
    * @public
    * <p>The number of licenses to purchase with the subscription. Valid values are between 1
-   *             and 1000. This value cannot be changed after creating the subscription.</p>
+   *             and 100. This value can't be changed after creating the subscription.</p>
    */
   licenseQuantity?: number;
 
@@ -2183,7 +2215,7 @@ export interface CreateEksAnywhereSubscriptionRequest {
   /**
    * @public
    * <p>The metadata for a subscription to assist with categorization and organization. Each
-   *             tag consists of a key and an optional value. Subscription tags do not propagate to any
+   *             tag consists of a key and an optional value. Subscription tags don't propagate to any
    *             other resources associated with the subscription.</p>
    */
   tags?: Record<string, string>;
@@ -2229,7 +2261,7 @@ export interface EksAnywhereSubscription {
   /**
    * @public
    * <p>The number of licenses included in a subscription. Valid values are between 1 and
-   *             1000.</p>
+   *             100.</p>
    */
   licenseQuantity?: number;
 
@@ -2262,7 +2294,7 @@ export interface EksAnywhereSubscription {
 
   /**
    * @public
-   * <p>License Manager License ARNs associated with the subscription.</p>
+   * <p>Amazon Web Services License Manager ARN associated with the subscription.</p>
    */
   licenseArns?: string[];
 
@@ -3234,6 +3266,190 @@ export interface CreateNodegroupResponse {
 /**
  * @public
  */
+export interface CreatePodIdentityAssociationRequest {
+  /**
+   * @public
+   * <p>The name of the cluster to create the association in.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
+   *             service account and the pods that use the service account must be in this
+   *             namespace.</p>
+   */
+  namespace: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.</p>
+   */
+  serviceAccount: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity
+   *             agent manages credentials to assume this role for applications in the containers in the
+   *             pods that use this service account.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The metadata that you apply to a resource to assist with categorization and organization. Each tag consists of a key and an optional value. You define both.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource – 50</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only
+   *                     one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length – 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length – 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources,
+   *                     remember that other services may have restrictions on allowed characters.
+   *                     Generally allowed characters are: letters, numbers, and spaces representable in
+   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
+   *                     combination of such as a prefix for either keys or values as it is reserved for
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     this prefix do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that 7EC2l instance profiles provide credentials to Amazon EC2 instances.</p>
+ */
+export interface PodIdentityAssociation {
+  /**
+   * @public
+   * <p>The name of the cluster that the association is in.</p>
+   */
+  clusterName?: string;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
+   *             service account and the pods that use the service account must be in this
+   *             namespace.</p>
+   */
+  namespace?: string;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.</p>
+   */
+  serviceAccount?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity
+   *             agent manages credentials to assume this role for applications in the containers in the
+   *             pods that use this service account.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   */
+  associationArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the association.</p>
+   */
+  associationId?: string;
+
+  /**
+   * @public
+   * <p>The metadata that you apply to a resource to assist with categorization and organization. Each tag consists of a key and an optional value. You define both.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource – 50</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only
+   *                     one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length – 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length – 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources,
+   *                     remember that other services may have restrictions on allowed characters.
+   *                     Generally allowed characters are: letters, numbers, and spaces representable in
+   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
+   *                     combination of such as a prefix for either keys or values as it is reserved for
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     this prefix do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The timestamp that the association was created at.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * @public
+   * <p>The most recent timestamp that the association was modified at</p>
+   */
+  modifiedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreatePodIdentityAssociationResponse {
+  /**
+   * @public
+   * <p>The full description of your new association.</p>
+   *          <p>The description includes an ID for the association. Use the ID of the association in further
+   *             actions to manage the association.</p>
+   */
+  association?: PodIdentityAssociation;
+}
+
+/**
+ * @public
+ */
 export interface DeleteAddonRequest {
   /**
    * @public
@@ -3369,6 +3585,34 @@ export interface DeleteNodegroupResponse {
    * <p>The full description of your deleted node group.</p>
    */
   nodegroup?: Nodegroup;
+}
+
+/**
+ * @public
+ */
+export interface DeletePodIdentityAssociationRequest {
+  /**
+   * @public
+   * <p>The cluster name that</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the association to be deleted.</p>
+   */
+  associationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePodIdentityAssociationResponse {
+  /**
+   * @public
+   * <p>The full description of the EKS Pod Identity association that was deleted.</p>
+   */
+  association?: PodIdentityAssociation;
 }
 
 /**
@@ -3543,10 +3787,11 @@ export interface DescribeAddonVersionsResponse {
 
   /**
    * @public
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *                 <code>DescribeAddonVersionsResponse</code> where <code>maxResults</code> was used
-   *             and the results exceeded the value of that parameter. Pagination continues from the end
-   *             of the previous results that returned the <code>nextToken</code> value.</p>
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>DescribeAddonVersions</code> request. When the results of a
+   *                 <code>DescribeAddonVersions</code> request exceed <code>maxResults</code>, you can
+   *             use this value to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
    *          <note>
    *             <p>This token should be treated as an opaque identifier that is used only to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
@@ -3824,6 +4069,34 @@ export interface DescribeNodegroupResponse {
 /**
  * @public
  */
+export interface DescribePodIdentityAssociationRequest {
+  /**
+   * @public
+   * <p>The name of the cluster that the association is in.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the association that you want the description of.</p>
+   */
+  associationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePodIdentityAssociationResponse {
+  /**
+   * @public
+   * <p>The full description of the EKS Pod Identity association.</p>
+   */
+  association?: PodIdentityAssociation;
+}
+
+/**
+ * @public
+ */
 export interface DescribeUpdateRequest {
   /**
    * @public
@@ -3949,10 +4222,11 @@ export interface ListAddonsResponse {
 
   /**
    * @public
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *                 <code>ListAddonsResponse</code> where <code>maxResults</code> was used and the
-   *             results exceeded the value of that parameter. Pagination continues from the end of the
-   *             previous results that returned the <code>nextToken</code> value.</p>
+   * <p>The <code>nextToken</code> value to include in a future <code>ListAddons</code>
+   *             request. When the results of a <code>ListAddons</code> request exceed
+   *                 <code>maxResults</code>, you can use this value to retrieve the next page of
+   *             results. This value is <code>null</code> when there are no more results to
+   *             return.</p>
    *          <note>
    *             <p>This token should be treated as an opaque identifier that is used only to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
@@ -4058,10 +4332,10 @@ export interface ListEksAnywhereSubscriptionsRequest {
 
   /**
    * @public
-   * <p>The nextToken value to include in a future ListEksAnywhereSubscriptions request. When
-   *             the results of a ListEksAnywhereSubscriptions request exceed maxResults, you can use
-   *             this value to retrieve the next page of results. This value is null when there are no
-   *             more results to return.</p>
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListEksAnywhereSubscriptions</code> request where <code>maxResults</code> was used and the
+   *             results exceeded the value of that parameter. Pagination continues from the end of the
+   *             previous results that returned the <code>nextToken</code> value.</p>
    */
   nextToken?: string;
 
@@ -4196,10 +4470,12 @@ export interface ListIdentityProviderConfigsResponse {
 
   /**
    * @public
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *                 <code>ListIdentityProviderConfigsResponse</code> where <code>maxResults</code> was
-   *             used and the results exceeded the value of that parameter. Pagination continues from the
-   *             end of the previous results that returned the <code>nextToken</code> value.</p>
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>ListIdentityProviderConfigsResponse</code> request. When the results of a
+   *                 <code>ListIdentityProviderConfigsResponse</code> request exceed
+   *                 <code>maxResults</code>, you can use this value to retrieve the next page of
+   *             results. This value is <code>null</code> when there are no more results to
+   *             return.</p>
    */
   nextToken?: string;
 }
@@ -4255,6 +4531,163 @@ export interface ListNodegroupsResponse {
    *                 <code>maxResults</code>, you can use this value to retrieve the next page of
    *             results. This value is <code>null</code> when there are no more results to
    *             return.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPodIdentityAssociationsRequest {
+  /**
+   * @public
+   * <p>The name of the cluster that the associations are in.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes namespace inside the cluster that the associations are in.</p>
+   */
+  namespace?: string;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes service account that the associations use.</p>
+   */
+  serviceAccount?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of EKS Pod Identity association results returned by
+   *                 <code>ListPodIdentityAssociations</code> in paginated output. When you use this
+   *             parameter, <code>ListPodIdentityAssociations</code> returns only <code>maxResults</code>
+   *             results in a single page along with a <code>nextToken</code> response element. You can
+   *             see the remaining results of the initial request by sending another
+   *                 <code>ListPodIdentityAssociations</code> request with the returned
+   *                 <code>nextToken</code> value. This value can be between 1 and
+   *             100. If you don't use this parameter,
+   *                 <code>ListPodIdentityAssociations</code> returns up to 100 results
+   *             and a <code>nextToken</code> value if applicable.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListUpdates</code> request where <code>maxResults</code> was used and the
+   *             results exceeded the value of that parameter. Pagination continues from the end of the
+   *             previous results that returned the <code>nextToken</code> value.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is used only to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The summarized description of the association.</p>
+ *          <p>Each summary is simplified by removing these fields compared to the full <code>
+ *                <a>PodIdentityAssociation</a>
+ *             </code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The IAM role: <code>roleArn</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>The timestamp that the association was created at: <code>createdAt</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>The most recent timestamp that the association was modified at:. <code>modifiedAt</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>The tags on the association: <code>tags</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface PodIdentityAssociationSummary {
+  /**
+   * @public
+   * <p>The name of the cluster that the association is in.</p>
+   */
+  clusterName?: string;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
+   *             service account and the pods that use the service account must be in this
+   *             namespace.</p>
+   */
+  namespace?: string;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.</p>
+   */
+  serviceAccount?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   */
+  associationArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the association.</p>
+   */
+  associationId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPodIdentityAssociationsResponse {
+  /**
+   * @public
+   * <p>The list of summarized descriptions of the associations that are in the cluster and match any
+   *             filters that you provided.</p>
+   *          <p>Each summary is simplified by removing these fields compared to the full <code>
+   *                <a>PodIdentityAssociation</a>
+   *             </code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The IAM role: <code>roleArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>The timestamp that the association was created at: <code>createdAt</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>The most recent timestamp that the association was modified at:. <code>modifiedAt</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>The tags on the association: <code>tags</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  associations?: PodIdentityAssociationSummary[];
+
+  /**
+   * @public
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>ListPodIdentityAssociations</code> request. When the results of a
+   *                 <code>ListPodIdentityAssociations</code> request exceed <code>maxResults</code>, you
+   *             can use this value to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is used only to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
    */
   nextToken?: string;
 }
@@ -4725,7 +5158,7 @@ export interface UpdateClusterVersionResponse {
 export interface UpdateEksAnywhereSubscriptionRequest {
   /**
    * @public
-   * <p></p>
+   * <p>The ID of the subscription.</p>
    */
   id: string | undefined;
 
@@ -4927,4 +5360,44 @@ export interface UpdateNodegroupVersionResponse {
    * <p>An object representing an asynchronous update.</p>
    */
   update?: Update;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePodIdentityAssociationRequest {
+  /**
+   * @public
+   * <p>The name of the cluster that you want to update the association in.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the association to be updated.</p>
+   */
+  associationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The new IAM role to change the </p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePodIdentityAssociationResponse {
+  /**
+   * @public
+   * <p>The full description of the EKS Pod Identity association that was updated.</p>
+   */
+  association?: PodIdentityAssociation;
 }

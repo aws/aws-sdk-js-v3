@@ -15,10 +15,10 @@ import {
 } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DeleteEksAnywhereSubscriptionRequest, DeleteEksAnywhereSubscriptionResponse } from "../models/models_0";
+import { UpdatePodIdentityAssociationRequest, UpdatePodIdentityAssociationResponse } from "../models/models_0";
 import {
-  de_DeleteEksAnywhereSubscriptionCommand,
-  se_DeleteEksAnywhereSubscriptionCommand,
+  de_UpdatePodIdentityAssociationCommand,
+  se_UpdatePodIdentityAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,71 +28,65 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteEksAnywhereSubscriptionCommand}.
+ * The input for {@link UpdatePodIdentityAssociationCommand}.
  */
-export interface DeleteEksAnywhereSubscriptionCommandInput extends DeleteEksAnywhereSubscriptionRequest {}
+export interface UpdatePodIdentityAssociationCommandInput extends UpdatePodIdentityAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteEksAnywhereSubscriptionCommand}.
+ * The output of {@link UpdatePodIdentityAssociationCommand}.
  */
-export interface DeleteEksAnywhereSubscriptionCommandOutput
-  extends DeleteEksAnywhereSubscriptionResponse,
+export interface UpdatePodIdentityAssociationCommandOutput
+  extends UpdatePodIdentityAssociationResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes an expired or inactive subscription. Deleting inactive subscriptions removes
- *             them from the Amazon Web Services Management Console view and from list/describe API responses.
- *             Subscriptions can only be cancelled within 7 days of creation and are cancelled by
- *             creating a ticket in the Amazon Web Services Support Center. </p>
+ * <p>Updates a EKS Pod Identity association. Only the IAM role can be changed; an association can't be moved
+ *             between clusters, namespaces, or service accounts. If you need to edit the namespace
+ *             or service account, you need to remove the association and then create a new
+ *             association with your desired settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DeleteEksAnywhereSubscriptionCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DeleteEksAnywhereSubscriptionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, UpdatePodIdentityAssociationCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, UpdatePodIdentityAssociationCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = { // DeleteEksAnywhereSubscriptionRequest
- *   id: "STRING_VALUE", // required
+ * const input = { // UpdatePodIdentityAssociationRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   associationId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   clientRequestToken: "STRING_VALUE",
  * };
- * const command = new DeleteEksAnywhereSubscriptionCommand(input);
+ * const command = new UpdatePodIdentityAssociationCommand(input);
  * const response = await client.send(command);
- * // { // DeleteEksAnywhereSubscriptionResponse
- * //   subscription: { // EksAnywhereSubscription
- * //     id: "STRING_VALUE",
- * //     arn: "STRING_VALUE",
- * //     createdAt: new Date("TIMESTAMP"),
- * //     effectiveDate: new Date("TIMESTAMP"),
- * //     expirationDate: new Date("TIMESTAMP"),
- * //     licenseQuantity: Number("int"),
- * //     licenseType: "Cluster",
- * //     term: { // EksAnywhereSubscriptionTerm
- * //       duration: Number("int"),
- * //       unit: "MONTHS",
- * //     },
- * //     status: "STRING_VALUE",
- * //     autoRenew: true || false,
- * //     licenseArns: [ // StringList
- * //       "STRING_VALUE",
- * //     ],
+ * // { // UpdatePodIdentityAssociationResponse
+ * //   association: { // PodIdentityAssociation
+ * //     clusterName: "STRING_VALUE",
+ * //     namespace: "STRING_VALUE",
+ * //     serviceAccount: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     associationArn: "STRING_VALUE",
+ * //     associationId: "STRING_VALUE",
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     modifiedAt: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
  * ```
  *
- * @param DeleteEksAnywhereSubscriptionCommandInput - {@link DeleteEksAnywhereSubscriptionCommandInput}
- * @returns {@link DeleteEksAnywhereSubscriptionCommandOutput}
- * @see {@link DeleteEksAnywhereSubscriptionCommandInput} for command's `input` shape.
- * @see {@link DeleteEksAnywhereSubscriptionCommandOutput} for command's `response` shape.
+ * @param UpdatePodIdentityAssociationCommandInput - {@link UpdatePodIdentityAssociationCommandInput}
+ * @returns {@link UpdatePodIdentityAssociationCommandOutput}
+ * @see {@link UpdatePodIdentityAssociationCommandInput} for command's `input` shape.
+ * @see {@link UpdatePodIdentityAssociationCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
- * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
@@ -111,9 +105,9 @@ export interface DeleteEksAnywhereSubscriptionCommandOutput
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class DeleteEksAnywhereSubscriptionCommand extends $Command<
-  DeleteEksAnywhereSubscriptionCommandInput,
-  DeleteEksAnywhereSubscriptionCommandOutput,
+export class UpdatePodIdentityAssociationCommand extends $Command<
+  UpdatePodIdentityAssociationCommandInput,
+  UpdatePodIdentityAssociationCommandOutput,
   EKSClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -128,7 +122,7 @@ export class DeleteEksAnywhereSubscriptionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteEksAnywhereSubscriptionCommandInput) {
+  constructor(readonly input: UpdatePodIdentityAssociationCommandInput) {
     super();
   }
 
@@ -139,17 +133,17 @@ export class DeleteEksAnywhereSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteEksAnywhereSubscriptionCommandInput, DeleteEksAnywhereSubscriptionCommandOutput> {
+  ): Handler<UpdatePodIdentityAssociationCommandInput, UpdatePodIdentityAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteEksAnywhereSubscriptionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdatePodIdentityAssociationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EKSClient";
-    const commandName = "DeleteEksAnywhereSubscriptionCommand";
+    const commandName = "UpdatePodIdentityAssociationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -158,7 +152,7 @@ export class DeleteEksAnywhereSubscriptionCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSWesleyFrontend",
-        operation: "DeleteEksAnywhereSubscription",
+        operation: "UpdatePodIdentityAssociation",
       },
     };
     const { requestHandler } = configuration;
@@ -172,8 +166,8 @@ export class DeleteEksAnywhereSubscriptionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteEksAnywhereSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteEksAnywhereSubscriptionCommand(input, context);
+  private serialize(input: UpdatePodIdentityAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdatePodIdentityAssociationCommand(input, context);
   }
 
   /**
@@ -182,7 +176,7 @@ export class DeleteEksAnywhereSubscriptionCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeleteEksAnywhereSubscriptionCommandOutput> {
-    return de_DeleteEksAnywhereSubscriptionCommand(output, context);
+  ): Promise<UpdatePodIdentityAssociationCommandOutput> {
+    return de_UpdatePodIdentityAssociationCommand(output, context);
   }
 }

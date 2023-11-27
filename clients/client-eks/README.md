@@ -269,6 +269,14 @@ CreateNodegroup
 </details>
 <details>
 <summary>
+CreatePodIdentityAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/CreatePodIdentityAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CreatePodIdentityAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CreatePodIdentityAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteAddon
 </summary>
 
@@ -305,6 +313,14 @@ DeleteNodegroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DeleteNodegroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeleteNodegroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeleteNodegroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePodIdentityAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DeletePodIdentityAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeletePodIdentityAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeletePodIdentityAssociationCommandOutput/)
 
 </details>
 <details>
@@ -381,6 +397,14 @@ DescribeNodegroup
 </details>
 <details>
 <summary>
+DescribePodIdentityAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DescribePodIdentityAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DescribePodIdentityAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DescribePodIdentityAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeUpdate
 </summary>
 
@@ -441,6 +465,14 @@ ListNodegroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/ListNodegroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListNodegroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListNodegroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPodIdentityAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/ListPodIdentityAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListPodIdentityAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListPodIdentityAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -529,5 +561,13 @@ UpdateNodegroupVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/UpdateNodegroupVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UpdateNodegroupVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UpdateNodegroupVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdatePodIdentityAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/UpdatePodIdentityAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UpdatePodIdentityAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UpdatePodIdentityAssociationCommandOutput/)
 
 </details>
