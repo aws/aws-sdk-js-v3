@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
+
+
+### Features
+
+* **client-transcribe:** This release adds support for transcriptions from audio sources in 64 new languages and introduces generative call summarization in Transcribe Call Analytics (Post call) ([419b519](https://github.com/aws/aws-sdk-js-v3/commit/419b5195f545491f50ce575665e2888de3372406))
+
+
+
+
+
 # [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe

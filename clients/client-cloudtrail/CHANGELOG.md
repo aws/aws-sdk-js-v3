@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
+
+
+### Features
+
+* **client-cloudtrail:** CloudTrail Lake now supports federating event data stores. giving users the ability to run queries against their event data using Amazon Athena. ([3cccfec](https://github.com/aws/aws-sdk-js-v3/commit/3cccfec105af685ffbceef1d83d645a65ec2e559))
+
+
+
+
+
 # [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

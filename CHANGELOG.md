@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
+
+
+### Features
+
+* **client-accessanalyzer:** IAM Access Analyzer now continuously monitors IAM roles and users in your AWS account or organization to generate findings for unused access. Additionally, IAM Access Analyzer now provides custom policy checks to validate that IAM policies adhere to your security standards ahead of deployments. ([548e686](https://github.com/aws/aws-sdk-js-v3/commit/548e68695368cb8f7da38061c12227b05ce42781))
+* **client-amp:** This release adds support for the Amazon Managed Service for Prometheus collector, a fully managed, agentless Prometheus metrics scraping capability. ([09743d7](https://github.com/aws/aws-sdk-js-v3/commit/09743d7b68011dfcfe7c90cd29e3e53ecd1febd9))
+* **client-bcm-data-exports:** Users can create, read, update, delete Exports of billing and cost management data.  Users can get details of Export Executions and details of Tables for exporting.  Tagging support is provided for Exports ([c190128](https://github.com/aws/aws-sdk-js-v3/commit/c19012882436d517f04e49e3bf6d806d4cfed26d))
+* **client-cloudtrail:** CloudTrail Lake now supports federating event data stores. giving users the ability to run queries against their event data using Amazon Athena. ([3cccfec](https://github.com/aws/aws-sdk-js-v3/commit/3cccfec105af685ffbceef1d83d645a65ec2e559))
+* **client-cloudwatch-logs:** Added APIs to Create, Update, Get, List and Delete LogAnomalyDetectors and List and Update Anomalies in Detector. Added LogGroupClass attribute for LogGroups to classify loggroup as Standard loggroup with all capabilities or InfrequentAccess loggroup with limited capabilities. ([a78717e](https://github.com/aws/aws-sdk-js-v3/commit/a78717e6fb0427631ca7556beb009eb4682710e6))
+* **client-codestar-connections:** This release adds support for the CloudFormation Git sync feature. Git sync enables updating a CloudFormation stack from a template stored in a Git repository. ([8c49490](https://github.com/aws/aws-sdk-js-v3/commit/8c49490acc69a9fe4bf051915817d17370c23375))
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze and generate recommendations with customization and discounts preferences. ([400fcdd](https://github.com/aws/aws-sdk-js-v3/commit/400fcdddfd08971dbf53646b78be54c9ebd62a75))
+* **client-config-service:** Support Periodic Recording for Configuration Recorder ([2fc7b07](https://github.com/aws/aws-sdk-js-v3/commit/2fc7b079900f33ebe57d063d45a00d912fb8fa22))
+* **client-controltower:** Add APIs to create and manage a landing zone. ([bb577d1](https://github.com/aws/aws-sdk-js-v3/commit/bb577d170f270e6604d7b4792cb95b12ea3cd15c))
+* **client-cost-optimization-hub:** This release launches Cost Optimization Hub, a new AWS Billing and Cost Management feature that helps you consolidate and prioritize cost optimization recommendations across your AWS Organizations member accounts and AWS Regions, so that you can get the most out of your AWS spend. ([db1b93c](https://github.com/aws/aws-sdk-js-v3/commit/db1b93c802317294d28ffdf056edc0a803ff0edd))
+* **client-detective:** Added new APIs in Detective to support resource investigations ([2471acc](https://github.com/aws/aws-sdk-js-v3/commit/2471acc161b6a0d458e2ab6a8e2645516b6b4deb))
+* **client-ecs:** Adds a new 'type' property to the Setting structure. Adds a new AccountSetting - guardDutyActivate for ECS. ([58559a2](https://github.com/aws/aws-sdk-js-v3/commit/58559a2b2456616d30fb68fa8a9ab3a273b2210b))
+* **client-efs:** Adding support for EFS Archive lifecycle configuration. ([4183714](https://github.com/aws/aws-sdk-js-v3/commit/4183714bb65d1bec3e530e6f492df68eca2f9910))
+* **client-eks-auth:** This release adds support for EKS Pod Identity feature. EKS Pod Identity makes it easy for customers to obtain IAM permissions for their applications running in the EKS clusters. ([35401aa](https://github.com/aws/aws-sdk-js-v3/commit/35401aa18cc06cf6a4d7940faee81ffb1d4193eb))
+* **client-eks:** This release adds support for EKS Pod Identity feature. EKS Pod Identity makes it easy for customers to obtain IAM permissions for the applications running in their EKS clusters. ([0176799](https://github.com/aws/aws-sdk-js-v3/commit/01767997b1a5860657b71a2c68450c4ad0ca40b2))
+* **client-elastic-load-balancing-v2:** This release enables both mutual authentication (mTLS), and Automatic Target Weights (ATW) for Application Load Balancers. ([229ea23](https://github.com/aws/aws-sdk-js-v3/commit/229ea23a43c7cf069f6048f958ee150fab8e252f))
+* **client-freetier:** This is the initial SDK release for the AWS Free Tier GetFreeTierUsage API ([842884c](https://github.com/aws/aws-sdk-js-v3/commit/842884ca411eb4806b924ed462b888bac9250dc6))
+* **client-fsx:** Added support for FSx for ONTAP scale-out file systems and FlexGroup volumes. Added the HAPairs field and ThroughputCapacityPerHAPair for filesystem. Added AggregateConfiguration (containing Aggregates and ConstituentsPerAggregate) and SizeInBytes for volume. ([3638e96](https://github.com/aws/aws-sdk-js-v3/commit/3638e969881f5192644bc80c2dd150b27f253eaa))
+* **client-guardduty:** Add support for Runtime Monitoring for ECS and ECS-EC2. ([c926466](https://github.com/aws/aws-sdk-js-v3/commit/c926466180501d74265f911d0b51a8a598eed3d8))
+* **client-iotfleetwise:** AWS IoT FleetWise introduces new APIs for vision system data, such as data collected from cameras, radars, and lidars. You can now model and decode complex data types. ([db74d14](https://github.com/aws/aws-sdk-js-v3/commit/db74d1473e2e326a6b2bbc270ec797a704089dab))
+* **client-lakeformation:** This release adds four new APIs "DescribeLakeFormationIdentityCenterConfiguration", "CreateLakeFormationIdentityCenterConfiguration", "DescribeLakeFormationIdentityCenterConfiguration", and "DeleteLakeFormationIdentityCenterConfiguration", and also updates the corresponding documentation. ([1862f31](https://github.com/aws/aws-sdk-js-v3/commit/1862f31b19aa4b266cdbfdcaa1286593d6d68332))
+* **client-lex-models-v2:** This release introduces new generative AI features in AWS Lex: Assisted Slot Resolution, Descriptive Bot Building, and Sample Utterance Generation. These features leverage large language models available through Amazon Bedrock to improve the bot builder and customer experiences. ([4d73e4a](https://github.com/aws/aws-sdk-js-v3/commit/4d73e4ab31b75c6d040f1ca82b22811fc955b2ff))
+* **client-lex-runtime-v2:** This release introduces support for interpretationSource in the runtime service response. ([4b9f04f](https://github.com/aws/aws-sdk-js-v3/commit/4b9f04f9a814c2abde1e426908a46ff275c00c98))
+* **client-managedblockchain:** Add optional NetworkType property to Accessor APIs ([ffc4c3f](https://github.com/aws/aws-sdk-js-v3/commit/ffc4c3f6eef9943a3a9c91162480cb20190c4277))
+* **client-personalize-events:** This release enables PutActions and PutActionInteractions ([c3cf9f2](https://github.com/aws/aws-sdk-js-v3/commit/c3cf9f220bccd958a756d8f3b774e23b96325f07))
+* **client-personalize-runtime:** Enables metadata in recommendations and next best action recommendations ([687e16d](https://github.com/aws/aws-sdk-js-v3/commit/687e16dba929d500d92a1ce01faa2250fc5f8702))
+* **client-personalize:** Enables metadata in recommendations, recommendations with themes, and next best action recommendations ([381121f](https://github.com/aws/aws-sdk-js-v3/commit/381121ffa89162d441c55383511ba6209fa95e19))
+* **client-quicksight:** This release launches new APIs for trusted identity propagation setup and supports creating datasources using trusted identity propagation as authentication method for QuickSight accounts configured with IAM Identity Center. ([32249c5](https://github.com/aws/aws-sdk-js-v3/commit/32249c5931a3e158a40d6ecd1e39683b2e5ad4d9))
+* **client-redshift:** This release adds support for multi-data warehouse writes through data sharing. ([a35d23c](https://github.com/aws/aws-sdk-js-v3/commit/a35d23cf05e69f3d329d81426adf79f341728e10))
+* **client-repostspace:** Initial release of AWS re:Post Private ([648c9e7](https://github.com/aws/aws-sdk-js-v3/commit/648c9e7dd5e0b1d5ffb7c0c93f0f0f6ee9ff114a))
+* **client-s3-control:** Introduce Amazon S3 Access Grants, a new S3 access control feature that maps identities in directories such as Active Directory, or AWS Identity and Access Management (IAM) Principals, to datasets in S3. ([78a4dca](https://github.com/aws/aws-sdk-js-v3/commit/78a4dcae7865db0ba6fe9e20c2e7a65fda95030b))
+* **client-s3:** Adding new params - Key and Prefix, to S3 API operations for supporting S3 Access Grants. Note - These updates will not change any of the existing S3 API functionality. ([ba36517](https://github.com/aws/aws-sdk-js-v3/commit/ba365170a09e9158f77ef05bbf02e481b3f09303))
+* **client-secrets-manager:** AWS Secrets Manager has released the BatchGetSecretValue API, which allows customers to fetch up to 20 Secrets with a single request using a list of secret names or filters. ([95b2429](https://github.com/aws/aws-sdk-js-v3/commit/95b2429631c73ae36bd0b594b844a00faaa73e6b))
+* **client-securityhub:** Adds and updates APIs to support customizable security controls. This feature allows Security Hub customers to provide custom parameters for security controls. With this release, findings for controls that support custom parameters will include the parameters used to generate the findings. ([dc038ef](https://github.com/aws/aws-sdk-js-v3/commit/dc038efb774afa2a8738a44548f0079d03af23bb))
+* **client-sfn:** Adds new TestState operation which accepts the definition of a single state and executes it. You can test a state without creating a state machine or updating an existing state machine. ([71df280](https://github.com/aws/aws-sdk-js-v3/commit/71df2805b8a8a9074943dae31562ee462ac25f9d))
+* **client-transcribe:** This release adds support for transcriptions from audio sources in 64 new languages and introduces generative call summarization in Transcribe Call Analytics (Post call) ([419b519](https://github.com/aws/aws-sdk-js-v3/commit/419b5195f545491f50ce575665e2888de3372406))
+* **client-workspaces-thin-client:** Initial release of Amazon WorkSpaces Thin Client ([75d24d5](https://github.com/aws/aws-sdk-js-v3/commit/75d24d5c4bbbddc10e82d9046c10fa4064707013))
+* **client-workspaces:** The release introduces Multi-Region Resilience one-way data replication that allows you to replicate data from your primary WorkSpace to a standby WorkSpace in another AWS Region. DescribeWorkspaces now returns the status of data replication. ([f807e5a](https://github.com/aws/aws-sdk-js-v3/commit/f807e5a1668ca02275811ab63ff09ea8dd976c94))
+* **clients:** update client endpoints as of 2023-11-27 ([94e5c18](https://github.com/aws/aws-sdk-js-v3/commit/94e5c1858c23e4d63d99375b3b98f661729d882a))
+
+
+
+
+
 # [3.457.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.456.0...v3.457.0) (2023-11-22)
 
 
