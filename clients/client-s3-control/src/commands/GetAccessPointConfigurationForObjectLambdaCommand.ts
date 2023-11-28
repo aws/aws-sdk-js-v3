@@ -47,7 +47,10 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
 
 /**
  * @public
- * <p>Returns configuration for an Object Lambda Access Point.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns configuration for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *             <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
  *          <ul>

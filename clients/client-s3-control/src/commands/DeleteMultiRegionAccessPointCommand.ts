@@ -44,7 +44,10 @@ export interface DeleteMultiRegionAccessPointCommandOutput
 
 /**
  * @public
- * <p>Deletes a Multi-Region Access Point. This action does not delete the buckets associated with the Multi-Region Access Point,
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Deletes a Multi-Region Access Point. This action does not delete the buckets associated with the Multi-Region Access Point,
  *          only the Multi-Region Access Point itself.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
  *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing

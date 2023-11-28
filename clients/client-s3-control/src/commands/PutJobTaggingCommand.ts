@@ -42,10 +42,9 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *          <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending
  *          a PUT request against the tagging subresource that is associated with the job. To modify
  *          the existing tag set, you can either replace the existing tag set entirely, or make changes
- *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this action to replace the tag set
+ *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this operation to replace the tag set
  *          with the one you modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
  *             access and labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>. </p>
- *          <p></p>
  *          <note>
  *             <ul>
  *                <li>
@@ -82,11 +81,14 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *                </li>
  *             </ul>
  *          </note>
- *          <p></p>
- *          <p>To use the
- *             <code>PutJobTagging</code>
- *          operation,
- *          you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>To use the
+ *                   <code>PutJobTagging</code> operation, you must have permission to
+ *                   perform the <code>s3:PutJobTagging</code> action.</p>
+ *             </dd>
+ *          </dl>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>

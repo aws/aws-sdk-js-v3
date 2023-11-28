@@ -39,7 +39,14 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
 /**
  * @public
  * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p></p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>To use the
+ *                   <code>UpdateJobPriority</code> operation, you must have permission to
+ *                   perform the <code>s3:UpdateJobPriority</code> action.</p>
+ *             </dd>
+ *          </dl>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>

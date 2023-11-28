@@ -38,9 +38,16 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
 
 /**
  * @public
- * <p>Updates the status for the specified job. Use this action to confirm that you want to
+ * <p>Updates the status for the specified job. Use this operation to confirm that you want to
  *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p></p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>To use the
+ *                   <code>UpdateJobStatus</code> operation, you must have permission to
+ *                   perform the <code>s3:UpdateJobStatus</code> action.</p>
+ *             </dd>
+ *          </dl>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>

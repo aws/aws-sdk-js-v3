@@ -38,7 +38,10 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
 
 /**
  * @public
- * <p>Returns a list of the access points
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns a list of the access points
  *          that are
  *          owned by the current account
  *          that's

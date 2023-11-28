@@ -38,7 +38,10 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
 
 /**
  * @public
- * <p>Indicates whether the specified access point currently has a policy that allows public access.
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Indicates whether the specified access point currently has a policy that allows public access.
  *          For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3
  *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
  * @example

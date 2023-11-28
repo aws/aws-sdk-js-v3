@@ -47,7 +47,10 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
 
 /**
  * @public
- * <p>Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
  *             storage activity and usage with Amazon S3 Storage Lens </a> in the
  *             <i>Amazon S3 User Guide</i>.</p>

@@ -40,7 +40,12 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @public
  * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p></p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>To use the <code>DescribeJob</code> operation, you must have permission to perform the <code>s3:DescribeJob</code> action.</p>
+ *             </dd>
+ *          </dl>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>
@@ -99,6 +104,10 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //     Operation: { // JobOperation
  * //       LambdaInvoke: { // LambdaInvokeOperation
  * //         FunctionArn: "STRING_VALUE",
+ * //         InvocationSchemaVersion: "STRING_VALUE",
+ * //         UserArguments: { // UserArguments
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
  * //       },
  * //       S3PutObjectCopy: { // S3CopyObjectOperation
  * //         TargetResource: "STRING_VALUE",

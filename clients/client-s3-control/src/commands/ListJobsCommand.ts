@@ -38,9 +38,17 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
 
 /**
  * @public
- * <p>Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for
+ * <p>Lists current S3 Batch Operations jobs as well as the jobs that have ended within the last 30 days for
  *          the Amazon Web Services account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>To use the
+ *                   <code>ListJobs</code> operation, you must have permission to
+ *                   perform the <code>s3:ListJobs</code> action.</p>
+ *             </dd>
+ *          </dl>
  *          <p>Related actions include:</p>
  *          <p></p>
  *          <ul>

@@ -38,10 +38,17 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
 
 /**
  * @public
- * <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects.
+ * <p>This operation creates an S3 Batch Operations job.</p>
+ *          <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects.
  *          Batch Operations can run a single action on lists of Amazon S3 objects that you specify. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>This action creates a S3 Batch Operations job.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>For information about permissions required to use the Batch Operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Granting permissions for S3 Batch Operations</a> in the <i>Amazon S3
+ *                      User Guide</i>.</p>
+ *             </dd>
+ *          </dl>
  *          <p></p>
  *          <p>Related actions include:</p>
  *          <ul>
@@ -83,6 +90,10 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *   Operation: { // JobOperation
  *     LambdaInvoke: { // LambdaInvokeOperation
  *       FunctionArn: "STRING_VALUE",
+ *       InvocationSchemaVersion: "STRING_VALUE",
+ *       UserArguments: { // UserArguments
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *     S3PutObjectCopy: { // S3CopyObjectOperation
  *       TargetResource: "STRING_VALUE",

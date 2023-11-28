@@ -47,7 +47,10 @@ export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
 
 /**
  * @public
- * <p>Returns the status of the resource policy associated with an Object Lambda Access Point.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the status of the resource policy associated with an Object Lambda Access Point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

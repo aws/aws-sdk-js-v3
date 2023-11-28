@@ -38,7 +38,10 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
 
 /**
  * @public
- * <p>Returns the access point policy associated with the specified access point.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the access point policy associated with the specified access point.</p>
  *          <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>
  *          <ul>
  *             <li>

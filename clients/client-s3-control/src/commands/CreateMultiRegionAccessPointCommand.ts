@@ -44,7 +44,10 @@ export interface CreateMultiRegionAccessPointCommandOutput
 
 /**
  * @public
- * <p>Creates a Multi-Region Access Point and associates it with the specified buckets. For more information
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Creates a Multi-Region Access Point and associates it with the specified buckets. For more information
  *          about creating Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html">Creating
  *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information

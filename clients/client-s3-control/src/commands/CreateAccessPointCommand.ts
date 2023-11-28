@@ -38,7 +38,10 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
 
 /**
  * @public
- * <p>Creates an access point and associates it with the specified bucket. For more information, see
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Creates an access point and associates it with the specified bucket. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
  *             Data Access with Amazon S3 Access Points</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>

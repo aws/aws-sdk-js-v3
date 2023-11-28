@@ -38,7 +38,10 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
 
 /**
  * @public
- * <p>Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated
  *          sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts

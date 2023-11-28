@@ -46,7 +46,10 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
 
 /**
  * @public
- * <p>Returns the resource policy for an Object Lambda Access Point.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the resource policy for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *          <code>GetAccessPointPolicyForObjectLambda</code>:</p>
  *          <ul>

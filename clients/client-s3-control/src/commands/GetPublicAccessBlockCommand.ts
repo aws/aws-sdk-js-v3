@@ -38,7 +38,10 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
 
 /**
  * @public
- * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. For
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
  *             public access</a>.</p>
  *          <p>Related actions include:</p>

@@ -44,7 +44,10 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
 
 /**
  * @public
- * <p>Associates an access control policy with the specified Multi-Region Access Point. Each Multi-Region Access Point can have only
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Associates an access control policy with the specified Multi-Region Access Point. Each Multi-Region Access Point can have only
  *          one policy, so a request made to this action replaces any existing policy that is
  *          associated with the specified Multi-Region Access Point.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information

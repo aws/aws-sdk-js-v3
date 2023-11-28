@@ -39,7 +39,10 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
 
 /**
  * @public
- * <p>Returns a list of the Multi-Region Access Points currently associated with the specified Amazon Web Services account.
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns a list of the Multi-Region Access Points currently associated with the specified Amazon Web Services account.
  *          Each call can return up to 100 Multi-Region Access Points, the maximum number of Multi-Region Access Points that can be
  *          associated with a single account.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information

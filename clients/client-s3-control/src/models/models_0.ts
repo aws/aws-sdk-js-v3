@@ -509,9 +509,8 @@ export interface BucketLevel {
 export interface StorageLensGroupLevelSelectionCriteria {
   /**
    * @public
-   * <p>
-   * Indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
-   * </p>
+   * <p> Indicates which Storage Lens group ARNs to include in the Storage Lens group
+   *          aggregation. </p>
    */
   Include?: string[];
 
@@ -525,16 +524,14 @@ export interface StorageLensGroupLevelSelectionCriteria {
 
 /**
  * @public
- * <p>
- * Specifies the Storage Lens groups to include in the Storage Lens group aggregation.
- * </p>
+ * <p> Specifies the Storage Lens groups to include in the Storage Lens group aggregation.
+ *       </p>
  */
 export interface StorageLensGroupLevel {
   /**
    * @public
-   * <p>
-   *    Indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
-   * </p>
+   * <p> Indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group
+   *          aggregation. If this value is left null, then all Storage Lens groups are selected. </p>
    */
   SelectionCriteria?: StorageLensGroupLevelSelectionCriteria;
 }
@@ -1725,7 +1722,9 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
- * <p>Contains the information required to locate a manifest object.</p>
+ * <p>Contains the information required to locate a manifest object. Manifests can't be
+ *          imported from directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory
+ *             buckets</a>.</p>
  */
 export interface JobManifestLocation {
   /**
@@ -1817,7 +1816,8 @@ export interface JobManifest {
 
   /**
    * @public
-   * <p>Contains the information required to locate the specified job's manifest.</p>
+   * <p>Contains the information required to locate the specified job's manifest. Manifests
+   *          can't be imported from directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a>.</p>
    */
   Location: JobManifestLocation | undefined;
 }
@@ -2014,6 +2014,11 @@ export interface S3ManifestOutputLocation {
   /**
    * @public
    * <p>The bucket ARN the generated manifest should be written to.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Directory buckets aren't supported
+   *          as the buckets to store the generated manifest.</p>
+   *          </note>
    */
   Bucket: string | undefined;
 
@@ -2053,18 +2058,25 @@ export interface S3JobManifestGenerator {
   /**
    * @public
    * <p>The source bucket used by the ManifestGenerator.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Directory buckets aren't supported
+   *          as the source buckets used by <code>S3JobManifestGenerator</code> to generate the job manifest.</p>
+   *          </note>
    */
   SourceBucket: string | undefined;
 
   /**
    * @public
-   * <p>Specifies the location the generated manifest will be written to.</p>
+   * <p>Specifies the location the generated manifest will be written to. Manifests can't be
+   *          written to directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory
+   *             buckets</a>.</p>
    */
   ManifestOutputLocation?: S3ManifestOutputLocation;
 
   /**
    * @public
-   * <p>Specifies rules the S3JobManifestGenerator should use to use to decide whether an object
+   * <p>Specifies rules the S3JobManifestGenerator should use to decide whether an object
    *          in the source bucket should or should not be included in the generated job manifest.</p>
    */
   Filter?: JobManifestGeneratorFilter;
@@ -2127,6 +2139,37 @@ export interface LambdaInvokeOperation {
    *          invoke on every object in the manifest.</p>
    */
   FunctionArn?: string;
+
+  /**
+   * @public
+   * <p>Specifies the schema version for the payload that Batch Operations sends when invoking
+   *          an Lambda function. Version <code>1.0</code> is the default. Version
+   *             <code>2.0</code> is required when you use Batch Operations to invoke Lambda functions that act on directory buckets, or if you need to specify
+   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon Web Services Storage
+   *             Blog</i>.</p>
+   *          <important>
+   *             <p>Ensure that your Lambda function code expects
+   *                <code>InvocationSchemaVersion</code>
+   *                <b>2.0</b> and uses bucket name rather than bucket ARN. If the
+   *                <code>InvocationSchemaVersion</code> does not match what your Lambda
+   *             function expects, your function might not work as expected.</p>
+   *          </important>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - To initiate Amazon Web Services Lambda function to perform custom actions on objects in directory buckets, you must specify <code>2.0</code>.</p>
+   *          </note>
+   */
+  InvocationSchemaVersion?: string;
+
+  /**
+   * @public
+   * <p>Key-value pairs that are passed in the payload that Batch Operations sends when invoking
+   *          an Lambda function. You must specify <code>InvocationSchemaVersion</code>
+   *             <b>2.0</b> for <code>LambdaInvoke</code> operations that include
+   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon Web Services Storage
+   *             Blog</i>.</p>
+   */
+  UserArguments?: Record<string, string>;
 }
 
 /**
@@ -2439,13 +2482,19 @@ export interface S3ObjectMetadata {
 
   /**
    * @public
-   * <p></p>
+   * <p>
+   *             <i>This member has been deprecated.</i>
+   *          </p>
+   *          <p></p>
    */
   ContentLength?: number;
 
   /**
    * @public
-   * <p></p>
+   * <p>
+   *             <i>This member has been deprecated.</i>
+   *          </p>
+   *          <p></p>
    */
   ContentMD5?: string;
 
@@ -2463,13 +2512,19 @@ export interface S3ObjectMetadata {
 
   /**
    * @public
-   * <p></p>
+   * <p>
+   *             <i>This member has been deprecated.</i>
+   *          </p>
+   *          <p></p>
    */
   RequesterCharged?: boolean;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>For directory buckets, only the server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) is supported.</p>
+   *          </note>
    */
   SSEAlgorithm?: S3SSEAlgorithm;
 }
@@ -2537,21 +2592,39 @@ export interface S3CopyObjectOperation {
    * <p>Specifies the destination bucket
    *          Amazon Resource Name
    *          (ARN)
-   *          for the batch copy operation. For example, to copy objects to a bucket named
-   *             <code>destinationBucket</code>, set the <code>TargetResource</code> property to
-   *             <code>arn:aws:s3:::destinationBucket</code>.</p>
+   *          for the batch copy operation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>General purpose buckets</b> - For example, to copy objects to a general purpose bucket named
+   *                <code>destinationBucket</code>, set the <code>TargetResource</code> property to
+   *                <code>arn:aws:s3:::destinationBucket</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Directory buckets</b> - For example, to copy objects to a directory bucket named
+   *                <code>destinationBucket</code> in the Availability Zone; identified by the AZ ID <code>usw2-az2</code>, set the <code>TargetResource</code> property to
+   *                <code>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az2</i>--x-s3</code>.</p>
+   *             </li>
+   *          </ul>
    */
   TargetResource?: string;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   CannedAccessControlList?: S3CannedAccessControlList;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   AccessControlGrants?: S3Grant[];
 
@@ -2577,27 +2650,44 @@ export interface S3CopyObjectOperation {
 
   /**
    * @public
-   * <p></p>
+   * <p>Specifies a list of tags to add to the destination objects after they are copied.
+   *          If <code>NewObjectTagging</code> is not specified, the tags of the source objects are copied to destination objects by default.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Tags aren't supported by directory buckets.
+   *          If your source objects have tags and your destination bucket is a directory bucket, specify an empty tag set in the <code>NewObjectTagging</code> field
+   *          to prevent copying the source object tags to the directory bucket.</p>
+   *          </note>
    */
   NewObjectTagging?: S3Tag[];
 
   /**
    * @public
-   * <p>Specifies an optional metadata property for website redirects,
-   *             <code>x-amz-website-redirect-location</code>. Allows webpage redirects if the object is
+   * <p>If the destination bucket is configured as a website, specifies an optional metadata property for website redirects,
+   *             <code>x-amz-website-redirect-location</code>. Allows webpage redirects if the object copy is
    *          accessed through a website endpoint.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   RedirectLocation?: string;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   RequesterPays?: boolean;
 
   /**
    * @public
-   * <p></p>
+   * <p>Specify the storage class for the destination objects in a <code>Copy</code> operation.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets </b> - This functionality is not supported by directory buckets. </p>
+   *          </note>
    */
   StorageClass?: S3StorageClass;
 
@@ -2610,6 +2700,9 @@ export interface S3CopyObjectOperation {
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   SSEAwsKmsKeyId?: string;
 
@@ -2632,12 +2725,18 @@ export interface S3CopyObjectOperation {
   /**
    * @public
    * <p>The legal hold status to be applied to all objects in the Batch Operations job.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   ObjectLockLegalHoldStatus?: S3ObjectLockLegalHoldStatus;
 
   /**
    * @public
    * <p>The retention mode to be applied to all objects in the Batch Operations job.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   ObjectLockMode?: S3ObjectLockMode;
 
@@ -2645,6 +2744,9 @@ export interface S3CopyObjectOperation {
    * @public
    * <p>The date when the applied object retention configuration expires on all objects in the
    *          Batch Operations job.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   ObjectLockRetainUntilDate?: Date;
 
@@ -2655,6 +2757,9 @@ export interface S3CopyObjectOperation {
    *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
    *          <p>Specifying this header with an <i>object</i> action doesn’t affect
    *             <i>bucket-level</i> settings for S3 Bucket Key.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   BucketKeyEnabled?: boolean;
 
@@ -2694,6 +2799,9 @@ export interface S3ObjectLockLegalHold {
  *          API
  *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
  *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <note>
+ *             <p>This functionality is not supported by directory buckets.</p>
+ *          </note>
  */
 export interface S3SetObjectLegalHoldOperation {
   /**
@@ -2750,6 +2858,9 @@ export interface S3Retention {
  *          API
  *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
  *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <note>
+ *             <p>This functionality is not supported by directory buckets.</p>
+ *          </note>
  */
 export interface S3SetObjectRetentionOperation {
   /**
@@ -2818,6 +2929,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to run a <code>PutObjectAcl</code> call on every object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectAcl?: S3SetObjectAclOperation;
 
@@ -2825,6 +2939,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to run a PUT Object tagging call on every object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectTagging?: S3SetObjectTaggingOperation;
 
@@ -2832,6 +2949,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to execute a DELETE Object tagging call on every object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3DeleteObjectTagging?: S3DeleteObjectTaggingOperation;
 
@@ -2839,6 +2959,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to initiate restore requests for every archived object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3InitiateRestoreObject?: S3InitiateRestoreObjectOperation;
 
@@ -2852,6 +2975,9 @@ export interface JobOperation {
    *          API
    *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
    *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectLegalHold?: S3SetObjectLegalHoldOperation;
 
@@ -2863,6 +2989,9 @@ export interface JobOperation {
    *          API
    *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
    *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectRetention?: S3SetObjectRetentionOperation;
 
@@ -2870,6 +2999,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the
    *          job's manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3ReplicateObject?: S3ReplicateObjectOperation;
 }
@@ -2910,6 +3042,11 @@ export interface JobReport {
    * @public
    * <p>The Amazon Resource Name (ARN) for the bucket where specified job-completion report will
    *          be stored.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Directory buckets aren't supported
+   *          as a location for Batch Operations to store job completion reports.</p>
+   *          </note>
    */
   Bucket?: string;
 
@@ -3185,48 +3322,42 @@ export interface MatchObjectSize {
 
 /**
  * @public
- * <p>
- * A logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data.
- * </p>
+ * <p> A logical operator that allows multiple filter conditions to be joined for more complex
+ *          comparisons of Storage Lens group data. </p>
  */
 export interface StorageLensGroupAndOperator {
   /**
    * @public
-   * <p>
-   *    Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
-   * </p>
+   * <p> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
+   *          are allowed. </p>
    */
   MatchAnyPrefix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
-   * </p>
+   * <p> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
+   *          are allowed. </p>
    */
   MatchAnySuffix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-   * </p>
+   * <p> Contains the list of object tags. At least one object tag must be specified. Up to 10
+   *          object tags are allowed. </p>
    */
   MatchAnyTag?: S3Tag[];
 
   /**
    * @public
-   * <p>
-   *    Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the object age range (minimum and maximum number of days).
-   * </p>
+   * <p> Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the
+   *          object age range (minimum and maximum number of days). </p>
    */
   MatchObjectAge?: MatchObjectAge;
 
   /**
    * @public
-   * <p>
-   *    Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the object size range (minimum and maximum number of Bytes).
-   * </p>
+   * <p> Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the
+   *          object size range (minimum and maximum number of Bytes). </p>
    */
   MatchObjectSize?: MatchObjectSize;
 }
@@ -3235,8 +3366,8 @@ export interface StorageLensGroupAndOperator {
  * @public
  * <p>A container element for specifying <code>Or</code> rule conditions. The rule conditions
  *          determine the subset of objects to which the <code>Or</code> rule applies. Objects can
- *          match any of the listed filter conditions, which are joined by the <code>Or</code> logical operator.
- *          Only one of each filter condition is allowed.</p>
+ *          match any of the listed filter conditions, which are joined by the <code>Or</code> logical
+ *          operator. Only one of each filter condition is allowed.</p>
  */
 export interface StorageLensGroupOrOperator {
   /**
@@ -3280,47 +3411,43 @@ export interface StorageLensGroupOrOperator {
 
 /**
  * @public
- * <p>The filter element sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the <code>AND</code> or <code>OR</code>
- *       logical operator is used.</p>
+ * <p>The filter element sets the criteria for the Storage Lens group data that is displayed.
+ *          For multiple filter conditions, the <code>AND</code> or <code>OR</code> logical operator is
+ *          used.</p>
  */
 export interface StorageLensGroupFilter {
   /**
    * @public
-   * <p>
-   *    Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
-   * </p>
+   * <p> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
+   *          are allowed. </p>
    */
   MatchAnyPrefix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
-   * </p>
+   * <p> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
+   *          are allowed. </p>
    */
   MatchAnySuffix?: string[];
 
   /**
    * @public
-   * <p>
-   *    Contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-   * </p>
+   * <p> Contains the list of S3 object tags. At least one object tag must be specified. Up to
+   *          10 object tags are allowed. </p>
    */
   MatchAnyTag?: S3Tag[];
 
   /**
    * @public
-   * <p>
-   *    Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the object age range (minimum and maximum number of days).
-   * </p>
+   * <p> Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the
+   *          object age range (minimum and maximum number of days). </p>
    */
   MatchObjectAge?: MatchObjectAge;
 
   /**
    * @public
-   * <p>
-   *    Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the object size range (minimum and maximum number of Bytes).
-   * </p>
+   * <p> Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the
+   *          object size range (minimum and maximum number of Bytes). </p>
    */
   MatchObjectSize?: MatchObjectSize;
 
@@ -3328,16 +3455,16 @@ export interface StorageLensGroupFilter {
    * @public
    * <p>A logical operator that allows multiple filter conditions to be joined for more complex
    *          comparisons of Storage Lens group data. Objects must match all of the listed filter
-   *          conditions that are joined by the <code>And</code> logical operator. Only one of each filter condition
-   *          is allowed.</p>
+   *          conditions that are joined by the <code>And</code> logical operator. Only one of each
+   *          filter condition is allowed.</p>
    */
   And?: StorageLensGroupAndOperator;
 
   /**
    * @public
    * <p>A single logical operator that allows multiple filter conditions to be joined. Objects
-   *          can match any of the listed filter conditions, which are joined by the <code>Or</code> logical operator.
-   *          Only one of each filter condition is allowed. </p>
+   *          can match any of the listed filter conditions, which are joined by the <code>Or</code>
+   *          logical operator. Only one of each filter condition is allowed. </p>
    */
   Or?: StorageLensGroupOrOperator;
 }
@@ -3352,24 +3479,21 @@ export interface StorageLensGroupFilter {
 export interface StorageLensGroup {
   /**
    * @public
-   * <p>
-   * Contains the name of the Storage Lens group.
-   * </p>
+   * <p> Contains the name of the Storage Lens group. </p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>Sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the <code>AND</code> or <code>OR</code>
-   *          logical operator is used.</p>
+   * <p>Sets the criteria for the Storage Lens group data that is displayed. For multiple filter
+   *          conditions, the <code>AND</code> or <code>OR</code> logical operator is used.</p>
    */
   Filter: StorageLensGroupFilter | undefined;
 
   /**
    * @public
-   * <p>
-   * Contains the Amazon Resource Name (ARN) of the Storage Lens group. This property is read-only.
-   * </p>
+   * <p> Contains the Amazon Resource Name (ARN) of the Storage Lens group. This property is
+   *          read-only. </p>
    */
   StorageLensGroupArn?: string;
 }
@@ -3829,7 +3953,9 @@ export interface S3GeneratedManifestDescriptor {
 
   /**
    * @public
-   * <p>Contains the information required to locate a manifest object.</p>
+   * <p>Contains the information required to locate a manifest object. Manifests can't be
+   *          imported from directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory
+   *             buckets</a>.</p>
    */
   Location?: JobManifestLocation;
 }
@@ -5267,8 +5393,7 @@ export interface Destination {
    *          are stored in the <code>OUTPOSTS</code> storage class. S3 on Outposts uses the
    *             <code>OUTPOSTS</code> storage class to create the object replicas. </p>
    *          <note>
-   *             <p>Values other than <code>OUTPOSTS</code> are not supported by Amazon S3 on Outposts.
-   *          </p>
+   *             <p>Values other than <code>OUTPOSTS</code> aren't supported by Amazon S3 on Outposts. </p>
    *          </note>
    */
   StorageClass?: ReplicationStorageClass;

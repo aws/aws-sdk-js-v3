@@ -9308,6 +9308,20 @@ const se_LambdaInvokeOperation = (input: LambdaInvokeOperation, context: __Serde
     const node = __XmlNode.of("FunctionArnString", input.FunctionArn).withName("FunctionArn");
     bodyNode.addChildNode(node);
   }
+  if (input.InvocationSchemaVersion != null) {
+    const node = __XmlNode
+      .of("NonEmptyMaxLength64String", input.InvocationSchemaVersion)
+      .withName("InvocationSchemaVersion");
+    bodyNode.addChildNode(node);
+  }
+  if (input.UserArguments != null) {
+    const nodes = se_UserArguments(input.UserArguments, context);
+    const containerNode = new __XmlNode("UserArguments");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
   return bodyNode;
 };
 
@@ -10138,7 +10152,7 @@ const se_S3BucketDestination = (input: S3BucketDestination, context: __SerdeCont
 const se_S3CopyObjectOperation = (input: S3CopyObjectOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3CopyObjectOperation");
   if (input.TargetResource != null) {
-    const node = __XmlNode.of("S3BucketArnString", input.TargetResource).withName("TargetResource");
+    const node = __XmlNode.of("S3RegionalOrS3ExpressBucketArnString", input.TargetResource).withName("TargetResource");
     bodyNode.addChildNode(node);
   }
   if (input.CannedAccessControlList != null) {
@@ -11071,6 +11085,23 @@ const se_TransitionList = (input: Transition[], context: __SerdeContext): any =>
     .map((entry) => {
       const node = se_Transition(entry, context);
       return node.withName("Transition");
+    });
+};
+
+/**
+ * serializeAws_restXmlUserArguments
+ */
+const se_UserArguments = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("NonEmptyMaxLength64String", key).withName("key");
+      entryNode.addChildNode(keyNode);
+      let node;
+      node = __XmlNode.of("MaxLength1024String", input[key as keyof typeof input]!);
+      entryNode.addChildNode(node.withName("value"));
+      return entryNode;
     });
 };
 
@@ -12033,6 +12064,14 @@ const de_LambdaInvokeOperation = (output: any, context: __SerdeContext): LambdaI
   const contents: any = {};
   if (output["FunctionArn"] !== undefined) {
     contents.FunctionArn = __expectString(output["FunctionArn"]);
+  }
+  if (output["InvocationSchemaVersion"] !== undefined) {
+    contents.InvocationSchemaVersion = __expectString(output["InvocationSchemaVersion"]);
+  }
+  if (output.UserArguments === "") {
+    contents.UserArguments = {};
+  } else if (output["UserArguments"] !== undefined && output["UserArguments"]["entry"] !== undefined) {
+    contents.UserArguments = de_UserArguments(__getArrayIfSingleItem(output["UserArguments"]["entry"]), context);
   }
   return contents;
 };
@@ -13883,6 +13922,19 @@ const de_TransitionList = (output: any, context: __SerdeContext): Transition[] =
     .map((entry: any) => {
       return de_Transition(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlUserArguments
+ */
+const de_UserArguments = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
+  }, {});
 };
 
 /**

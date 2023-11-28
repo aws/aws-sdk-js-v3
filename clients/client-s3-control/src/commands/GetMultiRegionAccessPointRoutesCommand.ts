@@ -44,7 +44,10 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput
 
 /**
  * @public
- * <p>Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or
  *          passive.</p>
  *          <p>To obtain routing control changes and failover requests, use the Amazon S3 failover control
  *          infrastructure endpoints in these five Amazon Web Services Regions:</p>

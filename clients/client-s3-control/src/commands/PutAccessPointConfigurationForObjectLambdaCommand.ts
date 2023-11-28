@@ -42,7 +42,10 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
 
 /**
  * @public
- * <p>Replaces configuration for an Object Lambda Access Point.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Replaces configuration for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *             <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
  *          <ul>
