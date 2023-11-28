@@ -345,7 +345,7 @@ export interface BedrockClientResolvedConfig extends BedrockClientResolvedConfig
 
 /**
  * @public
- * <p>Describes the API operations for creating and managing Bedrock models.</p>
+ * <p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
  */
 export class BedrockClient extends __Client<
   __HttpHandlerOptions,

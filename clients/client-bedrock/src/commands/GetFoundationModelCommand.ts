@@ -37,7 +37,7 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
 
 /**
  * @public
- * <p>Get details about a Bedrock foundation model.</p>
+ * <p>Get details about a Amazon Bedrock foundation model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,11 +63,14 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
  * //     ],
  * //     responseStreamingSupported: true || false,
  * //     customizationsSupported: [ // ModelCustomizationList
- * //       "FINE_TUNING",
+ * //       "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
  * //     ],
  * //     inferenceTypesSupported: [ // InferenceTypeList
  * //       "ON_DEMAND" || "PROVISIONED",
  * //     ],
+ * //     modelLifecycle: { // FoundationModelLifecycle
+ * //       status: "ACTIVE" || "LEGACY", // required
+ * //     },
  * //   },
  * // };
  *

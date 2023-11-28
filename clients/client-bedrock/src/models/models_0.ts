@@ -272,6 +272,20 @@ export interface GetCustomModelRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const CustomizationType = {
+  CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
+  FINE_TUNING: "FINE_TUNING",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomizationType = (typeof CustomizationType)[keyof typeof CustomizationType];
+
+/**
+ * @public
  * <p>S3 Location of the output data.</p>
  */
 export interface OutputDataConfig {
@@ -378,6 +392,12 @@ export interface GetCustomModelResponse {
 
   /**
    * @public
+   * <p>The type of model customization.</p>
+   */
+  customizationType?: CustomizationType;
+
+  /**
+   * @public
    * <p>The custom model is encrypted at rest using this key.</p>
    */
   modelKmsKeyArn?: string;
@@ -441,6 +461,7 @@ export interface GetFoundationModelRequest {
  * @enum
  */
 export const ModelCustomization = {
+  CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
   FINE_TUNING: "FINE_TUNING",
 } as const;
 
@@ -477,6 +498,33 @@ export const ModelModality = {
  * @public
  */
 export type ModelModality = (typeof ModelModality)[keyof typeof ModelModality];
+
+/**
+ * @public
+ * @enum
+ */
+export const FoundationModelLifecycleStatus = {
+  ACTIVE: "ACTIVE",
+  LEGACY: "LEGACY",
+} as const;
+
+/**
+ * @public
+ */
+export type FoundationModelLifecycleStatus =
+  (typeof FoundationModelLifecycleStatus)[keyof typeof FoundationModelLifecycleStatus];
+
+/**
+ * @public
+ * <p>Details about whether a model version is available or deprecated.</p>
+ */
+export interface FoundationModelLifecycle {
+  /**
+   * @public
+   * <p>Specifies whether a model version is available (<code>ACTIVE</code>) or deprecated (<code>LEGACY</code>.</p>
+   */
+  status: FoundationModelLifecycleStatus | undefined;
+}
 
 /**
  * @public
@@ -536,6 +584,12 @@ export interface FoundationModelDetails {
    * <p>The inference types that the model supports.</p>
    */
   inferenceTypesSupported?: InferenceType[];
+
+  /**
+   * @public
+   * <p>Contains details about whether a model version is available or deprecated</p>
+   */
+  modelLifecycle?: FoundationModelLifecycle;
 }
 
 /**
@@ -618,7 +672,7 @@ export interface ListCustomModelsRequest {
 
   /**
    * @public
-   * <p>Continuation token from the previous response, for Bedrock to list the next set of results.</p>
+   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
    */
   nextToken?: string;
 
@@ -669,6 +723,12 @@ export interface CustomModelSummary {
    * <p>The base model name.</p>
    */
   baseModelName: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
+   */
+  customizationType?: CustomizationType;
 }
 
 /**
@@ -694,7 +754,7 @@ export interface ListCustomModelsResponse {
 export interface ListFoundationModelsRequest {
   /**
    * @public
-   * <p>A Bedrock model provider.</p>
+   * <p>A Amazon Bedrock model provider.</p>
    */
   byProvider?: string;
 
@@ -775,6 +835,12 @@ export interface FoundationModelSummary {
    * <p>The inference types that the model supports.</p>
    */
   inferenceTypesSupported?: InferenceType[];
+
+  /**
+   * @public
+   * <p>Contains details about whether a model version is available or deprecated.</p>
+   */
+  modelLifecycle?: FoundationModelLifecycle;
 }
 
 /**
@@ -783,7 +849,7 @@ export interface FoundationModelSummary {
 export interface ListFoundationModelsResponse {
   /**
    * @public
-   * <p>A list of bedrock foundation models.</p>
+   * <p>A list of Amazon Bedrock foundation models.</p>
    */
   modelSummaries?: FoundationModelSummary[];
 }
@@ -827,7 +893,7 @@ export interface CreateProvisionedModelThroughputRequest {
   /**
    * @public
    * <p>Unique token value that you can provide. If this token matches a previous request,
-   *             Bedrock ignores the request, but does not return an error.</p>
+   *           Amazon Bedrock ignores the request, but does not return an error.</p>
    */
   clientRequestToken?: string;
 
@@ -896,7 +962,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  * <p>The request contains more tags than can be associated with a resource (50 tags per resource).
- *             The maximum number of tags includes both existing tags and those included in your current request. </p>
+ *          The maximum number of tags includes both existing tags and those included in your current request. </p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -1102,7 +1168,7 @@ export interface ListProvisionedModelThroughputsRequest {
 
   /**
    * @public
-   * <p>Continuation token from the previous response, for Bedrock to list the next set of results.</p>
+   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
    */
   nextToken?: string;
 
@@ -1344,10 +1410,10 @@ export interface CreateModelCustomizationJobRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
-   *             For example, during model training, Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
-   *             To pass this role to Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission.
-   *         </p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon Bedrock can assume to perform tasks on your behalf.
+   *          For example, during model training, Amazon Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
+   *          To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission.
+   *       </p>
    */
   roleArn: string | undefined;
 
@@ -1362,6 +1428,12 @@ export interface CreateModelCustomizationJobRequest {
    * <p>Name of the base model.</p>
    */
   baseModelIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The customization type.</p>
+   */
+  customizationType?: CustomizationType;
 
   /**
    * @public
@@ -1408,7 +1480,7 @@ export interface CreateModelCustomizationJobRequest {
   /**
    * @public
    * <p>VPC configuration (optional). Configuration parameters for the
-   *             private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
+   *            private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
    */
   vpcConfig?: VpcConfig;
 }
@@ -1496,7 +1568,7 @@ export interface GetModelCustomizationJobResponse {
   /**
    * @public
    * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use.
-   *             If the job failed, the failure message contains information about why the job failed.</p>
+   *       If the job failed, the failure message contains information about why the job failed.</p>
    */
   status?: ModelCustomizationJobStatus;
 
@@ -1532,7 +1604,7 @@ export interface GetModelCustomizationJobResponse {
 
   /**
    * @public
-   * <p>The hyperparameter values for the job.</p>
+   * <p>The hyperparameter values for the job. For information about hyperparameters for specific models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-guidelines.html">Guidelines for model customization</a>.</p>
    */
   hyperParameters: Record<string, string> | undefined;
 
@@ -1553,6 +1625,12 @@ export interface GetModelCustomizationJobResponse {
    * <p>Output data configuration </p>
    */
   outputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * @public
+   * <p>The type of model customization.</p>
+   */
+  customizationType?: CustomizationType;
 
   /**
    * @public
@@ -1645,7 +1723,7 @@ export interface ListModelCustomizationJobsRequest {
 
   /**
    * @public
-   * <p>Continuation token from the previous response, for Bedrock to list the next set of results.</p>
+   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
    */
   nextToken?: string;
 
@@ -1720,6 +1798,12 @@ export interface ModelCustomizationJobSummary {
    * <p>Name of the custom model.</p>
    */
   customModelName?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
+   */
+  customizationType?: CustomizationType;
 }
 
 /**

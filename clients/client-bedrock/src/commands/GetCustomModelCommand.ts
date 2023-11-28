@@ -37,7 +37,7 @@ export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __M
 
 /**
  * @public
- * <p>Get the properties associated with a Bedrock custom model that you have created.For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
+ * <p>Get the properties associated with a Amazon Bedrock custom model that you have created.For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,7 @@ export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __M
  * //   jobName: "STRING_VALUE",
  * //   jobArn: "STRING_VALUE", // required
  * //   baseModelArn: "STRING_VALUE", // required
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
  * //   modelKmsKeyArn: "STRING_VALUE",
  * //   hyperParameters: { // ModelCustomizationHyperParameters
  * //     "<keys>": "STRING_VALUE",

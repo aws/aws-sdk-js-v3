@@ -38,7 +38,7 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
 /**
  * @public
  * <p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on
- *             one or more criteria.</p>
+ *       one or more criteria.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +71,7 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * //       endTime: new Date("TIMESTAMP"),
  * //       customModelArn: "STRING_VALUE",
  * //       customModelName: "STRING_VALUE",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
  * //     },
  * //   ],
  * // };

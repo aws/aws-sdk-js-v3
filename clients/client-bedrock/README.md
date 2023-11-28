@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript Bedrock Client for Node.js, Browser and React Native.
 
-<p>Describes the API operations for creating and managing Bedrock models.</p>
+<p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
 
 ## Installing
 

@@ -38,7 +38,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
 /**
  * @public
  * <p>Retrieves the properties associated with a model-customization job, including the status of the job.
- *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
+ *       For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +79,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   outputDataConfig: { // OutputDataConfig
  * //     s3Uri: "STRING_VALUE", // required
  * //   },
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
  * //   outputModelKmsKeyArn: "STRING_VALUE",
  * //   trainingMetrics: { // TrainingMetrics
  * //     trainingLoss: Number("float"),

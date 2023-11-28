@@ -37,7 +37,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
 
 /**
  * @public
- * <p>List of Bedrock foundation models that you can use. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html">Foundation models</a> in the Bedrock User Guide.</p>
+ * <p>List of Amazon Bedrock foundation models that you can use. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html">Foundation models</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,7 +46,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * const client = new BedrockClient(config);
  * const input = { // ListFoundationModelsRequest
  *   byProvider: "STRING_VALUE",
- *   byCustomizationType: "FINE_TUNING",
+ *   byCustomizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
  *   byOutputModality: "TEXT" || "IMAGE" || "EMBEDDING",
  *   byInferenceType: "ON_DEMAND" || "PROVISIONED",
  * };
@@ -67,11 +67,14 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * //       ],
  * //       responseStreamingSupported: true || false,
  * //       customizationsSupported: [ // ModelCustomizationList
- * //         "FINE_TUNING",
+ * //         "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
  * //       ],
  * //       inferenceTypesSupported: [ // InferenceTypeList
  * //         "ON_DEMAND" || "PROVISIONED",
  * //       ],
+ * //       modelLifecycle: { // FoundationModelLifecycle
+ * //         status: "ACTIVE" || "LEGACY", // required
+ * //       },
  * //     },
  * //   ],
  * // };

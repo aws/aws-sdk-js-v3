@@ -132,6 +132,7 @@ export const se_CreateModelCustomizationJobCommand = async (
       customModelKmsKeyId: [],
       customModelName: [],
       customModelTags: (_) => _json(_),
+      customizationType: [],
       hyperParameters: (_) => _json(_),
       jobName: [],
       jobTags: (_) => _json(_),
@@ -1084,6 +1085,7 @@ export const de_GetCustomModelCommand = async (
   const doc = take(data, {
     baseModelArn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customizationType: __expectString,
     hyperParameters: _json,
     jobArn: __expectString,
     jobName: __expectString,
@@ -1215,6 +1217,7 @@ export const de_GetModelCustomizationJobCommand = async (
     baseModelArn: __expectString,
     clientRequestToken: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customizationType: __expectString,
     endTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     failureMessage: __expectString,
     hyperParameters: _json,
@@ -2156,6 +2159,7 @@ const de_CustomModelSummary = (output: any, context: __SerdeContext): CustomMode
     baseModelArn: __expectString,
     baseModelName: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customizationType: __expectString,
     modelArn: __expectString,
     modelName: __expectString,
   }) as any;
@@ -2174,6 +2178,8 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 };
 
 // de_FoundationModelDetails omitted.
+
+// de_FoundationModelLifecycle omitted.
 
 // de_FoundationModelSummary omitted.
 
@@ -2206,6 +2212,7 @@ const de_ModelCustomizationJobSummary = (output: any, context: __SerdeContext): 
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     customModelArn: __expectString,
     customModelName: __expectString,
+    customizationType: __expectString,
     endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     jobArn: __expectString,
     jobName: __expectString,
