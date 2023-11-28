@@ -182,6 +182,86 @@ export interface UpdateConfigurationPolicyCommandOutput extends UpdateConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @example To update a configuration policy
+ * ```javascript
+ * // This operation updates the specified configuration policy.
+ * const input = {
+ *   "ConfigurationPolicy": {
+ *     "SecurityHub": {
+ *       "EnabledStandardIdentifiers": [
+ *         "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
+ *         "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
+ *       ],
+ *       "SecurityControlsConfiguration": {
+ *         "DisabledSecurityControlIdentifiers": [
+ *           "CloudWatch.1",
+ *           "CloudWatch.2"
+ *         ],
+ *         "SecurityControlCustomParameters": [
+ *           {
+ *             "Parameters": {
+ *               "daysToExpiration": {
+ *                 "Value": {
+ *                   "Integer": 21
+ *                 },
+ *                 "ValueType": "CUSTOM"
+ *               }
+ *             },
+ *             "SecurityControlId": "ACM.1"
+ *           }
+ *         ]
+ *       },
+ *       "ServiceEnabled": true
+ *     }
+ *   },
+ *   "Description": "Updated configuration policy for testing FSBP and CIS",
+ *   "Identifier": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   "Name": "TestConfigurationPolicy",
+ *   "UpdatedReason": "Enabling ACM.2"
+ * };
+ * const command = new UpdateConfigurationPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Arn": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   "ConfigurationPolicy": {
+ *     "SecurityHub": {
+ *       "EnabledStandardIdentifiers": [
+ *         "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
+ *         "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
+ *       ],
+ *       "SecurityControlsConfiguration": {
+ *         "DisabledSecurityControlIdentifiers": [
+ *           "CloudWatch.1",
+ *           "CloudWatch.2"
+ *         ],
+ *         "SecurityControlCustomParameters": [
+ *           {
+ *             "Parameters": {
+ *               "daysToExpiration": {
+ *                 "Value": {
+ *                   "Integer": 21
+ *                 },
+ *                 "ValueType": "CUSTOM"
+ *               }
+ *             },
+ *             "SecurityControlId": "ACM.1"
+ *           }
+ *         ]
+ *       },
+ *       "ServiceEnabled": true
+ *     }
+ *   },
+ *   "CreatedAt": "2023-01-11T06:17:17.154Z",
+ *   "Description": "Updated configuration policy for testing FSBP and CIS",
+ *   "Id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   "Name": "TestConfigurationPolicy",
+ *   "UpdatedAt": "2023-01-12T06:17:17.154Z"
+ * }
+ * *\/
+ * // example id: to-update-a-configuration-policy-1695174120555
+ * ```
+ *
  */
 export class UpdateConfigurationPolicyCommand extends $Command<
   UpdateConfigurationPolicyCommandInput,

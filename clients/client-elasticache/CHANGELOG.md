@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
+
+
+### Features
+
+* **client-elasticache:** Launching Amazon ElastiCache Serverless that enables you to create a cache in under a minute without any capacity management. ElastiCache Serverless monitors the cache's memory, CPU, and network usage and scales both vertically and horizontally to support your application's requirements. ([93b77fa](https://github.com/aws/aws-sdk-js-v3/commit/93b77fa3753e4904ee20d2cc2cd3bd01b6f96c61))
+
+
+
+
+
 # [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticache

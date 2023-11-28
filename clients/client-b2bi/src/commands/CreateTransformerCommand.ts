@@ -114,6 +114,51 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @example Sample CreateTransformer call
+ * ```javascript
+ * //
+ * const input = {
+ *   "name": "transformJSON",
+ *   "clientToken": "foo",
+ *   "ediType": {
+ *     "x12Details": {
+ *       "version": "VERSION_4010",
+ *       "transactionSet": "X12_110"
+ *     }
+ *   },
+ *   "fileFormat": "JSON",
+ *   "mappingTemplate": "{}",
+ *   "sampleDocument": "s3://test-bucket/sampleDoc.txt",
+ *   "tags": [
+ *     {
+ *       "Key": "sampleKey",
+ *       "Value": "sampleValue"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateTransformerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "name": "transformJSON",
+ *   "createdAt": "2023-11-01T21:51:05.504Z",
+ *   "ediType": {
+ *     "x12Details": {
+ *       "version": "VERSION_4010",
+ *       "transactionSet": "X12_110"
+ *     }
+ *   },
+ *   "fileFormat": "JSON",
+ *   "mappingTemplate": "$",
+ *   "sampleDocument": "s3://test-bucket/sampleDoc.txt",
+ *   "status": "inactive",
+ *   "transformerArn": "arn:aws:b2bi:us-west-2:123456789012:transformer/tr-974c129999f84d8c9",
+ *   "transformerId": "tr-974c129999f84d8c9"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateTransformerCommand extends $Command<
   CreateTransformerCommandInput,

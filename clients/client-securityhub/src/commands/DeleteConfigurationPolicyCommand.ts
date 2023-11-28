@@ -89,6 +89,17 @@ export interface DeleteConfigurationPolicyCommandOutput extends DeleteConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @example To delete a configuration policy
+ * ```javascript
+ * // This operation deletes the specified configuration policy.
+ * const input = {
+ *   "Identifier": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * };
+ * const command = new DeleteConfigurationPolicyCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-configuration-policy-1695174614062
+ * ```
+ *
  */
 export class DeleteConfigurationPolicyCommand extends $Command<
   DeleteConfigurationPolicyCommandInput,

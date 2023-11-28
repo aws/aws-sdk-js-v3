@@ -102,6 +102,20 @@ export interface StartConfigurationPolicyDisassociationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @example To disassociate a configuration from a target
+ * ```javascript
+ * // This operation disassociates a configuration policy or self-managed behavior from the target account, organizational unit, or the root.
+ * const input = {
+ *   "ConfigurationPolicyIdentifier": "SELF_MANAGED_SECURITY_HUB",
+ *   "Target": {
+ *     "RootId": "r-f6g7h8i9j0example"
+ *   }
+ * };
+ * const command = new StartConfigurationPolicyDisassociationCommand(input);
+ * await client.send(command);
+ * // example id: to-disassociate-a-configuration-from-a-target-1695177176748
+ * ```
+ *
  */
 export class StartConfigurationPolicyDisassociationCommand extends $Command<
   StartConfigurationPolicyDisassociationCommandInput,
