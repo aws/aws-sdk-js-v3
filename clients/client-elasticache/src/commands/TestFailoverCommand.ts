@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { TestFailoverMessage, TestFailoverResult } from "../models/models_0";
+import { TestFailoverMessage, TestFailoverResult } from "../models/models_1";
 import { de_TestFailoverCommand, se_TestFailoverCommand } from "../protocols/Aws_query";
 
 /**

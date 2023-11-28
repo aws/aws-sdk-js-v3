@@ -37,7 +37,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
 
 /**
  * @public
- * <p>Modifies the settings for a replication group.</p>
+ * <p>Modifies the settings for a replication group. This is limited to Redis 7 and newer.</p>
  *          <ul>
  *             <li>
  *                <p>

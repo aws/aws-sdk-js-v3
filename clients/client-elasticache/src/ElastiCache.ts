@@ -28,6 +28,11 @@ import {
   CompleteMigrationCommandOutput,
 } from "./commands/CompleteMigrationCommand";
 import {
+  CopyServerlessCacheSnapshotCommand,
+  CopyServerlessCacheSnapshotCommandInput,
+  CopyServerlessCacheSnapshotCommandOutput,
+} from "./commands/CopyServerlessCacheSnapshotCommand";
+import {
   CopySnapshotCommand,
   CopySnapshotCommandInput,
   CopySnapshotCommandOutput,
@@ -62,6 +67,16 @@ import {
   CreateReplicationGroupCommandInput,
   CreateReplicationGroupCommandOutput,
 } from "./commands/CreateReplicationGroupCommand";
+import {
+  CreateServerlessCacheCommand,
+  CreateServerlessCacheCommandInput,
+  CreateServerlessCacheCommandOutput,
+} from "./commands/CreateServerlessCacheCommand";
+import {
+  CreateServerlessCacheSnapshotCommand,
+  CreateServerlessCacheSnapshotCommandInput,
+  CreateServerlessCacheSnapshotCommandOutput,
+} from "./commands/CreateServerlessCacheSnapshotCommand";
 import {
   CreateSnapshotCommand,
   CreateSnapshotCommandInput,
@@ -113,6 +128,16 @@ import {
   DeleteReplicationGroupCommandInput,
   DeleteReplicationGroupCommandOutput,
 } from "./commands/DeleteReplicationGroupCommand";
+import {
+  DeleteServerlessCacheCommand,
+  DeleteServerlessCacheCommandInput,
+  DeleteServerlessCacheCommandOutput,
+} from "./commands/DeleteServerlessCacheCommand";
+import {
+  DeleteServerlessCacheSnapshotCommand,
+  DeleteServerlessCacheSnapshotCommandInput,
+  DeleteServerlessCacheSnapshotCommandOutput,
+} from "./commands/DeleteServerlessCacheSnapshotCommand";
 import {
   DeleteSnapshotCommand,
   DeleteSnapshotCommandInput,
@@ -185,6 +210,16 @@ import {
   DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedCacheNodesOfferingsCommand";
 import {
+  DescribeServerlessCachesCommand,
+  DescribeServerlessCachesCommandInput,
+  DescribeServerlessCachesCommandOutput,
+} from "./commands/DescribeServerlessCachesCommand";
+import {
+  DescribeServerlessCacheSnapshotsCommand,
+  DescribeServerlessCacheSnapshotsCommandInput,
+  DescribeServerlessCacheSnapshotsCommandOutput,
+} from "./commands/DescribeServerlessCacheSnapshotsCommand";
+import {
   DescribeServiceUpdatesCommand,
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
@@ -214,6 +249,11 @@ import {
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
 } from "./commands/DisassociateGlobalReplicationGroupCommand";
+import {
+  ExportServerlessCacheSnapshotCommand,
+  ExportServerlessCacheSnapshotCommandInput,
+  ExportServerlessCacheSnapshotCommandOutput,
+} from "./commands/ExportServerlessCacheSnapshotCommand";
 import {
   FailoverGlobalReplicationGroupCommand,
   FailoverGlobalReplicationGroupCommandInput,
@@ -269,6 +309,11 @@ import {
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
+import {
+  ModifyServerlessCacheCommand,
+  ModifyServerlessCacheCommandInput,
+  ModifyServerlessCacheCommandOutput,
+} from "./commands/ModifyServerlessCacheCommand";
 import { ModifyUserCommand, ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
 import {
   ModifyUserGroupCommand,
@@ -328,6 +373,7 @@ const commands = {
   BatchApplyUpdateActionCommand,
   BatchStopUpdateActionCommand,
   CompleteMigrationCommand,
+  CopyServerlessCacheSnapshotCommand,
   CopySnapshotCommand,
   CreateCacheClusterCommand,
   CreateCacheParameterGroupCommand,
@@ -335,6 +381,8 @@ const commands = {
   CreateCacheSubnetGroupCommand,
   CreateGlobalReplicationGroupCommand,
   CreateReplicationGroupCommand,
+  CreateServerlessCacheCommand,
+  CreateServerlessCacheSnapshotCommand,
   CreateSnapshotCommand,
   CreateUserCommand,
   CreateUserGroupCommand,
@@ -346,6 +394,8 @@ const commands = {
   DeleteCacheSubnetGroupCommand,
   DeleteGlobalReplicationGroupCommand,
   DeleteReplicationGroupCommand,
+  DeleteServerlessCacheCommand,
+  DeleteServerlessCacheSnapshotCommand,
   DeleteSnapshotCommand,
   DeleteUserCommand,
   DeleteUserGroupCommand,
@@ -361,12 +411,15 @@ const commands = {
   DescribeReplicationGroupsCommand,
   DescribeReservedCacheNodesCommand,
   DescribeReservedCacheNodesOfferingsCommand,
+  DescribeServerlessCachesCommand,
+  DescribeServerlessCacheSnapshotsCommand,
   DescribeServiceUpdatesCommand,
   DescribeSnapshotsCommand,
   DescribeUpdateActionsCommand,
   DescribeUserGroupsCommand,
   DescribeUsersCommand,
   DisassociateGlobalReplicationGroupCommand,
+  ExportServerlessCacheSnapshotCommand,
   FailoverGlobalReplicationGroupCommand,
   IncreaseNodeGroupsInGlobalReplicationGroupCommand,
   IncreaseReplicaCountCommand,
@@ -378,6 +431,7 @@ const commands = {
   ModifyGlobalReplicationGroupCommand,
   ModifyReplicationGroupCommand,
   ModifyReplicationGroupShardConfigurationCommand,
+  ModifyServerlessCacheCommand,
   ModifyUserCommand,
   ModifyUserGroupCommand,
   PurchaseReservedCacheNodesOfferingCommand,
@@ -475,6 +529,23 @@ export interface ElastiCache {
     args: CompleteMigrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CompleteMigrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CopyServerlessCacheSnapshotCommand}
+   */
+  copyServerlessCacheSnapshot(
+    args: CopyServerlessCacheSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyServerlessCacheSnapshotCommandOutput>;
+  copyServerlessCacheSnapshot(
+    args: CopyServerlessCacheSnapshotCommandInput,
+    cb: (err: any, data?: CopyServerlessCacheSnapshotCommandOutput) => void
+  ): void;
+  copyServerlessCacheSnapshot(
+    args: CopyServerlessCacheSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CopyServerlessCacheSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -588,6 +659,40 @@ export interface ElastiCache {
     args: CreateReplicationGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReplicationGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateServerlessCacheCommand}
+   */
+  createServerlessCache(
+    args: CreateServerlessCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServerlessCacheCommandOutput>;
+  createServerlessCache(
+    args: CreateServerlessCacheCommandInput,
+    cb: (err: any, data?: CreateServerlessCacheCommandOutput) => void
+  ): void;
+  createServerlessCache(
+    args: CreateServerlessCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServerlessCacheCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateServerlessCacheSnapshotCommand}
+   */
+  createServerlessCacheSnapshot(
+    args: CreateServerlessCacheSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServerlessCacheSnapshotCommandOutput>;
+  createServerlessCacheSnapshot(
+    args: CreateServerlessCacheSnapshotCommandInput,
+    cb: (err: any, data?: CreateServerlessCacheSnapshotCommandOutput) => void
+  ): void;
+  createServerlessCacheSnapshot(
+    args: CreateServerlessCacheSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServerlessCacheSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -763,6 +868,40 @@ export interface ElastiCache {
     args: DeleteReplicationGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteReplicationGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServerlessCacheCommand}
+   */
+  deleteServerlessCache(
+    args: DeleteServerlessCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServerlessCacheCommandOutput>;
+  deleteServerlessCache(
+    args: DeleteServerlessCacheCommandInput,
+    cb: (err: any, data?: DeleteServerlessCacheCommandOutput) => void
+  ): void;
+  deleteServerlessCache(
+    args: DeleteServerlessCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServerlessCacheCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServerlessCacheSnapshotCommand}
+   */
+  deleteServerlessCacheSnapshot(
+    args: DeleteServerlessCacheSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServerlessCacheSnapshotCommandOutput>;
+  deleteServerlessCacheSnapshot(
+    args: DeleteServerlessCacheSnapshotCommandInput,
+    cb: (err: any, data?: DeleteServerlessCacheSnapshotCommandOutput) => void
+  ): void;
+  deleteServerlessCacheSnapshot(
+    args: DeleteServerlessCacheSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServerlessCacheSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -1006,6 +1145,40 @@ export interface ElastiCache {
   ): void;
 
   /**
+   * @see {@link DescribeServerlessCachesCommand}
+   */
+  describeServerlessCaches(
+    args: DescribeServerlessCachesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServerlessCachesCommandOutput>;
+  describeServerlessCaches(
+    args: DescribeServerlessCachesCommandInput,
+    cb: (err: any, data?: DescribeServerlessCachesCommandOutput) => void
+  ): void;
+  describeServerlessCaches(
+    args: DescribeServerlessCachesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServerlessCachesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeServerlessCacheSnapshotsCommand}
+   */
+  describeServerlessCacheSnapshots(
+    args: DescribeServerlessCacheSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServerlessCacheSnapshotsCommandOutput>;
+  describeServerlessCacheSnapshots(
+    args: DescribeServerlessCacheSnapshotsCommandInput,
+    cb: (err: any, data?: DescribeServerlessCacheSnapshotsCommandOutput) => void
+  ): void;
+  describeServerlessCacheSnapshots(
+    args: DescribeServerlessCacheSnapshotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServerlessCacheSnapshotsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeServiceUpdatesCommand}
    */
   describeServiceUpdates(
@@ -1099,6 +1272,23 @@ export interface ElastiCache {
     args: DisassociateGlobalReplicationGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateGlobalReplicationGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportServerlessCacheSnapshotCommand}
+   */
+  exportServerlessCacheSnapshot(
+    args: ExportServerlessCacheSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportServerlessCacheSnapshotCommandOutput>;
+  exportServerlessCacheSnapshot(
+    args: ExportServerlessCacheSnapshotCommandInput,
+    cb: (err: any, data?: ExportServerlessCacheSnapshotCommandOutput) => void
+  ): void;
+  exportServerlessCacheSnapshot(
+    args: ExportServerlessCacheSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportServerlessCacheSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -1286,6 +1476,23 @@ export interface ElastiCache {
     args: ModifyReplicationGroupShardConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyServerlessCacheCommand}
+   */
+  modifyServerlessCache(
+    args: ModifyServerlessCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyServerlessCacheCommandOutput>;
+  modifyServerlessCache(
+    args: ModifyServerlessCacheCommandInput,
+    cb: (err: any, data?: ModifyServerlessCacheCommandOutput) => void
+  ): void;
+  modifyServerlessCache(
+    args: ModifyServerlessCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyServerlessCacheCommandOutput) => void
   ): void;
 
   /**

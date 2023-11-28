@@ -95,11 +95,23 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
  *  <p>The requested replication group is not in the <code>available</code> state.</p>
  *
+ * @throws {@link InvalidServerlessCacheSnapshotStateFault} (client fault)
+ *  <p>The state of the serverless cache snapshot was not received. Available for Redis only.</p>
+ *
+ * @throws {@link InvalidServerlessCacheStateFault} (client fault)
+ *  <p>The account for these credentials is not currently active.</p>
+ *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
  *  <p>The specified replication group does not exist.</p>
  *
  * @throws {@link ReservedCacheNodeNotFoundFault} (client fault)
  *  <p>The requested reserved cache node was not found.</p>
+ *
+ * @throws {@link ServerlessCacheNotFoundFault} (client fault)
+ *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
+ *  <p>This serverless cache snapshot could not be found or does not exist. Available for Redis only.</p>
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
  *  <p>The requested snapshot name does not refer to an existing snapshot.</p>

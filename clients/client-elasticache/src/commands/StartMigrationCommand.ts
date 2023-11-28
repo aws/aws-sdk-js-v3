@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { StartMigrationMessage, StartMigrationResponse } from "../models/models_0";
+import { StartMigrationMessage, StartMigrationResponse } from "../models/models_1";
 import { de_StartMigrationCommand, se_StartMigrationCommand } from "../protocols/Aws_query";
 
 /**

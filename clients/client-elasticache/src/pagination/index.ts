@@ -21,6 +21,8 @@ export * from "./DescribeReplicationGroupsPaginator";
 export * from "./Interfaces";
 export * from "./DescribeReservedCacheNodesOfferingsPaginator";
 export * from "./DescribeReservedCacheNodesPaginator";
+export * from "./DescribeServerlessCacheSnapshotsPaginator";
+export * from "./DescribeServerlessCachesPaginator";
 export * from "./DescribeServiceUpdatesPaginator";
 export * from "./DescribeSnapshotsPaginator";
 export * from "./DescribeUpdateActionsPaginator";

@@ -50,7 +50,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeEventsMessage
  *   SourceIdentifier: "STRING_VALUE",
- *   SourceType: "cache-cluster" || "cache-parameter-group" || "cache-security-group" || "cache-subnet-group" || "replication-group" || "user" || "user-group",
+ *   SourceType: "cache-cluster" || "cache-parameter-group" || "cache-security-group" || "cache-subnet-group" || "replication-group" || "serverless-cache" || "serverless-cache-snapshot" || "user" || "user-group",
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
  *   Duration: Number("int"),
@@ -64,7 +64,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * //   Events: [ // EventList
  * //     { // Event
  * //       SourceIdentifier: "STRING_VALUE",
- * //       SourceType: "cache-cluster" || "cache-parameter-group" || "cache-security-group" || "cache-subnet-group" || "replication-group" || "user" || "user-group",
+ * //       SourceType: "cache-cluster" || "cache-parameter-group" || "cache-security-group" || "cache-subnet-group" || "replication-group" || "serverless-cache" || "serverless-cache-snapshot" || "user" || "user-group",
  * //       Message: "STRING_VALUE",
  * //       Date: new Date("TIMESTAMP"),
  * //     },

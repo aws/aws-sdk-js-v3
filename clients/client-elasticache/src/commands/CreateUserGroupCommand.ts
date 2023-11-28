@@ -80,6 +80,9 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * //   ReplicationGroups: [ // UGReplicationGroupIdList
  * //     "STRING_VALUE",
  * //   ],
+ * //   ServerlessCaches: [ // UGServerlessCacheIdList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   ARN: "STRING_VALUE",
  * // };
  *

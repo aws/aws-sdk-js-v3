@@ -255,6 +255,14 @@ CompleteMigration
 </details>
 <details>
 <summary>
+CopyServerlessCacheSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/CopyServerlessCacheSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CopyServerlessCacheSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CopyServerlessCacheSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
 CopySnapshot
 </summary>
 
@@ -307,6 +315,22 @@ CreateReplicationGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/CreateReplicationGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CreateReplicationGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CreateReplicationGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateServerlessCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/CreateServerlessCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CreateServerlessCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CreateServerlessCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateServerlessCacheSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/CreateServerlessCacheSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CreateServerlessCacheSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/CreateServerlessCacheSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -395,6 +419,22 @@ DeleteReplicationGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/DeleteReplicationGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DeleteReplicationGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DeleteReplicationGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteServerlessCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/DeleteServerlessCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DeleteServerlessCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DeleteServerlessCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteServerlessCacheSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/DeleteServerlessCacheSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DeleteServerlessCacheSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DeleteServerlessCacheSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -519,6 +559,22 @@ DescribeReservedCacheNodesOfferings
 </details>
 <details>
 <summary>
+DescribeServerlessCaches
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/DescribeServerlessCachesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DescribeServerlessCachesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DescribeServerlessCachesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeServerlessCacheSnapshots
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/DescribeServerlessCacheSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DescribeServerlessCacheSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DescribeServerlessCacheSnapshotsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeServiceUpdates
 </summary>
 
@@ -563,6 +619,14 @@ DisassociateGlobalReplicationGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/DisassociateGlobalReplicationGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DisassociateGlobalReplicationGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/DisassociateGlobalReplicationGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+ExportServerlessCacheSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/ExportServerlessCacheSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/ExportServerlessCacheSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/ExportServerlessCacheSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -651,6 +715,14 @@ ModifyReplicationGroupShardConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/ModifyReplicationGroupShardConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/ModifyReplicationGroupShardConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/ModifyReplicationGroupShardConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyServerlessCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticache/command/ModifyServerlessCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/ModifyServerlessCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticache/Interface/ModifyServerlessCacheCommandOutput/)
 
 </details>
 <details>

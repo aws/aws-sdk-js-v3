@@ -157,6 +157,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   IpDiscovery: "ipv4" || "ipv6",
  *   TransitEncryptionMode: "preferred" || "required",
  *   ClusterMode: "enabled" || "disabled" || "compatible",
+ *   ServerlessCacheSnapshotName: "STRING_VALUE",
  * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);

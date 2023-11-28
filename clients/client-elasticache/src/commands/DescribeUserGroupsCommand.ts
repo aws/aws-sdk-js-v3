@@ -72,6 +72,9 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * //       ReplicationGroups: [ // UGReplicationGroupIdList
  * //         "STRING_VALUE",
  * //       ],
+ * //       ServerlessCaches: [ // UGServerlessCacheIdList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       ARN: "STRING_VALUE",
  * //     },
  * //   ],

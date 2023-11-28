@@ -36,6 +36,10 @@ import {
   BatchStopUpdateActionCommandOutput,
 } from "../commands/BatchStopUpdateActionCommand";
 import { CompleteMigrationCommandInput, CompleteMigrationCommandOutput } from "../commands/CompleteMigrationCommand";
+import {
+  CopyServerlessCacheSnapshotCommandInput,
+  CopyServerlessCacheSnapshotCommandOutput,
+} from "../commands/CopyServerlessCacheSnapshotCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "../commands/CopySnapshotCommand";
 import { CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput } from "../commands/CreateCacheClusterCommand";
 import {
@@ -58,6 +62,14 @@ import {
   CreateReplicationGroupCommandInput,
   CreateReplicationGroupCommandOutput,
 } from "../commands/CreateReplicationGroupCommand";
+import {
+  CreateServerlessCacheCommandInput,
+  CreateServerlessCacheCommandOutput,
+} from "../commands/CreateServerlessCacheCommand";
+import {
+  CreateServerlessCacheSnapshotCommandInput,
+  CreateServerlessCacheSnapshotCommandOutput,
+} from "../commands/CreateServerlessCacheSnapshotCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "../commands/CreateSnapshotCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import { CreateUserGroupCommandInput, CreateUserGroupCommandOutput } from "../commands/CreateUserGroupCommand";
@@ -90,6 +102,14 @@ import {
   DeleteReplicationGroupCommandInput,
   DeleteReplicationGroupCommandOutput,
 } from "../commands/DeleteReplicationGroupCommand";
+import {
+  DeleteServerlessCacheCommandInput,
+  DeleteServerlessCacheCommandOutput,
+} from "../commands/DeleteServerlessCacheCommand";
+import {
+  DeleteServerlessCacheSnapshotCommandInput,
+  DeleteServerlessCacheSnapshotCommandOutput,
+} from "../commands/DeleteServerlessCacheSnapshotCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "../commands/DeleteSnapshotCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import { DeleteUserGroupCommandInput, DeleteUserGroupCommandOutput } from "../commands/DeleteUserGroupCommand";
@@ -139,6 +159,14 @@ import {
   DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "../commands/DescribeReservedCacheNodesOfferingsCommand";
 import {
+  DescribeServerlessCachesCommandInput,
+  DescribeServerlessCachesCommandOutput,
+} from "../commands/DescribeServerlessCachesCommand";
+import {
+  DescribeServerlessCacheSnapshotsCommandInput,
+  DescribeServerlessCacheSnapshotsCommandOutput,
+} from "../commands/DescribeServerlessCacheSnapshotsCommand";
+import {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
 } from "../commands/DescribeServiceUpdatesCommand";
@@ -153,6 +181,10 @@ import {
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
 } from "../commands/DisassociateGlobalReplicationGroupCommand";
+import {
+  ExportServerlessCacheSnapshotCommandInput,
+  ExportServerlessCacheSnapshotCommandOutput,
+} from "../commands/ExportServerlessCacheSnapshotCommand";
 import {
   FailoverGlobalReplicationGroupCommandInput,
   FailoverGlobalReplicationGroupCommandOutput,
@@ -194,6 +226,10 @@ import {
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "../commands/ModifyReplicationGroupShardConfigurationCommand";
+import {
+  ModifyServerlessCacheCommandInput,
+  ModifyServerlessCacheCommandOutput,
+} from "../commands/ModifyServerlessCacheCommand";
 import { ModifyUserCommandInput, ModifyUserCommandOutput } from "../commands/ModifyUserCommand";
 import { ModifyUserGroupCommandInput, ModifyUserGroupCommandOutput } from "../commands/ModifyUserGroupCommand";
 import {
@@ -224,7 +260,6 @@ import { ElastiCacheServiceException as __BaseException } from "../models/Elasti
 import {
   AddTagsToResourceMessage,
   AllowedNodeTypeModificationsMessage,
-  APICallRateForCustomerExceededFault,
   Authentication,
   AuthenticationMode,
   AuthorizationAlreadyExistsFault,
@@ -265,11 +300,14 @@ import {
   CacheSubnetGroupNotFoundFault,
   CacheSubnetGroupQuotaExceededFault,
   CacheSubnetQuotaExceededFault,
+  CacheUsageLimits,
   CloudWatchLogsDestinationDetails,
   ClusterQuotaForCustomerExceededFault,
   CompleteMigrationMessage,
   CompleteMigrationResponse,
   ConfigureShard,
+  CopyServerlessCacheSnapshotRequest,
+  CopyServerlessCacheSnapshotResponse,
   CopySnapshotMessage,
   CopySnapshotResult,
   CreateCacheClusterMessage,
@@ -284,11 +322,15 @@ import {
   CreateGlobalReplicationGroupResult,
   CreateReplicationGroupMessage,
   CreateReplicationGroupResult,
+  CreateServerlessCacheRequest,
+  CreateServerlessCacheResponse,
+  CreateServerlessCacheSnapshotRequest,
+  CreateServerlessCacheSnapshotResponse,
   CreateSnapshotMessage,
   CreateSnapshotResult,
   CreateUserGroupMessage,
   CreateUserMessage,
-  CustomerNodeEndpoint,
+  DataStorage,
   DecreaseNodeGroupsInGlobalReplicationGroupMessage,
   DecreaseNodeGroupsInGlobalReplicationGroupResult,
   DecreaseReplicaCountMessage,
@@ -304,6 +346,10 @@ import {
   DeleteGlobalReplicationGroupResult,
   DeleteReplicationGroupMessage,
   DeleteReplicationGroupResult,
+  DeleteServerlessCacheRequest,
+  DeleteServerlessCacheResponse,
+  DeleteServerlessCacheSnapshotRequest,
+  DeleteServerlessCacheSnapshotResponse,
   DeleteSnapshotMessage,
   DeleteSnapshotResult,
   DeleteUserGroupMessage,
@@ -322,6 +368,10 @@ import {
   DescribeReplicationGroupsMessage,
   DescribeReservedCacheNodesMessage,
   DescribeReservedCacheNodesOfferingsMessage,
+  DescribeServerlessCacheSnapshotsRequest,
+  DescribeServerlessCacheSnapshotsResponse,
+  DescribeServerlessCachesRequest,
+  DescribeServerlessCachesResponse,
   DescribeServiceUpdatesMessage,
   DescribeSnapshotsListMessage,
   DescribeSnapshotsMessage,
@@ -335,10 +385,13 @@ import {
   DisassociateGlobalReplicationGroupResult,
   DuplicateUserNameFault,
   EC2SecurityGroup,
+  ECPUPerSecond,
   Endpoint,
   EngineDefaults,
   Event,
   EventsMessage,
+  ExportServerlessCacheSnapshotRequest,
+  ExportServerlessCacheSnapshotResponse,
   FailoverGlobalReplicationGroupMessage,
   FailoverGlobalReplicationGroupResult,
   Filter,
@@ -357,11 +410,14 @@ import {
   InvalidCacheClusterStateFault,
   InvalidCacheParameterGroupStateFault,
   InvalidCacheSecurityGroupStateFault,
+  InvalidCredentialsException,
   InvalidGlobalReplicationGroupStateFault,
   InvalidKMSKeyFault,
   InvalidParameterCombinationException,
   InvalidParameterValueException,
   InvalidReplicationGroupStateFault,
+  InvalidServerlessCacheSnapshotStateFault,
+  InvalidServerlessCacheStateFault,
   InvalidSnapshotStateFault,
   InvalidSubnet,
   InvalidUserGroupStateFault,
@@ -383,6 +439,8 @@ import {
   ModifyReplicationGroupResult,
   ModifyReplicationGroupShardConfigurationMessage,
   ModifyReplicationGroupShardConfigurationResult,
+  ModifyServerlessCacheRequest,
+  ModifyServerlessCacheResponse,
   ModifyUserGroupMessage,
   ModifyUserMessage,
   NetworkType,
@@ -390,7 +448,6 @@ import {
   NodeGroupConfiguration,
   NodeGroupMember,
   NodeGroupMemberUpdateStatus,
-  NodeGroupNotFoundFault,
   NodeGroupsPerReplicationGroupQuotaExceededFault,
   NodeGroupUpdateStatus,
   NodeQuotaForClusterExceededFault,
@@ -414,7 +471,6 @@ import {
   RemoveTagsFromResourceMessage,
   ReplicationGroup,
   ReplicationGroupAlreadyExistsFault,
-  ReplicationGroupAlreadyUnderMigrationFault,
   ReplicationGroupMessage,
   ReplicationGroupNotFoundFault,
   ReplicationGroupNotUnderMigrationFault,
@@ -433,6 +489,15 @@ import {
   RevokeCacheSecurityGroupIngressMessage,
   RevokeCacheSecurityGroupIngressResult,
   SecurityGroupMembership,
+  ServerlessCache,
+  ServerlessCacheAlreadyExistsFault,
+  ServerlessCacheConfiguration,
+  ServerlessCacheNotFoundFault,
+  ServerlessCacheQuotaForCustomerExceededFault,
+  ServerlessCacheSnapshot,
+  ServerlessCacheSnapshotAlreadyExistsFault,
+  ServerlessCacheSnapshotNotFoundFault,
+  ServerlessCacheSnapshotQuotaExceededFault,
   ServiceLinkedRoleNotFoundFault,
   ServiceUpdate,
   ServiceUpdateNotFoundFault,
@@ -444,8 +509,6 @@ import {
   SnapshotFeatureNotSupportedFault,
   SnapshotNotFoundFault,
   SnapshotQuotaExceededFault,
-  StartMigrationMessage,
-  StartMigrationResponse,
   Subnet,
   SubnetInUse,
   SubnetNotAllowedFault,
@@ -454,11 +517,6 @@ import {
   TagListMessage,
   TagNotFoundFault,
   TagQuotaPerResourceExceeded,
-  TestFailoverMessage,
-  TestFailoverNotAvailableFault,
-  TestFailoverResult,
-  TestMigrationMessage,
-  TestMigrationResponse,
   TimeRangeFilter,
   UnprocessedUpdateAction,
   UpdateAction,
@@ -476,6 +534,19 @@ import {
   UserNotFoundFault,
   UserQuotaExceededFault,
 } from "../models/models_0";
+import {
+  APICallRateForCustomerExceededFault,
+  CustomerNodeEndpoint,
+  NodeGroupNotFoundFault,
+  ReplicationGroupAlreadyUnderMigrationFault,
+  StartMigrationMessage,
+  StartMigrationResponse,
+  TestFailoverMessage,
+  TestFailoverNotAvailableFault,
+  TestFailoverResult,
+  TestMigrationMessage,
+  TestMigrationResponse,
+} from "../models/models_1";
 
 /**
  * serializeAws_queryAddTagsToResourceCommand
@@ -557,6 +628,23 @@ export const se_CompleteMigrationCommand = async (
   body = buildFormUrlencodedString({
     ...se_CompleteMigrationMessage(input, context),
     Action: "CompleteMigration",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryCopyServerlessCacheSnapshotCommand
+ */
+export const se_CopyServerlessCacheSnapshotCommand = async (
+  input: CopyServerlessCacheSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CopyServerlessCacheSnapshotRequest(input, context),
+    Action: "CopyServerlessCacheSnapshot",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -676,6 +764,40 @@ export const se_CreateReplicationGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_CreateReplicationGroupMessage(input, context),
     Action: "CreateReplicationGroup",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryCreateServerlessCacheCommand
+ */
+export const se_CreateServerlessCacheCommand = async (
+  input: CreateServerlessCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateServerlessCacheRequest(input, context),
+    Action: "CreateServerlessCache",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryCreateServerlessCacheSnapshotCommand
+ */
+export const se_CreateServerlessCacheSnapshotCommand = async (
+  input: CreateServerlessCacheSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateServerlessCacheSnapshotRequest(input, context),
+    Action: "CreateServerlessCacheSnapshot",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -863,6 +985,40 @@ export const se_DeleteReplicationGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteReplicationGroupMessage(input, context),
     Action: "DeleteReplicationGroup",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeleteServerlessCacheCommand
+ */
+export const se_DeleteServerlessCacheCommand = async (
+  input: DeleteServerlessCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteServerlessCacheRequest(input, context),
+    Action: "DeleteServerlessCache",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeleteServerlessCacheSnapshotCommand
+ */
+export const se_DeleteServerlessCacheSnapshotCommand = async (
+  input: DeleteServerlessCacheSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteServerlessCacheSnapshotRequest(input, context),
+    Action: "DeleteServerlessCacheSnapshot",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1124,6 +1280,40 @@ export const se_DescribeReservedCacheNodesOfferingsCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeServerlessCachesCommand
+ */
+export const se_DescribeServerlessCachesCommand = async (
+  input: DescribeServerlessCachesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeServerlessCachesRequest(input, context),
+    Action: "DescribeServerlessCaches",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeServerlessCacheSnapshotsCommand
+ */
+export const se_DescribeServerlessCacheSnapshotsCommand = async (
+  input: DescribeServerlessCacheSnapshotsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeServerlessCacheSnapshotsRequest(input, context),
+    Action: "DescribeServerlessCacheSnapshots",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeServiceUpdatesCommand
  */
 export const se_DescribeServiceUpdatesCommand = async (
@@ -1220,6 +1410,23 @@ export const se_DisassociateGlobalReplicationGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_DisassociateGlobalReplicationGroupMessage(input, context),
     Action: "DisassociateGlobalReplicationGroup",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryExportServerlessCacheSnapshotCommand
+ */
+export const se_ExportServerlessCacheSnapshotCommand = async (
+  input: ExportServerlessCacheSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ExportServerlessCacheSnapshotRequest(input, context),
+    Action: "ExportServerlessCacheSnapshot",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1407,6 +1614,23 @@ export const se_ModifyReplicationGroupShardConfigurationCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyReplicationGroupShardConfigurationMessage(input, context),
     Action: "ModifyReplicationGroupShardConfiguration",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyServerlessCacheCommand
+ */
+export const se_ModifyServerlessCacheCommand = async (
+  input: ModifyServerlessCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyServerlessCacheRequest(input, context),
+    Action: "ModifyServerlessCache",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1650,12 +1874,24 @@ const de_AddTagsToResourceCommandError = async (
     case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidServerlessCacheSnapshotStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
+      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
+    case "InvalidServerlessCacheStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
+      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
       throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
+      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
       throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
@@ -1876,6 +2112,73 @@ const de_CompleteMigrationCommandError = async (
     case "ReplicationGroupNotUnderMigrationFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotUnderMigrationFault":
       throw await de_ReplicationGroupNotUnderMigrationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryCopyServerlessCacheSnapshotCommand
+ */
+export const de_CopyServerlessCacheSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyServerlessCacheSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CopyServerlessCacheSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyServerlessCacheSnapshotResponse(data.CopyServerlessCacheSnapshotResult, context);
+  const response: CopyServerlessCacheSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyServerlessCacheSnapshotCommandError
+ */
+const de_CopyServerlessCacheSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyServerlessCacheSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombination":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidServerlessCacheSnapshotStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
+      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotAlreadyExistsFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault":
+      throw await de_ServerlessCacheSnapshotAlreadyExistsFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
+      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotQuotaExceededFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotQuotaExceededFault":
+      throw await de_ServerlessCacheSnapshotQuotaExceededFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2363,6 +2666,149 @@ const de_CreateReplicationGroupCommandError = async (
     case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryCreateServerlessCacheCommand
+ */
+export const de_CreateServerlessCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServerlessCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateServerlessCacheCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateServerlessCacheResponse(data.CreateServerlessCacheResult, context);
+  const response: CreateServerlessCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateServerlessCacheCommandError
+ */
+const de_CreateServerlessCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServerlessCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidCredentialsException":
+    case "com.amazonaws.elasticache#InvalidCredentialsException":
+      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombination":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidServerlessCacheStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
+      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
+    case "InvalidUserGroupState":
+    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
+      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
+    case "ServerlessCacheAlreadyExistsFault":
+    case "com.amazonaws.elasticache#ServerlessCacheAlreadyExistsFault":
+      throw await de_ServerlessCacheAlreadyExistsFaultRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheQuotaForCustomerExceededFault":
+    case "com.amazonaws.elasticache#ServerlessCacheQuotaForCustomerExceededFault":
+      throw await de_ServerlessCacheQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
+    case "UserGroupNotFound":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryCreateServerlessCacheSnapshotCommand
+ */
+export const de_CreateServerlessCacheSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServerlessCacheSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateServerlessCacheSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateServerlessCacheSnapshotResponse(data.CreateServerlessCacheSnapshotResult, context);
+  const response: CreateServerlessCacheSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateServerlessCacheSnapshotCommandError
+ */
+const de_CreateServerlessCacheSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServerlessCacheSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombination":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidServerlessCacheStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
+      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotAlreadyExistsFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault":
+      throw await de_ServerlessCacheSnapshotAlreadyExistsFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotQuotaExceededFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotQuotaExceededFault":
+      throw await de_ServerlessCacheSnapshotQuotaExceededFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3034,6 +3480,125 @@ const de_DeleteReplicationGroupCommandError = async (
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteServerlessCacheCommand
+ */
+export const de_DeleteServerlessCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServerlessCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteServerlessCacheCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteServerlessCacheResponse(data.DeleteServerlessCacheResult, context);
+  const response: DeleteServerlessCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteServerlessCacheCommandError
+ */
+const de_DeleteServerlessCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServerlessCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidCredentialsException":
+    case "com.amazonaws.elasticache#InvalidCredentialsException":
+      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombination":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidServerlessCacheStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
+      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotAlreadyExistsFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault":
+      throw await de_ServerlessCacheSnapshotAlreadyExistsFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteServerlessCacheSnapshotCommand
+ */
+export const de_DeleteServerlessCacheSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServerlessCacheSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteServerlessCacheSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteServerlessCacheSnapshotResponse(data.DeleteServerlessCacheSnapshotResult, context);
+  const response: DeleteServerlessCacheSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteServerlessCacheSnapshotCommandError
+ */
+const de_DeleteServerlessCacheSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServerlessCacheSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidServerlessCacheSnapshotStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
+      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
+      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3813,6 +4378,113 @@ const de_DescribeReservedCacheNodesOfferingsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeServerlessCachesCommand
+ */
+export const de_DescribeServerlessCachesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServerlessCachesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeServerlessCachesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServerlessCachesResponse(data.DescribeServerlessCachesResult, context);
+  const response: DescribeServerlessCachesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeServerlessCachesCommandError
+ */
+const de_DescribeServerlessCachesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServerlessCachesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombination":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDescribeServerlessCacheSnapshotsCommand
+ */
+export const de_DescribeServerlessCacheSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServerlessCacheSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeServerlessCacheSnapshotsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServerlessCacheSnapshotsResponse(data.DescribeServerlessCacheSnapshotsResult, context);
+  const response: DescribeServerlessCacheSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeServerlessCacheSnapshotsCommandError
+ */
+const de_DescribeServerlessCacheSnapshotsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServerlessCacheSnapshotsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombination":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
+      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDescribeServiceUpdatesCommand
  */
 export const de_DescribeServiceUpdatesCommand = async (
@@ -4128,6 +4800,61 @@ const de_DisassociateGlobalReplicationGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_queryExportServerlessCacheSnapshotCommand
+ */
+export const de_ExportServerlessCacheSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportServerlessCacheSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ExportServerlessCacheSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ExportServerlessCacheSnapshotResponse(data.ExportServerlessCacheSnapshotResult, context);
+  const response: ExportServerlessCacheSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryExportServerlessCacheSnapshotCommandError
+ */
+const de_ExportServerlessCacheSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportServerlessCacheSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidServerlessCacheSnapshotStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
+      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
+      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryFailoverGlobalReplicationGroupCommand
  */
 export const de_FailoverGlobalReplicationGroupCommand = async (
@@ -4422,12 +5149,24 @@ const de_ListTagsForResourceCommandError = async (
     case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidServerlessCacheSnapshotStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
+      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
+    case "InvalidServerlessCacheStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
+      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
       throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
+      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
       throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
@@ -4859,6 +5598,73 @@ const de_ModifyReplicationGroupShardConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_queryModifyServerlessCacheCommand
+ */
+export const de_ModifyServerlessCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyServerlessCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyServerlessCacheCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyServerlessCacheResponse(data.ModifyServerlessCacheResult, context);
+  const response: ModifyServerlessCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyServerlessCacheCommandError
+ */
+const de_ModifyServerlessCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyServerlessCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidCredentialsException":
+    case "com.amazonaws.elasticache#InvalidCredentialsException":
+      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombination":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidServerlessCacheStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
+      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
+    case "InvalidUserGroupState":
+    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
+      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "UserGroupNotFound":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryModifyUserCommand
  */
 export const de_ModifyUserCommand = async (
@@ -5199,12 +6005,24 @@ const de_RemoveTagsFromResourceCommandError = async (
     case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidServerlessCacheSnapshotStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
+      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
+    case "InvalidServerlessCacheStateFault":
+    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
+      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
       throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
+      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotNotFoundFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
+      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
       throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
@@ -5950,6 +6768,22 @@ const de_InvalidCacheSecurityGroupStateFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryInvalidCredentialsExceptionRes
+ */
+const de_InvalidCredentialsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidCredentialsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidCredentialsException(body.Error, context);
+  const exception = new InvalidCredentialsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryInvalidGlobalReplicationGroupStateFaultRes
  */
 const de_InvalidGlobalReplicationGroupStateFaultRes = async (
@@ -6020,6 +6854,38 @@ const de_InvalidReplicationGroupStateFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_InvalidReplicationGroupStateFault(body.Error, context);
   const exception = new InvalidReplicationGroupStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInvalidServerlessCacheSnapshotStateFaultRes
+ */
+const de_InvalidServerlessCacheSnapshotStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidServerlessCacheSnapshotStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidServerlessCacheSnapshotStateFault(body.Error, context);
+  const exception = new InvalidServerlessCacheSnapshotStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInvalidServerlessCacheStateFaultRes
+ */
+const de_InvalidServerlessCacheStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidServerlessCacheStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidServerlessCacheStateFault(body.Error, context);
+  const exception = new InvalidServerlessCacheStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -6302,6 +7168,102 @@ const de_ReservedCacheNodesOfferingNotFoundFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_ReservedCacheNodesOfferingNotFoundFault(body.Error, context);
   const exception = new ReservedCacheNodesOfferingNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryServerlessCacheAlreadyExistsFaultRes
+ */
+const de_ServerlessCacheAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServerlessCacheAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ServerlessCacheAlreadyExistsFault(body.Error, context);
+  const exception = new ServerlessCacheAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryServerlessCacheNotFoundFaultRes
+ */
+const de_ServerlessCacheNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServerlessCacheNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ServerlessCacheNotFoundFault(body.Error, context);
+  const exception = new ServerlessCacheNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryServerlessCacheQuotaForCustomerExceededFaultRes
+ */
+const de_ServerlessCacheQuotaForCustomerExceededFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServerlessCacheQuotaForCustomerExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ServerlessCacheQuotaForCustomerExceededFault(body.Error, context);
+  const exception = new ServerlessCacheQuotaForCustomerExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshotAlreadyExistsFaultRes
+ */
+const de_ServerlessCacheSnapshotAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServerlessCacheSnapshotAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ServerlessCacheSnapshotAlreadyExistsFault(body.Error, context);
+  const exception = new ServerlessCacheSnapshotAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshotNotFoundFaultRes
+ */
+const de_ServerlessCacheSnapshotNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServerlessCacheSnapshotNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ServerlessCacheSnapshotNotFoundFault(body.Error, context);
+  const exception = new ServerlessCacheSnapshotNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshotQuotaExceededFaultRes
+ */
+const de_ServerlessCacheSnapshotQuotaExceededFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServerlessCacheSnapshotQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ServerlessCacheSnapshotQuotaExceededFault(body.Error, context);
+  const exception = new ServerlessCacheSnapshotQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -6760,6 +7722,28 @@ const se_CacheSecurityGroupNameList = (input: string[], context: __SerdeContext)
 };
 
 /**
+ * serializeAws_queryCacheUsageLimits
+ */
+const se_CacheUsageLimits = (input: CacheUsageLimits, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DataStorage != null) {
+    const memberEntries = se_DataStorage(input.DataStorage, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DataStorage.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ECPUPerSecond != null) {
+    const memberEntries = se_ECPUPerSecond(input.ECPUPerSecond, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ECPUPerSecond.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCloudWatchLogsDestinationDetails
  */
 const se_CloudWatchLogsDestinationDetails = (input: CloudWatchLogsDestinationDetails, context: __SerdeContext): any => {
@@ -6812,6 +7796,36 @@ const se_ConfigureShard = (input: ConfigureShard, context: __SerdeContext): any 
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredOutpostArns.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCopyServerlessCacheSnapshotRequest
+ */
+const se_CopyServerlessCacheSnapshotRequest = (
+  input: CopyServerlessCacheSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SourceServerlessCacheSnapshotName != null) {
+    entries["SourceServerlessCacheSnapshotName"] = input.SourceServerlessCacheSnapshotName;
+  }
+  if (input.TargetServerlessCacheSnapshotName != null) {
+    entries["TargetServerlessCacheSnapshotName"] = input.TargetServerlessCacheSnapshotName;
+  }
+  if (input.KmsKeyId != null) {
+    entries["KmsKeyId"] = input.KmsKeyId;
+  }
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
@@ -7275,6 +8289,118 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
   if (input.ClusterMode != null) {
     entries["ClusterMode"] = input.ClusterMode;
   }
+  if (input.ServerlessCacheSnapshotName != null) {
+    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCreateServerlessCacheRequest
+ */
+const se_CreateServerlessCacheRequest = (input: CreateServerlessCacheRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheName != null) {
+    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.Engine != null) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.MajorEngineVersion != null) {
+    entries["MajorEngineVersion"] = input.MajorEngineVersion;
+  }
+  if (input.CacheUsageLimits != null) {
+    const memberEntries = se_CacheUsageLimits(input.CacheUsageLimits, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CacheUsageLimits.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.KmsKeyId != null) {
+    entries["KmsKeyId"] = input.KmsKeyId;
+  }
+  if (input.SecurityGroupIds != null) {
+    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SnapshotArnsToRestore != null) {
+    const memberEntries = se_SnapshotArnsList(input.SnapshotArnsToRestore, context);
+    if (input.SnapshotArnsToRestore?.length === 0) {
+      entries.SnapshotArnsToRestore = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SnapshotArnsToRestore.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.UserGroupId != null) {
+    entries["UserGroupId"] = input.UserGroupId;
+  }
+  if (input.SubnetIds != null) {
+    const memberEntries = se_SubnetIdsList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SubnetIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SnapshotRetentionLimit != null) {
+    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  }
+  if (input.DailySnapshotTime != null) {
+    entries["DailySnapshotTime"] = input.DailySnapshotTime;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryCreateServerlessCacheSnapshotRequest
+ */
+const se_CreateServerlessCacheSnapshotRequest = (
+  input: CreateServerlessCacheSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheSnapshotName != null) {
+    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  }
+  if (input.ServerlessCacheName != null) {
+    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  }
+  if (input.KmsKeyId != null) {
+    entries["KmsKeyId"] = input.KmsKeyId;
+  }
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -7421,6 +8547,20 @@ const se_CustomerNodeEndpointList = (input: CustomerNodeEndpoint[], context: __S
       entries[`member.${counter}.${key}`] = value;
     });
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDataStorage
+ */
+const se_DataStorage = (input: DataStorage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Maximum != null) {
+    entries["Maximum"] = input.Maximum;
+  }
+  if (input.Unit != null) {
+    entries["Unit"] = input.Unit;
   }
   return entries;
 };
@@ -7579,6 +8719,34 @@ const se_DeleteReplicationGroupMessage = (input: DeleteReplicationGroupMessage, 
   }
   if (input.FinalSnapshotIdentifier != null) {
     entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeleteServerlessCacheRequest
+ */
+const se_DeleteServerlessCacheRequest = (input: DeleteServerlessCacheRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheName != null) {
+    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  }
+  if (input.FinalSnapshotName != null) {
+    entries["FinalSnapshotName"] = input.FinalSnapshotName;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeleteServerlessCacheSnapshotRequest
+ */
+const se_DeleteServerlessCacheSnapshotRequest = (
+  input: DeleteServerlessCacheSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheSnapshotName != null) {
+    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
   }
   return entries;
 };
@@ -7902,6 +9070,49 @@ const se_DescribeReservedCacheNodesOfferingsMessage = (
 };
 
 /**
+ * serializeAws_queryDescribeServerlessCacheSnapshotsRequest
+ */
+const se_DescribeServerlessCacheSnapshotsRequest = (
+  input: DescribeServerlessCacheSnapshotsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheName != null) {
+    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  }
+  if (input.ServerlessCacheSnapshotName != null) {
+    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  }
+  if (input.SnapshotType != null) {
+    entries["SnapshotType"] = input.SnapshotType;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeServerlessCachesRequest
+ */
+const se_DescribeServerlessCachesRequest = (input: DescribeServerlessCachesRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheName != null) {
+    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeServiceUpdatesMessage
  */
 const se_DescribeServiceUpdatesMessage = (input: DescribeServiceUpdatesMessage, context: __SerdeContext): any => {
@@ -8112,6 +9323,34 @@ const se_DisassociateGlobalReplicationGroupMessage = (
   }
   if (input.ReplicationGroupRegion != null) {
     entries["ReplicationGroupRegion"] = input.ReplicationGroupRegion;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryECPUPerSecond
+ */
+const se_ECPUPerSecond = (input: ECPUPerSecond, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Maximum != null) {
+    entries["Maximum"] = input.Maximum;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryExportServerlessCacheSnapshotRequest
+ */
+const se_ExportServerlessCacheSnapshotRequest = (
+  input: ExportServerlessCacheSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheSnapshotName != null) {
+    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  }
+  if (input.S3BucketName != null) {
+    entries["S3BucketName"] = input.S3BucketName;
   }
   return entries;
 };
@@ -8736,6 +9975,49 @@ const se_ModifyReplicationGroupShardConfigurationMessage = (
 };
 
 /**
+ * serializeAws_queryModifyServerlessCacheRequest
+ */
+const se_ModifyServerlessCacheRequest = (input: ModifyServerlessCacheRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ServerlessCacheName != null) {
+    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.CacheUsageLimits != null) {
+    const memberEntries = se_CacheUsageLimits(input.CacheUsageLimits, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CacheUsageLimits.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.RemoveUserGroup != null) {
+    entries["RemoveUserGroup"] = input.RemoveUserGroup;
+  }
+  if (input.UserGroupId != null) {
+    entries["UserGroupId"] = input.UserGroupId;
+  }
+  if (input.SecurityGroupIds != null) {
+    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SnapshotRetentionLimit != null) {
+    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  }
+  if (input.DailySnapshotTime != null) {
+    entries["DailySnapshotTime"] = input.DailySnapshotTime;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryModifyUserGroupMessage
  */
 const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __SerdeContext): any => {
@@ -9341,6 +10623,22 @@ const se_SubnetIdentifierList = (input: string[], context: __SerdeContext): any 
       continue;
     }
     entries[`SubnetIdentifier.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_querySubnetIdsList
+ */
+const se_SubnetIdsList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`SubnetId.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -10450,6 +11748,20 @@ const de_CacheSubnetQuotaExceededFault = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_queryCacheUsageLimits
+ */
+const de_CacheUsageLimits = (output: any, context: __SerdeContext): CacheUsageLimits => {
+  const contents: any = {};
+  if (output["DataStorage"] !== undefined) {
+    contents.DataStorage = de_DataStorage(output["DataStorage"], context);
+  }
+  if (output["ECPUPerSecond"] !== undefined) {
+    contents.ECPUPerSecond = de_ECPUPerSecond(output["ECPUPerSecond"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCloudWatchLogsDestinationDetails
  */
 const de_CloudWatchLogsDestinationDetails = (
@@ -10495,6 +11807,20 @@ const de_CompleteMigrationResponse = (output: any, context: __SerdeContext): Com
   const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
     contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCopyServerlessCacheSnapshotResponse
+ */
+const de_CopyServerlessCacheSnapshotResponse = (
+  output: any,
+  context: __SerdeContext
+): CopyServerlessCacheSnapshotResponse => {
+  const contents: any = {};
+  if (output["ServerlessCacheSnapshot"] !== undefined) {
+    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
   }
   return contents;
 };
@@ -10580,12 +11906,51 @@ const de_CreateReplicationGroupResult = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_queryCreateServerlessCacheResponse
+ */
+const de_CreateServerlessCacheResponse = (output: any, context: __SerdeContext): CreateServerlessCacheResponse => {
+  const contents: any = {};
+  if (output["ServerlessCache"] !== undefined) {
+    contents.ServerlessCache = de_ServerlessCache(output["ServerlessCache"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCreateServerlessCacheSnapshotResponse
+ */
+const de_CreateServerlessCacheSnapshotResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateServerlessCacheSnapshotResponse => {
+  const contents: any = {};
+  if (output["ServerlessCacheSnapshot"] !== undefined) {
+    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCreateSnapshotResult
  */
 const de_CreateSnapshotResult = (output: any, context: __SerdeContext): CreateSnapshotResult => {
   const contents: any = {};
   if (output["Snapshot"] !== undefined) {
     contents.Snapshot = de_Snapshot(output["Snapshot"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDataStorage
+ */
+const de_DataStorage = (output: any, context: __SerdeContext): DataStorage => {
+  const contents: any = {};
+  if (output["Maximum"] !== undefined) {
+    contents.Maximum = __strictParseInt32(output["Maximum"]) as number;
+  }
+  if (output["Unit"] !== undefined) {
+    contents.Unit = __expectString(output["Unit"]);
   }
   return contents;
 };
@@ -10677,6 +12042,31 @@ const de_DeleteReplicationGroupResult = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_queryDeleteServerlessCacheResponse
+ */
+const de_DeleteServerlessCacheResponse = (output: any, context: __SerdeContext): DeleteServerlessCacheResponse => {
+  const contents: any = {};
+  if (output["ServerlessCache"] !== undefined) {
+    contents.ServerlessCache = de_ServerlessCache(output["ServerlessCache"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDeleteServerlessCacheSnapshotResponse
+ */
+const de_DeleteServerlessCacheSnapshotResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteServerlessCacheSnapshotResponse => {
+  const contents: any = {};
+  if (output["ServerlessCacheSnapshot"] !== undefined) {
+    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDeleteSnapshotResult
  */
 const de_DeleteSnapshotResult = (output: any, context: __SerdeContext): DeleteSnapshotResult => {
@@ -10720,6 +12110,53 @@ const de_DescribeGlobalReplicationGroupsResult = (
   ) {
     contents.GlobalReplicationGroups = de_GlobalReplicationGroupList(
       __getArrayIfSingleItem(output["GlobalReplicationGroups"]["GlobalReplicationGroup"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeServerlessCacheSnapshotsResponse
+ */
+const de_DescribeServerlessCacheSnapshotsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeServerlessCacheSnapshotsResponse => {
+  const contents: any = {};
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["NextToken"]);
+  }
+  if (output.ServerlessCacheSnapshots === "") {
+    contents.ServerlessCacheSnapshots = [];
+  } else if (
+    output["ServerlessCacheSnapshots"] !== undefined &&
+    output["ServerlessCacheSnapshots"]["ServerlessCacheSnapshot"] !== undefined
+  ) {
+    contents.ServerlessCacheSnapshots = de_ServerlessCacheSnapshotList(
+      __getArrayIfSingleItem(output["ServerlessCacheSnapshots"]["ServerlessCacheSnapshot"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeServerlessCachesResponse
+ */
+const de_DescribeServerlessCachesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeServerlessCachesResponse => {
+  const contents: any = {};
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["NextToken"]);
+  }
+  if (output.ServerlessCaches === "") {
+    contents.ServerlessCaches = [];
+  } else if (output["ServerlessCaches"] !== undefined && output["ServerlessCaches"]["member"] !== undefined) {
+    contents.ServerlessCaches = de_ServerlessCacheList(
+      __getArrayIfSingleItem(output["ServerlessCaches"]["member"]),
       context
     );
   }
@@ -10842,6 +12279,17 @@ const de_EC2SecurityGroupList = (output: any, context: __SerdeContext): EC2Secur
 };
 
 /**
+ * deserializeAws_queryECPUPerSecond
+ */
+const de_ECPUPerSecond = (output: any, context: __SerdeContext): ECPUPerSecond => {
+  const contents: any = {};
+  if (output["Maximum"] !== undefined) {
+    contents.Maximum = __strictParseInt32(output["Maximum"]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryEndpoint
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
@@ -10928,6 +12376,20 @@ const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage =
     contents.Events = [];
   } else if (output["Events"] !== undefined && output["Events"]["Event"] !== undefined) {
     contents.Events = de_EventList(__getArrayIfSingleItem(output["Events"]["Event"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryExportServerlessCacheSnapshotResponse
+ */
+const de_ExportServerlessCacheSnapshotResponse = (
+  output: any,
+  context: __SerdeContext
+): ExportServerlessCacheSnapshotResponse => {
+  const contents: any = {};
+  if (output["ServerlessCacheSnapshot"] !== undefined) {
+    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
   }
   return contents;
 };
@@ -11205,6 +12667,17 @@ const de_InvalidCacheSecurityGroupStateFault = (
 };
 
 /**
+ * deserializeAws_queryInvalidCredentialsException
+ */
+const de_InvalidCredentialsException = (output: any, context: __SerdeContext): InvalidCredentialsException => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryInvalidGlobalReplicationGroupStateFault
  */
 const de_InvalidGlobalReplicationGroupStateFault = (
@@ -11261,6 +12734,34 @@ const de_InvalidReplicationGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidReplicationGroupStateFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidServerlessCacheSnapshotStateFault
+ */
+const de_InvalidServerlessCacheSnapshotStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidServerlessCacheSnapshotStateFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidServerlessCacheStateFault
+ */
+const de_InvalidServerlessCacheStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidServerlessCacheStateFault => {
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
@@ -11431,6 +12932,17 @@ const de_ModifyReplicationGroupShardConfigurationResult = (
   const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
     contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyServerlessCacheResponse
+ */
+const de_ModifyServerlessCacheResponse = (output: any, context: __SerdeContext): ModifyServerlessCacheResponse => {
+  const contents: any = {};
+  if (output["ServerlessCache"] !== undefined) {
+    contents.ServerlessCache = de_ServerlessCache(output["ServerlessCache"], context);
   }
   return contents;
 };
@@ -12520,6 +14032,17 @@ const de_RevokeCacheSecurityGroupIngressResult = (
 };
 
 /**
+ * deserializeAws_querySecurityGroupIdsList
+ */
+const de_SecurityGroupIdsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_querySecurityGroupMembership
  */
 const de_SecurityGroupMembership = (output: any, context: __SerdeContext): SecurityGroupMembership => {
@@ -12542,6 +14065,230 @@ const de_SecurityGroupMembershipList = (output: any, context: __SerdeContext): S
     .map((entry: any) => {
       return de_SecurityGroupMembership(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryServerlessCache
+ */
+const de_ServerlessCache = (output: any, context: __SerdeContext): ServerlessCache => {
+  const contents: any = {};
+  if (output["ServerlessCacheName"] !== undefined) {
+    contents.ServerlessCacheName = __expectString(output["ServerlessCacheName"]);
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = __expectString(output["Description"]);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = __expectString(output["Engine"]);
+  }
+  if (output["MajorEngineVersion"] !== undefined) {
+    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  }
+  if (output["FullEngineVersion"] !== undefined) {
+    contents.FullEngineVersion = __expectString(output["FullEngineVersion"]);
+  }
+  if (output["CacheUsageLimits"] !== undefined) {
+    contents.CacheUsageLimits = de_CacheUsageLimits(output["CacheUsageLimits"], context);
+  }
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  }
+  if (output.SecurityGroupIds === "") {
+    contents.SecurityGroupIds = [];
+  } else if (output["SecurityGroupIds"] !== undefined && output["SecurityGroupIds"]["SecurityGroupId"] !== undefined) {
+    contents.SecurityGroupIds = de_SecurityGroupIdsList(
+      __getArrayIfSingleItem(output["SecurityGroupIds"]["SecurityGroupId"]),
+      context
+    );
+  }
+  if (output["Endpoint"] !== undefined) {
+    contents.Endpoint = de_Endpoint(output["Endpoint"], context);
+  }
+  if (output["ReaderEndpoint"] !== undefined) {
+    contents.ReaderEndpoint = de_Endpoint(output["ReaderEndpoint"], context);
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = __expectString(output["ARN"]);
+  }
+  if (output["UserGroupId"] !== undefined) {
+    contents.UserGroupId = __expectString(output["UserGroupId"]);
+  }
+  if (output.SubnetIds === "") {
+    contents.SubnetIds = [];
+  } else if (output["SubnetIds"] !== undefined && output["SubnetIds"]["SubnetId"] !== undefined) {
+    contents.SubnetIds = de_SubnetIdsList(__getArrayIfSingleItem(output["SubnetIds"]["SubnetId"]), context);
+  }
+  if (output["SnapshotRetentionLimit"] !== undefined) {
+    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
+  }
+  if (output["DailySnapshotTime"] !== undefined) {
+    contents.DailySnapshotTime = __expectString(output["DailySnapshotTime"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheAlreadyExistsFault
+ */
+const de_ServerlessCacheAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ServerlessCacheAlreadyExistsFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheConfiguration
+ */
+const de_ServerlessCacheConfiguration = (output: any, context: __SerdeContext): ServerlessCacheConfiguration => {
+  const contents: any = {};
+  if (output["ServerlessCacheName"] !== undefined) {
+    contents.ServerlessCacheName = __expectString(output["ServerlessCacheName"]);
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = __expectString(output["Engine"]);
+  }
+  if (output["MajorEngineVersion"] !== undefined) {
+    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheList
+ */
+const de_ServerlessCacheList = (output: any, context: __SerdeContext): ServerlessCache[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServerlessCache(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryServerlessCacheNotFoundFault
+ */
+const de_ServerlessCacheNotFoundFault = (output: any, context: __SerdeContext): ServerlessCacheNotFoundFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheQuotaForCustomerExceededFault
+ */
+const de_ServerlessCacheQuotaForCustomerExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ServerlessCacheQuotaForCustomerExceededFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshot
+ */
+const de_ServerlessCacheSnapshot = (output: any, context: __SerdeContext): ServerlessCacheSnapshot => {
+  const contents: any = {};
+  if (output["ServerlessCacheSnapshotName"] !== undefined) {
+    contents.ServerlessCacheSnapshotName = __expectString(output["ServerlessCacheSnapshotName"]);
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = __expectString(output["ARN"]);
+  }
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  }
+  if (output["SnapshotType"] !== undefined) {
+    contents.SnapshotType = __expectString(output["SnapshotType"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  }
+  if (output["ExpiryTime"] !== undefined) {
+    contents.ExpiryTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ExpiryTime"]));
+  }
+  if (output["BytesUsedForCache"] !== undefined) {
+    contents.BytesUsedForCache = __expectString(output["BytesUsedForCache"]);
+  }
+  if (output["ServerlessCacheConfiguration"] !== undefined) {
+    contents.ServerlessCacheConfiguration = de_ServerlessCacheConfiguration(
+      output["ServerlessCacheConfiguration"],
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshotAlreadyExistsFault
+ */
+const de_ServerlessCacheSnapshotAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ServerlessCacheSnapshotAlreadyExistsFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshotList
+ */
+const de_ServerlessCacheSnapshotList = (output: any, context: __SerdeContext): ServerlessCacheSnapshot[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServerlessCacheSnapshot(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshotNotFoundFault
+ */
+const de_ServerlessCacheSnapshotNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ServerlessCacheSnapshotNotFoundFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessCacheSnapshotQuotaExceededFault
+ */
+const de_ServerlessCacheSnapshotQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ServerlessCacheSnapshotQuotaExceededFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
 };
 
 /**
@@ -12849,6 +14596,17 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
 };
 
 /**
+ * deserializeAws_querySubnetIdsList
+ */
+const de_SubnetIdsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_querySubnetInUse
  */
 const de_SubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
@@ -12989,6 +14747,17 @@ const de_TestMigrationResponse = (output: any, context: __SerdeContext): TestMig
  * deserializeAws_queryUGReplicationGroupIdList
  */
 const de_UGReplicationGroupIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_queryUGServerlessCacheIdList
+ */
+const de_UGServerlessCacheIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13251,6 +15020,14 @@ const de_UserGroup = (output: any, context: __SerdeContext): UserGroup => {
   } else if (output["ReplicationGroups"] !== undefined && output["ReplicationGroups"]["member"] !== undefined) {
     contents.ReplicationGroups = de_UGReplicationGroupIdList(
       __getArrayIfSingleItem(output["ReplicationGroups"]["member"]),
+      context
+    );
+  }
+  if (output.ServerlessCaches === "") {
+    contents.ServerlessCaches = [];
+  } else if (output["ServerlessCaches"] !== undefined && output["ServerlessCaches"]["member"] !== undefined) {
+    contents.ServerlessCaches = de_UGServerlessCacheIdList(
+      __getArrayIfSingleItem(output["ServerlessCaches"]["member"]),
       context
     );
   }
