@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces DetectProfileObjectType API to auto generate object type mapping. ([48d2ad9](https://github.com/aws/aws-sdk-js-v3/commit/48d2ad9706888c8febb005771ff1c4d1b849f551))
+
+
+
+
+
 # [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

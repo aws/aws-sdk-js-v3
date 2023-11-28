@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+
+### Features
+
+* **client-bedrock:** This release adds support for customization types, model life cycle status and minor versions/aliases for model identifiers. ([7ba6ae9](https://github.com/aws/aws-sdk-js-v3/commit/7ba6ae961dca3b2a633651a9538b785957b7f0f6))
+
+
+
+
+
 # [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

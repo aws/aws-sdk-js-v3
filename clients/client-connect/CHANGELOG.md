@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+
+### Features
+
+* **client-connect:** Added support for following capabilities: Amazon Connect's in-app, web, and video calling. Two-way SMS integrations. Contact Lens real-time chat analytics feature. Amazon Connect Analytics Datalake capability. Capability to configure real time chat rules. ([2c3e7ad](https://github.com/aws/aws-sdk-js-v3/commit/2c3e7ad52a365cc1e3f17d1f533c93615f2b2c33))
+
+
+
+
+
 # [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+
+### Bug Fixes
+
+* **lib-storage:** use correct return type for done() ([#5512](https://github.com/aws/aws-sdk-js-v3/issues/5512)) ([7e1e15e](https://github.com/aws/aws-sdk-js-v3/commit/7e1e15e69db796cef3c9ea2baf7132387d20ef5f))
+
+
+### Features
+
+* **client-accessanalyzer:** This release adds support for external access findings for S3 directory buckets to help you easily identify cross-account access. Updated service API, documentation, and paginators. ([4feb52a](https://github.com/aws/aws-sdk-js-v3/commit/4feb52a1076007e1ed8fa29633199aed39343efa))
+* **client-bedrock-agent-runtime:** This release introduces Agents for Amazon Bedrock Runtime ([428953b](https://github.com/aws/aws-sdk-js-v3/commit/428953bfa29cdada94fc1895d1ecd336d4698f6e))
+* **client-bedrock-agent:** This release introduces Agents for Amazon Bedrock ([871dd41](https://github.com/aws/aws-sdk-js-v3/commit/871dd41328f8d4d269a44158adb3828661dc302a))
+* **client-bedrock-runtime:** This release adds support for minor versions/aliases for invoke model identifier. ([1beda07](https://github.com/aws/aws-sdk-js-v3/commit/1beda07156212f6a8754bf4f83a26f42f342e8d0))
+* **client-bedrock:** This release adds support for customization types, model life cycle status and minor versions/aliases for model identifiers. ([7ba6ae9](https://github.com/aws/aws-sdk-js-v3/commit/7ba6ae961dca3b2a633651a9538b785957b7f0f6))
+* **client-connect:** Added support for following capabilities: Amazon Connect's in-app, web, and video calling. Two-way SMS integrations. Contact Lens real-time chat analytics feature. Amazon Connect Analytics Datalake capability. Capability to configure real time chat rules. ([2c3e7ad](https://github.com/aws/aws-sdk-js-v3/commit/2c3e7ad52a365cc1e3f17d1f533c93615f2b2c33))
+* **client-customer-profiles:** This release introduces DetectProfileObjectType API to auto generate object type mapping. ([48d2ad9](https://github.com/aws/aws-sdk-js-v3/commit/48d2ad9706888c8febb005771ff1c4d1b849f551))
+* **client-qbusiness:** Amazon Q - a generative AI powered application that your employees can use to ask questions and get answers from knowledge spread across disparate content repositories, summarize reports, write articles, take actions, and much more - all within their company's connected content repositories. ([353cdd5](https://github.com/aws/aws-sdk-js-v3/commit/353cdd51f3f4b77b59c8cbf89a2e52ccdde4128c))
+* **client-qconnect:** Amazon Q in Connect, an LLM-enhanced evolution of Amazon Connect Wisdom. This release adds generative AI support to Amazon Q Connect QueryAssistant and GetRecommendations APIs. ([75831cb](https://github.com/aws/aws-sdk-js-v3/commit/75831cb9f60bbb603a6b6e2eaed2119fc2f61d8e))
+* **client-s3-control:** Adds support for S3 Express One Zone, and InvocationSchemaVersion 2.0 for S3 Batch Operations. ([27037e8](https://github.com/aws/aws-sdk-js-v3/commit/27037e806033ab45fa566dbd833b98cfafa93a68))
+* **client-s3:** Adds support for S3 Express One Zone. ([1dcc776](https://github.com/aws/aws-sdk-js-v3/commit/1dcc776322f11083391ab2e2b2cac9e687795f7c))
+* **clients:** update client endpoints as of 2023-11-28 ([1fb3ae3](https://github.com/aws/aws-sdk-js-v3/commit/1fb3ae3dacc555a79095799e409559e86ee2ceec))
+
+
+
+
+
 # [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
 
 
