@@ -1,0 +1,164 @@
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
+} from "@smithy/types";
+
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTagsForResourceCommand}.
+ */
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsForResourceCommand}.
+ */
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Gets a list of tags associated with a specified resource. Amazon Q applications
+ *             and data sources can have tags associated with them.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QBusinessClient, ListTagsForResourceCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, ListTagsForResourceCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * const client = new QBusinessClient(config);
+ * const input = { // ListTagsForResourceRequest
+ *   resourceARN: "STRING_VALUE", // required
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   tags: [ // Tags
+ * //     { // Tag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
+ * ```
+ *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> You don't have access to perform this action. Make sure you have the required
+ *             permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to throttling. Reduce the number of requests and try
+ *             again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *             correct input and try again.</p>
+ *
+ * @throws {@link QBusinessServiceException}
+ * <p>Base exception class for all service exceptions from QBusiness service.</p>
+ *
+ */
+export class ListTagsForResourceCommand extends $Command<
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+  QBusinessClientResolvedConfig
+> {
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+    };
+  }
+
+  /**
+   * @public
+   */
+  constructor(readonly input: ListTagsForResourceCommandInput) {
+    super();
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: QBusinessClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "QBusinessClient";
+    const commandName = "ListTagsForResourceCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ExpertQ",
+        operation: "ListTagsForResource",
+      },
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  /**
+   * @internal
+   */
+  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListTagsForResourceCommand(input, context);
+  }
+
+  /**
+   * @internal
+   */
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
+    return de_ListTagsForResourceCommand(output, context);
+  }
+}
