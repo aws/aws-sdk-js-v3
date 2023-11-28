@@ -158,6 +158,9 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * //         sqsQueue: { // SqsQueueConfiguration
  * //           queuePolicy: "STRING_VALUE",
  * //         },
+ * //         s3ExpressDirectoryBucket: { // S3ExpressDirectoryBucketConfiguration
+ * //           bucketPolicy: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     createdAt: new Date("TIMESTAMP"), // required

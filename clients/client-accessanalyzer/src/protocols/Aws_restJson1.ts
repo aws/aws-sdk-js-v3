@@ -130,6 +130,7 @@ import {
   S3AccessPointConfiguration,
   S3BucketAclGrantConfiguration,
   S3BucketConfiguration,
+  S3ExpressDirectoryBucketConfiguration,
   S3PublicAccessBlockConfiguration,
   SecretsManagerSecretConfiguration,
   ServiceQuotaExceededException,
@@ -3343,6 +3344,8 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 
 // se_S3BucketConfiguration omitted.
 
+// se_S3ExpressDirectoryBucketConfiguration omitted.
+
 // se_S3PublicAccessBlockConfiguration omitted.
 
 // se_SecretsManagerSecretConfiguration omitted.
@@ -3821,6 +3824,8 @@ const de_PolicyGenerationList = (output: any, context: __SerdeContext): PolicyGe
 // de_S3BucketAclGrantConfigurationsList omitted.
 
 // de_S3BucketConfiguration omitted.
+
+// de_S3ExpressDirectoryBucketConfiguration omitted.
 
 // de_S3PublicAccessBlockConfiguration omitted.
 

@@ -151,6 +151,9 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *       sqsQueue: { // SqsQueueConfiguration
  *         queuePolicy: "STRING_VALUE",
  *       },
+ *       s3ExpressDirectoryBucket: { // S3ExpressDirectoryBucketConfiguration
+ *         bucketPolicy: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   clientToken: "STRING_VALUE",

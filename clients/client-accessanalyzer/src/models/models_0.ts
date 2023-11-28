@@ -1832,6 +1832,25 @@ export interface S3BucketConfiguration {
 
 /**
  * @public
+ * <p>Proposed access control configuration for an Amazon S3 directory bucket. You can propose a
+ *          configuration for a new Amazon S3 directory bucket or an existing Amazon S3 directory bucket that you
+ *          own by specifying the Amazon S3 bucket policy. If the configuration is for an existing Amazon S3
+ *          directory bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the
+ *          existing policy attached to the directory bucket. If the access preview is for a new
+ *          resource and you do not specify the Amazon S3 bucket policy, the access preview assumes an
+ *          directory bucket without a policy. To propose deletion of an existing bucket policy, you
+ *          can specify an empty string. For more information about bucket policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies</a>.</p>
+ */
+export interface S3ExpressDirectoryBucketConfiguration {
+  /**
+   * @public
+   * <p>The proposed bucket policy for the Amazon S3 directory bucket.</p>
+   */
+  bucketPolicy?: string;
+}
+
+/**
+ * @public
  * <p>The configuration for a Secrets Manager secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html">CreateSecret</a>.</p>
  *          <p>You can propose a configuration for a new secret or an existing secret that you own by
  *          specifying the secret policy and optional KMS encryption key. If the configuration is for
@@ -1914,6 +1933,7 @@ export type Configuration =
   | Configuration.RdsDbClusterSnapshotMember
   | Configuration.RdsDbSnapshotMember
   | Configuration.S3BucketMember
+  | Configuration.S3ExpressDirectoryBucketMember
   | Configuration.SecretsManagerSecretMember
   | Configuration.SnsTopicMember
   | Configuration.SqsQueueMember
@@ -1939,6 +1959,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1958,6 +1979,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1977,6 +1999,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1996,6 +2019,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -2015,6 +2039,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -2034,6 +2059,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -2053,6 +2079,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -2072,12 +2099,13 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
   /**
    * @public
-   * <p>The access control configuration is for an Amazon S3 Bucket. </p>
+   * <p>The access control configuration is for an Amazon S3 bucket. </p>
    */
   export interface S3BucketMember {
     ebsSnapshot?: never;
@@ -2091,6 +2119,7 @@ export namespace Configuration {
     s3Bucket: S3BucketConfiguration;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -2110,6 +2139,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic: SnsTopicConfiguration;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -2129,6 +2159,27 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue: SqsQueueConfiguration;
+    s3ExpressDirectoryBucket?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The access control configuration is for an Amazon S3 directory bucket.</p>
+   */
+  export interface S3ExpressDirectoryBucketMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    s3ExpressDirectoryBucket: S3ExpressDirectoryBucketConfiguration;
     $unknown?: never;
   }
 
@@ -2147,6 +2198,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown: [string, any];
   }
 
@@ -2162,6 +2214,7 @@ export namespace Configuration {
     s3Bucket: (value: S3BucketConfiguration) => T;
     snsTopic: (value: SnsTopicConfiguration) => T;
     sqsQueue: (value: SqsQueueConfiguration) => T;
+    s3ExpressDirectoryBucket: (value: S3ExpressDirectoryBucketConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2177,6 +2230,8 @@ export namespace Configuration {
     if (value.s3Bucket !== undefined) return visitor.s3Bucket(value.s3Bucket);
     if (value.snsTopic !== undefined) return visitor.snsTopic(value.snsTopic);
     if (value.sqsQueue !== undefined) return visitor.sqsQueue(value.sqsQueue);
+    if (value.s3ExpressDirectoryBucket !== undefined)
+      return visitor.s3ExpressDirectoryBucket(value.s3ExpressDirectoryBucket);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2388,6 +2443,7 @@ export type ResourceType =
   | "AWS::RDS::DBClusterSnapshot"
   | "AWS::RDS::DBSnapshot"
   | "AWS::S3::Bucket"
+  | "AWS::S3Express::DirectoryBucket"
   | "AWS::SNS::Topic"
   | "AWS::SQS::Queue"
   | "AWS::SecretsManager::Secret";
