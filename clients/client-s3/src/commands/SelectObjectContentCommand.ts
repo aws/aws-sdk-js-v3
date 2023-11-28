@@ -44,13 +44,16 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
 
 /**
  * @public
- * <p>This action filters the contents of an Amazon S3 object based on a simple structured query
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>This action filters the contents of an Amazon S3 object based on a simple structured query
  *          language (SQL) statement. In the request, along with the SQL expression, you must also
  *          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
  *          this format to parse object data into records, and returns only records that match the
  *          specified SQL expression. You must also specify the data serialization format for the
  *          response.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
  *             Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
  *             Command</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -58,7 +61,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have <code>s3:GetObject</code> permission for this operation. Amazon S3
+ *                <p>You must have the <code>s3:GetObject</code> permission for this operation. Amazon S3
  *                   Select does not support anonymous access. For more information about permissions,
  *                   see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
  *                      a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -264,6 +267,7 @@ export class SelectObjectContentCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

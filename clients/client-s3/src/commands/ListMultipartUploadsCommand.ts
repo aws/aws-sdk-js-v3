@@ -37,24 +37,92 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
 
 /**
  * @public
- * <p>This action lists in-progress multipart uploads. An in-progress multipart upload is a
- *          multipart upload that has been initiated using the Initiate Multipart Upload request, but
+ * <p>This operation lists in-progress multipart uploads in a bucket. An in-progress multipart upload is a
+ *          multipart upload that has been initiated by the <code>CreateMultipartUpload</code> request, but
  *          has not yet been completed or aborted.</p>
- *          <p>This action returns at most 1,000 multipart uploads in the response. 1,000 multipart
- *          uploads is the maximum number of uploads a response can include, which is also the default
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets</b> -
+ *             If multipart uploads in a directory bucket are in progress, you can't delete the bucket until all the in-progress multipart uploads are aborted or completed.
+ *             </p>
+ *          </note>
+ *          <p>The <code>ListMultipartUploads</code> operation returns a maximum of 1,000 multipart uploads in the response. The limit of 1,000 multipart
+ *          uploads is also the default
  *          value. You can further limit the number of uploads in a response by specifying the
- *             <code>max-uploads</code> parameter in the response. If additional multipart uploads
- *          satisfy the list criteria, the response will contain an <code>IsTruncated</code> element
- *          with the value true. To list the additional multipart uploads, use the
- *             <code>key-marker</code> and <code>upload-id-marker</code> request parameters.</p>
- *          <p>In the response, the uploads are sorted by key. If your application has initiated more
- *          than one multipart upload using the same object key, then uploads in the response are first
- *          sorted by key. Additionally, uploads are sorted in ascending order within each key by the
- *          upload initiation time.</p>
- *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *             Upload</a>.</p>
- *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *             and Permissions</a>.</p>
+ *          <code>max-uploads</code> request parameter. If there are more than 1,000 multipart uploads that
+ *          satisfy your <code>ListMultipartUploads</code> request, the response returns an <code>IsTruncated</code> element
+ *          with the value of <code>true</code>, a <code>NextKeyMarker</code> element, and a <code>NextUploadIdMarker</code> element.
+ *          To list the remaining multipart uploads, you need to make subsequent <code>ListMultipartUploads</code> requests.
+ *          In these requests, include two query parameters: <code>key-marker</code> and <code>upload-id-marker</code>.
+ *          Set the value of <code>key-marker</code> to the <code>NextKeyMarker</code> value from the previous response.
+ *          Similarly, set the value of <code>upload-id-marker</code> to the <code>NextUploadIdMarker</code> value from the previous response.</p>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets</b> - The <code>upload-id-marker</code> element and
+ *          the <code>NextUploadIdMarker</code> element aren't supported by directory buckets.
+ *          To list the additional multipart uploads, you only need to set the value of <code>key-marker</code> to the <code>NextKeyMarker</code> value from the previous response. </p>
+ *          </note>
+ *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
+ *          Upload</a> in the <i>Amazon S3
+ *             User Guide</i>.</p>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
+ *          </note>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
+ *                         and Permissions</a> in the <i>Amazon S3
+ *                            User Guide</i>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket permissions</b> - To grant access to this API operation on a directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a> API operation for session-based authorization. Specifically, you grant the <code>s3express:CreateSession</code> permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code> API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another <code>CreateSession</code> API call to generate a new session token for use.
+ * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a>.</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>Sorting of multipart uploads in response</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket</b> - In the <code>ListMultipartUploads</code> response, the multipart uploads are sorted based on two criteria:</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>Key-based sorting - Multipart uploads are initially sorted in ascending order based on their object keys.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Time-based sorting - For uploads that share the same object key,
+ *                               they are further sorted in ascending order based on the upload initiation time. Among uploads with the same key, the one that was initiated first will appear before the ones that were initiated later.</p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket</b> - In the <code>ListMultipartUploads</code> response, the multipart uploads aren't sorted lexicographically based on the object keys.
+ *
+ *                         </p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>HTTP Host header syntax</dt>
+ *             <dd>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
+ *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *             </dd>
+ *          </dl>
  *          <p>The following operations are related to <code>ListMultipartUploads</code>:</p>
  *          <ul>
  *             <li>
@@ -117,7 +185,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * //       UploadId: "STRING_VALUE",
  * //       Key: "STRING_VALUE",
  * //       Initiated: new Date("TIMESTAMP"),
- * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",
@@ -263,6 +331,7 @@ export class ListMultipartUploadsCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

@@ -40,7 +40,10 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
 
 /**
  * @public
- * <p>Sets an analytics configuration for the bucket (specified by the analytics configuration
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets an analytics configuration for the bucket (specified by the analytics configuration
  *          ID). You can have up to 1,000 analytics configurations per bucket.</p>
  *          <p>You can choose to have storage class analysis export analysis reports sent to a
  *          comma-separated values (CSV) flat file. See the <code>DataExport</code> request element.
@@ -209,11 +212,13 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

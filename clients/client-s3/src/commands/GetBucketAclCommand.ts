@@ -37,13 +37,16 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
 
 /**
  * @public
- * <p>This implementation of the <code>GET</code> action uses the <code>acl</code> subresource
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>This implementation of the <code>GET</code> action uses the <code>acl</code> subresource
  *          to return the access control list (ACL) of a bucket. To use <code>GET</code> to return the
- *          ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
+ *          ACL of the bucket, you must have the <code>READ_ACP</code> access to the bucket. If
  *             <code>READ_ACP</code> permission is granted to the anonymous user, you can return the
  *          ACL of the bucket without using an authorization header.</p>
- *          <p>To use this API operation against an access point, provide the alias of the access point in place of the bucket name.</p>
- *          <p>To use this API operation against an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
+ *          <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
+ *          <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
  * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
  * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
  *             Error Codes</a>.</p>
@@ -113,11 +116,13 @@ export class GetBucketAclCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

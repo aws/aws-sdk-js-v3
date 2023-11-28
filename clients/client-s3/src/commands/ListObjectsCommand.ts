@@ -37,7 +37,10 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
 
 /**
  * @public
- * <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
  *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK
  *          response can contain valid or invalid XML. Be sure to design your application to parse the
  *          contents of the response and handle it appropriately.</p>
@@ -107,7 +110,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
  * //       ],
  * //       Size: Number("long"),
- * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",
@@ -200,6 +203,7 @@ export class ListObjectsCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

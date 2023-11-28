@@ -43,6 +43,9 @@ export interface GetBucketLifecycleConfigurationCommandOutput
 /**
  * @public
  * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <note>
  *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
  *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
  *             this section describes the latest API. The response describes the new filter element
@@ -211,11 +214,13 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

@@ -37,7 +37,10 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
 
 /**
  * @public
- * <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can
  *          configure a bucket as website by adding a website configuration. For more information about
  *          hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>. </p>
  *          <p>This GET action requires the <code>S3:GetBucketWebsite</code> permission. By default,
@@ -137,11 +140,13 @@ export class GetBucketWebsiteCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

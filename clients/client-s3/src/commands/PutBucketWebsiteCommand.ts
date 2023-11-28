@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutBucketWebsiteRequest } from "../models/models_0";
+import { PutBucketWebsiteRequest } from "../models/models_1";
 import { de_PutBucketWebsiteCommand, se_PutBucketWebsiteCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -38,7 +38,10 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets the configuration of the website that is specified in the <code>website</code>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the configuration of the website that is specified in the <code>website</code>
  *          subresource. To configure a bucket as a website, you can add this subresource on the bucket
  *          with website configuration information such as the file name of the index document and any
  *          redirect rules. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>.</p>
@@ -243,11 +246,13 @@ export class PutBucketWebsiteCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

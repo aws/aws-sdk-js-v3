@@ -37,7 +37,10 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
 
 /**
  * @public
- * <p>Returns the replication configuration of a bucket.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the replication configuration of a bucket.</p>
  *          <note>
  *             <p> It can take a while to propagate the put or delete a replication configuration to
  *             all Amazon S3 systems. Therefore, a get request soon after put or delete can return a wrong
@@ -118,7 +121,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * //         Destination: { // Destination
  * //           Bucket: "STRING_VALUE", // required
  * //           Account: "STRING_VALUE",
- * //           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  * //           AccessControlTranslation: { // AccessControlTranslation
  * //             Owner: "Destination", // required
  * //           },
@@ -193,11 +196,13 @@ export class GetBucketReplicationCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

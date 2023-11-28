@@ -38,7 +38,10 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
 
 /**
  * @public
- * <p>Places an Object Lock configuration on the specified bucket. The rule specified in the
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Places an Object Lock configuration on the specified bucket. The rule specified in the
  *          Object Lock configuration will be applied by default to every new object placed in the
  *          specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>. </p>
  *          <note>
@@ -113,6 +116,7 @@ export class PutObjectLockConfigurationCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

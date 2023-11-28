@@ -48,6 +48,7 @@ import {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
 } from "../commands/CreateMultipartUploadCommand";
+import { CreateSessionCommandInput, CreateSessionCommandOutput } from "../commands/CreateSessionCommand";
 import {
   DeleteBucketAnalyticsConfigurationCommandInput,
   DeleteBucketAnalyticsConfigurationCommandOutput,
@@ -198,6 +199,10 @@ import {
 } from "../commands/ListBucketMetricsConfigurationsCommand";
 import { ListBucketsCommandInput, ListBucketsCommandOutput } from "../commands/ListBucketsCommand";
 import {
+  ListDirectoryBucketsCommandInput,
+  ListDirectoryBucketsCommandOutput,
+} from "../commands/ListDirectoryBucketsCommand";
+import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "../commands/ListMultipartUploadsCommand";
@@ -298,6 +303,7 @@ import {
   Bucket,
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
+  BucketInfo,
   BucketLifecycleConfiguration,
   BucketLoggingStatus,
   Checksum,
@@ -343,6 +349,7 @@ import {
   LifecycleRule,
   LifecycleRuleAndOperator,
   LifecycleRuleFilter,
+  LocationInfo,
   LoggingEnabled,
   Metrics,
   MetricsAndOperator,
@@ -382,13 +389,13 @@ import {
   ReplicationRuleFilter,
   ReplicationTime,
   ReplicationTimeValue,
-  RequestPaymentConfiguration,
   RestoreStatus,
   RoutingRule,
   S3KeyFilter,
   ServerSideEncryptionByDefault,
   ServerSideEncryptionConfiguration,
   ServerSideEncryptionRule,
+  SessionCredentials,
   SimplePrefix,
   SourceSelectionCriteria,
   SSEKMS,
@@ -397,14 +404,11 @@ import {
   StorageClassAnalysis,
   StorageClassAnalysisDataExport,
   Tag,
-  Tagging,
   TargetGrant,
   TargetObjectKeyFormat,
   Tiering,
   TopicConfiguration,
   Transition,
-  VersioningConfiguration,
-  WebsiteConfiguration,
 } from "../models/models_0";
 import {
   ContinuationEvent,
@@ -425,6 +429,7 @@ import {
   Progress,
   ProgressEvent,
   RecordsEvent,
+  RequestPaymentConfiguration,
   RequestProgress,
   RestoreRequest,
   S3Location,
@@ -433,6 +438,9 @@ import {
   SelectParameters,
   Stats,
   StatsEvent,
+  Tagging,
+  VersioningConfiguration,
+  WebsiteConfiguration,
 } from "../models/models_1";
 import { S3ServiceException as __BaseException } from "../models/S3ServiceException";
 
@@ -710,6 +718,35 @@ export const se_CreateMultipartUploadCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlCreateSessionCommand
+ */
+export const se_CreateSessionCommand = async (
+  input: CreateSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-create-session-mode": input.SessionMode!,
+  });
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  const query: any = map({
+    session: [, ""],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     query,
@@ -2345,6 +2382,9 @@ export const se_ListBucketsCommand = async (
     "content-type": "application/xml",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
+  const query: any = map({
+    "x-id": [, "ListBuckets"],
+  });
   let body: any;
   body = "";
   return new __HttpRequest({
@@ -2354,6 +2394,35 @@ export const se_ListBucketsCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlListDirectoryBucketsCommand
+ */
+export const se_ListDirectoryBucketsCommand = async (
+  input: ListDirectoryBucketsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
+  const query: any = map({
+    "x-id": [, "ListDirectoryBuckets"],
+    "continuation-token": [, input.ContinuationToken!],
+    "max-directory-buckets": [() => input.MaxDirectoryBuckets !== void 0, () => input.MaxDirectoryBuckets!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -4277,6 +4346,52 @@ const de_CreateMultipartUploadCommandError = async (
     parsedBody,
     errorCode,
   });
+};
+
+/**
+ * deserializeAws_restXmlCreateSessionCommand
+ */
+export const de_CreateSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateSessionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Credentials"] !== undefined) {
+    contents.Credentials = de_SessionCredentials(data["Credentials"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateSessionCommandError
+ */
+const de_CreateSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NoSuchBucket":
+    case "com.amazonaws.s3#NoSuchBucket":
+      throw await de_NoSuchBucketRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -6243,6 +6358,13 @@ export const de_HeadBucketCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    BucketLocationType: [, output.headers["x-amz-bucket-location-type"]],
+    BucketLocationName: [, output.headers["x-amz-bucket-location-name"]],
+    BucketRegion: [, output.headers["x-amz-bucket-region"]],
+    AccessPointAlias: [
+      () => void 0 !== output.headers["x-amz-access-point-alias"],
+      () => __parseBoolean(output.headers["x-amz-access-point-alias"]),
+    ],
   });
   await collectBody(output.body, context);
   return contents;
@@ -6631,6 +6753,51 @@ const de_ListBucketsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBucketsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlListDirectoryBucketsCommand
+ */
+export const de_ListDirectoryBucketsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDirectoryBucketsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListDirectoryBucketsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Buckets === "") {
+    contents.Buckets = [];
+  } else if (data["Buckets"] !== undefined && data["Buckets"]["Bucket"] !== undefined) {
+    contents.Buckets = de_Buckets(__getArrayIfSingleItem(data["Buckets"]["Bucket"]), context);
+  }
+  if (data["ContinuationToken"] !== undefined) {
+    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListDirectoryBucketsCommandError
+ */
+const de_ListDirectoryBucketsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDirectoryBucketsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -8614,6 +8781,22 @@ const se_AnalyticsS3BucketDestination = (input: AnalyticsS3BucketDestination, co
 };
 
 /**
+ * serializeAws_restXmlBucketInfo
+ */
+const se_BucketInfo = (input: BucketInfo, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("BucketInfo");
+  if (input.DataRedundancy != null) {
+    const node = __XmlNode.of("DataRedundancy", input.DataRedundancy).withName("DataRedundancy");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Type != null) {
+    const node = __XmlNode.of("BucketType", input.Type).withName("Type");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+/**
  * serializeAws_restXmlBucketLifecycleConfiguration
  */
 const se_BucketLifecycleConfiguration = (input: BucketLifecycleConfiguration, context: __SerdeContext): any => {
@@ -8795,6 +8978,14 @@ const se_CreateBucketConfiguration = (input: CreateBucketConfiguration, context:
   const bodyNode = new __XmlNode("CreateBucketConfiguration");
   if (input.LocationConstraint != null) {
     const node = __XmlNode.of("BucketLocationConstraint", input.LocationConstraint).withName("LocationConstraint");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Location != null) {
+    const node = se_LocationInfo(input.Location, context).withName("Location");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Bucket != null) {
+    const node = se_BucketInfo(input.Bucket, context).withName("Bucket");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -9591,6 +9782,22 @@ const se_LifecycleRules = (input: LifecycleRule[], context: __SerdeContext): any
       const node = se_LifecycleRule(entry, context);
       return node.withName("member");
     });
+};
+
+/**
+ * serializeAws_restXmlLocationInfo
+ */
+const se_LocationInfo = (input: LocationInfo, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("LocationInfo");
+  if (input.Type != null) {
+    const node = __XmlNode.of("LocationType", input.Type).withName("Type");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Name != null) {
+    const node = __XmlNode.of("LocationNameAsString", input.Name).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
 };
 
 /**
@@ -12781,6 +12988,26 @@ const de_ServerSideEncryptionRules = (output: any, context: __SerdeContext): Ser
     .map((entry: any) => {
       return de_ServerSideEncryptionRule(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlSessionCredentials
+ */
+const de_SessionCredentials = (output: any, context: __SerdeContext): SessionCredentials => {
+  const contents: any = {};
+  if (output["AccessKeyId"] !== undefined) {
+    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
+  }
+  if (output["SecretAccessKey"] !== undefined) {
+    contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
+  }
+  if (output["SessionToken"] !== undefined) {
+    contents.SessionToken = __expectString(output["SessionToken"]);
+  }
+  if (output["Expiration"] !== undefined) {
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
+  }
+  return contents;
 };
 
 /**

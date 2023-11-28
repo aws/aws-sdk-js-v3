@@ -38,9 +38,12 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set the ACL of a
- *          bucket, you must have <code>WRITE_ACP</code> permission.</p>
+ *          bucket, you must have the <code>WRITE_ACP</code> permission.</p>
  *          <p>You can use one of the following two ways to set a bucket's permissions:</p>
  *          <ul>
  *             <li>
@@ -308,11 +311,13 @@ export class PutBucketAclCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

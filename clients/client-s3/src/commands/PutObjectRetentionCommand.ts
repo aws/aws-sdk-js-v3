@@ -38,11 +38,14 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
 
 /**
  * @public
- * <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
  *          Users or accounts require the <code>s3:PutObjectRetention</code> permission in order to
  *          place an Object Retention configuration on objects. Bypassing a Governance Retention
  *          configuration requires the <code>s3:BypassGovernanceRetention</code> permission. </p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +96,7 @@ export class PutObjectRetentionCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

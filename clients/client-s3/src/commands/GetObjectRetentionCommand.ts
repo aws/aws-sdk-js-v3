@@ -37,9 +37,12 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
 
 /**
  * @public
- * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *          Objects</a>.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>The following action is related to <code>GetObjectRetention</code>:</p>
  *          <ul>
  *             <li>
@@ -94,6 +97,7 @@ export class GetObjectRetentionCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

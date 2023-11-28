@@ -40,7 +40,10 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
 
 /**
  * @public
- * <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
  *          You can have up to 1,000 metrics configurations per bucket. If you're updating an existing
  *          metrics configuration, note that this is a full replacement of the existing metrics
  *          configuration. If you don't include the elements you want to keep, they are erased.</p>
@@ -142,11 +145,13 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

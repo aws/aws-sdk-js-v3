@@ -38,11 +38,14 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
 
 /**
  * @public
- * <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
- *          for a new or existing object in an S3 bucket. You must have <code>WRITE_ACP</code>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
+ *          for a new or existing object in an S3 bucket. You must have the <code>WRITE_ACP</code>
  *          permission to set the ACL of an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What
  *             permissions can I grant?</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>Depending on your application needs, you can choose to set the ACL on an object using
  *          either the request body or the headers. For example, if you have an existing application
  *          that updates a bucket ACL using the request body, you can continue to use that approach.
@@ -312,6 +315,7 @@ export class PutObjectAclCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

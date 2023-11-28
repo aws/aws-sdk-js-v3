@@ -14,6 +14,7 @@ export interface ClientInputEndpointParameters {
   useGlobalEndpoint?: boolean | Provider<boolean>;
   disableMultiregionAccessPoints?: boolean | Provider<boolean>;
   useArnRegion?: boolean | Provider<boolean>;
+  disableS3ExpressSessionAuth?: boolean | Provider<boolean>;
 }
 
 export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
@@ -50,4 +51,6 @@ export interface EndpointParameters extends __EndpointParameters {
   DisableAccessPoints?: boolean;
   DisableMultiRegionAccessPoints?: boolean;
   UseArnRegion?: boolean;
+  UseS3ExpressControlEndpoint?: boolean;
+  DisableS3ExpressSessionAuth?: boolean;
 }

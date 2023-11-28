@@ -38,7 +38,10 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>This action uses the <code>encryption</code> subresource to configure default encryption
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>This action uses the <code>encryption</code> subresource to configure default encryption
  *          and Amazon S3 Bucket Keys for an existing bucket.</p>
  *          <p>By default, all buckets have a default encryption configuration that uses server-side
  *          encryption with Amazon S3 managed keys (SSE-S3). You can optionally configure default encryption
@@ -115,11 +118,13 @@ export class PutBucketEncryptionCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

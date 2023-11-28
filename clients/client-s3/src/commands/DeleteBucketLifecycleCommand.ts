@@ -37,7 +37,10 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the
  *          lifecycle configuration rules in the lifecycle subresource associated with the bucket. Your
  *          objects never expire, and Amazon S3 no longer automatically deletes any objects on the basis of
  *          rules contained in the deleted lifecycle configuration.</p>
@@ -104,11 +107,13 @@ export class DeleteBucketLifecycleCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

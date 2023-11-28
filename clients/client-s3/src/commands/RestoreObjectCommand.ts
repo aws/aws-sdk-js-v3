@@ -38,8 +38,11 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
 
 /**
  * @public
- * <p>Restores an archived copy of an object back into Amazon S3</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Restores an archived copy of an object back into Amazon S3</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>This action performs the following types of requests: </p>
  *          <ul>
  *             <li>
@@ -386,7 +389,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *             Value: "STRING_VALUE",
  *           },
  *         ],
- *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  *       },
  *     },
  *   },
@@ -446,6 +449,7 @@ export class RestoreObjectCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

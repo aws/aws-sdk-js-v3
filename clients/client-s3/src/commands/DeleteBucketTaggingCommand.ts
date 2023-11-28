@@ -37,7 +37,10 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the tags from the bucket.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Deletes the tags from the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:PutBucketTagging</code> action. By default, the bucket owner has this
  *          permission and can grant this permission to others. </p>
@@ -98,11 +101,13 @@ export class DeleteBucketTaggingCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

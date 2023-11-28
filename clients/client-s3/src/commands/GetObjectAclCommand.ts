@@ -37,12 +37,15 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
 
 /**
  * @public
- * <p>Returns the access control list (ACL) of an object. To use this operation, you must have
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the access control list (ACL) of an object. To use this operation, you must have
  *             <code>s3:GetObjectAcl</code> permissions or <code>READ_ACP</code> access to the object.
  *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping">Mapping of ACL permissions and access policy permissions</a> in the <i>Amazon S3
  *             User Guide</i>
  *          </p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>By default, GET returns ACL information about the current version of an object. To
  *          return ACL information about a different version, use the versionId subresource.</p>
  *          <note>
@@ -193,6 +196,7 @@ export class GetObjectAclCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

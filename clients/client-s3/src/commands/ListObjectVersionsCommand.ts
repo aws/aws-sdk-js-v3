@@ -37,7 +37,10 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
 
 /**
  * @public
- * <p>Returns metadata about all versions of the objects in a bucket. You can also use request
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns metadata about all versions of the objects in a bucket. You can also use request
  *          parameters as selection criteria to return metadata about a subset of all the object
  *          versions.</p>
  *          <important>
@@ -217,6 +220,7 @@ export class ListObjectVersionsCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

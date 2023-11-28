@@ -38,22 +38,55 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
 
 /**
  * @public
- * <p>Lists the parts that have been uploaded for a specific multipart upload. This operation
- *          must include the upload ID, which you obtain by sending the initiate multipart upload
- *          request (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>).
- *          This request returns a maximum of 1,000 uploaded parts. The default number of parts
- *          returned is 1,000 parts. You can restrict the number of parts returned by specifying the
+ * <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
+ *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You obtain this uploadID by sending the initiate multipart upload
+ *          request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
+ *          <p>The <code>ListParts</code> request returns a maximum of 1,000 uploaded parts. The limit of 1,000 parts is also the default value. You can restrict the number of parts in a response by specifying the
  *             <code>max-parts</code> request parameter. If your multipart upload consists of more than
- *          1,000 parts, the response returns an <code>IsTruncated</code> field with the value of true,
- *          and a <code>NextPartNumberMarker</code> element. In subsequent <code>ListParts</code>
- *          requests you can include the part-number-marker query string parameter and set its value to
+ *          1,000 parts, the response returns an <code>IsTruncated</code> field with the value of <code>true</code>,
+ *          and a <code>NextPartNumberMarker</code> element. To list remaining uploaded parts, in subsequent <code>ListParts</code>
+ *          requests, include the <code>part-number-marker</code> query string parameter and set its value to
  *          the <code>NextPartNumberMarker</code> field value from the previous response.</p>
- *          <p>If the upload was created using a checksum algorithm, you will need to have permission
- *          to the <code>kms:Decrypt</code> action for the request to succeed. </p>
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *             Upload</a>.</p>
- *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *             and Permissions</a>.</p>
+ *          Upload</a> in the <i>Amazon S3
+ *             User Guide</i>.</p>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
+ *          </note>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
+ *                         and Permissions</a> in the <i>Amazon S3
+ *                            User Guide</i>.</p>
+ *                      <p>If the upload was created using server-side encryption with Key Management Service (KMS) keys
+ *                         (SSE-KMS) or dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), you must have permission
+ *                         to the <code>kms:Decrypt</code> action for the <code>ListParts</code> request to succeed.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket permissions</b> - To grant access to this API operation on a directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a> API operation for session-based authorization. Specifically, you grant the <code>s3express:CreateSession</code> permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code> API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another <code>CreateSession</code> API call to generate a new session token for use.
+ * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a>.</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>HTTP Host header syntax</dt>
+ *             <dd>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
+ *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *             </dd>
+ *          </dl>
  *          <p>The following operations are related to <code>ListParts</code>:</p>
  *          <ul>
  *             <li>
@@ -137,7 +170,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * //     DisplayName: "STRING_VALUE",
  * //     ID: "STRING_VALUE",
  * //   },
- * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  * //   RequestCharged: "requester",
  * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
  * // };
@@ -203,6 +236,7 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

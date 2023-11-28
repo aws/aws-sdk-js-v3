@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutBucketTaggingRequest } from "../models/models_0";
+import { PutBucketTaggingRequest } from "../models/models_1";
 import { de_PutBucketTaggingCommand, se_PutBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -38,7 +38,10 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets the tags for a bucket.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the tags for a bucket.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this,
  *          sign up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost
  *          of combined resources, organize your billing information according to resources with the
@@ -162,11 +165,13 @@ export class PutBucketTaggingCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

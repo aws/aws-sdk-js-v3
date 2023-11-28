@@ -41,7 +41,10 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Passes transformed objects to a <code>GetObject</code> operation when using Object Lambda access points. For
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Passes transformed objects to a <code>GetObject</code> operation when using Object Lambda access points. For
  *          information about Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
  *             Object Lambda access points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This operation supports metadata that can be returned by <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>, in addition to
@@ -120,7 +123,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSEKMSKeyId: "STRING_VALUE",
  *   SSECustomerKeyMD5: "STRING_VALUE",
- *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  *   TagCount: Number("int"),
  *   VersionId: "STRING_VALUE",
  *   BucketKeyEnabled: true || false,
@@ -153,6 +156,7 @@ export class WriteGetObjectResponseCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

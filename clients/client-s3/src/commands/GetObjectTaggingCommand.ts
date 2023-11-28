@@ -37,7 +37,10 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
 
 /**
  * @public
- * <p>Returns the tag-set of an object. You send the GET request against the tagging
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the tag-set of an object. You send the GET request against the tagging
  *          subresource associated with the object.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:GetObjectTagging</code> action. By default, the GET action returns information
@@ -102,6 +105,30 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @example To retrieve tag set of a specific object version
+ * ```javascript
+ * // The following example retrieves tag set of an object. The request specifies object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * };
+ * const command = new GetObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagSet": [
+ *     {
+ *       "Key": "Key1",
+ *       "Value": "Value1"
+ *     }
+ *   ],
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * }
+ * *\/
+ * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
+ * ```
+ *
  * @example To retrieve tag set of an object
  * ```javascript
  * // The following example retrieves tag set of an object.
@@ -129,30 +156,6 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * // example id: to-retrieve-tag-set-of-an-object-1481833847896
  * ```
  *
- * @example To retrieve tag set of a specific object version
- * ```javascript
- * // The following example retrieves tag set of an object. The request specifies object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * };
- * const command = new GetObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagSet": [
- *     {
- *       "Key": "Key1",
- *       "Value": "Value1"
- *     }
- *   ],
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * }
- * *\/
- * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
- * ```
- *
  */
 export class GetObjectTaggingCommand extends $Command<
   GetObjectTaggingCommandInput,
@@ -166,6 +169,7 @@ export class GetObjectTaggingCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

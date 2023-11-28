@@ -38,10 +38,13 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
 
 /**
  * @public
- * <p>Applies a legal hold configuration to the specified object. For more information, see
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Applies a legal hold configuration to the specified object. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *             Objects</a>.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,6 +93,7 @@ export class PutObjectLegalHoldCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

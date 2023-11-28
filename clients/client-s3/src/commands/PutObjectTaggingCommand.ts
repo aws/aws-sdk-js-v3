@@ -38,7 +38,10 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
 
 /**
  * @public
- * <p>Sets the supplied tag-set to an object that already exists in a bucket. A tag is a
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the supplied tag-set to an object that already exists in a bucket. A tag is a
  *          key-value pair. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>
  *          <p>You can associate tags with an object by sending a PUT request against the tagging
  *          subresource that is associated with the object. You can retrieve tags by sending a GET
@@ -173,6 +176,7 @@ export class PutObjectTaggingCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

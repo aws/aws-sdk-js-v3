@@ -40,15 +40,18 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
 
 /**
  * @public
- * <p>Returns the notification configuration of a bucket.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns the notification configuration of a bucket.</p>
  *          <p>If notifications are not enabled on the bucket, the action returns an empty
  *             <code>NotificationConfiguration</code> element.</p>
  *          <p>By default, you must be the bucket owner to read the notification configuration of a
  *          bucket. However, the bucket owner can use a bucket policy to grant permission to other
  *          users to read this configuration with the <code>s3:GetBucketNotification</code>
  *          permission.</p>
- *          <p>To use this API operation against an access point, provide the alias of the access point in place of the bucket name.</p>
- *          <p>To use this API operation against an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
+ *          <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
+ *          <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
  * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
  * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
  *             Error Codes</a>.</p>
@@ -155,11 +158,13 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

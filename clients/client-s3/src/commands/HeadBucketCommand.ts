@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { HeadBucketRequest } from "../models/models_0";
+import { HeadBucketOutput, HeadBucketRequest } from "../models/models_0";
 import { de_HeadBucketCommand, se_HeadBucketCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -33,31 +33,60 @@ export interface HeadBucketCommandInput extends HeadBucketRequest {}
  *
  * The output of {@link HeadBucketCommand}.
  */
-export interface HeadBucketCommandOutput extends __MetadataBearer {}
+export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>This action is useful to determine if a bucket exists and you have permission to access
- *          it. The action returns a <code>200 OK</code> if the bucket exists and you have permission
+ * <p>You can use this operation to determine if a bucket exists and if you have permission to access it. The action returns a <code>200 OK</code> if the bucket exists and you have permission
  *          to access it.</p>
  *          <p>If the bucket does not exist or you do not have permission to access it, the
  *             <code>HEAD</code> request returns a generic <code>400 Bad Request</code>, <code>403
  *             Forbidden</code> or <code>404 Not Found</code> code. A message body is not included, so
  *          you cannot determine the exception beyond these error codes.</p>
- *          <p>To use this operation, you must have permissions to perform the
- *             <code>s3:ListBucket</code> action. The bucket owner has this permission by default and
- *          can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *             Access Permissions to Your Amazon S3 Resources</a>.</p>
- *          <p>To use this API operation against an access point, you must provide the alias of the access point in
- *          place of the bucket name or specify the access point ARN. When using the access point ARN, you must direct
- *          requests to the access point hostname. The access point hostname takes the form
- *             <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
- *          When using the Amazon Web Services SDKs, you provide the ARN in place of the bucket name. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a>.</p>
- *          <p>To use this API operation against an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
- * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
- * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
- *             Error Codes</a>.</p>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets </b> - You must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
+ *          </note>
+ *          <dl>
+ *             <dt>Authentication and authorization</dt>
+ *             <dd>
+ *                <p>All <code>HeadBucket</code> requests must be authenticated and signed by using IAM credentials (access key ID and secret access key for the IAM identities). All headers with the <code>x-amz-</code> prefix, including
+ *                         <code>x-amz-copy-source</code>, must be signed. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p>
+ *                <p>
+ *                   <b>Directory bucket</b> - You must use IAM credentials to authenticate and authorize your access to the <code>HeadBucket</code> API operation, instead of using the
+ *                   temporary security credentials through the <code>CreateSession</code> API operation.</p>
+ *                <p>Amazon Web Services CLI or SDKs handles authentication and authorization on your behalf.</p>
+ *             </dd>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p></p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket permissions</b> - To use this operation, you must have permissions to perform the
+ *                         <code>s3:ListBucket</code> action. The bucket owner has this permission by default and
+ *                         can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *                            access permissions to your Amazon S3 resources</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket permissions</b> -
+ *                         You must have the <b>
+ *                            <code>s3express:CreateSession</code>
+ *                         </b> permission in the
+ *                            <code>Action</code> element of a policy. By default, the session is in the <code>ReadWrite</code> mode. If you want to restrict the access, you can explicitly set the <code>s3express:SessionMode</code> condition key to <code>ReadOnly</code> on the bucket.</p>
+ *                      <p>For more information about example bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services Identity and Access Management (IAM) identity-based policies for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>HTTP Host header syntax</dt>
+ *             <dd>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
+ *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +99,12 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * };
  * const command = new HeadBucketCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // HeadBucketOutput
+ * //   BucketLocationType: "AvailabilityZone",
+ * //   BucketLocationName: "STRING_VALUE",
+ * //   BucketRegion: "STRING_VALUE",
+ * //   AccessPointAlias: true || false,
+ * // };
  *
  * ```
  *
@@ -110,6 +144,7 @@ export class HeadBucketCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

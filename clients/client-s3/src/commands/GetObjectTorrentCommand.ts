@@ -45,7 +45,10 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
 
 /**
  * @public
- * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
  *          distributing large files.</p>
  *          <note>
  *             <p>You can get torrent only for objects that are less than 5 GB in size, and that are
@@ -53,7 +56,7 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  *             key.</p>
  *          </note>
  *          <p>To use GET, you must have READ access to the object.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>The following action is related to <code>GetObjectTorrent</code>:</p>
  *          <ul>
  *             <li>
@@ -117,6 +120,7 @@ export class GetObjectTorrentCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

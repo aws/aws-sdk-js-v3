@@ -15,7 +15,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutBucketRequestPaymentRequest } from "../models/models_0";
+import { PutBucketRequestPaymentRequest } from "../models/models_1";
 import { de_PutBucketRequestPaymentCommand, se_PutBucketRequestPaymentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -38,7 +38,10 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
 
 /**
  * @public
- * <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
  *          for downloads from the bucket. This configuration parameter enables the bucket owner (only)
  *          to specify that the person requesting the download will be charged for the download. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
@@ -108,11 +111,13 @@ export class PutBucketRequestPaymentCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

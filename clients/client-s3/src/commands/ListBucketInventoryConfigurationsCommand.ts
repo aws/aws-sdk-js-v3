@@ -46,7 +46,10 @@ export interface ListBucketInventoryConfigurationsCommandOutput
 
 /**
  * @public
- * <p>Returns a list of inventory configurations for the bucket. You can have up to 1,000
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns a list of inventory configurations for the bucket. You can have up to 1,000
  *          analytics configurations per bucket.</p>
  *          <p>This action supports list pagination and does not return more than 100 configurations at
  *          a time. Always check the <code>IsTruncated</code> element in the response. If there are no
@@ -149,11 +152,13 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

@@ -37,7 +37,10 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
 
 /**
  * @public
- * <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
  *          this operation, you must have the <code>s3:ListAllMyBuckets</code> permission. </p>
  *          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and
  *             working with Amazon S3 buckets</a>.</p>
@@ -117,6 +120,7 @@ export class ListBucketsCommand extends $Command<
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
       Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
       UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
