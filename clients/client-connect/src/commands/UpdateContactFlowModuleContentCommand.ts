@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowModuleContentRequest } from "../models/models_1";
-import { UpdateContactFlowModuleContentResponse } from "../models/models_2";
+import { UpdateContactFlowModuleContentRequest, UpdateContactFlowModuleContentResponse } from "../models/models_2";
 import {
   de_UpdateContactFlowModuleContentCommand,
   se_UpdateContactFlowModuleContentCommand,

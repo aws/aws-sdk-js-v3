@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0";
+import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_1";
 import { de_DescribeRuleCommand, se_DescribeRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -56,7 +56,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //     RuleId: "STRING_VALUE", // required
  * //     RuleArn: "STRING_VALUE", // required
  * //     TriggerEventSource: { // RuleTriggerEventSource
- * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate", // required
+ * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate", // required
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //     },
  * //     Function: "STRING_VALUE", // required

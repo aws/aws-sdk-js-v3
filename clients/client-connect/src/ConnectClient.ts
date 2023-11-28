@@ -55,6 +55,10 @@ import {
   ActivateEvaluationFormCommandOutput,
 } from "./commands/ActivateEvaluationFormCommand";
 import {
+  AssociateAnalyticsDataSetCommandInput,
+  AssociateAnalyticsDataSetCommandOutput,
+} from "./commands/AssociateAnalyticsDataSetCommand";
+import {
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
 } from "./commands/AssociateApprovedOriginCommand";
@@ -63,6 +67,7 @@ import {
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
 } from "./commands/AssociateDefaultVocabularyCommand";
+import { AssociateFlowCommandInput, AssociateFlowCommandOutput } from "./commands/AssociateFlowCommand";
 import {
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
@@ -92,6 +97,14 @@ import {
   AssociateTrafficDistributionGroupUserCommandInput,
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "./commands/AssociateTrafficDistributionGroupUserCommand";
+import {
+  BatchAssociateAnalyticsDataSetCommandInput,
+  BatchAssociateAnalyticsDataSetCommandOutput,
+} from "./commands/BatchAssociateAnalyticsDataSetCommand";
+import {
+  BatchDisassociateAnalyticsDataSetCommandInput,
+  BatchDisassociateAnalyticsDataSetCommandOutput,
+} from "./commands/BatchDisassociateAnalyticsDataSetCommand";
 import {
   BatchGetFlowAssociationCommandInput,
   BatchGetFlowAssociationCommandOutput,
@@ -269,10 +282,15 @@ import {
 import { DescribeViewCommandInput, DescribeViewCommandOutput } from "./commands/DescribeViewCommand";
 import { DescribeVocabularyCommandInput, DescribeVocabularyCommandOutput } from "./commands/DescribeVocabularyCommand";
 import {
+  DisassociateAnalyticsDataSetCommandInput,
+  DisassociateAnalyticsDataSetCommandOutput,
+} from "./commands/DisassociateAnalyticsDataSetCommand";
+import {
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
 } from "./commands/DisassociateApprovedOriginCommand";
 import { DisassociateBotCommandInput, DisassociateBotCommandOutput } from "./commands/DisassociateBotCommand";
+import { DisassociateFlowCommandInput, DisassociateFlowCommandOutput } from "./commands/DisassociateFlowCommand";
 import {
   DisassociateInstanceStorageConfigCommandInput,
   DisassociateInstanceStorageConfigCommandOutput,
@@ -313,6 +331,7 @@ import {
 } from "./commands/GetCurrentMetricDataCommand";
 import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from "./commands/GetCurrentUserDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
+import { GetFlowAssociationCommandInput, GetFlowAssociationCommandOutput } from "./commands/GetFlowAssociationCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
 import { GetMetricDataV2CommandInput, GetMetricDataV2CommandOutput } from "./commands/GetMetricDataV2Command";
 import { GetPromptFileCommandInput, GetPromptFileCommandOutput } from "./commands/GetPromptFileCommand";
@@ -321,7 +340,12 @@ import {
   GetTrafficDistributionCommandInput,
   GetTrafficDistributionCommandOutput,
 } from "./commands/GetTrafficDistributionCommand";
+import { ImportPhoneNumberCommandInput, ImportPhoneNumberCommandOutput } from "./commands/ImportPhoneNumberCommand";
 import { ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput } from "./commands/ListAgentStatusesCommand";
+import {
+  ListAnalyticsDataAssociationsCommandInput,
+  ListAnalyticsDataAssociationsCommandOutput,
+} from "./commands/ListAnalyticsDataAssociationsCommand";
 import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
@@ -353,6 +377,10 @@ import {
   ListEvaluationFormVersionsCommandOutput,
 } from "./commands/ListEvaluationFormVersionsCommand";
 import {
+  ListFlowAssociationsCommandInput,
+  ListFlowAssociationsCommandOutput,
+} from "./commands/ListFlowAssociationsCommand";
+import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
 } from "./commands/ListHoursOfOperationsCommand";
@@ -383,6 +411,10 @@ import {
 } from "./commands/ListQueueQuickConnectsCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import { ListQuickConnectsCommandInput, ListQuickConnectsCommandOutput } from "./commands/ListQuickConnectsCommand";
+import {
+  ListRealtimeContactAnalysisSegmentsV2CommandInput,
+  ListRealtimeContactAnalysisSegmentsV2CommandOutput,
+} from "./commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import {
   ListRoutingProfileQueuesCommandInput,
   ListRoutingProfileQueuesCommandOutput,
@@ -459,6 +491,10 @@ import {
 } from "./commands/SearchSecurityProfilesCommand";
 import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
+import {
+  SendChatIntegrationEventCommandInput,
+  SendChatIntegrationEventCommandOutput,
+} from "./commands/SendChatIntegrationEventCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
   StartContactEvaluationCommandInput,
@@ -477,6 +513,7 @@ import {
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
 import { StartTaskContactCommandInput, StartTaskContactCommandOutput } from "./commands/StartTaskContactCommand";
+import { StartWebRTCContactCommandInput, StartWebRTCContactCommandOutput } from "./commands/StartWebRTCContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
 import {
   StopContactRecordingCommandInput,
@@ -655,9 +692,11 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | ActivateEvaluationFormCommandInput
+  | AssociateAnalyticsDataSetCommandInput
   | AssociateApprovedOriginCommandInput
   | AssociateBotCommandInput
   | AssociateDefaultVocabularyCommandInput
+  | AssociateFlowCommandInput
   | AssociateInstanceStorageConfigCommandInput
   | AssociateLambdaFunctionCommandInput
   | AssociateLexBotCommandInput
@@ -666,6 +705,8 @@ export type ServiceInputTypes =
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
   | AssociateTrafficDistributionGroupUserCommandInput
+  | BatchAssociateAnalyticsDataSetCommandInput
+  | BatchDisassociateAnalyticsDataSetCommandInput
   | BatchGetFlowAssociationCommandInput
   | BatchPutContactCommandInput
   | ClaimPhoneNumberCommandInput
@@ -737,8 +778,10 @@ export type ServiceInputTypes =
   | DescribeUserHierarchyStructureCommandInput
   | DescribeViewCommandInput
   | DescribeVocabularyCommandInput
+  | DisassociateAnalyticsDataSetCommandInput
   | DisassociateApprovedOriginCommandInput
   | DisassociateBotCommandInput
+  | DisassociateFlowCommandInput
   | DisassociateInstanceStorageConfigCommandInput
   | DisassociateLambdaFunctionCommandInput
   | DisassociateLexBotCommandInput
@@ -752,12 +795,15 @@ export type ServiceInputTypes =
   | GetCurrentMetricDataCommandInput
   | GetCurrentUserDataCommandInput
   | GetFederationTokenCommandInput
+  | GetFlowAssociationCommandInput
   | GetMetricDataCommandInput
   | GetMetricDataV2CommandInput
   | GetPromptFileCommandInput
   | GetTaskTemplateCommandInput
   | GetTrafficDistributionCommandInput
+  | ImportPhoneNumberCommandInput
   | ListAgentStatusesCommandInput
+  | ListAnalyticsDataAssociationsCommandInput
   | ListApprovedOriginsCommandInput
   | ListBotsCommandInput
   | ListContactEvaluationsCommandInput
@@ -767,6 +813,7 @@ export type ServiceInputTypes =
   | ListDefaultVocabulariesCommandInput
   | ListEvaluationFormVersionsCommandInput
   | ListEvaluationFormsCommandInput
+  | ListFlowAssociationsCommandInput
   | ListHoursOfOperationsCommandInput
   | ListInstanceAttributesCommandInput
   | ListInstanceStorageConfigsCommandInput
@@ -780,6 +827,7 @@ export type ServiceInputTypes =
   | ListQueueQuickConnectsCommandInput
   | ListQueuesCommandInput
   | ListQuickConnectsCommandInput
+  | ListRealtimeContactAnalysisSegmentsV2CommandInput
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
   | ListRulesCommandInput
@@ -811,12 +859,14 @@ export type ServiceInputTypes =
   | SearchSecurityProfilesCommandInput
   | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
+  | SendChatIntegrationEventCommandInput
   | StartChatContactCommandInput
   | StartContactEvaluationCommandInput
   | StartContactRecordingCommandInput
   | StartContactStreamingCommandInput
   | StartOutboundVoiceContactCommandInput
   | StartTaskContactCommandInput
+  | StartWebRTCContactCommandInput
   | StopContactCommandInput
   | StopContactRecordingCommandInput
   | StopContactStreamingCommandInput
@@ -874,9 +924,11 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | ActivateEvaluationFormCommandOutput
+  | AssociateAnalyticsDataSetCommandOutput
   | AssociateApprovedOriginCommandOutput
   | AssociateBotCommandOutput
   | AssociateDefaultVocabularyCommandOutput
+  | AssociateFlowCommandOutput
   | AssociateInstanceStorageConfigCommandOutput
   | AssociateLambdaFunctionCommandOutput
   | AssociateLexBotCommandOutput
@@ -885,6 +937,8 @@ export type ServiceOutputTypes =
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
   | AssociateTrafficDistributionGroupUserCommandOutput
+  | BatchAssociateAnalyticsDataSetCommandOutput
+  | BatchDisassociateAnalyticsDataSetCommandOutput
   | BatchGetFlowAssociationCommandOutput
   | BatchPutContactCommandOutput
   | ClaimPhoneNumberCommandOutput
@@ -956,8 +1010,10 @@ export type ServiceOutputTypes =
   | DescribeUserHierarchyStructureCommandOutput
   | DescribeViewCommandOutput
   | DescribeVocabularyCommandOutput
+  | DisassociateAnalyticsDataSetCommandOutput
   | DisassociateApprovedOriginCommandOutput
   | DisassociateBotCommandOutput
+  | DisassociateFlowCommandOutput
   | DisassociateInstanceStorageConfigCommandOutput
   | DisassociateLambdaFunctionCommandOutput
   | DisassociateLexBotCommandOutput
@@ -971,12 +1027,15 @@ export type ServiceOutputTypes =
   | GetCurrentMetricDataCommandOutput
   | GetCurrentUserDataCommandOutput
   | GetFederationTokenCommandOutput
+  | GetFlowAssociationCommandOutput
   | GetMetricDataCommandOutput
   | GetMetricDataV2CommandOutput
   | GetPromptFileCommandOutput
   | GetTaskTemplateCommandOutput
   | GetTrafficDistributionCommandOutput
+  | ImportPhoneNumberCommandOutput
   | ListAgentStatusesCommandOutput
+  | ListAnalyticsDataAssociationsCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListBotsCommandOutput
   | ListContactEvaluationsCommandOutput
@@ -986,6 +1045,7 @@ export type ServiceOutputTypes =
   | ListDefaultVocabulariesCommandOutput
   | ListEvaluationFormVersionsCommandOutput
   | ListEvaluationFormsCommandOutput
+  | ListFlowAssociationsCommandOutput
   | ListHoursOfOperationsCommandOutput
   | ListInstanceAttributesCommandOutput
   | ListInstanceStorageConfigsCommandOutput
@@ -999,6 +1059,7 @@ export type ServiceOutputTypes =
   | ListQueueQuickConnectsCommandOutput
   | ListQueuesCommandOutput
   | ListQuickConnectsCommandOutput
+  | ListRealtimeContactAnalysisSegmentsV2CommandOutput
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
   | ListRulesCommandOutput
@@ -1030,12 +1091,14 @@ export type ServiceOutputTypes =
   | SearchSecurityProfilesCommandOutput
   | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
+  | SendChatIntegrationEventCommandOutput
   | StartChatContactCommandOutput
   | StartContactEvaluationCommandOutput
   | StartContactRecordingCommandOutput
   | StartContactStreamingCommandOutput
   | StartOutboundVoiceContactCommandOutput
   | StartTaskContactCommandOutput
+  | StartWebRTCContactCommandOutput
   | StopContactCommandOutput
   | StopContactRecordingCommandOutput
   | StopContactStreamingCommandOutput

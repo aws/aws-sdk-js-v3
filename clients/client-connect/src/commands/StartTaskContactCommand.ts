@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_1";
+import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_2";
 import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**

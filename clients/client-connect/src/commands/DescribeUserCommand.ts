@@ -37,7 +37,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
 
 /**
  * @public
- * <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
+ * <p>Describes the specified user. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
  *    user IDs. Instead, list the users and note the IDs provided in the output.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

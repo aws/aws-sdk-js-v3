@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowContentRequest, UpdateContactFlowContentResponse } from "../models/models_2";
-import { de_UpdateContactFlowContentCommand, se_UpdateContactFlowContentCommand } from "../protocols/Aws_restJson1";
+import { AssociateAnalyticsDataSetRequest, AssociateAnalyticsDataSetResponse } from "../models/models_0";
+import { de_AssociateAnalyticsDataSetCommand, se_AssociateAnalyticsDataSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,49 +25,51 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateContactFlowContentCommand}.
+ * The input for {@link AssociateAnalyticsDataSetCommand}.
  */
-export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowContentRequest {}
+export interface AssociateAnalyticsDataSetCommandInput extends AssociateAnalyticsDataSetRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateContactFlowContentCommand}.
+ * The output of {@link AssociateAnalyticsDataSetCommand}.
  */
-export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlowContentResponse, __MetadataBearer {}
+export interface AssociateAnalyticsDataSetCommandOutput extends AssociateAnalyticsDataSetResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the specified flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
- *    Flow language</a>.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Associates the specified dataset for a Amazon Connect instance with the target account.
+ *    You can associate only one dataset in a single call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactFlowContentCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactFlowContentCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, AssociateAnalyticsDataSetCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, AssociateAnalyticsDataSetCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateContactFlowContentRequest
+ * const input = { // AssociateAnalyticsDataSetRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   TargetAccountId: "STRING_VALUE",
  * };
- * const command = new UpdateContactFlowContentCommand(input);
+ * const command = new AssociateAnalyticsDataSetCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // AssociateAnalyticsDataSetResponse
+ * //   DataSetId: "STRING_VALUE",
+ * //   TargetAccountId: "STRING_VALUE",
+ * //   ResourceShareId: "STRING_VALUE",
+ * //   ResourceShareArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UpdateContactFlowContentCommandInput - {@link UpdateContactFlowContentCommandInput}
- * @returns {@link UpdateContactFlowContentCommandOutput}
- * @see {@link UpdateContactFlowContentCommandInput} for command's `input` shape.
- * @see {@link UpdateContactFlowContentCommandOutput} for command's `response` shape.
+ * @param AssociateAnalyticsDataSetCommandInput - {@link AssociateAnalyticsDataSetCommandInput}
+ * @returns {@link AssociateAnalyticsDataSetCommandOutput}
+ * @see {@link AssociateAnalyticsDataSetCommandInput} for command's `input` shape.
+ * @see {@link AssociateAnalyticsDataSetCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
- *
- * @throws {@link InvalidContactFlowException} (client fault)
- *  <p>The flow is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
@@ -85,9 +87,9 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateContactFlowContentCommand extends $Command<
-  UpdateContactFlowContentCommandInput,
-  UpdateContactFlowContentCommandOutput,
+export class AssociateAnalyticsDataSetCommand extends $Command<
+  AssociateAnalyticsDataSetCommandInput,
+  AssociateAnalyticsDataSetCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -102,7 +104,7 @@ export class UpdateContactFlowContentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateContactFlowContentCommandInput) {
+  constructor(readonly input: AssociateAnalyticsDataSetCommandInput) {
     super();
   }
 
@@ -113,17 +115,17 @@ export class UpdateContactFlowContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateContactFlowContentCommandInput, UpdateContactFlowContentCommandOutput> {
+  ): Handler<AssociateAnalyticsDataSetCommandInput, AssociateAnalyticsDataSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateContactFlowContentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, AssociateAnalyticsDataSetCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateContactFlowContentCommand";
+    const commandName = "AssociateAnalyticsDataSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -132,7 +134,7 @@ export class UpdateContactFlowContentCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "UpdateContactFlowContent",
+        operation: "AssociateAnalyticsDataSet",
       },
     };
     const { requestHandler } = configuration;
@@ -146,14 +148,17 @@ export class UpdateContactFlowContentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateContactFlowContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateContactFlowContentCommand(input, context);
+  private serialize(input: AssociateAnalyticsDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_AssociateAnalyticsDataSetCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowContentCommandOutput> {
-    return de_UpdateContactFlowContentCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<AssociateAnalyticsDataSetCommandOutput> {
+    return de_AssociateAnalyticsDataSetCommand(output, context);
   }
 }

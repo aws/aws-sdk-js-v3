@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StopContactStreamingRequest, StopContactStreamingResponse } from "../models/models_1";
+import { StopContactStreamingRequest, StopContactStreamingResponse } from "../models/models_2";
 import { de_StopContactStreamingCommand, se_StopContactStreamingCommand } from "../protocols/Aws_restJson1";
 
 /**

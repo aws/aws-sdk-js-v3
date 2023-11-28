@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/models_1";
+import { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/models_2";
 import { de_StartOutboundVoiceContactCommand, se_StartOutboundVoiceContactCommand } from "../protocols/Aws_restJson1";
 
 /**

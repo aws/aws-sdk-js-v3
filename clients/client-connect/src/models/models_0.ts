@@ -573,6 +573,51 @@ export interface AgentStatusSummary {
  * @public
  * @enum
  */
+export const VideoCapability = {
+  SEND: "SEND",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoCapability = (typeof VideoCapability)[keyof typeof VideoCapability];
+
+/**
+ * @public
+ * <p>The configuration for the allowed capabilities for participants present over the
+ *    call.</p>
+ */
+export interface ParticipantCapabilities {
+  /**
+   * @public
+   * <p>The configuration having the video sharing capabilities for participants over the
+   *    call.</p>
+   */
+  Video?: VideoCapability;
+}
+
+/**
+ * @public
+ * <p>Information about the capabilities enabled for participants of the contact.</p>
+ */
+export interface AllowedCapabilities {
+  /**
+   * @public
+   * <p>Information about the customer's video sharing capabilities.</p>
+   */
+  Customer?: ParticipantCapabilities;
+
+  /**
+   * @public
+   * <p>Information about the agent's video sharing capabilities.</p>
+   */
+  Agent?: ParticipantCapabilities;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const MonitorCapability = {
   BARGE: "BARGE",
   SILENT_MONITOR: "SILENT_MONITOR",
@@ -586,7 +631,7 @@ export type MonitorCapability = (typeof MonitorCapability)[keyof typeof MonitorC
 /**
  * @public
  */
-export interface AssociateApprovedOriginRequest {
+export interface AssociateAnalyticsDataSetRequest {
   /**
    * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -595,9 +640,45 @@ export interface AssociateApprovedOriginRequest {
 
   /**
    * @public
-   * <p>The domain to add to your allow list.</p>
+   * <p>The identifier of the dataset to associate with the target account.</p>
    */
-  Origin: string | undefined;
+  DataSetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the target account.  Use to associate a dataset to a different account than the one containing
+   *    the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance.</p>
+   */
+  TargetAccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAnalyticsDataSetResponse {
+  /**
+   * @public
+   * <p>The identifier of the dataset that was associated.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the target account. </p>
+   */
+  TargetAccountId?: string;
+
+  /**
+   * @public
+   * <p>The Resource Access Manager share ID that is generated.</p>
+   */
+  ResourceShareId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Resource Access Manager share. </p>
+   */
+  ResourceShareArn?: string;
 }
 
 /**
@@ -624,6 +705,23 @@ export class InvalidRequestException extends __BaseException {
     Object.setPrototypeOf(this, InvalidRequestException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface AssociateApprovedOriginRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The domain to add to your allow list.</p>
+   */
+  Origin: string | undefined;
 }
 
 /**
@@ -791,6 +889,54 @@ export interface AssociateDefaultVocabularyRequest {
  * @public
  */
 export interface AssociateDefaultVocabularyResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowAssociationResourceType = {
+  SMS_PHONE_NUMBER: "SMS_PHONE_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowAssociationResourceType =
+  (typeof FlowAssociationResourceType)[keyof typeof FlowAssociationResourceType];
+
+/**
+ * @public
+ */
+export interface AssociateFlowRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the resource.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the flow.</p>
+   */
+  FlowId: string | undefined;
+
+  /**
+   * @public
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: FlowAssociationResourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateFlowResponse {}
 
 /**
  * @public
@@ -1229,6 +1375,143 @@ export interface AssociateTrafficDistributionGroupUserRequest {
  * @public
  */
 export interface AssociateTrafficDistributionGroupUserResponse {}
+
+/**
+ * @public
+ */
+export interface BatchAssociateAnalyticsDataSetRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of dataset identifiers to associate.</p>
+   */
+  DataSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the target account.  Use to associate a dataset to a different account than the one containing
+   *    the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance.</p>
+   */
+  TargetAccountId?: string;
+}
+
+/**
+ * @public
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Information about associations that are successfully created: <code>DataSetId</code>,
+ *     <code>TargetAccountId</code>, <code>ResourceShareId</code>,
+ *    <code>ResourceShareArn</code>. </p>
+ */
+export interface AnalyticsDataAssociationResult {
+  /**
+   * @public
+   * <p>The identifier of the dataset.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the target account. </p>
+   */
+  TargetAccountId?: string;
+
+  /**
+   * @public
+   * <p>The Resource Access Manager share ID.</p>
+   */
+  ResourceShareId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Resource Access Manager share. </p>
+   */
+  ResourceShareArn?: string;
+}
+
+/**
+ * @public
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>List of errors for dataset association failures. </p>
+ */
+export interface ErrorResult {
+  /**
+   * @public
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>The corresponding error message for the error code.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchAssociateAnalyticsDataSetResponse {
+  /**
+   * @public
+   * <p>Information about associations that are successfully created: <code>DataSetId</code>,
+   *     <code>TargetAccountId</code>, <code>ResourceShareId</code>,
+   *    <code>ResourceShareArn</code>. </p>
+   */
+  Created?: AnalyticsDataAssociationResult[];
+
+  /**
+   * @public
+   * <p>A list of errors for datasets that aren't successfully associated
+   *    with the target account.</p>
+   */
+  Errors?: ErrorResult[];
+}
+
+/**
+ * @public
+ */
+export interface BatchDisassociateAnalyticsDataSetRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of associated dataset identifiers to remove.</p>
+   */
+  DataSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the target account.  Use to disassociate a dataset from a different account than the one containing
+   *    the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance.</p>
+   */
+  TargetAccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchDisassociateAnalyticsDataSetResponse {
+  /**
+   * @public
+   * <p>An array of successfully disassociated dataset identifiers.</p>
+   */
+  Deleted?: string[];
+
+  /**
+   * @public
+   * <p>A list of errors for any datasets not successfully removed.</p>
+   */
+  Errors?: ErrorResult[];
+}
 
 /**
  * @public
@@ -3167,7 +3450,7 @@ export interface UserQuickConnectConfig {
 export interface QuickConnectConfig {
   /**
    * @public
-   * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
+   * <p>The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE). </p>
    */
   QuickConnectType: QuickConnectType | undefined;
@@ -3384,7 +3667,8 @@ export interface CreateRoutingProfileResponse {
  * @public
  * <p>This action must be set if <code>TriggerEventSource</code> is one of the following values:
  *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
- *     <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
+ *     <code>OnRealTimeChatAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code>. Contact
+ *    is categorized using the rule name.</p>
  *          <p>
  *             <code>RuleName</code> is used as <code>ContactCategory</code>.</p>
  */
@@ -3586,8 +3870,8 @@ export interface RuleAction {
    * <p>Information about the EventBridge action.</p>
    *          <p>Supported only for <code>TriggerEventSource</code> values:
    *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
-   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> |
-   *     <code>OnMetricDataUpdate</code>
+   *     <code>OnRealTimeChatAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> |
+   *     <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code>
    *          </p>
    */
   EventBridgeAction?: EventBridgeActionDefinition;
@@ -3597,8 +3881,9 @@ export interface RuleAction {
    * <p>Information about the contact category action.</p>
    *          <p>Supported only for <code>TriggerEventSource</code> values:
    *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
-   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> |
-   *     <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
+   *     <code>OnRealTimeChatAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> |
+   *     <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> |
+   *     <code>OnSalesforceCaseCreate</code>
    *          </p>
    */
   AssignContactCategoryAction?: AssignContactCategoryActionDefinition;
@@ -3608,8 +3893,8 @@ export interface RuleAction {
    * <p>Information about the send notification action.</p>
    *          <p>Supported only for <code>TriggerEventSource</code> values:
    *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
-   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> |
-   *     <code>OnMetricDataUpdate</code>
+   *     <code>OnRealTimeChatAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> |
+   *     <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code>
    *          </p>
    */
   SendNotificationAction?: SendNotificationActionDefinition;
@@ -3639,6 +3924,7 @@ export const EventSourceName = {
   OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
   OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
   OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
+  OnRealTimeChatAnalysisAvailable: "OnRealTimeChatAnalysisAvailable",
   OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
   OnZendeskTicketCreate: "OnZendeskTicketCreate",
   OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
@@ -4753,6 +5039,7 @@ export const ResourceType = {
   HIERARCHY_LEVEL: "HIERARCHY_LEVEL",
   INSTANCE: "INSTANCE",
   PARTICIPANT: "PARTICIPANT",
+  PHONE_NUMBER: "PHONE_NUMBER",
   USER: "USER",
 } as const;
 
@@ -6776,6 +7063,7 @@ export interface PhoneNumberStatus {
 export const PhoneNumberType = {
   DID: "DID",
   SHARED: "SHARED",
+  SHORT_CODE: "SHORT_CODE",
   THIRD_PARTY_DID: "THIRD_PARTY_DID",
   THIRD_PARTY_TF: "THIRD_PARTY_TF",
   TOLL_FREE: "TOLL_FREE",
@@ -6879,6 +7167,14 @@ export interface ClaimedPhoneNumberSummary {
    *          </note>
    */
   PhoneNumberStatus?: PhoneNumberStatus;
+
+  /**
+   * @public
+   * <p>The claimed phone number ARN that was previously imported from the external service, such as
+   *     Amazon Pinpoint. If it is from Amazon Pinpoint, it looks like the ARN of the phone number
+   *    that was imported from Amazon Pinpoint.</p>
+   */
+  SourcePhoneNumberArn?: string;
 }
 
 /**
@@ -7082,435 +7378,6 @@ export interface DescribeQueueResponse {
    */
   Queue?: Queue;
 }
-
-/**
- * @public
- */
-export interface DescribeQuickConnectRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier for the quick connect.</p>
-   */
-  QuickConnectId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains information about a quick connect.</p>
- */
-export interface QuickConnect {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the quick connect.</p>
-   */
-  QuickConnectARN?: string;
-
-  /**
-   * @public
-   * <p>The identifier for the quick connect.</p>
-   */
-  QuickConnectId?: string;
-
-  /**
-   * @public
-   * <p>The name of the quick connect.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The description.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Contains information about the quick connect.</p>
-   */
-  QuickConnectConfig?: QuickConnectConfig;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeQuickConnectResponse {
-  /**
-   * @public
-   * <p>Information about the quick connect.</p>
-   */
-  QuickConnect?: QuickConnect;
-}
-
-/**
- * @public
- */
-export interface DescribeRoutingProfileRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains information about a routing profile.</p>
- */
-export interface RoutingProfile {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * @public
-   * <p>The name of the routing profile.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-   */
-  RoutingProfileArn?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId?: string;
-
-  /**
-   * @public
-   * <p>The description of the routing profile.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
-   *    profile.</p>
-   */
-  MediaConcurrencies?: MediaConcurrency[];
-
-  /**
-   * @public
-   * <p>The identifier of the default outbound queue for this routing profile.</p>
-   */
-  DefaultOutboundQueueId?: string;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The number of associated queues in routing profile.</p>
-   */
-  NumberOfAssociatedQueues?: number;
-
-  /**
-   * @public
-   * <p>The number of associated users in routing profile.</p>
-   */
-  NumberOfAssociatedUsers?: number;
-
-  /**
-   * @public
-   * <p>Whether agents with this routing profile will have their routing order calculated based on
-   *     <i>time since their last inbound contact</i> or <i>longest idle
-   *     time</i>. </p>
-   */
-  AgentAvailabilityTimer?: AgentAvailabilityTimer;
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-
-  /**
-   * @public
-   * <p>Whether this a default routing profile.</p>
-   */
-  IsDefault?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeRoutingProfileResponse {
-  /**
-   * @public
-   * <p>The routing profile.</p>
-   */
-  RoutingProfile?: RoutingProfile;
-}
-
-/**
- * @public
- */
-export interface DescribeRuleRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>A unique identifier for the rule.</p>
-   */
-  RuleId: string | undefined;
-}
-
-/**
- * @public
- * <p>Information about a rule.</p>
- */
-export interface Rule {
-  /**
-   * @public
-   * <p>The name of the rule.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>A unique identifier for the rule.</p>
-   */
-  RuleId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
-   */
-  RuleArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The event source to trigger the rule.</p>
-   */
-  TriggerEventSource: RuleTriggerEventSource | undefined;
-
-  /**
-   * @public
-   * <p>The conditions of the rule.</p>
-   */
-  Function: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of actions to be run when the rule is triggered.</p>
-   */
-  Actions: RuleAction[] | undefined;
-
-  /**
-   * @public
-   * <p>The publish status of the rule.</p>
-   */
-  PublishStatus: RulePublishStatus | undefined;
-
-  /**
-   * @public
-   * <p>The timestamp for when the rule was created.</p>
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The timestamp for the when the rule was last updated.</p>
-   */
-  LastUpdatedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the rule.</p>
-   */
-  LastUpdatedBy: string | undefined;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface DescribeRuleResponse {
-  /**
-   * @public
-   * <p>Information about the rule.</p>
-   */
-  Rule: Rule | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityProfileRequest {
-  /**
-   * @public
-   * <p>The identifier for the security profle.</p>
-   */
-  SecurityProfileId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains information about a security profile.</p>
- */
-export interface SecurityProfile {
-  /**
-   * @public
-   * <p>The identifier for the security profile.</p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>The organization resource identifier for the security profile.</p>
-   */
-  OrganizationResourceId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the secruity profile.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The name for the security profile.</p>
-   */
-  SecurityProfileName?: string;
-
-  /**
-   * @public
-   * <p>The description of the security profile.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
-   */
-  AllowedAccessControlTags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
-   */
-  TagRestrictedResources?: string[];
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityProfileResponse {
-  /**
-   * @public
-   * <p>The security profile.</p>
-   */
-  SecurityProfile?: SecurityProfile;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficDistributionGroupRequest {
-  /**
-   * @public
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
-   */
-  TrafficDistributionGroupId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TrafficDistributionGroupStatus = {
-  ACTIVE: "ACTIVE",
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  DELETION_FAILED: "DELETION_FAILED",
-  PENDING_DELETION: "PENDING_DELETION",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type TrafficDistributionGroupStatus =
-  (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
 
 /**
  * @internal

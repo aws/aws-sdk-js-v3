@@ -44,9 +44,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *     SAML for identity management. <code>FirstName</code> and <code>LastName</code> are required if
  *     you are using Amazon Connect or SAML for identity management.</p>
  *          </important>
- *          <p>For information about how to create user accounts using the Amazon Connect console, see
- *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
- *     Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For information about how to create users using the Amazon Connect admin website, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

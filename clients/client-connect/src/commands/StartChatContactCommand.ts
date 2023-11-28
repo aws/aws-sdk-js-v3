@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartChatContactRequest, StartChatContactResponse } from "../models/models_1";
+import { StartChatContactRequest, StartChatContactResponse } from "../models/models_2";
 import { de_StartChatContactCommand, se_StartChatContactCommand } from "../protocols/Aws_restJson1";
 
 /**

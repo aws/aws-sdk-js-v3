@@ -8,6 +8,11 @@ import {
   ActivateEvaluationFormCommandOutput,
 } from "./commands/ActivateEvaluationFormCommand";
 import {
+  AssociateAnalyticsDataSetCommand,
+  AssociateAnalyticsDataSetCommandInput,
+  AssociateAnalyticsDataSetCommandOutput,
+} from "./commands/AssociateAnalyticsDataSetCommand";
+import {
   AssociateApprovedOriginCommand,
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
@@ -22,6 +27,11 @@ import {
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
 } from "./commands/AssociateDefaultVocabularyCommand";
+import {
+  AssociateFlowCommand,
+  AssociateFlowCommandInput,
+  AssociateFlowCommandOutput,
+} from "./commands/AssociateFlowCommand";
 import {
   AssociateInstanceStorageConfigCommand,
   AssociateInstanceStorageConfigCommandInput,
@@ -62,6 +72,16 @@ import {
   AssociateTrafficDistributionGroupUserCommandInput,
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "./commands/AssociateTrafficDistributionGroupUserCommand";
+import {
+  BatchAssociateAnalyticsDataSetCommand,
+  BatchAssociateAnalyticsDataSetCommandInput,
+  BatchAssociateAnalyticsDataSetCommandOutput,
+} from "./commands/BatchAssociateAnalyticsDataSetCommand";
+import {
+  BatchDisassociateAnalyticsDataSetCommand,
+  BatchDisassociateAnalyticsDataSetCommandInput,
+  BatchDisassociateAnalyticsDataSetCommandOutput,
+} from "./commands/BatchDisassociateAnalyticsDataSetCommand";
 import {
   BatchGetFlowAssociationCommand,
   BatchGetFlowAssociationCommandInput,
@@ -386,6 +406,11 @@ import {
   DescribeVocabularyCommandOutput,
 } from "./commands/DescribeVocabularyCommand";
 import {
+  DisassociateAnalyticsDataSetCommand,
+  DisassociateAnalyticsDataSetCommandInput,
+  DisassociateAnalyticsDataSetCommandOutput,
+} from "./commands/DisassociateAnalyticsDataSetCommand";
+import {
   DisassociateApprovedOriginCommand,
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
@@ -395,6 +420,11 @@ import {
   DisassociateBotCommandInput,
   DisassociateBotCommandOutput,
 } from "./commands/DisassociateBotCommand";
+import {
+  DisassociateFlowCommand,
+  DisassociateFlowCommandInput,
+  DisassociateFlowCommandOutput,
+} from "./commands/DisassociateFlowCommand";
 import {
   DisassociateInstanceStorageConfigCommand,
   DisassociateInstanceStorageConfigCommandInput,
@@ -461,6 +491,11 @@ import {
   GetFederationTokenCommandOutput,
 } from "./commands/GetFederationTokenCommand";
 import {
+  GetFlowAssociationCommand,
+  GetFlowAssociationCommandInput,
+  GetFlowAssociationCommandOutput,
+} from "./commands/GetFlowAssociationCommand";
+import {
   GetMetricDataCommand,
   GetMetricDataCommandInput,
   GetMetricDataCommandOutput,
@@ -486,10 +521,20 @@ import {
   GetTrafficDistributionCommandOutput,
 } from "./commands/GetTrafficDistributionCommand";
 import {
+  ImportPhoneNumberCommand,
+  ImportPhoneNumberCommandInput,
+  ImportPhoneNumberCommandOutput,
+} from "./commands/ImportPhoneNumberCommand";
+import {
   ListAgentStatusesCommand,
   ListAgentStatusesCommandInput,
   ListAgentStatusesCommandOutput,
 } from "./commands/ListAgentStatusesCommand";
+import {
+  ListAnalyticsDataAssociationsCommand,
+  ListAnalyticsDataAssociationsCommandInput,
+  ListAnalyticsDataAssociationsCommandOutput,
+} from "./commands/ListAnalyticsDataAssociationsCommand";
 import {
   ListApprovedOriginsCommand,
   ListApprovedOriginsCommandInput,
@@ -531,6 +576,11 @@ import {
   ListEvaluationFormVersionsCommandInput,
   ListEvaluationFormVersionsCommandOutput,
 } from "./commands/ListEvaluationFormVersionsCommand";
+import {
+  ListFlowAssociationsCommand,
+  ListFlowAssociationsCommandInput,
+  ListFlowAssociationsCommandOutput,
+} from "./commands/ListFlowAssociationsCommand";
 import {
   ListHoursOfOperationsCommand,
   ListHoursOfOperationsCommandInput,
@@ -584,6 +634,11 @@ import {
   ListQuickConnectsCommandInput,
   ListQuickConnectsCommandOutput,
 } from "./commands/ListQuickConnectsCommand";
+import {
+  ListRealtimeContactAnalysisSegmentsV2Command,
+  ListRealtimeContactAnalysisSegmentsV2CommandInput,
+  ListRealtimeContactAnalysisSegmentsV2CommandOutput,
+} from "./commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import {
   ListRoutingProfileQueuesCommand,
   ListRoutingProfileQueuesCommandInput,
@@ -724,6 +779,11 @@ import {
   SearchVocabulariesCommandOutput,
 } from "./commands/SearchVocabulariesCommand";
 import {
+  SendChatIntegrationEventCommand,
+  SendChatIntegrationEventCommandInput,
+  SendChatIntegrationEventCommandOutput,
+} from "./commands/SendChatIntegrationEventCommand";
+import {
   StartChatContactCommand,
   StartChatContactCommandInput,
   StartChatContactCommandOutput,
@@ -753,6 +813,11 @@ import {
   StartTaskContactCommandInput,
   StartTaskContactCommandOutput,
 } from "./commands/StartTaskContactCommand";
+import {
+  StartWebRTCContactCommand,
+  StartWebRTCContactCommandInput,
+  StartWebRTCContactCommandOutput,
+} from "./commands/StartWebRTCContactCommand";
 import { StopContactCommand, StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
 import {
   StopContactRecordingCommand,
@@ -1000,9 +1065,11 @@ import { ConnectClient, ConnectClientConfig } from "./ConnectClient";
 
 const commands = {
   ActivateEvaluationFormCommand,
+  AssociateAnalyticsDataSetCommand,
   AssociateApprovedOriginCommand,
   AssociateBotCommand,
   AssociateDefaultVocabularyCommand,
+  AssociateFlowCommand,
   AssociateInstanceStorageConfigCommand,
   AssociateLambdaFunctionCommand,
   AssociateLexBotCommand,
@@ -1011,6 +1078,8 @@ const commands = {
   AssociateRoutingProfileQueuesCommand,
   AssociateSecurityKeyCommand,
   AssociateTrafficDistributionGroupUserCommand,
+  BatchAssociateAnalyticsDataSetCommand,
+  BatchDisassociateAnalyticsDataSetCommand,
   BatchGetFlowAssociationCommand,
   BatchPutContactCommand,
   ClaimPhoneNumberCommand,
@@ -1082,8 +1151,10 @@ const commands = {
   DescribeUserHierarchyStructureCommand,
   DescribeViewCommand,
   DescribeVocabularyCommand,
+  DisassociateAnalyticsDataSetCommand,
   DisassociateApprovedOriginCommand,
   DisassociateBotCommand,
+  DisassociateFlowCommand,
   DisassociateInstanceStorageConfigCommand,
   DisassociateLambdaFunctionCommand,
   DisassociateLexBotCommand,
@@ -1097,12 +1168,15 @@ const commands = {
   GetCurrentMetricDataCommand,
   GetCurrentUserDataCommand,
   GetFederationTokenCommand,
+  GetFlowAssociationCommand,
   GetMetricDataCommand,
   GetMetricDataV2Command,
   GetPromptFileCommand,
   GetTaskTemplateCommand,
   GetTrafficDistributionCommand,
+  ImportPhoneNumberCommand,
   ListAgentStatusesCommand,
+  ListAnalyticsDataAssociationsCommand,
   ListApprovedOriginsCommand,
   ListBotsCommand,
   ListContactEvaluationsCommand,
@@ -1112,6 +1186,7 @@ const commands = {
   ListDefaultVocabulariesCommand,
   ListEvaluationFormsCommand,
   ListEvaluationFormVersionsCommand,
+  ListFlowAssociationsCommand,
   ListHoursOfOperationsCommand,
   ListInstanceAttributesCommand,
   ListInstancesCommand,
@@ -1125,6 +1200,7 @@ const commands = {
   ListQueueQuickConnectsCommand,
   ListQueuesCommand,
   ListQuickConnectsCommand,
+  ListRealtimeContactAnalysisSegmentsV2Command,
   ListRoutingProfileQueuesCommand,
   ListRoutingProfilesCommand,
   ListRulesCommand,
@@ -1156,12 +1232,14 @@ const commands = {
   SearchSecurityProfilesCommand,
   SearchUsersCommand,
   SearchVocabulariesCommand,
+  SendChatIntegrationEventCommand,
   StartChatContactCommand,
   StartContactEvaluationCommand,
   StartContactRecordingCommand,
   StartContactStreamingCommand,
   StartOutboundVoiceContactCommand,
   StartTaskContactCommand,
+  StartWebRTCContactCommand,
   StopContactCommand,
   StopContactRecordingCommand,
   StopContactStreamingCommand,
@@ -1234,6 +1312,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link AssociateAnalyticsDataSetCommand}
+   */
+  associateAnalyticsDataSet(
+    args: AssociateAnalyticsDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAnalyticsDataSetCommandOutput>;
+  associateAnalyticsDataSet(
+    args: AssociateAnalyticsDataSetCommandInput,
+    cb: (err: any, data?: AssociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+  associateAnalyticsDataSet(
+    args: AssociateAnalyticsDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link AssociateApprovedOriginCommand}
    */
   associateApprovedOrigin(
@@ -1276,6 +1371,17 @@ export interface Connect {
     args: AssociateDefaultVocabularyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateDefaultVocabularyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateFlowCommand}
+   */
+  associateFlow(args: AssociateFlowCommandInput, options?: __HttpHandlerOptions): Promise<AssociateFlowCommandOutput>;
+  associateFlow(args: AssociateFlowCommandInput, cb: (err: any, data?: AssociateFlowCommandOutput) => void): void;
+  associateFlow(
+    args: AssociateFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateFlowCommandOutput) => void
   ): void;
 
   /**
@@ -1409,6 +1515,40 @@ export interface Connect {
     args: AssociateTrafficDistributionGroupUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateTrafficDistributionGroupUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchAssociateAnalyticsDataSetCommand}
+   */
+  batchAssociateAnalyticsDataSet(
+    args: BatchAssociateAnalyticsDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAssociateAnalyticsDataSetCommandOutput>;
+  batchAssociateAnalyticsDataSet(
+    args: BatchAssociateAnalyticsDataSetCommandInput,
+    cb: (err: any, data?: BatchAssociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+  batchAssociateAnalyticsDataSet(
+    args: BatchAssociateAnalyticsDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAssociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDisassociateAnalyticsDataSetCommand}
+   */
+  batchDisassociateAnalyticsDataSet(
+    args: BatchDisassociateAnalyticsDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDisassociateAnalyticsDataSetCommandOutput>;
+  batchDisassociateAnalyticsDataSet(
+    args: BatchDisassociateAnalyticsDataSetCommandInput,
+    cb: (err: any, data?: BatchDisassociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+  batchDisassociateAnalyticsDataSet(
+    args: BatchDisassociateAnalyticsDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDisassociateAnalyticsDataSetCommandOutput) => void
   ): void;
 
   /**
@@ -2508,6 +2648,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DisassociateAnalyticsDataSetCommand}
+   */
+  disassociateAnalyticsDataSet(
+    args: DisassociateAnalyticsDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateAnalyticsDataSetCommandOutput>;
+  disassociateAnalyticsDataSet(
+    args: DisassociateAnalyticsDataSetCommandInput,
+    cb: (err: any, data?: DisassociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+  disassociateAnalyticsDataSet(
+    args: DisassociateAnalyticsDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateApprovedOriginCommand}
    */
   disassociateApprovedOrigin(
@@ -2536,6 +2693,23 @@ export interface Connect {
     args: DisassociateBotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateBotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateFlowCommand}
+   */
+  disassociateFlow(
+    args: DisassociateFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFlowCommandOutput>;
+  disassociateFlow(
+    args: DisassociateFlowCommandInput,
+    cb: (err: any, data?: DisassociateFlowCommandOutput) => void
+  ): void;
+  disassociateFlow(
+    args: DisassociateFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFlowCommandOutput) => void
   ): void;
 
   /**
@@ -2760,6 +2934,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link GetFlowAssociationCommand}
+   */
+  getFlowAssociation(
+    args: GetFlowAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFlowAssociationCommandOutput>;
+  getFlowAssociation(
+    args: GetFlowAssociationCommandInput,
+    cb: (err: any, data?: GetFlowAssociationCommandOutput) => void
+  ): void;
+  getFlowAssociation(
+    args: GetFlowAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFlowAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMetricDataCommand}
    */
   getMetricData(args: GetMetricDataCommandInput, options?: __HttpHandlerOptions): Promise<GetMetricDataCommandOutput>;
@@ -2827,6 +3018,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ImportPhoneNumberCommand}
+   */
+  importPhoneNumber(
+    args: ImportPhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportPhoneNumberCommandOutput>;
+  importPhoneNumber(
+    args: ImportPhoneNumberCommandInput,
+    cb: (err: any, data?: ImportPhoneNumberCommandOutput) => void
+  ): void;
+  importPhoneNumber(
+    args: ImportPhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportPhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAgentStatusesCommand}
    */
   listAgentStatuses(
@@ -2841,6 +3049,23 @@ export interface Connect {
     args: ListAgentStatusesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAgentStatusesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalyticsDataAssociationsCommand}
+   */
+  listAnalyticsDataAssociations(
+    args: ListAnalyticsDataAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalyticsDataAssociationsCommandOutput>;
+  listAnalyticsDataAssociations(
+    args: ListAnalyticsDataAssociationsCommandInput,
+    cb: (err: any, data?: ListAnalyticsDataAssociationsCommandOutput) => void
+  ): void;
+  listAnalyticsDataAssociations(
+    args: ListAnalyticsDataAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalyticsDataAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -2988,6 +3213,23 @@ export interface Connect {
     args: ListEvaluationFormVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEvaluationFormVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowAssociationsCommand}
+   */
+  listFlowAssociations(
+    args: ListFlowAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowAssociationsCommandOutput>;
+  listFlowAssociations(
+    args: ListFlowAssociationsCommandInput,
+    cb: (err: any, data?: ListFlowAssociationsCommandOutput) => void
+  ): void;
+  listFlowAssociations(
+    args: ListFlowAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -3185,6 +3427,23 @@ export interface Connect {
     args: ListQuickConnectsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListQuickConnectsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRealtimeContactAnalysisSegmentsV2Command}
+   */
+  listRealtimeContactAnalysisSegmentsV2(
+    args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRealtimeContactAnalysisSegmentsV2CommandOutput>;
+  listRealtimeContactAnalysisSegmentsV2(
+    args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
+    cb: (err: any, data?: ListRealtimeContactAnalysisSegmentsV2CommandOutput) => void
+  ): void;
+  listRealtimeContactAnalysisSegmentsV2(
+    args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRealtimeContactAnalysisSegmentsV2CommandOutput) => void
   ): void;
 
   /**
@@ -3664,6 +3923,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SendChatIntegrationEventCommand}
+   */
+  sendChatIntegrationEvent(
+    args: SendChatIntegrationEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendChatIntegrationEventCommandOutput>;
+  sendChatIntegrationEvent(
+    args: SendChatIntegrationEventCommandInput,
+    cb: (err: any, data?: SendChatIntegrationEventCommandOutput) => void
+  ): void;
+  sendChatIntegrationEvent(
+    args: SendChatIntegrationEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendChatIntegrationEventCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartChatContactCommand}
    */
   startChatContact(
@@ -3763,6 +4039,23 @@ export interface Connect {
     args: StartTaskContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTaskContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartWebRTCContactCommand}
+   */
+  startWebRTCContact(
+    args: StartWebRTCContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartWebRTCContactCommandOutput>;
+  startWebRTCContact(
+    args: StartWebRTCContactCommandInput,
+    cb: (err: any, data?: StartWebRTCContactCommandOutput) => void
+  ): void;
+  startWebRTCContact(
+    args: StartWebRTCContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartWebRTCContactCommandOutput) => void
   ): void;
 
   /**

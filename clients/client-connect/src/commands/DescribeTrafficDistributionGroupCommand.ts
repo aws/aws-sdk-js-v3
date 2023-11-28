@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeTrafficDistributionGroupRequest } from "../models/models_0";
-import { DescribeTrafficDistributionGroupResponse } from "../models/models_1";
+import { DescribeTrafficDistributionGroupRequest, DescribeTrafficDistributionGroupResponse } from "../models/models_1";
 import {
   de_DescribeTrafficDistributionGroupCommand,
   se_DescribeTrafficDistributionGroupCommand,

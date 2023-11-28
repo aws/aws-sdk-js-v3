@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartContactRecordingRequest, StartContactRecordingResponse } from "../models/models_1";
+import { StartContactRecordingRequest, StartContactRecordingResponse } from "../models/models_2";
 import { de_StartContactRecordingCommand, se_StartContactRecordingCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowContentRequest, UpdateContactFlowContentResponse } from "../models/models_2";
-import { de_UpdateContactFlowContentCommand, se_UpdateContactFlowContentCommand } from "../protocols/Aws_restJson1";
+import { DisassociateFlowRequest, DisassociateFlowResponse } from "../models/models_1";
+import { de_DisassociateFlowCommand, se_DisassociateFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,49 +25,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateContactFlowContentCommand}.
+ * The input for {@link DisassociateFlowCommand}.
  */
-export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowContentRequest {}
+export interface DisassociateFlowCommandInput extends DisassociateFlowRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateContactFlowContentCommand}.
+ * The output of {@link DisassociateFlowCommand}.
  */
-export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlowContentResponse, __MetadataBearer {}
+export interface DisassociateFlowCommandOutput extends DisassociateFlowResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the specified flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
- *    Flow language</a>.</p>
+ * <p>Disassociates a connect resource from a flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactFlowContentCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactFlowContentCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DisassociateFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateContactFlowContentRequest
+ * const input = { // DisassociateFlowRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "SMS_PHONE_NUMBER", // required
  * };
- * const command = new UpdateContactFlowContentCommand(input);
+ * const command = new DisassociateFlowCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateContactFlowContentCommandInput - {@link UpdateContactFlowContentCommandInput}
- * @returns {@link UpdateContactFlowContentCommandOutput}
- * @see {@link UpdateContactFlowContentCommandInput} for command's `input` shape.
- * @see {@link UpdateContactFlowContentCommandOutput} for command's `response` shape.
+ * @param DisassociateFlowCommandInput - {@link DisassociateFlowCommandInput}
+ * @returns {@link DisassociateFlowCommandOutput}
+ * @see {@link DisassociateFlowCommandInput} for command's `input` shape.
+ * @see {@link DisassociateFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
- *
- * @throws {@link InvalidContactFlowException} (client fault)
- *  <p>The flow is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
@@ -85,9 +83,9 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateContactFlowContentCommand extends $Command<
-  UpdateContactFlowContentCommandInput,
-  UpdateContactFlowContentCommandOutput,
+export class DisassociateFlowCommand extends $Command<
+  DisassociateFlowCommandInput,
+  DisassociateFlowCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -102,7 +100,7 @@ export class UpdateContactFlowContentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateContactFlowContentCommandInput) {
+  constructor(readonly input: DisassociateFlowCommandInput) {
     super();
   }
 
@@ -113,17 +111,17 @@ export class UpdateContactFlowContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateContactFlowContentCommandInput, UpdateContactFlowContentCommandOutput> {
+  ): Handler<DisassociateFlowCommandInput, DisassociateFlowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateContactFlowContentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DisassociateFlowCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateContactFlowContentCommand";
+    const commandName = "DisassociateFlowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -132,7 +130,7 @@ export class UpdateContactFlowContentCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "UpdateContactFlowContent",
+        operation: "DisassociateFlow",
       },
     };
     const { requestHandler } = configuration;
@@ -146,14 +144,14 @@ export class UpdateContactFlowContentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateContactFlowContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateContactFlowContentCommand(input, context);
+  private serialize(input: DisassociateFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DisassociateFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowContentCommandOutput> {
-    return de_UpdateContactFlowContentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFlowCommandOutput> {
+    return de_DisassociateFlowCommand(output, context);
   }
 }

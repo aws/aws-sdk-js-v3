@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowContentRequest, UpdateContactFlowContentResponse } from "../models/models_2";
-import { de_UpdateContactFlowContentCommand, se_UpdateContactFlowContentCommand } from "../protocols/Aws_restJson1";
+import { ListFlowAssociationsRequest, ListFlowAssociationsResponse } from "../models/models_1";
+import { de_ListFlowAssociationsCommand, se_ListFlowAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,49 +25,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateContactFlowContentCommand}.
+ * The input for {@link ListFlowAssociationsCommand}.
  */
-export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowContentRequest {}
+export interface ListFlowAssociationsCommandInput extends ListFlowAssociationsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateContactFlowContentCommand}.
+ * The output of {@link ListFlowAssociationsCommand}.
  */
-export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlowContentResponse, __MetadataBearer {}
+export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the specified flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
- *    Flow language</a>.</p>
+ * <p>List the flow association based on the filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactFlowContentCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactFlowContentCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListFlowAssociationsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListFlowAssociationsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateContactFlowContentRequest
+ * const input = { // ListFlowAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
+ *   ResourceType: "VOICE_PHONE_NUMBER",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new UpdateContactFlowContentCommand(input);
+ * const command = new ListFlowAssociationsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListFlowAssociationsResponse
+ * //   FlowAssociationSummaryList: [ // FlowAssociationSummaryList
+ * //     { // FlowAssociationSummary
+ * //       ResourceId: "STRING_VALUE",
+ * //       FlowId: "STRING_VALUE",
+ * //       ResourceType: "VOICE_PHONE_NUMBER",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UpdateContactFlowContentCommandInput - {@link UpdateContactFlowContentCommandInput}
- * @returns {@link UpdateContactFlowContentCommandOutput}
- * @see {@link UpdateContactFlowContentCommandInput} for command's `input` shape.
- * @see {@link UpdateContactFlowContentCommandOutput} for command's `response` shape.
+ * @param ListFlowAssociationsCommandInput - {@link ListFlowAssociationsCommandInput}
+ * @returns {@link ListFlowAssociationsCommandOutput}
+ * @see {@link ListFlowAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListFlowAssociationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
- *
- * @throws {@link InvalidContactFlowException} (client fault)
- *  <p>The flow is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
@@ -85,9 +93,9 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateContactFlowContentCommand extends $Command<
-  UpdateContactFlowContentCommandInput,
-  UpdateContactFlowContentCommandOutput,
+export class ListFlowAssociationsCommand extends $Command<
+  ListFlowAssociationsCommandInput,
+  ListFlowAssociationsCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -102,7 +110,7 @@ export class UpdateContactFlowContentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateContactFlowContentCommandInput) {
+  constructor(readonly input: ListFlowAssociationsCommandInput) {
     super();
   }
 
@@ -113,17 +121,17 @@ export class UpdateContactFlowContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateContactFlowContentCommandInput, UpdateContactFlowContentCommandOutput> {
+  ): Handler<ListFlowAssociationsCommandInput, ListFlowAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateContactFlowContentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListFlowAssociationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateContactFlowContentCommand";
+    const commandName = "ListFlowAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -132,7 +140,7 @@ export class UpdateContactFlowContentCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "UpdateContactFlowContent",
+        operation: "ListFlowAssociations",
       },
     };
     const { requestHandler } = configuration;
@@ -146,14 +154,14 @@ export class UpdateContactFlowContentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateContactFlowContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateContactFlowContentCommand(input, context);
+  private serialize(input: ListFlowAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListFlowAssociationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowContentCommandOutput> {
-    return de_UpdateContactFlowContentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFlowAssociationsCommandOutput> {
+    return de_ListFlowAssociationsCommand(output, context);
   }
 }

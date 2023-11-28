@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { TagResourceRequest } from "../models/models_1";
+import { TagResourceRequest } from "../models/models_2";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**

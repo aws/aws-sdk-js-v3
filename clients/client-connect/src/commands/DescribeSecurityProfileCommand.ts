@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/models_0";
+import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/models_1";
 import { de_DescribeSecurityProfileCommand, se_DescribeSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
