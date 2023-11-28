@@ -5,6 +5,7 @@ import {
   BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
+  HandlerExecutionContext,
   MetadataBearer,
 } from "@smithy/types";
 
@@ -45,7 +46,10 @@ export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
  */
 export const flexibleChecksumsMiddleware =
   (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsRequestMiddlewareConfig): BuildMiddleware<any, any> =>
-  <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
+  <Output extends MetadataBearer>(
+    next: BuildHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {
       return next(args);
@@ -56,10 +60,14 @@ export const flexibleChecksumsMiddleware =
     const { base64Encoder, streamHasher } = config;
     const { input, requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
-    const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
-      requestChecksumRequired,
-      requestAlgorithmMember,
-    });
+    const checksumAlgorithm = getChecksumAlgorithmForRequest(
+      input,
+      {
+        requestChecksumRequired,
+        requestAlgorithmMember,
+      },
+      !!context.isS3ExpressBucket
+    );
     let updatedBody = requestBody;
     let updatedHeaders = headers;
 

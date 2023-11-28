@@ -2,10 +2,19 @@ import { formatUrl } from "@aws-sdk/util-format-url";
 import { EndpointParameterInstructionsSupplier, getEndpointFromInstructions } from "@smithy/middleware-endpoint";
 import { HttpRequest } from "@smithy/protocol-http";
 import { Client, Command } from "@smithy/smithy-client";
-import { BuildMiddleware, EndpointV2, MetadataBearer, RequestPresigningArguments } from "@smithy/types";
+import {
+  BuildMiddleware,
+  EndpointV2,
+  HttpRequest as IHttpRequest,
+  MetadataBearer,
+  RequestPresigningArguments,
+} from "@smithy/types";
 
 import { S3RequestPresigner } from "./presigner";
 
+/**
+ * @public
+ */
 export const getSignedUrl = async <
   InputTypesUnion extends object,
   InputType extends InputTypesUnion,
@@ -24,6 +33,7 @@ export const getSignedUrl = async <
       client.config
     );
     const authScheme = endpointV2.properties?.authSchemes?.[0];
+
     s3Presigner = new S3RequestPresigner({
       ...client.config,
       signingName: authScheme?.signingName,
@@ -44,11 +54,19 @@ export const getSignedUrl = async <
       delete request.headers["amz-sdk-request"];
       // User agent header would leak sensitive information
       delete request.headers["x-amz-user-agent"];
-      const presigned = await s3Presigner.presign(request, {
+
+      let presigned: IHttpRequest;
+      const presignerOptions = {
         ...options,
         signingRegion: options.signingRegion ?? context["signing_region"],
         signingService: options.signingService ?? context["signing_service"],
-      });
+      };
+
+      if (context.s3ExpressIdentity) {
+        presigned = await s3Presigner.presignWithCredentials(request, context.s3ExpressIdentity, presignerOptions);
+      } else {
+        presigned = await s3Presigner.presign(request, presignerOptions);
+      }
 
       return {
         // Intercept the middleware stack by returning fake response

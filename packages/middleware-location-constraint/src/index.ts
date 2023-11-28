@@ -24,7 +24,7 @@ export function locationConstraintMiddleware(
       const { CreateBucketConfiguration } = args.input;
       //After region config resolution, region is a Provider<string>
       const region = await options.region();
-      if (!CreateBucketConfiguration || !CreateBucketConfiguration.LocationConstraint) {
+      if (!CreateBucketConfiguration?.LocationConstraint && !CreateBucketConfiguration?.Location) {
         args = {
           ...args,
           input: {

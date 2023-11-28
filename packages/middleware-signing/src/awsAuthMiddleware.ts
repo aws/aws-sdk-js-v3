@@ -1,3 +1,4 @@
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import {
   AuthScheme,
@@ -6,6 +7,7 @@ import {
   FinalizeHandlerOutput,
   FinalizeRequestMiddleware,
   HandlerExecutionContext,
+  HttpRequest as IHttpRequest,
   Pluggable,
   RelativeMiddlewareOptions,
 } from "@smithy/types";
@@ -30,13 +32,39 @@ export const awsAuthMiddleware =
 
       const signer = await options.signer(authScheme);
 
+      let signedRequest: IHttpRequest;
+      const signingOptions = {
+        signingDate: getSkewCorrectedDate(options.systemClockOffset),
+        signingRegion: multiRegionOverride || context["signing_region"],
+        signingService: context["signing_service"],
+      };
+
+      if (context.s3ExpressIdentity) {
+        // the signer is expected to be SignatureV4MultiRegion for S3.
+        const sigV4MultiRegion = signer as typeof signer & {
+          signWithCredentials(
+            req: IHttpRequest,
+            identity: AwsCredentialIdentity,
+            opts?: Partial<typeof signingOptions>
+          ): Promise<IHttpRequest>;
+        };
+
+        signedRequest = await sigV4MultiRegion.signWithCredentials(
+          args.request,
+          context.s3ExpressIdentity,
+          signingOptions
+        );
+
+        if (signedRequest.headers["X-Amz-Security-Token"] || signedRequest.headers["x-amz-security-token"]) {
+          throw new Error("X-Amz-Security-Token must not be set for s3-express requests.");
+        }
+      } else {
+        signedRequest = await signer.sign(args.request, signingOptions);
+      }
+
       const output = await next({
         ...args,
-        request: await signer.sign(args.request, {
-          signingDate: getSkewCorrectedDate(options.systemClockOffset),
-          signingRegion: multiRegionOverride || context["signing_region"],
-          signingService: context["signing_service"],
-        }),
+        request: signedRequest,
       }).catch((error) => {
         const serverTime: string | undefined = error.ServerTime ?? getDateHeader(error.$response);
         if (serverTime) {

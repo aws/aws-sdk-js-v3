@@ -16,6 +16,7 @@ const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
+const s3Hack = require("./s3-hack");
 
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
@@ -91,7 +92,9 @@ const {
       return;
     }
 
+    const undoS3 = s3Hack();
     await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
+    undoS3();
 
     if (!noPrivateClients) {
       await generateGenericClient();

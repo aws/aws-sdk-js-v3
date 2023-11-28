@@ -20,6 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/types": "*",
     "@smithy/protocol-http": "^3.0.9",
     "@smithy/signature-v4": "^2.0.0",

@@ -1,4 +1,5 @@
-import type { RequestPresigner, RequestSigner } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { HttpRequest, RequestPresigner, RequestSigner, RequestSigningArguments } from "@smithy/types";
 
 /**
  * @public
@@ -10,7 +11,14 @@ export type OptionalCrtSignerV4 = {
    *
    * The true type is CrtSignerV4 from \@aws-sdk/signature-v4-crt.
    */
-  new (options: any): RequestPresigner & RequestSigner;
+  new (options: any): RequestPresigner &
+    RequestSigner & {
+      signWithCredentials(
+        requestToSign: HttpRequest,
+        credentials: AwsCredentialIdentity,
+        options: RequestSigningArguments
+      ): Promise<HttpRequest>;
+    };
 };
 
 /**

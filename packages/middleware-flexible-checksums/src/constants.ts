@@ -16,3 +16,13 @@ export enum ChecksumLocation {
   HEADER = "header",
   TRAILER = "trailer",
 }
+
+/**
+ * @internal
+ */
+export const DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.MD5;
+
+/**
+ * @internal
+ */
+export const S3_EXPRESS_DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.CRC32;

@@ -1,5 +1,7 @@
-import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
+import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
+import { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import {
+  AwsCredentialIdentity,
   HttpRequest,
   RequestPresigner,
   RequestPresigningArguments,
@@ -26,12 +28,12 @@ export type SignatureV4MultiRegionInit = SignatureV4Init &
  * @internal
  */
 export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
-  private readonly sigv4Signer: SignatureV4;
   private sigv4aSigner?: InstanceType<OptionalCrtSignerV4>;
+  private readonly sigv4Signer: SignatureV4S3Express;
   private readonly signerOptions: SignatureV4MultiRegionInit;
 
   constructor(options: SignatureV4MultiRegionInit) {
-    this.sigv4Signer = new SignatureV4(options);
+    this.sigv4Signer = new SignatureV4S3Express(options);
     this.signerOptions = options;
   }
 
@@ -44,6 +46,22 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     return this.sigv4Signer.sign(requestToSign, options);
   }
 
+  /**
+   * Sign with alternate credentials to the ones provided in the constructor.
+   */
+  public async signWithCredentials(
+    requestToSign: HttpRequest,
+    credentials: AwsCredentialIdentity,
+    options: RequestSigningArguments = {}
+  ): Promise<HttpRequest> {
+    if (options.signingRegion === "*") {
+      if (this.signerOptions.runtime !== "node")
+        throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
+      return this.getSigv4aSigner().signWithCredentials(requestToSign, credentials, options);
+    }
+    return this.sigv4Signer.signWithCredentials(requestToSign, credentials, options);
+  }
+
   public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
       if (this.signerOptions.runtime !== "node")
@@ -51,6 +69,17 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
       return this.getSigv4aSigner().presign(originalRequest, options);
     }
     return this.sigv4Signer.presign(originalRequest, options);
+  }
+
+  public async presignWithCredentials(
+    originalRequest: HttpRequest,
+    credentials: AwsCredentialIdentity,
+    options: RequestPresigningArguments = {}
+  ): Promise<HttpRequest> {
+    if (options.signingRegion === "*") {
+      throw new Error("Method presignWithCredentials is not supported for [signingRegion=*].");
+    }
+    return this.sigv4Signer.presignWithCredentials(originalRequest, credentials, options);
   }
 
   private getSigv4aSigner(): InstanceType<OptionalCrtSignerV4> {

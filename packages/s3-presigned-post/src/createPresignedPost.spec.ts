@@ -14,6 +14,7 @@ const mockGetSigningKey = jest.fn().mockReturnValue(Buffer.from("mock_signing_ke
 jest.mock("@smithy/signature-v4", () => ({
   createScope: mockCreateScope,
   getSigningKey: mockGetSigningKey,
+  SignatureV4: class {},
 }));
 
 const mockHexEncoder = jest.fn().mockReturnValue("mock_hex_encoded");

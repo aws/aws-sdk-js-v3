@@ -1,3 +1,4 @@
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { parseQueryString } from "@smithy/querystring-parser";
 import {
   getCanonicalQuery,
@@ -8,7 +9,6 @@ import {
   SignatureV4Init,
 } from "@smithy/signature-v4";
 import {
-  AwsCredentialIdentity,
   HttpRequest,
   Provider,
   QueryParameterBag,
@@ -96,9 +96,10 @@ export class CrtSignerV4 implements RequestPresigner, RequestSigner {
     }: RequestSigningArguments | RequestPresigningArguments | undefined = {},
     viaHeader: Boolean,
     payloadHash: string,
-    expiresIn?: number
+    expiresIn?: number,
+    _credentials?: AwsCredentialIdentity
   ): Promise<crtAuth.AwsSigningConfig> {
-    const credentials = await this.credentialProvider();
+    const credentials = _credentials ?? (await this.credentialProvider());
     const region = signingRegion ?? (await this.regionProvider());
     const service = signingService ?? this.service;
     if (signableHeaders?.has("x-amzn-trace-id") || signableHeaders?.has("user-agent")) {
@@ -152,6 +153,29 @@ export class CrtSignerV4 implements RequestPresigner, RequestSigner {
     const crtSignedRequest = await this.signRequest(
       request,
       await this.options2crtConfigure(options, true /* viaHeader */, await getPayloadHash(toSign, this.sha256))
+    );
+    request.headers = crtSignedRequest.headers._flatten().reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
+    return request;
+  }
+
+  /**
+   * Sign with alternate credentials to the ones provided in the constructor.
+   */
+  public async signWithCredentials(
+    toSign: HttpRequest,
+    credentials: AwsCredentialIdentity,
+    options?: RequestSigningArguments
+  ): Promise<HttpRequest> {
+    const request = prepareRequest(toSign);
+    const crtSignedRequest = await this.signRequest(
+      request,
+      await this.options2crtConfigure(
+        options,
+        true /* viaHeader */,
+        await getPayloadHash(toSign, this.sha256),
+        undefined,
+        credentials
+      )
     );
     request.headers = crtSignedRequest.headers._flatten().reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
     return request;
