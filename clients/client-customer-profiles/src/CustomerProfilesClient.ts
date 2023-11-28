@@ -81,6 +81,10 @@ import {
 } from "./commands/DeleteProfileObjectTypeCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import {
+  DetectProfileObjectTypeCommandInput,
+  DetectProfileObjectTypeCommandOutput,
+} from "./commands/DetectProfileObjectTypeCommand";
+import {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
 } from "./commands/GetAutoMergingPreviewCommand";
@@ -194,6 +198,7 @@ export type ServiceInputTypes =
   | DeleteProfileObjectCommandInput
   | DeleteProfileObjectTypeCommandInput
   | DeleteWorkflowCommandInput
+  | DetectProfileObjectTypeCommandInput
   | GetAutoMergingPreviewCommandInput
   | GetCalculatedAttributeDefinitionCommandInput
   | GetCalculatedAttributeForProfileCommandInput
@@ -250,6 +255,7 @@ export type ServiceOutputTypes =
   | DeleteProfileObjectCommandOutput
   | DeleteProfileObjectTypeCommandOutput
   | DeleteWorkflowCommandOutput
+  | DetectProfileObjectTypeCommandOutput
   | GetAutoMergingPreviewCommandOutput
   | GetCalculatedAttributeDefinitionCommandOutput
   | GetCalculatedAttributeForProfileCommandOutput

@@ -1,0 +1,185 @@
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
+} from "@smithy/types";
+
+import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import {
+  DetectProfileObjectTypeRequest,
+  DetectProfileObjectTypeRequestFilterSensitiveLog,
+  DetectProfileObjectTypeResponse,
+  DetectProfileObjectTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_DetectProfileObjectTypeCommand, se_DetectProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DetectProfileObjectTypeCommand}.
+ */
+export interface DetectProfileObjectTypeCommandInput extends DetectProfileObjectTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetectProfileObjectTypeCommand}.
+ */
+export interface DetectProfileObjectTypeCommandOutput extends DetectProfileObjectTypeResponse, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>The process of detecting profile object type mapping by using given objects.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CustomerProfilesClient, DetectProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, DetectProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * const client = new CustomerProfilesClient(config);
+ * const input = { // DetectProfileObjectTypeRequest
+ *   Objects: [ // Objects // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DomainName: "STRING_VALUE", // required
+ * };
+ * const command = new DetectProfileObjectTypeCommand(input);
+ * const response = await client.send(command);
+ * // { // DetectProfileObjectTypeResponse
+ * //   DetectedProfileObjectTypes: [ // DetectedProfileObjectTypes
+ * //     { // DetectedProfileObjectType
+ * //       SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ * //       Fields: { // FieldMap
+ * //         "<keys>": { // ObjectTypeField
+ * //           Source: "STRING_VALUE",
+ * //           Target: "STRING_VALUE",
+ * //           ContentType: "STRING" || "NUMBER" || "PHONE_NUMBER" || "EMAIL_ADDRESS" || "NAME",
+ * //         },
+ * //       },
+ * //       Keys: { // KeyMap
+ * //         "<keys>": [ // ObjectTypeKeyList
+ * //           { // ObjectTypeKey
+ * //             StandardIdentifiers: [ // StandardIdentifierList
+ * //               "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //             ],
+ * //             FieldNames: [ // FieldNameList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
+ * ```
+ *
+ * @param DetectProfileObjectTypeCommandInput - {@link DetectProfileObjectTypeCommandInput}
+ * @returns {@link DetectProfileObjectTypeCommandOutput}
+ * @see {@link DetectProfileObjectTypeCommandInput} for command's `input` shape.
+ * @see {@link DetectProfileObjectTypeCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
+ *
+ */
+export class DetectProfileObjectTypeCommand extends $Command<
+  DetectProfileObjectTypeCommandInput,
+  DetectProfileObjectTypeCommandOutput,
+  CustomerProfilesClientResolvedConfig
+> {
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
+  constructor(readonly input: DetectProfileObjectTypeCommandInput) {
+    super();
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: CustomerProfilesClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<DetectProfileObjectTypeCommandInput, DetectProfileObjectTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetectProfileObjectTypeCommand.getEndpointParameterInstructions())
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "CustomerProfilesClient";
+    const commandName = "DetectProfileObjectTypeCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: DetectProfileObjectTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectProfileObjectTypeResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CustomerProfiles_20200815",
+        operation: "DetectProfileObjectType",
+      },
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  /**
+   * @internal
+   */
+  private serialize(input: DetectProfileObjectTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DetectProfileObjectTypeCommand(input, context);
+  }
+
+  /**
+   * @internal
+   */
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectProfileObjectTypeCommandOutput> {
+    return de_DetectProfileObjectTypeCommand(output, context);
+  }
+}

@@ -57,6 +57,10 @@ import {
 } from "../commands/DeleteProfileObjectTypeCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
 import {
+  DetectProfileObjectTypeCommandInput,
+  DetectProfileObjectTypeCommandOutput,
+} from "../commands/DetectProfileObjectTypeCommand";
+import {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
 } from "../commands/GetAutoMergingPreviewCommand";
@@ -718,6 +722,37 @@ export const se_DeleteWorkflowCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DetectProfileObjectTypeCommand
+ */
+export const se_DetectProfileObjectTypeCommand = async (
+  input: DetectProfileObjectTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/detect/object-types";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Objects: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2756,6 +2791,65 @@ const de_DeleteWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DetectProfileObjectTypeCommand
+ */
+export const de_DetectProfileObjectTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectProfileObjectTypeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DetectProfileObjectTypeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DetectedProfileObjectTypes: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DetectProfileObjectTypeCommandError
+ */
+const de_DetectProfileObjectTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectProfileObjectTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5243,6 +5337,8 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
 
 // se_ObjectFilter omitted.
 
+// se_Objects omitted.
+
 // se_ObjectTypeField omitted.
 
 // se_ObjectTypeKey omitted.
@@ -5406,6 +5502,10 @@ const de_DestinationSummary = (output: any, context: __SerdeContext): Destinatio
     Uri: __expectString,
   }) as any;
 };
+
+// de_DetectedProfileObjectType omitted.
+
+// de_DetectedProfileObjectTypes omitted.
 
 /**
  * deserializeAws_restJson1DomainList
