@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+
+### Features
+
+* **client-opensearch:** Launching Amazon OpenSearch Service support for new zero-ETL integration with Amazon S3. Customers can now manage their direct query data sources to Amazon S3 programatically ([3d09e8a](https://github.com/aws/aws-sdk-js-v3/commit/3d09e8a1145ecbd9d0fd5831a0a4c56b2c77b935))
+
+
+
+
+
 # [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

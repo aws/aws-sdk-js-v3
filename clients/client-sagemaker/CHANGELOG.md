@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+
+### Features
+
+* **client-sagemaker:** This release adds following support 1/ Improved SDK tooling for model deployment. 2/ New Inference Component based features to lower inference costs and latency 3/ SageMaker HyperPod management. 4/ Additional parameters for FM Fine Tuning in Autopilot ([a8ae1e9](https://github.com/aws/aws-sdk-js-v3/commit/a8ae1e9c82109185904580eca01132e8d6eff2b5))
+
+
+
+
+
 # [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

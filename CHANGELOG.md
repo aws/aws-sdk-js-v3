@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+
+### Features
+
+* **client-application-auto-scaling:** Amazon SageMaker customers can now use Application Auto Scaling to automatically scale the number of Inference Component copies across an endpoint to meet the varying demand of their workloads. ([d3e3748](https://github.com/aws/aws-sdk-js-v3/commit/d3e3748491dd41e69974467ecdc0e9c5153b7c80))
+* **client-cleanrooms:** AWS Clean Rooms now provides differential privacy to protect against user-identification attempts and machine learning modeling to allow two parties to identify similar users in their data. ([86e277d](https://github.com/aws/aws-sdk-js-v3/commit/86e277deb00545936e8ba427b93f519dc31daad2))
+* **client-cleanroomsml:** Public Preview SDK release of AWS Clean Rooms ML APIs ([229dcf8](https://github.com/aws/aws-sdk-js-v3/commit/229dcf89e4f105bc5826430a3507b5d355e25337))
+* **client-opensearch:** Launching Amazon OpenSearch Service support for new zero-ETL integration with Amazon S3. Customers can now manage their direct query data sources to Amazon S3 programatically ([3d09e8a](https://github.com/aws/aws-sdk-js-v3/commit/3d09e8a1145ecbd9d0fd5831a0a4c56b2c77b935))
+* **client-opensearchserverless:** Amazon OpenSearch Serverless collections support an additional attribute called standby-replicas. This allows to specify whether a collection should have redundancy enabled. ([c180057](https://github.com/aws/aws-sdk-js-v3/commit/c1800572ef17e01c6a4b6f60f733b0e6bd97b1ec))
+* **client-sagemaker-runtime:** This release adds InferenceComponentName to InvokeEndpoint and InvokeEndpointWithResponseStream APIs to get inferences from the deployed InferenceComponents. ([0e02d0a](https://github.com/aws/aws-sdk-js-v3/commit/0e02d0abe0103c26ade5cc48ee533f00e1a8a3f8))
+* **client-sagemaker:** This release adds following support 1/ Improved SDK tooling for model deployment. 2/ New Inference Component based features to lower inference costs and latency 3/ SageMaker HyperPod management. 4/ Additional parameters for FM Fine Tuning in Autopilot ([a8ae1e9](https://github.com/aws/aws-sdk-js-v3/commit/a8ae1e9c82109185904580eca01132e8d6eff2b5))
+
+
+
+
+
 # [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+
+### Features
+
+* **client-cleanrooms:** AWS Clean Rooms now provides differential privacy to protect against user-identification attempts and machine learning modeling to allow two parties to identify similar users in their data. ([86e277d](https://github.com/aws/aws-sdk-js-v3/commit/86e277deb00545936e8ba427b93f519dc31daad2))
+
+
+
+
+
 # [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

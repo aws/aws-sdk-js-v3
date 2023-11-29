@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+
+### Features
+
+* **client-sagemaker-runtime:** This release adds InferenceComponentName to InvokeEndpoint and InvokeEndpointWithResponseStream APIs to get inferences from the deployed InferenceComponents. ([0e02d0a](https://github.com/aws/aws-sdk-js-v3/commit/0e02d0abe0103c26ade5cc48ee533f00e1a8a3f8))
+
+
+
+
+
 # [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-runtime

@@ -1,0 +1,11 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+
+### Features
+
+* **client-cleanroomsml:** Public Preview SDK release of AWS Clean Rooms ML APIs ([229dcf8](https://github.com/aws/aws-sdk-js-v3/commit/229dcf89e4f105bc5826430a3507b5d355e25337))
