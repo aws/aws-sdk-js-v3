@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -29,6 +30,7 @@ import {
   AcceptInboundConnectionCommandInput,
   AcceptInboundConnectionCommandOutput,
 } from "../commands/AcceptInboundConnectionCommand";
+import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "../commands/AddDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "../commands/AssociatePackageCommand";
 import {
@@ -46,6 +48,7 @@ import {
 } from "../commands/CreateOutboundConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "../commands/CreatePackageCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -113,6 +116,7 @@ import {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
 } from "../commands/GetCompatibleVersionsCommand";
+import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
@@ -123,6 +127,7 @@ import {
 } from "../commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "../commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "../commands/GetUpgradeStatusCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import {
   ListDomainMaintenancesCommandInput,
   ListDomainMaintenancesCommandOutput,
@@ -176,6 +181,7 @@ import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "../commands/StartServiceSoftwareUpdateCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "../commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
 import {
@@ -210,6 +216,7 @@ import {
   ConflictException,
   ConnectionProperties,
   CrossClusterSearchConnectionProperties,
+  DataSourceType,
   DependencyFailureException,
   DescribePackagesFilter,
   DisabledOperationException,
@@ -249,6 +256,7 @@ import {
   ReservedInstanceOffering,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  S3GlueDataCatalog,
   SAMLIdp,
   SAMLOptionsInput,
   ScheduledAutoTuneDetails,
@@ -296,6 +304,40 @@ export const se_AcceptInboundConnectionCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1AddDataSourceCommand
+ */
+export const se_AddDataSourceCommand = async (
+  input: AddDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/dataSource";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSourceType: (_) => _json(_),
+      Description: [],
+      Name: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -562,6 +604,32 @@ export const se_CreateVpcEndpointCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteDataSourceCommand
+ */
+export const se_DeleteDataSourceCommand = async (
+  input: DeleteDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -1221,6 +1289,32 @@ export const se_GetCompatibleVersionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDataSourceCommand
+ */
+export const se_GetDataSourceCommand = async (
+  input: GetDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetDomainMaintenanceStatusCommand
  */
 export const se_GetDomainMaintenanceStatusCommand = async (
@@ -1320,6 +1414,31 @@ export const se_GetUpgradeStatusCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/upgradeDomain/{DomainName}/status";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListDataSourcesCommand
+ */
+export const se_ListDataSourcesCommand = async (
+  input: ListDataSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/dataSource";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   return new __HttpRequest({
@@ -1853,6 +1972,40 @@ export const se_StartServiceSoftwareUpdateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDataSourceCommand
+ */
+export const se_UpdateDataSourceCommand = async (
+  input: UpdateDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSourceType: (_) => _json(_),
+      Description: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateDomainConfigCommand
  */
 export const se_UpdateDomainConfigCommand = async (
@@ -2077,6 +2230,71 @@ const de_AcceptInboundConnectionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AddDataSourceCommand
+ */
+export const de_AddDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AddDataSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AddDataSourceCommandError
+ */
+const de_AddDataSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddDataSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.opensearch#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.opensearch#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2560,6 +2778,68 @@ const de_CreateVpcEndpointCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteDataSourceCommand
+ */
+export const de_DeleteDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteDataSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDataSourceCommandError
+ */
+const de_DeleteDataSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.opensearch#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -3836,6 +4116,70 @@ const de_GetCompatibleVersionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDataSourceCommand
+ */
+export const de_GetDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetDataSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSourceType: (_) => _json(__expectUnion(_)),
+    Description: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataSourceCommandError
+ */
+const de_GetDataSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.opensearch#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetDomainMaintenanceStatusCommand
  */
 export const de_GetDomainMaintenanceStatusCommand = async (
@@ -4059,6 +4403,68 @@ const de_GetUpgradeStatusCommandError = async (
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
       throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListDataSourcesCommand
+ */
+export const de_ListDataSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListDataSourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSources: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataSourcesCommandError
+ */
+const de_ListDataSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.opensearch#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
       throw await de_DisabledOperationExceptionRes(parsedOutput, context);
@@ -5042,6 +5448,68 @@ const de_StartServiceSoftwareUpdateCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateDataSourceCommand
+ */
+export const de_UpdateDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateDataSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDataSourceCommandError
+ */
+const de_UpdateDataSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.opensearch#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateDomainConfigCommand
  */
 export const de_UpdateDomainConfigCommand = async (
@@ -5672,6 +6140,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_CrossClusterSearchConnectionProperties omitted.
 
+// se_DataSourceType omitted.
+
 // se_DescribePackagesFilter omitted.
 
 // se_DescribePackagesFilterList omitted.
@@ -5707,6 +6177,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 // se_OffPeakWindowOptions omitted.
 
 // se_PackageSource omitted.
+
+// se_S3GlueDataCatalog omitted.
 
 // se_SAMLIdp omitted.
 
@@ -5959,6 +6431,12 @@ const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoO
 // de_ConnectionProperties omitted.
 
 // de_CrossClusterSearchConnectionProperties omitted.
+
+// de_DataSourceDetails omitted.
+
+// de_DataSourceList omitted.
+
+// de_DataSourceType omitted.
 
 /**
  * deserializeAws_restJson1DomainConfig
@@ -6388,6 +6866,8 @@ const de_ReservedInstanceOfferingList = (output: any, context: __SerdeContext): 
     });
   return retVal;
 };
+
+// de_S3GlueDataCatalog omitted.
 
 // de_SAMLIdp omitted.
 

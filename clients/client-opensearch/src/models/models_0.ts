@@ -396,6 +396,179 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 /**
  * @public
+ * <p>Information about the AWS S3 Glue Data Catalog.</p>
+ */
+export interface S3GlueDataCatalog {
+  /**
+   * @public
+   * <p>The role ARN for the AWS S3 Glue Data Catalog.</p>
+   */
+  RoleArn?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the data source.</p>
+ */
+export type DataSourceType = DataSourceType.S3GlueDataCatalogMember | DataSourceType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataSourceType {
+  /**
+   * @public
+   * <p>The data source for the AWS S3 Glue Data Catalog.</p>
+   */
+  export interface S3GlueDataCatalogMember {
+    S3GlueDataCatalog: S3GlueDataCatalog;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    S3GlueDataCatalog?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    S3GlueDataCatalog: (value: S3GlueDataCatalog) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DataSourceType, visitor: Visitor<T>): T => {
+    if (value.S3GlueDataCatalog !== undefined) return visitor.S3GlueDataCatalog(value.S3GlueDataCatalog);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>AddDataSource</code>
+ *    operation.</p>
+ */
+export interface AddDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType: DataSourceType | undefined;
+
+  /**
+   * @public
+   * <p>A description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>The result of an <code>AddDataSource</code> operation.</p>
+ */
+export interface AddDataSourceResponse {
+  /**
+   * @public
+   * <p>A message associated with the data source.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>An error occurred while processing the request.</p>
+ */
+export class BaseException extends __BaseException {
+  readonly name: "BaseException" = "BaseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
+    super({
+      name: "BaseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BaseException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+ */
+export class DependencyFailureException extends __BaseException {
+  readonly name: "DependencyFailureException" = "DependencyFailureException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyFailureException, __BaseException>) {
+    super({
+      name: "DependencyFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyFailureException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ */
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p> List of limits that are specific to a given instance type.</p>
  */
 export interface AdditionalLimit {
@@ -464,66 +637,6 @@ export interface AddTagsRequest {
    * <p>List of resource tags.</p>
    */
   TagList: Tag[] | undefined;
-}
-
-/**
- * @public
- * <p>An error occurred while processing the request.</p>
- */
-export class BaseException extends __BaseException {
-  readonly name: "BaseException" = "BaseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
-    super({
-      name: "BaseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BaseException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -1533,18 +1646,28 @@ export interface DomainEndpointOptions {
 
   /**
    * @public
-   * <p>Specify the TLS security policy to apply to the HTTPS endpoint of the domain.</p>
-   *          <p> Can be one of the following values:</p>
+   * <p>Specify the TLS security policy to apply to the HTTPS endpoint of the domain. The policy can
+   *    be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Policy-Min-TLS-1-0-2019-07:</b> TLS security policy which supports
-   *      TLS version 1.0 and higher.</p>
+   *                   <b>Policy-Min-TLS-1-0-2019-07:</b> TLS security policy which
+   *      supports TLS version 1.0 to TLS version 1.2</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy which supports
-   *      only TLS version 1.2 </p>
+   *                   <b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy which
+   *      supports only TLS version 1.2</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Policy-Min-TLS-1-0-2023-10:</b> TLS security policy which
+   *      supports TLS version 1.0 to TLS version 1.3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Policy-Min-TLS-1-2-2023-10:</b> TLS security policy which
+   *      supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites</p>
    *             </li>
    *          </ul>
    */
@@ -2848,6 +2971,37 @@ export interface CreateVpcEndpointResponse {
 
 /**
  * @public
+ * <p>Container for the parameters to the <code>DeleteDataSource</code>
+ *    operation.</p>
+ */
+export interface DeleteDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>GetDataSource</code> operation.</p>
+ */
+export interface DeleteDataSourceResponse {
+  /**
+   * @public
+   * <p>A message associated with the initiated request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
  * <p>Container for the parameters to the <code>DeleteDomain</code> operation.</p>
  */
 export interface DeleteDomainRequest {
@@ -4107,26 +4261,6 @@ export interface DescribeDomainHealthResponse {
 
 /**
  * @public
- * <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
- */
-export class DependencyFailureException extends __BaseException {
-  readonly name: "DependencyFailureException" = "DependencyFailureException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyFailureException, __BaseException>) {
-    super({
-      name: "DependencyFailureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyFailureException.prototype);
-  }
-}
-
-/**
- * @public
  * <p>Container for the parameters to the <code>DescribeDomainNodes</code>
  *    operation.</p>
  */
@@ -5221,6 +5355,49 @@ export interface GetCompatibleVersionsResponse {
 
 /**
  * @public
+ * <p>Container for the parameters to the <code>GetDataSource</code>
+ *    operation.</p>
+ */
+export interface GetDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>GetDataSource</code> operation.</p>
+ */
+export interface GetDataSourceResponse {
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType?: DataSourceType;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
  * <p>Container for the parameters to the <code>GetDomainMaintenanceStatus</code>
  *    operation.</p>
  */
@@ -5610,6 +5787,55 @@ export interface GetUpgradeStatusResponse {
    * <p>A string that describes the update.</p>
    */
   UpgradeName?: string;
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>ListDataSources</code>
+ *    operation.</p>
+ */
+export interface ListDataSourcesRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Details about the data sources.</p>
+ */
+export interface DataSourceDetails {
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType?: DataSourceType;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>ListDataSources</code> operation.</p>
+ */
+export interface ListDataSourcesResponse {
+  /**
+   * @public
+   * <p>A list of the data sources.</p>
+   */
+  DataSources?: DataSourceDetails[];
 }
 
 /**
@@ -6516,6 +6742,49 @@ export interface StartServiceSoftwareUpdateResponse {
    * <p>The current status of the OpenSearch Service software update.</p>
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>UpdateDataSource</code>
+ *    operation.</p>
+ */
+export interface UpdateDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType: DataSourceType | undefined;
+
+  /**
+   * @public
+   * <p>A description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>The result of an <code>UpdateDataSource</code> operation.</p>
+ */
+export interface UpdateDataSourceResponse {
+  /**
+   * @public
+   * <p>A message associated with the data source.</p>
+   */
+  Message?: string;
 }
 
 /**

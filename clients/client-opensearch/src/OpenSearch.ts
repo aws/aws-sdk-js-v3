@@ -7,6 +7,11 @@ import {
   AcceptInboundConnectionCommandInput,
   AcceptInboundConnectionCommandOutput,
 } from "./commands/AcceptInboundConnectionCommand";
+import {
+  AddDataSourceCommand,
+  AddDataSourceCommandInput,
+  AddDataSourceCommandOutput,
+} from "./commands/AddDataSourceCommand";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   AssociatePackageCommand,
@@ -43,6 +48,11 @@ import {
   CreateVpcEndpointCommandInput,
   CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
+import {
+  DeleteDataSourceCommand,
+  DeleteDataSourceCommandInput,
+  DeleteDataSourceCommandOutput,
+} from "./commands/DeleteDataSourceCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
@@ -154,6 +164,11 @@ import {
   GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
 import {
+  GetDataSourceCommand,
+  GetDataSourceCommandInput,
+  GetDataSourceCommandOutput,
+} from "./commands/GetDataSourceCommand";
+import {
   GetDomainMaintenanceStatusCommand,
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
@@ -173,6 +188,11 @@ import {
   GetUpgradeStatusCommandInput,
   GetUpgradeStatusCommandOutput,
 } from "./commands/GetUpgradeStatusCommand";
+import {
+  ListDataSourcesCommand,
+  ListDataSourcesCommandInput,
+  ListDataSourcesCommandOutput,
+} from "./commands/ListDataSourcesCommand";
 import {
   ListDomainMaintenancesCommand,
   ListDomainMaintenancesCommandInput,
@@ -251,6 +271,11 @@ import {
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
 import {
+  UpdateDataSourceCommand,
+  UpdateDataSourceCommandInput,
+  UpdateDataSourceCommandOutput,
+} from "./commands/UpdateDataSourceCommand";
+import {
   UpdateDomainConfigCommand,
   UpdateDomainConfigCommandInput,
   UpdateDomainConfigCommandOutput,
@@ -279,6 +304,7 @@ import { OpenSearchClient, OpenSearchClientConfig } from "./OpenSearchClient";
 
 const commands = {
   AcceptInboundConnectionCommand,
+  AddDataSourceCommand,
   AddTagsCommand,
   AssociatePackageCommand,
   AuthorizeVpcEndpointAccessCommand,
@@ -287,6 +313,7 @@ const commands = {
   CreateOutboundConnectionCommand,
   CreatePackageCommand,
   CreateVpcEndpointCommand,
+  DeleteDataSourceCommand,
   DeleteDomainCommand,
   DeleteInboundConnectionCommand,
   DeleteOutboundConnectionCommand,
@@ -309,10 +336,12 @@ const commands = {
   DescribeVpcEndpointsCommand,
   DissociatePackageCommand,
   GetCompatibleVersionsCommand,
+  GetDataSourceCommand,
   GetDomainMaintenanceStatusCommand,
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
+  ListDataSourcesCommand,
   ListDomainMaintenancesCommand,
   ListDomainNamesCommand,
   ListDomainsForPackageCommand,
@@ -330,6 +359,7 @@ const commands = {
   RevokeVpcEndpointAccessCommand,
   StartDomainMaintenanceCommand,
   StartServiceSoftwareUpdateCommand,
+  UpdateDataSourceCommand,
   UpdateDomainConfigCommand,
   UpdatePackageCommand,
   UpdateScheduledActionCommand,
@@ -353,6 +383,17 @@ export interface OpenSearch {
     args: AcceptInboundConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptInboundConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddDataSourceCommand}
+   */
+  addDataSource(args: AddDataSourceCommandInput, options?: __HttpHandlerOptions): Promise<AddDataSourceCommandOutput>;
+  addDataSource(args: AddDataSourceCommandInput, cb: (err: any, data?: AddDataSourceCommandOutput) => void): void;
+  addDataSource(
+    args: AddDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -471,6 +512,23 @@ export interface OpenSearch {
     args: CreateVpcEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataSourceCommand}
+   */
+  deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataSourceCommandOutput>;
+  deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): void;
+  deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -830,6 +888,17 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link GetDataSourceCommand}
+   */
+  getDataSource(args: GetDataSourceCommandInput, options?: __HttpHandlerOptions): Promise<GetDataSourceCommandOutput>;
+  getDataSource(args: GetDataSourceCommandInput, cb: (err: any, data?: GetDataSourceCommandOutput) => void): void;
+  getDataSource(
+    args: GetDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataSourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDomainMaintenanceStatusCommand}
    */
   getDomainMaintenanceStatus(
@@ -895,6 +964,20 @@ export interface OpenSearch {
     args: GetUpgradeStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataSourcesCommand}
+   */
+  listDataSources(
+    args: ListDataSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSourcesCommandOutput>;
+  listDataSources(args: ListDataSourcesCommandInput, cb: (err: any, data?: ListDataSourcesCommandOutput) => void): void;
+  listDataSources(
+    args: ListDataSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
 
   /**
@@ -1163,6 +1246,23 @@ export interface OpenSearch {
     args: StartServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataSourceCommand}
+   */
+  updateDataSource(
+    args: UpdateDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataSourceCommandOutput>;
+  updateDataSource(
+    args: UpdateDataSourceCommandInput,
+    cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
+  ): void;
+  updateDataSource(
+    args: UpdateDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): void;
 
   /**

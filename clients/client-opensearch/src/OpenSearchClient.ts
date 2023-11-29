@@ -54,6 +54,7 @@ import {
   AcceptInboundConnectionCommandInput,
   AcceptInboundConnectionCommandOutput,
 } from "./commands/AcceptInboundConnectionCommand";
+import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "./commands/AddDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
 import {
@@ -71,6 +72,7 @@ import {
 } from "./commands/CreateOutboundConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -138,6 +140,7 @@ import {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
+import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
@@ -148,6 +151,7 @@ import {
 } from "./commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import {
   ListDomainMaintenancesCommandInput,
   ListDomainMaintenancesCommandOutput,
@@ -201,6 +205,7 @@ import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
 import {
@@ -225,6 +230,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AcceptInboundConnectionCommandInput
+  | AddDataSourceCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
   | AuthorizeVpcEndpointAccessCommandInput
@@ -233,6 +239,7 @@ export type ServiceInputTypes =
   | CreateOutboundConnectionCommandInput
   | CreatePackageCommandInput
   | CreateVpcEndpointCommandInput
+  | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
   | DeleteInboundConnectionCommandInput
   | DeleteOutboundConnectionCommandInput
@@ -255,10 +262,12 @@ export type ServiceInputTypes =
   | DescribeVpcEndpointsCommandInput
   | DissociatePackageCommandInput
   | GetCompatibleVersionsCommandInput
+  | GetDataSourceCommandInput
   | GetDomainMaintenanceStatusCommandInput
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
+  | ListDataSourcesCommandInput
   | ListDomainMaintenancesCommandInput
   | ListDomainNamesCommandInput
   | ListDomainsForPackageCommandInput
@@ -276,6 +285,7 @@ export type ServiceInputTypes =
   | RevokeVpcEndpointAccessCommandInput
   | StartDomainMaintenanceCommandInput
   | StartServiceSoftwareUpdateCommandInput
+  | UpdateDataSourceCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
   | UpdateScheduledActionCommandInput
@@ -287,6 +297,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AcceptInboundConnectionCommandOutput
+  | AddDataSourceCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
   | AuthorizeVpcEndpointAccessCommandOutput
@@ -295,6 +306,7 @@ export type ServiceOutputTypes =
   | CreateOutboundConnectionCommandOutput
   | CreatePackageCommandOutput
   | CreateVpcEndpointCommandOutput
+  | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput
   | DeleteInboundConnectionCommandOutput
   | DeleteOutboundConnectionCommandOutput
@@ -317,10 +329,12 @@ export type ServiceOutputTypes =
   | DescribeVpcEndpointsCommandOutput
   | DissociatePackageCommandOutput
   | GetCompatibleVersionsCommandOutput
+  | GetDataSourceCommandOutput
   | GetDomainMaintenanceStatusCommandOutput
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
+  | ListDataSourcesCommandOutput
   | ListDomainMaintenancesCommandOutput
   | ListDomainNamesCommandOutput
   | ListDomainsForPackageCommandOutput
@@ -338,6 +352,7 @@ export type ServiceOutputTypes =
   | RevokeVpcEndpointAccessCommandOutput
   | StartDomainMaintenanceCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
+  | UpdateDataSourceCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput
   | UpdateScheduledActionCommandOutput
