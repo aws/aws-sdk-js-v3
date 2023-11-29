@@ -64,6 +64,10 @@ import {
   CreateCollaborationCommandOutput,
 } from "./commands/CreateCollaborationCommand";
 import {
+  CreateConfiguredAudienceModelAssociationCommandInput,
+  CreateConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/CreateConfiguredAudienceModelAssociationCommand";
+import {
   CreateConfiguredTableAnalysisRuleCommandInput,
   CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/CreateConfiguredTableAnalysisRuleCommand";
@@ -77,6 +81,10 @@ import {
 } from "./commands/CreateConfiguredTableCommand";
 import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
 import {
+  CreatePrivacyBudgetTemplateCommandInput,
+  CreatePrivacyBudgetTemplateCommandOutput,
+} from "./commands/CreatePrivacyBudgetTemplateCommand";
+import {
   DeleteAnalysisTemplateCommandInput,
   DeleteAnalysisTemplateCommandOutput,
 } from "./commands/DeleteAnalysisTemplateCommand";
@@ -84,6 +92,10 @@ import {
   DeleteCollaborationCommandInput,
   DeleteCollaborationCommandOutput,
 } from "./commands/DeleteCollaborationCommand";
+import {
+  DeleteConfiguredAudienceModelAssociationCommandInput,
+  DeleteConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/DeleteConfiguredAudienceModelAssociationCommand";
 import {
   DeleteConfiguredTableAnalysisRuleCommandInput,
   DeleteConfiguredTableAnalysisRuleCommandOutput,
@@ -99,6 +111,10 @@ import {
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
 import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "./commands/DeleteMembershipCommand";
 import {
+  DeletePrivacyBudgetTemplateCommandInput,
+  DeletePrivacyBudgetTemplateCommandOutput,
+} from "./commands/DeletePrivacyBudgetTemplateCommand";
+import {
   GetAnalysisTemplateCommandInput,
   GetAnalysisTemplateCommandOutput,
 } from "./commands/GetAnalysisTemplateCommand";
@@ -107,6 +123,18 @@ import {
   GetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/GetCollaborationAnalysisTemplateCommand";
 import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "./commands/GetCollaborationCommand";
+import {
+  GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+  GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
+import {
+  GetCollaborationPrivacyBudgetTemplateCommandInput,
+  GetCollaborationPrivacyBudgetTemplateCommandOutput,
+} from "./commands/GetCollaborationPrivacyBudgetTemplateCommand";
+import {
+  GetConfiguredAudienceModelAssociationCommandInput,
+  GetConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/GetConfiguredAudienceModelAssociationCommand";
 import {
   GetConfiguredTableAnalysisRuleCommandInput,
   GetConfiguredTableAnalysisRuleCommandOutput,
@@ -117,6 +145,10 @@ import {
 } from "./commands/GetConfiguredTableAssociationCommand";
 import { GetConfiguredTableCommandInput, GetConfiguredTableCommandOutput } from "./commands/GetConfiguredTableCommand";
 import { GetMembershipCommandInput, GetMembershipCommandOutput } from "./commands/GetMembershipCommand";
+import {
+  GetPrivacyBudgetTemplateCommandInput,
+  GetPrivacyBudgetTemplateCommandOutput,
+} from "./commands/GetPrivacyBudgetTemplateCommand";
 import { GetProtectedQueryCommandInput, GetProtectedQueryCommandOutput } from "./commands/GetProtectedQueryCommand";
 import {
   GetSchemaAnalysisRuleCommandInput,
@@ -131,7 +163,23 @@ import {
   ListCollaborationAnalysisTemplatesCommandInput,
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "./commands/ListCollaborationAnalysisTemplatesCommand";
+import {
+  ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+  ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
+} from "./commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
+import {
+  ListCollaborationPrivacyBudgetsCommandInput,
+  ListCollaborationPrivacyBudgetsCommandOutput,
+} from "./commands/ListCollaborationPrivacyBudgetsCommand";
+import {
+  ListCollaborationPrivacyBudgetTemplatesCommandInput,
+  ListCollaborationPrivacyBudgetTemplatesCommandOutput,
+} from "./commands/ListCollaborationPrivacyBudgetTemplatesCommand";
 import { ListCollaborationsCommandInput, ListCollaborationsCommandOutput } from "./commands/ListCollaborationsCommand";
+import {
+  ListConfiguredAudienceModelAssociationsCommandInput,
+  ListConfiguredAudienceModelAssociationsCommandOutput,
+} from "./commands/ListConfiguredAudienceModelAssociationsCommand";
 import {
   ListConfiguredTableAssociationsCommandInput,
   ListConfiguredTableAssociationsCommandOutput,
@@ -142,6 +190,11 @@ import {
 } from "./commands/ListConfiguredTablesCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
+import { ListPrivacyBudgetsCommandInput, ListPrivacyBudgetsCommandOutput } from "./commands/ListPrivacyBudgetsCommand";
+import {
+  ListPrivacyBudgetTemplatesCommandInput,
+  ListPrivacyBudgetTemplatesCommandOutput,
+} from "./commands/ListPrivacyBudgetTemplatesCommand";
 import {
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
@@ -151,6 +204,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PreviewPrivacyImpactCommandInput,
+  PreviewPrivacyImpactCommandOutput,
+} from "./commands/PreviewPrivacyImpactCommand";
 import {
   StartProtectedQueryCommandInput,
   StartProtectedQueryCommandOutput,
@@ -166,6 +223,10 @@ import {
   UpdateCollaborationCommandOutput,
 } from "./commands/UpdateCollaborationCommand";
 import {
+  UpdateConfiguredAudienceModelAssociationCommandInput,
+  UpdateConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/UpdateConfiguredAudienceModelAssociationCommand";
+import {
   UpdateConfiguredTableAnalysisRuleCommandInput,
   UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/UpdateConfiguredTableAnalysisRuleCommand";
@@ -178,6 +239,10 @@ import {
   UpdateConfiguredTableCommandOutput,
 } from "./commands/UpdateConfiguredTableCommand";
 import { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "./commands/UpdateMembershipCommand";
+import {
+  UpdatePrivacyBudgetTemplateCommandInput,
+  UpdatePrivacyBudgetTemplateCommandOutput,
+} from "./commands/UpdatePrivacyBudgetTemplateCommand";
 import {
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
@@ -201,46 +266,63 @@ export type ServiceInputTypes =
   | BatchGetSchemaCommandInput
   | CreateAnalysisTemplateCommandInput
   | CreateCollaborationCommandInput
+  | CreateConfiguredAudienceModelAssociationCommandInput
   | CreateConfiguredTableAnalysisRuleCommandInput
   | CreateConfiguredTableAssociationCommandInput
   | CreateConfiguredTableCommandInput
   | CreateMembershipCommandInput
+  | CreatePrivacyBudgetTemplateCommandInput
   | DeleteAnalysisTemplateCommandInput
   | DeleteCollaborationCommandInput
+  | DeleteConfiguredAudienceModelAssociationCommandInput
   | DeleteConfiguredTableAnalysisRuleCommandInput
   | DeleteConfiguredTableAssociationCommandInput
   | DeleteConfiguredTableCommandInput
   | DeleteMemberCommandInput
   | DeleteMembershipCommandInput
+  | DeletePrivacyBudgetTemplateCommandInput
   | GetAnalysisTemplateCommandInput
   | GetCollaborationAnalysisTemplateCommandInput
   | GetCollaborationCommandInput
+  | GetCollaborationConfiguredAudienceModelAssociationCommandInput
+  | GetCollaborationPrivacyBudgetTemplateCommandInput
+  | GetConfiguredAudienceModelAssociationCommandInput
   | GetConfiguredTableAnalysisRuleCommandInput
   | GetConfiguredTableAssociationCommandInput
   | GetConfiguredTableCommandInput
   | GetMembershipCommandInput
+  | GetPrivacyBudgetTemplateCommandInput
   | GetProtectedQueryCommandInput
   | GetSchemaAnalysisRuleCommandInput
   | GetSchemaCommandInput
   | ListAnalysisTemplatesCommandInput
   | ListCollaborationAnalysisTemplatesCommandInput
+  | ListCollaborationConfiguredAudienceModelAssociationsCommandInput
+  | ListCollaborationPrivacyBudgetTemplatesCommandInput
+  | ListCollaborationPrivacyBudgetsCommandInput
   | ListCollaborationsCommandInput
+  | ListConfiguredAudienceModelAssociationsCommandInput
   | ListConfiguredTableAssociationsCommandInput
   | ListConfiguredTablesCommandInput
   | ListMembersCommandInput
   | ListMembershipsCommandInput
+  | ListPrivacyBudgetTemplatesCommandInput
+  | ListPrivacyBudgetsCommandInput
   | ListProtectedQueriesCommandInput
   | ListSchemasCommandInput
   | ListTagsForResourceCommandInput
+  | PreviewPrivacyImpactCommandInput
   | StartProtectedQueryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAnalysisTemplateCommandInput
   | UpdateCollaborationCommandInput
+  | UpdateConfiguredAudienceModelAssociationCommandInput
   | UpdateConfiguredTableAnalysisRuleCommandInput
   | UpdateConfiguredTableAssociationCommandInput
   | UpdateConfiguredTableCommandInput
   | UpdateMembershipCommandInput
+  | UpdatePrivacyBudgetTemplateCommandInput
   | UpdateProtectedQueryCommandInput;
 
 /**
@@ -251,46 +333,63 @@ export type ServiceOutputTypes =
   | BatchGetSchemaCommandOutput
   | CreateAnalysisTemplateCommandOutput
   | CreateCollaborationCommandOutput
+  | CreateConfiguredAudienceModelAssociationCommandOutput
   | CreateConfiguredTableAnalysisRuleCommandOutput
   | CreateConfiguredTableAssociationCommandOutput
   | CreateConfiguredTableCommandOutput
   | CreateMembershipCommandOutput
+  | CreatePrivacyBudgetTemplateCommandOutput
   | DeleteAnalysisTemplateCommandOutput
   | DeleteCollaborationCommandOutput
+  | DeleteConfiguredAudienceModelAssociationCommandOutput
   | DeleteConfiguredTableAnalysisRuleCommandOutput
   | DeleteConfiguredTableAssociationCommandOutput
   | DeleteConfiguredTableCommandOutput
   | DeleteMemberCommandOutput
   | DeleteMembershipCommandOutput
+  | DeletePrivacyBudgetTemplateCommandOutput
   | GetAnalysisTemplateCommandOutput
   | GetCollaborationAnalysisTemplateCommandOutput
   | GetCollaborationCommandOutput
+  | GetCollaborationConfiguredAudienceModelAssociationCommandOutput
+  | GetCollaborationPrivacyBudgetTemplateCommandOutput
+  | GetConfiguredAudienceModelAssociationCommandOutput
   | GetConfiguredTableAnalysisRuleCommandOutput
   | GetConfiguredTableAssociationCommandOutput
   | GetConfiguredTableCommandOutput
   | GetMembershipCommandOutput
+  | GetPrivacyBudgetTemplateCommandOutput
   | GetProtectedQueryCommandOutput
   | GetSchemaAnalysisRuleCommandOutput
   | GetSchemaCommandOutput
   | ListAnalysisTemplatesCommandOutput
   | ListCollaborationAnalysisTemplatesCommandOutput
+  | ListCollaborationConfiguredAudienceModelAssociationsCommandOutput
+  | ListCollaborationPrivacyBudgetTemplatesCommandOutput
+  | ListCollaborationPrivacyBudgetsCommandOutput
   | ListCollaborationsCommandOutput
+  | ListConfiguredAudienceModelAssociationsCommandOutput
   | ListConfiguredTableAssociationsCommandOutput
   | ListConfiguredTablesCommandOutput
   | ListMembersCommandOutput
   | ListMembershipsCommandOutput
+  | ListPrivacyBudgetTemplatesCommandOutput
+  | ListPrivacyBudgetsCommandOutput
   | ListProtectedQueriesCommandOutput
   | ListSchemasCommandOutput
   | ListTagsForResourceCommandOutput
+  | PreviewPrivacyImpactCommandOutput
   | StartProtectedQueryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnalysisTemplateCommandOutput
   | UpdateCollaborationCommandOutput
+  | UpdateConfiguredAudienceModelAssociationCommandOutput
   | UpdateConfiguredTableAnalysisRuleCommandOutput
   | UpdateConfiguredTableAssociationCommandOutput
   | UpdateConfiguredTableCommandOutput
   | UpdateMembershipCommandOutput
+  | UpdatePrivacyBudgetTemplateCommandOutput
   | UpdateProtectedQueryCommandOutput;
 
 /**

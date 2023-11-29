@@ -103,6 +103,13 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  *         allowedAnalysisProviders: [ // AllowedAnalysisProviderList
  *           "STRING_VALUE",
  *         ],
+ *         differentialPrivacy: { // DifferentialPrivacyConfiguration
+ *           columns: [ // DifferentialPrivacyColumnList // required
+ *             { // DifferentialPrivacyColumn
+ *               name: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
  *       },
  *     },
  *   },
@@ -163,6 +170,13 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * //           allowedAnalysisProviders: [ // AllowedAnalysisProviderList
  * //             "STRING_VALUE",
  * //           ],
+ * //           differentialPrivacy: { // DifferentialPrivacyConfiguration
+ * //             columns: [ // DifferentialPrivacyColumnList // required
+ * //               { // DifferentialPrivacyColumn
+ * //                 name: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //       },
  * //     },

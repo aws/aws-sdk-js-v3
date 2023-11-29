@@ -96,6 +96,17 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //       message: "STRING_VALUE", // required
  * //       code: "STRING_VALUE", // required
  * //     },
+ * //     differentialPrivacy: { // DifferentialPrivacyParameters
+ * //       sensitivityParameters: [ // DifferentialPrivacySensitivityParametersList // required
+ * //         { // DifferentialPrivacySensitivityParameters
+ * //           aggregationType: "AVG" || "COUNT" || "COUNT_DISTINCT" || "SUM" || "STDDEV", // required
+ * //           aggregationExpression: "STRING_VALUE", // required
+ * //           userContributionLimit: Number("int"), // required
+ * //           minColumnValue: Number("float"),
+ * //           maxColumnValue: Number("float"),
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

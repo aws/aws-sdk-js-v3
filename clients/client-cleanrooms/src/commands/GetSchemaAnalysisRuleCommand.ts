@@ -108,6 +108,13 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //           allowedAnalysisProviders: [ // AllowedAnalysisProviderList
  * //             "STRING_VALUE",
  * //           ],
+ * //           differentialPrivacy: { // DifferentialPrivacyConfiguration
+ * //             columns: [ // DifferentialPrivacyColumnList // required
+ * //               { // DifferentialPrivacyColumn
+ * //                 name: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //       },
  * //     },

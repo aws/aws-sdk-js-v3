@@ -5,12 +5,15 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
@@ -37,6 +40,10 @@ import {
   CreateCollaborationCommandOutput,
 } from "../commands/CreateCollaborationCommand";
 import {
+  CreateConfiguredAudienceModelAssociationCommandInput,
+  CreateConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/CreateConfiguredAudienceModelAssociationCommand";
+import {
   CreateConfiguredTableAnalysisRuleCommandInput,
   CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/CreateConfiguredTableAnalysisRuleCommand";
@@ -50,6 +57,10 @@ import {
 } from "../commands/CreateConfiguredTableCommand";
 import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "../commands/CreateMembershipCommand";
 import {
+  CreatePrivacyBudgetTemplateCommandInput,
+  CreatePrivacyBudgetTemplateCommandOutput,
+} from "../commands/CreatePrivacyBudgetTemplateCommand";
+import {
   DeleteAnalysisTemplateCommandInput,
   DeleteAnalysisTemplateCommandOutput,
 } from "../commands/DeleteAnalysisTemplateCommand";
@@ -57,6 +68,10 @@ import {
   DeleteCollaborationCommandInput,
   DeleteCollaborationCommandOutput,
 } from "../commands/DeleteCollaborationCommand";
+import {
+  DeleteConfiguredAudienceModelAssociationCommandInput,
+  DeleteConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/DeleteConfiguredAudienceModelAssociationCommand";
 import {
   DeleteConfiguredTableAnalysisRuleCommandInput,
   DeleteConfiguredTableAnalysisRuleCommandOutput,
@@ -72,6 +87,10 @@ import {
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "../commands/DeleteMemberCommand";
 import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "../commands/DeleteMembershipCommand";
 import {
+  DeletePrivacyBudgetTemplateCommandInput,
+  DeletePrivacyBudgetTemplateCommandOutput,
+} from "../commands/DeletePrivacyBudgetTemplateCommand";
+import {
   GetAnalysisTemplateCommandInput,
   GetAnalysisTemplateCommandOutput,
 } from "../commands/GetAnalysisTemplateCommand";
@@ -80,6 +99,18 @@ import {
   GetCollaborationAnalysisTemplateCommandOutput,
 } from "../commands/GetCollaborationAnalysisTemplateCommand";
 import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "../commands/GetCollaborationCommand";
+import {
+  GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+  GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
+import {
+  GetCollaborationPrivacyBudgetTemplateCommandInput,
+  GetCollaborationPrivacyBudgetTemplateCommandOutput,
+} from "../commands/GetCollaborationPrivacyBudgetTemplateCommand";
+import {
+  GetConfiguredAudienceModelAssociationCommandInput,
+  GetConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/GetConfiguredAudienceModelAssociationCommand";
 import {
   GetConfiguredTableAnalysisRuleCommandInput,
   GetConfiguredTableAnalysisRuleCommandOutput,
@@ -90,6 +121,10 @@ import {
 } from "../commands/GetConfiguredTableAssociationCommand";
 import { GetConfiguredTableCommandInput, GetConfiguredTableCommandOutput } from "../commands/GetConfiguredTableCommand";
 import { GetMembershipCommandInput, GetMembershipCommandOutput } from "../commands/GetMembershipCommand";
+import {
+  GetPrivacyBudgetTemplateCommandInput,
+  GetPrivacyBudgetTemplateCommandOutput,
+} from "../commands/GetPrivacyBudgetTemplateCommand";
 import { GetProtectedQueryCommandInput, GetProtectedQueryCommandOutput } from "../commands/GetProtectedQueryCommand";
 import {
   GetSchemaAnalysisRuleCommandInput,
@@ -104,7 +139,23 @@ import {
   ListCollaborationAnalysisTemplatesCommandInput,
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "../commands/ListCollaborationAnalysisTemplatesCommand";
+import {
+  ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+  ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
+} from "../commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
+import {
+  ListCollaborationPrivacyBudgetsCommandInput,
+  ListCollaborationPrivacyBudgetsCommandOutput,
+} from "../commands/ListCollaborationPrivacyBudgetsCommand";
+import {
+  ListCollaborationPrivacyBudgetTemplatesCommandInput,
+  ListCollaborationPrivacyBudgetTemplatesCommandOutput,
+} from "../commands/ListCollaborationPrivacyBudgetTemplatesCommand";
 import { ListCollaborationsCommandInput, ListCollaborationsCommandOutput } from "../commands/ListCollaborationsCommand";
+import {
+  ListConfiguredAudienceModelAssociationsCommandInput,
+  ListConfiguredAudienceModelAssociationsCommandOutput,
+} from "../commands/ListConfiguredAudienceModelAssociationsCommand";
 import {
   ListConfiguredTableAssociationsCommandInput,
   ListConfiguredTableAssociationsCommandOutput,
@@ -115,6 +166,11 @@ import {
 } from "../commands/ListConfiguredTablesCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "../commands/ListMembershipsCommand";
+import { ListPrivacyBudgetsCommandInput, ListPrivacyBudgetsCommandOutput } from "../commands/ListPrivacyBudgetsCommand";
+import {
+  ListPrivacyBudgetTemplatesCommandInput,
+  ListPrivacyBudgetTemplatesCommandOutput,
+} from "../commands/ListPrivacyBudgetTemplatesCommand";
 import {
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
@@ -124,6 +180,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  PreviewPrivacyImpactCommandInput,
+  PreviewPrivacyImpactCommandOutput,
+} from "../commands/PreviewPrivacyImpactCommand";
 import {
   StartProtectedQueryCommandInput,
   StartProtectedQueryCommandOutput,
@@ -139,6 +199,10 @@ import {
   UpdateCollaborationCommandOutput,
 } from "../commands/UpdateCollaborationCommand";
 import {
+  UpdateConfiguredAudienceModelAssociationCommandInput,
+  UpdateConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/UpdateConfiguredAudienceModelAssociationCommand";
+import {
   UpdateConfiguredTableAnalysisRuleCommandInput,
   UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/UpdateConfiguredTableAnalysisRuleCommand";
@@ -151,6 +215,10 @@ import {
   UpdateConfiguredTableCommandOutput,
 } from "../commands/UpdateConfiguredTableCommand";
 import { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "../commands/UpdateMembershipCommand";
+import {
+  UpdatePrivacyBudgetTemplateCommandInput,
+  UpdatePrivacyBudgetTemplateCommandOutput,
+} from "../commands/UpdatePrivacyBudgetTemplateCommand";
 import {
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
@@ -171,7 +239,14 @@ import {
   Collaboration,
   CollaborationAnalysisTemplate,
   CollaborationAnalysisTemplateSummary,
+  CollaborationConfiguredAudienceModelAssociation,
+  CollaborationConfiguredAudienceModelAssociationSummary,
+  CollaborationPrivacyBudgetSummary,
+  CollaborationPrivacyBudgetTemplate,
+  CollaborationPrivacyBudgetTemplateSummary,
   CollaborationSummary,
+  ConfiguredAudienceModelAssociation,
+  ConfiguredAudienceModelAssociationSummary,
   ConfiguredTable,
   ConfiguredTableAnalysisRule,
   ConfiguredTableAnalysisRulePolicy,
@@ -181,6 +256,13 @@ import {
   ConfiguredTableSummary,
   ConflictException,
   DataEncryptionMetadata,
+  DifferentialPrivacyColumn,
+  DifferentialPrivacyConfiguration,
+  DifferentialPrivacyParameters,
+  DifferentialPrivacyPreviewParametersInput,
+  DifferentialPrivacySensitivityParameters,
+  DifferentialPrivacyTemplateParametersInput,
+  DifferentialPrivacyTemplateUpdateParameters,
   GlueTableReference,
   InternalServerException,
   JoinOperator,
@@ -194,6 +276,12 @@ import {
   MemberSpecification,
   MemberSummary,
   PaymentConfiguration,
+  PreviewPrivacyImpactParametersInput,
+  PrivacyBudgetSummary,
+  PrivacyBudgetTemplate,
+  PrivacyBudgetTemplateParametersInput,
+  PrivacyBudgetTemplateSummary,
+  PrivacyBudgetTemplateUpdateParameters,
   ProtectedQuery,
   ProtectedQueryOutputConfiguration,
   ProtectedQueryResultConfiguration,
@@ -371,6 +459,49 @@ export const se_CreateCollaborationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateConfiguredAudienceModelAssociationCommand
+ */
+export const se_CreateConfiguredAudienceModelAssociationCommand = async (
+  input: CreateConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuredAudienceModelArn: [],
+      configuredAudienceModelAssociationName: [],
+      description: [],
+      manageResourcePolicies: [],
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateConfiguredTableCommand
  */
 export const se_CreateConfiguredTableCommand = async (
@@ -521,6 +652,48 @@ export const se_CreateMembershipCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePrivacyBudgetTemplateCommand
+ */
+export const se_CreatePrivacyBudgetTemplateCommand = async (
+  input: CreatePrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/privacybudgettemplates";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      autoRefresh: [],
+      parameters: (_) => _json(_),
+      privacyBudgetType: [],
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteAnalysisTemplateCommand
  */
 export const se_DeleteAnalysisTemplateCommand = async (
@@ -577,6 +750,46 @@ export const se_DeleteCollaborationCommand = async (
     "collaborationIdentifier",
     () => input.collaborationIdentifier!,
     "{collaborationIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteConfiguredAudienceModelAssociationCommand
+ */
+export const se_DeleteConfiguredAudienceModelAssociationCommand = async (
+  input: DeleteConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
     false
   );
   let body: any;
@@ -768,6 +981,46 @@ export const se_DeleteMembershipCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeletePrivacyBudgetTemplateCommand
+ */
+export const se_DeletePrivacyBudgetTemplateCommand = async (
+  input: DeletePrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetAnalysisTemplateCommand
  */
 export const se_GetAnalysisTemplateCommand = async (
@@ -864,6 +1117,126 @@ export const se_GetCollaborationAnalysisTemplateCommand = async (
     "analysisTemplateArn",
     () => input.analysisTemplateArn!,
     "{analysisTemplateArn}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommand
+ */
+export const se_GetCollaborationConfiguredAudienceModelAssociationCommand = async (
+  input: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommand
+ */
+export const se_GetCollaborationPrivacyBudgetTemplateCommand = async (
+  input: GetCollaborationPrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetConfiguredAudienceModelAssociationCommand
+ */
+export const se_GetConfiguredAudienceModelAssociationCommand = async (
+  input: GetConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
     false
   );
   let body: any;
@@ -1007,6 +1380,46 @@ export const se_GetMembershipCommand = async (
     "membershipIdentifier",
     () => input.membershipIdentifier!,
     "{membershipIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetPrivacyBudgetTemplateCommand
+ */
+export const se_GetPrivacyBudgetTemplateCommand = async (
+  input: GetPrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
     false
   );
   let body: any;
@@ -1203,6 +1616,118 @@ export const se_ListCollaborationAnalysisTemplatesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListCollaborationConfiguredAudienceModelAssociationsCommand
+ */
+export const se_ListCollaborationConfiguredAudienceModelAssociationsCommand = async (
+  input: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationPrivacyBudgetsCommand
+ */
+export const se_ListCollaborationPrivacyBudgetsCommand = async (
+  input: ListCollaborationPrivacyBudgetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/privacybudgets";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  const query: any = map({
+    privacyBudgetType: [, __expectNonNull(input.privacyBudgetType!, `privacyBudgetType`)],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationPrivacyBudgetTemplatesCommand
+ */
+export const se_ListCollaborationPrivacyBudgetTemplatesCommand = async (
+  input: ListCollaborationPrivacyBudgetTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/privacybudgettemplates";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListCollaborationsCommand
  */
 export const se_ListCollaborationsCommand = async (
@@ -1216,6 +1741,43 @@ export const se_ListCollaborationsCommand = async (
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     memberStatus: [, input.memberStatus!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListConfiguredAudienceModelAssociationsCommand
+ */
+export const se_ListConfiguredAudienceModelAssociationsCommand = async (
+  input: ListConfiguredAudienceModelAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -1360,6 +1922,81 @@ export const se_ListMembershipsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListPrivacyBudgetsCommand
+ */
+export const se_ListPrivacyBudgetsCommand = async (
+  input: ListPrivacyBudgetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/privacybudgets";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  const query: any = map({
+    privacyBudgetType: [, __expectNonNull(input.privacyBudgetType!, `privacyBudgetType`)],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListPrivacyBudgetTemplatesCommand
+ */
+export const se_ListPrivacyBudgetTemplatesCommand = async (
+  input: ListPrivacyBudgetTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/privacybudgettemplates";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListProtectedQueriesCommand
  */
 export const se_ListProtectedQueriesCommand = async (
@@ -1452,6 +2089,45 @@ export const se_ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PreviewPrivacyImpactCommand
+ */
+export const se_PreviewPrivacyImpactCommand = async (
+  input: PreviewPrivacyImpactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/previewprivacyimpact";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      parameters: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1646,6 +2322,54 @@ export const se_UpdateCollaborationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateConfiguredAudienceModelAssociationCommand
+ */
+export const se_UpdateConfiguredAudienceModelAssociationCommand = async (
+  input: UpdateConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateConfiguredTableCommand
  */
 export const se_UpdateConfiguredTableCommand = async (
@@ -1806,6 +2530,54 @@ export const se_UpdateMembershipCommand = async (
     take(input, {
       defaultResultConfiguration: (_) => _json(_),
       queryLogStatus: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdatePrivacyBudgetTemplateCommand
+ */
+export const se_UpdatePrivacyBudgetTemplateCommand = async (
+  input: UpdatePrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      parameters: (_) => _json(_),
+      privacyBudgetType: [],
     })
   );
   return new __HttpRequest({
@@ -2111,6 +2883,71 @@ const de_CreateCollaborationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateConfiguredAudienceModelAssociationCommand
+ */
+export const de_CreateConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociation: (_) => de_ConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConfiguredAudienceModelAssociationCommandError
+ */
+const de_CreateConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cleanrooms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cleanrooms#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateConfiguredTableCommand
  */
 export const de_CreateConfiguredTableCommand = async (
@@ -2368,6 +3205,68 @@ const de_CreateMembershipCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePrivacyBudgetTemplateCommand
+ */
+export const de_CreatePrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyBudgetTemplate: (_) => de_PrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePrivacyBudgetTemplateCommandError
+ */
+const de_CreatePrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePrivacyBudgetTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cleanrooms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteAnalysisTemplateCommand
  */
 export const de_DeleteAnalysisTemplateCommand = async (
@@ -2458,6 +3357,61 @@ const de_DeleteCollaborationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.cleanrooms#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfiguredAudienceModelAssociationCommand
+ */
+export const de_DeleteConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfiguredAudienceModelAssociationCommandError
+ */
+const de_DeleteConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cleanrooms#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2765,6 +3719,61 @@ const de_DeleteMembershipCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeletePrivacyBudgetTemplateCommand
+ */
+export const de_DeletePrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeletePrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePrivacyBudgetTemplateCommandError
+ */
+const de_DeletePrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrivacyBudgetTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetAnalysisTemplateCommand
  */
 export const de_GetAnalysisTemplateCommand = async (
@@ -2907,6 +3916,184 @@ const de_GetCollaborationAnalysisTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCollaborationAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommand
+ */
+export const de_GetCollaborationConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCollaborationConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationConfiguredAudienceModelAssociation: (_) =>
+      de_CollaborationConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommandError
+ */
+const de_GetCollaborationConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommand
+ */
+export const de_GetCollaborationPrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationPrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCollaborationPrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationPrivacyBudgetTemplate: (_) => de_CollaborationPrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommandError
+ */
+const de_GetCollaborationPrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationPrivacyBudgetTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetConfiguredAudienceModelAssociationCommand
+ */
+export const de_GetConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociation: (_) => de_ConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConfiguredAudienceModelAssociationCommandError
+ */
+const de_GetConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfiguredAudienceModelAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3143,6 +4330,65 @@ const de_GetMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetPrivacyBudgetTemplateCommand
+ */
+export const de_GetPrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetPrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyBudgetTemplate: (_) => de_PrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPrivacyBudgetTemplateCommandError
+ */
+const de_GetPrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrivacyBudgetTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3472,6 +4718,187 @@ const de_ListCollaborationAnalysisTemplatesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListCollaborationConfiguredAudienceModelAssociationsCommand
+ */
+export const de_ListCollaborationConfiguredAudienceModelAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationConfiguredAudienceModelAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCollaborationConfiguredAudienceModelAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationConfiguredAudienceModelAssociationSummaries: (_) =>
+      de_CollaborationConfiguredAudienceModelAssociationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationConfiguredAudienceModelAssociationsCommandError
+ */
+const de_ListCollaborationConfiguredAudienceModelAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationConfiguredAudienceModelAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetsCommand
+ */
+export const de_ListCollaborationPrivacyBudgetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCollaborationPrivacyBudgetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationPrivacyBudgetSummaries: (_) => de_CollaborationPrivacyBudgetSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetsCommandError
+ */
+const de_ListCollaborationPrivacyBudgetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetTemplatesCommand
+ */
+export const de_ListCollaborationPrivacyBudgetTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCollaborationPrivacyBudgetTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationPrivacyBudgetTemplateSummaries: (_) => de_CollaborationPrivacyBudgetTemplateSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetTemplatesCommandError
+ */
+const de_ListCollaborationPrivacyBudgetTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListCollaborationsCommand
  */
 export const de_ListCollaborationsCommand = async (
@@ -3512,6 +4939,66 @@ const de_ListCollaborationsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.cleanrooms#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListConfiguredAudienceModelAssociationsCommand
+ */
+export const de_ListConfiguredAudienceModelAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfiguredAudienceModelAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListConfiguredAudienceModelAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociationSummaries: (_) => de_ConfiguredAudienceModelAssociationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConfiguredAudienceModelAssociationsCommandError
+ */
+const de_ListConfiguredAudienceModelAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfiguredAudienceModelAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cleanrooms#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3763,6 +5250,126 @@ const de_ListMembershipsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPrivacyBudgetsCommand
+ */
+export const de_ListPrivacyBudgetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPrivacyBudgetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    privacyBudgetSummaries: (_) => de_PrivacyBudgetSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPrivacyBudgetsCommandError
+ */
+const de_ListPrivacyBudgetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListPrivacyBudgetTemplatesCommand
+ */
+export const de_ListPrivacyBudgetTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPrivacyBudgetTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    privacyBudgetTemplateSummaries: (_) => de_PrivacyBudgetTemplateSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPrivacyBudgetTemplatesCommandError
+ */
+const de_ListPrivacyBudgetTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListProtectedQueriesCommand
  */
 export const de_ListProtectedQueriesCommand = async (
@@ -3919,6 +5526,65 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cleanrooms#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PreviewPrivacyImpactCommand
+ */
+export const de_PreviewPrivacyImpactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PreviewPrivacyImpactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PreviewPrivacyImpactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyImpact: (_) => _json(__expectUnion(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PreviewPrivacyImpactCommandError
+ */
+const de_PreviewPrivacyImpactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PreviewPrivacyImpactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cleanrooms#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -4202,6 +5868,65 @@ const de_UpdateCollaborationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateConfiguredAudienceModelAssociationCommand
+ */
+export const de_UpdateConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociation: (_) => de_ConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateConfiguredAudienceModelAssociationCommandError
+ */
+const de_UpdateConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateConfiguredTableCommand
  */
 export const de_UpdateConfiguredTableCommand = async (
@@ -4415,6 +6140,68 @@ const de_UpdateMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cleanrooms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdatePrivacyBudgetTemplateCommand
+ */
+export const de_UpdatePrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyBudgetTemplate: (_) => de_PrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePrivacyBudgetTemplateCommandError
+ */
+const de_UpdatePrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrivacyBudgetTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4691,6 +6478,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DataEncryptionMetadata omitted.
 
+// se_DifferentialPrivacyColumn omitted.
+
+// se_DifferentialPrivacyColumnList omitted.
+
+// se_DifferentialPrivacyConfiguration omitted.
+
+// se_DifferentialPrivacyPreviewParametersInput omitted.
+
+// se_DifferentialPrivacyTemplateParametersInput omitted.
+
+// se_DifferentialPrivacyTemplateUpdateParameters omitted.
+
 // se_GlueTableReference omitted.
 
 // se_JoinOperatorsList omitted.
@@ -4712,6 +6511,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ParameterMap omitted.
 
 // se_PaymentConfiguration omitted.
+
+// se_PreviewPrivacyImpactParametersInput omitted.
+
+// se_PrivacyBudgetTemplateParametersInput omitted.
+
+// se_PrivacyBudgetTemplateUpdateParameters omitted.
 
 // se_ProtectedQueryOutputConfiguration omitted.
 
@@ -4936,6 +6741,153 @@ const de_CollaborationAnalysisTemplateSummaryList = (
 };
 
 /**
+ * deserializeAws_restJson1CollaborationConfiguredAudienceModelAssociation
+ */
+const de_CollaborationConfiguredAudienceModelAssociation = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredAudienceModelAssociation => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    configuredAudienceModelArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationConfiguredAudienceModelAssociationSummary
+ */
+const de_CollaborationConfiguredAudienceModelAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredAudienceModelAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationConfiguredAudienceModelAssociationSummaryList
+ */
+const de_CollaborationConfiguredAudienceModelAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredAudienceModelAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationConfiguredAudienceModelAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetSummary
+ */
+const de_CollaborationPrivacyBudgetSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetSummary => {
+  return take(output, {
+    budget: (_: any) => _json(__expectUnion(_)),
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    id: __expectString,
+    privacyBudgetTemplateArn: __expectString,
+    privacyBudgetTemplateId: __expectString,
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetSummaryList
+ */
+const de_CollaborationPrivacyBudgetSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationPrivacyBudgetSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetTemplate
+ */
+const de_CollaborationPrivacyBudgetTemplate = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetTemplate => {
+  return take(output, {
+    arn: __expectString,
+    autoRefresh: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    id: __expectString,
+    parameters: (_: any) => _json(__expectUnion(_)),
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetTemplateSummary
+ */
+const de_CollaborationPrivacyBudgetTemplateSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetTemplateSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    id: __expectString,
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetTemplateSummaryList
+ */
+const de_CollaborationPrivacyBudgetTemplateSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationPrivacyBudgetTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1CollaborationSummary
  */
 const de_CollaborationSummary = (output: any, context: __SerdeContext): CollaborationSummary => {
@@ -4968,6 +6920,66 @@ const de_CollaborationSummaryList = (output: any, context: __SerdeContext): Coll
 // de_Column omitted.
 
 // de_ColumnList omitted.
+
+/**
+ * deserializeAws_restJson1ConfiguredAudienceModelAssociation
+ */
+const de_ConfiguredAudienceModelAssociation = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredAudienceModelAssociation => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    configuredAudienceModelArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    manageResourcePolicies: __expectBoolean,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfiguredAudienceModelAssociationSummary
+ */
+const de_ConfiguredAudienceModelAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredAudienceModelAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    configuredAudienceModelArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfiguredAudienceModelAssociationSummaryList
+ */
+const de_ConfiguredAudienceModelAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredAudienceModelAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfiguredAudienceModelAssociationSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1ConfiguredTable
@@ -5089,6 +7101,66 @@ const de_ConfiguredTableSummaryList = (output: any, context: __SerdeContext): Co
 
 // de_DataEncryptionMetadata omitted.
 
+// de_DifferentialPrivacyColumn omitted.
+
+// de_DifferentialPrivacyColumnList omitted.
+
+// de_DifferentialPrivacyConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1DifferentialPrivacyParameters
+ */
+const de_DifferentialPrivacyParameters = (output: any, context: __SerdeContext): DifferentialPrivacyParameters => {
+  return take(output, {
+    sensitivityParameters: (_: any) => de_DifferentialPrivacySensitivityParametersList(_, context),
+  }) as any;
+};
+
+// de_DifferentialPrivacyPreviewAggregation omitted.
+
+// de_DifferentialPrivacyPreviewAggregationList omitted.
+
+// de_DifferentialPrivacyPrivacyBudget omitted.
+
+// de_DifferentialPrivacyPrivacyBudgetAggregation omitted.
+
+// de_DifferentialPrivacyPrivacyBudgetAggregationList omitted.
+
+// de_DifferentialPrivacyPrivacyImpact omitted.
+
+/**
+ * deserializeAws_restJson1DifferentialPrivacySensitivityParameters
+ */
+const de_DifferentialPrivacySensitivityParameters = (
+  output: any,
+  context: __SerdeContext
+): DifferentialPrivacySensitivityParameters => {
+  return take(output, {
+    aggregationExpression: __expectString,
+    aggregationType: __expectString,
+    maxColumnValue: __limitedParseFloat32,
+    minColumnValue: __limitedParseFloat32,
+    userContributionLimit: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DifferentialPrivacySensitivityParametersList
+ */
+const de_DifferentialPrivacySensitivityParametersList = (
+  output: any,
+  context: __SerdeContext
+): DifferentialPrivacySensitivityParameters[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DifferentialPrivacySensitivityParameters(entry, context);
+    });
+  return retVal;
+};
+
+// de_DifferentialPrivacyTemplateParametersOutput omitted.
+
 // de_GlueTableReference omitted.
 
 // de_JoinOperatorsList omitted.
@@ -5190,12 +7262,98 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
 
 // de_PaymentConfiguration omitted.
 
+// de_PrivacyBudget omitted.
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetSummary
+ */
+const de_PrivacyBudgetSummary = (output: any, context: __SerdeContext): PrivacyBudgetSummary => {
+  return take(output, {
+    budget: (_: any) => _json(__expectUnion(_)),
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    privacyBudgetTemplateArn: __expectString,
+    privacyBudgetTemplateId: __expectString,
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetSummaryList
+ */
+const de_PrivacyBudgetSummaryList = (output: any, context: __SerdeContext): PrivacyBudgetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PrivacyBudgetSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetTemplate
+ */
+const de_PrivacyBudgetTemplate = (output: any, context: __SerdeContext): PrivacyBudgetTemplate => {
+  return take(output, {
+    arn: __expectString,
+    autoRefresh: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    parameters: (_: any) => _json(__expectUnion(_)),
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_PrivacyBudgetTemplateParametersOutput omitted.
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetTemplateSummary
+ */
+const de_PrivacyBudgetTemplateSummary = (output: any, context: __SerdeContext): PrivacyBudgetTemplateSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetTemplateSummaryList
+ */
+const de_PrivacyBudgetTemplateSummaryList = (output: any, context: __SerdeContext): PrivacyBudgetTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PrivacyBudgetTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_PrivacyImpact omitted.
+
 /**
  * deserializeAws_restJson1ProtectedQuery
  */
 const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery => {
   return take(output, {
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    differentialPrivacy: (_: any) => de_DifferentialPrivacyParameters(_, context),
     error: _json,
     id: __expectString,
     membershipArn: __expectString,

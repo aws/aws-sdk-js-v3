@@ -309,8 +309,32 @@ export interface AnalysisRuleAggregation {
 
 /**
  * @public
+ * <p>Specifies the name of the column that contains the unique identifier of your users, whose privacy you want to protect.</p>
+ */
+export interface DifferentialPrivacyColumn {
+  /**
+   * @public
+   * <p>The name of the column, such as user_id, that contains the unique identifier of your users, whose privacy you want to protect. If you want to turn on differential privacy for two or more tables in a collaboration, you must configure the same column as the user identifier column in both analysis rules.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the unique identifier for your users.</p>
+ */
+export interface DifferentialPrivacyConfiguration {
+  /**
+   * @public
+   * <p>The name of the column (such as user_id) that contains the unique identifier of your users whose privacy you want to protect. If you want to turn on diﬀerential privacy for two or more tables in a collaboration, you must conﬁgure the same column as the user identiﬁer column in both analysis rules.</p>
+   */
+  columns: DifferentialPrivacyColumn[] | undefined;
+}
+
+/**
+ * @public
  * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on
- *          their configured tables.</p>
+ *          their configured tables. It supports differential privacy.</p>
  */
 export interface AnalysisRuleCustom {
   /**
@@ -325,6 +349,12 @@ export interface AnalysisRuleCustom {
    *             <code>allowedAnalyses</code> is <code>ANY_QUERY</code>.</p>
    */
   allowedAnalysisProviders?: string[];
+
+  /**
+   * @public
+   * <p>The differential privacy configuration.</p>
+   */
+  differentialPrivacy?: DifferentialPrivacyConfiguration;
 }
 
 /**
@@ -1907,6 +1937,283 @@ export interface GetCollaborationAnalysisTemplateOutput {
 /**
  * @public
  */
+export interface GetCollaborationConfiguredAudienceModelAssociationInput {
+  /**
+   * @public
+   * <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
+   */
+  configuredAudienceModelAssociationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The configured audience model association within a collaboration.</p>
+ */
+export interface CollaborationConfiguredAudienceModelAssociation {
+  /**
+   * @public
+   * <p>The identifier of the configured audience model association.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the collaboration that the configured audience model associations belong to. Accepts collaboration ID.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique ARN for the configured audience model's associated collaboration.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configure audience model.</p>
+   */
+  configuredAudienceModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the configured audience model association.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the configured audience model association.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The identifier used to reference members of the collaboration. Only supports AWS account ID.</p>
+   */
+  creatorAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the configured audience model association was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the configured audience model association was updated.</p>
+   */
+  updateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCollaborationConfiguredAudienceModelAssociationOutput {
+  /**
+   * @public
+   * <p>The metadata of the configured audience model association.</p>
+   */
+  collaborationConfiguredAudienceModelAssociation: CollaborationConfiguredAudienceModelAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCollaborationPrivacyBudgetTemplateInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your collaborations.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for one of your privacy budget templates.</p>
+   */
+  privacyBudgetTemplateIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PrivacyBudgetTemplateAutoRefresh = {
+  CALENDAR_MONTH: "CALENDAR_MONTH",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type PrivacyBudgetTemplateAutoRefresh =
+  (typeof PrivacyBudgetTemplateAutoRefresh)[keyof typeof PrivacyBudgetTemplateAutoRefresh];
+
+/**
+ * @public
+ * <p>The epsilon and noise parameter values that were used for the differential privacy template.</p>
+ */
+export interface DifferentialPrivacyTemplateParametersOutput {
+  /**
+   * @public
+   * <p>The epsilon value that you specified.</p>
+   */
+  epsilon: number | undefined;
+
+  /**
+   * @public
+   * <p>Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
+   */
+  usersNoisePerQuery: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The epsilon and noise parameters that were used in the privacy budget template.</p>
+ */
+export type PrivacyBudgetTemplateParametersOutput =
+  | PrivacyBudgetTemplateParametersOutput.DifferentialPrivacyMember
+  | PrivacyBudgetTemplateParametersOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivacyBudgetTemplateParametersOutput {
+  /**
+   * @public
+   * <p>The epsilon and noise parameters.</p>
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyTemplateParametersOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyTemplateParametersOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrivacyBudgetTemplateParametersOutput, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PrivacyBudgetType = {
+  DIFFERENTIAL_PRIVACY: "DIFFERENTIAL_PRIVACY",
+} as const;
+
+/**
+ * @public
+ */
+export type PrivacyBudgetType = (typeof PrivacyBudgetType)[keyof typeof PrivacyBudgetType];
+
+/**
+ * @public
+ * <p>An array that specifies the information for a collaboration's privacy budget template.</p>
+ */
+export interface CollaborationPrivacyBudgetTemplate {
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration privacy budget template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration privacy budget template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration that includes this collaboration privacy budget template.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration that includes this collaboration privacy budget template.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the account that created this collaboration privacy budget template.</p>
+   */
+  creatorAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the collaboration privacy budget template was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the collaboration privacy budget template was updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The type of privacy budget template.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>How often the privacy budget refreshes.</p>
+   *          <important>
+   *             <p>If you plan to regularly bring new data into the collaboration, use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p>
+   *          </important>
+   */
+  autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the epsilon and noise parameters for the privacy budget template.</p>
+   */
+  parameters: PrivacyBudgetTemplateParametersOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCollaborationPrivacyBudgetTemplateOutput {
+  /**
+   * @public
+   * <p>Returns the details of the privacy budget template that you requested.</p>
+   */
+  collaborationPrivacyBudgetTemplate: CollaborationPrivacyBudgetTemplate | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSchemaInput {
   /**
    * @public
@@ -2074,6 +2381,420 @@ export interface ListCollaborationAnalysisTemplatesOutput {
    * <p>The metadata of the analysis template within a collaboration.</p>
    */
   collaborationAnalysisTemplateSummaries: CollaborationAnalysisTemplateSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationConfiguredAudienceModelAssociationsInput {
+  /**
+   * @public
+   * <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum size of the results that is returned per call.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the configured audience model association in the collaboration.</p>
+ */
+export interface CollaborationConfiguredAudienceModelAssociationSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the configured audience model association was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the configured audience model association.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the configured audience model association.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the configured audience model association was updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The unique ARN for the configured audience model's associated collaboration.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the collaboration that the configured audience model associations belong to. Accepts collaboration ID.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier used to reference members of the collaboration. Only supports AWS account ID.</p>
+   */
+  creatorAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the configured audience model association.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationConfiguredAudienceModelAssociationsOutput {
+  /**
+   * @public
+   * <p>The metadata of the configured audience model association within a collaboration.</p>
+   */
+  collaborationConfiguredAudienceModelAssociationSummaries:
+    | CollaborationConfiguredAudienceModelAssociationSummary[]
+    | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationPrivacyBudgetsInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your collaborations.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the type of the privacy budget.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>The maximum size of the results that is returned per call. Service chooses a default if
+   *          it has not been set. Service may return a nextToken even if the maximum results has not
+   *          been met.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DifferentialPrivacyAggregationType = {
+  AVG: "AVG",
+  COUNT: "COUNT",
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+  STDDEV: "STDDEV",
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type DifferentialPrivacyAggregationType =
+  (typeof DifferentialPrivacyAggregationType)[keyof typeof DifferentialPrivacyAggregationType];
+
+/**
+ * @public
+ * <p>Information about the total number of aggregations, as well as the remaining aggregations.</p>
+ */
+export interface DifferentialPrivacyPrivacyBudgetAggregation {
+  /**
+   * @public
+   * <p>The different types of aggregation functions that you can perform.</p>
+   */
+  type: DifferentialPrivacyAggregationType | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of aggregation functions that you can perform with the given privacy budget.</p>
+   */
+  maxCount: number | undefined;
+
+  /**
+   * @public
+   * <p>The remaining number of aggregation functions that can be run with the available privacy budget.</p>
+   */
+  remainingCount: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the configured epsilon value and the utility in terms of total aggregations, as well as the remaining aggregations available.</p>
+ */
+export interface DifferentialPrivacyPrivacyBudget {
+  /**
+   * @public
+   * <p>This information includes the configured epsilon value and the utility in terms of total aggregations, as well as the remaining aggregations.</p>
+   */
+  aggregations: DifferentialPrivacyPrivacyBudgetAggregation[] | undefined;
+
+  /**
+   * @public
+   * <p>The epsilon value that you configured.</p>
+   */
+  epsilon: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The epsilon parameter value and number of each aggregation function that you can perform.</p>
+ */
+export type PrivacyBudget = PrivacyBudget.DifferentialPrivacyMember | PrivacyBudget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivacyBudget {
+  /**
+   * @public
+   * <p>An object that specifies the epsilon parameter and the utility in terms of total aggregations, as well as the remaining aggregations available.</p>
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyPrivacyBudget;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyPrivacyBudget) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrivacyBudget, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>A summary of the collaboration privacy budgets. This summary includes the collaboration information, creation information, epsilon provided, and utility in terms of aggregations.</p>
+ */
+export interface CollaborationPrivacyBudgetSummary {
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration privacy budget.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration privacy budget template.</p>
+   */
+  privacyBudgetTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration privacy budget template.</p>
+   */
+  privacyBudgetTemplateArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration that includes this privacy budget.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration that includes this privacy budget.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the account that created this privacy budget.</p>
+   */
+  creatorAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of privacy budget template.</p>
+   */
+  type: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the privacy budget was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the privacy budget was updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The includes epsilon provided and utility in terms of aggregations.</p>
+   */
+  budget: PrivacyBudget | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationPrivacyBudgetsOutput {
+  /**
+   * @public
+   * <p>Summaries of the collaboration privacy budgets.</p>
+   */
+  collaborationPrivacyBudgetSummaries: CollaborationPrivacyBudgetSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationPrivacyBudgetTemplatesInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your collaborations.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum size of the results that is returned per call. Service chooses a default if
+   *          it has not been set. Service may return a nextToken even if the maximum results has not
+   *          been met.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the collaboration's privacy budget template. This summary includes information about who created the privacy budget template and what collaborations it belongs to.</p>
+ */
+export interface CollaborationPrivacyBudgetTemplateSummary {
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration privacy budget template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration privacy budget template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration that contains this collaboration privacy budget template.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration that contains this collaboration privacy budget template.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the account that created this collaboration privacy budget template.</p>
+   */
+  creatorAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of the privacy budget template.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the collaboration privacy budget template was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the collaboration privacy budget template was updated.</p>
+   */
+  updateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationPrivacyBudgetTemplatesOutput {
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>An array that summarizes the collaboration privacy budget templates. The summary includes collaboration information, creation information, the privacy budget type.</p>
+   */
+  collaborationPrivacyBudgetTemplateSummaries: CollaborationPrivacyBudgetTemplateSummary[] | undefined;
 }
 
 /**
@@ -2452,6 +3173,346 @@ export interface UpdateCollaborationOutput {
    * <p>The entire collaboration that has been updated.</p>
    */
   collaboration: Collaboration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfiguredAudienceModelAssociationInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. The configured
+   *          audience model is associated to the collaboration that this membership belongs to. Accepts
+   *          a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the configured audience model that you want to associate.</p>
+   */
+  configuredAudienceModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the configured audience model association.</p>
+   */
+  configuredAudienceModelAssociationName: string | undefined;
+
+  /**
+   * @public
+   * <p>When <code>TRUE</code>, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When <code>FALSE</code>, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.</p>
+   *          <p>Setting this to <code>TRUE</code> requires you to have permissions to create, update, and delete the resource policy for the <code>cleanrooms-ml</code> resource when you call the <a>DeleteConfiguredAudienceModelAssociation</a> resource. In addition, if you are the collaboration creator and specify <code>TRUE</code>, you must have the same permissions when you call the <a>DeleteMember</a> and <a>DeleteCollaboration</a> APIs.</p>
+   */
+  manageResourcePolicies: boolean | undefined;
+
+  /**
+   * @public
+   * <p>An optional label that you can assign to a resource when you create it. Each tag
+   *          consists of a key and an optional value, both of which you define. When you use tagging,
+   *          you can also use tag-based access control in IAM policies to control access
+   *          to this resource.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>A description of the configured audience model association.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ * <p>Details about the configured audience model association.</p>
+ */
+export interface ConfiguredAudienceModelAssociation {
+  /**
+   * @public
+   * <p>A unique identifier of the configured audience model association.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for this configured audience model association.</p>
+   */
+  configuredAudienceModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the membership that contains this configured audience model association.</p>
+   */
+  membershipId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the membership that contains this configured audience model association.</p>
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier of the collaboration that contains this configured audience model association.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the collaboration that contains this configured audience model association.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the configured audience model association.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>When <code>TRUE</code>, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When <code>FALSE</code>, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.</p>
+   */
+  manageResourcePolicies: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The description of the configured audience model association.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The time at which the configured audience model association was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the configured audience model association was updated.</p>
+   */
+  updateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfiguredAudienceModelAssociationOutput {
+  /**
+   * @public
+   * <p>Information about the configured audience model association.</p>
+   */
+  configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfiguredAudienceModelAssociationInput {
+  /**
+   * @public
+   * <p>A unique identifier of the configured audience model association that you want to delete.</p>
+   */
+  configuredAudienceModelAssociationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier of the membership that contains the audience model association that you want to delete.</p>
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfiguredAudienceModelAssociationOutput {}
+
+/**
+ * @public
+ */
+export interface GetConfiguredAudienceModelAssociationInput {
+  /**
+   * @public
+   * <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
+   */
+  configuredAudienceModelAssociationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the membership that contains the configured audience model association that you want to retrieve.</p>
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfiguredAudienceModelAssociationOutput {
+  /**
+   * @public
+   * <p>Information about the configured audience model association that you requested.</p>
+   */
+  configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfiguredAudienceModelAssociationsInput {
+  /**
+   * @public
+   * <p>A unique identifier for a membership that contains the configured audience model associations that you want to retrieve.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum size of the results that is returned per call. Service chooses a default if
+   *          it has not been set. Service may return a nextToken even if the maximum results has not
+   *          been met.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the configured audience model association.</p>
+ */
+export interface ConfiguredAudienceModelAssociationSummary {
+  /**
+   * @public
+   * <p>A unique identifier of the membership that contains the configured audience model association.</p>
+   */
+  membershipId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the membership that contains the configured audience model association.</p>
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the collaboration that contains the configured audience model association.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier of the collaboration that configured audience model is associated with.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the configured audience model association was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the configured audience model association was updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier of the configured audience model association.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the configured audience model association.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for this configured audience model association.</p>
+   */
+  configuredAudienceModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the configured audience model association.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListConfiguredAudienceModelAssociationsOutput {
+  /**
+   * @public
+   * <p>Summaries of the configured audience model associations that you requested.</p>
+   */
+  configuredAudienceModelAssociationSummaries: ConfiguredAudienceModelAssociationSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The token value provided to access the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConfiguredAudienceModelAssociationInput {
+  /**
+   * @public
+   * <p>A unique identifier for the configured audience model association that you want to update.</p>
+   */
+  configuredAudienceModelAssociationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier of the membership that contains the configured audience model association that you want to update.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A new description for the configured audience model association.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>A new name for the configured audience model association.</p>
+   */
+  name?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConfiguredAudienceModelAssociationOutput {
+  /**
+   * @public
+   * <p>Details about the configured audience model association that you updated.</p>
+   */
+  configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation | undefined;
 }
 
 /**
@@ -3021,7 +4082,7 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   /**
    * @public
    * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on
-   *          their configured tables.</p>
+   *          their configured tables. It supports differential privacy.</p>
    */
   export interface CustomMember {
     list?: never;
@@ -3826,6 +4887,54 @@ export interface GetProtectedQueryInput {
 
 /**
  * @public
+ * <p>Provides the sensitivity parameters.</p>
+ */
+export interface DifferentialPrivacySensitivityParameters {
+  /**
+   * @public
+   * <p>The type of aggregation function that was run.</p>
+   */
+  aggregationType: DifferentialPrivacyAggregationType | undefined;
+
+  /**
+   * @public
+   * <p>The aggregation expression that was run.</p>
+   */
+  aggregationExpression: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of rows contributed by a user in a SQL query.</p>
+   */
+  userContributionLimit: number | undefined;
+
+  /**
+   * @public
+   * <p>The lower bound of the aggregation expression.</p>
+   */
+  minColumnValue?: number;
+
+  /**
+   * @public
+   * <p>The upper bound of the aggregation expression.</p>
+   */
+  maxColumnValue?: number;
+}
+
+/**
+ * @public
+ * <p>An array that contains the sensitivity parameters.</p>
+ */
+export interface DifferentialPrivacyParameters {
+  /**
+   * @public
+   * <p>Provides the sensitivity parameters that you can use to better understand the total amount of noise in query results.</p>
+   */
+  sensitivityParameters: DifferentialPrivacySensitivityParameters[] | undefined;
+}
+
+/**
+ * @public
  * <p>Details of errors thrown by the protected query.</p>
  */
 export interface ProtectedQueryError {
@@ -4106,6 +5215,12 @@ export interface ProtectedQuery {
    * <p>An error thrown by the protected query.</p>
    */
   error?: ProtectedQueryError;
+
+  /**
+   * @public
+   * <p>The sensitivity parameters of the differential privacy results of the protected query.</p>
+   */
+  differentialPrivacy?: DifferentialPrivacyParameters;
 }
 
 /**
@@ -4245,6 +5360,128 @@ export interface ListMembershipsOutput {
 /**
  * @public
  */
+export interface ListPrivacyBudgetsInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. The privacy budget is retrieved from the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The privacy budget type.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum size of the results that is returned per call. Service chooses a default if
+   *          it has not been set. Service may return a nextToken even if the maximum results has not
+   *          been met.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>An array that summaries the specified privacy budget. This summary includes collaboration information, creation information, membership information, and privacy budget information.</p>
+ */
+export interface PrivacyBudgetSummary {
+  /**
+   * @public
+   * <p>The unique identifier of the privacy budget.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the privacy budget template.</p>
+   */
+  privacyBudgetTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the privacy budget template.</p>
+   */
+  privacyBudgetTemplateArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the member who created the privacy budget summary.</p>
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the collaboration that contains this privacy budget.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration that contains this privacy budget.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the type of the privacy budget.</p>
+   */
+  type: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the privacy budget was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the privacy budget was updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The provided privacy budget.</p>
+   */
+  budget: PrivacyBudget | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrivacyBudgetsOutput {
+  /**
+   * @public
+   * <p>An array that summarizes the privacy budgets. The summary includes collaboration information, membership information, privacy budget template information, and privacy budget details.</p>
+   */
+  privacyBudgetSummaries: PrivacyBudgetSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListProtectedQueriesInput {
   /**
    * @public
@@ -4327,6 +5564,160 @@ export interface ListProtectedQueriesOutput {
    * <p>A list of protected queries.</p>
    */
   protectedQueries: ProtectedQuerySummary[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The epsilon and noise parameters that you want to preview.</p>
+ */
+export interface DifferentialPrivacyPreviewParametersInput {
+  /**
+   * @public
+   * <p>The epsilon value that you want to preview.</p>
+   */
+  epsilon: number | undefined;
+
+  /**
+   * @public
+   * <p>Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
+   */
+  usersNoisePerQuery: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the updated epsilon and noise parameters to preview. The preview allows you to see how the maximum number of each type of aggregation function would change with the new parameters.</p>
+ */
+export type PreviewPrivacyImpactParametersInput =
+  | PreviewPrivacyImpactParametersInput.DifferentialPrivacyMember
+  | PreviewPrivacyImpactParametersInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PreviewPrivacyImpactParametersInput {
+  /**
+   * @public
+   * <p>An array that specifies the epsilon and noise parameters.</p>
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyPreviewParametersInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyPreviewParametersInput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PreviewPrivacyImpactParametersInput, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface PreviewPrivacyImpactInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. Accepts a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the desired epsilon and noise parameters to preview.</p>
+   */
+  parameters: PreviewPrivacyImpactParametersInput | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides an estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
+ */
+export interface DifferentialPrivacyPreviewAggregation {
+  /**
+   * @public
+   * <p>The type of aggregation function.</p>
+   */
+  type: DifferentialPrivacyAggregationType | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of aggregations that the member who can query can run given the epsilon and noise parameters.</p>
+   */
+  maxCount: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
+ */
+export interface DifferentialPrivacyPrivacyImpact {
+  /**
+   * @public
+   * <p>The number of aggregation functions that you can perform.</p>
+   */
+  aggregations: DifferentialPrivacyPreviewAggregation[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides an estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
+ */
+export type PrivacyImpact = PrivacyImpact.DifferentialPrivacyMember | PrivacyImpact.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivacyImpact {
+  /**
+   * @public
+   * <p>An object that lists the number and type of aggregation functions you can perform.</p>
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyPrivacyImpact;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyPrivacyImpact) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrivacyImpact, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface PreviewPrivacyImpactOutput {
+  /**
+   * @public
+   * <p>An estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters. This does not change the privacy budget.</p>
+   */
+  privacyImpact: PrivacyImpact | undefined;
 }
 
 /**
@@ -4465,6 +5856,443 @@ export interface UpdateProtectedQueryOutput {
    * <p>The protected query output.</p>
    */
   protectedQuery: ProtectedQuery | undefined;
+}
+
+/**
+ * @public
+ * <p>The epsilon and noise parameter values that you want to use for the differential privacy template.</p>
+ */
+export interface DifferentialPrivacyTemplateParametersInput {
+  /**
+   * @public
+   * <p>The epsilon value that you want to use.</p>
+   */
+  epsilon: number | undefined;
+
+  /**
+   * @public
+   * <p>Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
+   */
+  usersNoisePerQuery: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The epsilon and noise parameters that you want to use for the privacy budget template.</p>
+ */
+export type PrivacyBudgetTemplateParametersInput =
+  | PrivacyBudgetTemplateParametersInput.DifferentialPrivacyMember
+  | PrivacyBudgetTemplateParametersInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivacyBudgetTemplateParametersInput {
+  /**
+   * @public
+   * <p>An object that specifies the epsilon and noise parameters.</p>
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyTemplateParametersInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyTemplateParametersInput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrivacyBudgetTemplateParametersInput, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreatePrivacyBudgetTemplateInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>How often the privacy budget refreshes.</p>
+   *          <important>
+   *             <p>If you plan to regularly bring new data into the collaboration, you can use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queries across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p>
+   *          </important>
+   */
+  autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the type of the privacy budget template.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies your parameters for the privacy budget template.</p>
+   */
+  parameters: PrivacyBudgetTemplateParametersInput | undefined;
+
+  /**
+   * @public
+   * <p>An optional label that you can assign to a resource when you create it. Each tag
+   *          consists of a key and an optional value, both of which you define. When you use tagging,
+   *          you can also use tag-based access control in IAM policies to control access
+   *          to this resource.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>An object that defines the privacy budget template.</p>
+ */
+export interface PrivacyBudgetTemplate {
+  /**
+   * @public
+   * <p>The unique identifier of the privacy budget template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the privacy budget template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the member who created the privacy budget template.</p>
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique ID of the collaboration that contains this privacy budget template.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration that contains this privacy budget template.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the privacy budget template was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the privacy budget template was updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the type of the privacy budget template.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>How often the privacy budget refreshes.</p>
+   *          <important>
+   *             <p>If you plan to regularly bring new data into the collaboration, use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p>
+   *          </important>
+   */
+  autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the epislon and noise parameters for the privacy budget template.</p>
+   */
+  parameters: PrivacyBudgetTemplateParametersOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePrivacyBudgetTemplateOutput {
+  /**
+   * @public
+   * <p>A summary of the elements in the privacy budget template.</p>
+   */
+  privacyBudgetTemplate: PrivacyBudgetTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePrivacyBudgetTemplateInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. The privacy budget template is deleted from the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for your privacy budget template. </p>
+   */
+  privacyBudgetTemplateIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePrivacyBudgetTemplateOutput {}
+
+/**
+ * @public
+ */
+export interface GetPrivacyBudgetTemplateInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. The privacy budget template is retrieved from the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for your privacy budget template.</p>
+   */
+  privacyBudgetTemplateIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPrivacyBudgetTemplateOutput {
+  /**
+   * @public
+   * <p>Returns the details of the privacy budget template that you requested.</p>
+   */
+  privacyBudgetTemplate: PrivacyBudgetTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrivacyBudgetTemplatesInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. The privacy budget templates are retrieved from the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum size of the results that is returned per call. Service chooses a default if
+   *          it has not been set. Service may return a nextToken even if the maximum results has not
+   *          been met.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the privacy budget template. The summary includes membership information, collaboration information, and creation information.</p>
+ */
+export interface PrivacyBudgetTemplateSummary {
+  /**
+   * @public
+   * <p>The unique identifier of the privacy budget template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the privacy budget template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the member who created the privacy budget template.</p>
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique ID of the collaboration that contains this privacy budget template.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the collaboration that contains this privacy budget template.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of the privacy budget template.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the privacy budget template was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The most recent time at which the privacy budget template was updated.</p>
+   */
+  updateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrivacyBudgetTemplatesOutput {
+  /**
+   * @public
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>An array that summarizes the privacy budget templates. The summary includes collaboration information, creation information, and privacy budget type.</p>
+   */
+  privacyBudgetTemplateSummaries: PrivacyBudgetTemplateSummary[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The epsilon and noise parameter values that you want to update in the differential privacy template.</p>
+ */
+export interface DifferentialPrivacyTemplateUpdateParameters {
+  /**
+   * @public
+   * <p>The updated epsilon value that you want to use.</p>
+   */
+  epsilon?: number;
+
+  /**
+   * @public
+   * <p>The updated value of noise added per query. It is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
+   */
+  usersNoisePerQuery?: number;
+}
+
+/**
+ * @public
+ * <p>The epsilon and noise parameters that you want to update in the privacy budget template.</p>
+ */
+export type PrivacyBudgetTemplateUpdateParameters =
+  | PrivacyBudgetTemplateUpdateParameters.DifferentialPrivacyMember
+  | PrivacyBudgetTemplateUpdateParameters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivacyBudgetTemplateUpdateParameters {
+  /**
+   * @public
+   * <p>An object that specifies the new values for the epsilon and noise parameters.</p>
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyTemplateUpdateParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyTemplateUpdateParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrivacyBudgetTemplateUpdateParameters, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface UpdatePrivacyBudgetTemplateInput {
+  /**
+   * @public
+   * <p>A unique identifier for one of your memberships for a collaboration. The privacy budget template is updated in the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for your privacy budget template that you want to update.</p>
+   */
+  privacyBudgetTemplateIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the type of the privacy budget template.</p>
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the epsilon and noise parameters for the privacy budget template.</p>
+   */
+  parameters?: PrivacyBudgetTemplateUpdateParameters;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePrivacyBudgetTemplateOutput {
+  /**
+   * @public
+   * <p>Summary of the privacy budget template.</p>
+   */
+  privacyBudgetTemplate: PrivacyBudgetTemplate | undefined;
 }
 
 /**

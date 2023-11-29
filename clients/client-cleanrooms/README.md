@@ -245,6 +245,14 @@ CreateCollaboration
 </details>
 <details>
 <summary>
+CreateConfiguredAudienceModelAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/CreateConfiguredAudienceModelAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/CreateConfiguredAudienceModelAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/CreateConfiguredAudienceModelAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateConfiguredTable
 </summary>
 
@@ -277,6 +285,14 @@ CreateMembership
 </details>
 <details>
 <summary>
+CreatePrivacyBudgetTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/CreatePrivacyBudgetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/CreatePrivacyBudgetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/CreatePrivacyBudgetTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteAnalysisTemplate
 </summary>
 
@@ -289,6 +305,14 @@ DeleteCollaboration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/DeleteCollaborationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/DeleteCollaborationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/DeleteCollaborationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteConfiguredAudienceModelAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/DeleteConfiguredAudienceModelAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/DeleteConfiguredAudienceModelAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/DeleteConfiguredAudienceModelAssociationCommandOutput/)
 
 </details>
 <details>
@@ -333,6 +357,14 @@ DeleteMembership
 </details>
 <details>
 <summary>
+DeletePrivacyBudgetTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/DeletePrivacyBudgetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/DeletePrivacyBudgetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/DeletePrivacyBudgetTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAnalysisTemplate
 </summary>
 
@@ -353,6 +385,30 @@ GetCollaborationAnalysisTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetCollaborationAnalysisTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationAnalysisTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationAnalysisTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCollaborationConfiguredAudienceModelAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetCollaborationConfiguredAudienceModelAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationConfiguredAudienceModelAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationConfiguredAudienceModelAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCollaborationPrivacyBudgetTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetCollaborationPrivacyBudgetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationPrivacyBudgetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationPrivacyBudgetTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetConfiguredAudienceModelAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetConfiguredAudienceModelAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetConfiguredAudienceModelAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetConfiguredAudienceModelAssociationCommandOutput/)
 
 </details>
 <details>
@@ -385,6 +441,14 @@ GetMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetMembershipCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPrivacyBudgetTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetPrivacyBudgetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetPrivacyBudgetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetPrivacyBudgetTemplateCommandOutput/)
 
 </details>
 <details>
@@ -429,10 +493,42 @@ ListCollaborationAnalysisTemplates
 </details>
 <details>
 <summary>
+ListCollaborationConfiguredAudienceModelAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListCollaborationConfiguredAudienceModelAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationConfiguredAudienceModelAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationConfiguredAudienceModelAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCollaborationPrivacyBudgets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListCollaborationPrivacyBudgetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationPrivacyBudgetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationPrivacyBudgetsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCollaborationPrivacyBudgetTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListCollaborationPrivacyBudgetTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationPrivacyBudgetTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationPrivacyBudgetTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCollaborations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListCollaborationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListConfiguredAudienceModelAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListConfiguredAudienceModelAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListConfiguredAudienceModelAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListConfiguredAudienceModelAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -469,6 +565,22 @@ ListMemberships
 </details>
 <details>
 <summary>
+ListPrivacyBudgets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListPrivacyBudgetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListPrivacyBudgetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListPrivacyBudgetsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPrivacyBudgetTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListPrivacyBudgetTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListPrivacyBudgetTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListPrivacyBudgetTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListProtectedQueries
 </summary>
 
@@ -489,6 +601,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+PreviewPrivacyImpact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/PreviewPrivacyImpactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/PreviewPrivacyImpactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/PreviewPrivacyImpactCommandOutput/)
 
 </details>
 <details>
@@ -533,6 +653,14 @@ UpdateCollaboration
 </details>
 <details>
 <summary>
+UpdateConfiguredAudienceModelAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/UpdateConfiguredAudienceModelAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateConfiguredAudienceModelAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateConfiguredAudienceModelAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateConfiguredTable
 </summary>
 
@@ -561,6 +689,14 @@ UpdateMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/UpdateMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateMembershipCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdatePrivacyBudgetTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/UpdatePrivacyBudgetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdatePrivacyBudgetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdatePrivacyBudgetTemplateCommandOutput/)
 
 </details>
 <details>
