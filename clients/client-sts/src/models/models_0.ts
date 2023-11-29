@@ -310,7 +310,7 @@ export interface AssumeRoleRequest {
    *          single trusted context assertion and the ARN of the context provider from which the trusted
    *          context assertion was generated.</p>
    *          <p>
-   *             <code>[\{"ProviderArn":"arn:aws:iam::aws:contextProvider/identitycenter","ContextAssertion":"trusted-context-assertion"\}]</code>
+   *             <code>[\{"ProviderArn":"arn:aws:iam::aws:contextProvider/IdentityCenter","ContextAssertion":"trusted-context-assertion"\}]</code>
    *          </p>
    */
   ProvidedContexts?: ProvidedContext[];
