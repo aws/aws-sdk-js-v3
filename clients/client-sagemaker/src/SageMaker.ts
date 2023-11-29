@@ -50,6 +50,11 @@ import {
   CreateAutoMLJobV2CommandOutput,
 } from "./commands/CreateAutoMLJobV2Command";
 import {
+  CreateClusterCommand,
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput,
+} from "./commands/CreateClusterCommand";
+import {
   CreateCodeRepositoryCommand,
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -136,6 +141,11 @@ import {
   CreateImageVersionCommandInput,
   CreateImageVersionCommandOutput,
 } from "./commands/CreateImageVersionCommand";
+import {
+  CreateInferenceComponentCommand,
+  CreateInferenceComponentCommandInput,
+  CreateInferenceComponentCommandOutput,
+} from "./commands/CreateInferenceComponentCommand";
 import {
   CreateInferenceExperimentCommand,
   CreateInferenceExperimentCommandInput,
@@ -291,6 +301,11 @@ import {
   DeleteAssociationCommandOutput,
 } from "./commands/DeleteAssociationCommand";
 import {
+  DeleteClusterCommand,
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput,
+} from "./commands/DeleteClusterCommand";
+import {
   DeleteCodeRepositoryCommand,
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
@@ -367,6 +382,11 @@ import {
   DeleteImageVersionCommandInput,
   DeleteImageVersionCommandOutput,
 } from "./commands/DeleteImageVersionCommand";
+import {
+  DeleteInferenceComponentCommand,
+  DeleteInferenceComponentCommandInput,
+  DeleteInferenceComponentCommandOutput,
+} from "./commands/DeleteInferenceComponentCommand";
 import {
   DeleteInferenceExperimentCommand,
   DeleteInferenceExperimentCommandInput,
@@ -498,6 +518,16 @@ import {
   DescribeAutoMLJobV2CommandOutput,
 } from "./commands/DescribeAutoMLJobV2Command";
 import {
+  DescribeClusterCommand,
+  DescribeClusterCommandInput,
+  DescribeClusterCommandOutput,
+} from "./commands/DescribeClusterCommand";
+import {
+  DescribeClusterNodeCommand,
+  DescribeClusterNodeCommandInput,
+  DescribeClusterNodeCommandOutput,
+} from "./commands/DescribeClusterNodeCommand";
+import {
   DescribeCodeRepositoryCommand,
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -598,6 +628,11 @@ import {
   DescribeImageVersionCommandInput,
   DescribeImageVersionCommandOutput,
 } from "./commands/DescribeImageVersionCommand";
+import {
+  DescribeInferenceComponentCommand,
+  DescribeInferenceComponentCommandInput,
+  DescribeInferenceComponentCommandOutput,
+} from "./commands/DescribeInferenceComponentCommand";
 import {
   DescribeInferenceExperimentCommand,
   DescribeInferenceExperimentCommandInput,
@@ -832,6 +867,16 @@ import {
   ListCandidatesForAutoMLJobCommandOutput,
 } from "./commands/ListCandidatesForAutoMLJobCommand";
 import {
+  ListClusterNodesCommand,
+  ListClusterNodesCommandInput,
+  ListClusterNodesCommandOutput,
+} from "./commands/ListClusterNodesCommand";
+import {
+  ListClustersCommand,
+  ListClustersCommandInput,
+  ListClustersCommandOutput,
+} from "./commands/ListClustersCommand";
+import {
   ListCodeRepositoriesCommand,
   ListCodeRepositoriesCommandInput,
   ListCodeRepositoriesCommandOutput,
@@ -920,6 +965,11 @@ import {
   ListImageVersionsCommandInput,
   ListImageVersionsCommandOutput,
 } from "./commands/ListImageVersionsCommand";
+import {
+  ListInferenceComponentsCommand,
+  ListInferenceComponentsCommandInput,
+  ListInferenceComponentsCommandOutput,
+} from "./commands/ListInferenceComponentsCommand";
 import {
   ListInferenceExperimentsCommand,
   ListInferenceExperimentsCommandInput,
@@ -1261,6 +1311,11 @@ import {
   UpdateArtifactCommandOutput,
 } from "./commands/UpdateArtifactCommand";
 import {
+  UpdateClusterCommand,
+  UpdateClusterCommandInput,
+  UpdateClusterCommandOutput,
+} from "./commands/UpdateClusterCommand";
+import {
   UpdateCodeRepositoryCommand,
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
@@ -1317,6 +1372,16 @@ import {
   UpdateImageVersionCommandInput,
   UpdateImageVersionCommandOutput,
 } from "./commands/UpdateImageVersionCommand";
+import {
+  UpdateInferenceComponentCommand,
+  UpdateInferenceComponentCommandInput,
+  UpdateInferenceComponentCommandOutput,
+} from "./commands/UpdateInferenceComponentCommand";
+import {
+  UpdateInferenceComponentRuntimeConfigCommand,
+  UpdateInferenceComponentRuntimeConfigCommandInput,
+  UpdateInferenceComponentRuntimeConfigCommandOutput,
+} from "./commands/UpdateInferenceComponentRuntimeConfigCommand";
 import {
   UpdateInferenceExperimentCommand,
   UpdateInferenceExperimentCommandInput,
@@ -1408,6 +1473,7 @@ const commands = {
   CreateArtifactCommand,
   CreateAutoMLJobCommand,
   CreateAutoMLJobV2Command,
+  CreateClusterCommand,
   CreateCodeRepositoryCommand,
   CreateCompilationJobCommand,
   CreateContextCommand,
@@ -1427,6 +1493,7 @@ const commands = {
   CreateHyperParameterTuningJobCommand,
   CreateImageCommand,
   CreateImageVersionCommand,
+  CreateInferenceComponentCommand,
   CreateInferenceExperimentCommand,
   CreateInferenceRecommendationsJobCommand,
   CreateLabelingJobCommand,
@@ -1461,6 +1528,7 @@ const commands = {
   DeleteAppImageConfigCommand,
   DeleteArtifactCommand,
   DeleteAssociationCommand,
+  DeleteClusterCommand,
   DeleteCodeRepositoryCommand,
   DeleteContextCommand,
   DeleteDataQualityJobDefinitionCommand,
@@ -1478,6 +1546,7 @@ const commands = {
   DeleteHumanTaskUiCommand,
   DeleteImageCommand,
   DeleteImageVersionCommand,
+  DeleteInferenceComponentCommand,
   DeleteInferenceExperimentCommand,
   DeleteModelCommand,
   DeleteModelBiasJobDefinitionCommand,
@@ -1508,6 +1577,8 @@ const commands = {
   DescribeArtifactCommand,
   DescribeAutoMLJobCommand,
   DescribeAutoMLJobV2Command,
+  DescribeClusterCommand,
+  DescribeClusterNodeCommand,
   DescribeCodeRepositoryCommand,
   DescribeCompilationJobCommand,
   DescribeContextCommand,
@@ -1529,6 +1600,7 @@ const commands = {
   DescribeHyperParameterTuningJobCommand,
   DescribeImageCommand,
   DescribeImageVersionCommand,
+  DescribeInferenceComponentCommand,
   DescribeInferenceExperimentCommand,
   DescribeInferenceRecommendationsJobCommand,
   DescribeLabelingJobCommand,
@@ -1578,6 +1650,8 @@ const commands = {
   ListAssociationsCommand,
   ListAutoMLJobsCommand,
   ListCandidatesForAutoMLJobCommand,
+  ListClusterNodesCommand,
+  ListClustersCommand,
   ListCodeRepositoriesCommand,
   ListCompilationJobsCommand,
   ListContextsCommand,
@@ -1599,6 +1673,7 @@ const commands = {
   ListHyperParameterTuningJobsCommand,
   ListImagesCommand,
   ListImageVersionsCommand,
+  ListInferenceComponentsCommand,
   ListInferenceExperimentsCommand,
   ListInferenceRecommendationsJobsCommand,
   ListInferenceRecommendationsJobStepsCommand,
@@ -1671,6 +1746,7 @@ const commands = {
   UpdateActionCommand,
   UpdateAppImageConfigCommand,
   UpdateArtifactCommand,
+  UpdateClusterCommand,
   UpdateCodeRepositoryCommand,
   UpdateContextCommand,
   UpdateDeviceFleetCommand,
@@ -1684,6 +1760,8 @@ const commands = {
   UpdateHubCommand,
   UpdateImageCommand,
   UpdateImageVersionCommand,
+  UpdateInferenceComponentCommand,
+  UpdateInferenceComponentRuntimeConfigCommand,
   UpdateInferenceExperimentCommand,
   UpdateModelCardCommand,
   UpdateModelPackageCommand,
@@ -1859,6 +1937,17 @@ export interface SageMaker {
     args: CreateAutoMLJobV2CommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAutoMLJobV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateClusterCommand}
+   */
+  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
+  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
   /**
@@ -2155,6 +2244,23 @@ export interface SageMaker {
     args: CreateImageVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateImageVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInferenceComponentCommand}
+   */
+  createInferenceComponent(
+    args: CreateInferenceComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInferenceComponentCommandOutput>;
+  createInferenceComponent(
+    args: CreateInferenceComponentCommandInput,
+    cb: (err: any, data?: CreateInferenceComponentCommandOutput) => void
+  ): void;
+  createInferenceComponent(
+    args: CreateInferenceComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInferenceComponentCommandOutput) => void
   ): void;
 
   /**
@@ -2682,6 +2788,17 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteClusterCommand}
+   */
+  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCodeRepositoryCommand}
    */
   deleteCodeRepository(
@@ -2941,6 +3058,23 @@ export interface SageMaker {
     args: DeleteImageVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteImageVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInferenceComponentCommand}
+   */
+  deleteInferenceComponent(
+    args: DeleteInferenceComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInferenceComponentCommandOutput>;
+  deleteInferenceComponent(
+    args: DeleteInferenceComponentCommandInput,
+    cb: (err: any, data?: DeleteInferenceComponentCommandOutput) => void
+  ): void;
+  deleteInferenceComponent(
+    args: DeleteInferenceComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInferenceComponentCommandOutput) => void
   ): void;
 
   /**
@@ -3403,6 +3537,37 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeClusterCommand}
+   */
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterCommandOutput>;
+  describeCluster(args: DescribeClusterCommandInput, cb: (err: any, data?: DescribeClusterCommandOutput) => void): void;
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeClusterNodeCommand}
+   */
+  describeClusterNode(
+    args: DescribeClusterNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterNodeCommandOutput>;
+  describeClusterNode(
+    args: DescribeClusterNodeCommandInput,
+    cb: (err: any, data?: DescribeClusterNodeCommandOutput) => void
+  ): void;
+  describeClusterNode(
+    args: DescribeClusterNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterNodeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeCodeRepositoryCommand}
    */
   describeCodeRepository(
@@ -3736,6 +3901,23 @@ export interface SageMaker {
     args: DescribeImageVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeImageVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInferenceComponentCommand}
+   */
+  describeInferenceComponent(
+    args: DescribeInferenceComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInferenceComponentCommandOutput>;
+  describeInferenceComponent(
+    args: DescribeInferenceComponentCommandInput,
+    cb: (err: any, data?: DescribeInferenceComponentCommandOutput) => void
+  ): void;
+  describeInferenceComponent(
+    args: DescribeInferenceComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInferenceComponentCommandOutput) => void
   ): void;
 
   /**
@@ -4521,6 +4703,34 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListClusterNodesCommand}
+   */
+  listClusterNodes(
+    args: ListClusterNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClusterNodesCommandOutput>;
+  listClusterNodes(
+    args: ListClusterNodesCommandInput,
+    cb: (err: any, data?: ListClusterNodesCommandOutput) => void
+  ): void;
+  listClusterNodes(
+    args: ListClusterNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClusterNodesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClustersCommand}
+   */
+  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
+  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCodeRepositoriesCommand}
    */
   listCodeRepositories(
@@ -4833,6 +5043,23 @@ export interface SageMaker {
     args: ListImageVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListImageVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInferenceComponentsCommand}
+   */
+  listInferenceComponents(
+    args: ListInferenceComponentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInferenceComponentsCommandOutput>;
+  listInferenceComponents(
+    args: ListInferenceComponentsCommandInput,
+    cb: (err: any, data?: ListInferenceComponentsCommandOutput) => void
+  ): void;
+  listInferenceComponents(
+    args: ListInferenceComponentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInferenceComponentsCommandOutput) => void
   ): void;
 
   /**
@@ -5976,6 +6203,17 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link UpdateClusterCommand}
+   */
+  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
+  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCodeRepositoryCommand}
    */
   updateCodeRepository(
@@ -6161,6 +6399,40 @@ export interface SageMaker {
     args: UpdateImageVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateImageVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInferenceComponentCommand}
+   */
+  updateInferenceComponent(
+    args: UpdateInferenceComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInferenceComponentCommandOutput>;
+  updateInferenceComponent(
+    args: UpdateInferenceComponentCommandInput,
+    cb: (err: any, data?: UpdateInferenceComponentCommandOutput) => void
+  ): void;
+  updateInferenceComponent(
+    args: UpdateInferenceComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInferenceComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInferenceComponentRuntimeConfigCommand}
+   */
+  updateInferenceComponentRuntimeConfig(
+    args: UpdateInferenceComponentRuntimeConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInferenceComponentRuntimeConfigCommandOutput>;
+  updateInferenceComponentRuntimeConfig(
+    args: UpdateInferenceComponentRuntimeConfigCommandInput,
+    cb: (err: any, data?: UpdateInferenceComponentRuntimeConfigCommandOutput) => void
+  ): void;
+  updateInferenceComponentRuntimeConfig(
+    args: UpdateInferenceComponentRuntimeConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInferenceComponentRuntimeConfigCommandOutput) => void
   ): void;
 
   /**

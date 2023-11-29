@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteAlgorithmInput } from "../models/models_1";
+import { DeleteAlgorithmInput } from "../models/models_2";
 import { de_DeleteAlgorithmCommand, se_DeleteAlgorithmCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

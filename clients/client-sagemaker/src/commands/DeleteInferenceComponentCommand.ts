@@ -14,14 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import {
-  EnableSagemakerServicecatalogPortfolioInput,
-  EnableSagemakerServicecatalogPortfolioOutput,
-} from "../models/models_3";
-import {
-  de_EnableSagemakerServicecatalogPortfolioCommand,
-  se_EnableSagemakerServicecatalogPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInferenceComponentInput } from "../models/models_2";
+import { de_DeleteInferenceComponentCommand, se_DeleteInferenceComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -31,49 +25,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The input for {@link DeleteInferenceComponentCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandInput
-  extends EnableSagemakerServicecatalogPortfolioInput {}
+export interface DeleteInferenceComponentCommandInput extends DeleteInferenceComponentInput {}
 /**
  * @public
  *
- * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The output of {@link DeleteInferenceComponentCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandOutput
-  extends EnableSagemakerServicecatalogPortfolioOutput,
-    __MetadataBearer {}
+export interface DeleteInferenceComponentCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
- *             SageMaker projects.</p>
+ * <p>Deletes an inference component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteInferenceComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteInferenceComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {};
- * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
+ * const input = { // DeleteInferenceComponentInput
+ *   InferenceComponentName: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteInferenceComponentCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
- * @returns {@link EnableSagemakerServicecatalogPortfolioCommandOutput}
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
+ * @param DeleteInferenceComponentCommandInput - {@link DeleteInferenceComponentCommandInput}
+ * @returns {@link DeleteInferenceComponentCommandOutput}
+ * @see {@link DeleteInferenceComponentCommandInput} for command's `input` shape.
+ * @see {@link DeleteInferenceComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
-  EnableSagemakerServicecatalogPortfolioCommandInput,
-  EnableSagemakerServicecatalogPortfolioCommandOutput,
+export class DeleteInferenceComponentCommand extends $Command<
+  DeleteInferenceComponentCommandInput,
+  DeleteInferenceComponentCommandOutput,
   SageMakerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -88,7 +80,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: EnableSagemakerServicecatalogPortfolioCommandInput) {
+  constructor(readonly input: DeleteInferenceComponentCommandInput) {
     super();
   }
 
@@ -99,17 +91,17 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableSagemakerServicecatalogPortfolioCommandInput, EnableSagemakerServicecatalogPortfolioCommandOutput> {
+  ): Handler<DeleteInferenceComponentCommandInput, DeleteInferenceComponentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, EnableSagemakerServicecatalogPortfolioCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteInferenceComponentCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "EnableSagemakerServicecatalogPortfolioCommand";
+    const commandName = "DeleteInferenceComponentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -118,7 +110,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SageMaker",
-        operation: "EnableSagemakerServicecatalogPortfolio",
+        operation: "DeleteInferenceComponent",
       },
     };
     const { requestHandler } = configuration;
@@ -132,20 +124,14 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: EnableSagemakerServicecatalogPortfolioCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_EnableSagemakerServicecatalogPortfolioCommand(input, context);
+  private serialize(input: DeleteInferenceComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteInferenceComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> {
-    return de_EnableSagemakerServicecatalogPortfolioCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInferenceComponentCommandOutput> {
+    return de_DeleteInferenceComponentCommand(output, context);
   }
 }

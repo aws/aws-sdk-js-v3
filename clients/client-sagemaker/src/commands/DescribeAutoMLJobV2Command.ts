@@ -156,6 +156,9 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * //         MaxAutoMLJobRuntimeInSeconds: Number("int"),
  * //       },
  * //       BaseModelName: "STRING_VALUE",
+ * //       TextGenerationHyperParameters: { // TextGenerationHyperParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"), // required

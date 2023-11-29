@@ -8,8 +8,6 @@ import {
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppSpecification,
-  AppType,
-  ArtifactSource,
   AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AuthMode,
@@ -27,15 +25,12 @@ import {
   CapacitySize,
   CaptureContentTypeHeader,
   CaptureOption,
-  CaptureStatus,
   CategoricalParameter,
   CategoricalParameterRange,
   Channel,
   CheckpointConfig,
   ClarifyExplainerConfig,
   CodeRepository,
-  CognitoConfig,
-  CognitoMemberDefinition,
   CollectionConfig,
   CollectionConfiguration,
   CollectionType,
@@ -43,10 +38,6 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
-  DataQualityAppSpecification,
-  DataQualityBaselineConfig,
-  DataQualityJobInput,
-  EndpointInput,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
@@ -54,15 +45,9 @@ import {
   MetricDefinition,
   MetricsSource,
   ModelApprovalStatus,
-  MonitoringConstraintsResource,
-  MonitoringOutputConfig,
-  MonitoringResources,
-  MonitoringStatisticsResource,
   OutputDataConfig,
-  ProcessingInstanceType,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
-  ProcessingS3UploadMode,
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
@@ -76,6 +61,380 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Information about the container that a data quality monitoring job runs.</p>
+ */
+export interface DataQualityAppSpecification {
+  /**
+   * @public
+   * <p>The container image that the data quality monitoring job runs.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * @public
+   * <p>The entrypoint for a container used to run a monitoring job.</p>
+   */
+  ContainerEntrypoint?: string[];
+
+  /**
+   * @public
+   * <p>The arguments to send to the container that the monitoring job runs.</p>
+   */
+  ContainerArguments?: string[];
+
+  /**
+   * @public
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
+   *    base64 decode the payload and convert it into a flattened JSON so that the built-in container can use
+   *    the converted data. Applicable only for the built-in (first party) containers.</p>
+   */
+  RecordPreprocessorSourceUri?: string;
+
+  /**
+   * @public
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable
+   *    only for the built-in (first party) containers.</p>
+   */
+  PostAnalyticsProcessorSourceUri?: string;
+
+  /**
+   * @public
+   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
+   */
+  Environment?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>The constraints resource for a monitoring job.</p>
+ */
+export interface MonitoringConstraintsResource {
+  /**
+   * @public
+   * <p>The Amazon S3 URI for the constraints resource.</p>
+   */
+  S3Uri?: string;
+}
+
+/**
+ * @public
+ * <p>The statistics resource for a monitoring job.</p>
+ */
+export interface MonitoringStatisticsResource {
+  /**
+   * @public
+   * <p>The Amazon S3 URI for the statistics resource.</p>
+   */
+  S3Uri?: string;
+}
+
+/**
+ * @public
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are
+ *    compared against the results of the current job from the series of jobs scheduled to collect data
+ *    periodically.</p>
+ */
+export interface DataQualityBaselineConfig {
+  /**
+   * @public
+   * <p>The name of the job that performs baselining for the data quality monitoring job.</p>
+   */
+  BaseliningJobName?: string;
+
+  /**
+   * @public
+   * <p>The constraints resource for a monitoring job.</p>
+   */
+  ConstraintsResource?: MonitoringConstraintsResource;
+
+  /**
+   * @public
+   * <p>The statistics resource for a monitoring job.</p>
+   */
+  StatisticsResource?: MonitoringStatisticsResource;
+}
+
+/**
+ * @public
+ * <p>Input object for the endpoint</p>
+ */
+export interface EndpointInput {
+  /**
+   * @public
+   * <p>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code>
+   *          enabled.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * @public
+   * <p>Path to the filesystem where the endpoint data is available to the container.</p>
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * @public
+   * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for
+   *          transferring data for the monitoring job. <code>Pipe</code> mode is recommended for large
+   *          datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
+   *             <code>File</code>.</p>
+   */
+  S3InputMode?: ProcessingS3InputMode;
+
+  /**
+   * @public
+   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an
+   *             Amazon S3 key. Defaults to <code>FullyReplicated</code>
+   *          </p>
+   */
+  S3DataDistributionType?: ProcessingS3DataDistributionType;
+
+  /**
+   * @public
+   * <p>The attributes of the input data that are the input features.</p>
+   */
+  FeaturesAttribute?: string;
+
+  /**
+   * @public
+   * <p>The attribute of the input data that represents the ground truth label.</p>
+   */
+  InferenceAttribute?: string;
+
+  /**
+   * @public
+   * <p>In a classification problem, the attribute that represents the class probability.</p>
+   */
+  ProbabilityAttribute?: string;
+
+  /**
+   * @public
+   * <p>The threshold for the class probability to be evaluated as a positive result.</p>
+   */
+  ProbabilityThresholdAttribute?: number;
+
+  /**
+   * @public
+   * <p>If specified, monitoring jobs substract this time from the start time. For information
+   *          about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
+   *             Quality Monitoring Jobs</a>.</p>
+   */
+  StartTimeOffset?: string;
+
+  /**
+   * @public
+   * <p>If specified, monitoring jobs substract this time from the end time. For information
+   *          about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
+   *             Quality Monitoring Jobs</a>.</p>
+   */
+  EndTimeOffset?: string;
+
+  /**
+   * @public
+   * <p>The attributes of the input data to exclude from the analysis.</p>
+   */
+  ExcludeFeaturesAttribute?: string;
+}
+
+/**
+ * @public
+ * <p>The input for the data quality monitoring job. Currently endpoints are supported for
+ *          input.</p>
+ */
+export interface DataQualityJobInput {
+  /**
+   * @public
+   * <p>Input object for the endpoint</p>
+   */
+  EndpointInput?: EndpointInput;
+
+  /**
+   * @public
+   * <p>Input object for the batch transform job.</p>
+   */
+  BatchTransformInput?: BatchTransformInput;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingS3UploadMode = {
+  CONTINUOUS: "Continuous",
+  END_OF_JOB: "EndOfJob",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingS3UploadMode = (typeof ProcessingS3UploadMode)[keyof typeof ProcessingS3UploadMode];
+
+/**
+ * @public
+ * <p>Information about where and how you want to store the results of a monitoring
+ *          job.</p>
+ */
+export interface MonitoringS3Output {
+  /**
+   * @public
+   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker
+   *          saves the results of a monitoring job.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * @public
+   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker
+   *          saves the results of a monitoring job. LocalPath is an absolute path for the output
+   *          data.</p>
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * @public
+   * <p>Whether to upload the results of the monitoring job continuously or after the job
+   *          completes.</p>
+   */
+  S3UploadMode?: ProcessingS3UploadMode;
+}
+
+/**
+ * @public
+ * <p>The output object for a monitoring job.</p>
+ */
+export interface MonitoringOutput {
+  /**
+   * @public
+   * <p>The Amazon S3 storage location where the results of a monitoring job are
+   *          saved.</p>
+   */
+  S3Output: MonitoringS3Output | undefined;
+}
+
+/**
+ * @public
+ * <p>The output configuration for monitoring jobs.</p>
+ */
+export interface MonitoringOutputConfig {
+  /**
+   * @public
+   * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic
+   *          monitoring jobs is uploaded.</p>
+   */
+  MonitoringOutputs: MonitoringOutput[] | undefined;
+
+  /**
+   * @public
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   *          encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
+   */
+  KmsKeyId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingInstanceType = (typeof ProcessingInstanceType)[keyof typeof ProcessingInstanceType];
+
+/**
+ * @public
+ * <p>Configuration for the cluster used to run model monitoring jobs.</p>
+ */
+export interface MonitoringClusterConfig {
+  /**
+   * @public
+   * <p>The number of ML compute instances to use in the model monitoring job. For distributed
+   *          processing jobs, specify a value greater than 1. The default value is 1.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * @public
+   * <p>The ML compute instance type for the processing job.</p>
+   */
+  InstanceType: ProcessingInstanceType | undefined;
+
+  /**
+   * @public
+   * <p>The size of the ML storage volume, in gigabytes, that you want to provision. You must
+   *          specify sufficient ML storage for your scenario.</p>
+   */
+  VolumeSizeInGB: number | undefined;
+
+  /**
+   * @public
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   *          encrypt data on the storage volume attached to the ML compute instance(s) that run the
+   *          model monitoring job.</p>
+   */
+  VolumeKmsKeyId?: string;
+}
+
+/**
+ * @public
+ * <p>Identifies the resources to deploy for a monitoring job.</p>
+ */
+export interface MonitoringResources {
+  /**
+   * @public
+   * <p>The configuration for the cluster resources used to run the processing job.</p>
+   */
+  ClusterConfig: MonitoringClusterConfig | undefined;
+}
 
 /**
  * @public
@@ -99,10 +458,9 @@ export interface MonitoringNetworkConfig {
 
   /**
    * @public
-   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
-   *             access to and from your training and model containers by configuring the VPC. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
-   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
 }
@@ -528,7 +886,7 @@ export type NotebookOutputOption = (typeof NotebookOutputOption)[keyof typeof No
 
 /**
  * @public
- * <p>Specifies options for sharing SageMaker Studio notebooks. These settings are
+ * <p>Specifies options for sharing Amazon SageMaker Studio notebooks. These settings are
  *     specified as part of <code>DefaultUserSettings</code> when the <code>CreateDomain</code>
  *     API is called, and as part of <code>UserSettings</code> when the <code>CreateUserProfile</code>
  *     API is called. When <code>SharingSettings</code> is not specified, notebook sharing
@@ -559,6 +917,20 @@ export interface SharingSettings {
 
 /**
  * @public
+ * @enum
+ */
+export const StudioWebPortal = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioWebPortal = (typeof StudioWebPortal)[keyof typeof StudioWebPortal];
+
+/**
+ * @public
  * <p>The TensorBoard app settings.</p>
  */
 export interface TensorBoardAppSettings {
@@ -571,7 +943,7 @@ export interface TensorBoardAppSettings {
 
 /**
  * @public
- * <p>A collection of settings that apply to users of Amazon SageMaker Studio. These settings are
+ * <p>A collection of settings that apply to users in a domain. These settings are
  *       specified when the <code>CreateUserProfile</code> API is called, and as <code>DefaultUserSettings</code>
  *       when the <code>CreateDomain</code> API is called.</p>
  *          <p>
@@ -588,19 +960,19 @@ export interface UserSettings {
 
   /**
    * @public
-   * <p>The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
+   * <p>The security groups for the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</p>
    *          <p>Optional when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
    *          <code>PublicInternetOnly</code>.</p>
    *          <p>Required when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
    *           <code>VpcOnly</code>, unless specified as part of the <code>DefaultUserSettings</code> for the domain.</p>
-   *          <p>Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the
+   *          <p>Amazon SageMaker adds a security group to allow NFS traffic from Amazon SageMaker Studio. Therefore, the
    *          number of security groups that you can specify is one less than the maximum number shown.</p>
    */
   SecurityGroups?: string[];
 
   /**
    * @public
-   * <p>Specifies options for sharing SageMaker Studio notebooks.</p>
+   * <p>Specifies options for sharing Amazon SageMaker Studio notebooks.</p>
    */
   SharingSettings?: SharingSettings;
 
@@ -640,6 +1012,28 @@ export interface UserSettings {
    * <p>The Canvas app settings.</p>
    */
   CanvasAppSettings?: CanvasAppSettings;
+
+  /**
+   * @public
+   * <p>The default experience that the user is directed to when accessing the domain. The supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>studio::</code>: Indicates that Studio is the default experience. This value can only be passed if <code>StudioWebPortal</code> is set to <code>ENABLED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>app:JupyterServer:</code>: Indicates that Studio Classic is the default experience.</p>
+   *             </li>
+   *          </ul>
+   */
+  DefaultLandingUri?: string;
+
+  /**
+   * @public
+   * <p>Whether the user can access Studio. If this value is set to <code>DISABLED</code>, the user cannot access Studio, even if that is the default experience for the domain.</p>
+   */
+  StudioWebPortal?: StudioWebPortal;
 }
 
 /**
@@ -747,13 +1141,13 @@ export interface CreateDomainRequest {
 
   /**
    * @public
-   * <p>The VPC subnets that Studio uses for communication.</p>
+   * <p>The VPC subnets that the domain uses for communication.</p>
    */
   SubnetIds: string[] | undefined;
 
   /**
    * @public
-   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
+   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</p>
    */
   VpcId: string | undefined;
 
@@ -779,7 +1173,7 @@ export interface CreateDomainRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</p>
+   *                   <code>VpcOnly</code> - All traffic is through the specified VPC and subnets</p>
    *             </li>
    *          </ul>
    */
@@ -1349,6 +1743,87 @@ export interface ProductionVariantCoreDumpConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const ManagedInstanceScalingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedInstanceScalingStatus =
+  (typeof ManagedInstanceScalingStatus)[keyof typeof ManagedInstanceScalingStatus];
+
+/**
+ * @public
+ * <p>Settings that control the range in the number of instances that the endpoint provisions
+ *          as it scales up or down to accommodate traffic. </p>
+ */
+export interface ProductionVariantManagedInstanceScaling {
+  /**
+   * @public
+   * <p>Indicates whether managed instance scaling is enabled.</p>
+   */
+  Status?: ManagedInstanceScalingStatus;
+
+  /**
+   * @public
+   * <p>The minimum number of instances that the endpoint must retain when it scales down to
+   *          accommodate a decrease in traffic.</p>
+   */
+  MinInstanceCount?: number;
+
+  /**
+   * @public
+   * <p>The maximum number of instances that the endpoint can provision when it scales up to
+   *          accommodate an increase in traffic.</p>
+   */
+  MaxInstanceCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RoutingStrategy = {
+  LEAST_OUTSTANDING_REQUESTS: "LEAST_OUTSTANDING_REQUESTS",
+  RANDOM: "RANDOM",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingStrategy = (typeof RoutingStrategy)[keyof typeof RoutingStrategy];
+
+/**
+ * @public
+ * <p>Settings that control how the endpoint routes incoming traffic to the instances that the
+ *          endpoint hosts.</p>
+ */
+export interface ProductionVariantRoutingConfig {
+  /**
+   * @public
+   * <p>Sets how the endpoint routes incoming traffic:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LEAST_OUTSTANDING_REQUESTS</code>: The endpoint routes requests to the
+   *                specific instances that have more capacity to process them.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RANDOM</code>: The endpoint routes each request to a randomly chosen
+   *                instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  RoutingStrategy: RoutingStrategy | undefined;
+}
+
+/**
+ * @public
  * <p>Specifies the serverless configuration for an endpoint variant.</p>
  */
 export interface ProductionVariantServerlessConfig {
@@ -1397,7 +1872,7 @@ export interface ProductionVariant {
    * <p>The name of the model that you want to host. This is the name that you specified
    *             when creating the model.</p>
    */
-  ModelName: string | undefined;
+  ModelName?: string;
 
   /**
    * @public
@@ -1475,6 +1950,20 @@ export interface ProductionVariant {
    *             configuration and calling <code>UpdateEndpoint</code>. </p>
    */
   EnableSSMAccess?: boolean;
+
+  /**
+   * @public
+   * <p>Settings that control the range in the number of instances that the endpoint provisions
+   *          as it scales up or down to accommodate traffic. </p>
+   */
+  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling;
+
+  /**
+   * @public
+   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the
+   *          endpoint hosts.</p>
+   */
+  RoutingConfig?: ProductionVariantRoutingConfig;
 }
 
 /**
@@ -1577,6 +2066,32 @@ export interface CreateEndpointConfigInput {
    *                 <code>ShadowProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariant[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform actions on your behalf. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
+   *             Roles</a>. </p>
+   *          <note>
+   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this action must
+   *             have the <code>iam:PassRole</code> permission.</p>
+   *          </note>
+   */
+  ExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * @public
+   * <p>Sets whether all model containers deployed to the endpoint are isolated. If they are, no
+   *          inbound or outbound network calls can be made to or from the model containers.</p>
+   */
+  EnableNetworkIsolation?: boolean;
 }
 
 /**
@@ -4314,6 +4829,194 @@ export interface CreateImageVersionResponse {
    * <p>The ARN of the image version.</p>
    */
   ImageVersionArn?: string;
+}
+
+/**
+ * @public
+ * <p>Runtime settings for a model that is deployed with an inference component.</p>
+ */
+export interface InferenceComponentRuntimeConfig {
+  /**
+   * @public
+   * <p>The number of runtime copies of the model container to deploy with the inference
+   *          component. Each copy can serve inference requests.</p>
+   */
+  CopyCount: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Defines the compute resources to allocate to run a model that you assign to an inference
+ *          component. These resources include CPU cores, accelerators, and memory.</p>
+ */
+export interface InferenceComponentComputeResourceRequirements {
+  /**
+   * @public
+   * <p>The number of CPU cores to allocate to run a model that you assign to an inference
+   *          component.</p>
+   */
+  NumberOfCpuCoresRequired?: number;
+
+  /**
+   * @public
+   * <p>The number of accelerators to allocate to run a model that you assign to an inference
+   *          component. Accelerators include GPUs and Amazon Web Services Inferentia.</p>
+   */
+  NumberOfAcceleratorDevicesRequired?: number;
+
+  /**
+   * @public
+   * <p>The minimum MB of memory to allocate to run a model that you assign to an inference
+   *          component.</p>
+   */
+  MinMemoryRequiredInMb: number | undefined;
+
+  /**
+   * @public
+   * <p>The maximum MB of memory to allocate to run a model that you assign to an inference
+   *          component.</p>
+   */
+  MaxMemoryRequiredInMb?: number;
+}
+
+/**
+ * @public
+ * <p>Defines a container that provides the runtime environment for a model that you deploy
+ *          with an inference component.</p>
+ */
+export interface InferenceComponentContainerSpecification {
+  /**
+   * @public
+   * <p>The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.</p>
+   */
+  Image?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path where the model artifacts, which result from model training,
+   *          are stored. This path must point to a single gzip compressed tar archive (.tar.gz
+   *          suffix).</p>
+   */
+  ArtifactUrl?: string;
+
+  /**
+   * @public
+   * <p>The environment variables to set in the Docker container. Each key and value in the
+   *          Environment string-to-string map can have length of up to 1024. We support up to 16 entries
+   *          in the map.</p>
+   */
+  Environment?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Settings that take effect while the model container starts up.</p>
+ */
+export interface InferenceComponentStartupParameters {
+  /**
+   * @public
+   * <p>The timeout value, in seconds, to download and extract the model that you want to host
+   *          from Amazon S3 to the individual inference instance associated with this inference
+   *          component.</p>
+   */
+  ModelDataDownloadTimeoutInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The timeout value, in seconds, for your inference container to pass health check by
+   *             Amazon S3 Hosting. For more information about health check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How Your Container Should Respond to Health Check (Ping) Requests</a>.</p>
+   */
+  ContainerStartupHealthCheckTimeoutInSeconds?: number;
+}
+
+/**
+ * @public
+ * <p>Details about the resources to deploy with this inference component, including the
+ *          model, container, and compute resources.</p>
+ */
+export interface InferenceComponentSpecification {
+  /**
+   * @public
+   * <p>The name of an existing SageMaker model object in your account that you want to
+   *          deploy with the inference component.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * @public
+   * <p>Defines a container that provides the runtime environment for a model that you deploy
+   *          with an inference component.</p>
+   */
+  Container?: InferenceComponentContainerSpecification;
+
+  /**
+   * @public
+   * <p>Settings that take effect while the model container starts up.</p>
+   */
+  StartupParameters?: InferenceComponentStartupParameters;
+
+  /**
+   * @public
+   * <p>The compute resources allocated to run the model assigned
+   *          to the inference component.</p>
+   */
+  ComputeResourceRequirements: InferenceComponentComputeResourceRequirements | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceComponentInput {
+  /**
+   * @public
+   * <p>A unique name to assign to the inference component.</p>
+   */
+  InferenceComponentName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of an existing endpoint where you host the inference component.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of an existing production variant where you host the inference
+   *          component.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * @public
+   * <p>Details about the resources to deploy with this inference component, including the
+   *          model, container, and compute resources.</p>
+   */
+  Specification: InferenceComponentSpecification | undefined;
+
+  /**
+   * @public
+   * <p>Runtime settings for a model that is deployed with an inference component.</p>
+   */
+  RuntimeConfig: InferenceComponentRuntimeConfig | undefined;
+
+  /**
+   * @public
+   * <p>A list of key-value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General
+   *          Reference</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceComponentOutput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
+   */
+  InferenceComponentArn: string | undefined;
 }
 
 /**
@@ -7180,10 +7883,9 @@ export interface LabelingJobResourceConfig {
 
   /**
    * @public
-   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
-   *             access to and from your training and model containers by configuring the VPC. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
-   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
 }
@@ -7604,7 +8306,7 @@ export interface CreateModelInput {
    *                     <code>iam:PassRole</code> permission.</p>
    *          </note>
    */
-  ExecutionRoleArn: string | undefined;
+  ExecutionRoleArn?: string;
 
   /**
    * @public
@@ -8916,10 +9618,9 @@ export interface NetworkConfig {
 
   /**
    * @public
-   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
-   *             access to and from your training and model containers by configuring the VPC. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
-   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
 }
@@ -9598,6 +10299,34 @@ export interface CreatePresignedDomainUrlRequest {
    * <p>The name of the space.</p>
    */
   SpaceName?: string;
+
+  /**
+   * @public
+   * <p>The landing page that the user is directed to when accessing the presigned URL. Using this value, users can access Studio or Studio Classic, even if it is not the default experience for the domain. The supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>studio::relative/path</code>: Directs users to the relative path in Studio.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>app:JupyterServer:relative/path</code>: Directs users to the relative path in the Studio Classic application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>app:JupyterLab:relative/path</code>: Directs users to the relative path in the JupyterLab application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>app:RStudioServerPro:relative/path</code>: Directs users to the relative path in the RStudio application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>app:Canvas:relative/path</code>: Directs users to the relative path in the Canvas application.</p>
+   *             </li>
+   *          </ul>
+   */
+  LandingUri?: string;
 }
 
 /**
@@ -10442,13 +11171,13 @@ export type StudioLifecycleConfigAppType =
 export interface CreateStudioLifecycleConfigRequest {
   /**
    * @public
-   * <p>The name of the Studio Lifecycle Configuration to create.</p>
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to create.</p>
    */
   StudioLifecycleConfigName: string | undefined;
 
   /**
    * @public
-   * <p>The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
+   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
    */
   StudioLifecycleConfigContent: string | undefined;
 
@@ -10563,6 +11292,19 @@ export interface DebugRuleConfiguration {
    * <p>Runtime configuration for rule container.</p>
    */
   RuleParameters?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Configuration information for the infrastructure health check of a training job. A SageMaker-provided health check tests the health of instance hardware and cluster network
+ *       connectivity.</p>
+ */
+export interface InfraCheckConfig {
+  /**
+   * @public
+   * <p>Enables an infrastructure health check.</p>
+   */
+  EnableInfraCheck?: boolean;
 }
 
 /**
@@ -10901,6 +11643,12 @@ export interface CreateTrainingJobRequest {
    *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
+
+  /**
+   * @public
+   * <p>Contains information about the infrastructure health check configuration for the training job.</p>
+   */
+  InfraCheckConfig?: InfraCheckConfig;
 }
 
 /**
@@ -11489,608 +12237,9 @@ export interface CreateUserProfileRequest {
 }
 
 /**
- * @public
- */
-export interface CreateUserProfileResponse {
-  /**
-   * @public
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   */
-  UserProfileArn?: string;
-}
-
-/**
- * @public
- * <p>Use this parameter to configure your OIDC Identity Provider (IdP).</p>
- */
-export interface OidcConfig {
-  /**
-   * @public
-   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
-   */
-  ClientId: string | undefined;
-
-  /**
-   * @public
-   * <p>The OIDC IdP client secret used to configure your private workforce.</p>
-   */
-  ClientSecret: string | undefined;
-
-  /**
-   * @public
-   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
-   */
-  Issuer: string | undefined;
-
-  /**
-   * @public
-   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
-   */
-  AuthorizationEndpoint: string | undefined;
-
-  /**
-   * @public
-   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
-   */
-  TokenEndpoint: string | undefined;
-
-  /**
-   * @public
-   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
-   */
-  UserInfoEndpoint: string | undefined;
-
-  /**
-   * @public
-   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
-   */
-  LogoutEndpoint: string | undefined;
-
-  /**
-   * @public
-   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
-   */
-  JwksUri: string | undefined;
-}
-
-/**
- * @public
- * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
- *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
- *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
- */
-export interface SourceIpConfig {
-  /**
-   * @public
-   * <p>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing</a> (CIDR) values.</p>
-   *          <p>Maximum: Ten CIDR values</p>
-   *          <note>
-   *             <p>The following Length Constraints apply to individual CIDR values in
-   *                 the CIDR value list.</p>
-   *          </note>
-   */
-  Cidrs: string[] | undefined;
-}
-
-/**
- * @public
- * <p>The VPC object you use to create or update a workforce.</p>
- */
-export interface WorkforceVpcConfigRequest {
-  /**
-   * @public
-   * <p>The ID of the VPC that the workforce uses for communication.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * @public
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * @public
-   * <p>The ID of the subnets in the VPC that you want to connect.</p>
-   */
-  Subnets?: string[];
-}
-
-/**
- * @public
- */
-export interface CreateWorkforceRequest {
-  /**
-   * @public
-   * <p>Use this parameter to configure an Amazon Cognito private workforce.
-   *       A single Cognito workforce is created using and corresponds to a single
-   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
-   *       Amazon Cognito user pool</a>.</p>
-   *          <p>Do not use <code>OidcConfig</code> if you specify values for
-   *       <code>CognitoConfig</code>.</p>
-   */
-  CognitoConfig?: CognitoConfig;
-
-  /**
-   * @public
-   * <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p>
-   *          <p>Do not use <code>CognitoConfig</code> if you specify values for
-   *       <code>OidcConfig</code>.</p>
-   */
-  OidcConfig?: OidcConfig;
-
-  /**
-   * @public
-   * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
-   *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
-   *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
-   */
-  SourceIpConfig?: SourceIpConfig;
-
-  /**
-   * @public
-   * <p>The name of the private workforce.</p>
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * @public
-   * <p>An array of key-value pairs that contain metadata to help you categorize and
-   *       organize our workforce. Each tag consists of a key and a value,
-   *       both of which you define.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>Use this parameter to configure a workforce using VPC.</p>
-   */
-  WorkforceVpcConfig?: WorkforceVpcConfigRequest;
-}
-
-/**
- * @public
- */
-export interface CreateWorkforceResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the workforce.</p>
-   */
-  WorkforceArn: string | undefined;
-}
-
-/**
- * @public
- * <p>A list of user groups that exist in your OIDC Identity Provider (IdP).
- *             One to ten groups can be used to create a single private work team.
- *             When you add a user group to the list of <code>Groups</code>, you can add that user group to one or more
- *             private work teams. If you add a user group to a private work team, all workers in that user group
- *             are added to the work team.</p>
- */
-export interface OidcMemberDefinition {
-  /**
-   * @public
-   * <p>A list of comma seperated strings that identifies
-   *             user groups in your OIDC IdP. Each user group is
-   *             made up of a group of private workers.</p>
-   */
-  Groups: string[] | undefined;
-}
-
-/**
- * @public
- * <p>Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.</p>
- */
-export interface MemberDefinition {
-  /**
-   * @public
-   * <p>The Amazon Cognito user group that is part of the work team.</p>
-   */
-  CognitoMemberDefinition?: CognitoMemberDefinition;
-
-  /**
-   * @public
-   * <p>A list user groups that exist in your OIDC Identity Provider (IdP).
-   *             One to ten groups can be used to create a single private work team.
-   *             When you add a user group to the list of <code>Groups</code>, you can add that user group to one or more
-   *             private work teams. If you add a user group to a private work team, all workers in that user group
-   *             are added to the work team.</p>
-   */
-  OidcMemberDefinition?: OidcMemberDefinition;
-}
-
-/**
- * @public
- * <p>Configures Amazon SNS notifications of available or expiring work items for work
- *             teams.</p>
- */
-export interface NotificationConfiguration {
-  /**
-   * @public
-   * <p>The ARN for the Amazon SNS topic to which notifications should be published.</p>
-   */
-  NotificationTopicArn?: string;
-}
-
-/**
- * @public
- */
-export interface CreateWorkteamRequest {
-  /**
-   * @public
-   * <p>The name of the work team. Use this name to identify the work team.</p>
-   */
-  WorkteamName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the workforce.</p>
-   */
-  WorkforceName?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
-   *             the workers that make up the work team. </p>
-   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For
-   *             private workforces created using Amazon Cognito use <code>CognitoMemberDefinition</code>. For
-   *             workforces created using your own OIDC identity provider (IdP) use
-   *                 <code>OidcMemberDefinition</code>. Do not provide input for both of these parameters
-   *             in a single request.</p>
-   *          <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
-   *                 <i>user groups</i> within the user pool used to create a workforce. All of the
-   *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
-   *             have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon
-   *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
-   *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
-   *                 Pools</a>.</p>
-   *          <p>For workforces created using your own OIDC IdP, specify the user groups that you want to
-   *         include in your private work team in <code>OidcMemberDefinition</code> by listing those groups
-   *         in <code>Groups</code>.</p>
-   */
-  MemberDefinitions: MemberDefinition[] | undefined;
-
-  /**
-   * @public
-   * <p>A description of the work team.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * @public
-   * <p>Configures notification of workers regarding available or expiring work items.</p>
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-
-  /**
-   * @public
-   * <p>An array of key-value pairs.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html">Resource
-   *                 Tag</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-   *                     Cost Allocation Tags</a> in the <i> Amazon Web Services Billing and Cost Management User
-   *                 Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateWorkteamResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the work team. You can use this ARN to identify the
-   *             work team.</p>
-   */
-  WorkteamArn?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const CrossAccountFilterOption = {
-  CROSS_ACCOUNT: "CrossAccount",
-  SAME_ACCOUNT: "SameAccount",
-} as const;
-
-/**
- * @public
- */
-export type CrossAccountFilterOption = (typeof CrossAccountFilterOption)[keyof typeof CrossAccountFilterOption];
-
-/**
- * @public
- * @enum
- */
-export const Statistic = {
-  AVERAGE: "Average",
-  MAXIMUM: "Maximum",
-  MINIMUM: "Minimum",
-  SAMPLE_COUNT: "SampleCount",
-  SUM: "Sum",
-} as const;
-
-/**
- * @public
- */
-export type Statistic = (typeof Statistic)[keyof typeof Statistic];
-
-/**
- * @public
- * <p>A customized metric.</p>
- */
-export interface CustomizedMetricSpecification {
-  /**
-   * @public
-   * <p>The name of the customized metric.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * @public
-   * <p>The namespace of the customized metric.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * @public
-   * <p>The statistic of the customized metric.</p>
-   */
-  Statistic?: Statistic;
-}
-
-/**
- * @public
- * <p>The currently active data capture configuration used by your Endpoint.</p>
- */
-export interface DataCaptureConfigSummary {
-  /**
-   * @public
-   * <p>Whether data capture is enabled or disabled.</p>
-   */
-  EnableCapture: boolean | undefined;
-
-  /**
-   * @public
-   * <p>Whether data capture is currently functional.</p>
-   */
-  CaptureStatus: CaptureStatus | undefined;
-
-  /**
-   * @public
-   * <p>The percentage of requests being captured by your Endpoint.</p>
-   */
-  CurrentSamplingPercentage: number | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon S3 location being used to capture the data.</p>
-   */
-  DestinationS3Uri: string | undefined;
-
-  /**
-   * @public
-   * <p>The KMS key being used to encrypt the data in Amazon S3.</p>
-   */
-  KmsKeyId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RuleEvaluationStatus = {
-  ERROR: "Error",
-  IN_PROGRESS: "InProgress",
-  ISSUES_FOUND: "IssuesFound",
-  NO_ISSUES_FOUND: "NoIssuesFound",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type RuleEvaluationStatus = (typeof RuleEvaluationStatus)[keyof typeof RuleEvaluationStatus];
-
-/**
- * @public
- * <p>Information about the status of the rule evaluation.</p>
- */
-export interface DebugRuleEvaluationStatus {
-  /**
-   * @public
-   * <p>The name of the rule configuration.</p>
-   */
-  RuleConfigurationName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the rule evaluation job.</p>
-   */
-  RuleEvaluationJobArn?: string;
-
-  /**
-   * @public
-   * <p>Status of the rule evaluation.</p>
-   */
-  RuleEvaluationStatus?: RuleEvaluationStatus;
-
-  /**
-   * @public
-   * <p>Details from the rule evaluation.</p>
-   */
-  StatusDetails?: string;
-
-  /**
-   * @public
-   * <p>Timestamp when the rule evaluation status was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DeleteActionRequest {
-  /**
-   * @public
-   * <p>The name of the action to delete.</p>
-   */
-  ActionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteActionResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   */
-  ActionArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteAlgorithmInput {
-  /**
-   * @public
-   * <p>The name of the algorithm to delete.</p>
-   */
-  AlgorithmName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAppRequest {
-  /**
-   * @public
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * @public
-   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
-   */
-  UserProfileName?: string;
-
-  /**
-   * @public
-   * <p>The type of app.</p>
-   */
-  AppType: AppType | undefined;
-
-  /**
-   * @public
-   * <p>The name of the app.</p>
-   */
-  AppName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
-   */
-  SpaceName?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteAppImageConfigRequest {
-  /**
-   * @public
-   * <p>The name of the AppImageConfig to delete.</p>
-   */
-  AppImageConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteArtifactRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the artifact to delete.</p>
-   */
-  ArtifactArn?: string;
-
-  /**
-   * @public
-   * <p>The URI of the source.</p>
-   */
-  Source?: ArtifactSource;
-}
-
-/**
- * @public
- */
-export interface DeleteArtifactResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   */
-  ArtifactArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteAssociationRequest {
-  /**
-   * @public
-   * <p>The ARN of the source.</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the destination.</p>
-   */
-  DestinationArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAssociationResponse {
-  /**
-   * @public
-   * <p>The ARN of the source.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the destination.</p>
-   */
-  DestinationArn?: string;
-}
-
-/**
  * @internal
  */
 export const CreateModelCardRequestFilterSensitiveLog = (obj: CreateModelCardRequest): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const OidcConfigFilterSensitiveLog = (obj: OidcConfig): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateWorkforceRequestFilterSensitiveLog = (obj: CreateWorkforceRequest): any => ({
-  ...obj,
-  ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
 });

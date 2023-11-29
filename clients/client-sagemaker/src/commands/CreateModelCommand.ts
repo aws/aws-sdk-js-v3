@@ -130,7 +130,7 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *   InferenceExecutionConfig: { // InferenceExecutionConfig
  *     Mode: "Serial" || "Direct", // required
  *   },
- *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

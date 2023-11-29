@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteActionRequest, DeleteActionResponse } from "../models/models_1";
+import { DeleteActionRequest, DeleteActionResponse } from "../models/models_2";
 import { de_DeleteActionCommand, se_DeleteActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

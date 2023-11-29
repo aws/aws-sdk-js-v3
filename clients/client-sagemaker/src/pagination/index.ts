@@ -26,6 +26,7 @@ export * from "./ListHumanTaskUisPaginator";
 export * from "./ListHyperParameterTuningJobsPaginator";
 export * from "./ListImageVersionsPaginator";
 export * from "./ListImagesPaginator";
+export * from "./ListInferenceComponentsPaginator";
 export * from "./ListInferenceExperimentsPaginator";
 export * from "./ListInferenceRecommendationsJobStepsPaginator";
 export * from "./ListInferenceRecommendationsJobsPaginator";

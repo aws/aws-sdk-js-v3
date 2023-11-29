@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTagsInput, ListTagsOutput } from "../models/models_3";
+import { ListTagsInput, ListTagsOutput } from "../models/models_4";
 import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

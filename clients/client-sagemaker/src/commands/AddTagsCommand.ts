@@ -54,7 +54,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *             </p>
  *          </note>
  *          <note>
- *             <p>Tags that you add to a SageMaker Studio Domain or User Profile by calling this API
+ *             <p>Tags that you add to a SageMaker Domain or User Profile by calling this API
  *                 are also added to any Apps that the Domain or User Profile launches after you call
  *                 this API, but not to Apps that the Domain or User Profile launched before you called
  *                 this API. To make sure that the tags associated with a Domain or User Profile are

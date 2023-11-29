@@ -14,14 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import {
-  EnableSagemakerServicecatalogPortfolioInput,
-  EnableSagemakerServicecatalogPortfolioOutput,
-} from "../models/models_3";
-import {
-  de_EnableSagemakerServicecatalogPortfolioCommand,
-  se_EnableSagemakerServicecatalogPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_2";
+import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -31,49 +25,56 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The input for {@link DeleteClusterCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandInput
-  extends EnableSagemakerServicecatalogPortfolioInput {}
+export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 /**
  * @public
  *
- * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The output of {@link DeleteClusterCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandOutput
-  extends EnableSagemakerServicecatalogPortfolioOutput,
-    __MetadataBearer {}
+export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
- *             SageMaker projects.</p>
+ * <p>Delete a SageMaker HyperPod cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteClusterCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteClusterCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {};
- * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
+ * const input = { // DeleteClusterRequest
+ *   ClusterName: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteClusterResponse
+ * //   ClusterArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
- * @returns {@link EnableSagemakerServicecatalogPortfolioCommandOutput}
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
+ * @see {@link DeleteClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
-  EnableSagemakerServicecatalogPortfolioCommandInput,
-  EnableSagemakerServicecatalogPortfolioCommandOutput,
+export class DeleteClusterCommand extends $Command<
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput,
   SageMakerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -88,7 +89,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: EnableSagemakerServicecatalogPortfolioCommandInput) {
+  constructor(readonly input: DeleteClusterCommandInput) {
     super();
   }
 
@@ -99,17 +100,15 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableSagemakerServicecatalogPortfolioCommandInput, EnableSagemakerServicecatalogPortfolioCommandOutput> {
+  ): Handler<DeleteClusterCommandInput, DeleteClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, EnableSagemakerServicecatalogPortfolioCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteClusterCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "EnableSagemakerServicecatalogPortfolioCommand";
+    const commandName = "DeleteClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -118,7 +117,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SageMaker",
-        operation: "EnableSagemakerServicecatalogPortfolio",
+        operation: "DeleteCluster",
       },
     };
     const { requestHandler } = configuration;
@@ -132,20 +131,14 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: EnableSagemakerServicecatalogPortfolioCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_EnableSagemakerServicecatalogPortfolioCommand(input, context);
+  private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> {
-    return de_EnableSagemakerServicecatalogPortfolioCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
+    return de_DeleteClusterCommand(output, context);
   }
 }

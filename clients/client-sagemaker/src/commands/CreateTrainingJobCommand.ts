@@ -292,6 +292,9 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *   RetryStrategy: { // RetryStrategy
  *     MaximumRetryAttempts: Number("int"), // required
  *   },
+ *   InfraCheckConfig: { // InfraCheckConfig
+ *     EnableInfraCheck: true || false,
+ *   },
  * };
  * const command = new CreateTrainingJobCommand(input);
  * const response = await client.send(command);

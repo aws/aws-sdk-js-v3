@@ -160,6 +160,9 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
  *       },
  *       BaseModelName: "STRING_VALUE",
+ *       TextGenerationHyperParameters: { // TextGenerationHyperParameters
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required

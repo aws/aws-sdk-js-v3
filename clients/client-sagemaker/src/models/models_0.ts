@@ -5463,6 +5463,8 @@ export interface AutoMLJobCompletionCriteria {
    *          used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a> action.</p>
    *          <p>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field
    *          controls the runtime of the job candidate.</p>
+   *          <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a> problem types, the maximum time defaults to 72 hours
+   *          (259200 seconds).</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
@@ -5494,16 +5496,15 @@ export type AutoMLMode = (typeof AutoMLMode)[keyof typeof AutoMLMode];
 
 /**
  * @public
- * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
- *             access to and from your training and model containers by configuring the VPC. For more
- *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
- *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+ * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+ *             have access to. You can control access to and from your resources by configuring a VPC.
+ *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
  */
 export interface VpcConfig {
   /**
    * @public
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
-   *             the VPC that is specified in the <code>Subnets</code> field.</p>
+   * <p>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
+   *             groups for the VPC that is specified in the <code>Subnets</code> field.</p>
    */
   SecurityGroupIds: string[] | undefined;
 
@@ -6070,8 +6071,9 @@ export interface TextClassificationJobConfig {
 export interface TextGenerationJobConfig {
   /**
    * @public
-   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
-   *          generate.</p>
+   * <p>How long a fine-tuning job is allowed to run. For <code>TextGenerationJobConfig</code>
+   *          problem types, the <code>MaxRuntimePerTrainingJobInSeconds</code> attribute of <code>AutoMLJobCompletionCriteria</code> defaults to 72h
+   *          (259200s).</p>
    */
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 
@@ -6079,10 +6081,50 @@ export interface TextGenerationJobConfig {
    * @public
    * <p>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety of large
    *          language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-models.html#autopilot-llms-finetuning-supported-llms">Text generation models supporting fine-tuning in Autopilot</a>. If no
-   *             <code>BaseModelName</code> is provided, the default model used is Falcon-7B-Instruct.
-   *       </p>
+   *             <code>BaseModelName</code> is provided, the default model used is <b>Falcon7BInstruct</b>. </p>
    */
   BaseModelName?: string;
+
+  /**
+   * @public
+   * <p>The hyperparameters used to configure and optimize the learning process of the base
+   *          model. You can set any combination of the following hyperparameters for all base models.
+   *          For more information on each supported hyperparameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-set-hyperparameters.html">Optimize
+   *             the learning process of your text generation models with hyperparameters</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"epochCount"</code>: The number of times the model goes through the entire
+   *                training dataset. Its value should be a string containing an integer value within the
+   *                range of "1" to "10".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"batchSize"</code>: The number of data samples used in each iteration of
+   *                training. Its value should be a string containing an integer value within the range
+   *                of "1" to "64".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"learningRate"</code>: The step size at which a model's parameters are
+   *                updated during training. Its value should be a string containing a floating-point
+   *                value within the range of "0" to "1".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"learningRateWarmupSteps"</code>: The number of training steps during which
+   *                the learning rate gradually increases before reaching its target or maximum value.
+   *                Its value should be a string containing an integer value within the range of "0" to
+   *                "250".</p>
+   *             </li>
+   *          </ul>
+   *          <p>Here is an example where all four hyperparameters are configured.</p>
+   *          <p>
+   *             <code>\{ "epochCount":"5", "learningRate":"0.5", "batchSize": "32",
+   *             "learningRateWarmupSteps": "10" \}</code>
+   *          </p>
+   */
+  TextGenerationHyperParameters?: Record<string, string>;
 }
 
 /**
@@ -8237,6 +8279,360 @@ export interface ClarifyExplainerConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const ClusterInstanceType = {
+  ML_C5N_18XLARGE: "ml.c5n.18xlarge",
+  ML_C5N_2XLARGE: "ml.c5n.2xlarge",
+  ML_C5N_4XLARGE: "ml.c5n.4xlarge",
+  ML_C5N_9XLARGE: "ml.c5n.9xlarge",
+  ML_C5N_LARGE: "ml.c5n.large",
+  ML_C5_12XLARGE: "ml.c5.12xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_24XLARGE: "ml.c5.24xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_LARGE: "ml.c5.large",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_16XLARGE: "ml.m5.16xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_8XLARGE: "ml.m5.8xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterInstanceType = (typeof ClusterInstanceType)[keyof typeof ClusterInstanceType];
+
+/**
+ * @public
+ * <p>The LifeCycle configuration for a SageMaker HyperPod cluster.</p>
+ */
+export interface ClusterLifeCycleConfig {
+  /**
+   * @public
+   * <p>An Amazon S3 bucket path where your LifeCycle scripts are stored.</p>
+   */
+  SourceS3Uri: string | undefined;
+
+  /**
+   * @public
+   * <p>The directory of the LifeCycle script under <code>SourceS3Uri</code>. This LifeCycle
+   *          script runs during cluster creation.</p>
+   */
+  OnCreate: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Details of an instance group in a SageMaker HyperPod cluster.</p>
+ */
+export interface ClusterInstanceGroupDetails {
+  /**
+   * @public
+   * <p>The number of instances that are currently in the instance group of a
+   *          SageMaker HyperPod cluster.</p>
+   */
+  CurrentCount?: number;
+
+  /**
+   * @public
+   * <p>The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.</p>
+   */
+  TargetCount?: number;
+
+  /**
+   * @public
+   * <p>The name of the instance group of a SageMaker HyperPod cluster.</p>
+   */
+  InstanceGroupName?: string;
+
+  /**
+   * @public
+   * <p>The instance type of the instance group of a SageMaker HyperPod cluster.</p>
+   */
+  InstanceType?: ClusterInstanceType;
+
+  /**
+   * @public
+   * <p>Details of LifeCycle configuration for the instance group.</p>
+   */
+  LifeCycleConfig?: ClusterLifeCycleConfig;
+
+  /**
+   * @public
+   * <p>The execution role for the instance group to assume.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * @public
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for
+   *          enabling or disabling multithreading. For instance types that support multithreading, you
+   *          can specify 1 for disabling multithreading and 2 for enabling multithreading. For more
+   *          information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud
+   *             User Guide</i>.</p>
+   */
+  ThreadsPerCore?: number;
+}
+
+/**
+ * @public
+ * <p>The specifications of an instance group that you need to define.</p>
+ */
+export interface ClusterInstanceGroupSpecification {
+  /**
+   * @public
+   * <p>Specifies the number of instances to add to the instance group of a SageMaker HyperPod cluster.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the name of the instance group.</p>
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the instance type of the instance group.</p>
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the LifeCycle configuration for the instance group.</p>
+   */
+  LifeCycleConfig: ClusterLifeCycleConfig | undefined;
+
+  /**
+   * @public
+   * <p>Specifies an IAM execution role to be assumed by the instance group.</p>
+   */
+  ExecutionRole: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the value for <b>Threads per core</b>. For instance types that
+   *          support multithreading, you can specify <code>1</code> for disabling multithreading and
+   *             <code>2</code> for enabling multithreading. For instance types that doesn't support
+   *          multithreading, specify <code>1</code>. For more information, see the reference table of
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud
+   *             User Guide</i>.</p>
+   */
+  ThreadsPerCore?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterInstanceStatus = {
+  FAILURE: "Failure",
+  PENDING: "Pending",
+  RUNNING: "Running",
+  SHUTTING_DOWN: "ShuttingDown",
+  SYSTEM_UPDATING: "SystemUpdating",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterInstanceStatus = (typeof ClusterInstanceStatus)[keyof typeof ClusterInstanceStatus];
+
+/**
+ * @public
+ * <p>Details of an instance in a SageMaker HyperPod cluster.</p>
+ */
+export interface ClusterInstanceStatusDetails {
+  /**
+   * @public
+   * <p>The status of an instance in a SageMaker HyperPod cluster.</p>
+   */
+  Status: ClusterInstanceStatus | undefined;
+
+  /**
+   * @public
+   * <p>The message from an instance in a SageMaker HyperPod cluster.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>Details of an instance (also called a <i>node</i> interchangeably) in a
+ *          SageMaker HyperPod cluster.</p>
+ */
+export interface ClusterNodeDetails {
+  /**
+   * @public
+   * <p>The instance group name in which the instance is.</p>
+   */
+  InstanceGroupName?: string;
+
+  /**
+   * @public
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>The status of the instance.</p>
+   */
+  InstanceStatus?: ClusterInstanceStatusDetails;
+
+  /**
+   * @public
+   * <p>The type of the instance.</p>
+   */
+  InstanceType?: ClusterInstanceType;
+
+  /**
+   * @public
+   * <p>The time when the instance is launched.</p>
+   */
+  LaunchTime?: Date;
+
+  /**
+   * @public
+   * <p>The LifeCycle configuration applied to the instance.</p>
+   */
+  LifeCycleConfig?: ClusterLifeCycleConfig;
+
+  /**
+   * @public
+   * <p>The number of threads per CPU core you specified under
+   *          <code>CreateCluster</code>.</p>
+   */
+  ThreadsPerCore?: number;
+}
+
+/**
+ * @public
+ * <p>Lists a summary of the properties of an instance (also called a
+ *             <i>node</i> interchangeably) of a SageMaker HyperPod cluster.</p>
+ */
+export interface ClusterNodeSummary {
+  /**
+   * @public
+   * <p>The name of the instance group in which the instance is.</p>
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of the instance.</p>
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * @public
+   * <p>The time when the instance is launched.</p>
+   */
+  LaunchTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The status of the instance.</p>
+   */
+  InstanceStatus: ClusterInstanceStatusDetails | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  NAME: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterSortBy = (typeof ClusterSortBy)[keyof typeof ClusterSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterStatus = {
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INSERVICE: "InService",
+  ROLLINGBACK: "RollingBack",
+  SYSTEMUPDATING: "SystemUpdating",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
+
+/**
+ * @public
+ * <p>Lists a summary of the properties of a SageMaker HyperPod cluster.</p>
+ */
+export interface ClusterSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the SageMaker HyperPod cluster.</p>
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The time when the SageMaker HyperPod cluster is created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The status of the SageMaker HyperPod cluster.</p>
+   */
+  ClusterStatus: ClusterStatus | undefined;
+}
+
+/**
+ * @public
  * <p>A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
  */
 export interface CodeRepository {
@@ -9772,6 +10168,12 @@ export interface ResourceSpec {
 
   /**
    * @public
+   * <p>The SageMakerImageVersionAlias.</p>
+   */
+  SageMakerImageVersionAlias?: string;
+
+  /**
+   * @public
    * <p>The instance type that the image version runs on.</p>
    *          <note>
    *             <p>
@@ -10216,6 +10618,51 @@ export interface CreateAutoMLJobV2Response {
    * <p>The unique ARN assigned to the AutoMLJob when it is created.</p>
    */
   AutoMLJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterRequest {
+  /**
+   * @public
+   * <p>The name for the new SageMaker HyperPod cluster.</p>
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The instance groups to be created in the SageMaker HyperPod cluster.</p>
+   */
+  InstanceGroups: ClusterInstanceGroupSpecification[] | undefined;
+
+  /**
+   * @public
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * @public
+   * <p>Custom tags for managing the SageMaker HyperPod cluster as an Amazon Web Services resource. You can
+   *          add tags to your cluster in the same way you add them in other Amazon Web Services services
+   *          that support tagging. To learn more about tagging Amazon Web Services resources in general,
+   *          see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging Amazon Web Services Resources User Guide</a>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
 }
 
 /**
@@ -11198,378 +11645,4 @@ export interface CreateContextResponse {
    * <p>The Amazon Resource Name (ARN) of the context.</p>
    */
   ContextArn?: string;
-}
-
-/**
- * @public
- * <p>Information about the container that a data quality monitoring job runs.</p>
- */
-export interface DataQualityAppSpecification {
-  /**
-   * @public
-   * <p>The container image that the data quality monitoring job runs.</p>
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * @public
-   * <p>The entrypoint for a container used to run a monitoring job.</p>
-   */
-  ContainerEntrypoint?: string[];
-
-  /**
-   * @public
-   * <p>The arguments to send to the container that the monitoring job runs.</p>
-   */
-  ContainerArguments?: string[];
-
-  /**
-   * @public
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
-   *    base64 decode the payload and convert it into a flattened JSON so that the built-in container can use
-   *    the converted data. Applicable only for the built-in (first party) containers.</p>
-   */
-  RecordPreprocessorSourceUri?: string;
-
-  /**
-   * @public
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable
-   *    only for the built-in (first party) containers.</p>
-   */
-  PostAnalyticsProcessorSourceUri?: string;
-
-  /**
-   * @public
-   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
-   */
-  Environment?: Record<string, string>;
-}
-
-/**
- * @public
- * <p>The constraints resource for a monitoring job.</p>
- */
-export interface MonitoringConstraintsResource {
-  /**
-   * @public
-   * <p>The Amazon S3 URI for the constraints resource.</p>
-   */
-  S3Uri?: string;
-}
-
-/**
- * @public
- * <p>The statistics resource for a monitoring job.</p>
- */
-export interface MonitoringStatisticsResource {
-  /**
-   * @public
-   * <p>The Amazon S3 URI for the statistics resource.</p>
-   */
-  S3Uri?: string;
-}
-
-/**
- * @public
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are
- *    compared against the results of the current job from the series of jobs scheduled to collect data
- *    periodically.</p>
- */
-export interface DataQualityBaselineConfig {
-  /**
-   * @public
-   * <p>The name of the job that performs baselining for the data quality monitoring job.</p>
-   */
-  BaseliningJobName?: string;
-
-  /**
-   * @public
-   * <p>The constraints resource for a monitoring job.</p>
-   */
-  ConstraintsResource?: MonitoringConstraintsResource;
-
-  /**
-   * @public
-   * <p>The statistics resource for a monitoring job.</p>
-   */
-  StatisticsResource?: MonitoringStatisticsResource;
-}
-
-/**
- * @public
- * <p>Input object for the endpoint</p>
- */
-export interface EndpointInput {
-  /**
-   * @public
-   * <p>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code>
-   *          enabled.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * @public
-   * <p>Path to the filesystem where the endpoint data is available to the container.</p>
-   */
-  LocalPath: string | undefined;
-
-  /**
-   * @public
-   * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for
-   *          transferring data for the monitoring job. <code>Pipe</code> mode is recommended for large
-   *          datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
-   *             <code>File</code>.</p>
-   */
-  S3InputMode?: ProcessingS3InputMode;
-
-  /**
-   * @public
-   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an
-   *             Amazon S3 key. Defaults to <code>FullyReplicated</code>
-   *          </p>
-   */
-  S3DataDistributionType?: ProcessingS3DataDistributionType;
-
-  /**
-   * @public
-   * <p>The attributes of the input data that are the input features.</p>
-   */
-  FeaturesAttribute?: string;
-
-  /**
-   * @public
-   * <p>The attribute of the input data that represents the ground truth label.</p>
-   */
-  InferenceAttribute?: string;
-
-  /**
-   * @public
-   * <p>In a classification problem, the attribute that represents the class probability.</p>
-   */
-  ProbabilityAttribute?: string;
-
-  /**
-   * @public
-   * <p>The threshold for the class probability to be evaluated as a positive result.</p>
-   */
-  ProbabilityThresholdAttribute?: number;
-
-  /**
-   * @public
-   * <p>If specified, monitoring jobs substract this time from the start time. For information
-   *          about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
-   *             Quality Monitoring Jobs</a>.</p>
-   */
-  StartTimeOffset?: string;
-
-  /**
-   * @public
-   * <p>If specified, monitoring jobs substract this time from the end time. For information
-   *          about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
-   *             Quality Monitoring Jobs</a>.</p>
-   */
-  EndTimeOffset?: string;
-
-  /**
-   * @public
-   * <p>The attributes of the input data to exclude from the analysis.</p>
-   */
-  ExcludeFeaturesAttribute?: string;
-}
-
-/**
- * @public
- * <p>The input for the data quality monitoring job. Currently endpoints are supported for
- *          input.</p>
- */
-export interface DataQualityJobInput {
-  /**
-   * @public
-   * <p>Input object for the endpoint</p>
-   */
-  EndpointInput?: EndpointInput;
-
-  /**
-   * @public
-   * <p>Input object for the batch transform job.</p>
-   */
-  BatchTransformInput?: BatchTransformInput;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProcessingS3UploadMode = {
-  CONTINUOUS: "Continuous",
-  END_OF_JOB: "EndOfJob",
-} as const;
-
-/**
- * @public
- */
-export type ProcessingS3UploadMode = (typeof ProcessingS3UploadMode)[keyof typeof ProcessingS3UploadMode];
-
-/**
- * @public
- * <p>Information about where and how you want to store the results of a monitoring
- *          job.</p>
- */
-export interface MonitoringS3Output {
-  /**
-   * @public
-   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker
-   *          saves the results of a monitoring job.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * @public
-   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker
-   *          saves the results of a monitoring job. LocalPath is an absolute path for the output
-   *          data.</p>
-   */
-  LocalPath: string | undefined;
-
-  /**
-   * @public
-   * <p>Whether to upload the results of the monitoring job continuously or after the job
-   *          completes.</p>
-   */
-  S3UploadMode?: ProcessingS3UploadMode;
-}
-
-/**
- * @public
- * <p>The output object for a monitoring job.</p>
- */
-export interface MonitoringOutput {
-  /**
-   * @public
-   * <p>The Amazon S3 storage location where the results of a monitoring job are
-   *          saved.</p>
-   */
-  S3Output: MonitoringS3Output | undefined;
-}
-
-/**
- * @public
- * <p>The output configuration for monitoring jobs.</p>
- */
-export interface MonitoringOutputConfig {
-  /**
-   * @public
-   * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic
-   *          monitoring jobs is uploaded.</p>
-   */
-  MonitoringOutputs: MonitoringOutput[] | undefined;
-
-  /**
-   * @public
-   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
-   *          encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
-   */
-  KmsKeyId?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProcessingInstanceType = {
-  ML_C4_2XLARGE: "ml.c4.2xlarge",
-  ML_C4_4XLARGE: "ml.c4.4xlarge",
-  ML_C4_8XLARGE: "ml.c4.8xlarge",
-  ML_C4_XLARGE: "ml.c4.xlarge",
-  ML_C5_18XLARGE: "ml.c5.18xlarge",
-  ML_C5_2XLARGE: "ml.c5.2xlarge",
-  ML_C5_4XLARGE: "ml.c5.4xlarge",
-  ML_C5_9XLARGE: "ml.c5.9xlarge",
-  ML_C5_XLARGE: "ml.c5.xlarge",
-  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
-  ML_M4_10XLARGE: "ml.m4.10xlarge",
-  ML_M4_16XLARGE: "ml.m4.16xlarge",
-  ML_M4_2XLARGE: "ml.m4.2xlarge",
-  ML_M4_4XLARGE: "ml.m4.4xlarge",
-  ML_M4_XLARGE: "ml.m4.xlarge",
-  ML_M5_12XLARGE: "ml.m5.12xlarge",
-  ML_M5_24XLARGE: "ml.m5.24xlarge",
-  ML_M5_2XLARGE: "ml.m5.2xlarge",
-  ML_M5_4XLARGE: "ml.m5.4xlarge",
-  ML_M5_LARGE: "ml.m5.large",
-  ML_M5_XLARGE: "ml.m5.xlarge",
-  ML_P2_16XLARGE: "ml.p2.16xlarge",
-  ML_P2_8XLARGE: "ml.p2.8xlarge",
-  ML_P2_XLARGE: "ml.p2.xlarge",
-  ML_P3_16XLARGE: "ml.p3.16xlarge",
-  ML_P3_2XLARGE: "ml.p3.2xlarge",
-  ML_P3_8XLARGE: "ml.p3.8xlarge",
-  ML_R5_12XLARGE: "ml.r5.12xlarge",
-  ML_R5_16XLARGE: "ml.r5.16xlarge",
-  ML_R5_24XLARGE: "ml.r5.24xlarge",
-  ML_R5_2XLARGE: "ml.r5.2xlarge",
-  ML_R5_4XLARGE: "ml.r5.4xlarge",
-  ML_R5_8XLARGE: "ml.r5.8xlarge",
-  ML_R5_LARGE: "ml.r5.large",
-  ML_R5_XLARGE: "ml.r5.xlarge",
-  ML_T3_2XLARGE: "ml.t3.2xlarge",
-  ML_T3_LARGE: "ml.t3.large",
-  ML_T3_MEDIUM: "ml.t3.medium",
-  ML_T3_XLARGE: "ml.t3.xlarge",
-} as const;
-
-/**
- * @public
- */
-export type ProcessingInstanceType = (typeof ProcessingInstanceType)[keyof typeof ProcessingInstanceType];
-
-/**
- * @public
- * <p>Configuration for the cluster used to run model monitoring jobs.</p>
- */
-export interface MonitoringClusterConfig {
-  /**
-   * @public
-   * <p>The number of ML compute instances to use in the model monitoring job. For distributed
-   *          processing jobs, specify a value greater than 1. The default value is 1.</p>
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * @public
-   * <p>The ML compute instance type for the processing job.</p>
-   */
-  InstanceType: ProcessingInstanceType | undefined;
-
-  /**
-   * @public
-   * <p>The size of the ML storage volume, in gigabytes, that you want to provision. You must
-   *          specify sufficient ML storage for your scenario.</p>
-   */
-  VolumeSizeInGB: number | undefined;
-
-  /**
-   * @public
-   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
-   *          encrypt data on the storage volume attached to the ML compute instance(s) that run the
-   *          model monitoring job.</p>
-   */
-  VolumeKmsKeyId?: string;
-}
-
-/**
- * @public
- * <p>Identifies the resources to deploy for a monitoring job.</p>
- */
-export interface MonitoringResources {
-  /**
-   * @public
-   * <p>The configuration for the cluster resources used to run the processing job.</p>
-   */
-  ClusterConfig: MonitoringClusterConfig | undefined;
 }

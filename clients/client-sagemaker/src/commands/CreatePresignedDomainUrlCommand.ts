@@ -38,7 +38,7 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
 /**
  * @public
  * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,
- *        the user will be automatically signed in to Amazon SageMaker Studio, and granted access to all of
+ *        the user will be automatically signed in to the domain, and granted access to all of
  *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
  *        This operation can only be called when the authentication mode equals IAM.
  *    </p>
@@ -48,7 +48,7 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  *          frame that attempts to connect to the app.</p>
  *          <p>You can restrict access to this API and to the
  *       URL that it returns to a list of IP addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more
- *       information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html">Connect to SageMaker Studio Through an Interface VPC Endpoint</a>
+ *       information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html">Connect to Amazon SageMaker Studio Through an Interface VPC Endpoint</a>
  *          .</p>
  *          <note>
  *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>. If you try to use the URL after the timeout limit expires, you
@@ -66,6 +66,7 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  *   SessionExpirationDurationInSeconds: Number("int"),
  *   ExpiresInSeconds: Number("int"),
  *   SpaceName: "STRING_VALUE",
+ *   LandingUri: "STRING_VALUE",
  * };
  * const command = new CreatePresignedDomainUrlCommand(input);
  * const response = await client.send(command);

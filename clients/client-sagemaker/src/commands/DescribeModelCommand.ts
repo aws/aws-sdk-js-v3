@@ -117,7 +117,7 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //   InferenceExecutionConfig: { // InferenceExecutionConfig
  * //     Mode: "Serial" || "Direct", // required
  * //   },
- * //   ExecutionRoleArn: "STRING_VALUE", // required
+ * //   ExecutionRoleArn: "STRING_VALUE",
  * //   VpcConfig: { // VpcConfig
  * //     SecurityGroupIds: [ // VpcSecurityGroupIds // required
  * //       "STRING_VALUE",

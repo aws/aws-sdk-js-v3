@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteAppImageConfigRequest } from "../models/models_1";
+import { DeleteAppImageConfigRequest } from "../models/models_2";
 import { de_DeleteAppImageConfigCommand, se_DeleteAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

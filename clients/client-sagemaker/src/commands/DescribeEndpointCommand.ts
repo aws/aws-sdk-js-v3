@@ -84,6 +84,14 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //         MaxConcurrency: Number("int"), // required
  * //         ProvisionedConcurrency: Number("int"),
  * //       },
+ * //       ManagedInstanceScaling: { // ProductionVariantManagedInstanceScaling
+ * //         Status: "ENABLED" || "DISABLED",
+ * //         MinInstanceCount: Number("int"),
+ * //         MaxInstanceCount: Number("int"),
+ * //       },
+ * //       RoutingConfig: { // ProductionVariantRoutingConfig
+ * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //       },
  * //     },
  * //   ],
  * //   DataCaptureConfig: { // DataCaptureConfigSummary
@@ -186,6 +194,14 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           MaxConcurrency: Number("int"), // required
  * //           ProvisionedConcurrency: Number("int"),
  * //         },
+ * //         ManagedInstanceScaling: {
+ * //           Status: "ENABLED" || "DISABLED",
+ * //           MinInstanceCount: Number("int"),
+ * //           MaxInstanceCount: Number("int"),
+ * //         },
+ * //         RoutingConfig: {
+ * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //         },
  * //       },
  * //     ],
  * //     StartTime: new Date("TIMESTAMP"),
@@ -218,6 +234,14 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           ProvisionedConcurrency: Number("int"),
  * //         },
  * //         DesiredServerlessConfig: "<ProductionVariantServerlessConfig>",
+ * //         ManagedInstanceScaling: {
+ * //           Status: "ENABLED" || "DISABLED",
+ * //           MinInstanceCount: Number("int"),
+ * //           MaxInstanceCount: Number("int"),
+ * //         },
+ * //         RoutingConfig: {
+ * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //         },
  * //       },
  * //     ],
  * //   },
@@ -282,6 +306,14 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //       ],
  * //       CurrentServerlessConfig: "<ProductionVariantServerlessConfig>",
  * //       DesiredServerlessConfig: "<ProductionVariantServerlessConfig>",
+ * //       ManagedInstanceScaling: {
+ * //         Status: "ENABLED" || "DISABLED",
+ * //         MinInstanceCount: Number("int"),
+ * //         MaxInstanceCount: Number("int"),
+ * //       },
+ * //       RoutingConfig: {
+ * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //       },
  * //     },
  * //   ],
  * // };

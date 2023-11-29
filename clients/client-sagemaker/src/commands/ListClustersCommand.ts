@@ -14,14 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import {
-  EnableSagemakerServicecatalogPortfolioInput,
-  EnableSagemakerServicecatalogPortfolioOutput,
-} from "../models/models_3";
-import {
-  de_EnableSagemakerServicecatalogPortfolioCommand,
-  se_EnableSagemakerServicecatalogPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { ListClustersRequest, ListClustersResponse } from "../models/models_3";
+import { de_ListClustersCommand, se_ListClustersCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -31,49 +25,63 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The input for {@link ListClustersCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandInput
-  extends EnableSagemakerServicecatalogPortfolioInput {}
+export interface ListClustersCommandInput extends ListClustersRequest {}
 /**
  * @public
  *
- * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The output of {@link ListClustersCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandOutput
-  extends EnableSagemakerServicecatalogPortfolioOutput,
-    __MetadataBearer {}
+export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
- *             SageMaker projects.</p>
+ * <p>Retrieves the list of SageMaker HyperPod clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListClustersCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListClustersCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {};
- * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
+ * const input = { // ListClustersRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "CREATION_TIME" || "NAME",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
+ * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListClustersResponse
+ * //   NextToken: "STRING_VALUE", // required
+ * //   ClusterSummaries: [ // ClusterSummaries // required
+ * //     { // ClusterSummary
+ * //       ClusterArn: "STRING_VALUE", // required
+ * //       ClusterName: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       ClusterStatus: "Creating" || "Deleting" || "Failed" || "InService" || "RollingBack" || "SystemUpdating" || "Updating", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
- * @returns {@link EnableSagemakerServicecatalogPortfolioCommandOutput}
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
+ * @see {@link ListClustersCommandInput} for command's `input` shape.
+ * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
-  EnableSagemakerServicecatalogPortfolioCommandInput,
-  EnableSagemakerServicecatalogPortfolioCommandOutput,
+export class ListClustersCommand extends $Command<
+  ListClustersCommandInput,
+  ListClustersCommandOutput,
   SageMakerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -88,7 +96,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: EnableSagemakerServicecatalogPortfolioCommandInput) {
+  constructor(readonly input: ListClustersCommandInput) {
     super();
   }
 
@@ -99,17 +107,15 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableSagemakerServicecatalogPortfolioCommandInput, EnableSagemakerServicecatalogPortfolioCommandOutput> {
+  ): Handler<ListClustersCommandInput, ListClustersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, EnableSagemakerServicecatalogPortfolioCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListClustersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "EnableSagemakerServicecatalogPortfolioCommand";
+    const commandName = "ListClustersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -118,7 +124,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SageMaker",
-        operation: "EnableSagemakerServicecatalogPortfolio",
+        operation: "ListClusters",
       },
     };
     const { requestHandler } = configuration;
@@ -132,20 +138,14 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: EnableSagemakerServicecatalogPortfolioCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_EnableSagemakerServicecatalogPortfolioCommand(input, context);
+  private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListClustersCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> {
-    return de_EnableSagemakerServicecatalogPortfolioCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
+    return de_ListClustersCommand(output, context);
   }
 }

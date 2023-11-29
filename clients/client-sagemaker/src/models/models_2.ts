@@ -15,7 +15,6 @@ import {
   AppStatus,
   AppType,
   ArtifactSource,
-  AssociationEdgeType,
   AsyncInferenceConfig,
   AuthMode,
   AutoMLCandidate,
@@ -37,15 +36,17 @@ import {
   Autotune,
   BatchDataCaptureConfig,
   BatchStrategy,
+  CaptureStatus,
   Channel,
   CheckpointConfig,
+  ClusterInstanceGroupDetails,
+  ClusterNodeDetails,
+  ClusterStatus,
   CognitoConfig,
+  CognitoMemberDefinition,
   CompilationJobStatus,
   ContainerDefinition,
   ContextSource,
-  DataQualityAppSpecification,
-  DataQualityBaselineConfig,
-  DataQualityJobInput,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
@@ -55,8 +56,6 @@ import {
   ModelApprovalStatus,
   ModelDeployConfig,
   ModelPackageStatus,
-  MonitoringOutputConfig,
-  MonitoringResources,
   NeoVpcConfig,
   ObjectiveStatus,
   OutputConfig,
@@ -76,13 +75,13 @@ import {
 } from "./models_0";
 import {
   _InstanceType,
-  CustomizedMetricSpecification,
   DataCaptureConfig,
-  DataCaptureConfigSummary,
   DataProcessing,
+  DataQualityAppSpecification,
+  DataQualityBaselineConfig,
+  DataQualityJobInput,
   DebugHookConfig,
   DebugRuleConfiguration,
-  DebugRuleEvaluationStatus,
   DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
@@ -94,7 +93,6 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInfo,
-  ExecutionRoleIdentityConfig,
   ExperimentConfig,
   ExplainerConfig,
   FeatureDefinition,
@@ -108,17 +106,19 @@ import {
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobWarmStartConfig,
+  InferenceComponentComputeResourceRequirements,
+  InferenceComponentStartupParameters,
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
+  InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   JobType,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
-  MemberDefinition,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
@@ -136,13 +136,14 @@ import {
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
   MonitoringNetworkConfig,
+  MonitoringOutputConfig,
+  MonitoringResources,
   MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   MonitoringType,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
-  NotificationConfiguration,
   OfflineStoreConfig,
   OnlineStoreConfig,
   ParallelismConfiguration,
@@ -153,6 +154,8 @@ import {
   Processor,
   ProductionVariant,
   ProductionVariantAcceleratorType,
+  ProductionVariantManagedInstanceScaling,
+  ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -161,12 +164,10 @@ import {
   RecommendationJobType,
   RetryStrategy,
   RootAccess,
-  RuleEvaluationStatus,
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
-  SourceIpConfig,
   SpaceSettings,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
@@ -176,6 +177,611 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateUserProfileResponse {
+  /**
+   * @public
+   * <p>The user profile Amazon Resource Name (ARN).</p>
+   */
+  UserProfileArn?: string;
+}
+
+/**
+ * @public
+ * <p>Use this parameter to configure your OIDC Identity Provider (IdP).</p>
+ */
+export interface OidcConfig {
+  /**
+   * @public
+   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
+   */
+  ClientId: string | undefined;
+
+  /**
+   * @public
+   * <p>The OIDC IdP client secret used to configure your private workforce.</p>
+   */
+  ClientSecret: string | undefined;
+
+  /**
+   * @public
+   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
+   */
+  Issuer: string | undefined;
+
+  /**
+   * @public
+   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
+   */
+  AuthorizationEndpoint: string | undefined;
+
+  /**
+   * @public
+   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
+   */
+  TokenEndpoint: string | undefined;
+
+  /**
+   * @public
+   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
+   */
+  UserInfoEndpoint: string | undefined;
+
+  /**
+   * @public
+   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
+   */
+  LogoutEndpoint: string | undefined;
+
+  /**
+   * @public
+   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
+   */
+  JwksUri: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
+ *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
+ *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
+ */
+export interface SourceIpConfig {
+  /**
+   * @public
+   * <p>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing</a> (CIDR) values.</p>
+   *          <p>Maximum: Ten CIDR values</p>
+   *          <note>
+   *             <p>The following Length Constraints apply to individual CIDR values in
+   *                 the CIDR value list.</p>
+   *          </note>
+   */
+  Cidrs: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The VPC object you use to create or update a workforce.</p>
+ */
+export interface WorkforceVpcConfigRequest {
+  /**
+   * @public
+   * <p>The ID of the VPC that the workforce uses for communication.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>The ID of the subnets in the VPC that you want to connect.</p>
+   */
+  Subnets?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkforceRequest {
+  /**
+   * @public
+   * <p>Use this parameter to configure an Amazon Cognito private workforce.
+   *       A single Cognito workforce is created using and corresponds to a single
+   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
+   *       Amazon Cognito user pool</a>.</p>
+   *          <p>Do not use <code>OidcConfig</code> if you specify values for
+   *       <code>CognitoConfig</code>.</p>
+   */
+  CognitoConfig?: CognitoConfig;
+
+  /**
+   * @public
+   * <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p>
+   *          <p>Do not use <code>CognitoConfig</code> if you specify values for
+   *       <code>OidcConfig</code>.</p>
+   */
+  OidcConfig?: OidcConfig;
+
+  /**
+   * @public
+   * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
+   *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
+   *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
+   */
+  SourceIpConfig?: SourceIpConfig;
+
+  /**
+   * @public
+   * <p>The name of the private workforce.</p>
+   */
+  WorkforceName: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of key-value pairs that contain metadata to help you categorize and
+   *       organize our workforce. Each tag consists of a key and a value,
+   *       both of which you define.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Use this parameter to configure a workforce using VPC.</p>
+   */
+  WorkforceVpcConfig?: WorkforceVpcConfigRequest;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkforceResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workforce.</p>
+   */
+  WorkforceArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A list of user groups that exist in your OIDC Identity Provider (IdP).
+ *             One to ten groups can be used to create a single private work team.
+ *             When you add a user group to the list of <code>Groups</code>, you can add that user group to one or more
+ *             private work teams. If you add a user group to a private work team, all workers in that user group
+ *             are added to the work team.</p>
+ */
+export interface OidcMemberDefinition {
+  /**
+   * @public
+   * <p>A list of comma seperated strings that identifies
+   *             user groups in your OIDC IdP. Each user group is
+   *             made up of a group of private workers.</p>
+   */
+  Groups: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.</p>
+ */
+export interface MemberDefinition {
+  /**
+   * @public
+   * <p>The Amazon Cognito user group that is part of the work team.</p>
+   */
+  CognitoMemberDefinition?: CognitoMemberDefinition;
+
+  /**
+   * @public
+   * <p>A list user groups that exist in your OIDC Identity Provider (IdP).
+   *             One to ten groups can be used to create a single private work team.
+   *             When you add a user group to the list of <code>Groups</code>, you can add that user group to one or more
+   *             private work teams. If you add a user group to a private work team, all workers in that user group
+   *             are added to the work team.</p>
+   */
+  OidcMemberDefinition?: OidcMemberDefinition;
+}
+
+/**
+ * @public
+ * <p>Configures Amazon SNS notifications of available or expiring work items for work
+ *             teams.</p>
+ */
+export interface NotificationConfiguration {
+  /**
+   * @public
+   * <p>The ARN for the Amazon SNS topic to which notifications should be published.</p>
+   */
+  NotificationTopicArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkteamRequest {
+  /**
+   * @public
+   * <p>The name of the work team. Use this name to identify the work team.</p>
+   */
+  WorkteamName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workforce.</p>
+   */
+  WorkforceName?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
+   *             the workers that make up the work team. </p>
+   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For
+   *             private workforces created using Amazon Cognito use <code>CognitoMemberDefinition</code>. For
+   *             workforces created using your own OIDC identity provider (IdP) use
+   *                 <code>OidcMemberDefinition</code>. Do not provide input for both of these parameters
+   *             in a single request.</p>
+   *          <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
+   *                 <i>user groups</i> within the user pool used to create a workforce. All of the
+   *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
+   *             have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon
+   *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
+   *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
+   *                 Pools</a>.</p>
+   *          <p>For workforces created using your own OIDC IdP, specify the user groups that you want to
+   *         include in your private work team in <code>OidcMemberDefinition</code> by listing those groups
+   *         in <code>Groups</code>.</p>
+   */
+  MemberDefinitions: MemberDefinition[] | undefined;
+
+  /**
+   * @public
+   * <p>A description of the work team.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * @public
+   * <p>Configures notification of workers regarding available or expiring work items.</p>
+   */
+  NotificationConfiguration?: NotificationConfiguration;
+
+  /**
+   * @public
+   * <p>An array of key-value pairs.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html">Resource
+   *                 Tag</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+   *                     Cost Allocation Tags</a> in the <i> Amazon Web Services Billing and Cost Management User
+   *                 Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkteamResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the work team. You can use this ARN to identify the
+   *             work team.</p>
+   */
+  WorkteamArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CrossAccountFilterOption = {
+  CROSS_ACCOUNT: "CrossAccount",
+  SAME_ACCOUNT: "SameAccount",
+} as const;
+
+/**
+ * @public
+ */
+export type CrossAccountFilterOption = (typeof CrossAccountFilterOption)[keyof typeof CrossAccountFilterOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const Statistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+  MINIMUM: "Minimum",
+  SAMPLE_COUNT: "SampleCount",
+  SUM: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
+ * <p>A customized metric.</p>
+ */
+export interface CustomizedMetricSpecification {
+  /**
+   * @public
+   * <p>The name of the customized metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>The namespace of the customized metric.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The statistic of the customized metric.</p>
+   */
+  Statistic?: Statistic;
+}
+
+/**
+ * @public
+ * <p>The currently active data capture configuration used by your Endpoint.</p>
+ */
+export interface DataCaptureConfigSummary {
+  /**
+   * @public
+   * <p>Whether data capture is enabled or disabled.</p>
+   */
+  EnableCapture: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Whether data capture is currently functional.</p>
+   */
+  CaptureStatus: CaptureStatus | undefined;
+
+  /**
+   * @public
+   * <p>The percentage of requests being captured by your Endpoint.</p>
+   */
+  CurrentSamplingPercentage: number | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 location being used to capture the data.</p>
+   */
+  DestinationS3Uri: string | undefined;
+
+  /**
+   * @public
+   * <p>The KMS key being used to encrypt the data in Amazon S3.</p>
+   */
+  KmsKeyId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleEvaluationStatus = {
+  ERROR: "Error",
+  IN_PROGRESS: "InProgress",
+  ISSUES_FOUND: "IssuesFound",
+  NO_ISSUES_FOUND: "NoIssuesFound",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleEvaluationStatus = (typeof RuleEvaluationStatus)[keyof typeof RuleEvaluationStatus];
+
+/**
+ * @public
+ * <p>Information about the status of the rule evaluation.</p>
+ */
+export interface DebugRuleEvaluationStatus {
+  /**
+   * @public
+   * <p>The name of the rule configuration.</p>
+   */
+  RuleConfigurationName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the rule evaluation job.</p>
+   */
+  RuleEvaluationJobArn?: string;
+
+  /**
+   * @public
+   * <p>Status of the rule evaluation.</p>
+   */
+  RuleEvaluationStatus?: RuleEvaluationStatus;
+
+  /**
+   * @public
+   * <p>Details from the rule evaluation.</p>
+   */
+  StatusDetails?: string;
+
+  /**
+   * @public
+   * <p>Timestamp when the rule evaluation status was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionRequest {
+  /**
+   * @public
+   * <p>The name of the action to delete.</p>
+   */
+  ActionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  ActionArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAlgorithmInput {
+  /**
+   * @public
+   * <p>The name of the algorithm to delete.</p>
+   */
+  AlgorithmName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAppRequest {
+  /**
+   * @public
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * @public
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
+   */
+  UserProfileName?: string;
+
+  /**
+   * @public
+   * <p>The type of app.</p>
+   */
+  AppType: AppType | undefined;
+
+  /**
+   * @public
+   * <p>The name of the app.</p>
+   */
+  AppName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
+   */
+  SpaceName?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAppImageConfigRequest {
+  /**
+   * @public
+   * <p>The name of the AppImageConfig to delete.</p>
+   */
+  AppImageConfigName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteArtifactRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the artifact to delete.</p>
+   */
+  ArtifactArn?: string;
+
+  /**
+   * @public
+   * <p>The URI of the source.</p>
+   */
+  Source?: ArtifactSource;
+}
+
+/**
+ * @public
+ */
+export interface DeleteArtifactResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   */
+  ArtifactArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAssociationRequest {
+  /**
+   * @public
+   * <p>The ARN of the source.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the destination.</p>
+   */
+  DestinationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAssociationResponse {
+  /**
+   * @public
+   * <p>The ARN of the source.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the destination.</p>
+   */
+  DestinationArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterRequest {
+  /**
+   * @public
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster to delete.</p>
+   */
+  ClusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster to delete.</p>
+   */
+  ClusterArn: string | undefined;
+}
 
 /**
  * @public
@@ -495,6 +1101,17 @@ export interface DeleteImageVersionResponse {}
 /**
  * @public
  */
+export interface DeleteInferenceComponentInput {
+  /**
+   * @public
+   * <p>The name of the inference component to delete.</p>
+   */
+  InferenceComponentName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteInferenceExperimentRequest {
   /**
    * @public
@@ -700,7 +1317,7 @@ export interface DeleteSpaceRequest {
 export interface DeleteStudioLifecycleConfigRequest {
   /**
    * @public
-   * <p>The name of the Studio Lifecycle Configuration to delete.</p>
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to delete.</p>
    */
   StudioLifecycleConfigName: string | undefined;
 }
@@ -1813,6 +2430,94 @@ export interface DescribeAutoMLJobV2Response {
 /**
  * @public
  */
+export interface DescribeClusterRequest {
+  /**
+   * @public
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   */
+  ClusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the SageMaker HyperPod cluster.</p>
+   */
+  ClusterName?: string;
+
+  /**
+   * @public
+   * <p>The status of the SageMaker HyperPod cluster.</p>
+   */
+  ClusterStatus: ClusterStatus | undefined;
+
+  /**
+   * @public
+   * <p>The time when the SageMaker Cluster is created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The failure message of the SageMaker HyperPod cluster.</p>
+   */
+  FailureMessage?: string;
+
+  /**
+   * @public
+   * <p>The instance groups of the SageMaker HyperPod cluster.</p>
+   */
+  InstanceGroups: ClusterInstanceGroupDetails[] | undefined;
+
+  /**
+   * @public
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterNodeRequest {
+  /**
+   * @public
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the instance is.</p>
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the instance.</p>
+   */
+  NodeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterNodeResponse {
+  /**
+   * @public
+   * <p>The details of the instance.</p>
+   */
+  NodeDetails: ClusterNodeDetails | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeCodeRepositoryInput {
   /**
    * @public
@@ -2509,7 +3214,7 @@ export interface DescribeDomainResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</p>
+   *                   <code>VpcOnly</code> - All traffic is through the specified VPC and subnets</p>
    *             </li>
    *          </ul>
    */
@@ -2525,7 +3230,7 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>The VPC subnets that Studio uses for communication.</p>
+   * <p>The VPC subnets that the domain uses for communication.</p>
    */
   SubnetIds?: string[];
 
@@ -2537,7 +3242,7 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
+   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</p>
    */
   VpcId?: string;
 
@@ -3024,6 +3729,20 @@ export interface PendingProductionVariantSummary {
    * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
    */
   DesiredServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * @public
+   * <p>Settings that control the range in the number of instances that the endpoint provisions
+   *          as it scales up or down to accommodate traffic. </p>
+   */
+  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling;
+
+  /**
+   * @public
+   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the
+   *          endpoint hosts.</p>
+   */
+  RoutingConfig?: ProductionVariantRoutingConfig;
 }
 
 /**
@@ -3125,6 +3844,20 @@ export interface ProductionVariantSummary {
    * <p>The serverless configuration requested for the endpoint update.</p>
    */
   DesiredServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * @public
+   * <p>Settings that control the range in the number of instances that the endpoint provisions
+   *          as it scales up or down to accommodate traffic. </p>
+   */
+  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling;
+
+  /**
+   * @public
+   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the
+   *          endpoint hosts.</p>
+   */
+  RoutingConfig?: ProductionVariantRoutingConfig;
 }
 
 /**
@@ -3352,6 +4085,29 @@ export interface DescribeEndpointConfigOutput {
    *             model specified on <code>ProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariant[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role that you assigned to the
+   *          endpoint configuration.</p>
+   */
+  ExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * @public
+   * <p>Indicates whether all model containers deployed to the endpoint are isolated. If they
+   *          are, no inbound or outbound network calls can be made to or from the model
+   *          containers.</p>
+   */
+  EnableNetworkIsolation?: boolean;
 }
 
 /**
@@ -4925,6 +5681,189 @@ export interface DescribeImageVersionResponse {
 /**
  * @public
  */
+export interface DescribeInferenceComponentInput {
+  /**
+   * @public
+   * <p>The name of the inference component.</p>
+   */
+  InferenceComponentName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceComponentStatus = {
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_SERVICE: "InService",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceComponentStatus = (typeof InferenceComponentStatus)[keyof typeof InferenceComponentStatus];
+
+/**
+ * @public
+ * <p>Details about the runtime settings for the model that is deployed with the inference
+ *          component.</p>
+ */
+export interface InferenceComponentRuntimeConfigSummary {
+  /**
+   * @public
+   * <p>The number of runtime copies of the model container that you requested to deploy with
+   *          the inference component.</p>
+   */
+  DesiredCopyCount?: number;
+
+  /**
+   * @public
+   * <p>The number of runtime copies of the model container that are currently deployed.</p>
+   */
+  CurrentCopyCount?: number;
+}
+
+/**
+ * @public
+ * <p>Details about the resources that are deployed with this inference component.</p>
+ */
+export interface InferenceComponentContainerSpecificationSummary {
+  /**
+   * @public
+   * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html">ProductionVariant</a>.</p>
+   *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
+   *             of the primary container when you created the model hosted in this
+   *                 <code>ProductionVariant</code>, the path resolves to a path of the form
+   *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
+   *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
+   */
+  DeployedImage?: DeployedImage;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path where the model artifacts are stored.</p>
+   */
+  ArtifactUrl?: string;
+
+  /**
+   * @public
+   * <p>The environment variables to set in the Docker container.</p>
+   */
+  Environment?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Details about the resources that are deployed with this inference component.</p>
+ */
+export interface InferenceComponentSpecificationSummary {
+  /**
+   * @public
+   * <p>The name of the SageMaker model object that is deployed with the inference
+   *          component.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * @public
+   * <p>Details about the container that provides the runtime environment for the model that is
+   *          deployed with the inference component.</p>
+   */
+  Container?: InferenceComponentContainerSpecificationSummary;
+
+  /**
+   * @public
+   * <p>Settings that take effect while the model container starts up.</p>
+   */
+  StartupParameters?: InferenceComponentStartupParameters;
+
+  /**
+   * @public
+   * <p>The compute resources allocated to run the model assigned
+   *          to the inference component.</p>
+   */
+  ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInferenceComponentOutput {
+  /**
+   * @public
+   * <p>The name of the inference component.</p>
+   */
+  InferenceComponentName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
+   */
+  InferenceComponentArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the endpoint that hosts the inference component.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the production variant that hosts the inference component.</p>
+   */
+  VariantName?: string;
+
+  /**
+   * @public
+   * <p>If the inference component status is <code>Failed</code>, the reason for the
+   *          failure.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>Details about the resources that are deployed with this inference component.</p>
+   */
+  Specification?: InferenceComponentSpecificationSummary;
+
+  /**
+   * @public
+   * <p>Details about the runtime settings for the model that is deployed with the inference
+   *       component.</p>
+   */
+  RuntimeConfig?: InferenceComponentRuntimeConfigSummary;
+
+  /**
+   * @public
+   * <p>The time when the inference component was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The time when the inference component was last updated.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The status of the inference component.</p>
+   */
+  InferenceComponentStatus?: InferenceComponentStatus;
+}
+
+/**
+ * @public
+ */
 export interface DescribeInferenceExperimentRequest {
   /**
    * @public
@@ -5945,7 +6884,7 @@ export interface DescribeModelOutput {
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the
    *             model.</p>
    */
-  ExecutionRoleArn: string | undefined;
+  ExecutionRoleArn?: string;
 
   /**
    * @public
@@ -7987,6 +8926,23 @@ export interface DescribeSpaceResponse {
    * <p>A collection of space settings.</p>
    */
   SpaceSettings?: SpaceSettings;
+
+  /**
+   * @public
+   * <p>Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.</p>
+   *          <p>The following application types are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Studio Classic: <code>&redirect=JupyterServer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>JupyterLab: <code>&redirect=JupyterLab</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Url?: string;
 }
 
 /**
@@ -7995,7 +8951,7 @@ export interface DescribeSpaceResponse {
 export interface DescribeStudioLifecycleConfigRequest {
   /**
    * @public
-   * <p>The name of the Studio Lifecycle Configuration to describe.</p>
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to describe.</p>
    */
   StudioLifecycleConfigName: string | undefined;
 }
@@ -8012,25 +8968,25 @@ export interface DescribeStudioLifecycleConfigResponse {
 
   /**
    * @public
-   * <p>The name of the Studio Lifecycle Configuration that is described.</p>
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration that is described.</p>
    */
   StudioLifecycleConfigName?: string;
 
   /**
    * @public
-   * <p>The creation time of the Studio Lifecycle Configuration.</p>
+   * <p>The creation time of the Amazon SageMaker Studio Lifecycle Configuration.</p>
    */
   CreationTime?: Date;
 
   /**
    * @public
-   * <p>This value is equivalent to CreationTime because Studio Lifecycle Configurations are immutable.</p>
+   * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle Configurations are immutable.</p>
    */
   LastModifiedTime?: Date;
 
   /**
    * @public
-   * <p>The content of your Studio Lifecycle Configuration script.</p>
+   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script.</p>
    */
   StudioLifecycleConfigContent?: string;
 
@@ -8922,6 +9878,12 @@ export interface DescribeTrainingJobResponse {
    * <p>The status of the warm pool associated with the training job.</p>
    */
   WarmPoolStatus?: WarmPoolStatus;
+
+  /**
+   * @public
+   * <p>Contains information about the infrastructure health check configuration for the training job.</p>
+   */
+  InfraCheckConfig?: InfraCheckConfig;
 }
 
 /**
@@ -9491,1207 +10453,20 @@ export const UserProfileStatus = {
 export type UserProfileStatus = (typeof UserProfileStatus)[keyof typeof UserProfileStatus];
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeUserProfileResponse {
-  /**
-   * @public
-   * <p>The ID of the domain that contains the profile.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * @public
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   */
-  UserProfileArn?: string;
-
-  /**
-   * @public
-   * <p>The user profile name.</p>
-   */
-  UserProfileName?: string;
-
-  /**
-   * @public
-   * <p>The ID of the user's profile in the Amazon Elastic File System (EFS) volume.</p>
-   */
-  HomeEfsFileSystemUid?: string;
-
-  /**
-   * @public
-   * <p>The status.</p>
-   */
-  Status?: UserProfileStatus;
-
-  /**
-   * @public
-   * <p>The last modified time.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The failure reason.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The IAM Identity Center user identifier.</p>
-   */
-  SingleSignOnUserIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The IAM Identity Center user value.</p>
-   */
-  SingleSignOnUserValue?: string;
-
-  /**
-   * @public
-   * <p>A collection of settings.</p>
-   */
-  UserSettings?: UserSettings;
-}
+export const OidcConfigFilterSensitiveLog = (obj: OidcConfig): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeWorkforceRequest {
-  /**
-   * @public
-   * <p>The name of the private workforce whose access you want to restrict.
-   *                 <code>WorkforceName</code> is automatically set to <code>default</code> when a
-   *             workforce is created and cannot be modified. </p>
-   */
-  WorkforceName: string | undefined;
-}
-
-/**
- * @public
- * <p>Your OIDC IdP workforce configuration.</p>
- */
-export interface OidcConfigForResponse {
-  /**
-   * @public
-   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
-   */
-  ClientId?: string;
-
-  /**
-   * @public
-   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
-   */
-  Issuer?: string;
-
-  /**
-   * @public
-   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
-   */
-  AuthorizationEndpoint?: string;
-
-  /**
-   * @public
-   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
-   */
-  TokenEndpoint?: string;
-
-  /**
-   * @public
-   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
-   */
-  UserInfoEndpoint?: string;
-
-  /**
-   * @public
-   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
-   */
-  LogoutEndpoint?: string;
-
-  /**
-   * @public
-   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
-   */
-  JwksUri?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const WorkforceStatus = {
-  ACTIVE: "Active",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  INITIALIZING: "Initializing",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type WorkforceStatus = (typeof WorkforceStatus)[keyof typeof WorkforceStatus];
-
-/**
- * @public
- * <p>A VpcConfig object that specifies the VPC that you want your workforce to connect to.</p>
- */
-export interface WorkforceVpcConfigResponse {
-  /**
-   * @public
-   * <p>The ID of the VPC that the workforce uses for communication.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * @public
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the subnets in the VPC that you want to connect.</p>
-   */
-  Subnets: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The IDs for the VPC service endpoints of your VPC workforce when it is created and updated.</p>
-   */
-  VpcEndpointId?: string;
-}
-
-/**
- * @public
- * <p>A single private workforce, which is automatically created when you create your first
- *             private work team. You can create one private work force in each Amazon Web Services Region. By default,
- *             any workforce-related API operation used in a specific region will apply to the
- *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
- */
-export interface Workforce {
-  /**
-   * @public
-   * <p>The name of the private workforce.</p>
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the private workforce.</p>
-   */
-  WorkforceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The most recent date that <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html">UpdateWorkforce</a> was used to
-   *             successfully add one or more IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to a private workforce's
-   *             allow list.</p>
-   */
-  LastUpdatedDate?: Date;
-
-  /**
-   * @public
-   * <p>A list of one to ten IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to be added to the
-   *             workforce allow list. By default, a workforce isn't restricted to specific IP addresses.</p>
-   */
-  SourceIpConfig?: SourceIpConfig;
-
-  /**
-   * @public
-   * <p>The subdomain for your OIDC Identity Provider.</p>
-   */
-  SubDomain?: string;
-
-  /**
-   * @public
-   * <p>The configuration of an Amazon Cognito workforce.
-   *       A single Cognito workforce is created using and corresponds to a single
-   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
-   *       Amazon Cognito user pool</a>.</p>
-   */
-  CognitoConfig?: CognitoConfig;
-
-  /**
-   * @public
-   * <p>The configuration of an OIDC Identity Provider (IdP) private workforce.</p>
-   */
-  OidcConfig?: OidcConfigForResponse;
-
-  /**
-   * @public
-   * <p>The date that the workforce is created.</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * @public
-   * <p>The configuration of a VPC workforce.</p>
-   */
-  WorkforceVpcConfig?: WorkforceVpcConfigResponse;
-
-  /**
-   * @public
-   * <p>The status of your workforce.</p>
-   */
-  Status?: WorkforceStatus;
-
-  /**
-   * @public
-   * <p>The reason your workforce failed.</p>
-   */
-  FailureReason?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeWorkforceResponse {
-  /**
-   * @public
-   * <p>A single private workforce, which is automatically created when you create your first
-   *             private work team. You can create one private work force in each Amazon Web Services Region. By default,
-   *             any workforce-related API operation used in a specific region will apply to the
-   *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
-   */
-  Workforce: Workforce | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeWorkteamRequest {
-  /**
-   * @public
-   * <p>The name of the work team to return a description of.</p>
-   */
-  WorkteamName: string | undefined;
-}
-
-/**
- * @public
- * <p>Provides details about a labeling work team.</p>
- */
-export interface Workteam {
-  /**
-   * @public
-   * <p>The name of the work team.</p>
-   */
-  WorkteamName: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
-   *             the workers that make up the work team. </p>
-   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
-   *             For private workforces created using Amazon Cognito use
-   *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
-   *             provider (IdP) use <code>OidcMemberDefinition</code>.</p>
-   */
-  MemberDefinitions: MemberDefinition[] | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) that identifies the work team.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the workforce.</p>
-   */
-  WorkforceArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Marketplace identifier for a vendor's work team.</p>
-   */
-  ProductListingIds?: string[];
-
-  /**
-   * @public
-   * <p>A description of the work team.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * @public
-   * <p>The URI of the labeling job's user interface. Workers open this URI to start labeling
-   *             your data objects.</p>
-   */
-  SubDomain?: string;
-
-  /**
-   * @public
-   * <p>The date and time that the work team was created (timestamp).</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * @public
-   * <p>The date and time that the work team was last updated (timestamp).</p>
-   */
-  LastUpdatedDate?: Date;
-
-  /**
-   * @public
-   * <p>Configures SNS notifications of available or expiring work items for work
-   *             teams.</p>
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-}
-
-/**
- * @public
- */
-export interface DescribeWorkteamResponse {
-  /**
-   * @public
-   * <p>A <code>Workteam</code> instance that contains information about the work team.
-   *         </p>
-   */
-  Workteam: Workteam | undefined;
-}
-
-/**
- * @public
- * <p>Specifies the serverless update concurrency configuration for an endpoint variant.</p>
- */
-export interface ProductionVariantServerlessUpdateConfig {
-  /**
-   * @public
-   * <p>The updated maximum number of concurrent invocations your serverless endpoint can process.</p>
-   */
-  MaxConcurrency?: number;
-
-  /**
-   * @public
-   * <p>The updated amount of provisioned concurrency to allocate for the serverless endpoint.
-   *    Should be less than or equal to <code>MaxConcurrency</code>.</p>
-   */
-  ProvisionedConcurrency?: number;
-}
-
-/**
- * @public
- * <p>Specifies weight and capacity values for a production variant.</p>
- */
-export interface DesiredWeightAndCapacity {
-  /**
-   * @public
-   * <p>The name of the variant to update.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * @public
-   * <p>The variant's weight.</p>
-   */
-  DesiredWeight?: number;
-
-  /**
-   * @public
-   * <p>The variant's capacity.</p>
-   */
-  DesiredInstanceCount?: number;
-
-  /**
-   * @public
-   * <p>Specifies the serverless update concurrency configuration for an endpoint variant.</p>
-   */
-  ServerlessUpdateConfig?: ProductionVariantServerlessUpdateConfig;
-}
-
-/**
- * @public
- * <p>Information of a particular device.</p>
- */
-export interface Device {
-  /**
-   * @public
-   * <p>The name of the device.</p>
-   */
-  DeviceName: string | undefined;
-
-  /**
-   * @public
-   * <p>Description of the device.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Amazon Web Services Internet of Things (IoT) object name.</p>
-   */
-  IotThingName?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const DeviceDeploymentStatus = {
-  Deployed: "DEPLOYED",
-  Failed: "FAILED",
-  InProgress: "INPROGRESS",
-  ReadyToDeploy: "READYTODEPLOY",
-  Stopped: "STOPPED",
-  Stopping: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type DeviceDeploymentStatus = (typeof DeviceDeploymentStatus)[keyof typeof DeviceDeploymentStatus];
-
-/**
- * @public
- * <p>Contains information summarizing device details and deployment status.</p>
- */
-export interface DeviceDeploymentSummary {
-  /**
-   * @public
-   * <p>The ARN of the edge deployment plan.</p>
-   */
-  EdgeDeploymentPlanArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the edge deployment plan.</p>
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the stage in the edge deployment plan.</p>
-   */
-  StageName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the deployed stage.</p>
-   */
-  DeployedStageName?: string;
-
-  /**
-   * @public
-   * <p>The name of the fleet to which the device belongs to.</p>
-   */
-  DeviceFleetName?: string;
-
-  /**
-   * @public
-   * <p>The name of the device.</p>
-   */
-  DeviceName: string | undefined;
-
-  /**
-   * @public
-   * <p>The ARN of the device.</p>
-   */
-  DeviceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The deployment status of the device.</p>
-   */
-  DeviceDeploymentStatus?: DeviceDeploymentStatus;
-
-  /**
-   * @public
-   * <p>The detailed error message for the deployoment status result.</p>
-   */
-  DeviceDeploymentStatusMessage?: string;
-
-  /**
-   * @public
-   * <p>The description of the device.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The time when the deployment on the device started.</p>
-   */
-  DeploymentStartTime?: Date;
-}
-
-/**
- * @public
- * <p>Summary of the device fleet.</p>
- */
-export interface DeviceFleetSummary {
-  /**
-   * @public
-   * <p>Amazon Resource Name (ARN) of the device fleet.</p>
-   */
-  DeviceFleetArn: string | undefined;
-
-  /**
-   * @public
-   * <p>Name of the device fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * @public
-   * <p>Timestamp of when the device fleet was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Timestamp of when the device fleet was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- * <p>Status of devices.</p>
- */
-export interface DeviceStats {
-  /**
-   * @public
-   * <p>The number of devices connected with a heartbeat.</p>
-   */
-  ConnectedDeviceCount: number | undefined;
-
-  /**
-   * @public
-   * <p>The number of registered devices.</p>
-   */
-  RegisteredDeviceCount: number | undefined;
-}
-
-/**
- * @public
- * <p>Summary of model on edge device.</p>
- */
-export interface EdgeModelSummary {
-  /**
-   * @public
-   * <p>The name of the model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * @public
-   * <p>The version model.</p>
-   */
-  ModelVersion: string | undefined;
-}
-
-/**
- * @public
- * <p>Summary of the device.</p>
- */
-export interface DeviceSummary {
-  /**
-   * @public
-   * <p>The unique identifier of the device.</p>
-   */
-  DeviceName: string | undefined;
-
-  /**
-   * @public
-   * <p>Amazon Resource Name (ARN) of the device.</p>
-   */
-  DeviceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A description of the device.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The name of the fleet the device belongs to.</p>
-   */
-  DeviceFleetName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Internet of Things (IoT) object thing name associated with the device..</p>
-   */
-  IotThingName?: string;
-
-  /**
-   * @public
-   * <p>The timestamp of the last registration or de-reregistration.</p>
-   */
-  RegistrationTime?: Date;
-
-  /**
-   * @public
-   * <p>The last heartbeat received from the device.</p>
-   */
-  LatestHeartbeat?: Date;
-
-  /**
-   * @public
-   * <p>Models on the device.</p>
-   */
-  Models?: EdgeModelSummary[];
-
-  /**
-   * @public
-   * <p>Edge Manager agent version.</p>
-   */
-  AgentVersion?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const Direction = {
-  ASCENDANTS: "Ascendants",
-  BOTH: "Both",
-  DESCENDANTS: "Descendants",
-} as const;
-
-/**
- * @public
- */
-export type Direction = (typeof Direction)[keyof typeof Direction];
-
-/**
- * @public
- */
-export interface DisableSagemakerServicecatalogPortfolioInput {}
-
-/**
- * @public
- */
-export interface DisableSagemakerServicecatalogPortfolioOutput {}
-
-/**
- * @public
- */
-export interface DisassociateTrialComponentRequest {
-  /**
-   * @public
-   * <p>The name of the component to disassociate from the trial.</p>
-   */
-  TrialComponentName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the trial to disassociate from.</p>
-   */
-  TrialName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrialComponentResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   */
-  TrialComponentArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   */
-  TrialArn?: string;
-}
-
-/**
- * @public
- * <p>The domain's details.</p>
- */
-export interface DomainDetails {
-  /**
-   * @public
-   * <p>The domain's Amazon Resource Name (ARN).</p>
-   */
-  DomainArn?: string;
-
-  /**
-   * @public
-   * <p>The domain ID.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * @public
-   * <p>The domain name.</p>
-   */
-  DomainName?: string;
-
-  /**
-   * @public
-   * <p>The status.</p>
-   */
-  Status?: DomainStatus;
-
-  /**
-   * @public
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The last modified time.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The domain's URL.</p>
-   */
-  Url?: string;
-}
-
-/**
- * @public
- * <p>A collection of settings that update the current configuration for the
- *                 <code>RStudioServerPro</code> Domain-level app.</p>
- */
-export interface RStudioServerProDomainSettingsForUpdate {
-  /**
-   * @public
-   * <p>The execution role for the <code>RStudioServerPro</code> Domain-level app.</p>
-   */
-  DomainExecutionRoleArn: string | undefined;
-
-  /**
-   * @public
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
-   */
-  DefaultResourceSpec?: ResourceSpec;
-
-  /**
-   * @public
-   * <p>A URL pointing to an RStudio Connect server.</p>
-   */
-  RStudioConnectUrl?: string;
-
-  /**
-   * @public
-   * <p>A URL pointing to an RStudio Package Manager server.</p>
-   */
-  RStudioPackageManagerUrl?: string;
-}
-
-/**
- * @public
- * <p>A collection of <code>Domain</code> configuration settings to update.</p>
- */
-export interface DomainSettingsForUpdate {
-  /**
-   * @public
-   * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to update. A
-   *             single <code>RStudioServerPro</code> application is created for a domain.</p>
-   */
-  RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
-
-  /**
-   * @public
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there
-   *             are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
-   */
-  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
-
-  /**
-   * @public
-   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
-   *             communication between Domain-level apps and user apps.</p>
-   */
-  SecurityGroupIds?: string[];
-}
-
-/**
- * @public
- * <p>A specification for a predefined metric.</p>
- */
-export interface PredefinedMetricSpecification {
-  /**
-   * @public
-   * <p>The metric type. You can only apply SageMaker metric types to SageMaker endpoints.</p>
-   */
-  PredefinedMetricType?: string;
-}
-
-/**
- * @public
- * <p>An object containing information about a metric.</p>
- */
-export type MetricSpecification =
-  | MetricSpecification.CustomizedMember
-  | MetricSpecification.PredefinedMember
-  | MetricSpecification.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MetricSpecification {
-  /**
-   * @public
-   * <p>Information about a predefined metric.</p>
-   */
-  export interface PredefinedMember {
-    Predefined: PredefinedMetricSpecification;
-    Customized?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   * <p>Information about a customized metric.</p>
-   */
-  export interface CustomizedMember {
-    Predefined?: never;
-    Customized: CustomizedMetricSpecification;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Predefined?: never;
-    Customized?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    Predefined: (value: PredefinedMetricSpecification) => T;
-    Customized: (value: CustomizedMetricSpecification) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: MetricSpecification, visitor: Visitor<T>): T => {
-    if (value.Predefined !== undefined) return visitor.Predefined(value.Predefined);
-    if (value.Customized !== undefined) return visitor.Customized(value.Customized);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * <p>A target tracking scaling policy. Includes support for predefined or customized metrics.</p>
- *          <p>When using the <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a> API,
- *          this parameter is required when you are creating a policy with the policy type <code>TargetTrackingScaling</code>.</p>
- */
-export interface TargetTrackingScalingPolicyConfiguration {
-  /**
-   * @public
-   * <p>An object containing information about a metric.</p>
-   */
-  MetricSpecification?: MetricSpecification;
-
-  /**
-   * @public
-   * <p>The recommended target value to specify for the metric when creating a scaling policy.</p>
-   */
-  TargetValue?: number;
-}
-
-/**
- * @public
- * <p>An object containing a recommended scaling policy.</p>
- */
-export type ScalingPolicy = ScalingPolicy.TargetTrackingMember | ScalingPolicy.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ScalingPolicy {
-  /**
-   * @public
-   * <p>A target tracking scaling policy. Includes support for predefined or customized metrics.</p>
-   */
-  export interface TargetTrackingMember {
-    TargetTracking: TargetTrackingScalingPolicyConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    TargetTracking?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    TargetTracking: (value: TargetTrackingScalingPolicyConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ScalingPolicy, visitor: Visitor<T>): T => {
-    if (value.TargetTracking !== undefined) return visitor.TargetTracking(value.TargetTracking);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * <p>An object with the recommended values for you to specify when creating an autoscaling policy.</p>
- */
-export interface DynamicScalingConfiguration {
-  /**
-   * @public
-   * <p>The recommended minimum capacity to specify for your autoscaling policy.</p>
-   */
-  MinCapacity?: number;
-
-  /**
-   * @public
-   * <p>The recommended maximum capacity to specify for your autoscaling policy.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * @public
-   * <p>The recommended scale in cooldown time for your autoscaling policy.</p>
-   */
-  ScaleInCooldown?: number;
-
-  /**
-   * @public
-   * <p>The recommended scale out cooldown time for your autoscaling policy.</p>
-   */
-  ScaleOutCooldown?: number;
-
-  /**
-   * @public
-   * <p>An object of the scaling policies for each metric.</p>
-   */
-  ScalingPolicies?: ScalingPolicy[];
-}
-
-/**
- * @public
- * <p>A directed edge connecting two lineage entities.</p>
- */
-export interface Edge {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the source lineage entity of the directed edge.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the destination lineage entity of the directed edge.</p>
-   */
-  DestinationArn?: string;
-
-  /**
-   * @public
-   * <p>The type of the Association(Edge) between the source and destination. For example <code>ContributedTo</code>,
-   *          <code>Produced</code>, or <code>DerivedFrom</code>.</p>
-   */
-  AssociationType?: AssociationEdgeType;
-}
-
-/**
- * @public
- * <p>Contains information summarizing an edge deployment plan.</p>
- */
-export interface EdgeDeploymentPlanSummary {
-  /**
-   * @public
-   * <p>The ARN of the edge deployment plan.</p>
-   */
-  EdgeDeploymentPlanArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the edge deployment plan.</p>
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the device fleet used for the deployment. </p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * @public
-   * <p>The number of edge devices with the successful deployment.</p>
-   */
-  EdgeDeploymentSuccess: number | undefined;
-
-  /**
-   * @public
-   * <p>The number of edge devices yet to pick up the deployment, or in progress.</p>
-   */
-  EdgeDeploymentPending: number | undefined;
-
-  /**
-   * @public
-   * <p>The number of edge devices that failed the deployment.</p>
-   */
-  EdgeDeploymentFailed: number | undefined;
-
-  /**
-   * @public
-   * <p>The time when the edge deployment plan was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The time when the edge deployment plan was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- * <p>Status of edge devices with this model.</p>
- */
-export interface EdgeModelStat {
-  /**
-   * @public
-   * <p>The name of the model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * @public
-   * <p>The model version.</p>
-   */
-  ModelVersion: string | undefined;
-
-  /**
-   * @public
-   * <p>The number of devices that have this model version and do not have a heart beat.</p>
-   */
-  OfflineDeviceCount: number | undefined;
-
-  /**
-   * @public
-   * <p>The number of devices that have this model version and have a heart beat. </p>
-   */
-  ConnectedDeviceCount: number | undefined;
-
-  /**
-   * @public
-   * <p>The number of devices that have this model version, a heart beat, and are currently running.</p>
-   */
-  ActiveDeviceCount: number | undefined;
-
-  /**
-   * @public
-   * <p>The number of devices with this model version and are producing sample data.</p>
-   */
-  SamplingDeviceCount: number | undefined;
-}
-
-/**
- * @public
- * <p>Summary of edge packaging job.</p>
- */
-export interface EdgePackagingJobSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
-   */
-  EdgePackagingJobArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the edge packaging job.</p>
-   */
-  EdgePackagingJobName: string | undefined;
-
-  /**
-   * @public
-   * <p>The status of the edge packaging job.</p>
-   */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | undefined;
-
-  /**
-   * @public
-   * <p>The name of the SageMaker Neo compilation job.</p>
-   */
-  CompilationJobName?: string;
-
-  /**
-   * @public
-   * <p>The name of the model.</p>
-   */
-  ModelName?: string;
-
-  /**
-   * @public
-   * <p>The version of the model.</p>
-   */
-  ModelVersion?: string;
-
-  /**
-   * @public
-   * <p>The timestamp of when the job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The timestamp of when the edge packaging job was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
- */
-export interface EMRStepMetadata {
-  /**
-   * @public
-   * <p>The identifier of the EMR cluster.</p>
-   */
-  ClusterId?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the EMR cluster step.</p>
-   */
-  StepId?: string;
-
-  /**
-   * @public
-   * <p>The name of the EMR cluster step.</p>
-   */
-  StepName?: string;
-
-  /**
-   * @public
-   * <p>The path to the log file where the cluster step's failure root cause
-   *             is recorded.</p>
-   */
-  LogFilePath?: string;
-}
-
-/**
- * @public
- */
-export interface EnableSagemakerServicecatalogPortfolioInput {}
-
-/**
- * @public
- */
-export interface EnableSagemakerServicecatalogPortfolioOutput {}
+export const CreateWorkforceRequestFilterSensitiveLog = (obj: CreateWorkforceRequest): any => ({
+  ...obj,
+  ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
+});
 
 /**
  * @internal

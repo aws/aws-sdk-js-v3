@@ -45,8 +45,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  *                 launched before you called this API.</p>
  *          </note>
  *          <note>
- *             <p>When you call this API to delete tags from a SageMaker Studio Domain or User
- *                 Profile, the deleted tags are not removed from Apps that the SageMaker Studio Domain
+ *             <p>When you call this API to delete tags from a SageMaker Domain or User
+ *                 Profile, the deleted tags are not removed from Apps that the SageMaker Domain
  *                 or User Profile launched before you called this API.</p>
  *          </note>
  * @example

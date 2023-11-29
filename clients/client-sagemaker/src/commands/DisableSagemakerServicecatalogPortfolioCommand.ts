@@ -17,7 +17,7 @@ import {
 import {
   DisableSagemakerServicecatalogPortfolioInput,
   DisableSagemakerServicecatalogPortfolioOutput,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DisableSagemakerServicecatalogPortfolioCommand,
   se_DisableSagemakerServicecatalogPortfolioCommand,

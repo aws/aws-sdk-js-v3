@@ -47,6 +47,7 @@ import {
 import { CreateArtifactCommandInput, CreateArtifactCommandOutput } from "../commands/CreateArtifactCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "../commands/CreateAutoMLJobCommand";
 import { CreateAutoMLJobV2CommandInput, CreateAutoMLJobV2CommandOutput } from "../commands/CreateAutoMLJobV2Command";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -93,6 +94,10 @@ import {
 } from "../commands/CreateHyperParameterTuningJobCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "../commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "../commands/CreateImageVersionCommand";
+import {
+  CreateInferenceComponentCommandInput,
+  CreateInferenceComponentCommandOutput,
+} from "../commands/CreateInferenceComponentCommand";
 import {
   CreateInferenceExperimentCommandInput,
   CreateInferenceExperimentCommandOutput,
@@ -175,6 +180,7 @@ import {
 } from "../commands/DeleteAppImageConfigCommand";
 import { DeleteArtifactCommandInput, DeleteArtifactCommandOutput } from "../commands/DeleteArtifactCommand";
 import { DeleteAssociationCommandInput, DeleteAssociationCommandOutput } from "../commands/DeleteAssociationCommand";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
@@ -210,6 +216,10 @@ import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "../
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "../commands/DeleteHumanTaskUiCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "../commands/DeleteImageVersionCommand";
+import {
+  DeleteInferenceComponentCommandInput,
+  DeleteInferenceComponentCommandOutput,
+} from "../commands/DeleteInferenceComponentCommand";
 import {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
@@ -279,6 +289,11 @@ import {
   DescribeAutoMLJobV2CommandInput,
   DescribeAutoMLJobV2CommandOutput,
 } from "../commands/DescribeAutoMLJobV2Command";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
+import {
+  DescribeClusterNodeCommandInput,
+  DescribeClusterNodeCommandOutput,
+} from "../commands/DescribeClusterNodeCommand";
 import {
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -339,6 +354,10 @@ import {
   DescribeImageVersionCommandInput,
   DescribeImageVersionCommandOutput,
 } from "../commands/DescribeImageVersionCommand";
+import {
+  DescribeInferenceComponentCommandInput,
+  DescribeInferenceComponentCommandOutput,
+} from "../commands/DescribeInferenceComponentCommand";
 import {
   DescribeInferenceExperimentCommandInput,
   DescribeInferenceExperimentCommandOutput,
@@ -487,6 +506,8 @@ import {
   ListCandidatesForAutoMLJobCommandInput,
   ListCandidatesForAutoMLJobCommandOutput,
 } from "../commands/ListCandidatesForAutoMLJobCommand";
+import { ListClusterNodesCommandInput, ListClusterNodesCommandOutput } from "../commands/ListClusterNodesCommand";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListCodeRepositoriesCommandInput,
   ListCodeRepositoriesCommandOutput,
@@ -535,6 +556,10 @@ import {
 } from "../commands/ListHyperParameterTuningJobsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "../commands/ListImageVersionsCommand";
+import {
+  ListInferenceComponentsCommandInput,
+  ListInferenceComponentsCommandOutput,
+} from "../commands/ListInferenceComponentsCommand";
 import {
   ListInferenceExperimentsCommandInput,
   ListInferenceExperimentsCommandOutput,
@@ -733,6 +758,7 @@ import {
   UpdateAppImageConfigCommandOutput,
 } from "../commands/UpdateAppImageConfigCommand";
 import { UpdateArtifactCommandInput, UpdateArtifactCommandOutput } from "../commands/UpdateArtifactCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
@@ -755,6 +781,14 @@ import {
 import { UpdateHubCommandInput, UpdateHubCommandOutput } from "../commands/UpdateHubCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "../commands/UpdateImageCommand";
 import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "../commands/UpdateImageVersionCommand";
+import {
+  UpdateInferenceComponentCommandInput,
+  UpdateInferenceComponentCommandOutput,
+} from "../commands/UpdateInferenceComponentCommand";
+import {
+  UpdateInferenceComponentRuntimeConfigCommandInput,
+  UpdateInferenceComponentRuntimeConfigCommandOutput,
+} from "../commands/UpdateInferenceComponentRuntimeConfigCommand";
 import {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
@@ -885,6 +919,13 @@ import {
   ClarifyShapBaselineConfig,
   ClarifyShapConfig,
   ClarifyTextConfig,
+  ClusterInstanceGroupDetails,
+  ClusterInstanceGroupSpecification,
+  ClusterInstanceStatusDetails,
+  ClusterLifeCycleConfig,
+  ClusterNodeDetails,
+  ClusterNodeSummary,
+  ClusterSummary,
   CodeRepository,
   CodeRepositorySummary,
   CognitoConfig,
@@ -916,18 +957,16 @@ import {
   CreateAutoMLJobResponse,
   CreateAutoMLJobV2Request,
   CreateAutoMLJobV2Response,
+  CreateClusterRequest,
+  CreateClusterResponse,
   CreateCodeRepositoryInput,
   CreateCodeRepositoryOutput,
   CreateCompilationJobRequest,
   CreateCompilationJobResponse,
   CreateContextRequest,
   CreateContextResponse,
-  DataQualityAppSpecification,
-  DataQualityBaselineConfig,
-  DataQualityJobInput,
   DataSource,
   DirectDeploySettings,
-  EndpointInput,
   FileSystemConfig,
   FileSystemDataSource,
   FillingType,
@@ -957,17 +996,10 @@ import {
   ModelInput,
   ModelPackageContainerDefinition,
   ModelRegisterSettings,
-  MonitoringClusterConfig,
-  MonitoringConstraintsResource,
   MonitoringCsvDatasetFormat,
   MonitoringDatasetFormat,
   MonitoringJsonDatasetFormat,
-  MonitoringOutput,
-  MonitoringOutputConfig,
   MonitoringParquetDatasetFormat,
-  MonitoringResources,
-  MonitoringS3Output,
-  MonitoringStatisticsResource,
   MultiModelConfig,
   NeoVpcConfig,
   OutputConfig,
@@ -1045,6 +1077,8 @@ import {
   CreateImageResponse,
   CreateImageVersionRequest,
   CreateImageVersionResponse,
+  CreateInferenceComponentInput,
+  CreateInferenceComponentOutput,
   CreateInferenceExperimentRequest,
   CreateInferenceExperimentResponse,
   CreateInferenceRecommendationsJobRequest,
@@ -1096,31 +1130,17 @@ import {
   CreateTrialRequest,
   CreateTrialResponse,
   CreateUserProfileRequest,
-  CreateUserProfileResponse,
-  CreateWorkforceRequest,
-  CreateWorkforceResponse,
-  CreateWorkteamRequest,
-  CreateWorkteamResponse,
   CustomImage,
-  CustomizedMetricSpecification,
   DataCaptureConfig,
-  DataCaptureConfigSummary,
   DataCatalogConfig,
   DataProcessing,
+  DataQualityAppSpecification,
+  DataQualityBaselineConfig,
+  DataQualityJobInput,
   DatasetDefinition,
   DebugHookConfig,
   DebugRuleConfiguration,
-  DebugRuleEvaluationStatus,
   DefaultSpaceSettings,
-  DeleteActionRequest,
-  DeleteActionResponse,
-  DeleteAlgorithmInput,
-  DeleteAppImageConfigRequest,
-  DeleteAppRequest,
-  DeleteArtifactRequest,
-  DeleteArtifactResponse,
-  DeleteAssociationRequest,
-  DeleteAssociationResponse,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1134,6 +1154,7 @@ import {
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInfo,
+  EndpointInput,
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
   ExperimentConfig,
@@ -1156,9 +1177,15 @@ import {
   HyperParameterTuningJobStrategyConfig,
   HyperParameterTuningJobWarmStartConfig,
   HyperParameterTuningResourceConfig,
+  InferenceComponentComputeResourceRequirements,
+  InferenceComponentContainerSpecification,
+  InferenceComponentRuntimeConfig,
+  InferenceComponentSpecification,
+  InferenceComponentStartupParameters,
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
+  InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   IntegerParameterRange,
   JupyterServerAppSettings,
@@ -1172,7 +1199,6 @@ import {
   LabelingJobS3DataSource,
   LabelingJobSnsDataSource,
   LabelingJobStoppingConditions,
-  MemberDefinition,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
@@ -1195,19 +1221,23 @@ import {
   ModelVariantConfig,
   MonitoringAppSpecification,
   MonitoringBaselineConfig,
+  MonitoringClusterConfig,
+  MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringInput,
   MonitoringJobDefinition,
   MonitoringNetworkConfig,
+  MonitoringOutput,
+  MonitoringOutputConfig,
+  MonitoringResources,
+  MonitoringS3Output,
   MonitoringScheduleConfig,
+  MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
-  NotificationConfiguration,
   OfflineStoreConfig,
-  OidcConfig,
-  OidcMemberDefinition,
   OnlineStoreConfig,
   OnlineStoreSecurityConfig,
   ParallelismConfiguration,
@@ -1226,6 +1256,8 @@ import {
   ProcessingStoppingCondition,
   ProductionVariant,
   ProductionVariantCoreDumpConfig,
+  ProductionVariantManagedInstanceScaling,
+  ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -1255,7 +1287,6 @@ import {
   SharingSettings,
   SourceAlgorithm,
   SourceAlgorithmSpecification,
-  SourceIpConfig,
   SpaceSettings,
   Stairs,
   TensorBoardAppSettings,
@@ -1270,9 +1301,27 @@ import {
   UiTemplate,
   USD,
   UserSettings,
-  WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  CreateUserProfileResponse,
+  CreateWorkforceRequest,
+  CreateWorkforceResponse,
+  CreateWorkteamRequest,
+  CreateWorkteamResponse,
+  CustomizedMetricSpecification,
+  DataCaptureConfigSummary,
+  DebugRuleEvaluationStatus,
+  DeleteActionRequest,
+  DeleteActionResponse,
+  DeleteAlgorithmInput,
+  DeleteAppImageConfigRequest,
+  DeleteAppRequest,
+  DeleteArtifactRequest,
+  DeleteArtifactResponse,
+  DeleteAssociationRequest,
+  DeleteAssociationResponse,
+  DeleteClusterRequest,
+  DeleteClusterResponse,
   DeleteCodeRepositoryInput,
   DeleteContextRequest,
   DeleteContextResponse,
@@ -1296,6 +1345,7 @@ import {
   DeleteImageResponse,
   DeleteImageVersionRequest,
   DeleteImageVersionResponse,
+  DeleteInferenceComponentInput,
   DeleteInferenceExperimentRequest,
   DeleteInferenceExperimentResponse,
   DeleteModelBiasJobDefinitionRequest,
@@ -1344,6 +1394,10 @@ import {
   DescribeAutoMLJobResponse,
   DescribeAutoMLJobV2Request,
   DescribeAutoMLJobV2Response,
+  DescribeClusterNodeRequest,
+  DescribeClusterNodeResponse,
+  DescribeClusterRequest,
+  DescribeClusterResponse,
   DescribeCodeRepositoryInput,
   DescribeCodeRepositoryOutput,
   DescribeCompilationJobRequest,
@@ -1386,6 +1440,8 @@ import {
   DescribeImageResponse,
   DescribeImageVersionRequest,
   DescribeImageVersionResponse,
+  DescribeInferenceComponentInput,
+  DescribeInferenceComponentOutput,
   DescribeInferenceExperimentRequest,
   DescribeInferenceExperimentResponse,
   DescribeInferenceRecommendationsJobRequest,
@@ -1441,6 +1497,69 @@ import {
   DescribeTrialRequest,
   DescribeTrialResponse,
   DescribeUserProfileRequest,
+  EdgeDeploymentStatus,
+  EdgeModel,
+  EdgePresetDeploymentOutput,
+  EndpointMetadata,
+  EndpointOutputConfiguration,
+  EndpointPerformance,
+  EnvironmentParameter,
+  ExperimentSource,
+  FeatureParameter,
+  FinalHyperParameterTuningJobObjectiveMetric,
+  HubContentDependency,
+  HyperParameterTrainingJobSummary,
+  HyperParameterTuningJobCompletionDetails,
+  HyperParameterTuningJobConsumedResources,
+  InferenceComponentContainerSpecificationSummary,
+  InferenceComponentRuntimeConfigSummary,
+  InferenceComponentSpecificationSummary,
+  InferenceMetrics,
+  InferenceRecommendation,
+  LabelCounters,
+  LabelingJobOutput,
+  LastUpdateStatus,
+  MemberDefinition,
+  MetricData,
+  ModelArtifacts,
+  ModelCardExportArtifacts,
+  ModelConfiguration,
+  ModelDeployResult,
+  ModelDigests,
+  ModelPackageStatusDetails,
+  ModelPackageStatusItem,
+  ModelVariantConfigSummary,
+  MonitoringExecutionSummary,
+  NotificationConfiguration,
+  ObjectiveStatusCounters,
+  OfflineStoreStatus,
+  OidcConfig,
+  OidcMemberDefinition,
+  PendingDeploymentSummary,
+  PendingProductionVariantSummary,
+  PipelineExperimentConfig,
+  ProductionVariantStatus,
+  ProductionVariantSummary,
+  ProfilerRuleEvaluationStatus,
+  RealTimeInferenceRecommendation,
+  RecommendationMetrics,
+  ResolvedAttributes,
+  RetentionPolicy,
+  SecondaryStatusTransition,
+  SelectedStep,
+  SelectiveExecutionConfig,
+  ServiceCatalogProvisionedProductDetails,
+  SourceIpConfig,
+  SubscribedWorkteam,
+  TrainingJobStatusCounters,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
+  TrialSource,
+  UiTemplateInfo,
+  WarmPoolStatus,
+  WorkforceVpcConfigRequest,
+} from "../models/models_2";
+import {
   DescribeUserProfileResponse,
   DescribeWorkforceRequest,
   DescribeWorkforceResponse,
@@ -1461,76 +1580,12 @@ import {
   DynamicScalingConfiguration,
   Edge,
   EdgeDeploymentPlanSummary,
-  EdgeDeploymentStatus,
-  EdgeModel,
   EdgeModelStat,
   EdgeModelSummary,
   EdgePackagingJobSummary,
-  EdgePresetDeploymentOutput,
   EMRStepMetadata,
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
-  EndpointMetadata,
-  EndpointOutputConfiguration,
-  EndpointPerformance,
-  EnvironmentParameter,
-  ExperimentSource,
-  FeatureParameter,
-  FinalHyperParameterTuningJobObjectiveMetric,
-  HubContentDependency,
-  HyperParameterTrainingJobSummary,
-  HyperParameterTuningJobCompletionDetails,
-  HyperParameterTuningJobConsumedResources,
-  InferenceMetrics,
-  InferenceRecommendation,
-  LabelCounters,
-  LabelingJobOutput,
-  LastUpdateStatus,
-  MetricData,
-  MetricSpecification,
-  ModelArtifacts,
-  ModelCardExportArtifacts,
-  ModelConfiguration,
-  ModelDeployResult,
-  ModelDigests,
-  ModelPackageStatusDetails,
-  ModelPackageStatusItem,
-  ModelVariantConfigSummary,
-  MonitoringExecutionSummary,
-  ObjectiveStatusCounters,
-  OfflineStoreStatus,
-  OidcConfigForResponse,
-  PendingDeploymentSummary,
-  PendingProductionVariantSummary,
-  PipelineExperimentConfig,
-  PredefinedMetricSpecification,
-  ProductionVariantServerlessUpdateConfig,
-  ProductionVariantStatus,
-  ProductionVariantSummary,
-  ProfilerRuleEvaluationStatus,
-  RealTimeInferenceRecommendation,
-  RecommendationMetrics,
-  ResolvedAttributes,
-  RetentionPolicy,
-  RStudioServerProDomainSettingsForUpdate,
-  ScalingPolicy,
-  SecondaryStatusTransition,
-  SelectedStep,
-  SelectiveExecutionConfig,
-  ServiceCatalogProvisionedProductDetails,
-  SubscribedWorkteam,
-  TargetTrackingScalingPolicyConfiguration,
-  TrainingJobStatusCounters,
-  TrialComponentMetricSummary,
-  TrialComponentSource,
-  TrialSource,
-  UiTemplateInfo,
-  WarmPoolStatus,
-  Workforce,
-  WorkforceVpcConfigResponse,
-  Workteam,
-} from "../models/models_2";
-import {
   Endpoint,
   EndpointConfigSummary,
   EndpointSummary,
@@ -1564,6 +1619,7 @@ import {
   ImageVersion,
   ImportHubContentRequest,
   ImportHubContentResponse,
+  InferenceComponentSummary,
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
@@ -1591,6 +1647,10 @@ import {
   ListAutoMLJobsResponse,
   ListCandidatesForAutoMLJobRequest,
   ListCandidatesForAutoMLJobResponse,
+  ListClusterNodesRequest,
+  ListClusterNodesResponse,
+  ListClustersRequest,
+  ListClustersResponse,
   ListCodeRepositoriesInput,
   ListCodeRepositoriesOutput,
   ListCompilationJobsRequest,
@@ -1633,6 +1693,8 @@ import {
   ListImagesResponse,
   ListImageVersionsRequest,
   ListImageVersionsResponse,
+  ListInferenceComponentsInput,
+  ListInferenceComponentsOutput,
   ListInferenceExperimentsRequest,
   ListInferenceExperimentsResponse,
   ListInferenceRecommendationsJobsRequest,
@@ -1689,6 +1751,57 @@ import {
   ListProcessingJobsResponse,
   ListProjectsInput,
   ListProjectsOutput,
+  MetricSpecification,
+  ModelCardExportJobSummary,
+  ModelCardSummary,
+  ModelCardVersionSummary,
+  ModelDashboardIndicatorAction,
+  ModelMetadataFilter,
+  ModelMetadataSearchExpression,
+  ModelMetadataSummary,
+  ModelPackageGroupSummary,
+  ModelPackageSummary,
+  ModelStepMetadata,
+  ModelSummary,
+  MonitoringAlertActions,
+  MonitoringAlertHistorySummary,
+  MonitoringAlertSummary,
+  MonitoringJobDefinitionSummary,
+  MonitoringSchedule,
+  MonitoringScheduleSummary,
+  NotebookInstanceLifecycleConfigSummary,
+  NotebookInstanceSummary,
+  OidcConfigForResponse,
+  Parameter,
+  PipelineExecutionStep,
+  PipelineExecutionStepMetadata,
+  PipelineExecutionSummary,
+  PipelineSummary,
+  PredefinedMetricSpecification,
+  ProcessingJobStepMetadata,
+  ProcessingJobSummary,
+  ProductionVariantServerlessUpdateConfig,
+  ProjectSummary,
+  PropertyNameQuery,
+  PropertyNameSuggestion,
+  QualityCheckStepMetadata,
+  RecommendationJobInferenceBenchmark,
+  RegisterModelStepMetadata,
+  RStudioServerProDomainSettingsForUpdate,
+  ScalingPolicy,
+  ScalingPolicyMetric,
+  ScalingPolicyObjective,
+  SelectiveExecutionResult,
+  SuggestionQuery,
+  TargetTrackingScalingPolicyConfiguration,
+  TrainingJobStepMetadata,
+  TransformJobStepMetadata,
+  TuningJobStepMetaData,
+  Workforce,
+  WorkforceVpcConfigResponse,
+  Workteam,
+} from "../models/models_3";
+import {
   ListResourceCatalogsRequest,
   ListResourceCatalogsResponse,
   ListSpacesRequest,
@@ -1718,55 +1831,6 @@ import {
   ListWorkteamsRequest,
   ListWorkteamsResponse,
   Model,
-  ModelCardExportJobSummary,
-  ModelCardSummary,
-  ModelCardVersionSummary,
-  ModelDashboardIndicatorAction,
-  ModelMetadataFilter,
-  ModelMetadataSearchExpression,
-  ModelMetadataSummary,
-  ModelPackageGroupSummary,
-  ModelPackageSummary,
-  ModelStepMetadata,
-  ModelSummary,
-  MonitoringAlertActions,
-  MonitoringAlertHistorySummary,
-  MonitoringAlertSummary,
-  MonitoringJobDefinitionSummary,
-  MonitoringSchedule,
-  MonitoringScheduleSummary,
-  NotebookInstanceLifecycleConfigSummary,
-  NotebookInstanceSummary,
-  Parameter,
-  PipelineExecutionStep,
-  PipelineExecutionStepMetadata,
-  PipelineExecutionSummary,
-  PipelineSummary,
-  ProcessingJobStepMetadata,
-  ProcessingJobSummary,
-  ProjectSummary,
-  PropertyNameQuery,
-  PropertyNameSuggestion,
-  QualityCheckStepMetadata,
-  RecommendationJobInferenceBenchmark,
-  RegisterModelStepMetadata,
-  ResourceCatalog,
-  ScalingPolicyMetric,
-  ScalingPolicyObjective,
-  SelectiveExecutionResult,
-  SpaceDetails,
-  StudioLifecycleConfigDetails,
-  SuggestionQuery,
-  TrainingJobStepMetadata,
-  TrainingJobSummary,
-  TransformJobStepMetadata,
-  TransformJobSummary,
-  TrialComponentSummary,
-  TrialSummary,
-  TuningJobStepMetaData,
-  UserProfileDetails,
-} from "../models/models_3";
-import {
   ModelCard,
   ModelDashboardEndpoint,
   ModelDashboardModel,
@@ -1793,6 +1857,7 @@ import {
   RenderingError,
   RenderUiTemplateRequest,
   RenderUiTemplateResponse,
+  ResourceCatalog,
   ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
@@ -1805,6 +1870,7 @@ import {
   SendPipelineExecutionStepSuccessRequest,
   SendPipelineExecutionStepSuccessResponse,
   ServiceCatalogProvisioningUpdateDetails,
+  SpaceDetails,
   StartEdgeDeploymentStageRequest,
   StartInferenceExperimentRequest,
   StartInferenceExperimentResponse,
@@ -1828,18 +1894,25 @@ import {
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
+  StudioLifecycleConfigDetails,
   TrainingJob,
+  TrainingJobSummary,
   TransformJob,
+  TransformJobSummary,
   Trial,
   TrialComponent,
   TrialComponentSimpleSummary,
   TrialComponentSourceDetail,
+  TrialComponentSummary,
+  TrialSummary,
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
   UpdateAppImageConfigResponse,
   UpdateArtifactRequest,
   UpdateArtifactResponse,
+  UpdateClusterRequest,
+  UpdateClusterResponse,
   UpdateCodeRepositoryInput,
   UpdateCodeRepositoryOutput,
   UpdateContextRequest,
@@ -1863,6 +1936,10 @@ import {
   UpdateImageResponse,
   UpdateImageVersionRequest,
   UpdateImageVersionResponse,
+  UpdateInferenceComponentInput,
+  UpdateInferenceComponentOutput,
+  UpdateInferenceComponentRuntimeConfigInput,
+  UpdateInferenceComponentRuntimeConfigOutput,
   UpdateInferenceExperimentRequest,
   UpdateInferenceExperimentResponse,
   UpdateModelCardRequest,
@@ -1897,6 +1974,7 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
+  UserProfileDetails,
   VariantProperty,
   Vertex,
 } from "../models/models_4";
@@ -2042,6 +2120,19 @@ export const se_CreateAutoMLJobV2Command = async (
   const headers: __HeaderBag = sharedHeaders("CreateAutoMLJobV2");
   let body: any;
   body = JSON.stringify(se_CreateAutoMLJobV2Request(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateClusterCommand
+ */
+export const se_CreateClusterCommand = async (
+  input: CreateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2289,6 +2380,19 @@ export const se_CreateImageVersionCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateImageVersion");
   let body: any;
   body = JSON.stringify(se_CreateImageVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateInferenceComponentCommand
+ */
+export const se_CreateInferenceComponentCommand = async (
+  input: CreateInferenceComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateInferenceComponent");
+  let body: any;
+  body = JSON.stringify(se_CreateInferenceComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2735,6 +2839,19 @@ export const se_DeleteAssociationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteClusterCommand
+ */
+export const se_DeleteClusterCommand = async (
+  input: DeleteClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteCodeRepositoryCommand
  */
 export const se_DeleteCodeRepositoryCommand = async (
@@ -2950,6 +3067,19 @@ export const se_DeleteImageVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteImageVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteInferenceComponentCommand
+ */
+export const se_DeleteInferenceComponentCommand = async (
+  input: DeleteInferenceComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteInferenceComponent");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3346,6 +3476,32 @@ export const se_DescribeAutoMLJobV2Command = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeClusterCommand
+ */
+export const se_DescribeClusterCommand = async (
+  input: DescribeClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeClusterNodeCommand
+ */
+export const se_DescribeClusterNodeCommand = async (
+  input: DescribeClusterNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeClusterNode");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeCodeRepositoryCommand
  */
 export const se_DescribeCodeRepositoryCommand = async (
@@ -3613,6 +3769,19 @@ export const se_DescribeImageVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeImageVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeInferenceComponentCommand
+ */
+export const se_DescribeInferenceComponentCommand = async (
+  input: DescribeInferenceComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeInferenceComponent");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4256,6 +4425,32 @@ export const se_ListCandidatesForAutoMLJobCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListClusterNodesCommand
+ */
+export const se_ListClusterNodesCommand = async (
+  input: ListClusterNodesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListClusterNodes");
+  let body: any;
+  body = JSON.stringify(se_ListClusterNodesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListClustersCommand
+ */
+export const se_ListClustersCommand = async (
+  input: ListClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListClusters");
+  let body: any;
+  body = JSON.stringify(se_ListClustersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListCodeRepositoriesCommand
  */
 export const se_ListCodeRepositoriesCommand = async (
@@ -4525,6 +4720,19 @@ export const se_ListImageVersionsCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListImageVersions");
   let body: any;
   body = JSON.stringify(se_ListImageVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListInferenceComponentsCommand
+ */
+export const se_ListInferenceComponentsCommand = async (
+  input: ListInferenceComponentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListInferenceComponents");
+  let body: any;
+  body = JSON.stringify(se_ListInferenceComponentsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -5462,6 +5670,19 @@ export const se_UpdateArtifactCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateClusterCommand
+ */
+export const se_UpdateClusterCommand = async (
+  input: UpdateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateCodeRepositoryCommand
  */
 export const se_UpdateCodeRepositoryCommand = async (
@@ -5625,6 +5846,32 @@ export const se_UpdateImageVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateImageVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateInferenceComponentCommand
+ */
+export const se_UpdateInferenceComponentCommand = async (
+  input: UpdateInferenceComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateInferenceComponent");
+  let body: any;
+  body = JSON.stringify(se_UpdateInferenceComponentInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateInferenceComponentRuntimeConfigCommand
+ */
+export const se_UpdateInferenceComponentRuntimeConfigCommand = async (
+  input: UpdateInferenceComponentRuntimeConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateInferenceComponentRuntimeConfig");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6332,6 +6579,55 @@ const de_CreateAutoMLJobV2CommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAutoMLJobV2CommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await de_ResourceInUseRes(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateClusterCommand
+ */
+export const de_CreateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateClusterResponse(data, context);
+  const response: CreateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateClusterCommandError
+ */
+const de_CreateClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7239,6 +7535,52 @@ const de_CreateImageVersionCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateInferenceComponentCommand
+ */
+export const de_CreateInferenceComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateInferenceComponentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateInferenceComponentOutput(data, context);
+  const response: CreateInferenceComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateInferenceComponentCommandError
+ */
+const de_CreateInferenceComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -8856,6 +9198,55 @@ const de_DeleteAssociationCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteClusterCommand
+ */
+export const de_DeleteClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteClusterResponse(data, context);
+  const response: DeleteClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteClusterCommandError
+ */
+const de_DeleteClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DeleteCodeRepositoryCommand
  */
 export const de_DeleteCodeRepositoryCommand = async (
@@ -9602,6 +9993,43 @@ const de_DeleteImageVersionCommandError = async (
         errorCode,
       });
   }
+};
+
+/**
+ * deserializeAws_json1_1DeleteInferenceComponentCommand
+ */
+export const de_DeleteInferenceComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInferenceComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteInferenceComponentCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteInferenceComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteInferenceComponentCommandError
+ */
+const de_DeleteInferenceComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInferenceComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
 /**
@@ -10904,6 +11332,98 @@ const de_DescribeAutoMLJobV2CommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeClusterCommand
+ */
+export const de_DescribeClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeClusterResponse(data, context);
+  const response: DescribeClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeClusterCommandError
+ */
+const de_DescribeClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeClusterNodeCommand
+ */
+export const de_DescribeClusterNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterNodeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeClusterNodeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeClusterNodeResponse(data, context);
+  const response: DescribeClusterNodeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeClusterNodeCommandError
+ */
+const de_DescribeClusterNodeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterNodeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeCodeRepositoryCommand
  */
 export const de_DescribeCodeRepositoryCommand = async (
@@ -11849,6 +12369,46 @@ const de_DescribeImageVersionCommandError = async (
         errorCode,
       });
   }
+};
+
+/**
+ * deserializeAws_json1_1DescribeInferenceComponentCommand
+ */
+export const de_DescribeInferenceComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeInferenceComponentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInferenceComponentOutput(data, context);
+  const response: DescribeInferenceComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInferenceComponentCommandError
+ */
+const de_DescribeInferenceComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
 /**
@@ -13998,6 +14558,92 @@ const de_ListCandidatesForAutoMLJobCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListClusterNodesCommand
+ */
+export const de_ListClusterNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClusterNodesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListClusterNodesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListClusterNodesResponse(data, context);
+  const response: ListClusterNodesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListClusterNodesCommandError
+ */
+const de_ListClusterNodesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClusterNodesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListClustersCommand
+ */
+export const de_ListClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListClustersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListClustersResponse(data, context);
+  const response: ListClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListClustersCommandError
+ */
+const de_ListClustersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClustersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_json1_1ListCodeRepositoriesCommand
  */
 export const de_ListCodeRepositoriesCommand = async (
@@ -14859,6 +15505,46 @@ const de_ListImageVersionsCommandError = async (
         errorCode,
       });
   }
+};
+
+/**
+ * deserializeAws_json1_1ListInferenceComponentsCommand
+ */
+export const de_ListInferenceComponentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceComponentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListInferenceComponentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListInferenceComponentsOutput(data, context);
+  const response: ListInferenceComponentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListInferenceComponentsCommandError
+ */
+const de_ListInferenceComponentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceComponentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
 /**
@@ -17934,6 +18620,58 @@ const de_UpdateArtifactCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateClusterCommand
+ */
+export const de_UpdateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateClusterResponse(data, context);
+  const response: UpdateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateClusterCommandError
+ */
+const de_UpdateClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateCodeRepositoryCommand
  */
 export const de_UpdateCodeRepositoryCommand = async (
@@ -18518,6 +19256,98 @@ const de_UpdateImageVersionCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateInferenceComponentCommand
+ */
+export const de_UpdateInferenceComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateInferenceComponentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateInferenceComponentOutput(data, context);
+  const response: UpdateInferenceComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateInferenceComponentCommandError
+ */
+const de_UpdateInferenceComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateInferenceComponentRuntimeConfigCommand
+ */
+export const de_UpdateInferenceComponentRuntimeConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceComponentRuntimeConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateInferenceComponentRuntimeConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateInferenceComponentRuntimeConfigOutput(data, context);
+  const response: UpdateInferenceComponentRuntimeConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateInferenceComponentRuntimeConfigCommandError
+ */
+const de_UpdateInferenceComponentRuntimeConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceComponentRuntimeConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -19580,6 +20410,12 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClarifyTextConfig omitted.
 
+// se_ClusterInstanceGroupSpecification omitted.
+
+// se_ClusterInstanceGroupSpecifications omitted.
+
+// se_ClusterLifeCycleConfig omitted.
+
 // se_CodeRepositories omitted.
 
 // se_CodeRepository omitted.
@@ -19666,6 +20502,8 @@ const se_CreateAutoMLJobV2Request = (input: CreateAutoMLJobV2Request, context: _
   });
 };
 
+// se_CreateClusterRequest omitted.
+
 // se_CreateCodeRepositoryInput omitted.
 
 // se_CreateCompilationJobRequest omitted.
@@ -19710,12 +20548,15 @@ const se_CreateEndpointConfigInput = (input: CreateEndpointConfigInput, context:
   return take(input, {
     AsyncInferenceConfig: _json,
     DataCaptureConfig: _json,
+    EnableNetworkIsolation: [],
     EndpointConfigName: [],
+    ExecutionRoleArn: [],
     ExplainerConfig: _json,
     KmsKeyId: [],
     ProductionVariants: (_) => se_ProductionVariantList(_, context),
     ShadowProductionVariants: (_) => se_ProductionVariantList(_, context),
     Tags: _json,
+    VpcConfig: _json,
   });
 };
 
@@ -19780,6 +20621,20 @@ const se_CreateImageVersionRequest = (input: CreateImageVersionRequest, context:
     ProgrammingLang: [],
     ReleaseNotes: [],
     VendorGuidance: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1CreateInferenceComponentInput
+ */
+const se_CreateInferenceComponentInput = (input: CreateInferenceComponentInput, context: __SerdeContext): any => {
+  return take(input, {
+    EndpointName: [],
+    InferenceComponentName: [],
+    RuntimeConfig: _json,
+    Specification: (_) => se_InferenceComponentSpecification(_, context),
+    Tags: _json,
+    VariantName: [],
   });
 };
 
@@ -20032,6 +20887,8 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
 
 // se_DeleteAssociationRequest omitted.
 
+// se_DeleteClusterRequest omitted.
+
 // se_DeleteCodeRepositoryInput omitted.
 
 // se_DeleteContextRequest omitted.
@@ -20065,6 +20922,8 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
 // se_DeleteImageRequest omitted.
 
 // se_DeleteImageVersionRequest omitted.
+
+// se_DeleteInferenceComponentInput omitted.
 
 // se_DeleteInferenceExperimentRequest omitted.
 
@@ -20140,6 +20999,10 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
 
 // se_DescribeAutoMLJobV2Request omitted.
 
+// se_DescribeClusterNodeRequest omitted.
+
+// se_DescribeClusterRequest omitted.
+
 // se_DescribeCodeRepositoryInput omitted.
 
 // se_DescribeCompilationJobRequest omitted.
@@ -20181,6 +21044,8 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
 // se_DescribeImageRequest omitted.
 
 // se_DescribeImageVersionRequest omitted.
+
+// se_DescribeInferenceComponentInput omitted.
 
 // se_DescribeInferenceExperimentRequest omitted.
 
@@ -20491,6 +21356,39 @@ const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, 
 
 // se_ImportHubContentRequest omitted.
 
+/**
+ * serializeAws_json1_1InferenceComponentComputeResourceRequirements
+ */
+const se_InferenceComponentComputeResourceRequirements = (
+  input: InferenceComponentComputeResourceRequirements,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    MaxMemoryRequiredInMb: [],
+    MinMemoryRequiredInMb: [],
+    NumberOfAcceleratorDevicesRequired: __serializeFloat,
+    NumberOfCpuCoresRequired: __serializeFloat,
+  });
+};
+
+// se_InferenceComponentContainerSpecification omitted.
+
+// se_InferenceComponentRuntimeConfig omitted.
+
+/**
+ * serializeAws_json1_1InferenceComponentSpecification
+ */
+const se_InferenceComponentSpecification = (input: InferenceComponentSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    ComputeResourceRequirements: (_) => se_InferenceComponentComputeResourceRequirements(_, context),
+    Container: _json,
+    ModelName: [],
+    StartupParameters: _json,
+  });
+};
+
+// se_InferenceComponentStartupParameters omitted.
+
 // se_InferenceExecutionConfig omitted.
 
 // se_InferenceExperimentDataStorageConfig omitted.
@@ -20506,6 +21404,8 @@ const se_InferenceExperimentSchedule = (input: InferenceExperimentSchedule, cont
 };
 
 // se_InferenceSpecification omitted.
+
+// se_InfraCheckConfig omitted.
 
 // se_InputConfig omitted.
 
@@ -20669,6 +21569,37 @@ const se_ListAutoMLJobsRequest = (input: ListAutoMLJobsRequest, context: __Serde
 };
 
 // se_ListCandidatesForAutoMLJobRequest omitted.
+
+/**
+ * serializeAws_json1_1ListClusterNodesRequest
+ */
+const se_ListClusterNodesRequest = (input: ListClusterNodesRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClusterName: [],
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    InstanceGroupNameContains: [],
+    MaxResults: [],
+    NextToken: [],
+    SortBy: [],
+    SortOrder: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1ListClustersRequest
+ */
+const se_ListClustersRequest = (input: ListClustersRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NameContains: [],
+    NextToken: [],
+    SortBy: [],
+    SortOrder: [],
+  });
+};
 
 /**
  * serializeAws_json1_1ListCodeRepositoriesInput
@@ -21005,6 +21936,26 @@ const se_ListImageVersionsRequest = (input: ListImageVersionsRequest, context: _
     NextToken: [],
     SortBy: [],
     SortOrder: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1ListInferenceComponentsInput
+ */
+const se_ListInferenceComponentsInput = (input: ListInferenceComponentsInput, context: __SerdeContext): any => {
+  return take(input, {
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    EndpointNameEquals: [],
+    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NameContains: [],
+    NextToken: [],
+    SortBy: [],
+    SortOrder: [],
+    StatusEquals: [],
+    VariantNameEquals: [],
   });
 };
 
@@ -21856,8 +22807,10 @@ const se_ProductionVariant = (input: ProductionVariant, context: __SerdeContext)
     InitialInstanceCount: [],
     InitialVariantWeight: __serializeFloat,
     InstanceType: [],
+    ManagedInstanceScaling: _json,
     ModelDataDownloadTimeoutInSeconds: [],
     ModelName: [],
+    RoutingConfig: _json,
     ServerlessConfig: _json,
     VariantName: [],
     VolumeSizeInGB: [],
@@ -21876,6 +22829,10 @@ const se_ProductionVariantList = (input: ProductionVariant[], context: __SerdeCo
       return se_ProductionVariant(entry, context);
     });
 };
+
+// se_ProductionVariantManagedInstanceScaling omitted.
+
+// se_ProductionVariantRoutingConfig omitted.
 
 // se_ProductionVariantServerlessConfig omitted.
 
@@ -22211,6 +23168,8 @@ const se_StopPipelineExecutionRequest = (input: StopPipelineExecutionRequest, co
 
 // se_TextClassificationJobConfig omitted.
 
+// se_TextGenerationHyperParameters omitted.
+
 // se_TextGenerationJobConfig omitted.
 
 // se_TimeSeriesConfig omitted.
@@ -22313,6 +23272,8 @@ const se_TuningJobCompletionCriteria = (input: TuningJobCompletionCriteria, cont
 
 // se_UpdateArtifactRequest omitted.
 
+// se_UpdateClusterRequest omitted.
+
 // se_UpdateCodeRepositoryInput omitted.
 
 // se_UpdateContextRequest omitted.
@@ -22349,6 +23310,19 @@ const se_UpdateEndpointWeightsAndCapacitiesInput = (
 // se_UpdateImageRequest omitted.
 
 // se_UpdateImageVersionRequest omitted.
+
+/**
+ * serializeAws_json1_1UpdateInferenceComponentInput
+ */
+const se_UpdateInferenceComponentInput = (input: UpdateInferenceComponentInput, context: __SerdeContext): any => {
+  return take(input, {
+    InferenceComponentName: [],
+    RuntimeConfig: _json,
+    Specification: (_) => se_InferenceComponentSpecification(_, context),
+  });
+};
+
+// se_UpdateInferenceComponentRuntimeConfigInput omitted.
 
 /**
  * serializeAws_json1_1UpdateInferenceExperimentRequest
@@ -23902,6 +24876,117 @@ const de_ClarifyTextConfig = (output: any, context: __SerdeContext): ClarifyText
 };
 
 /**
+ * deserializeAws_json1_1ClusterInstanceGroupDetails
+ */
+const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): ClusterInstanceGroupDetails => {
+  return take(output, {
+    CurrentCount: __expectInt32,
+    ExecutionRole: __expectString,
+    InstanceGroupName: __expectString,
+    InstanceType: __expectString,
+    LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
+    TargetCount: __expectInt32,
+    ThreadsPerCore: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterInstanceGroupDetailsList
+ */
+const de_ClusterInstanceGroupDetailsList = (output: any, context: __SerdeContext): ClusterInstanceGroupDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterInstanceGroupDetails(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ClusterInstanceStatusDetails
+ */
+const de_ClusterInstanceStatusDetails = (output: any, context: __SerdeContext): ClusterInstanceStatusDetails => {
+  return take(output, {
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterLifeCycleConfig
+ */
+const de_ClusterLifeCycleConfig = (output: any, context: __SerdeContext): ClusterLifeCycleConfig => {
+  return take(output, {
+    OnCreate: __expectString,
+    SourceS3Uri: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterNodeDetails
+ */
+const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNodeDetails => {
+  return take(output, {
+    InstanceGroupName: __expectString,
+    InstanceId: __expectString,
+    InstanceStatus: (_: any) => de_ClusterInstanceStatusDetails(_, context),
+    InstanceType: __expectString,
+    LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
+    ThreadsPerCore: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterNodeSummaries
+ */
+const de_ClusterNodeSummaries = (output: any, context: __SerdeContext): ClusterNodeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterNodeSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ClusterNodeSummary
+ */
+const de_ClusterNodeSummary = (output: any, context: __SerdeContext): ClusterNodeSummary => {
+  return take(output, {
+    InstanceGroupName: __expectString,
+    InstanceId: __expectString,
+    InstanceStatus: (_: any) => de_ClusterInstanceStatusDetails(_, context),
+    InstanceType: __expectString,
+    LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterSummaries
+ */
+const de_ClusterSummaries = (output: any, context: __SerdeContext): ClusterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ClusterSummary
+ */
+const de_ClusterSummary = (output: any, context: __SerdeContext): ClusterSummary => {
+  return take(output, {
+    ClusterArn: __expectString,
+    ClusterName: __expectString,
+    ClusterStatus: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CodeRepositories
  */
 const de_CodeRepositories = (output: any, context: __SerdeContext): CodeRepository[] => {
@@ -24301,6 +25386,15 @@ const de_CreateAutoMLJobV2Response = (output: any, context: __SerdeContext): Cre
 };
 
 /**
+ * deserializeAws_json1_1CreateClusterResponse
+ */
+const de_CreateClusterResponse = (output: any, context: __SerdeContext): CreateClusterResponse => {
+  return take(output, {
+    ClusterArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateCodeRepositoryOutput
  */
 const de_CreateCodeRepositoryOutput = (output: any, context: __SerdeContext): CreateCodeRepositoryOutput => {
@@ -24451,6 +25545,15 @@ const de_CreateImageResponse = (output: any, context: __SerdeContext): CreateIma
 const de_CreateImageVersionResponse = (output: any, context: __SerdeContext): CreateImageVersionResponse => {
   return take(output, {
     ImageVersionArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateInferenceComponentOutput
+ */
+const de_CreateInferenceComponentOutput = (output: any, context: __SerdeContext): CreateInferenceComponentOutput => {
+  return take(output, {
+    InferenceComponentArn: __expectString,
   }) as any;
 };
 
@@ -25011,6 +26114,15 @@ const de_DeleteAssociationResponse = (output: any, context: __SerdeContext): Del
 };
 
 /**
+ * deserializeAws_json1_1DeleteClusterResponse
+ */
+const de_DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteClusterResponse => {
+  return take(output, {
+    ClusterArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DeleteContextResponse
  */
 const de_DeleteContextResponse = (output: any, context: __SerdeContext): DeleteContextResponse => {
@@ -25347,6 +26459,30 @@ const de_DescribeAutoMLJobV2Response = (output: any, context: __SerdeContext): D
 };
 
 /**
+ * deserializeAws_json1_1DescribeClusterNodeResponse
+ */
+const de_DescribeClusterNodeResponse = (output: any, context: __SerdeContext): DescribeClusterNodeResponse => {
+  return take(output, {
+    NodeDetails: (_: any) => de_ClusterNodeDetails(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeClusterResponse
+ */
+const de_DescribeClusterResponse = (output: any, context: __SerdeContext): DescribeClusterResponse => {
+  return take(output, {
+    ClusterArn: __expectString,
+    ClusterName: __expectString,
+    ClusterStatus: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureMessage: __expectString,
+    InstanceGroups: (_: any) => de_ClusterInstanceGroupDetailsList(_, context),
+    VpcConfig: (_: any) => de_VpcConfig(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeCodeRepositoryOutput
  */
 const de_DescribeCodeRepositoryOutput = (output: any, context: __SerdeContext): DescribeCodeRepositoryOutput => {
@@ -25547,12 +26683,15 @@ const de_DescribeEndpointConfigOutput = (output: any, context: __SerdeContext): 
     AsyncInferenceConfig: (_: any) => de_AsyncInferenceConfig(_, context),
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataCaptureConfig: (_: any) => de_DataCaptureConfig(_, context),
+    EnableNetworkIsolation: __expectBoolean,
     EndpointConfigArn: __expectString,
     EndpointConfigName: __expectString,
+    ExecutionRoleArn: __expectString,
     ExplainerConfig: (_: any) => de_ExplainerConfig(_, context),
     KmsKeyId: __expectString,
     ProductionVariants: (_: any) => de_ProductionVariantList(_, context),
     ShadowProductionVariants: (_: any) => de_ProductionVariantList(_, context),
+    VpcConfig: (_: any) => de_VpcConfig(_, context),
   }) as any;
 };
 
@@ -25776,6 +26915,28 @@ const de_DescribeImageVersionResponse = (output: any, context: __SerdeContext): 
     ReleaseNotes: __expectString,
     VendorGuidance: __expectString,
     Version: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInferenceComponentOutput
+ */
+const de_DescribeInferenceComponentOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeInferenceComponentOutput => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointArn: __expectString,
+    EndpointName: __expectString,
+    FailureReason: __expectString,
+    InferenceComponentArn: __expectString,
+    InferenceComponentName: __expectString,
+    InferenceComponentStatus: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RuntimeConfig: (_: any) => de_InferenceComponentRuntimeConfigSummary(_, context),
+    Specification: (_: any) => de_InferenceComponentSpecificationSummary(_, context),
+    VariantName: __expectString,
   }) as any;
 };
 
@@ -26233,6 +27394,7 @@ const de_DescribeSpaceResponse = (output: any, context: __SerdeContext): Describ
     SpaceName: __expectString,
     SpaceSettings: (_: any) => de_SpaceSettings(_, context),
     Status: __expectString,
+    Url: __expectString,
   }) as any;
 };
 
@@ -26286,6 +27448,7 @@ const de_DescribeTrainingJobResponse = (output: any, context: __SerdeContext): D
     FailureReason: __expectString,
     FinalMetricDataList: (_: any) => de_FinalMetricDataList(_, context),
     HyperParameters: (_: any) => de_HyperParameters(_, context),
+    InfraCheckConfig: (_: any) => de_InfraCheckConfig(_, context),
     InputDataConfig: (_: any) => de_InputDataConfig(_, context),
     LabelingJobArn: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -28353,6 +29516,104 @@ const de_ImportHubContentResponse = (output: any, context: __SerdeContext): Impo
 };
 
 /**
+ * deserializeAws_json1_1InferenceComponentComputeResourceRequirements
+ */
+const de_InferenceComponentComputeResourceRequirements = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentComputeResourceRequirements => {
+  return take(output, {
+    MaxMemoryRequiredInMb: __expectInt32,
+    MinMemoryRequiredInMb: __expectInt32,
+    NumberOfAcceleratorDevicesRequired: __limitedParseFloat32,
+    NumberOfCpuCoresRequired: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentContainerSpecificationSummary
+ */
+const de_InferenceComponentContainerSpecificationSummary = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentContainerSpecificationSummary => {
+  return take(output, {
+    ArtifactUrl: __expectString,
+    DeployedImage: (_: any) => de_DeployedImage(_, context),
+    Environment: (_: any) => de_EnvironmentMap(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentRuntimeConfigSummary
+ */
+const de_InferenceComponentRuntimeConfigSummary = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentRuntimeConfigSummary => {
+  return take(output, {
+    CurrentCopyCount: __expectInt32,
+    DesiredCopyCount: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentSpecificationSummary
+ */
+const de_InferenceComponentSpecificationSummary = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentSpecificationSummary => {
+  return take(output, {
+    ComputeResourceRequirements: (_: any) => de_InferenceComponentComputeResourceRequirements(_, context),
+    Container: (_: any) => de_InferenceComponentContainerSpecificationSummary(_, context),
+    ModelName: __expectString,
+    StartupParameters: (_: any) => de_InferenceComponentStartupParameters(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentStartupParameters
+ */
+const de_InferenceComponentStartupParameters = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentStartupParameters => {
+  return take(output, {
+    ContainerStartupHealthCheckTimeoutInSeconds: __expectInt32,
+    ModelDataDownloadTimeoutInSeconds: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentSummary
+ */
+const de_InferenceComponentSummary = (output: any, context: __SerdeContext): InferenceComponentSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointArn: __expectString,
+    EndpointName: __expectString,
+    InferenceComponentArn: __expectString,
+    InferenceComponentName: __expectString,
+    InferenceComponentStatus: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VariantName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentSummaryList
+ */
+const de_InferenceComponentSummaryList = (output: any, context: __SerdeContext): InferenceComponentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InferenceComponentSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1InferenceExecutionConfig
  */
 const de_InferenceExecutionConfig = (output: any, context: __SerdeContext): InferenceExecutionConfig => {
@@ -28521,6 +29782,15 @@ const de_InferenceSpecification = (output: any, context: __SerdeContext): Infere
     SupportedRealtimeInferenceInstanceTypes: (_: any) => de_RealtimeInferenceInstanceTypes(_, context),
     SupportedResponseMIMETypes: (_: any) => de_ResponseMIMETypes(_, context),
     SupportedTransformInstanceTypes: (_: any) => de_TransformInstanceTypes(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InfraCheckConfig
+ */
+const de_InfraCheckConfig = (output: any, context: __SerdeContext): InfraCheckConfig => {
+  return take(output, {
+    EnableInfraCheck: __expectBoolean,
   }) as any;
 };
 
@@ -29067,6 +30337,26 @@ const de_ListCandidatesForAutoMLJobResponse = (
 };
 
 /**
+ * deserializeAws_json1_1ListClusterNodesResponse
+ */
+const de_ListClusterNodesResponse = (output: any, context: __SerdeContext): ListClusterNodesResponse => {
+  return take(output, {
+    ClusterNodeSummaries: (_: any) => de_ClusterNodeSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListClustersResponse
+ */
+const de_ListClustersResponse = (output: any, context: __SerdeContext): ListClustersResponse => {
+  return take(output, {
+    ClusterSummaries: (_: any) => de_ClusterSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListCodeRepositoriesOutput
  */
 const de_ListCodeRepositoriesOutput = (output: any, context: __SerdeContext): ListCodeRepositoriesOutput => {
@@ -29278,6 +30568,16 @@ const de_ListImagesResponse = (output: any, context: __SerdeContext): ListImages
 const de_ListImageVersionsResponse = (output: any, context: __SerdeContext): ListImageVersionsResponse => {
   return take(output, {
     ImageVersions: (_: any) => de_ImageVersions(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListInferenceComponentsOutput
+ */
+const de_ListInferenceComponentsOutput = (output: any, context: __SerdeContext): ListInferenceComponentsOutput => {
+  return take(output, {
+    InferenceComponents: (_: any) => de_InferenceComponentSummaryList(_, context),
     NextToken: __expectString,
   }) as any;
 };
@@ -31526,6 +32826,8 @@ const de_PendingProductionVariantSummary = (output: any, context: __SerdeContext
     DesiredServerlessConfig: (_: any) => de_ProductionVariantServerlessConfig(_, context),
     DesiredWeight: __limitedParseFloat32,
     InstanceType: __expectString,
+    ManagedInstanceScaling: (_: any) => de_ProductionVariantManagedInstanceScaling(_, context),
+    RoutingConfig: (_: any) => de_ProductionVariantRoutingConfig(_, context),
     VariantName: __expectString,
     VariantStatus: (_: any) => de_ProductionVariantStatusList(_, context),
   }) as any;
@@ -31952,8 +33254,10 @@ const de_ProductionVariant = (output: any, context: __SerdeContext): ProductionV
     InitialInstanceCount: __expectInt32,
     InitialVariantWeight: __limitedParseFloat32,
     InstanceType: __expectString,
+    ManagedInstanceScaling: (_: any) => de_ProductionVariantManagedInstanceScaling(_, context),
     ModelDataDownloadTimeoutInSeconds: __expectInt32,
     ModelName: __expectString,
+    RoutingConfig: (_: any) => de_ProductionVariantRoutingConfig(_, context),
     ServerlessConfig: (_: any) => de_ProductionVariantServerlessConfig(_, context),
     VariantName: __expectString,
     VolumeSizeInGB: __expectInt32,
@@ -31980,6 +33284,29 @@ const de_ProductionVariantList = (output: any, context: __SerdeContext): Product
       return de_ProductionVariant(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ProductionVariantManagedInstanceScaling
+ */
+const de_ProductionVariantManagedInstanceScaling = (
+  output: any,
+  context: __SerdeContext
+): ProductionVariantManagedInstanceScaling => {
+  return take(output, {
+    MaxInstanceCount: __expectInt32,
+    MinInstanceCount: __expectInt32,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ProductionVariantRoutingConfig
+ */
+const de_ProductionVariantRoutingConfig = (output: any, context: __SerdeContext): ProductionVariantRoutingConfig => {
+  return take(output, {
+    RoutingStrategy: __expectString,
+  }) as any;
 };
 
 /**
@@ -32031,6 +33358,8 @@ const de_ProductionVariantSummary = (output: any, context: __SerdeContext): Prod
     DesiredInstanceCount: __expectInt32,
     DesiredServerlessConfig: (_: any) => de_ProductionVariantServerlessConfig(_, context),
     DesiredWeight: __limitedParseFloat32,
+    ManagedInstanceScaling: (_: any) => de_ProductionVariantManagedInstanceScaling(_, context),
+    RoutingConfig: (_: any) => de_ProductionVariantRoutingConfig(_, context),
     VariantName: __expectString,
     VariantStatus: (_: any) => de_ProductionVariantStatusList(_, context),
   }) as any;
@@ -32662,6 +33991,7 @@ const de_ResourceSpec = (output: any, context: __SerdeContext): ResourceSpec => 
     InstanceType: __expectString,
     LifecycleConfigArn: __expectString,
     SageMakerImageArn: __expectString,
+    SageMakerImageVersionAlias: __expectString,
     SageMakerImageVersionArn: __expectString,
   }) as any;
 };
@@ -33393,12 +34723,26 @@ const de_TextClassificationJobConfig = (output: any, context: __SerdeContext): T
 };
 
 /**
+ * deserializeAws_json1_1TextGenerationHyperParameters
+ */
+const de_TextGenerationHyperParameters = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = __expectString(value) as any;
+    return acc;
+  }, {} as Record<string, string>);
+};
+
+/**
  * deserializeAws_json1_1TextGenerationJobConfig
  */
 const de_TextGenerationJobConfig = (output: any, context: __SerdeContext): TextGenerationJobConfig => {
   return take(output, {
     BaseModelName: __expectString,
     CompletionCriteria: (_: any) => de_AutoMLJobCompletionCriteria(_, context),
+    TextGenerationHyperParameters: (_: any) => de_TextGenerationHyperParameters(_, context),
   }) as any;
 };
 
@@ -34186,6 +35530,15 @@ const de_UpdateArtifactResponse = (output: any, context: __SerdeContext): Update
 };
 
 /**
+ * deserializeAws_json1_1UpdateClusterResponse
+ */
+const de_UpdateClusterResponse = (output: any, context: __SerdeContext): UpdateClusterResponse => {
+  return take(output, {
+    ClusterArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1UpdateCodeRepositoryOutput
  */
 const de_UpdateCodeRepositoryOutput = (output: any, context: __SerdeContext): UpdateCodeRepositoryOutput => {
@@ -34275,6 +35628,27 @@ const de_UpdateImageResponse = (output: any, context: __SerdeContext): UpdateIma
 const de_UpdateImageVersionResponse = (output: any, context: __SerdeContext): UpdateImageVersionResponse => {
   return take(output, {
     ImageVersionArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateInferenceComponentOutput
+ */
+const de_UpdateInferenceComponentOutput = (output: any, context: __SerdeContext): UpdateInferenceComponentOutput => {
+  return take(output, {
+    InferenceComponentArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateInferenceComponentRuntimeConfigOutput
+ */
+const de_UpdateInferenceComponentRuntimeConfigOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateInferenceComponentRuntimeConfigOutput => {
+  return take(output, {
+    InferenceComponentArn: __expectString,
   }) as any;
 };
 
@@ -34491,6 +35865,7 @@ const de_UserProfileList = (output: any, context: __SerdeContext): UserProfileDe
 const de_UserSettings = (output: any, context: __SerdeContext): UserSettings => {
   return take(output, {
     CanvasAppSettings: (_: any) => de_CanvasAppSettings(_, context),
+    DefaultLandingUri: __expectString,
     ExecutionRole: __expectString,
     JupyterServerAppSettings: (_: any) => de_JupyterServerAppSettings(_, context),
     KernelGatewayAppSettings: (_: any) => de_KernelGatewayAppSettings(_, context),
@@ -34498,6 +35873,7 @@ const de_UserSettings = (output: any, context: __SerdeContext): UserSettings => 
     RStudioServerProAppSettings: (_: any) => de_RStudioServerProAppSettings(_, context),
     SecurityGroups: (_: any) => de_SecurityGroupIds(_, context),
     SharingSettings: (_: any) => de_SharingSettings(_, context),
+    StudioWebPortal: __expectString,
     TensorBoardAppSettings: (_: any) => de_TensorBoardAppSettings(_, context),
   }) as any;
 };

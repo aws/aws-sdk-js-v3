@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListSpacesRequest, ListSpacesResponse } from "../models/models_3";
+import { ListSpacesRequest, ListSpacesResponse } from "../models/models_4";
 import { de_ListSpacesCommand, se_ListSpacesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

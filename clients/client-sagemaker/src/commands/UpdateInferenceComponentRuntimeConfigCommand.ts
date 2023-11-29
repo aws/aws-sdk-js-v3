@@ -15,12 +15,12 @@ import {
 } from "@smithy/types";
 
 import {
-  EnableSagemakerServicecatalogPortfolioInput,
-  EnableSagemakerServicecatalogPortfolioOutput,
-} from "../models/models_3";
+  UpdateInferenceComponentRuntimeConfigInput,
+  UpdateInferenceComponentRuntimeConfigOutput,
+} from "../models/models_4";
 import {
-  de_EnableSagemakerServicecatalogPortfolioCommand,
-  se_EnableSagemakerServicecatalogPortfolioCommand,
+  de_UpdateInferenceComponentRuntimeConfigCommand,
+  se_UpdateInferenceComponentRuntimeConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -31,49 +31,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The input for {@link UpdateInferenceComponentRuntimeConfigCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandInput
-  extends EnableSagemakerServicecatalogPortfolioInput {}
+export interface UpdateInferenceComponentRuntimeConfigCommandInput extends UpdateInferenceComponentRuntimeConfigInput {}
 /**
  * @public
  *
- * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ * The output of {@link UpdateInferenceComponentRuntimeConfigCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandOutput
-  extends EnableSagemakerServicecatalogPortfolioOutput,
+export interface UpdateInferenceComponentRuntimeConfigCommandOutput
+  extends UpdateInferenceComponentRuntimeConfigOutput,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
- *             SageMaker projects.</p>
+ * <p>Runtime settings for a model that is deployed with an inference component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateInferenceComponentRuntimeConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateInferenceComponentRuntimeConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {};
- * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
+ * const input = { // UpdateInferenceComponentRuntimeConfigInput
+ *   InferenceComponentName: "STRING_VALUE", // required
+ *   DesiredRuntimeConfig: { // InferenceComponentRuntimeConfig
+ *     CopyCount: Number("int"), // required
+ *   },
+ * };
+ * const command = new UpdateInferenceComponentRuntimeConfigCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateInferenceComponentRuntimeConfigOutput
+ * //   InferenceComponentArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
- * @returns {@link EnableSagemakerServicecatalogPortfolioCommandOutput}
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
- * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
+ * @param UpdateInferenceComponentRuntimeConfigCommandInput - {@link UpdateInferenceComponentRuntimeConfigCommandInput}
+ * @returns {@link UpdateInferenceComponentRuntimeConfigCommandOutput}
+ * @see {@link UpdateInferenceComponentRuntimeConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateInferenceComponentRuntimeConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
-  EnableSagemakerServicecatalogPortfolioCommandInput,
-  EnableSagemakerServicecatalogPortfolioCommandOutput,
+export class UpdateInferenceComponentRuntimeConfigCommand extends $Command<
+  UpdateInferenceComponentRuntimeConfigCommandInput,
+  UpdateInferenceComponentRuntimeConfigCommandOutput,
   SageMakerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -88,7 +97,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: EnableSagemakerServicecatalogPortfolioCommandInput) {
+  constructor(readonly input: UpdateInferenceComponentRuntimeConfigCommandInput) {
     super();
   }
 
@@ -99,17 +108,17 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableSagemakerServicecatalogPortfolioCommandInput, EnableSagemakerServicecatalogPortfolioCommandOutput> {
+  ): Handler<UpdateInferenceComponentRuntimeConfigCommandInput, UpdateInferenceComponentRuntimeConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, EnableSagemakerServicecatalogPortfolioCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateInferenceComponentRuntimeConfigCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "EnableSagemakerServicecatalogPortfolioCommand";
+    const commandName = "UpdateInferenceComponentRuntimeConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -118,7 +127,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SageMaker",
-        operation: "EnableSagemakerServicecatalogPortfolio",
+        operation: "UpdateInferenceComponentRuntimeConfig",
       },
     };
     const { requestHandler } = configuration;
@@ -133,10 +142,10 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: EnableSagemakerServicecatalogPortfolioCommandInput,
+    input: UpdateInferenceComponentRuntimeConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_EnableSagemakerServicecatalogPortfolioCommand(input, context);
+    return se_UpdateInferenceComponentRuntimeConfigCommand(input, context);
   }
 
   /**
@@ -145,7 +154,7 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> {
-    return de_EnableSagemakerServicecatalogPortfolioCommand(output, context);
+  ): Promise<UpdateInferenceComponentRuntimeConfigCommandOutput> {
+    return de_UpdateInferenceComponentRuntimeConfigCommand(output, context);
   }
 }

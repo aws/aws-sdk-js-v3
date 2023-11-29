@@ -39,7 +39,7 @@ export interface CreateStudioLifecycleConfigCommandOutput
 
 /**
  * @public
- * <p>Creates a new Studio Lifecycle Configuration.</p>
+ * <p>Creates a new Amazon SageMaker Studio Lifecycle Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

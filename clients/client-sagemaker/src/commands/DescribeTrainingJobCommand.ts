@@ -275,6 +275,9 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //     ResourceRetainedBillableTimeInSeconds: Number("int"),
  * //     ReusedByJob: "STRING_VALUE",
  * //   },
+ * //   InfraCheckConfig: { // InfraCheckConfig
+ * //     EnableInfraCheck: true || false,
+ * //   },
  * // };
  *
  * ```

@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/models_3";
+import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/models_4";
 import { de_ListTrialComponentsCommand, se_ListTrialComponentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

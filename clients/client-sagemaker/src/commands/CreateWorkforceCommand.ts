@@ -18,7 +18,7 @@ import {
   CreateWorkforceRequest,
   CreateWorkforceRequestFilterSensitiveLog,
   CreateWorkforceResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_CreateWorkforceCommand, se_CreateWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

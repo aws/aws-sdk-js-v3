@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListWorkforcesRequest, ListWorkforcesResponse } from "../models/models_3";
+import { ListWorkforcesRequest, ListWorkforcesResponse } from "../models/models_4";
 import { de_ListWorkforcesCommand, se_ListWorkforcesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

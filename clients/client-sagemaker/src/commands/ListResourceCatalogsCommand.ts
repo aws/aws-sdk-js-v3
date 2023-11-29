@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListResourceCatalogsRequest, ListResourceCatalogsResponse } from "../models/models_3";
+import { ListResourceCatalogsRequest, ListResourceCatalogsResponse } from "../models/models_4";
 import { de_ListResourceCatalogsCommand, se_ListResourceCatalogsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
