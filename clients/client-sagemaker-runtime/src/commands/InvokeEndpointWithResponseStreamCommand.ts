@@ -72,6 +72,9 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  *                <p>For information about how to process the streaming response, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html">Invoke real-time endpoints</a>.</p>
  *             </li>
  *          </ul>
+ *          <p>Before you can use this operation, your IAM permissions must allow the
+ *                 <code>sagemaker:InvokeEndpoint</code> action. For more information about Amazon SageMaker actions for IAM policies, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html">Actions, resources, and condition keys for Amazon SageMaker</a> in the <i>IAM Service Authorization
+ *                 Reference</i>.</p>
  *          <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add
  *     additional headers. You should not rely on the behavior of headers outside those
  *     enumerated in the request syntax. </p>
@@ -93,6 +96,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  *   TargetVariant: "STRING_VALUE",
  *   TargetContainerHostname: "STRING_VALUE",
  *   InferenceId: "STRING_VALUE",
+ *   InferenceComponentName: "STRING_VALUE",
  * };
  * const command = new InvokeEndpointWithResponseStreamCommand(input);
  * const response = await client.send(command);

@@ -60,6 +60,7 @@ export const se_InvokeEndpointCommand = async (
     "x-amzn-sagemaker-target-container-hostname": input.TargetContainerHostname!,
     "x-amzn-sagemaker-inference-id": input.InferenceId!,
     "x-amzn-sagemaker-enable-explanations": input.EnableExplanations!,
+    "x-amzn-sagemaker-inference-component": input.InferenceComponentName!,
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/endpoints/{EndpointName}/invocations";
@@ -147,6 +148,7 @@ export const se_InvokeEndpointWithResponseStreamCommand = async (
     "x-amzn-sagemaker-target-variant": input.TargetVariant!,
     "x-amzn-sagemaker-target-container-hostname": input.TargetContainerHostname!,
     "x-amzn-sagemaker-inference-id": input.InferenceId!,
+    "x-amzn-sagemaker-inference-component": input.InferenceComponentName!,
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +

@@ -139,6 +139,13 @@ export interface InvokeEndpointInput {
    *         </p>
    */
   EnableExplanations?: string;
+
+  /**
+   * @public
+   * <p>If the endpoint hosts one or more inference components, this parameter specifies the
+   *             name of inference component to invoke.</p>
+   */
+  InferenceComponentName?: string;
 }
 
 /**
@@ -494,6 +501,13 @@ export interface InvokeEndpointWithResponseStreamInput {
    * <p>An identifier that you assign to your request.</p>
    */
   InferenceId?: string;
+
+  /**
+   * @public
+   * <p>If the endpoint hosts one or more inference components, this parameter specifies the
+   *             name of inference component to invoke for a streaming response.</p>
+   */
+  InferenceComponentName?: string;
 }
 
 /**
