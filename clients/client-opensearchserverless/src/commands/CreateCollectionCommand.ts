@@ -59,6 +59,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   standbyReplicas: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateCollectionCommand(input);
@@ -72,6 +73,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * //     description: "STRING_VALUE",
  * //     arn: "STRING_VALUE",
  * //     kmsKeyArn: "STRING_VALUE",
+ * //     standbyReplicas: "STRING_VALUE",
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
  * //   },

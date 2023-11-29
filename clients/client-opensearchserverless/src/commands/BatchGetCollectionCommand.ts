@@ -70,6 +70,7 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * //       description: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
  * //       kmsKeyArn: "STRING_VALUE",
+ * //       standbyReplicas: "STRING_VALUE",
  * //       createdDate: Number("long"),
  * //       lastModifiedDate: Number("long"),
  * //       collectionEndpoint: "STRING_VALUE",

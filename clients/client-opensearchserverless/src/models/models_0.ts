@@ -519,6 +519,26 @@ export interface BatchGetCollectionRequest {
  * @public
  * @enum
  */
+export const StandbyReplicas = {
+  /**
+   * Standby replicas disabled
+   */
+  DISABLED: "DISABLED",
+  /**
+   * Standby replicas enabled
+   */
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type StandbyReplicas = (typeof StandbyReplicas)[keyof typeof StandbyReplicas];
+
+/**
+ * @public
+ * @enum
+ */
 export const CollectionStatus = {
   /**
    * Collection resource is ready to use
@@ -614,6 +634,12 @@ export interface CollectionDetail {
    * <p>The ARN of the Amazon Web Services KMS key used to encrypt the collection.</p>
    */
   kmsKeyArn?: string;
+
+  /**
+   * @public
+   * <p>Details about an OpenSearch Serverless collection.</p>
+   */
+  standbyReplicas?: StandbyReplicas;
 
   /**
    * @public
@@ -1144,6 +1170,12 @@ export interface CreateCollectionRequest {
 
   /**
    * @public
+   * <p>Indicates whether standby replicas should be used for a collection.</p>
+   */
+  standbyReplicas?: StandbyReplicas;
+
+  /**
+   * @public
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    */
   clientToken?: string;
@@ -1195,6 +1227,12 @@ export interface CreateCollectionDetail {
    * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the collection.</p>
    */
   kmsKeyArn?: string;
+
+  /**
+   * @public
+   * <p>Creates details about an OpenSearch Serverless collection.</p>
+   */
+  standbyReplicas?: StandbyReplicas;
 
   /**
    * @public

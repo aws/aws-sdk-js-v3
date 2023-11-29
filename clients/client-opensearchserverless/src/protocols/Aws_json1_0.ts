@@ -2728,6 +2728,7 @@ const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __S
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     name: [],
+    standbyReplicas: [],
     tags: _json,
     type: [],
   });
