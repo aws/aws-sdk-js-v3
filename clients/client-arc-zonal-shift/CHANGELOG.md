@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.464.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.463.0...v3.464.0) (2023-11-30)
+
+
+### Features
+
+* **client-arc-zonal-shift:** This release adds a new capability, zonal autoshift. You can configure zonal autoshift so that AWS shifts traffic for a resource away from an Availability Zone, on your behalf, when AWS determines that there is an issue that could potentially affect customers in the Availability Zone. ([2152324](https://github.com/aws/aws-sdk-js-v3/commit/2152324b25b1c7cfe9cdde7454c2d3fd0a7b12fd))
+
+
+
+
+
 # [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-zonal-shift

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.464.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.463.0...v3.464.0) (2023-11-30)
+
+
+### Features
+
+* **client-glue:** Adds observation and analyzer support to the GetDataQualityResult and BatchGetDataQualityResult APIs. ([fd0d898](https://github.com/aws/aws-sdk-js-v3/commit/fd0d898f7964796ad56f4bef3baeac085f0a2d1a))
+
+
+
+
+
 # [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.464.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.463.0...v3.464.0) (2023-11-30)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** move smithy devDeps to deps ([#5531](https://github.com/aws/aws-sdk-js-v3/issues/5531)) ([77b3170](https://github.com/aws/aws-sdk-js-v3/commit/77b3170dbac4e49743f8b4c02570e3c0e361635c))
+
+
+### Features
+
+* **client-arc-zonal-shift:** This release adds a new capability, zonal autoshift. You can configure zonal autoshift so that AWS shifts traffic for a resource away from an Availability Zone, on your behalf, when AWS determines that there is an issue that could potentially affect customers in the Availability Zone. ([2152324](https://github.com/aws/aws-sdk-js-v3/commit/2152324b25b1c7cfe9cdde7454c2d3fd0a7b12fd))
+* **client-glue:** Adds observation and analyzer support to the GetDataQualityResult and BatchGetDataQualityResult APIs. ([fd0d898](https://github.com/aws/aws-sdk-js-v3/commit/fd0d898f7964796ad56f4bef3baeac085f0a2d1a))
+* **client-sagemaker:** This release adds support for 1/ Code Editor, based on Code-OSS, Visual Studio Code Open Source, a new fully managed IDE option in SageMaker Studio  2/ JupyterLab, a new fully managed JupyterLab IDE experience in SageMaker Studio ([53b4aa3](https://github.com/aws/aws-sdk-js-v3/commit/53b4aa3f9cec16e27ab52224dce85a179a893678))
+
+
+
+
+
 # [3.463.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.462.0...v3.463.0) (2023-11-30)
 
 
