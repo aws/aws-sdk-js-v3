@@ -37,8 +37,9 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
 
 /**
  * @public
- * <p>Lists all the resources in your AWS account in this AWS Region that are managed for zonal shifts in Amazon Route 53 Application Recovery Controller, and information
- *    		about them. The information includes their Amazon Resource Names (ARNs), the Availability Zones the resources are deployed in, and
+ * <p>Lists all the resources in your Amazon Web Services account in this Amazon Web Services Region that are managed for
+ *    		zonal shifts in Amazon Route 53 Application Recovery Controller, and information about them. The information includes the zonal autoshift status for the resource,
+ *    		as well as the Amazon Resource Name (ARN), the Availability Zones that each resource is deployed in, and
  *    		the resource name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +61,30 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * //       availabilityZones: [ // AvailabilityZones // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       appliedWeights: { // AppliedWeights
+ * //         "<keys>": Number("float"),
+ * //       },
+ * //       zonalShifts: [ // ZonalShiftsInResource
+ * //         { // ZonalShiftInResource
+ * //           appliedStatus: "APPLIED" || "NOT_APPLIED", // required
+ * //           zonalShiftId: "STRING_VALUE", // required
+ * //           resourceIdentifier: "STRING_VALUE", // required
+ * //           awayFrom: "STRING_VALUE", // required
+ * //           expiryTime: new Date("TIMESTAMP"), // required
+ * //           startTime: new Date("TIMESTAMP"), // required
+ * //           comment: "STRING_VALUE", // required
+ * //           practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
+ * //         },
+ * //       ],
+ * //       autoshifts: [ // AutoshiftsInResource
+ * //         { // AutoshiftInResource
+ * //           appliedStatus: "APPLIED" || "NOT_APPLIED", // required
+ * //           awayFrom: "STRING_VALUE", // required
+ * //           startTime: new Date("TIMESTAMP"), // required
+ * //         },
+ * //       ],
+ * //       zonalAutoshiftStatus: "ENABLED" || "DISABLED",
+ * //       practiceRunStatus: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -83,7 +108,7 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>

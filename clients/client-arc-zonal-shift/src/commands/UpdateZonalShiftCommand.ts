@@ -37,7 +37,7 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
 
 /**
  * @public
- * <p>Update an active zonal shift in Amazon Route 53 Application Recovery Controller in your AWS account. You can update a zonal shift to set a new expiration, or
+ * <p>Update an active zonal shift in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account. You can update a zonal shift to set a new expiration, or
  *    	edit or replace the comment for the zonal shift. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,7 +86,7 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>

@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
-import { de_CancelZonalShiftCommand, se_CancelZonalShiftCommand } from "../protocols/Aws_restJson1";
+import { DeletePracticeRunConfigurationRequest, DeletePracticeRunConfigurationResponse } from "../models/models_0";
+import {
+  de_DeletePracticeRunConfigurationCommand,
+  se_DeletePracticeRunConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,49 +28,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CancelZonalShiftCommand}.
+ * The input for {@link DeletePracticeRunConfigurationCommand}.
  */
-export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
+export interface DeletePracticeRunConfigurationCommandInput extends DeletePracticeRunConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link CancelZonalShiftCommand}.
+ * The output of {@link DeletePracticeRunConfigurationCommand}.
  */
-export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
+export interface DeletePracticeRunConfigurationCommandOutput
+  extends DeletePracticeRunConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Cancel a zonal shift in Amazon Route 53 Application Recovery Controller. To cancel the zonal shift, specify the zonal shift ID.</p>
- *          <p>A zonal shift can be one that you've started for a resource in your Amazon Web Services account
- *   		in an Amazon Web Services Region, or it can be a zonal shift started by a practice run with zonal
- *   		autoshift. </p>
+ * <p>Deletes the practice run configuration for a resource. Before you can delete
+ * 			a practice run configuration for a resource., you must disable zonal autoshift for
+ * 			the resource. Practice runs must be configured for zonal autoshift to be enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, DeletePracticeRunConfigurationCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
+ * // const { ARCZonalShiftClient, DeletePracticeRunConfigurationCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
- * const input = { // CancelZonalShiftRequest
- *   zonalShiftId: "STRING_VALUE", // required
+ * const input = { // DeletePracticeRunConfigurationRequest
+ *   resourceIdentifier: "STRING_VALUE", // required
  * };
- * const command = new CancelZonalShiftCommand(input);
+ * const command = new DeletePracticeRunConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // ZonalShift
- * //   zonalShiftId: "STRING_VALUE", // required
- * //   resourceIdentifier: "STRING_VALUE", // required
- * //   awayFrom: "STRING_VALUE", // required
- * //   expiryTime: new Date("TIMESTAMP"), // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
- * //   comment: "STRING_VALUE", // required
+ * // { // DeletePracticeRunConfigurationResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   zonalAutoshiftStatus: "ENABLED" || "DISABLED", // required
  * // };
  *
  * ```
  *
- * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
- * @returns {@link CancelZonalShiftCommandOutput}
- * @see {@link CancelZonalShiftCommandInput} for command's `input` shape.
- * @see {@link CancelZonalShiftCommandOutput} for command's `response` shape.
+ * @param DeletePracticeRunConfigurationCommandInput - {@link DeletePracticeRunConfigurationCommandInput}
+ * @returns {@link DeletePracticeRunConfigurationCommandOutput}
+ * @see {@link DeletePracticeRunConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeletePracticeRunConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,9 +92,9 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
-export class CancelZonalShiftCommand extends $Command<
-  CancelZonalShiftCommandInput,
-  CancelZonalShiftCommandOutput,
+export class DeletePracticeRunConfigurationCommand extends $Command<
+  DeletePracticeRunConfigurationCommandInput,
+  DeletePracticeRunConfigurationCommandOutput,
   ARCZonalShiftClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -109,7 +109,7 @@ export class CancelZonalShiftCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CancelZonalShiftCommandInput) {
+  constructor(readonly input: DeletePracticeRunConfigurationCommandInput) {
     super();
   }
 
@@ -120,17 +120,17 @@ export class CancelZonalShiftCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ARCZonalShiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput> {
+  ): Handler<DeletePracticeRunConfigurationCommandInput, DeletePracticeRunConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CancelZonalShiftCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeletePracticeRunConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ARCZonalShiftClient";
-    const commandName = "CancelZonalShiftCommand";
+    const commandName = "DeletePracticeRunConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,7 +139,7 @@ export class CancelZonalShiftCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "PercDataPlane",
-        operation: "CancelZonalShift",
+        operation: "DeletePracticeRunConfiguration",
       },
     };
     const { requestHandler } = configuration;
@@ -153,14 +153,20 @@ export class CancelZonalShiftCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CancelZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CancelZonalShiftCommand(input, context);
+  private serialize(
+    input: DeletePracticeRunConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_DeletePracticeRunConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelZonalShiftCommandOutput> {
-    return de_CancelZonalShiftCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeletePracticeRunConfigurationCommandOutput> {
+    return de_DeletePracticeRunConfigurationCommand(output, context);
   }
 }

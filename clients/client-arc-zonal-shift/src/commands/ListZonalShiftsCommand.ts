@@ -37,7 +37,11 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
 
 /**
  * @public
- * <p>Lists all the active zonal shifts in Amazon Route 53 Application Recovery Controller in your AWS account in this AWS Region.</p>
+ * <p>Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region.
+ *    		<code>ListZonalShifts</code> returns customer-started zonal shifts, as well as practice run zonal shifts that Route 53 ARC started on
+ *    		your behalf for zonal autoshift.</p>
+ *          <p>The <code>ListZonalShifts</code> operation does not list autoshifts. For more information about listing
+ *    		autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +52,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  *   nextToken: "STRING_VALUE",
  *   status: "ACTIVE" || "EXPIRED" || "CANCELED",
  *   maxResults: Number("int"),
+ *   resourceIdentifier: "STRING_VALUE",
  * };
  * const command = new ListZonalShiftsCommand(input);
  * const response = await client.send(command);
@@ -61,6 +66,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * //       startTime: new Date("TIMESTAMP"), // required
  * //       status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
  * //       comment: "STRING_VALUE", // required
+ * //       practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -84,7 +90,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>

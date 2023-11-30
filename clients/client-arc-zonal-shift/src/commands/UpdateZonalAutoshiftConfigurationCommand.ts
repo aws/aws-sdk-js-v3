@@ -15,8 +15,14 @@ import {
 } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
-import { de_CancelZonalShiftCommand, se_CancelZonalShiftCommand } from "../protocols/Aws_restJson1";
+import {
+  UpdateZonalAutoshiftConfigurationRequest,
+  UpdateZonalAutoshiftConfigurationResponse,
+} from "../models/models_0";
+import {
+  de_UpdateZonalAutoshiftConfigurationCommand,
+  se_UpdateZonalAutoshiftConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,49 +31,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CancelZonalShiftCommand}.
+ * The input for {@link UpdateZonalAutoshiftConfigurationCommand}.
  */
-export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
+export interface UpdateZonalAutoshiftConfigurationCommandInput extends UpdateZonalAutoshiftConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link CancelZonalShiftCommand}.
+ * The output of {@link UpdateZonalAutoshiftConfigurationCommand}.
  */
-export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
+export interface UpdateZonalAutoshiftConfigurationCommandOutput
+  extends UpdateZonalAutoshiftConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Cancel a zonal shift in Amazon Route 53 Application Recovery Controller. To cancel the zonal shift, specify the zonal shift ID.</p>
- *          <p>A zonal shift can be one that you've started for a resource in your Amazon Web Services account
- *   		in an Amazon Web Services Region, or it can be a zonal shift started by a practice run with zonal
- *   		autoshift. </p>
+ * <p>You can update the zonal autoshift status for a resource, to enable or disable zonal
+ * 			autoshift. When zonal autoshift is <code>ENABLED</code>, Amazon Web Services shifts away
+ * 			resource traffic from an Availability Zone, on your behalf, when Amazon Web Services
+ * 			determines that there's an issue in the Availability Zone that could potentially affect customers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, UpdateZonalAutoshiftConfigurationCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
+ * // const { ARCZonalShiftClient, UpdateZonalAutoshiftConfigurationCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
- * const input = { // CancelZonalShiftRequest
- *   zonalShiftId: "STRING_VALUE", // required
+ * const input = { // UpdateZonalAutoshiftConfigurationRequest
+ *   resourceIdentifier: "STRING_VALUE", // required
+ *   zonalAutoshiftStatus: "ENABLED" || "DISABLED", // required
  * };
- * const command = new CancelZonalShiftCommand(input);
+ * const command = new UpdateZonalAutoshiftConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // ZonalShift
- * //   zonalShiftId: "STRING_VALUE", // required
+ * // { // UpdateZonalAutoshiftConfigurationResponse
  * //   resourceIdentifier: "STRING_VALUE", // required
- * //   awayFrom: "STRING_VALUE", // required
- * //   expiryTime: new Date("TIMESTAMP"), // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
- * //   comment: "STRING_VALUE", // required
+ * //   zonalAutoshiftStatus: "ENABLED" || "DISABLED", // required
  * // };
  *
  * ```
  *
- * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
- * @returns {@link CancelZonalShiftCommandOutput}
- * @see {@link CancelZonalShiftCommandInput} for command's `input` shape.
- * @see {@link CancelZonalShiftCommandOutput} for command's `response` shape.
+ * @param UpdateZonalAutoshiftConfigurationCommandInput - {@link UpdateZonalAutoshiftConfigurationCommandInput}
+ * @returns {@link UpdateZonalAutoshiftConfigurationCommandOutput}
+ * @see {@link UpdateZonalAutoshiftConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateZonalAutoshiftConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,9 +96,9 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
-export class CancelZonalShiftCommand extends $Command<
-  CancelZonalShiftCommandInput,
-  CancelZonalShiftCommandOutput,
+export class UpdateZonalAutoshiftConfigurationCommand extends $Command<
+  UpdateZonalAutoshiftConfigurationCommandInput,
+  UpdateZonalAutoshiftConfigurationCommandOutput,
   ARCZonalShiftClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -109,7 +113,7 @@ export class CancelZonalShiftCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CancelZonalShiftCommandInput) {
+  constructor(readonly input: UpdateZonalAutoshiftConfigurationCommandInput) {
     super();
   }
 
@@ -120,17 +124,17 @@ export class CancelZonalShiftCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ARCZonalShiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput> {
+  ): Handler<UpdateZonalAutoshiftConfigurationCommandInput, UpdateZonalAutoshiftConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CancelZonalShiftCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateZonalAutoshiftConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ARCZonalShiftClient";
-    const commandName = "CancelZonalShiftCommand";
+    const commandName = "UpdateZonalAutoshiftConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,7 +143,7 @@ export class CancelZonalShiftCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "PercDataPlane",
-        operation: "CancelZonalShift",
+        operation: "UpdateZonalAutoshiftConfiguration",
       },
     };
     const { requestHandler } = configuration;
@@ -153,14 +157,20 @@ export class CancelZonalShiftCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CancelZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CancelZonalShiftCommand(input, context);
+  private serialize(
+    input: UpdateZonalAutoshiftConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_UpdateZonalAutoshiftConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelZonalShiftCommandOutput> {
-    return de_CancelZonalShiftCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateZonalAutoshiftConfigurationCommandOutput> {
+    return de_UpdateZonalAutoshiftConfigurationCommand(output, context);
   }
 }

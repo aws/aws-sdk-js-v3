@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
-import { de_CancelZonalShiftCommand, se_CancelZonalShiftCommand } from "../protocols/Aws_restJson1";
+import { ListAutoshiftsRequest, ListAutoshiftsResponse } from "../models/models_0";
+import { de_ListAutoshiftsCommand, se_ListAutoshiftsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,62 +25,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CancelZonalShiftCommand}.
+ * The input for {@link ListAutoshiftsCommand}.
  */
-export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
+export interface ListAutoshiftsCommandInput extends ListAutoshiftsRequest {}
 /**
  * @public
  *
- * The output of {@link CancelZonalShiftCommand}.
+ * The output of {@link ListAutoshiftsCommand}.
  */
-export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
+export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Cancel a zonal shift in Amazon Route 53 Application Recovery Controller. To cancel the zonal shift, specify the zonal shift ID.</p>
- *          <p>A zonal shift can be one that you've started for a resource in your Amazon Web Services account
- *   		in an Amazon Web Services Region, or it can be a zonal shift started by a practice run with zonal
- *   		autoshift. </p>
+ * <p>Returns the active autoshifts for a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, ListAutoshiftsCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
+ * // const { ARCZonalShiftClient, ListAutoshiftsCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
- * const input = { // CancelZonalShiftRequest
- *   zonalShiftId: "STRING_VALUE", // required
+ * const input = { // ListAutoshiftsRequest
+ *   nextToken: "STRING_VALUE",
+ *   status: "ACTIVE" || "COMPLETED",
+ *   maxResults: Number("int"),
  * };
- * const command = new CancelZonalShiftCommand(input);
+ * const command = new ListAutoshiftsCommand(input);
  * const response = await client.send(command);
- * // { // ZonalShift
- * //   zonalShiftId: "STRING_VALUE", // required
- * //   resourceIdentifier: "STRING_VALUE", // required
- * //   awayFrom: "STRING_VALUE", // required
- * //   expiryTime: new Date("TIMESTAMP"), // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
- * //   comment: "STRING_VALUE", // required
+ * // { // ListAutoshiftsResponse
+ * //   items: [ // AutoshiftSummaries
+ * //     { // AutoshiftSummary
+ * //       awayFrom: "STRING_VALUE", // required
+ * //       endTime: new Date("TIMESTAMP"), // required
+ * //       startTime: new Date("TIMESTAMP"), // required
+ * //       status: "ACTIVE" || "COMPLETED", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
- * @returns {@link CancelZonalShiftCommandOutput}
- * @see {@link CancelZonalShiftCommandInput} for command's `input` shape.
- * @see {@link CancelZonalShiftCommandOutput} for command's `response` shape.
+ * @param ListAutoshiftsCommandInput - {@link ListAutoshiftsCommandInput}
+ * @returns {@link ListAutoshiftsCommandOutput}
+ * @see {@link ListAutoshiftsCommandInput} for command's `input` shape.
+ * @see {@link ListAutoshiftsCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource.</p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal server error.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The input requested a resource that was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -92,9 +87,9 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
-export class CancelZonalShiftCommand extends $Command<
-  CancelZonalShiftCommandInput,
-  CancelZonalShiftCommandOutput,
+export class ListAutoshiftsCommand extends $Command<
+  ListAutoshiftsCommandInput,
+  ListAutoshiftsCommandOutput,
   ARCZonalShiftClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -109,7 +104,7 @@ export class CancelZonalShiftCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CancelZonalShiftCommandInput) {
+  constructor(readonly input: ListAutoshiftsCommandInput) {
     super();
   }
 
@@ -120,17 +115,17 @@ export class CancelZonalShiftCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ARCZonalShiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput> {
+  ): Handler<ListAutoshiftsCommandInput, ListAutoshiftsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CancelZonalShiftCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAutoshiftsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ARCZonalShiftClient";
-    const commandName = "CancelZonalShiftCommand";
+    const commandName = "ListAutoshiftsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,7 +134,7 @@ export class CancelZonalShiftCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "PercDataPlane",
-        operation: "CancelZonalShift",
+        operation: "ListAutoshifts",
       },
     };
     const { requestHandler } = configuration;
@@ -153,14 +148,14 @@ export class CancelZonalShiftCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CancelZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CancelZonalShiftCommand(input, context);
+  private serialize(input: ListAutoshiftsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListAutoshiftsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelZonalShiftCommandOutput> {
-    return de_CancelZonalShiftCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAutoshiftsCommandOutput> {
+    return de_ListAutoshiftsCommand(output, context);
   }
 }

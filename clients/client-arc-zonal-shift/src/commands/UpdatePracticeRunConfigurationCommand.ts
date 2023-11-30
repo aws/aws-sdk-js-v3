@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { GetManagedResourceRequest, GetManagedResourceResponse } from "../models/models_0";
-import { de_GetManagedResourceCommand, se_GetManagedResourceCommand } from "../protocols/Aws_restJson1";
+import { UpdatePracticeRunConfigurationRequest, UpdatePracticeRunConfigurationResponse } from "../models/models_0";
+import {
+  de_UpdatePracticeRunConfigurationCommand,
+  se_UpdatePracticeRunConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,57 +28,56 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetManagedResourceCommand}.
+ * The input for {@link UpdatePracticeRunConfigurationCommand}.
  */
-export interface GetManagedResourceCommandInput extends GetManagedResourceRequest {}
+export interface UpdatePracticeRunConfigurationCommandInput extends UpdatePracticeRunConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link GetManagedResourceCommand}.
+ * The output of {@link UpdatePracticeRunConfigurationCommand}.
  */
-export interface GetManagedResourceCommandOutput extends GetManagedResourceResponse, __MetadataBearer {}
+export interface UpdatePracticeRunConfigurationCommandOutput
+  extends UpdatePracticeRunConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Get information about a resource that's been registered for zonal shifts with Amazon Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for
- *    		zonal shifts are managed resources in Route 53 ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
- *          <p>At this time, you can only start a zonal shift or configure zonal autoshift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
+ * <p>Update a practice run configuration to change one or more of the following: add,
+ * 			change, or remove the blocking alarm; change the outcome alarm; or add, change,
+ * 			or remove blocking dates or time windows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, GetManagedResourceCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, GetManagedResourceCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, UpdatePracticeRunConfigurationCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
+ * // const { ARCZonalShiftClient, UpdatePracticeRunConfigurationCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
- * const input = { // GetManagedResourceRequest
+ * const input = { // UpdatePracticeRunConfigurationRequest
  *   resourceIdentifier: "STRING_VALUE", // required
+ *   blockedWindows: [ // BlockedWindows
+ *     "STRING_VALUE",
+ *   ],
+ *   blockedDates: [ // BlockedDates
+ *     "STRING_VALUE",
+ *   ],
+ *   blockingAlarms: [ // ControlConditions
+ *     { // ControlCondition
+ *       type: "CLOUDWATCH", // required
+ *       alarmIdentifier: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   outcomeAlarms: [
+ *     {
+ *       type: "CLOUDWATCH", // required
+ *       alarmIdentifier: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
- * const command = new GetManagedResourceCommand(input);
+ * const command = new UpdatePracticeRunConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // GetManagedResourceResponse
- * //   arn: "STRING_VALUE",
- * //   name: "STRING_VALUE",
- * //   appliedWeights: { // AppliedWeights // required
- * //     "<keys>": Number("float"),
- * //   },
- * //   zonalShifts: [ // ZonalShiftsInResource // required
- * //     { // ZonalShiftInResource
- * //       appliedStatus: "APPLIED" || "NOT_APPLIED", // required
- * //       zonalShiftId: "STRING_VALUE", // required
- * //       resourceIdentifier: "STRING_VALUE", // required
- * //       awayFrom: "STRING_VALUE", // required
- * //       expiryTime: new Date("TIMESTAMP"), // required
- * //       startTime: new Date("TIMESTAMP"), // required
- * //       comment: "STRING_VALUE", // required
- * //       practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
- * //     },
- * //   ],
- * //   autoshifts: [ // AutoshiftsInResource
- * //     { // AutoshiftInResource
- * //       appliedStatus: "APPLIED" || "NOT_APPLIED", // required
- * //       awayFrom: "STRING_VALUE", // required
- * //       startTime: new Date("TIMESTAMP"), // required
- * //     },
- * //   ],
+ * // { // UpdatePracticeRunConfigurationResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   zonalAutoshiftStatus: "ENABLED" || "DISABLED", // required
  * //   practiceRunConfiguration: { // PracticeRunConfiguration
  * //     blockingAlarms: [ // ControlConditions
  * //       { // ControlCondition
@@ -96,19 +98,21 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * //       "STRING_VALUE",
  * //     ],
  * //   },
- * //   zonalAutoshiftStatus: "ENABLED" || "DISABLED",
  * // };
  *
  * ```
  *
- * @param GetManagedResourceCommandInput - {@link GetManagedResourceCommandInput}
- * @returns {@link GetManagedResourceCommandOutput}
- * @see {@link GetManagedResourceCommandInput} for command's `input` shape.
- * @see {@link GetManagedResourceCommandOutput} for command's `response` shape.
+ * @param UpdatePracticeRunConfigurationCommandInput - {@link UpdatePracticeRunConfigurationCommandInput}
+ * @returns {@link UpdatePracticeRunConfigurationCommandOutput}
+ * @see {@link UpdatePracticeRunConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdatePracticeRunConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal server error.</p>
@@ -126,9 +130,9 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
-export class GetManagedResourceCommand extends $Command<
-  GetManagedResourceCommandInput,
-  GetManagedResourceCommandOutput,
+export class UpdatePracticeRunConfigurationCommand extends $Command<
+  UpdatePracticeRunConfigurationCommandInput,
+  UpdatePracticeRunConfigurationCommandOutput,
   ARCZonalShiftClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -143,7 +147,7 @@ export class GetManagedResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetManagedResourceCommandInput) {
+  constructor(readonly input: UpdatePracticeRunConfigurationCommandInput) {
     super();
   }
 
@@ -154,17 +158,17 @@ export class GetManagedResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ARCZonalShiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetManagedResourceCommandInput, GetManagedResourceCommandOutput> {
+  ): Handler<UpdatePracticeRunConfigurationCommandInput, UpdatePracticeRunConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetManagedResourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdatePracticeRunConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ARCZonalShiftClient";
-    const commandName = "GetManagedResourceCommand";
+    const commandName = "UpdatePracticeRunConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -173,7 +177,7 @@ export class GetManagedResourceCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "PercDataPlane",
-        operation: "GetManagedResource",
+        operation: "UpdatePracticeRunConfiguration",
       },
     };
     const { requestHandler } = configuration;
@@ -187,14 +191,20 @@ export class GetManagedResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetManagedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetManagedResourceCommand(input, context);
+  private serialize(
+    input: UpdatePracticeRunConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_UpdatePracticeRunConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetManagedResourceCommandOutput> {
-    return de_GetManagedResourceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdatePracticeRunConfigurationCommandOutput> {
+    return de_UpdatePracticeRunConfigurationCommand(output, context);
   }
 }
