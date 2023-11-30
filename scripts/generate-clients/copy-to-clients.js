@@ -236,6 +236,9 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           delete mergedManifest.scripts["build:docs"];
         }
         writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+      } else if (packageSub === "typedoc.json") {
+        // Skip writing typedoc.json
+        // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
