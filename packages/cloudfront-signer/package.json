@@ -46,8 +46,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/cloudfront-signer"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

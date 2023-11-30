@@ -58,8 +58,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/s3-request-presigner"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

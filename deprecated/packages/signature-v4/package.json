@@ -53,8 +53,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/signature-v4"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

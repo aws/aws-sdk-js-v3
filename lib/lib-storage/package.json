@@ -70,8 +70,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "lib/lib-storage"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

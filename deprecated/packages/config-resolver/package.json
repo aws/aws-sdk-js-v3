@@ -50,8 +50,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/config-resolver"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

@@ -50,8 +50,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-defaults-mode-node"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

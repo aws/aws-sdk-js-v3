@@ -49,8 +49,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/fetch-http-handler"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

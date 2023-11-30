@@ -99,8 +99,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/token-providers"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

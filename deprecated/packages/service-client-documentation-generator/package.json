@@ -35,9 +35,6 @@
     "rimraf": "3.0.2",
     "typescript": "~4.9.5"
   },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
-  },
   "typesVersions": {
     "<4.0": {
       "dist-types/*": [

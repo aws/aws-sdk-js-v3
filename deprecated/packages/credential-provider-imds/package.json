@@ -56,8 +56,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/credential-provider-imds"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

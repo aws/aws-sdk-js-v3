@@ -51,8 +51,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/shared-ini-file-loader"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

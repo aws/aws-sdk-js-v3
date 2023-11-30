@@ -52,8 +52,5 @@
   },
   "bugs": {
     "url": "https://github.com/aws/aws-sdk-js-v3/issues"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

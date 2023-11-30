@@ -53,8 +53,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/region-config-resolver"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }
