@@ -3,6 +3,7 @@ import {
   ActionSummary,
   AgentVersion,
   AlgorithmSortBy,
+  AlgorithmSpecification,
   AlgorithmSummary,
   AppDetails,
   AppImageConfigDetails,
@@ -17,10 +18,13 @@ import {
   AutoMLJobSummary,
   AutoMLSortBy,
   AutoMLSortOrder,
-  CacheHitResult,
+  BatchDataCaptureConfig,
+  BatchStrategy,
   CallbackStepMetadata,
   CandidateSortBy,
   CandidateStatus,
+  Channel,
+  CheckpointConfig,
   ClarifyCheckStepMetadata,
   ClusterNodeSummary,
   ClusterSortBy,
@@ -33,17 +37,28 @@ import {
   CompilationJobSummary,
   ConditionStepMetadata,
   ContextSummary,
+  MetadataProperties,
   ModelApprovalStatus,
   ModelPackageStatus,
+  OutputDataConfig,
   OutputParameter,
+  ResourceConfig,
   ResourceSpec,
+  StoppingCondition,
   Tag,
+  TransformInput,
+  TransformOutput,
+  TransformResources,
   UserContext,
+  VpcConfig,
 } from "./models_0";
 import {
   _InstanceType,
+  DebugHookConfig,
+  DebugRuleConfiguration,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
+  ExperimentConfig,
   FeatureDefinition,
   FeatureType,
   HyperParameterTrainingJobDefinition,
@@ -52,19 +67,24 @@ import {
   HyperParameterTuningJobWarmStartConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
+  InfraCheckConfig,
   LabelingJobInputConfig,
   ModelCardStatus,
   MonitoringScheduleConfig,
   MonitoringType,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  ProfilerConfig,
   RecommendationJobType,
   ResourceLimits,
+  RetryStrategy,
   UserSettings,
 } from "./models_1";
 import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
+  DataProcessing,
+  DebugRuleEvaluationStatus,
   DomainStatus,
   EdgePackagingJobStatus,
   EndpointOutputConfiguration,
@@ -91,7 +111,10 @@ import {
   LabelingJobStatus,
   LastUpdateStatus,
   MemberDefinition,
+  MetricData,
+  ModelArtifacts,
   ModelCardExportJobStatus,
+  ModelClientConfig,
   ModelConfiguration,
   ModelPackageGroupStatus,
   MonitoringExecutionSummary,
@@ -101,16 +124,1346 @@ import {
   OfflineStoreStatus,
   OfflineStoreStatusValue,
   PipelineExecutionStatus,
-  ProcessingJobStatus,
   ProductionVariantSummary,
-  ProjectStatus,
+  ProfilerRuleConfiguration,
+  ProfilerRuleEvaluationStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
   ScheduleStatus,
   SourceIpConfig,
+  TensorBoardOutputConfig,
+  TrainingJobStatus,
   TrainingJobStatusCounters,
-  UserProfileStatus,
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfilingStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfilingStatus = (typeof ProfilingStatus)[keyof typeof ProfilingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecondaryStatus = {
+  COMPLETED: "Completed",
+  DOWNLOADING: "Downloading",
+  DOWNLOADING_TRAINING_IMAGE: "DownloadingTrainingImage",
+  FAILED: "Failed",
+  INTERRUPTED: "Interrupted",
+  LAUNCHING_ML_INSTANCES: "LaunchingMLInstances",
+  MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
+  MAX_WAIT_TIME_EXCEEDED: "MaxWaitTimeExceeded",
+  PREPARING_TRAINING_STACK: "PreparingTrainingStack",
+  RESTARTING: "Restarting",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  TRAINING: "Training",
+  UPDATING: "Updating",
+  UPLOADING: "Uploading",
+} as const;
+
+/**
+ * @public
+ */
+export type SecondaryStatus = (typeof SecondaryStatus)[keyof typeof SecondaryStatus];
+
+/**
+ * @public
+ * <p>An array element of <code>SecondaryStatusTransitions</code> for <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>. It provides additional details about a status that the
+ *             training job has transitioned through. A training job can be in one of several states,
+ *             for example, starting, downloading, training, or uploading. Within each state, there are
+ *             a number of intermediate states. For example, within the starting state, SageMaker could be
+ *             starting the training job or launching the ML instances. These transitional states are
+ *             referred to as the job's secondary
+ *             status.
+ *             </p>
+ *          <p></p>
+ */
+export interface SecondaryStatusTransition {
+  /**
+   * @public
+   * <p>Contains a secondary status information from a training
+   *             job.</p>
+   *          <p>Status might be one of the following secondary statuses:</p>
+   *          <dl>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Starting</code>
+   *                                 - Starting the training job.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Downloading</code> - An optional stage for algorithms that
+   *                                 support <code>File</code> training input mode. It indicates that
+   *                                 data is being downloaded to the ML storage volumes.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Training</code> - Training is in progress.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Uploading</code> - Training is complete and the model
+   *                                 artifacts are being uploaded to the S3 location.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Completed</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Completed</code> - The training job has completed.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Failed</code> - The training job has failed. The reason for
+   *                                 the failure is returned in the <code>FailureReason</code> field of
+   *                                     <code>DescribeTrainingJobResponse</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Stopped</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
+   *                                 exceeded the maximum allowed runtime.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Stopped</code> - The training job has stopped.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Stopping</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Stopping</code> - Stopping the training job.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   *          <p>We no longer support the following secondary statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LaunchingMLInstances</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PreparingTrainingStack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DownloadingTrainingImage</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status: SecondaryStatus | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp that shows when the training job transitioned to the current secondary
+   *             status state.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp that shows when the training job transitioned out of this secondary status
+   *             state into another secondary status state or when the training job has ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>A detailed description of the progress within a secondary status.
+   *             </p>
+   *          <p>SageMaker provides secondary statuses and status messages that apply to each of
+   *             them:</p>
+   *          <dl>
+   *             <dt>Starting</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Starting the training job.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Launching requested ML
+   *                                 instances.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Insufficient
+   *                                 capacity error from EC2 while launching instances,
+   *                                 retrying!</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Launched
+   *                                 instance was unhealthy, replacing it!</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Preparing the instances for training.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Training</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Downloading the training image.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Training
+   *                                 image download completed. Training in
+   *                                 progress.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   *          <important>
+   *             <p>Status messages are subject to change. Therefore, we recommend not including them
+   *                 in code that programmatically initiates actions. For examples, don't use status
+   *                 messages in if statements.</p>
+   *          </important>
+   *          <p>To have an overview of your training job's progress, view
+   *                 <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For example,
+   *             at the start of a training job, you might see the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TrainingJobStatus</code> - InProgress</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SecondaryStatus</code> - Training</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StatusMessage</code> - Downloading the training image</p>
+   *             </li>
+   *          </ul>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WarmPoolResourceStatus = {
+  AVAILABLE: "Available",
+  INUSE: "InUse",
+  REUSED: "Reused",
+  TERMINATED: "Terminated",
+} as const;
+
+/**
+ * @public
+ */
+export type WarmPoolResourceStatus = (typeof WarmPoolResourceStatus)[keyof typeof WarmPoolResourceStatus];
+
+/**
+ * @public
+ * <p>Status and billing information about the warm pool.</p>
+ */
+export interface WarmPoolStatus {
+  /**
+   * @public
+   * <p>The status of the warm pool.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InUse</code>: The warm pool is in use for the training job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Available</code>: The warm pool is available to reuse for a matching
+   *                     training job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Reused</code>: The warm pool moved to a matching training job for
+   *                     reuse.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminated</code>: The warm pool is no longer available. Warm pools are
+   *                     unavailable if they are terminated by a user, terminated for a patch update, or
+   *                     terminated for exceeding the specified
+   *                     <code>KeepAlivePeriodInSeconds</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: WarmPoolResourceStatus | undefined;
+
+  /**
+   * @public
+   * <p>The billable time in seconds used by the warm pool. Billable time refers to the
+   *             absolute wall-clock time.</p>
+   *          <p>Multiply <code>ResourceRetainedBillableTimeInSeconds</code> by the number of instances
+   *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
+   *             SageMaker bills you if you run warm pool training. The formula is as follows:
+   *                 <code>ResourceRetainedBillableTimeInSeconds * InstanceCount</code>.</p>
+   */
+  ResourceRetainedBillableTimeInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The name of the matching training job that reused the warm pool.</p>
+   */
+  ReusedByJob?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrainingJobResponse {
+  /**
+   * @public
+   * <p> Name of the model training job. </p>
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   */
+  TrainingJobArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the
+   *             training job was launched by a hyperparameter tuning job.</p>
+   */
+  TuningJobArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the SageMaker Ground Truth labeling job that created the
+   *             transform or training job.</p>
+   */
+  LabelingJobArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an AutoML job.</p>
+   */
+  AutoMLJobArn?: string;
+
+  /**
+   * @public
+   * <p>Information about the Amazon S3 location that is configured for storing model artifacts.
+   *         </p>
+   */
+  ModelArtifacts: ModelArtifacts | undefined;
+
+  /**
+   * @public
+   * <p>The status of the training job.</p>
+   *          <p>SageMaker provides the following training job statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InProgress</code> - The training is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Completed</code> - The training job has completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> - The training job has failed. To see the reason for the
+   *                     failure, see the <code>FailureReason</code> field in the response to a
+   *                         <code>DescribeTrainingJobResponse</code> call.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Stopping</code> - The training job is stopping.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Stopped</code> - The training job has stopped.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
+   */
+  TrainingJobStatus: TrainingJobStatus | undefined;
+
+  /**
+   * @public
+   * <p> Provides detailed information about the state of the training job. For detailed
+   *             information on the secondary status of the training job, see <code>StatusMessage</code>
+   *             under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p>
+   *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
+   *             them:</p>
+   *          <dl>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Starting</code>
+   *                                 - Starting the training job.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Downloading</code> - An optional stage for algorithms that
+   *                                 support <code>File</code> training input mode. It indicates that
+   *                                 data is being downloaded to the ML storage volumes.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Training</code> - Training is in progress.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Interrupted</code> - The job stopped because the managed
+   *                                 spot training instances were interrupted. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Uploading</code> - Training is complete and the model
+   *                                 artifacts are being uploaded to the S3 location.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Completed</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Completed</code> - The training job has completed.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Failed</code> - The training job has failed. The reason for
+   *                                 the failure is returned in the <code>FailureReason</code> field of
+   *                                     <code>DescribeTrainingJobResponse</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Stopped</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
+   *                                 exceeded the maximum allowed runtime.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MaxWaitTimeExceeded</code> - The job stopped because it
+   *                                 exceeded the maximum allowed wait time.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Stopped</code> - The training job has stopped.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>Stopping</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Stopping</code> - Stopping the training job.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   *          <important>
+   *             <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p>
+   *          </important>
+   *          <p>We no longer support the following secondary statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LaunchingMLInstances</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PreparingTraining</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DownloadingTrainingImage</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SecondaryStatus: SecondaryStatus | undefined;
+
+  /**
+   * @public
+   * <p>If the training job failed, the reason it failed. </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>Algorithm-specific parameters. </p>
+   */
+  HyperParameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Information about the algorithm used for training, and algorithm metadata.
+   *         </p>
+   */
+  AlgorithmSpecification: AlgorithmSpecification | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for
+   *             the training job. </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>An array of <code>Channel</code> objects that describes each data input channel.
+   *         </p>
+   */
+  InputDataConfig?: Channel[];
+
+  /**
+   * @public
+   * <p>The S3 path where model artifacts that you configured when creating the job are
+   *             stored. SageMaker creates subfolders for model artifacts. </p>
+   */
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * @public
+   * <p>Resources, including ML compute instances and ML storage volumes, that are
+   *             configured for model training. </p>
+   */
+  ResourceConfig: ResourceConfig | undefined;
+
+  /**
+   * @public
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has access
+   *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+   *                 Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * @public
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
+   *          <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
+   *             model artifacts, so the results of training are not lost. </p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp that indicates when the training job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Indicates the time when the training job starts on training instances. You are
+   *             billed for the time interval between this time and the value of
+   *                 <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later than this time.
+   *             The difference is due to the time it takes to download the training data and to the size
+   *             of the training container.</p>
+   */
+  TrainingStartTime?: Date;
+
+  /**
+   * @public
+   * <p>Indicates the time when the training job ends on training instances. You are billed
+   *             for the time interval between the value of <code>TrainingStartTime</code> and this time.
+   *             For successful jobs and stopped jobs, this is the time after model artifacts are
+   *             uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
+   */
+  TrainingEndTime?: Date;
+
+  /**
+   * @public
+   * <p>A timestamp that indicates when the status of the training job was last
+   *             modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>A history of all of the secondary statuses that the training job has transitioned
+   *             through.</p>
+   */
+  SecondaryStatusTransitions?: SecondaryStatusTransition[];
+
+  /**
+   * @public
+   * <p>A collection of <code>MetricData</code> objects that specify the names, values, and
+   *             dates and times that the training algorithm emitted to Amazon CloudWatch.</p>
+   */
+  FinalMetricDataList?: MetricData[];
+
+  /**
+   * @public
+   * <p>If you want to allow inbound or outbound network calls, except for calls between peers
+   *             within a training cluster for distributed training, choose <code>True</code>. If you
+   *             enable network isolation for training jobs that are configured to use a VPC, SageMaker
+   *             downloads and uploads customer data and model artifacts through the specified VPC, but
+   *             the training container does not have network access.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * @public
+   * <p>To encrypt all communications between ML compute instances in distributed training,
+   *             choose <code>True</code>. Encryption provides greater security for distributed training,
+   *             but training might take longer. How long it takes depends on the amount of communication
+   *             between compute instances, especially if you use a deep learning algorithms in
+   *             distributed training.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * @public
+   * <p>A Boolean indicating whether managed spot training is enabled (<code>True</code>) or
+   *             not (<code>False</code>).</p>
+   */
+  EnableManagedSpotTraining?: boolean;
+
+  /**
+   * @public
+   * <p>Contains information about the output location for managed spot training checkpoint
+   *             data. </p>
+   */
+  CheckpointConfig?: CheckpointConfig;
+
+  /**
+   * @public
+   * <p>The training time in seconds.</p>
+   */
+  TrainingTimeInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The billable time in seconds. Billable time refers to the absolute wall-clock
+   *             time.</p>
+   *          <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
+   *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
+   *             SageMaker bills you if you run distributed training. The formula is as follows:
+   *                 <code>BillableTimeInSeconds * InstanceCount</code> .</p>
+   *          <p>You can calculate the savings from using managed spot training using the formula
+   *                 <code>(1 - BillableTimeInSeconds / TrainingTimeInSeconds) * 100</code>. For example,
+   *             if <code>BillableTimeInSeconds</code> is 100 and <code>TrainingTimeInSeconds</code> is
+   *             500, the savings is 80%.</p>
+   */
+  BillableTimeInSeconds?: number;
+
+  /**
+   * @public
+   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
+   *             storage paths. To learn more about
+   *             how to configure the <code>DebugHookConfig</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
+   */
+  DebugHookConfig?: DebugHookConfig;
+
+  /**
+   * @public
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ExperimentConfig?: ExperimentConfig;
+
+  /**
+   * @public
+   * <p>Configuration information for Amazon SageMaker Debugger rules for debugging output tensors.</p>
+   */
+  DebugRuleConfigurations?: DebugRuleConfiguration[];
+
+  /**
+   * @public
+   * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
+   */
+  TensorBoardOutputConfig?: TensorBoardOutputConfig;
+
+  /**
+   * @public
+   * <p>Evaluation status of Amazon SageMaker Debugger rules for debugging on a training job.</p>
+   */
+  DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
+
+  /**
+   * @public
+   * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and
+   *             storage paths.</p>
+   */
+  ProfilerConfig?: ProfilerConfig;
+
+  /**
+   * @public
+   * <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework
+   *             metrics.</p>
+   */
+  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
+
+  /**
+   * @public
+   * <p>Evaluation status of Amazon SageMaker Debugger rules for profiling on a training job.</p>
+   */
+  ProfilerRuleEvaluationStatuses?: ProfilerRuleEvaluationStatus[];
+
+  /**
+   * @public
+   * <p>Profiling status of a training job.</p>
+   */
+  ProfilingStatus?: ProfilingStatus;
+
+  /**
+   * @public
+   * <p>The number of times to retry the job when the job fails due to an
+   *                 <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
+
+  /**
+   * @public
+   * <p>The environment variables to set in the Docker container.</p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The status of the warm pool associated with the training job.</p>
+   */
+  WarmPoolStatus?: WarmPoolStatus;
+
+  /**
+   * @public
+   * <p>Contains information about the infrastructure health check configuration for the training job.</p>
+   */
+  InfraCheckConfig?: InfraCheckConfig;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransformJobRequest {
+  /**
+   * @public
+   * <p>The name of the transform job that you want to view details of.</p>
+   */
+  TransformJobName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransformJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformJobStatus = (typeof TransformJobStatus)[keyof typeof TransformJobStatus];
+
+/**
+ * @public
+ */
+export interface DescribeTransformJobResponse {
+  /**
+   * @public
+   * <p>The name of the transform job.</p>
+   */
+  TransformJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
+   */
+  TransformJobArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The
+   *             status of the transform job. If the transform job failed, the reason
+   *             is returned in the <code>FailureReason</code> field.</p>
+   */
+  TransformJobStatus: TransformJobStatus | undefined;
+
+  /**
+   * @public
+   * <p>If the transform job failed, <code>FailureReason</code> describes
+   *             why
+   *             it failed. A transform job creates a log file, which includes error
+   *             messages, and stores it
+   *             as
+   *             an Amazon S3 object. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log Amazon SageMaker Events with
+   *                 Amazon CloudWatch</a>.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>The name of the model used in the transform job.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * @public
+   * <p>The
+   *             maximum number
+   *             of
+   *             parallel requests on each instance node
+   *             that can be launched in a transform job. The default value is 1.</p>
+   */
+  MaxConcurrentTransforms?: number;
+
+  /**
+   * @public
+   * <p>The timeout and maximum number of retries for processing a transform job
+   *             invocation.</p>
+   */
+  ModelClientConfig?: ModelClientConfig;
+
+  /**
+   * @public
+   * <p>The
+   *             maximum
+   *             payload size, in MB, used in the
+   *             transform job.</p>
+   */
+  MaxPayloadInMB?: number;
+
+  /**
+   * @public
+   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference
+   *             request.
+   *             A <i>record</i>
+   *             <i></i> is a single unit of input data that inference
+   *             can be made on. For example, a single line in a CSV file is a record. </p>
+   *          <p>To enable the batch strategy, you must set <code>SplitType</code>
+   *             to
+   *                 <code>Line</code>, <code>RecordIO</code>, or
+   *             <code>TFRecord</code>.</p>
+   */
+  BatchStrategy?: BatchStrategy;
+
+  /**
+   * @public
+   * <p>The
+   *             environment variables to set in the Docker container. We support up to 16 key and values
+   *             entries in the map.</p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Describes the dataset to be transformed and the Amazon S3 location where it is
+   *             stored.</p>
+   */
+  TransformInput: TransformInput | undefined;
+
+  /**
+   * @public
+   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the
+   *             transform job.</p>
+   */
+  TransformOutput?: TransformOutput;
+
+  /**
+   * @public
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig;
+
+  /**
+   * @public
+   * <p>Describes
+   *             the resources, including ML instance types and ML instance count, to
+   *             use for the transform job.</p>
+   */
+  TransformResources: TransformResources | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp that shows when the transform Job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Indicates when the transform job starts
+   *             on
+   *             ML instances. You are billed for the time interval between this time
+   *             and the value of <code>TransformEndTime</code>.</p>
+   */
+  TransformStartTime?: Date;
+
+  /**
+   * @public
+   * <p>Indicates when the transform job has been
+   *
+   *             completed, or has stopped or failed. You are billed for the time
+   *             interval between this time and the value of <code>TransformStartTime</code>.</p>
+   */
+  TransformEndTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
+   *             transform or training job.</p>
+   */
+  LabelingJobArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the AutoML transform job.</p>
+   */
+  AutoMLJobArn?: string;
+
+  /**
+   * @public
+   * <p>The data structure used to specify the data to be used for inference in a batch
+   *             transform job and to associate the data that is relevant to the prediction results in
+   *             the output. The input filter provided allows you to exclude input data that is not
+   *             needed for inference in a batch transform job. The output filter provided allows you to
+   *             include input data relevant to interpreting the predictions in the output from the job.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
+   *                 Results with their Corresponding Input Records</a>.</p>
+   */
+  DataProcessing?: DataProcessing;
+
+  /**
+   * @public
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ExperimentConfig?: ExperimentConfig;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialRequest {
+  /**
+   * @public
+   * <p>The name of the trial to describe.</p>
+   */
+  TrialName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The source of the trial.</p>
+ */
+export interface TrialSource {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The source job type.</p>
+   */
+  SourceType?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialResponse {
+  /**
+   * @public
+   * <p>The name of the trial.</p>
+   */
+  TrialName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   */
+  TrialArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>TrialName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * @public
+   * <p>The name of the experiment the trial is part of.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
+   */
+  Source?: TrialSource;
+
+  /**
+   * @public
+   * <p>When the trial was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Who created the trial.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>When the trial was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Who last modified the trial.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialComponentRequest {
+  /**
+   * @public
+   * <p>The name of the trial component to describe.</p>
+   */
+  TrialComponentName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A summary of the metrics of a trial component.</p>
+ */
+export interface TrialComponentMetricSummary {
+  /**
+   * @public
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * @public
+   * <p>When the metric was last updated.</p>
+   */
+  TimeStamp?: Date;
+
+  /**
+   * @public
+   * <p>The maximum value of the metric.</p>
+   */
+  Max?: number;
+
+  /**
+   * @public
+   * <p>The minimum value of the metric.</p>
+   */
+  Min?: number;
+
+  /**
+   * @public
+   * <p>The most recent value of the metric.</p>
+   */
+  Last?: number;
+
+  /**
+   * @public
+   * <p>The number of samples used to generate the metric.</p>
+   */
+  Count?: number;
+
+  /**
+   * @public
+   * <p>The average value of the metric.</p>
+   */
+  Avg?: number;
+
+  /**
+   * @public
+   * <p>The standard deviation of the metric.</p>
+   */
+  StdDev?: number;
+}
+
+/**
+ * @public
+ * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
+ */
+export interface TrialComponentSource {
+  /**
+   * @public
+   * <p>The source Amazon Resource Name (ARN).</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The source job type.</p>
+   */
+  SourceType?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialComponentResponse {
+  /**
+   * @public
+   * <p>The name of the trial component.</p>
+   */
+  TrialComponentName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   */
+  TrialComponentArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>TrialComponentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
+   */
+  Source?: TrialComponentSource;
+
+  /**
+   * @public
+   * <p>The status of the component. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>InProgress</p>
+   *             </li>
+   *             <li>
+   *                <p>Completed</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: TrialComponentStatus;
+
+  /**
+   * @public
+   * <p>When the component started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>When the component ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>When the component was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Who created the trial component.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>When the component was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Who last modified the component.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The hyperparameters of the component.</p>
+   */
+  Parameters?: Record<string, TrialComponentParameterValue>;
+
+  /**
+   * @public
+   * <p>The input artifacts of the component.</p>
+   */
+  InputArtifacts?: Record<string, TrialComponentArtifact>;
+
+  /**
+   * @public
+   * <p>The output artifacts of the component.</p>
+   */
+  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+
+  /**
+   * @public
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * @public
+   * <p>The metrics for the component.</p>
+   */
+  Metrics?: TrialComponentMetricSummary[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * @public
+   * <p>A list of ARNs and, if applicable, job types for multiple sources of an experiment
+   *       run.</p>
+   */
+  Sources?: TrialComponentSource[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserProfileRequest {
+  /**
+   * @public
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * @public
+   * <p>The user profile name. This value is not case sensitive.</p>
+   */
+  UserProfileName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UserProfileStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type UserProfileStatus = (typeof UserProfileStatus)[keyof typeof UserProfileStatus];
 
 /**
  * @public
@@ -4227,7 +5580,8 @@ export interface ListAppsRequest {
 
   /**
    * @public
-   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
+   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set,
+   *             then this value cannot be set.</p>
    */
   SpaceNameEquals?: string;
 }
@@ -9854,600 +11208,4 @@ export interface SelectiveExecutionResult {
    * <p>The ARN from an execution of the current pipeline.</p>
    */
   SourcePipelineExecutionArn?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const StepStatus = {
-  EXECUTING: "Executing",
-  FAILED: "Failed",
-  STARTING: "Starting",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-  SUCCEEDED: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
-
-/**
- * @public
- * <p>An execution of a step in a pipeline.</p>
- */
-export interface PipelineExecutionStep {
-  /**
-   * @public
-   * <p>The name of the step that is executed.</p>
-   */
-  StepName?: string;
-
-  /**
-   * @public
-   * <p>The display name of the step.</p>
-   */
-  StepDisplayName?: string;
-
-  /**
-   * @public
-   * <p>The description of the step.</p>
-   */
-  StepDescription?: string;
-
-  /**
-   * @public
-   * <p>The time that the step started executing.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * @public
-   * <p>The time that the step stopped executing.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * @public
-   * <p>The status of the step execution.</p>
-   */
-  StepStatus?: StepStatus;
-
-  /**
-   * @public
-   * <p>If this pipeline execution step was cached, details on the cache hit.</p>
-   */
-  CacheHitResult?: CacheHitResult;
-
-  /**
-   * @public
-   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
-   */
-  AttemptCount?: number;
-
-  /**
-   * @public
-   * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>Metadata to run the pipeline step.</p>
-   */
-  Metadata?: PipelineExecutionStepMetadata;
-
-  /**
-   * @public
-   * <p>The ARN from an execution of the current pipeline from which
-   *            results are reused for this step.</p>
-   */
-  SelectiveExecutionResult?: SelectiveExecutionResult;
-}
-
-/**
- * @public
- */
-export interface ListPipelineExecutionStepsResponse {
-  /**
-   * @public
-   * <p>A list of <code>PipeLineExecutionStep</code> objects. Each
-   *             <code>PipeLineExecutionStep</code> consists of StepName, StartTime, EndTime, StepStatus,
-   *          and Metadata. Metadata is an object with properties for each job that contains relevant
-   *          information about the job created by the step.</p>
-   */
-  PipelineExecutionSteps?: PipelineExecutionStep[];
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPipelineParametersForExecutionRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn: string | undefined;
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of parameters to return in the response.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * <p>Assigns a value to a named Pipeline parameter.</p>
- */
-export interface Parameter {
-  /**
-   * @public
-   * <p>The name of the parameter to assign a value to. This
-   *          parameter name must match a named parameter in the
-   *          pipeline definition.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The literal value for the parameter.</p>
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPipelineParametersForExecutionResponse {
-  /**
-   * @public
-   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
-   */
-  PipelineParameters?: Parameter[];
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortPipelinesBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type SortPipelinesBy = (typeof SortPipelinesBy)[keyof typeof SortPipelinesBy];
-
-/**
- * @public
- */
-export interface ListPipelinesRequest {
-  /**
-   * @public
-   * <p>The prefix of the pipeline name.</p>
-   */
-  PipelineNamePrefix?: string;
-
-  /**
-   * @public
-   * <p>A filter that returns the pipelines that were created after a specified
-   *          time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * @public
-   * <p>A filter that returns the pipelines that were created before a specified
-   *          time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * @public
-   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
-   */
-  SortBy?: SortPipelinesBy;
-
-  /**
-   * @public
-   * <p>The sort order for results.</p>
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of pipelines to return in the response.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * <p>A summary of a pipeline.</p>
- */
-export interface PipelineSummary {
-  /**
-   * @public
-   * <p> The Amazon Resource Name (ARN) of the pipeline.</p>
-   */
-  PipelineArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the pipeline.</p>
-   */
-  PipelineName?: string;
-
-  /**
-   * @public
-   * <p>The display name of the pipeline.</p>
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * @public
-   * <p>The description of the pipeline.</p>
-   */
-  PipelineDescription?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) that the pipeline used to execute.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * @public
-   * <p>The creation time of the pipeline.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The time that the pipeline was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that a pipeline execution began.</p>
-   */
-  LastExecutionTime?: Date;
-}
-
-/**
- * @public
- */
-export interface ListPipelinesResponse {
-  /**
-   * @public
-   * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified
-   *          filters. Each <code>PipelineSummary</code> consists of PipelineArn, PipelineName,
-   *          ExperimentName, PipelineDescription, CreationTime, LastModifiedTime, LastRunTime, and
-   *          RoleArn. This list can be empty. </p>
-   */
-  PipelineSummaries?: PipelineSummary[];
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListProcessingJobsRequest {
-  /**
-   * @public
-   * <p>A filter that returns only processing jobs created after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * @public
-   * <p>A filter that returns only processing jobs created after the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * @public
-   * <p>A filter that returns only processing jobs modified after the specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * @public
-   * <p>A filter that returns only processing jobs modified before the specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * @public
-   * <p>A string in the processing job name. This filter returns only processing jobs whose
-   *             name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * @public
-   * <p>A filter that retrieves only processing jobs with a specific status.</p>
-   */
-  StatusEquals?: ProcessingJobStatus;
-
-  /**
-   * @public
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortBy;
-
-  /**
-   * @public
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of processing
-   *             jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of processing jobs to return in the response.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * <p>Summary of information about a processing job.</p>
- */
-export interface ProcessingJobSummary {
-  /**
-   * @public
-   * <p>The name of the processing job.</p>
-   */
-  ProcessingJobName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the processing job..</p>
-   */
-  ProcessingJobArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The time at which the processing job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The time at which the processing job completed.</p>
-   */
-  ProcessingEndTime?: Date;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates the last time the processing job was modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The status of the processing job.</p>
-   */
-  ProcessingJobStatus: ProcessingJobStatus | undefined;
-
-  /**
-   * @public
-   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
-   *             it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>An optional string, up to one KB in size, that contains metadata from the processing
-   *             container when the processing job exits.</p>
-   */
-  ExitMessage?: string;
-}
-
-/**
- * @public
- */
-export interface ListProcessingJobsResponse {
-  /**
-   * @public
-   * <p>An array of <code>ProcessingJobSummary</code> objects, each listing a processing
-   *             job.</p>
-   */
-  ProcessingJobSummaries: ProcessingJobSummary[] | undefined;
-
-  /**
-   * @public
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
-   *             processing jobs, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProjectSortBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type ProjectSortBy = (typeof ProjectSortBy)[keyof typeof ProjectSortBy];
-
-/**
- * @public
- * @enum
- */
-export const ProjectSortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type ProjectSortOrder = (typeof ProjectSortOrder)[keyof typeof ProjectSortOrder];
-
-/**
- * @public
- */
-export interface ListProjectsInput {
-  /**
-   * @public
-   * <p>A filter that returns the projects that were created after a specified
-   *             time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * @public
-   * <p>A filter that returns the projects that were created before a specified
-   *             time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * @public
-   * <p>The maximum number of projects to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>A filter that returns the projects whose name contains a specified
-   *             string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListProjects</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of projects, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: ProjectSortBy;
-
-  /**
-   * @public
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: ProjectSortOrder;
-}
-
-/**
- * @public
- * <p>Information about a project.</p>
- */
-export interface ProjectSummary {
-  /**
-   * @public
-   * <p>The name of the project.</p>
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * @public
-   * <p>The description of the project.</p>
-   */
-  ProjectDescription?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   */
-  ProjectArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the project.</p>
-   */
-  ProjectId: string | undefined;
-
-  /**
-   * @public
-   * <p>The time that the project was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The status of the project.</p>
-   */
-  ProjectStatus: ProjectStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProjectsOutput {
-  /**
-   * @public
-   * <p>A list of summaries of projects.</p>
-   */
-  ProjectSummaryList: ProjectSummary[] | undefined;
-
-  /**
-   * @public
-   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
-   *             compilation jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
 }

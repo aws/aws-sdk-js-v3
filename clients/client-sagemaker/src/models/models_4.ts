@@ -8,15 +8,18 @@ import {
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppSpecification,
+  AppType,
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
   BooleanOperator,
+  CacheHitResult,
   Channel,
   CheckpointConfig,
   ClusterInstanceGroupSpecification,
   ContainerDefinition,
   InferenceSpecification,
+  JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
   ModelApprovalStatus,
@@ -34,7 +37,6 @@ import {
 } from "./models_0";
 import {
   _InstanceType,
-  DataProcessing,
   DebugHookConfig,
   DebugRuleConfiguration,
   DefaultSpaceSettings,
@@ -52,7 +54,6 @@ import {
   JobType,
   ModelCardSecurityConfig,
   ModelCardStatus,
-  ModelClientConfig,
   ModelMetrics,
   ModelPackageValidationSpecification,
   ModelVariantConfig,
@@ -69,20 +70,17 @@ import {
   ProcessingStoppingCondition,
   Processor,
   ProfilerConfig,
-  ProfilerRuleConfiguration,
   ProvisioningParameter,
   RetryStrategy,
   RootAccess,
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
+  SharingType,
   SkipModelValidation,
   SourceAlgorithmSpecification,
   SpaceSettings,
+  SpaceStorageSettings,
   StudioLifecycleConfigAppType,
-  TensorBoardOutputConfig,
-  TrialComponentArtifact,
-  TrialComponentParameterValue,
-  TrialComponentStatus,
   TtlDuration,
   UiTemplate,
   UserSettings,
@@ -90,6 +88,7 @@ import {
 } from "./models_1";
 import {
   CrossAccountFilterOption,
+  DataProcessing,
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   EndpointStatus,
@@ -98,6 +97,7 @@ import {
   MemberDefinition,
   MetricData,
   ModelArtifacts,
+  ModelClientConfig,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
@@ -108,23 +108,19 @@ import {
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
+  ProfilerRuleConfiguration,
   ProjectStatus,
   ScheduleStatus,
-  SecondaryStatus,
-  SecondaryStatusTransition,
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
   SpaceStatus,
   SubscribedWorkteam,
+  TensorBoardOutputConfig,
   TrainingJobStatus,
-  TransformJobStatus,
-  TrialComponentMetricSummary,
-  TrialComponentSource,
-  TrialSource,
-  UserProfileStatus,
-  WarmPoolResourceStatus,
-  WarmPoolStatus,
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
   WorkforceVpcConfigRequest,
 } from "./models_2";
 import {
@@ -144,13 +140,619 @@ import {
   InferenceExperimentStopDesiredState,
   LineageType,
   MonitoringAlertSummary,
-  Parameter,
+  PipelineExecutionStepMetadata,
   ResourceType,
+  SecondaryStatus,
+  SecondaryStatusTransition,
+  SelectiveExecutionResult,
   SortBy,
   SortOrder,
+  TransformJobStatus,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
+  TrialSource,
+  UserProfileStatus,
+  WarmPoolResourceStatus,
+  WarmPoolStatus,
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const StepStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
+
+/**
+ * @public
+ * <p>An execution of a step in a pipeline.</p>
+ */
+export interface PipelineExecutionStep {
+  /**
+   * @public
+   * <p>The name of the step that is executed.</p>
+   */
+  StepName?: string;
+
+  /**
+   * @public
+   * <p>The display name of the step.</p>
+   */
+  StepDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the step.</p>
+   */
+  StepDescription?: string;
+
+  /**
+   * @public
+   * <p>The time that the step started executing.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the step stopped executing.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>The status of the step execution.</p>
+   */
+  StepStatus?: StepStatus;
+
+  /**
+   * @public
+   * <p>If this pipeline execution step was cached, details on the cache hit.</p>
+   */
+  CacheHitResult?: CacheHitResult;
+
+  /**
+   * @public
+   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
+   */
+  AttemptCount?: number;
+
+  /**
+   * @public
+   * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>Metadata to run the pipeline step.</p>
+   */
+  Metadata?: PipelineExecutionStepMetadata;
+
+  /**
+   * @public
+   * <p>The ARN from an execution of the current pipeline from which
+   *            results are reused for this step.</p>
+   */
+  SelectiveExecutionResult?: SelectiveExecutionResult;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineExecutionStepsResponse {
+  /**
+   * @public
+   * <p>A list of <code>PipeLineExecutionStep</code> objects. Each
+   *             <code>PipeLineExecutionStep</code> consists of StepName, StartTime, EndTime, StepStatus,
+   *          and Metadata. Metadata is an object with properties for each job that contains relevant
+   *          information about the job created by the step.</p>
+   */
+  PipelineExecutionSteps?: PipelineExecutionStep[];
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineParametersForExecutionRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of parameters to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Assigns a value to a named Pipeline parameter.</p>
+ */
+export interface Parameter {
+  /**
+   * @public
+   * <p>The name of the parameter to assign a value to. This
+   *          parameter name must match a named parameter in the
+   *          pipeline definition.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The literal value for the parameter.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineParametersForExecutionResponse {
+  /**
+   * @public
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   */
+  PipelineParameters?: Parameter[];
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortPipelinesBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortPipelinesBy = (typeof SortPipelinesBy)[keyof typeof SortPipelinesBy];
+
+/**
+ * @public
+ */
+export interface ListPipelinesRequest {
+  /**
+   * @public
+   * <p>The prefix of the pipeline name.</p>
+   */
+  PipelineNamePrefix?: string;
+
+  /**
+   * @public
+   * <p>A filter that returns the pipelines that were created after a specified
+   *          time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * @public
+   * <p>A filter that returns the pipelines that were created before a specified
+   *          time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * @public
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   */
+  SortBy?: SortPipelinesBy;
+
+  /**
+   * @public
+   * <p>The sort order for results.</p>
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of pipelines to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of a pipeline.</p>
+ */
+export interface PipelineSummary {
+  /**
+   * @public
+   * <p> The Amazon Resource Name (ARN) of the pipeline.</p>
+   */
+  PipelineArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the pipeline.</p>
+   */
+  PipelineName?: string;
+
+  /**
+   * @public
+   * <p>The display name of the pipeline.</p>
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the pipeline.</p>
+   */
+  PipelineDescription?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that the pipeline used to execute.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>The creation time of the pipeline.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the pipeline was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that a pipeline execution began.</p>
+   */
+  LastExecutionTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelinesResponse {
+  /**
+   * @public
+   * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified
+   *          filters. Each <code>PipelineSummary</code> consists of PipelineArn, PipelineName,
+   *          ExperimentName, PipelineDescription, CreationTime, LastModifiedTime, LastRunTime, and
+   *          RoleArn. This list can be empty. </p>
+   */
+  PipelineSummaries?: PipelineSummary[];
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListProcessingJobsRequest {
+  /**
+   * @public
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * @public
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * @public
+   * <p>A filter that returns only processing jobs modified after the specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * @public
+   * <p>A filter that returns only processing jobs modified before the specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * @public
+   * <p>A string in the processing job name. This filter returns only processing jobs whose
+   *             name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * @public
+   * <p>A filter that retrieves only processing jobs with a specific status.</p>
+   */
+  StatusEquals?: ProcessingJobStatus;
+
+  /**
+   * @public
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy;
+
+  /**
+   * @public
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of processing
+   *             jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of processing jobs to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary of information about a processing job.</p>
+ */
+export interface ProcessingJobSummary {
+  /**
+   * @public
+   * <p>The name of the processing job.</p>
+   */
+  ProcessingJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the processing job..</p>
+   */
+  ProcessingJobArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the processing job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the processing job completed.</p>
+   */
+  ProcessingEndTime?: Date;
+
+  /**
+   * @public
+   * <p>A timestamp that indicates the last time the processing job was modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The status of the processing job.</p>
+   */
+  ProcessingJobStatus: ProcessingJobStatus | undefined;
+
+  /**
+   * @public
+   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
+   *             it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>An optional string, up to one KB in size, that contains metadata from the processing
+   *             container when the processing job exits.</p>
+   */
+  ExitMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListProcessingJobsResponse {
+  /**
+   * @public
+   * <p>An array of <code>ProcessingJobSummary</code> objects, each listing a processing
+   *             job.</p>
+   */
+  ProcessingJobSummaries: ProcessingJobSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             processing jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectSortBy = (typeof ProjectSortBy)[keyof typeof ProjectSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectSortOrder = (typeof ProjectSortOrder)[keyof typeof ProjectSortOrder];
+
+/**
+ * @public
+ */
+export interface ListProjectsInput {
+  /**
+   * @public
+   * <p>A filter that returns the projects that were created after a specified
+   *             time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * @public
+   * <p>A filter that returns the projects that were created before a specified
+   *             time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * @public
+   * <p>The maximum number of projects to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A filter that returns the projects whose name contains a specified
+   *             string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListProjects</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of projects, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ProjectSortBy;
+
+  /**
+   * @public
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: ProjectSortOrder;
+}
+
+/**
+ * @public
+ * <p>Information about a project.</p>
+ */
+export interface ProjectSummary {
+  /**
+   * @public
+   * <p>The name of the project.</p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the project.</p>
+   */
+  ProjectDescription?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the project.</p>
+   */
+  ProjectId: string | undefined;
+
+  /**
+   * @public
+   * <p>The time that the project was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The status of the project.</p>
+   */
+  ProjectStatus: ProjectStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProjectsOutput {
+  /**
+   * @public
+   * <p>A list of summaries of projects.</p>
+   */
+  ProjectSummaryList: ProjectSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
+   *             compilation jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -299,17 +901,17 @@ export type SpaceSortKey = (typeof SpaceSortKey)[keyof typeof SpaceSortKey];
 export interface ListSpacesRequest {
   /**
    * @public
-   * <p>If the previous response was truncated, you will receive this token.
-   *             Use it in your next request to receive the next set of results.</p>
+   * <p>If the previous response was truncated, you will receive this token. Use it in your
+   *             next request to receive the next set of results.</p>
    */
   NextToken?: string;
 
   /**
    * @public
-   * <p>The total number of items to return in the response. If the total
-   *             number of items available is more than the value specified, a <code>NextToken</code>
-   *             is provided in the response. To resume pagination, provide the <code>NextToken</code>
-   *             value in the as part of a subsequent call. The default value is 10.</p>
+   * <p>The total number of items to return in the response. If the total number of items
+   *             available is more than the value specified, a <code>NextToken</code> is provided in the
+   *             response. To resume pagination, provide the <code>NextToken</code> value in the as part
+   *             of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -321,7 +923,8 @@ export interface ListSpacesRequest {
 
   /**
    * @public
-   * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
+   * <p>The parameter by which to sort the results. The default is
+   *             <code>CreationTime</code>.</p>
    */
   SortBy?: SpaceSortKey;
 
@@ -336,6 +939,48 @@ export interface ListSpacesRequest {
    * <p>A parameter by which to filter the results.</p>
    */
   SpaceNameContains?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies summary information about the ownership settings.</p>
+ */
+export interface OwnershipSettingsSummary {
+  /**
+   * @public
+   * <p>The user profile who is the owner of the private space.</p>
+   */
+  OwnerUserProfileName?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies summary information about the space settings.</p>
+ */
+export interface SpaceSettingsSummary {
+  /**
+   * @public
+   * <p>The type of app created within the space.</p>
+   */
+  AppType?: AppType;
+
+  /**
+   * @public
+   * <p>The storage settings for a private space.</p>
+   */
+  SpaceStorageSettings?: SpaceStorageSettings;
+}
+
+/**
+ * @public
+ * <p>Specifies summary information about the space sharing settings.</p>
+ */
+export interface SpaceSharingSettingsSummary {
+  /**
+   * @public
+   * <p>Specifies the sharing type of the space.</p>
+   */
+  SharingType?: SharingType;
 }
 
 /**
@@ -372,6 +1017,30 @@ export interface SpaceDetails {
    * <p>The last modified time.</p>
    */
   LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The name of the space that appears in the Studio UI.</p>
+   */
+  SpaceDisplayName?: string;
+
+  /**
+   * @public
+   * <p>Specifies summary information about the space settings.</p>
+   */
+  SpaceSettingsSummary?: SpaceSettingsSummary;
+
+  /**
+   * @public
+   * <p>Specifies summary information about the space sharing settings.</p>
+   */
+  SpaceSharingSettingsSummary?: SpaceSharingSettingsSummary;
+
+  /**
+   * @public
+   * <p>Specifies summary information about the ownership settings.</p>
+   */
+  OwnershipSettingsSummary?: OwnershipSettingsSummary;
 }
 
 /**
@@ -386,8 +1055,8 @@ export interface ListSpacesResponse {
 
   /**
    * @public
-   * <p>If the previous response was truncated, you will receive this token.
-   *             Use it in your next request to receive the next set of results.</p>
+   * <p>If the previous response was truncated, you will receive this token. Use it in your
+   *             next request to receive the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -4768,6 +5437,12 @@ export interface UpdateAppImageConfigRequest {
    * <p>The new KernelGateway app to run on the image.</p>
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
+
+  /**
+   * @public
+   * <p>The JupyterLab app running on the image.</p>
+   */
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
 }
 
 /**
@@ -6200,6 +6875,12 @@ export interface UpdateSpaceRequest {
    * <p>A collection of space settings.</p>
    */
   SpaceSettings?: SpaceSettings;
+
+  /**
+   * @public
+   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
+   */
+  SpaceDisplayName?: string;
 }
 
 /**

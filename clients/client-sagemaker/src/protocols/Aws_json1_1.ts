@@ -926,6 +926,7 @@ import {
   ClusterNodeDetails,
   ClusterNodeSummary,
   ClusterSummary,
+  CodeEditorAppSettings,
   CodeRepository,
   CodeRepositorySummary,
   CognitoConfig,
@@ -936,6 +937,7 @@ import {
   CompressionType,
   ConditionStepMetadata,
   ConflictException,
+  ContainerConfig,
   ContainerDefinition,
   ContentClassifier,
   ContextSource,
@@ -962,9 +964,6 @@ import {
   CreateCodeRepositoryInput,
   CreateCodeRepositoryOutput,
   CreateCompilationJobRequest,
-  CreateCompilationJobResponse,
-  CreateContextRequest,
-  CreateContextResponse,
   DataSource,
   DirectDeploySettings,
   FileSystemConfig,
@@ -983,6 +982,7 @@ import {
   InputConfig,
   InstanceGroup,
   IntegerParameterRangeSpecification,
+  JupyterLabAppImageConfig,
   KendraSettings,
   KernelGatewayImageConfig,
   KernelSpec,
@@ -1048,6 +1048,9 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateCompilationJobResponse,
+  CreateContextRequest,
+  CreateContextResponse,
   CreateDataQualityJobDefinitionRequest,
   CreateDataQualityJobDefinitionResponse,
   CreateDeviceFleetRequest,
@@ -1121,26 +1124,21 @@ import {
   CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
   CreateStudioLifecycleConfigResponse,
-  CreateTrainingJobRequest,
-  CreateTrainingJobResponse,
-  CreateTransformJobRequest,
-  CreateTransformJobResponse,
-  CreateTrialComponentRequest,
-  CreateTrialComponentResponse,
-  CreateTrialRequest,
-  CreateTrialResponse,
-  CreateUserProfileRequest,
+  CustomFileSystem,
+  CustomFileSystemConfig,
   CustomImage,
+  CustomPosixUserConfig,
   DataCaptureConfig,
   DataCatalogConfig,
-  DataProcessing,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DatasetDefinition,
   DebugHookConfig,
   DebugRuleConfiguration,
+  DefaultEbsStorageSettings,
   DefaultSpaceSettings,
+  DefaultSpaceStorageSettings,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1150,9 +1148,12 @@ import {
   DriftCheckExplainability,
   DriftCheckModelDataQuality,
   DriftCheckModelQuality,
+  EbsStorageSettings,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
+  EFSFileSystem,
+  EFSFileSystemConfig,
   EndpointInfo,
   EndpointInput,
   EndpointInputConfiguration,
@@ -1188,6 +1189,7 @@ import {
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   IntegerParameterRange,
+  JupyterLabAppSettings,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   LabelingJobAlgorithmsConfig,
@@ -1204,7 +1206,6 @@ import {
   ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
-  ModelClientConfig,
   ModelDataQuality,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
@@ -1240,6 +1241,7 @@ import {
   OfflineStoreConfig,
   OnlineStoreConfig,
   OnlineStoreSecurityConfig,
+  OwnershipSettings,
   ParallelismConfiguration,
   ParameterRanges,
   ParentHyperParameterTuningJob,
@@ -1260,7 +1262,6 @@ import {
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   ProfilerConfig,
-  ProfilerRuleConfiguration,
   ProvisioningParameter,
   PublicWorkforceTaskPrice,
   RealTimeInferenceConfig,
@@ -1287,14 +1288,14 @@ import {
   SharingSettings,
   SourceAlgorithm,
   SourceAlgorithmSpecification,
+  SpaceCodeEditorAppSettings,
+  SpaceJupyterLabAppSettings,
   SpaceSettings,
+  SpaceSharingSettings,
+  SpaceStorageSettings,
   Stairs,
   TensorBoardAppSettings,
-  TensorBoardOutputConfig,
   TrafficPattern,
-  TrialComponentArtifact,
-  TrialComponentParameterValue,
-  TrialComponentStatus,
   TtlDuration,
   TuningJobCompletionCriteria,
   UiConfig,
@@ -1303,6 +1304,15 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateTrainingJobRequest,
+  CreateTrainingJobResponse,
+  CreateTransformJobRequest,
+  CreateTransformJobResponse,
+  CreateTrialComponentRequest,
+  CreateTrialComponentResponse,
+  CreateTrialRequest,
+  CreateTrialResponse,
+  CreateUserProfileRequest,
   CreateUserProfileResponse,
   CreateWorkforceRequest,
   CreateWorkforceResponse,
@@ -1310,6 +1320,7 @@ import {
   CreateWorkteamResponse,
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
+  DataProcessing,
   DebugRuleEvaluationStatus,
   DeleteActionRequest,
   DeleteActionResponse,
@@ -1489,14 +1500,6 @@ import {
   DescribeSubscribedWorkteamRequest,
   DescribeSubscribedWorkteamResponse,
   DescribeTrainingJobRequest,
-  DescribeTrainingJobResponse,
-  DescribeTransformJobRequest,
-  DescribeTransformJobResponse,
-  DescribeTrialComponentRequest,
-  DescribeTrialComponentResponse,
-  DescribeTrialRequest,
-  DescribeTrialResponse,
-  DescribeUserProfileRequest,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1523,6 +1526,7 @@ import {
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
+  ModelClientConfig,
   ModelConfiguration,
   ModelDeployResult,
   ModelDigests,
@@ -1540,26 +1544,34 @@ import {
   PipelineExperimentConfig,
   ProductionVariantStatus,
   ProductionVariantSummary,
+  ProfilerRuleConfiguration,
   ProfilerRuleEvaluationStatus,
   RealTimeInferenceRecommendation,
   RecommendationMetrics,
   ResolvedAttributes,
   RetentionPolicy,
-  SecondaryStatusTransition,
   SelectedStep,
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
   SubscribedWorkteam,
+  TensorBoardOutputConfig,
   TrainingJobStatusCounters,
-  TrialComponentMetricSummary,
-  TrialComponentSource,
-  TrialSource,
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
   UiTemplateInfo,
-  WarmPoolStatus,
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeTrainingJobResponse,
+  DescribeTransformJobRequest,
+  DescribeTransformJobResponse,
+  DescribeTrialComponentRequest,
+  DescribeTrialComponentResponse,
+  DescribeTrialRequest,
+  DescribeTrialResponse,
+  DescribeUserProfileRequest,
   DescribeUserProfileResponse,
   DescribeWorkforceRequest,
   DescribeWorkforceResponse,
@@ -1742,15 +1754,6 @@ import {
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
   ListPipelineExecutionStepsRequest,
-  ListPipelineExecutionStepsResponse,
-  ListPipelineParametersForExecutionRequest,
-  ListPipelineParametersForExecutionResponse,
-  ListPipelinesRequest,
-  ListPipelinesResponse,
-  ListProcessingJobsRequest,
-  ListProcessingJobsResponse,
-  ListProjectsInput,
-  ListProjectsOutput,
   MetricSpecification,
   ModelCardExportJobSummary,
   ModelCardSummary,
@@ -1772,16 +1775,11 @@ import {
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
   OidcConfigForResponse,
-  Parameter,
-  PipelineExecutionStep,
   PipelineExecutionStepMetadata,
   PipelineExecutionSummary,
-  PipelineSummary,
   PredefinedMetricSpecification,
   ProcessingJobStepMetadata,
-  ProcessingJobSummary,
   ProductionVariantServerlessUpdateConfig,
-  ProjectSummary,
   PropertyNameQuery,
   PropertyNameSuggestion,
   QualityCheckStepMetadata,
@@ -1791,17 +1789,31 @@ import {
   ScalingPolicy,
   ScalingPolicyMetric,
   ScalingPolicyObjective,
+  SecondaryStatusTransition,
   SelectiveExecutionResult,
   SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
   TrainingJobStepMetadata,
   TransformJobStepMetadata,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
+  TrialSource,
   TuningJobStepMetaData,
+  WarmPoolStatus,
   Workforce,
   WorkforceVpcConfigResponse,
   Workteam,
 } from "../models/models_3";
 import {
+  ListPipelineExecutionStepsResponse,
+  ListPipelineParametersForExecutionRequest,
+  ListPipelineParametersForExecutionResponse,
+  ListPipelinesRequest,
+  ListPipelinesResponse,
+  ListProcessingJobsRequest,
+  ListProcessingJobsResponse,
+  ListProjectsInput,
+  ListProjectsOutput,
   ListResourceCatalogsRequest,
   ListResourceCatalogsResponse,
   ListSpacesRequest,
@@ -1841,12 +1853,18 @@ import {
   ModelVariantAction,
   NestedFilters,
   OnlineStoreConfigUpdate,
+  OwnershipSettingsSummary,
+  Parameter,
   Parent,
   Pipeline,
   PipelineExecution,
+  PipelineExecutionStep,
+  PipelineSummary,
   ProcessingJob,
+  ProcessingJobSummary,
   ProfilerConfigForUpdate,
   Project,
+  ProjectSummary,
   PutModelPackageGroupPolicyInput,
   PutModelPackageGroupPolicyOutput,
   QueryFilters,
@@ -1871,6 +1889,8 @@ import {
   SendPipelineExecutionStepSuccessResponse,
   ServiceCatalogProvisioningUpdateDetails,
   SpaceDetails,
+  SpaceSettingsSummary,
+  SpaceSharingSettingsSummary,
   StartEdgeDeploymentStageRequest,
   StartInferenceExperimentRequest,
   StartInferenceExperimentResponse,
@@ -20416,6 +20436,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClusterLifeCycleConfig omitted.
 
+// se_CodeEditorAppSettings omitted.
+
 // se_CodeRepositories omitted.
 
 // se_CodeRepository omitted.
@@ -20435,6 +20457,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 // se_CompressionTypes omitted.
 
 // se_ContainerArguments omitted.
+
+// se_ContainerConfig omitted.
 
 // se_ContainerDefinition omitted.
 
@@ -20839,9 +20863,25 @@ const se_CreateTrialComponentRequest = (input: CreateTrialComponentRequest, cont
 
 // se_CustomerMetadataMap omitted.
 
+// se_CustomFileSystem omitted.
+
+// se_CustomFileSystemConfig omitted.
+
+// se_CustomFileSystemConfigs omitted.
+
+// se_CustomFileSystems omitted.
+
 // se_CustomImage omitted.
 
+// se_CustomImageContainerArguments omitted.
+
+// se_CustomImageContainerEntrypoint omitted.
+
+// se_CustomImageContainerEnvironmentVariables omitted.
+
 // se_CustomImages omitted.
+
+// se_CustomPosixUserConfig omitted.
 
 // se_DataCaptureConfig omitted.
 
@@ -20873,7 +20913,11 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
 
 // se_DebugRuleConfigurations omitted.
 
+// se_DefaultEbsStorageSettings omitted.
+
 // se_DefaultSpaceSettings omitted.
+
+// se_DefaultSpaceStorageSettings omitted.
 
 // se_DeleteActionRequest omitted.
 
@@ -21160,6 +21204,8 @@ const se_DesiredWeightAndCapacityList = (input: DesiredWeightAndCapacity[], cont
 
 // se_DriftCheckModelQuality omitted.
 
+// se_EbsStorageSettings omitted.
+
 // se_EdgeDeploymentConfig omitted.
 
 // se_EdgeDeploymentModelConfig omitted.
@@ -21167,6 +21213,10 @@ const se_DesiredWeightAndCapacityList = (input: DesiredWeightAndCapacity[], cont
 // se_EdgeDeploymentModelConfigs omitted.
 
 // se_EdgeOutputConfig omitted.
+
+// se_EFSFileSystem omitted.
+
+// se_EFSFileSystemConfig omitted.
 
 // se_EnableSagemakerServicecatalogPortfolioInput omitted.
 
@@ -21428,6 +21478,10 @@ const se_InferenceExperimentSchedule = (input: InferenceExperimentSchedule, cont
 // se_IntegerParameterRangeSpecification omitted.
 
 // se_JsonContentTypes omitted.
+
+// se_JupyterLabAppImageConfig omitted.
+
+// se_JupyterLabAppSettings omitted.
 
 // se_JupyterServerAppSettings omitted.
 
@@ -22749,6 +22803,8 @@ const se_MonitoringScheduleConfig = (input: MonitoringScheduleConfig, context: _
 
 // se_OutputParameterList omitted.
 
+// se_OwnershipSettings omitted.
+
 // se_ParallelismConfiguration omitted.
 
 // se_Parameter omitted.
@@ -23081,7 +23137,15 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 
 // se_SourceIpConfig omitted.
 
+// se_SpaceCodeEditorAppSettings omitted.
+
+// se_SpaceJupyterLabAppSettings omitted.
+
 // se_SpaceSettings omitted.
+
+// se_SpaceSharingSettings omitted.
+
+// se_SpaceStorageSettings omitted.
 
 // se_Stairs omitted.
 
@@ -23720,6 +23784,7 @@ const de_AppDetails = (output: any, context: __SerdeContext): AppDetails => {
     AppType: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainId: __expectString,
+    ResourceSpec: (_: any) => de_ResourceSpec(_, context),
     SpaceName: __expectString,
     Status: __expectString,
     UserProfileName: __expectString,
@@ -23734,6 +23799,7 @@ const de_AppImageConfigDetails = (output: any, context: __SerdeContext): AppImag
     AppImageConfigArn: __expectString,
     AppImageConfigName: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    JupyterLabAppImageConfig: (_: any) => de_JupyterLabAppImageConfig(_, context),
     KernelGatewayImageConfig: (_: any) => de_KernelGatewayImageConfig(_, context),
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -24987,6 +25053,16 @@ const de_ClusterSummary = (output: any, context: __SerdeContext): ClusterSummary
 };
 
 /**
+ * deserializeAws_json1_1CodeEditorAppSettings
+ */
+const de_CodeEditorAppSettings = (output: any, context: __SerdeContext): CodeEditorAppSettings => {
+  return take(output, {
+    DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
+    LifecycleConfigArns: (_: any) => de_LifecycleConfigArns(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CodeRepositories
  */
 const de_CodeRepositories = (output: any, context: __SerdeContext): CodeRepository[] => {
@@ -25171,6 +25247,17 @@ const de_ContainerArguments = (output: any, context: __SerdeContext): string[] =
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ContainerConfig
+ */
+const de_ContainerConfig = (output: any, context: __SerdeContext): ContainerConfig => {
+  return take(output, {
+    ContainerArguments: (_: any) => de_CustomImageContainerArguments(_, context),
+    ContainerEntrypoint: (_: any) => de_CustomImageContainerEntrypoint(_, context),
+    ContainerEnvironmentVariables: (_: any) => de_CustomImageContainerEnvironmentVariables(_, context),
+  }) as any;
 };
 
 /**
@@ -25869,6 +25956,54 @@ const de_CustomerMetadataMap = (output: any, context: __SerdeContext): Record<st
 };
 
 /**
+ * deserializeAws_json1_1CustomFileSystem
+ */
+const de_CustomFileSystem = (output: any, context: __SerdeContext): CustomFileSystem => {
+  if (output.EFSFileSystem != null) {
+    return {
+      EFSFileSystem: de_EFSFileSystem(output.EFSFileSystem, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_1CustomFileSystemConfig
+ */
+const de_CustomFileSystemConfig = (output: any, context: __SerdeContext): CustomFileSystemConfig => {
+  if (output.EFSFileSystemConfig != null) {
+    return {
+      EFSFileSystemConfig: de_EFSFileSystemConfig(output.EFSFileSystemConfig, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_1CustomFileSystemConfigs
+ */
+const de_CustomFileSystemConfigs = (output: any, context: __SerdeContext): CustomFileSystemConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CustomFileSystemConfig(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1CustomFileSystems
+ */
+const de_CustomFileSystems = (output: any, context: __SerdeContext): CustomFileSystem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CustomFileSystem(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1CustomImage
  */
 const de_CustomImage = (output: any, context: __SerdeContext): CustomImage => {
@@ -25877,6 +26012,43 @@ const de_CustomImage = (output: any, context: __SerdeContext): CustomImage => {
     ImageName: __expectString,
     ImageVersionNumber: __expectInt32,
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CustomImageContainerArguments
+ */
+const de_CustomImageContainerArguments = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1CustomImageContainerEntrypoint
+ */
+const de_CustomImageContainerEntrypoint = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1CustomImageContainerEnvironmentVariables
+ */
+const de_CustomImageContainerEnvironmentVariables = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = __expectString(value) as any;
+    return acc;
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -25899,6 +26071,16 @@ const de_CustomizedMetricSpecification = (output: any, context: __SerdeContext):
     MetricName: __expectString,
     Namespace: __expectString,
     Statistic: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CustomPosixUserConfig
+ */
+const de_CustomPosixUserConfig = (output: any, context: __SerdeContext): CustomPosixUserConfig => {
+  return take(output, {
+    Gid: __expectLong,
+    Uid: __expectLong,
   }) as any;
 };
 
@@ -26074,6 +26256,16 @@ const de_DebugRuleEvaluationStatuses = (output: any, context: __SerdeContext): D
 };
 
 /**
+ * deserializeAws_json1_1DefaultEbsStorageSettings
+ */
+const de_DefaultEbsStorageSettings = (output: any, context: __SerdeContext): DefaultEbsStorageSettings => {
+  return take(output, {
+    DefaultEbsVolumeSizeInGb: __expectInt32,
+    MaximumEbsVolumeSizeInGb: __expectInt32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DefaultSpaceSettings
  */
 const de_DefaultSpaceSettings = (output: any, context: __SerdeContext): DefaultSpaceSettings => {
@@ -26082,6 +26274,15 @@ const de_DefaultSpaceSettings = (output: any, context: __SerdeContext): DefaultS
     JupyterServerAppSettings: (_: any) => de_JupyterServerAppSettings(_, context),
     KernelGatewayAppSettings: (_: any) => de_KernelGatewayAppSettings(_, context),
     SecurityGroups: (_: any) => de_SecurityGroupIds(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DefaultSpaceStorageSettings
+ */
+const de_DefaultSpaceStorageSettings = (output: any, context: __SerdeContext): DefaultSpaceStorageSettings => {
+  return take(output, {
+    DefaultEbsStorageSettings: (_: any) => de_DefaultEbsStorageSettings(_, context),
   }) as any;
 };
 
@@ -26355,6 +26556,7 @@ const de_DescribeAppImageConfigResponse = (output: any, context: __SerdeContext)
     AppImageConfigArn: __expectString,
     AppImageConfigName: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    JupyterLabAppImageConfig: (_: any) => de_JupyterLabAppImageConfig(_, context),
     KernelGatewayImageConfig: (_: any) => de_KernelGatewayImageConfig(_, context),
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -27390,9 +27592,12 @@ const de_DescribeSpaceResponse = (output: any, context: __SerdeContext): Describ
     FailureReason: __expectString,
     HomeEfsFileSystemUid: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwnershipSettings: (_: any) => de_OwnershipSettings(_, context),
     SpaceArn: __expectString,
+    SpaceDisplayName: __expectString,
     SpaceName: __expectString,
     SpaceSettings: (_: any) => de_SpaceSettings(_, context),
+    SpaceSharingSettings: (_: any) => de_SpaceSharingSettings(_, context),
     Status: __expectString,
     Url: __expectString,
   }) as any;
@@ -27854,6 +28059,15 @@ const de_DynamicScalingConfiguration = (output: any, context: __SerdeContext): D
 };
 
 /**
+ * deserializeAws_json1_1EbsStorageSettings
+ */
+const de_EbsStorageSettings = (output: any, context: __SerdeContext): EbsStorageSettings => {
+  return take(output, {
+    EbsVolumeSizeInGb: __expectInt32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1Edge
  */
 const de_Edge = (output: any, context: __SerdeContext): Edge => {
@@ -28071,6 +28285,25 @@ const de_Edges = (output: any, context: __SerdeContext): Edge[] => {
       return de_Edge(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1EFSFileSystem
+ */
+const de_EFSFileSystem = (output: any, context: __SerdeContext): EFSFileSystem => {
+  return take(output, {
+    FileSystemId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1EFSFileSystemConfig
+ */
+const de_EFSFileSystemConfig = (output: any, context: __SerdeContext): EFSFileSystemConfig => {
+  return take(output, {
+    FileSystemId: __expectString,
+    FileSystemPath: __expectString,
+  }) as any;
 };
 
 /**
@@ -29924,6 +30157,27 @@ const de_JsonContentTypes = (output: any, context: __SerdeContext): string[] => 
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1JupyterLabAppImageConfig
+ */
+const de_JupyterLabAppImageConfig = (output: any, context: __SerdeContext): JupyterLabAppImageConfig => {
+  return take(output, {
+    ContainerConfig: (_: any) => de_ContainerConfig(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1JupyterLabAppSettings
+ */
+const de_JupyterLabAppSettings = (output: any, context: __SerdeContext): JupyterLabAppSettings => {
+  return take(output, {
+    CodeRepositories: (_: any) => de_CodeRepositories(_, context),
+    CustomImages: (_: any) => de_CustomImages(_, context),
+    DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
+    LifecycleConfigArns: (_: any) => de_LifecycleConfigArns(_, context),
+  }) as any;
 };
 
 /**
@@ -32692,6 +32946,24 @@ const de_OutputParameterList = (output: any, context: __SerdeContext): OutputPar
 };
 
 /**
+ * deserializeAws_json1_1OwnershipSettings
+ */
+const de_OwnershipSettings = (output: any, context: __SerdeContext): OwnershipSettings => {
+  return take(output, {
+    OwnerUserProfileName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1OwnershipSettingsSummary
+ */
+const de_OwnershipSettingsSummary = (output: any, context: __SerdeContext): OwnershipSettingsSummary => {
+  return take(output, {
+    OwnerUserProfileName: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ParallelismConfiguration
  */
 const de_ParallelismConfiguration = (output: any, context: __SerdeContext): ParallelismConfiguration => {
@@ -34452,6 +34724,15 @@ const de_SourceIpConfig = (output: any, context: __SerdeContext): SourceIpConfig
 };
 
 /**
+ * deserializeAws_json1_1SpaceCodeEditorAppSettings
+ */
+const de_SpaceCodeEditorAppSettings = (output: any, context: __SerdeContext): SpaceCodeEditorAppSettings => {
+  return take(output, {
+    DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1SpaceDetails
  */
 const de_SpaceDetails = (output: any, context: __SerdeContext): SpaceDetails => {
@@ -34459,8 +34740,22 @@ const de_SpaceDetails = (output: any, context: __SerdeContext): SpaceDetails => 
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainId: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwnershipSettingsSummary: (_: any) => de_OwnershipSettingsSummary(_, context),
+    SpaceDisplayName: __expectString,
     SpaceName: __expectString,
+    SpaceSettingsSummary: (_: any) => de_SpaceSettingsSummary(_, context),
+    SpaceSharingSettingsSummary: (_: any) => de_SpaceSharingSettingsSummary(_, context),
     Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SpaceJupyterLabAppSettings
+ */
+const de_SpaceJupyterLabAppSettings = (output: any, context: __SerdeContext): SpaceJupyterLabAppSettings => {
+  return take(output, {
+    CodeRepositories: (_: any) => de_CodeRepositories(_, context),
+    DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
   }) as any;
 };
 
@@ -34481,8 +34776,50 @@ const de_SpaceList = (output: any, context: __SerdeContext): SpaceDetails[] => {
  */
 const de_SpaceSettings = (output: any, context: __SerdeContext): SpaceSettings => {
   return take(output, {
+    AppType: __expectString,
+    CodeEditorAppSettings: (_: any) => de_SpaceCodeEditorAppSettings(_, context),
+    CustomFileSystems: (_: any) => de_CustomFileSystems(_, context),
+    JupyterLabAppSettings: (_: any) => de_SpaceJupyterLabAppSettings(_, context),
     JupyterServerAppSettings: (_: any) => de_JupyterServerAppSettings(_, context),
     KernelGatewayAppSettings: (_: any) => de_KernelGatewayAppSettings(_, context),
+    SpaceStorageSettings: (_: any) => de_SpaceStorageSettings(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SpaceSettingsSummary
+ */
+const de_SpaceSettingsSummary = (output: any, context: __SerdeContext): SpaceSettingsSummary => {
+  return take(output, {
+    AppType: __expectString,
+    SpaceStorageSettings: (_: any) => de_SpaceStorageSettings(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SpaceSharingSettings
+ */
+const de_SpaceSharingSettings = (output: any, context: __SerdeContext): SpaceSharingSettings => {
+  return take(output, {
+    SharingType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SpaceSharingSettingsSummary
+ */
+const de_SpaceSharingSettingsSummary = (output: any, context: __SerdeContext): SpaceSharingSettingsSummary => {
+  return take(output, {
+    SharingType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SpaceStorageSettings
+ */
+const de_SpaceStorageSettings = (output: any, context: __SerdeContext): SpaceStorageSettings => {
+  return take(output, {
+    EbsStorageSettings: (_: any) => de_EbsStorageSettings(_, context),
   }) as any;
 };
 
@@ -35865,14 +36202,19 @@ const de_UserProfileList = (output: any, context: __SerdeContext): UserProfileDe
 const de_UserSettings = (output: any, context: __SerdeContext): UserSettings => {
   return take(output, {
     CanvasAppSettings: (_: any) => de_CanvasAppSettings(_, context),
+    CodeEditorAppSettings: (_: any) => de_CodeEditorAppSettings(_, context),
+    CustomFileSystemConfigs: (_: any) => de_CustomFileSystemConfigs(_, context),
+    CustomPosixUserConfig: (_: any) => de_CustomPosixUserConfig(_, context),
     DefaultLandingUri: __expectString,
     ExecutionRole: __expectString,
+    JupyterLabAppSettings: (_: any) => de_JupyterLabAppSettings(_, context),
     JupyterServerAppSettings: (_: any) => de_JupyterServerAppSettings(_, context),
     KernelGatewayAppSettings: (_: any) => de_KernelGatewayAppSettings(_, context),
     RSessionAppSettings: (_: any) => de_RSessionAppSettings(_, context),
     RStudioServerProAppSettings: (_: any) => de_RStudioServerProAppSettings(_, context),
     SecurityGroups: (_: any) => de_SecurityGroupIds(_, context),
     SharingSettings: (_: any) => de_SharingSettings(_, context),
+    SpaceStorageSettings: (_: any) => de_DefaultSpaceStorageSettings(_, context),
     StudioWebPortal: __expectString,
     TensorBoardAppSettings: (_: any) => de_TensorBoardAppSettings(_, context),
   }) as any;

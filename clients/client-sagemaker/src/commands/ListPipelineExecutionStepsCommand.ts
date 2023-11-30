@@ -14,7 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListPipelineExecutionStepsRequest, ListPipelineExecutionStepsResponse } from "../models/models_3";
+import { ListPipelineExecutionStepsRequest } from "../models/models_3";
+import { ListPipelineExecutionStepsResponse } from "../models/models_4";
 import { de_ListPipelineExecutionStepsCommand, se_ListPipelineExecutionStepsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

@@ -49,7 +49,7 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * const input = { // CreateStudioLifecycleConfigRequest
  *   StudioLifecycleConfigName: "STRING_VALUE", // required
  *   StudioLifecycleConfigContent: "STRING_VALUE", // required
- *   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway", // required
+ *   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway" || "JupyterLab" || "CodeEditor", // required
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

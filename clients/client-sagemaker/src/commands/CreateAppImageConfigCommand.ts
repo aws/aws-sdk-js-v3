@@ -67,6 +67,19 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  *       DefaultGid: Number("int"),
  *     },
  *   },
+ *   JupyterLabAppImageConfig: { // JupyterLabAppImageConfig
+ *     ContainerConfig: { // ContainerConfig
+ *       ContainerArguments: [ // CustomImageContainerArguments
+ *         "STRING_VALUE",
+ *       ],
+ *       ContainerEntrypoint: [ // CustomImageContainerEntrypoint
+ *         "STRING_VALUE",
+ *       ],
+ *       ContainerEnvironmentVariables: { // CustomImageContainerEnvironmentVariables
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
  * };
  * const command = new CreateAppImageConfigCommand(input);
  * const response = await client.send(command);

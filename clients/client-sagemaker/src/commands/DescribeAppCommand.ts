@@ -47,7 +47,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * const input = { // DescribeAppRequest
  *   DomainId: "STRING_VALUE", // required
  *   UserProfileName: "STRING_VALUE",
- *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway", // required
+ *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway" || "JupyterLab" || "CodeEditor", // required
  *   AppName: "STRING_VALUE", // required
  *   SpaceName: "STRING_VALUE",
  * };
@@ -55,7 +55,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * const response = await client.send(command);
  * // { // DescribeAppResponse
  * //   AppArn: "STRING_VALUE",
- * //   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway",
+ * //   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway" || "JupyterLab" || "CodeEditor",
  * //   AppName: "STRING_VALUE",
  * //   DomainId: "STRING_VALUE",
  * //   UserProfileName: "STRING_VALUE",

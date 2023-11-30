@@ -51,6 +51,7 @@ import {
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
   InputConfig,
+  JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
   ModelApprovalStatus,
@@ -76,7 +77,6 @@ import {
 import {
   _InstanceType,
   DataCaptureConfig,
-  DataProcessing,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -125,7 +125,6 @@ import {
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
-  ModelClientConfig,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
@@ -146,8 +145,10 @@ import {
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  OwnershipSettings,
   ParallelismConfiguration,
   ProcessingInput,
+  ProcessingInstanceType,
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
@@ -158,7 +159,6 @@ import {
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   ProfilerConfig,
-  ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
@@ -169,14 +169,903 @@ import {
   SkipModelValidation,
   SourceAlgorithmSpecification,
   SpaceSettings,
+  SpaceSharingSettings,
   StudioLifecycleConfigAppType,
-  TensorBoardOutputConfig,
-  TrialComponentArtifact,
-  TrialComponentParameterValue,
-  TrialComponentStatus,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Configuration information for profiling rules.</p>
+ */
+export interface ProfilerRuleConfiguration {
+  /**
+   * @public
+   * <p>The name of the rule configuration. It must be unique relative to other rule configuration names.</p>
+   */
+  RuleConfigurationName: string | undefined;
+
+  /**
+   * @public
+   * <p>Path to local storage location for output of rules. Defaults to <code>/opt/ml/processing/output/rule/</code>. </p>
+   */
+  LocalPath?: string;
+
+  /**
+   * @public
+   * <p>Path to Amazon S3 storage location for rules.</p>
+   */
+  S3OutputPath?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Elastic Container Registry Image for the managed rule evaluation.</p>
+   */
+  RuleEvaluatorImage: string | undefined;
+
+  /**
+   * @public
+   * <p>The instance type to deploy a custom rule for profiling a training job.</p>
+   */
+  InstanceType?: ProcessingInstanceType;
+
+  /**
+   * @public
+   * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
+   */
+  VolumeSizeInGB?: number;
+
+  /**
+   * @public
+   * <p>Runtime configuration for rule container.</p>
+   */
+  RuleParameters?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
+ */
+export interface TensorBoardOutputConfig {
+  /**
+   * @public
+   * <p>Path to local storage location for tensorBoard output. Defaults to
+   *                 <code>/opt/ml/output/tensorboard</code>.</p>
+   */
+  LocalPath?: string;
+
+  /**
+   * @public
+   * <p>Path to Amazon S3 storage location for TensorBoard output.</p>
+   */
+  S3OutputPath: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrainingJobRequest {
+  /**
+   * @public
+   * <p>The name of the training job. The name must be unique within an Amazon Web Services
+   *             Region in an Amazon Web Services account. </p>
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>Algorithm-specific parameters that influence the quality of the model. You set
+   *             hyperparameters before you start the learning process. For a list of hyperparameters for
+   *             each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
+   *          <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a
+   *             key-value pair. Each key and value is limited to 256 characters, as specified by the
+   *                 <code>Length Constraint</code>. </p>
+   *          <important>
+   *             <p>Do not include any security-sensitive information including account access IDs,
+   *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
+   *                 credentials are detected, SageMaker will reject your training job request and return an
+   *                 exception error.</p>
+   *          </important>
+   */
+  HyperParameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The registry path of the Docker image that contains the training algorithm and
+   *             algorithm-specific metadata, including the input mode. For more information about
+   *             algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For information about
+   *             providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+   *                 Amazon SageMaker</a>. </p>
+   */
+  AlgorithmSpecification: AlgorithmSpecification | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that SageMaker can assume to perform
+   *             tasks on your behalf. </p>
+   *          <p>During model training, SageMaker needs your permission to read input data from an S3
+   *             bucket, download a Docker image that contains training code, write model artifacts to an
+   *             S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant
+   *             permissions for all of these tasks to an IAM role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
+   *                 Roles</a>. </p>
+   *          <note>
+   *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
+   *                     <code>iam:PassRole</code> permission.</p>
+   *          </note>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of <code>Channel</code> objects. Each channel is a named input source.
+   *                 <code>InputDataConfig</code> describes the input data and its location. </p>
+   *          <p>Algorithms can accept input data from one or more channels. For example, an
+   *             algorithm might have two channels of input data, <code>training_data</code> and
+   *                 <code>validation_data</code>. The configuration for each channel provides the S3,
+   *             EFS, or FSx location where the input data is stored. It also provides information about
+   *             the stored data: the MIME type, compression method, and whether the data is wrapped in
+   *             RecordIO format. </p>
+   *          <p>Depending on the input mode that the algorithm supports, SageMaker either copies input
+   *             data files from an S3 bucket to a local directory in the Docker container, or makes it
+   *             available as input streams. For example, if you specify an EFS location, input data
+   *             files are available as input streams. They do not need to be downloaded.</p>
+   *          <p>Your input must be in the same Amazon Web Services region as your training
+   *             job.</p>
+   */
+  InputDataConfig?: Channel[];
+
+  /**
+   * @public
+   * <p>Specifies the path to the S3 location where you want to store model artifacts. SageMaker
+   *             creates subfolders for the artifacts. </p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * @public
+   * <p>The resources, including the ML compute instances and ML storage volumes, to use
+   *             for model training. </p>
+   *          <p>ML storage volumes store model artifacts and incremental states. Training
+   *             algorithms might also use ML storage volumes for scratch space. If you want SageMaker to use
+   *             the ML storage volume to store the training data, choose <code>File</code> as the
+   *                 <code>TrainingInputMode</code> in the algorithm specification. For distributed
+   *             training algorithms, specify an instance count greater than 1.</p>
+   */
+  ResourceConfig: ResourceConfig | undefined;
+
+  /**
+   * @public
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your training job to
+   *             connect to. Control access to and from your training container by configuring the VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+   *                 Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * @public
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
+   *          <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
+   *             model artifacts, so the results of training are not lost. </p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * @public
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Isolates the training container. No inbound or outbound network calls can be made,
+   *             except for calls between peers within a training cluster for distributed training. If
+   *             you enable network isolation for training jobs that are configured to use a VPC, SageMaker
+   *             downloads and uploads customer data and model artifacts through the specified VPC, but
+   *             the training container does not have network access.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * @public
+   * <p>To encrypt all communications between ML compute instances in distributed training,
+   *             choose <code>True</code>. Encryption provides greater security for distributed training,
+   *             but training might take longer. How long it takes depends on the amount of communication
+   *             between compute instances, especially if you use a deep learning algorithm in
+   *             distributed training. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html">Protect Communications Between ML
+   *                 Compute Instances in a Distributed Training Job</a>.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * @public
+   * <p>To train models using managed spot training, choose <code>True</code>. Managed spot
+   *             training provides a fully managed and scalable infrastructure for training machine
+   *             learning models. this option is useful when training jobs can be interrupted and when
+   *             there is flexibility when the training job is run. </p>
+   *          <p>The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be
+   *             used as a starting point to train models incrementally. Amazon SageMaker provides metrics and
+   *             logs in CloudWatch. They can be used to see when managed spot training jobs are running,
+   *             interrupted, resumed, or completed. </p>
+   */
+  EnableManagedSpotTraining?: boolean;
+
+  /**
+   * @public
+   * <p>Contains information about the output location for managed spot training checkpoint
+   *             data.</p>
+   */
+  CheckpointConfig?: CheckpointConfig;
+
+  /**
+   * @public
+   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
+   *             storage paths. To learn more about
+   *             how to configure the <code>DebugHookConfig</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
+   */
+  DebugHookConfig?: DebugHookConfig;
+
+  /**
+   * @public
+   * <p>Configuration information for Amazon SageMaker Debugger rules for debugging output tensors.</p>
+   */
+  DebugRuleConfigurations?: DebugRuleConfiguration[];
+
+  /**
+   * @public
+   * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
+   */
+  TensorBoardOutputConfig?: TensorBoardOutputConfig;
+
+  /**
+   * @public
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ExperimentConfig?: ExperimentConfig;
+
+  /**
+   * @public
+   * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and
+   *             storage paths.</p>
+   */
+  ProfilerConfig?: ProfilerConfig;
+
+  /**
+   * @public
+   * <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework
+   *             metrics.</p>
+   */
+  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
+
+  /**
+   * @public
+   * <p>The environment variables to set in the Docker container.</p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The number of times to retry the job when the job fails due to an
+   *                 <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
+
+  /**
+   * @public
+   * <p>Contains information about the infrastructure health check configuration for the training job.</p>
+   */
+  InfraCheckConfig?: InfraCheckConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrainingJobResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   */
+  TrainingJobArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JoinSource = {
+  INPUT: "Input",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinSource = (typeof JoinSource)[keyof typeof JoinSource];
+
+/**
+ * @public
+ * <p>The data structure used to specify the data to be used for inference in a batch
+ *             transform job and to associate the data that is relevant to the prediction results in
+ *             the output. The input filter provided allows you to exclude input data that is not
+ *             needed for inference in a batch transform job. The output filter provided allows you to
+ *             include input data relevant to interpreting the predictions in the output from the job.
+ *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
+ *                 Results with their Corresponding Input Records</a>.</p>
+ */
+export interface DataProcessing {
+  /**
+   * @public
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the input data to pass to
+   *             the algorithm. Use the <code>InputFilter</code> parameter to exclude fields, such as an
+   *             ID column, from the input. If you want SageMaker to pass the entire input dataset to the
+   *             algorithm, accept the default value <code>$</code>.</p>
+   *          <p>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code>
+   *          </p>
+   */
+  InputFilter?: string;
+
+  /**
+   * @public
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the joined dataset to save
+   *             in the output file for a batch transform job. If you want SageMaker to store the entire input
+   *             dataset in the output file, leave the default value, <code>$</code>. If you specify
+   *             indexes that aren't within the dimension size of the joined dataset, you get an
+   *             error.</p>
+   *          <p>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>,
+   *                 <code>"$['id','SageMakerOutput']"</code>
+   *          </p>
+   */
+  OutputFilter?: string;
+
+  /**
+   * @public
+   * <p>Specifies the source of the data to join with the transformed data. The valid values
+   *             are <code>None</code> and <code>Input</code>. The default value is <code>None</code>,
+   *             which specifies not to join the input with the transformed data. If you want the batch
+   *             transform job to join the original input data with the transformed data, set
+   *                 <code>JoinSource</code> to <code>Input</code>. You can specify
+   *                 <code>OutputFilter</code> as an additional filter to select a portion of the joined
+   *             dataset and store it in the output file.</p>
+   *          <p>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed data to
+   *             the input JSON object in an attribute called <code>SageMakerOutput</code>. The joined
+   *             result for JSON must be a key-value pair object. If the input is not a key-value pair
+   *             object, SageMaker creates a new JSON file. In the new JSON file, and the input data is stored
+   *             under the <code>SageMakerInput</code> key and the results are stored in
+   *                 <code>SageMakerOutput</code>.</p>
+   *          <p>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data with
+   *             the input by appending each transformed row to the end of the input. The joined data has
+   *             the original input data followed by the transformed data and the output is a CSV
+   *             file.</p>
+   *          <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
+   */
+  JoinSource?: JoinSource;
+}
+
+/**
+ * @public
+ * <p>Configures the timeout and maximum number of retries for processing a transform job
+ *             invocation.</p>
+ */
+export interface ModelClientConfig {
+  /**
+   * @public
+   * <p>The timeout value in seconds for an invocation request. The default value is
+   *             600.</p>
+   */
+  InvocationsTimeoutInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The maximum number of retries when invocation requests are failing. The default value
+   *             is 3.</p>
+   */
+  InvocationsMaxRetries?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransformJobRequest {
+  /**
+   * @public
+   * <p>The name of the transform job. The name must be unique within an Amazon Web Services Region in an
+   *             Amazon Web Services account. </p>
+   */
+  TransformJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the model that you want to use for the transform job.
+   *             <code>ModelName</code> must be the name of an existing Amazon SageMaker model within an Amazon Web Services
+   *             Region in an Amazon Web Services account.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of parallel requests that can be sent to each instance in a
+   *             transform job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left
+   *             unset, Amazon SageMaker checks the optional execution-parameters to determine the settings for your
+   *             chosen algorithm. If the execution-parameters endpoint is not enabled, the default value
+   *             is <code>1</code>. For more information on execution-parameters, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How Containers Serve Requests</a>. For built-in algorithms, you don't need to
+   *             set a value for <code>MaxConcurrentTransforms</code>.</p>
+   */
+  MaxConcurrentTransforms?: number;
+
+  /**
+   * @public
+   * <p>Configures the timeout and maximum number of retries for processing a transform job
+   *             invocation.</p>
+   */
+  ModelClientConfig?: ModelClientConfig;
+
+  /**
+   * @public
+   * <p>The maximum allowed size of the payload, in MB. A <i>payload</i> is the
+   *             data portion of a record (without metadata). The value in <code>MaxPayloadInMB</code>
+   *             must be greater than, or equal to, the size of a single record. To estimate the size of
+   *             a record in MB, divide the size of your dataset by the number of records. To ensure that
+   *             the records fit within the maximum payload size, we recommend using a slightly larger
+   *             value. The default value is <code>6</code> MB.
+   *             </p>
+   *          <p>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify
+   *             the <code>MaxConcurrentTransforms</code> parameter, the value of
+   *                 <code>(MaxConcurrentTransforms * MaxPayloadInMB)</code> also cannot exceed 100
+   *             MB.</p>
+   *          <p>For cases where the payload might be arbitrarily large and is transmitted using HTTP
+   *             chunked encoding, set the value to <code>0</code>.
+   *             This
+   *             feature works only in supported algorithms. Currently, Amazon SageMaker built-in
+   *             algorithms do not support HTTP chunked encoding.</p>
+   */
+  MaxPayloadInMB?: number;
+
+  /**
+   * @public
+   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference
+   *             request. A <i>record</i>
+   *             <i></i> is a single unit of input data that
+   *             inference can be made on. For example, a single line in a CSV file is a record. </p>
+   *          <p>To enable the batch strategy, you must set the <code>SplitType</code> property to
+   *                 <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p>
+   *          <p>To use only one record when making an HTTP invocation request to a container, set
+   *                 <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code>
+   *             to <code>Line</code>.</p>
+   *          <p>To fit as many records in a mini-batch as can fit within the
+   *                 <code>MaxPayloadInMB</code> limit, set <code>BatchStrategy</code> to
+   *                 <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.</p>
+   */
+  BatchStrategy?: BatchStrategy;
+
+  /**
+   * @public
+   * <p>The environment variables to set in the Docker container. We support up to 16 key and
+   *             values entries in the map.</p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Describes the input source and
+   *             the
+   *             way the transform job consumes it.</p>
+   */
+  TransformInput: TransformInput | undefined;
+
+  /**
+   * @public
+   * <p>Describes the results of the transform job.</p>
+   */
+  TransformOutput: TransformOutput | undefined;
+
+  /**
+   * @public
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig;
+
+  /**
+   * @public
+   * <p>Describes the resources, including
+   *             ML
+   *             instance types and ML instance count, to use for the transform
+   *             job.</p>
+   */
+  TransformResources: TransformResources | undefined;
+
+  /**
+   * @public
+   * <p>The data structure used to specify the data to be used for inference in a batch
+   *             transform job and to associate the data that is relevant to the prediction results in
+   *             the output. The input filter provided allows you to exclude input data that is not
+   *             needed for inference in a batch transform job. The output filter provided allows you to
+   *             include input data relevant to interpreting the predictions in the output from the job.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
+   *                 Results with their Corresponding Input Records</a>.</p>
+   */
+  DataProcessing?: DataProcessing;
+
+  /**
+   * @public
+   * <p>(Optional)
+   *             An
+   *             array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+   *                 Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
+   *                 Guide</i>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ExperimentConfig?: ExperimentConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransformJobResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
+   */
+  TransformJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialRequest {
+  /**
+   * @public
+   * <p>The name of the trial. The name must be unique in your Amazon Web Services account and is not
+   *       case-sensitive.</p>
+   */
+  TrialName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the trial as displayed. The name doesn't need to be unique. If
+   *         <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * @public
+   * <p>The name of the experiment to associate the trial with.</p>
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * @public
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * @public
+   * <p>A list of tags to associate with the trial. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to
+   *       search on the tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   */
+  TrialArn?: string;
+}
+
+/**
+ * @public
+ * <p>Represents an input or output artifact of a trial component. You specify
+ *         <code>TrialComponentArtifact</code> as part of the <code>InputArtifacts</code> and
+ *       <code>OutputArtifacts</code> parameters in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a>
+ *       request.</p>
+ *          <p>Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and
+ *       instance types. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
+ */
+export interface TrialComponentArtifact {
+  /**
+   * @public
+   * <p>The media type of the artifact, which indicates the type of data in the artifact file. The
+   *       media type consists of a <i>type</i> and a <i>subtype</i>
+   *       concatenated with a slash (/) character, for example, text/csv, image/jpeg, and s3/uri. The
+   *       type specifies the category of the media. The subtype specifies the kind of data.</p>
+   */
+  MediaType?: string;
+
+  /**
+   * @public
+   * <p>The location of the artifact.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The value of a hyperparameter. Only one of <code>NumberValue</code> or
+ *         <code>StringValue</code> can be specified.</p>
+ *          <p>This object is specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a> request.</p>
+ */
+export type TrialComponentParameterValue =
+  | TrialComponentParameterValue.NumberValueMember
+  | TrialComponentParameterValue.StringValueMember
+  | TrialComponentParameterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TrialComponentParameterValue {
+  /**
+   * @public
+   * <p>The string value of a categorical hyperparameter. If you specify a value for this
+   *       parameter, you can't specify the <code>NumberValue</code> parameter.</p>
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    NumberValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The numeric value of a numeric hyperparameter. If you specify a value for this parameter,
+   *       you can't specify the <code>StringValue</code> parameter.</p>
+   */
+  export interface NumberValueMember {
+    StringValue?: never;
+    NumberValue: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    NumberValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    NumberValue: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TrialComponentParameterValue, visitor: Visitor<T>): T => {
+    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
+    if (value.NumberValue !== undefined) return visitor.NumberValue(value.NumberValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrialComponentPrimaryStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type TrialComponentPrimaryStatus =
+  (typeof TrialComponentPrimaryStatus)[keyof typeof TrialComponentPrimaryStatus];
+
+/**
+ * @public
+ * <p>The status of the trial component.</p>
+ */
+export interface TrialComponentStatus {
+  /**
+   * @public
+   * <p>The status of the trial component.</p>
+   */
+  PrimaryStatus?: TrialComponentPrimaryStatus;
+
+  /**
+   * @public
+   * <p>If the component failed, a message describing why.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialComponentRequest {
+  /**
+   * @public
+   * <p>The name of the component. The name must be unique in your Amazon Web Services account and is not
+   *       case-sensitive.</p>
+   */
+  TrialComponentName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the component as displayed. The name doesn't need to be unique. If
+   *         <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is
+   *       displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * @public
+   * <p>The status of the component. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>InProgress</p>
+   *             </li>
+   *             <li>
+   *                <p>Completed</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: TrialComponentStatus;
+
+  /**
+   * @public
+   * <p>When the component started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>When the component ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>The hyperparameters for the component.</p>
+   */
+  Parameters?: Record<string, TrialComponentParameterValue>;
+
+  /**
+   * @public
+   * <p>The input artifacts for the component. Examples of input artifacts are datasets,
+   *       algorithms, hyperparameters, source code, and instance types.</p>
+   */
+  InputArtifacts?: Record<string, TrialComponentArtifact>;
+
+  /**
+   * @public
+   * <p>The output artifacts for the component. Examples of output artifacts are metrics,
+   *       snapshots, logs, and images.</p>
+   */
+  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+
+  /**
+   * @public
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * @public
+   * <p>A list of tags to associate with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API
+   *       to search on the tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialComponentResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   */
+  TrialComponentArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserProfileRequest {
+  /**
+   * @public
+   * <p>The ID of the associated Domain.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * @public
+   * <p>A name for the UserProfile. This value is not case sensitive.</p>
+   */
+  UserProfileName: string | undefined;
+
+  /**
+   * @public
+   * <p>A specifier for the type of value specified in SingleSignOnUserValue.  Currently, the only supported value is "UserName".
+   *           If the Domain's AuthMode is IAM Identity Center, this field is required.  If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified.
+   *        </p>
+   */
+  SingleSignOnUserIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is IAM Identity Center, this field is
+   *           required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified.
+   *        </p>
+   */
+  SingleSignOnUserValue?: string;
+
+  /**
+   * @public
+   * <p>Each tag consists of a key and an optional value.
+   *          Tag keys must be unique per resource.</p>
+   *          <p>Tags that you specify for the User Profile are also added to all Apps that the
+   *           User Profile launches.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>A collection of settings.</p>
+   */
+  UserSettings?: UserSettings;
+}
 
 /**
  * @public
@@ -683,7 +1572,8 @@ export interface DeleteAppRequest {
 
   /**
    * @public
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
+   *             must be set.</p>
    */
   SpaceName?: string;
 }
@@ -1950,7 +2840,8 @@ export interface DescribeAppResponse {
 
   /**
    * @public
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
+   *             must be set.</p>
    */
   SpaceName?: string;
 }
@@ -1999,6 +2890,12 @@ export interface DescribeAppImageConfigResponse {
    * <p>The configuration of a KernelGateway app.</p>
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
+
+  /**
+   * @public
+   * <p>The configuration of the JupyterLab app.</p>
+   */
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
 }
 
 /**
@@ -8943,6 +9840,24 @@ export interface DescribeSpaceResponse {
    *          </ul>
    */
   Url?: string;
+
+  /**
+   * @public
+   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
+   */
+  SpaceDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The collection of ownership settings for a space.</p>
+   */
+  OwnershipSettings?: OwnershipSettings;
+
+  /**
+   * @public
+   * <p>The collection of space sharing settings for a space.</p>
+   */
+  SpaceSharingSettings?: SpaceSharingSettings;
 }
 
 /**
@@ -9125,1332 +10040,6 @@ export interface ProfilerRuleEvaluationStatus {
    */
   LastModifiedTime?: Date;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProfilingStatus = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type ProfilingStatus = (typeof ProfilingStatus)[keyof typeof ProfilingStatus];
-
-/**
- * @public
- * @enum
- */
-export const SecondaryStatus = {
-  COMPLETED: "Completed",
-  DOWNLOADING: "Downloading",
-  DOWNLOADING_TRAINING_IMAGE: "DownloadingTrainingImage",
-  FAILED: "Failed",
-  INTERRUPTED: "Interrupted",
-  LAUNCHING_ML_INSTANCES: "LaunchingMLInstances",
-  MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
-  MAX_WAIT_TIME_EXCEEDED: "MaxWaitTimeExceeded",
-  PREPARING_TRAINING_STACK: "PreparingTrainingStack",
-  RESTARTING: "Restarting",
-  STARTING: "Starting",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-  TRAINING: "Training",
-  UPDATING: "Updating",
-  UPLOADING: "Uploading",
-} as const;
-
-/**
- * @public
- */
-export type SecondaryStatus = (typeof SecondaryStatus)[keyof typeof SecondaryStatus];
-
-/**
- * @public
- * <p>An array element of <code>SecondaryStatusTransitions</code> for <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>. It provides additional details about a status that the
- *             training job has transitioned through. A training job can be in one of several states,
- *             for example, starting, downloading, training, or uploading. Within each state, there are
- *             a number of intermediate states. For example, within the starting state, SageMaker could be
- *             starting the training job or launching the ML instances. These transitional states are
- *             referred to as the job's secondary
- *             status.
- *             </p>
- *          <p></p>
- */
-export interface SecondaryStatusTransition {
-  /**
-   * @public
-   * <p>Contains a secondary status information from a training
-   *             job.</p>
-   *          <p>Status might be one of the following secondary statuses:</p>
-   *          <dl>
-   *             <dt>InProgress</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Starting</code>
-   *                                 - Starting the training job.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Downloading</code> - An optional stage for algorithms that
-   *                                 support <code>File</code> training input mode. It indicates that
-   *                                 data is being downloaded to the ML storage volumes.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Training</code> - Training is in progress.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Uploading</code> - Training is complete and the model
-   *                                 artifacts are being uploaded to the S3 location.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Completed</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Completed</code> - The training job has completed.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Failed</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Failed</code> - The training job has failed. The reason for
-   *                                 the failure is returned in the <code>FailureReason</code> field of
-   *                                     <code>DescribeTrainingJobResponse</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Stopped</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
-   *                                 exceeded the maximum allowed runtime.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Stopped</code> - The training job has stopped.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Stopping</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Stopping</code> - Stopping the training job.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *          </dl>
-   *          <p>We no longer support the following secondary statuses:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LaunchingMLInstances</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PreparingTrainingStack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DownloadingTrainingImage</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Status: SecondaryStatus | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that shows when the training job transitioned to the current secondary
-   *             status state.</p>
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that shows when the training job transitioned out of this secondary status
-   *             state into another secondary status state or when the training job has ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * @public
-   * <p>A detailed description of the progress within a secondary status.
-   *             </p>
-   *          <p>SageMaker provides secondary statuses and status messages that apply to each of
-   *             them:</p>
-   *          <dl>
-   *             <dt>Starting</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>Starting the training job.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Launching requested ML
-   *                                 instances.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Insufficient
-   *                                 capacity error from EC2 while launching instances,
-   *                                 retrying!</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Launched
-   *                                 instance was unhealthy, replacing it!</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Preparing the instances for training.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Training</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>Downloading the training image.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Training
-   *                                 image download completed. Training in
-   *                                 progress.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *          </dl>
-   *          <important>
-   *             <p>Status messages are subject to change. Therefore, we recommend not including them
-   *                 in code that programmatically initiates actions. For examples, don't use status
-   *                 messages in if statements.</p>
-   *          </important>
-   *          <p>To have an overview of your training job's progress, view
-   *                 <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For example,
-   *             at the start of a training job, you might see the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TrainingJobStatus</code> - InProgress</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SecondaryStatus</code> - Training</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StatusMessage</code> - Downloading the training image</p>
-   *             </li>
-   *          </ul>
-   */
-  StatusMessage?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const WarmPoolResourceStatus = {
-  AVAILABLE: "Available",
-  INUSE: "InUse",
-  REUSED: "Reused",
-  TERMINATED: "Terminated",
-} as const;
-
-/**
- * @public
- */
-export type WarmPoolResourceStatus = (typeof WarmPoolResourceStatus)[keyof typeof WarmPoolResourceStatus];
-
-/**
- * @public
- * <p>Status and billing information about the warm pool.</p>
- */
-export interface WarmPoolStatus {
-  /**
-   * @public
-   * <p>The status of the warm pool.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>InUse</code>: The warm pool is in use for the training job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Available</code>: The warm pool is available to reuse for a matching
-   *                     training job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Reused</code>: The warm pool moved to a matching training job for
-   *                     reuse.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Terminated</code>: The warm pool is no longer available. Warm pools are
-   *                     unavailable if they are terminated by a user, terminated for a patch update, or
-   *                     terminated for exceeding the specified
-   *                     <code>KeepAlivePeriodInSeconds</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status: WarmPoolResourceStatus | undefined;
-
-  /**
-   * @public
-   * <p>The billable time in seconds used by the warm pool. Billable time refers to the
-   *             absolute wall-clock time.</p>
-   *          <p>Multiply <code>ResourceRetainedBillableTimeInSeconds</code> by the number of instances
-   *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
-   *             SageMaker bills you if you run warm pool training. The formula is as follows:
-   *                 <code>ResourceRetainedBillableTimeInSeconds * InstanceCount</code>.</p>
-   */
-  ResourceRetainedBillableTimeInSeconds?: number;
-
-  /**
-   * @public
-   * <p>The name of the matching training job that reused the warm pool.</p>
-   */
-  ReusedByJob?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrainingJobResponse {
-  /**
-   * @public
-   * <p> Name of the model training job. </p>
-   */
-  TrainingJobName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the training job.</p>
-   */
-  TrainingJobArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the
-   *             training job was launched by a hyperparameter tuning job.</p>
-   */
-  TuningJobArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the SageMaker Ground Truth labeling job that created the
-   *             transform or training job.</p>
-   */
-  LabelingJobArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of an AutoML job.</p>
-   */
-  AutoMLJobArn?: string;
-
-  /**
-   * @public
-   * <p>Information about the Amazon S3 location that is configured for storing model artifacts.
-   *         </p>
-   */
-  ModelArtifacts: ModelArtifacts | undefined;
-
-  /**
-   * @public
-   * <p>The status of the training job.</p>
-   *          <p>SageMaker provides the following training job statuses:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>InProgress</code> - The training is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Completed</code> - The training job has completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The training job has failed. To see the reason for the
-   *                     failure, see the <code>FailureReason</code> field in the response to a
-   *                         <code>DescribeTrainingJobResponse</code> call.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Stopping</code> - The training job is stopping.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Stopped</code> - The training job has stopped.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
-   */
-  TrainingJobStatus: TrainingJobStatus | undefined;
-
-  /**
-   * @public
-   * <p> Provides detailed information about the state of the training job. For detailed
-   *             information on the secondary status of the training job, see <code>StatusMessage</code>
-   *             under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p>
-   *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
-   *             them:</p>
-   *          <dl>
-   *             <dt>InProgress</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Starting</code>
-   *                                 - Starting the training job.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Downloading</code> - An optional stage for algorithms that
-   *                                 support <code>File</code> training input mode. It indicates that
-   *                                 data is being downloaded to the ML storage volumes.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Training</code> - Training is in progress.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Interrupted</code> - The job stopped because the managed
-   *                                 spot training instances were interrupted. </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Uploading</code> - Training is complete and the model
-   *                                 artifacts are being uploaded to the S3 location.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Completed</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Completed</code> - The training job has completed.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Failed</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Failed</code> - The training job has failed. The reason for
-   *                                 the failure is returned in the <code>FailureReason</code> field of
-   *                                     <code>DescribeTrainingJobResponse</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Stopped</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
-   *                                 exceeded the maximum allowed runtime.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>MaxWaitTimeExceeded</code> - The job stopped because it
-   *                                 exceeded the maximum allowed wait time.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Stopped</code> - The training job has stopped.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Stopping</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>Stopping</code> - Stopping the training job.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *          </dl>
-   *          <important>
-   *             <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p>
-   *          </important>
-   *          <p>We no longer support the following secondary statuses:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LaunchingMLInstances</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PreparingTraining</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DownloadingTrainingImage</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  SecondaryStatus: SecondaryStatus | undefined;
-
-  /**
-   * @public
-   * <p>If the training job failed, the reason it failed. </p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>Algorithm-specific parameters. </p>
-   */
-  HyperParameters?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Information about the algorithm used for training, and algorithm metadata.
-   *         </p>
-   */
-  AlgorithmSpecification: AlgorithmSpecification | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for
-   *             the training job. </p>
-   */
-  RoleArn?: string;
-
-  /**
-   * @public
-   * <p>An array of <code>Channel</code> objects that describes each data input channel.
-   *         </p>
-   */
-  InputDataConfig?: Channel[];
-
-  /**
-   * @public
-   * <p>The S3 path where model artifacts that you configured when creating the job are
-   *             stored. SageMaker creates subfolders for model artifacts. </p>
-   */
-  OutputDataConfig?: OutputDataConfig;
-
-  /**
-   * @public
-   * <p>Resources, including ML compute instances and ML storage volumes, that are
-   *             configured for model training. </p>
-   */
-  ResourceConfig: ResourceConfig | undefined;
-
-  /**
-   * @public
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has access
-   *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
-   *                 Virtual Private Cloud</a>.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * @public
-   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
-   *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
-   *             ends the training job. Use this API to cap model training costs.</p>
-   *          <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
-   *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
-   *             model artifacts, so the results of training are not lost. </p>
-   */
-  StoppingCondition: StoppingCondition | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates when the training job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>Indicates the time when the training job starts on training instances. You are
-   *             billed for the time interval between this time and the value of
-   *                 <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later than this time.
-   *             The difference is due to the time it takes to download the training data and to the size
-   *             of the training container.</p>
-   */
-  TrainingStartTime?: Date;
-
-  /**
-   * @public
-   * <p>Indicates the time when the training job ends on training instances. You are billed
-   *             for the time interval between the value of <code>TrainingStartTime</code> and this time.
-   *             For successful jobs and stopped jobs, this is the time after model artifacts are
-   *             uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
-   */
-  TrainingEndTime?: Date;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates when the status of the training job was last
-   *             modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>A history of all of the secondary statuses that the training job has transitioned
-   *             through.</p>
-   */
-  SecondaryStatusTransitions?: SecondaryStatusTransition[];
-
-  /**
-   * @public
-   * <p>A collection of <code>MetricData</code> objects that specify the names, values, and
-   *             dates and times that the training algorithm emitted to Amazon CloudWatch.</p>
-   */
-  FinalMetricDataList?: MetricData[];
-
-  /**
-   * @public
-   * <p>If you want to allow inbound or outbound network calls, except for calls between peers
-   *             within a training cluster for distributed training, choose <code>True</code>. If you
-   *             enable network isolation for training jobs that are configured to use a VPC, SageMaker
-   *             downloads and uploads customer data and model artifacts through the specified VPC, but
-   *             the training container does not have network access.</p>
-   */
-  EnableNetworkIsolation?: boolean;
-
-  /**
-   * @public
-   * <p>To encrypt all communications between ML compute instances in distributed training,
-   *             choose <code>True</code>. Encryption provides greater security for distributed training,
-   *             but training might take longer. How long it takes depends on the amount of communication
-   *             between compute instances, especially if you use a deep learning algorithms in
-   *             distributed training.</p>
-   */
-  EnableInterContainerTrafficEncryption?: boolean;
-
-  /**
-   * @public
-   * <p>A Boolean indicating whether managed spot training is enabled (<code>True</code>) or
-   *             not (<code>False</code>).</p>
-   */
-  EnableManagedSpotTraining?: boolean;
-
-  /**
-   * @public
-   * <p>Contains information about the output location for managed spot training checkpoint
-   *             data. </p>
-   */
-  CheckpointConfig?: CheckpointConfig;
-
-  /**
-   * @public
-   * <p>The training time in seconds.</p>
-   */
-  TrainingTimeInSeconds?: number;
-
-  /**
-   * @public
-   * <p>The billable time in seconds. Billable time refers to the absolute wall-clock
-   *             time.</p>
-   *          <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
-   *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
-   *             SageMaker bills you if you run distributed training. The formula is as follows:
-   *                 <code>BillableTimeInSeconds * InstanceCount</code> .</p>
-   *          <p>You can calculate the savings from using managed spot training using the formula
-   *                 <code>(1 - BillableTimeInSeconds / TrainingTimeInSeconds) * 100</code>. For example,
-   *             if <code>BillableTimeInSeconds</code> is 100 and <code>TrainingTimeInSeconds</code> is
-   *             500, the savings is 80%.</p>
-   */
-  BillableTimeInSeconds?: number;
-
-  /**
-   * @public
-   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
-   *             storage paths. To learn more about
-   *             how to configure the <code>DebugHookConfig</code> parameter,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
-   */
-  DebugHookConfig?: DebugHookConfig;
-
-  /**
-   * @public
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
-   *       you call the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ExperimentConfig?: ExperimentConfig;
-
-  /**
-   * @public
-   * <p>Configuration information for Amazon SageMaker Debugger rules for debugging output tensors.</p>
-   */
-  DebugRuleConfigurations?: DebugRuleConfiguration[];
-
-  /**
-   * @public
-   * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
-   */
-  TensorBoardOutputConfig?: TensorBoardOutputConfig;
-
-  /**
-   * @public
-   * <p>Evaluation status of Amazon SageMaker Debugger rules for debugging on a training job.</p>
-   */
-  DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
-
-  /**
-   * @public
-   * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and
-   *             storage paths.</p>
-   */
-  ProfilerConfig?: ProfilerConfig;
-
-  /**
-   * @public
-   * <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework
-   *             metrics.</p>
-   */
-  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
-
-  /**
-   * @public
-   * <p>Evaluation status of Amazon SageMaker Debugger rules for profiling on a training job.</p>
-   */
-  ProfilerRuleEvaluationStatuses?: ProfilerRuleEvaluationStatus[];
-
-  /**
-   * @public
-   * <p>Profiling status of a training job.</p>
-   */
-  ProfilingStatus?: ProfilingStatus;
-
-  /**
-   * @public
-   * <p>The number of times to retry the job when the job fails due to an
-   *                 <code>InternalServerError</code>.</p>
-   */
-  RetryStrategy?: RetryStrategy;
-
-  /**
-   * @public
-   * <p>The environment variables to set in the Docker container.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The status of the warm pool associated with the training job.</p>
-   */
-  WarmPoolStatus?: WarmPoolStatus;
-
-  /**
-   * @public
-   * <p>Contains information about the infrastructure health check configuration for the training job.</p>
-   */
-  InfraCheckConfig?: InfraCheckConfig;
-}
-
-/**
- * @public
- */
-export interface DescribeTransformJobRequest {
-  /**
-   * @public
-   * <p>The name of the transform job that you want to view details of.</p>
-   */
-  TransformJobName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TransformJobStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type TransformJobStatus = (typeof TransformJobStatus)[keyof typeof TransformJobStatus];
-
-/**
- * @public
- */
-export interface DescribeTransformJobResponse {
-  /**
-   * @public
-   * <p>The name of the transform job.</p>
-   */
-  TransformJobName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   */
-  TransformJobArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The
-   *             status of the transform job. If the transform job failed, the reason
-   *             is returned in the <code>FailureReason</code> field.</p>
-   */
-  TransformJobStatus: TransformJobStatus | undefined;
-
-  /**
-   * @public
-   * <p>If the transform job failed, <code>FailureReason</code> describes
-   *             why
-   *             it failed. A transform job creates a log file, which includes error
-   *             messages, and stores it
-   *             as
-   *             an Amazon S3 object. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log Amazon SageMaker Events with
-   *                 Amazon CloudWatch</a>.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The name of the model used in the transform job.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * @public
-   * <p>The
-   *             maximum number
-   *             of
-   *             parallel requests on each instance node
-   *             that can be launched in a transform job. The default value is 1.</p>
-   */
-  MaxConcurrentTransforms?: number;
-
-  /**
-   * @public
-   * <p>The timeout and maximum number of retries for processing a transform job
-   *             invocation.</p>
-   */
-  ModelClientConfig?: ModelClientConfig;
-
-  /**
-   * @public
-   * <p>The
-   *             maximum
-   *             payload size, in MB, used in the
-   *             transform job.</p>
-   */
-  MaxPayloadInMB?: number;
-
-  /**
-   * @public
-   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference
-   *             request.
-   *             A <i>record</i>
-   *             <i></i> is a single unit of input data that inference
-   *             can be made on. For example, a single line in a CSV file is a record. </p>
-   *          <p>To enable the batch strategy, you must set <code>SplitType</code>
-   *             to
-   *                 <code>Line</code>, <code>RecordIO</code>, or
-   *             <code>TFRecord</code>.</p>
-   */
-  BatchStrategy?: BatchStrategy;
-
-  /**
-   * @public
-   * <p>The
-   *             environment variables to set in the Docker container. We support up to 16 key and values
-   *             entries in the map.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Describes the dataset to be transformed and the Amazon S3 location where it is
-   *             stored.</p>
-   */
-  TransformInput: TransformInput | undefined;
-
-  /**
-   * @public
-   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the
-   *             transform job.</p>
-   */
-  TransformOutput?: TransformOutput;
-
-  /**
-   * @public
-   * <p>Configuration to control how SageMaker captures inference data.</p>
-   */
-  DataCaptureConfig?: BatchDataCaptureConfig;
-
-  /**
-   * @public
-   * <p>Describes
-   *             the resources, including ML instance types and ML instance count, to
-   *             use for the transform job.</p>
-   */
-  TransformResources: TransformResources | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that shows when the transform Job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>Indicates when the transform job starts
-   *             on
-   *             ML instances. You are billed for the time interval between this time
-   *             and the value of <code>TransformEndTime</code>.</p>
-   */
-  TransformStartTime?: Date;
-
-  /**
-   * @public
-   * <p>Indicates when the transform job has been
-   *
-   *             completed, or has stopped or failed. You are billed for the time
-   *             interval between this time and the value of <code>TransformStartTime</code>.</p>
-   */
-  TransformEndTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
-   *             transform or training job.</p>
-   */
-  LabelingJobArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the AutoML transform job.</p>
-   */
-  AutoMLJobArn?: string;
-
-  /**
-   * @public
-   * <p>The data structure used to specify the data to be used for inference in a batch
-   *             transform job and to associate the data that is relevant to the prediction results in
-   *             the output. The input filter provided allows you to exclude input data that is not
-   *             needed for inference in a batch transform job. The output filter provided allows you to
-   *             include input data relevant to interpreting the predictions in the output from the job.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
-   *                 Results with their Corresponding Input Records</a>.</p>
-   */
-  DataProcessing?: DataProcessing;
-
-  /**
-   * @public
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
-   *       you call the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ExperimentConfig?: ExperimentConfig;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialRequest {
-  /**
-   * @public
-   * <p>The name of the trial to describe.</p>
-   */
-  TrialName: string | undefined;
-}
-
-/**
- * @public
- * <p>The source of the trial.</p>
- */
-export interface TrialSource {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The source job type.</p>
-   */
-  SourceType?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialResponse {
-  /**
-   * @public
-   * <p>The name of the trial.</p>
-   */
-  TrialName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   */
-  TrialArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>TrialName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * @public
-   * <p>The name of the experiment the trial is part of.</p>
-   */
-  ExperimentName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
-   */
-  Source?: TrialSource;
-
-  /**
-   * @public
-   * <p>When the trial was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Who created the trial.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>When the trial was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Who last modified the trial.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialComponentRequest {
-  /**
-   * @public
-   * <p>The name of the trial component to describe.</p>
-   */
-  TrialComponentName: string | undefined;
-}
-
-/**
- * @public
- * <p>A summary of the metrics of a trial component.</p>
- */
-export interface TrialComponentMetricSummary {
-  /**
-   * @public
-   * <p>The name of the metric.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * @public
-   * <p>When the metric was last updated.</p>
-   */
-  TimeStamp?: Date;
-
-  /**
-   * @public
-   * <p>The maximum value of the metric.</p>
-   */
-  Max?: number;
-
-  /**
-   * @public
-   * <p>The minimum value of the metric.</p>
-   */
-  Min?: number;
-
-  /**
-   * @public
-   * <p>The most recent value of the metric.</p>
-   */
-  Last?: number;
-
-  /**
-   * @public
-   * <p>The number of samples used to generate the metric.</p>
-   */
-  Count?: number;
-
-  /**
-   * @public
-   * <p>The average value of the metric.</p>
-   */
-  Avg?: number;
-
-  /**
-   * @public
-   * <p>The standard deviation of the metric.</p>
-   */
-  StdDev?: number;
-}
-
-/**
- * @public
- * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
- */
-export interface TrialComponentSource {
-  /**
-   * @public
-   * <p>The source Amazon Resource Name (ARN).</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The source job type.</p>
-   */
-  SourceType?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialComponentResponse {
-  /**
-   * @public
-   * <p>The name of the trial component.</p>
-   */
-  TrialComponentName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   */
-  TrialComponentArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>TrialComponentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
-   */
-  Source?: TrialComponentSource;
-
-  /**
-   * @public
-   * <p>The status of the component. States include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>InProgress</p>
-   *             </li>
-   *             <li>
-   *                <p>Completed</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: TrialComponentStatus;
-
-  /**
-   * @public
-   * <p>When the component started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * @public
-   * <p>When the component ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * @public
-   * <p>When the component was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Who created the trial component.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>When the component was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Who last modified the component.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>The hyperparameters of the component.</p>
-   */
-  Parameters?: Record<string, TrialComponentParameterValue>;
-
-  /**
-   * @public
-   * <p>The input artifacts of the component.</p>
-   */
-  InputArtifacts?: Record<string, TrialComponentArtifact>;
-
-  /**
-   * @public
-   * <p>The output artifacts of the component.</p>
-   */
-  OutputArtifacts?: Record<string, TrialComponentArtifact>;
-
-  /**
-   * @public
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * @public
-   * <p>The metrics for the component.</p>
-   */
-  Metrics?: TrialComponentMetricSummary[];
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
-
-  /**
-   * @public
-   * <p>A list of ARNs and, if applicable, job types for multiple sources of an experiment
-   *       run.</p>
-   */
-  Sources?: TrialComponentSource[];
-}
-
-/**
- * @public
- */
-export interface DescribeUserProfileRequest {
-  /**
-   * @public
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * @public
-   * <p>The user profile name. This value is not case sensitive.</p>
-   */
-  UserProfileName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const UserProfileStatus = {
-  Delete_Failed: "Delete_Failed",
-  Deleting: "Deleting",
-  Failed: "Failed",
-  InService: "InService",
-  Pending: "Pending",
-  Update_Failed: "Update_Failed",
-  Updating: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type UserProfileStatus = (typeof UserProfileStatus)[keyof typeof UserProfileStatus];
 
 /**
  * @internal

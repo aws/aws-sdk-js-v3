@@ -47,7 +47,7 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  * const input = { // DeleteAppRequest
  *   DomainId: "STRING_VALUE", // required
  *   UserProfileName: "STRING_VALUE",
- *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway", // required
+ *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway" || "JupyterLab" || "CodeEditor", // required
  *   AppName: "STRING_VALUE", // required
  *   SpaceName: "STRING_VALUE",
  * };

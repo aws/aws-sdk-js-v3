@@ -49,7 +49,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * const input = { // CreateAppRequest
  *   DomainId: "STRING_VALUE", // required
  *   UserProfileName: "STRING_VALUE",
- *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway", // required
+ *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway" || "JupyterLab" || "CodeEditor", // required
  *   AppName: "STRING_VALUE", // required
  *   Tags: [ // TagList
  *     { // Tag

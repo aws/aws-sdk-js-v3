@@ -80,6 +80,19 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * //           DefaultGid: Number("int"),
  * //         },
  * //       },
+ * //       JupyterLabAppImageConfig: { // JupyterLabAppImageConfig
+ * //         ContainerConfig: { // ContainerConfig
+ * //           ContainerArguments: [ // CustomImageContainerArguments
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ContainerEntrypoint: [ // CustomImageContainerEntrypoint
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ContainerEnvironmentVariables: { // CustomImageContainerEnvironmentVariables
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

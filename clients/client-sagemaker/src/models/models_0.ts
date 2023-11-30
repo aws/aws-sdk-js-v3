@@ -3813,6 +3813,8 @@ export interface AnnotationConsolidationConfig {
  * @enum
  */
 export const AppType = {
+  CodeEditor: "CodeEditor",
+  JupyterLab: "JupyterLab",
   JupyterServer: "JupyterServer",
   KernelGateway: "KernelGateway",
   RSessionGateway: "RSessionGateway",
@@ -3824,6 +3826,125 @@ export const AppType = {
  * @public
  */
 export type AppType = (typeof AppType)[keyof typeof AppType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppInstanceType = {
+  ML_C5_12XLARGE: "ml.c5.12xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_24XLARGE: "ml.c5.24xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_LARGE: "ml.c5.large",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_GEOSPATIAL_INTERACTIVE: "ml.geospatial.interactive",
+  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
+  ML_M5D_16XLARGE: "ml.m5d.16xlarge",
+  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
+  ML_M5D_8XLARGE: "ml.m5d.8xlarge",
+  ML_M5D_LARGE: "ml.m5d.large",
+  ML_M5D_XLARGE: "ml.m5d.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_16XLARGE: "ml.m5.16xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_8XLARGE: "ml.m5.8xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_MICRO: "ml.t3.micro",
+  ML_T3_SMALL: "ml.t3.small",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
+  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  SYSTEM: "system",
+} as const;
+
+/**
+ * @public
+ */
+export type AppInstanceType = (typeof AppInstanceType)[keyof typeof AppInstanceType];
+
+/**
+ * @public
+ * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+ *      the version runs on.</p>
+ */
+export interface ResourceSpec {
+  /**
+   * @public
+   * <p>The ARN of the SageMaker image that the image version belongs to.</p>
+   */
+  SageMakerImageArn?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the image version created on the instance.</p>
+   */
+  SageMakerImageVersionArn?: string;
+
+  /**
+   * @public
+   * <p>The SageMakerImageVersionAlias.</p>
+   */
+  SageMakerImageVersionAlias?: string;
+
+  /**
+   * @public
+   * <p>The instance type that the image version runs on.</p>
+   *          <note>
+   *             <p>
+   *                <b>JupyterServer apps</b> only support the <code>system</code> value.</p>
+   *             <p>For <b>KernelGateway apps</b>, the <code>system</code>
+   *              value is translated to <code>ml.t3.medium</code>. KernelGateway apps also support all other values for available
+   *             instance types.</p>
+   *          </note>
+   */
+  InstanceType?: AppInstanceType;
+
+  /**
+   * @public
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>
+   */
+  LifecycleConfigArn?: string;
+}
 
 /**
  * @public
@@ -3888,6 +4009,49 @@ export interface AppDetails {
    * <p>The name of the space.</p>
    */
   SpaceName?: string;
+
+  /**
+   * @public
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *      the version runs on.</p>
+   */
+  ResourceSpec?: ResourceSpec;
+}
+
+/**
+ * @public
+ * <p>The configuration used to run the application image container.</p>
+ */
+export interface ContainerConfig {
+  /**
+   * @public
+   * <p>The arguments for the container when you're running the application.</p>
+   */
+  ContainerArguments?: string[];
+
+  /**
+   * @public
+   * <p>The entrypoint used to run the application in the container.</p>
+   */
+  ContainerEntrypoint?: string[];
+
+  /**
+   * @public
+   * <p>The environment variables to set in the container</p>
+   */
+  ContainerEnvironmentVariables?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.</p>
+ */
+export interface JupyterLabAppImageConfig {
+  /**
+   * @public
+   * <p>The configuration used to run the application image container.</p>
+   */
+  ContainerConfig?: ContainerConfig;
 }
 
 /**
@@ -3986,6 +4150,12 @@ export interface AppImageConfigDetails {
    * <p>The configuration for the file system and kernels in the SageMaker image.</p>
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
+
+  /**
+   * @public
+   * <p>The configuration for the file system and the runtime, such as the environment variables and entry point.</p>
+   */
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
 }
 
 /**
@@ -4002,81 +4172,6 @@ export const AppImageConfigSortKey = {
  * @public
  */
 export type AppImageConfigSortKey = (typeof AppImageConfigSortKey)[keyof typeof AppImageConfigSortKey];
-
-/**
- * @public
- * @enum
- */
-export const AppInstanceType = {
-  ML_C5_12XLARGE: "ml.c5.12xlarge",
-  ML_C5_18XLARGE: "ml.c5.18xlarge",
-  ML_C5_24XLARGE: "ml.c5.24xlarge",
-  ML_C5_2XLARGE: "ml.c5.2xlarge",
-  ML_C5_4XLARGE: "ml.c5.4xlarge",
-  ML_C5_9XLARGE: "ml.c5.9xlarge",
-  ML_C5_LARGE: "ml.c5.large",
-  ML_C5_XLARGE: "ml.c5.xlarge",
-  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
-  ML_G5_12XLARGE: "ml.g5.12xlarge",
-  ML_G5_16XLARGE: "ml.g5.16xlarge",
-  ML_G5_24XLARGE: "ml.g5.24xlarge",
-  ML_G5_2XLARGE: "ml.g5.2xlarge",
-  ML_G5_48XLARGE: "ml.g5.48xlarge",
-  ML_G5_4XLARGE: "ml.g5.4xlarge",
-  ML_G5_8XLARGE: "ml.g5.8xlarge",
-  ML_G5_XLARGE: "ml.g5.xlarge",
-  ML_GEOSPATIAL_INTERACTIVE: "ml.geospatial.interactive",
-  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
-  ML_M5D_16XLARGE: "ml.m5d.16xlarge",
-  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
-  ML_M5D_8XLARGE: "ml.m5d.8xlarge",
-  ML_M5D_LARGE: "ml.m5d.large",
-  ML_M5D_XLARGE: "ml.m5d.xlarge",
-  ML_M5_12XLARGE: "ml.m5.12xlarge",
-  ML_M5_16XLARGE: "ml.m5.16xlarge",
-  ML_M5_24XLARGE: "ml.m5.24xlarge",
-  ML_M5_2XLARGE: "ml.m5.2xlarge",
-  ML_M5_4XLARGE: "ml.m5.4xlarge",
-  ML_M5_8XLARGE: "ml.m5.8xlarge",
-  ML_M5_LARGE: "ml.m5.large",
-  ML_M5_XLARGE: "ml.m5.xlarge",
-  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE: "ml.p3.16xlarge",
-  ML_P3_2XLARGE: "ml.p3.2xlarge",
-  ML_P3_8XLARGE: "ml.p3.8xlarge",
-  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
-  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
-  ML_R5_12XLARGE: "ml.r5.12xlarge",
-  ML_R5_16XLARGE: "ml.r5.16xlarge",
-  ML_R5_24XLARGE: "ml.r5.24xlarge",
-  ML_R5_2XLARGE: "ml.r5.2xlarge",
-  ML_R5_4XLARGE: "ml.r5.4xlarge",
-  ML_R5_8XLARGE: "ml.r5.8xlarge",
-  ML_R5_LARGE: "ml.r5.large",
-  ML_R5_XLARGE: "ml.r5.xlarge",
-  ML_T3_2XLARGE: "ml.t3.2xlarge",
-  ML_T3_LARGE: "ml.t3.large",
-  ML_T3_MEDIUM: "ml.t3.medium",
-  ML_T3_MICRO: "ml.t3.micro",
-  ML_T3_SMALL: "ml.t3.small",
-  ML_T3_XLARGE: "ml.t3.xlarge",
-  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
-  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
-  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
-  SYSTEM: "system",
-} as const;
-
-/**
- * @public
- */
-export type AppInstanceType = (typeof AppInstanceType)[keyof typeof AppInstanceType];
 
 /**
  * @public
@@ -8633,6 +8728,28 @@ export interface ClusterSummary {
 
 /**
  * @public
+ * <p>The Code Editor application settings.</p>
+ *          <p>For more information about Code Editor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html">Get started with Code
+ *       Editor in Amazon SageMaker</a>.</p>
+ */
+export interface CodeEditorAppSettings {
+  /**
+   * @public
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *      the version runs on.</p>
+   */
+  DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Code Editor application
+   *       lifecycle configuration.</p>
+   */
+  LifecycleConfigArns?: string[];
+}
+
+/**
+ * @public
  * <p>A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
  */
 export interface CodeRepository {
@@ -10150,50 +10267,6 @@ export interface CreateAlgorithmOutput {
 
 /**
  * @public
- * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
- *      the version runs on.</p>
- */
-export interface ResourceSpec {
-  /**
-   * @public
-   * <p>The ARN of the SageMaker image that the image version belongs to.</p>
-   */
-  SageMakerImageArn?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the image version created on the instance.</p>
-   */
-  SageMakerImageVersionArn?: string;
-
-  /**
-   * @public
-   * <p>The SageMakerImageVersionAlias.</p>
-   */
-  SageMakerImageVersionAlias?: string;
-
-  /**
-   * @public
-   * <p>The instance type that the image version runs on.</p>
-   *          <note>
-   *             <p>
-   *                <b>JupyterServer apps</b> only support the <code>system</code> value.</p>
-   *             <p>For <b>KernelGateway apps</b>, the <code>system</code>
-   *              value is translated to <code>ml.t3.medium</code>. KernelGateway apps also support all other values for available
-   *             instance types.</p>
-   *          </note>
-   */
-  InstanceType?: AppInstanceType;
-
-  /**
-   * @public
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>
-   */
-  LifecycleConfigArn?: string;
-}
-
-/**
- * @public
  */
 export interface CreateAppRequest {
   /**
@@ -10240,7 +10313,8 @@ export interface CreateAppRequest {
 
   /**
    * @public
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
+   *             must be set.</p>
    */
   SpaceName?: string;
 }
@@ -10301,6 +10375,12 @@ export interface CreateAppImageConfigRequest {
    * 	image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
+
+  /**
+   * @public
+   * <p>The <code>JupyterLabAppImageConfig</code>. You can only specify one image kernel in the <code>AppImageConfig</code> API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab.</p>
+   */
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
 }
 
 /**
@@ -11574,75 +11654,4 @@ export interface CreateCompilationJobRequest {
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateCompilationJobResponse {
-  /**
-   * @public
-   * <p>If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns
-   *             the following data in JSON format:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CompilationJobArn</code>: The Amazon Resource Name (ARN) of the compiled
-   *                     job.</p>
-   *             </li>
-   *          </ul>
-   */
-  CompilationJobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateContextRequest {
-  /**
-   * @public
-   * <p>The name of the context. Must be unique to your account in an Amazon Web Services Region.</p>
-   */
-  ContextName: string | undefined;
-
-  /**
-   * @public
-   * <p>The source type, ID, and URI.</p>
-   */
-  Source: ContextSource | undefined;
-
-  /**
-   * @public
-   * <p>The context type.</p>
-   */
-  ContextType: string | undefined;
-
-  /**
-   * @public
-   * <p>The description of the context.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>A list of properties to add to the context.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>A list of tags to apply to the context.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateContextResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   */
-  ContextArn?: string;
 }
