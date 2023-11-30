@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.463.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.462.0...v3.463.0) (2023-11-30)
+
+
+### Features
+
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support new entity type-specific strongly typed filters in the request and entity type-specific strongly typed summaries in the response. ([decb184](https://github.com/aws/aws-sdk-js-v3/commit/decb184940a3f71d4c367656814c841b33d119a3))
+
+
+
+
+
 # [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-catalog

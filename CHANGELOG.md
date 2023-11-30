@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.463.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.462.0...v3.463.0) (2023-11-30)
+
+
+### Features
+
+* **client-marketplace-agreement:** The AWS Marketplace Agreement Service provides an API interface that helps AWS Marketplace sellers manage their agreements, including listing, filtering, and viewing details about their agreements. ([85d1ace](https://github.com/aws/aws-sdk-js-v3/commit/85d1ace73cf6e086d1a01ce94fe65bc8edc3ad5b))
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support new entity type-specific strongly typed filters in the request and entity type-specific strongly typed summaries in the response. ([decb184](https://github.com/aws/aws-sdk-js-v3/commit/decb184940a3f71d4c367656814c841b33d119a3))
+* **client-marketplace-deployment:** AWS Marketplace Deployment is a new service that provides essential features that facilitate the deployment of software, data, and services procured through AWS Marketplace. ([d7ce44b](https://github.com/aws/aws-sdk-js-v3/commit/d7ce44bab250b990bc72e6e45d3b0c209cb9d502))
+* **client-redshift-serverless:** This release adds the following support for Amazon Redshift Serverless: 1) cross-account cross-VPCs, 2) copying snapshots across Regions, 3) scheduling snapshot creation, and 4) restoring tables from a recovery point. ([e8c53cd](https://github.com/aws/aws-sdk-js-v3/commit/e8c53cd60a4fa3d161d18898921a9cd0f4387a19))
+* **clients:** update client endpoints as of 2023-11-30 ([25de0ba](https://github.com/aws/aws-sdk-js-v3/commit/25de0ba9f93d4fbc86dc9c0eccda9b419c9bcf41))
+
+
+
+
+
 # [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
 
 

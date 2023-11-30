@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.463.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.462.0...v3.463.0) (2023-11-30)
+
+
+### Features
+
+* **client-redshift-serverless:** This release adds the following support for Amazon Redshift Serverless: 1) cross-account cross-VPCs, 2) copying snapshots across Regions, 3) scheduling snapshot creation, and 4) restoring tables from a recovery point. ([e8c53cd](https://github.com/aws/aws-sdk-js-v3/commit/e8c53cd60a4fa3d161d18898921a9cd0f4387a19))
+
+
+
+
+
 # [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-serverless
