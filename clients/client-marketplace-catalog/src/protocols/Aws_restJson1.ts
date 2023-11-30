@@ -41,14 +41,83 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { MarketplaceCatalogServiceException as __BaseException } from "../models/MarketplaceCatalogServiceException";
 import {
   AccessDeniedException,
+  AmiProductEntityIdFilter,
+  AmiProductFilters,
+  AmiProductLastModifiedDateFilter,
+  AmiProductLastModifiedDateFilterDateRange,
+  AmiProductSort,
+  AmiProductTitleFilter,
+  AmiProductVisibilityFilter,
+  AmiProductVisibilityString,
   Change,
   ChangeSummary,
+  ContainerProductEntityIdFilter,
+  ContainerProductFilters,
+  ContainerProductLastModifiedDateFilter,
+  ContainerProductLastModifiedDateFilterDateRange,
+  ContainerProductSort,
+  ContainerProductTitleFilter,
+  ContainerProductVisibilityFilter,
+  ContainerProductVisibilityString,
+  DataProductEntityIdFilter,
+  DataProductFilters,
+  DataProductLastModifiedDateFilter,
+  DataProductLastModifiedDateFilterDateRange,
+  DataProductSort,
+  DataProductTitleFilter,
+  DataProductVisibilityFilter,
+  DataProductVisibilityString,
   Entity,
+  EntityTypeFilters,
+  EntityTypeSort,
   Filter,
   InternalServiceException,
+  OfferAvailabilityEndDateFilter,
+  OfferAvailabilityEndDateFilterDateRange,
+  OfferBuyerAccountsFilter,
+  OfferEntityIdFilter,
+  OfferFilters,
+  OfferLastModifiedDateFilter,
+  OfferLastModifiedDateFilterDateRange,
+  OfferNameFilter,
+  OfferProductIdFilter,
+  OfferReleaseDateFilter,
+  OfferReleaseDateFilterDateRange,
+  OfferSort,
+  OfferStateFilter,
+  OfferStateString,
+  OfferTargetingFilter,
+  OfferTargetingString,
+  ResaleAuthorizationAvailabilityEndDateFilter,
+  ResaleAuthorizationAvailabilityEndDateFilterDateRange,
+  ResaleAuthorizationCreatedDateFilter,
+  ResaleAuthorizationCreatedDateFilterDateRange,
+  ResaleAuthorizationEntityIdFilter,
+  ResaleAuthorizationFilters,
+  ResaleAuthorizationLastModifiedDateFilter,
+  ResaleAuthorizationLastModifiedDateFilterDateRange,
+  ResaleAuthorizationManufacturerAccountIdFilter,
+  ResaleAuthorizationManufacturerLegalNameFilter,
+  ResaleAuthorizationNameFilter,
+  ResaleAuthorizationOfferExtendedStatusFilter,
+  ResaleAuthorizationProductIdFilter,
+  ResaleAuthorizationProductNameFilter,
+  ResaleAuthorizationResellerAccountIDFilter,
+  ResaleAuthorizationResellerLegalNameFilter,
+  ResaleAuthorizationSort,
+  ResaleAuthorizationStatusFilter,
+  ResaleAuthorizationStatusString,
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceNotSupportedException,
+  SaaSProductEntityIdFilter,
+  SaaSProductFilters,
+  SaaSProductLastModifiedDateFilter,
+  SaaSProductLastModifiedDateFilterDateRange,
+  SaaSProductSort,
+  SaaSProductTitleFilter,
+  SaaSProductVisibilityFilter,
+  SaaSProductVisibilityString,
   ServiceQuotaExceededException,
   Sort,
   Tag,
@@ -239,6 +308,8 @@ export const se_ListEntitiesCommand = async (
     take(input, {
       Catalog: [],
       EntityType: [],
+      EntityTypeFilters: (_) => _json(_),
+      EntityTypeSort: (_) => _json(_),
       FilterList: (_) => _json(_),
       MaxResults: [],
       NextToken: [],
@@ -1283,6 +1354,26 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AmiProductEntityIdFilter omitted.
+
+// se_AmiProductEntityIdFilterValueList omitted.
+
+// se_AmiProductFilters omitted.
+
+// se_AmiProductLastModifiedDateFilter omitted.
+
+// se_AmiProductLastModifiedDateFilterDateRange omitted.
+
+// se_AmiProductSort omitted.
+
+// se_AmiProductTitleFilter omitted.
+
+// se_AmiProductTitleFilterValueList omitted.
+
+// se_AmiProductVisibilityFilter omitted.
+
+// se_AmiProductVisibilityFilterValueList omitted.
+
 /**
  * serializeAws_restJson1Change
  */
@@ -1297,7 +1388,51 @@ const se_Change = (input: Change, context: __SerdeContext): any => {
   });
 };
 
+// se_ContainerProductEntityIdFilter omitted.
+
+// se_ContainerProductEntityIdFilterValueList omitted.
+
+// se_ContainerProductFilters omitted.
+
+// se_ContainerProductLastModifiedDateFilter omitted.
+
+// se_ContainerProductLastModifiedDateFilterDateRange omitted.
+
+// se_ContainerProductSort omitted.
+
+// se_ContainerProductTitleFilter omitted.
+
+// se_ContainerProductTitleFilterValueList omitted.
+
+// se_ContainerProductVisibilityFilter omitted.
+
+// se_ContainerProductVisibilityFilterValueList omitted.
+
+// se_DataProductEntityIdFilter omitted.
+
+// se_DataProductEntityIdFilterValueList omitted.
+
+// se_DataProductFilters omitted.
+
+// se_DataProductLastModifiedDateFilter omitted.
+
+// se_DataProductLastModifiedDateFilterDateRange omitted.
+
+// se_DataProductSort omitted.
+
+// se_DataProductTitleFilter omitted.
+
+// se_DataProductTitleFilterValueList omitted.
+
+// se_DataProductVisibilityFilter omitted.
+
+// se_DataProductVisibilityFilterValueList omitted.
+
 // se_Entity omitted.
+
+// se_EntityTypeFilters omitted.
+
+// se_EntityTypeSort omitted.
 
 // se_Filter omitted.
 
@@ -1310,6 +1445,44 @@ const se_JsonDocumentType = (input: __DocumentType, context: __SerdeContext): an
   return input;
 };
 
+// se_OfferAvailabilityEndDateFilter omitted.
+
+// se_OfferAvailabilityEndDateFilterDateRange omitted.
+
+// se_OfferBuyerAccountsFilter omitted.
+
+// se_OfferEntityIdFilter omitted.
+
+// se_OfferEntityIdFilterValueList omitted.
+
+// se_OfferFilters omitted.
+
+// se_OfferLastModifiedDateFilter omitted.
+
+// se_OfferLastModifiedDateFilterDateRange omitted.
+
+// se_OfferNameFilter omitted.
+
+// se_OfferNameFilterValueList omitted.
+
+// se_OfferProductIdFilter omitted.
+
+// se_OfferProductIdFilterValueList omitted.
+
+// se_OfferReleaseDateFilter omitted.
+
+// se_OfferReleaseDateFilterDateRange omitted.
+
+// se_OfferSort omitted.
+
+// se_OfferStateFilter omitted.
+
+// se_OfferStateFilterValueList omitted.
+
+// se_OfferTargetingFilter omitted.
+
+// se_OfferTargetingFilterValueList omitted.
+
 /**
  * serializeAws_restJson1RequestedChangeList
  */
@@ -1321,6 +1494,86 @@ const se_RequestedChangeList = (input: Change[], context: __SerdeContext): any =
     });
 };
 
+// se_ResaleAuthorizationAvailabilityEndDateFilter omitted.
+
+// se_ResaleAuthorizationAvailabilityEndDateFilterDateRange omitted.
+
+// se_ResaleAuthorizationAvailabilityEndDateFilterValueList omitted.
+
+// se_ResaleAuthorizationCreatedDateFilter omitted.
+
+// se_ResaleAuthorizationCreatedDateFilterDateRange omitted.
+
+// se_ResaleAuthorizationCreatedDateFilterValueList omitted.
+
+// se_ResaleAuthorizationEntityIdFilter omitted.
+
+// se_ResaleAuthorizationEntityIdFilterValueList omitted.
+
+// se_ResaleAuthorizationFilters omitted.
+
+// se_ResaleAuthorizationLastModifiedDateFilter omitted.
+
+// se_ResaleAuthorizationLastModifiedDateFilterDateRange omitted.
+
+// se_ResaleAuthorizationManufacturerAccountIdFilter omitted.
+
+// se_ResaleAuthorizationManufacturerAccountIdFilterValueList omitted.
+
+// se_ResaleAuthorizationManufacturerLegalNameFilter omitted.
+
+// se_ResaleAuthorizationManufacturerLegalNameFilterValueList omitted.
+
+// se_ResaleAuthorizationNameFilter omitted.
+
+// se_ResaleAuthorizationNameFilterValueList omitted.
+
+// se_ResaleAuthorizationOfferExtendedStatusFilter omitted.
+
+// se_ResaleAuthorizationOfferExtendedStatusFilterValueList omitted.
+
+// se_ResaleAuthorizationProductIdFilter omitted.
+
+// se_ResaleAuthorizationProductIdFilterValueList omitted.
+
+// se_ResaleAuthorizationProductNameFilter omitted.
+
+// se_ResaleAuthorizationProductNameFilterValueList omitted.
+
+// se_ResaleAuthorizationResellerAccountIDFilter omitted.
+
+// se_ResaleAuthorizationResellerAccountIDFilterValueList omitted.
+
+// se_ResaleAuthorizationResellerLegalNameFilter omitted.
+
+// se_ResaleAuthorizationResellerLegalNameFilterValueList omitted.
+
+// se_ResaleAuthorizationSort omitted.
+
+// se_ResaleAuthorizationStatusFilter omitted.
+
+// se_ResaleAuthorizationStatusFilterValueList omitted.
+
+// se_SaaSProductEntityIdFilter omitted.
+
+// se_SaaSProductEntityIdFilterValueList omitted.
+
+// se_SaaSProductFilters omitted.
+
+// se_SaaSProductLastModifiedDateFilter omitted.
+
+// se_SaaSProductLastModifiedDateFilterDateRange omitted.
+
+// se_SaaSProductSort omitted.
+
+// se_SaaSProductTitleFilter omitted.
+
+// se_SaaSProductTitleFilterValueList omitted.
+
+// se_SaaSProductVisibilityFilter omitted.
+
+// se_SaaSProductVisibilityFilterValueList omitted.
+
 // se_Sort omitted.
 
 // se_Tag omitted.
@@ -1330,6 +1583,8 @@ const se_RequestedChangeList = (input: Change[], context: __SerdeContext): any =
 // se_TagList omitted.
 
 // se_ValueList omitted.
+
+// de_AmiProductSummary omitted.
 
 /**
  * deserializeAws_restJson1ChangeSetDescription
@@ -1361,6 +1616,10 @@ const de_ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary =
   }) as any;
 };
 
+// de_ContainerProductSummary omitted.
+
+// de_DataProductSummary omitted.
+
 // de_Entity omitted.
 
 // de_EntitySummary omitted.
@@ -1378,7 +1637,17 @@ const de_JsonDocumentType = (output: any, context: __SerdeContext): __DocumentTy
   return output;
 };
 
+// de_OfferBuyerAccountsList omitted.
+
+// de_OfferSummary omitted.
+
+// de_OfferTargetingList omitted.
+
+// de_ResaleAuthorizationSummary omitted.
+
 // de_ResourceIdList omitted.
+
+// de_SaaSProductSummary omitted.
 
 // de_Tag omitted.
 
