@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetSecurityConfigurationsRequest, GetSecurityConfigurationsResponse } from "../models/models_1";
+import { GetSecurityConfigurationsRequest } from "../models/models_1";
+import { GetSecurityConfigurationsResponse } from "../models/models_2";
 import { de_GetSecurityConfigurationsCommand, se_GetSecurityConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**

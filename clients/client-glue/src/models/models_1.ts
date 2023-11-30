@@ -13,6 +13,8 @@ import {
   CsvHeaderOption,
   CsvSerdeOption,
   DataFormat,
+  DataQualityAnalyzerResult,
+  DataQualityObservation,
   DataQualityRuleResult,
   DataSource,
   DevEndpoint,
@@ -23,7 +25,6 @@ import {
   Partition,
   PartitionInput,
   PartitionValueList,
-  Permission,
   PhysicalConnectionRequirements,
   Predicate,
   SchemaId,
@@ -34,6 +35,90 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCustomEntityTypeResponse {
+  /**
+   * @public
+   * <p>The name of the custom pattern you created.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The same unique identifier was associated with two different records.</p>
+ */
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>Two processes are trying to modify a resource simultaneously.</p>
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * @public
@@ -5329,6 +5414,18 @@ export interface GetDataQualityResultResponse {
    * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
    */
   RuleResults?: DataQualityRuleResult[];
+
+  /**
+   * @public
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
+   */
+  AnalyzerResults?: DataQualityAnalyzerResult[];
+
+  /**
+   * @public
+   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
+   */
+  Observations?: DataQualityObservation[];
 }
 
 /**
@@ -8038,73 +8135,4 @@ export interface GetSecurityConfigurationsRequest {
    * <p>A continuation token, if this is a continuation call.</p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetSecurityConfigurationsResponse {
-  /**
-   * @public
-   * <p>A list of security configurations.</p>
-   */
-  SecurityConfigurations?: SecurityConfiguration[];
-
-  /**
-   * @public
-   * <p>A continuation token, if there are more security
-   *       configurations to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetSessionRequest {
-  /**
-   * @public
-   * <p>The ID of the session. </p>
-   */
-  Id: string | undefined;
-
-  /**
-   * @public
-   * <p>The origin of the request. </p>
-   */
-  RequestOrigin?: string;
-}
-
-/**
- * @public
- */
-export interface GetSessionResponse {
-  /**
-   * @public
-   * <p>The session object is returned in the response.</p>
-   */
-  Session?: Session;
-}
-
-/**
- * @public
- */
-export interface GetStatementRequest {
-  /**
-   * @public
-   * <p>The Session ID of the statement.</p>
-   */
-  SessionId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Id of the statement.</p>
-   */
-  Id: number | undefined;
-
-  /**
-   * @public
-   * <p>The origin of the request.</p>
-   */
-  RequestOrigin?: string;
 }

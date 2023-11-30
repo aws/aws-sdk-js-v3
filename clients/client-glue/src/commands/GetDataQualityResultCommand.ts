@@ -81,6 +81,33 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //       },
  * //     },
  * //   ],
+ * //   AnalyzerResults: [ // DataQualityAnalyzerResults
+ * //     { // DataQualityAnalyzerResult
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       EvaluationMessage: "STRING_VALUE",
+ * //       EvaluatedMetrics: {
+ * //         "<keys>": Number("double"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   Observations: [ // DataQualityObservations
+ * //     { // DataQualityObservation
+ * //       Description: "STRING_VALUE",
+ * //       MetricBasedObservation: { // MetricBasedObservation
+ * //         MetricName: "STRING_VALUE",
+ * //         MetricValues: { // DataQualityMetricValues
+ * //           ActualValue: Number("double"),
+ * //           ExpectedValue: Number("double"),
+ * //           LowerLimit: Number("double"),
+ * //           UpperLimit: Number("double"),
+ * //         },
+ * //         NewRules: [ // NewRules
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

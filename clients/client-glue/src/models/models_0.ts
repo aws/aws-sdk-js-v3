@@ -2298,6 +2298,36 @@ export interface BatchGetDataQualityResultRequest {
 
 /**
  * @public
+ * <p>Describes the result of the evaluation of a data quality analyzer.</p>
+ */
+export interface DataQualityAnalyzerResult {
+  /**
+   * @public
+   * <p>The name of the data quality analyzer.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description of the data quality analyzer.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>An evaluation message.</p>
+   */
+  EvaluationMessage?: string;
+
+  /**
+   * @public
+   * <p>A map of metrics associated with the evaluation of the analyzer.</p>
+   */
+  EvaluatedMetrics?: Record<string, number>;
+}
+
+/**
+ * @public
  * <p>The database and table in the Glue Data Catalog that is used for input or output data.</p>
  */
 export interface GlueTable {
@@ -2352,6 +2382,78 @@ export interface DataSource {
    * <p>An Glue table.</p>
    */
   GlueTable: GlueTable | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes the data quality metric value according to the analysis of historical data.</p>
+ */
+export interface DataQualityMetricValues {
+  /**
+   * @public
+   * <p>The actual value of the data quality metric.</p>
+   */
+  ActualValue?: number;
+
+  /**
+   * @public
+   * <p>The expected value of the data quality metric according to the analysis of historical data.</p>
+   */
+  ExpectedValue?: number;
+
+  /**
+   * @public
+   * <p>The lower limit of the data quality metric value according to the analysis of historical data.</p>
+   */
+  LowerLimit?: number;
+
+  /**
+   * @public
+   * <p>The upper limit of the data quality metric value according to the analysis of historical data.</p>
+   */
+  UpperLimit?: number;
+}
+
+/**
+ * @public
+ * <p>Describes the metric based observation generated based on evaluated data quality metrics.</p>
+ */
+export interface MetricBasedObservation {
+  /**
+   * @public
+   * <p>The name of the data quality metric used for generating the observation.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>An object of type <code>DataQualityMetricValues</code> representing the analysis of the data quality metric value.</p>
+   */
+  MetricValues?: DataQualityMetricValues;
+
+  /**
+   * @public
+   * <p>A list of new data quality rules generated as part of the observation based on the data quality metric value.</p>
+   */
+  NewRules?: string[];
+}
+
+/**
+ * @public
+ * <p>Describes the observation generated after evaluating the rules and analyzers.</p>
+ */
+export interface DataQualityObservation {
+  /**
+   * @public
+   * <p>A description of the data quality observation.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>An object of type <code>MetricBasedObservation</code> representing the observation that is based on evaluated data quality metrics.</p>
+   */
+  MetricBasedObservation?: MetricBasedObservation;
 }
 
 /**
@@ -2476,6 +2578,18 @@ export interface DataQualityResult {
    * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
    */
   RuleResults?: DataQualityRuleResult[];
+
+  /**
+   * @public
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
+   */
+  AnalyzerResults?: DataQualityAnalyzerResult[];
+
+  /**
+   * @public
+   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
+   */
+  Observations?: DataQualityObservation[];
 }
 
 /**
@@ -9207,87 +9321,3 @@ export interface CreateCustomEntityTypeRequest {
    */
   Tags?: Record<string, string>;
 }
-
-/**
- * @public
- */
-export interface CreateCustomEntityTypeResponse {
-  /**
-   * @public
-   * <p>The name of the custom pattern you created.</p>
-   */
-  Name?: string;
-}
-
-/**
- * @public
- * <p>The same unique identifier was associated with two different records.</p>
- */
-export class IdempotentParameterMismatchException extends __BaseException {
-  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>Two processes are trying to modify a resource simultaneously.</p>
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Permission = {
-  ALL: "ALL",
-  ALTER: "ALTER",
-  CREATE_DATABASE: "CREATE_DATABASE",
-  CREATE_TABLE: "CREATE_TABLE",
-  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
-  DELETE: "DELETE",
-  DROP: "DROP",
-  INSERT: "INSERT",
-  SELECT: "SELECT",
-} as const;
-
-/**
- * @public
- */
-export type Permission = (typeof Permission)[keyof typeof Permission];

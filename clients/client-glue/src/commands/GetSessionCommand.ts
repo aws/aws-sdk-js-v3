@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetSessionRequest, GetSessionResponse } from "../models/models_1";
+import { GetSessionRequest, GetSessionResponse } from "../models/models_2";
 import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_json1_1";
 
 /**

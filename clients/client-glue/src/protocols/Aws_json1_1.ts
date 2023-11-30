@@ -542,7 +542,6 @@ import {
   CatalogTarget,
   CheckSchemaVersionValidityInput,
   Column,
-  ConcurrentModificationException,
   Condition,
   ConnectionInput,
   ConnectionPropertyKey,
@@ -563,6 +562,9 @@ import {
   CreateJsonClassifierRequest,
   CreateXMLClassifierRequest,
   CustomCode,
+  DataQualityAnalyzerResult,
+  DataQualityMetricValues,
+  DataQualityObservation,
   DataQualityResult,
   DataQualityRuleResult,
   DataSource,
@@ -601,7 +603,6 @@ import {
   GovernedCatalogTarget,
   HudiTarget,
   IcebergTarget,
-  IdempotentParameterMismatchException,
   IllegalSessionStateException,
   InternalServiceException,
   InvalidInputException,
@@ -624,6 +625,7 @@ import {
   LastCrawlInfo,
   LineageConfiguration,
   Merge,
+  MetricBasedObservation,
   MicrosoftSQLServerCatalogSource,
   MicrosoftSQLServerCatalogTarget,
   MongoDBTarget,
@@ -641,7 +643,6 @@ import {
   Partition,
   PartitionInput,
   PartitionValueList,
-  Permission,
   PhysicalConnectionRequirements,
   PIIDetection,
   PostgreSQLCatalogSource,
@@ -718,6 +719,7 @@ import {
   ColumnStatistics,
   ColumnStatisticsData,
   ColumnStatisticsTaskRun,
+  ConcurrentModificationException,
   ConditionCheckFailureException,
   ConflictException,
   Connection,
@@ -872,13 +874,10 @@ import {
   GetSecurityConfigurationRequest,
   GetSecurityConfigurationResponse,
   GetSecurityConfigurationsRequest,
-  GetSecurityConfigurationsResponse,
-  GetSessionRequest,
-  GetSessionResponse,
-  GetStatementRequest,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
+  IdempotentParameterMismatchException,
   JobBookmarksEncryption,
   JsonClassifier,
   Location,
@@ -888,6 +887,7 @@ import {
   MLUserDataEncryption,
   OpenTableFormatInput,
   PartitionIndex,
+  Permission,
   PrincipalPermissions,
   RegistryId,
   ResourceUri,
@@ -938,6 +938,10 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetSecurityConfigurationsResponse,
+  GetSessionRequest,
+  GetSessionResponse,
+  GetStatementRequest,
   GetStatementResponse,
   GetTableOptimizerRequest,
   GetTableOptimizerResponse,
@@ -19412,18 +19416,78 @@ const de_DatabaseList = (output: any, context: __SerdeContext): Database[] => {
 
 // de_DataLakePrincipal omitted.
 
+/**
+ * deserializeAws_json1_1DataQualityAnalyzerResult
+ */
+const de_DataQualityAnalyzerResult = (output: any, context: __SerdeContext): DataQualityAnalyzerResult => {
+  return take(output, {
+    Description: __expectString,
+    EvaluatedMetrics: (_: any) => de_EvaluatedMetricsMap(_, context),
+    EvaluationMessage: __expectString,
+    Name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DataQualityAnalyzerResults
+ */
+const de_DataQualityAnalyzerResults = (output: any, context: __SerdeContext): DataQualityAnalyzerResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataQualityAnalyzerResult(entry, context);
+    });
+  return retVal;
+};
+
 // de_DataQualityEvaluationRunAdditionalRunOptions omitted.
+
+/**
+ * deserializeAws_json1_1DataQualityMetricValues
+ */
+const de_DataQualityMetricValues = (output: any, context: __SerdeContext): DataQualityMetricValues => {
+  return take(output, {
+    ActualValue: __limitedParseDouble,
+    ExpectedValue: __limitedParseDouble,
+    LowerLimit: __limitedParseDouble,
+    UpperLimit: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DataQualityObservation
+ */
+const de_DataQualityObservation = (output: any, context: __SerdeContext): DataQualityObservation => {
+  return take(output, {
+    Description: __expectString,
+    MetricBasedObservation: (_: any) => de_MetricBasedObservation(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DataQualityObservations
+ */
+const de_DataQualityObservations = (output: any, context: __SerdeContext): DataQualityObservation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataQualityObservation(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1DataQualityResult
  */
 const de_DataQualityResult = (output: any, context: __SerdeContext): DataQualityResult => {
   return take(output, {
+    AnalyzerResults: (_: any) => de_DataQualityAnalyzerResults(_, context),
     CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataSource: _json,
     EvaluationContext: __expectString,
     JobName: __expectString,
     JobRunId: __expectString,
+    Observations: (_: any) => de_DataQualityObservations(_, context),
     ResultId: __expectString,
     RuleResults: (_: any) => de_DataQualityRuleResults(_, context),
     RulesetEvaluationRunId: __expectString,
@@ -20108,11 +20172,13 @@ const de_GetDatabasesResponse = (output: any, context: __SerdeContext): GetDatab
  */
 const de_GetDataQualityResultResponse = (output: any, context: __SerdeContext): GetDataQualityResultResponse => {
   return take(output, {
+    AnalyzerResults: (_: any) => de_DataQualityAnalyzerResults(_, context),
     CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataSource: _json,
     EvaluationContext: __expectString,
     JobName: __expectString,
     JobRunId: __expectString,
+    Observations: (_: any) => de_DataQualityObservations(_, context),
     ResultId: __expectString,
     RuleResults: (_: any) => de_DataQualityRuleResults(_, context),
     RulesetEvaluationRunId: __expectString,
@@ -21051,6 +21117,17 @@ const de_Mappings = (output: any, context: __SerdeContext): Mapping[] => {
 
 // de_MetadataInfoMap omitted.
 
+/**
+ * deserializeAws_json1_1MetricBasedObservation
+ */
+const de_MetricBasedObservation = (output: any, context: __SerdeContext): MetricBasedObservation => {
+  return take(output, {
+    MetricName: __expectString,
+    MetricValues: (_: any) => de_DataQualityMetricValues(_, context),
+    NewRules: _json,
+  }) as any;
+};
+
 // de_MicrosoftSQLServerCatalogSource omitted.
 
 // de_MicrosoftSQLServerCatalogTarget omitted.
@@ -21095,6 +21172,8 @@ const de_MLTransform = (output: any, context: __SerdeContext): MLTransform => {
 // de_MySQLCatalogTarget omitted.
 
 // de_NameStringList omitted.
+
+// de_NewRules omitted.
 
 /**
  * deserializeAws_json1_1Node

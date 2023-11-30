@@ -127,6 +127,7 @@ import {
   SchemaStatus,
   SchemaVersionNumber,
   SchemaVersionStatus,
+  SecurityConfiguration,
   Segment,
   Session,
   TableIdentifier,
@@ -136,6 +137,75 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetSecurityConfigurationsResponse {
+  /**
+   * @public
+   * <p>A list of security configurations.</p>
+   */
+  SecurityConfigurations?: SecurityConfiguration[];
+
+  /**
+   * @public
+   * <p>A continuation token, if there are more security
+   *       configurations to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionRequest {
+  /**
+   * @public
+   * <p>The ID of the session. </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * @public
+   * <p>The origin of the request. </p>
+   */
+  RequestOrigin?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionResponse {
+  /**
+   * @public
+   * <p>The session object is returned in the response.</p>
+   */
+  Session?: Session;
+}
+
+/**
+ * @public
+ */
+export interface GetStatementRequest {
+  /**
+   * @public
+   * <p>The Session ID of the statement.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Id of the statement.</p>
+   */
+  Id: number | undefined;
+
+  /**
+   * @public
+   * <p>The origin of the request.</p>
+   */
+  RequestOrigin?: string;
+}
 
 /**
  * @public
