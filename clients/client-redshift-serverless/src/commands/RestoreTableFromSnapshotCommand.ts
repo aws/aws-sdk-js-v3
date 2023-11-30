@@ -80,6 +80,7 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  * //     targetDatabaseName: "STRING_VALUE",
  * //     targetSchemaName: "STRING_VALUE",
  * //     newTableName: "STRING_VALUE",
+ * //     recoveryPointId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { CreateEndpointAccessRequest, CreateEndpointAccessResponse } from "../models/models_0";
-import { de_CreateEndpointAccessCommand, se_CreateEndpointAccessCommand } from "../protocols/Aws_json1_1";
+import { CreateSnapshotCopyConfigurationRequest, CreateSnapshotCopyConfigurationResponse } from "../models/models_0";
+import {
+  de_CreateSnapshotCopyConfigurationCommand,
+  se_CreateSnapshotCopyConfigurationCommand,
+} from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -29,77 +32,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateEndpointAccessCommand}.
+ * The input for {@link CreateSnapshotCopyConfigurationCommand}.
  */
-export interface CreateEndpointAccessCommandInput extends CreateEndpointAccessRequest {}
+export interface CreateSnapshotCopyConfigurationCommandInput extends CreateSnapshotCopyConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link CreateEndpointAccessCommand}.
+ * The output of {@link CreateSnapshotCopyConfigurationCommand}.
  */
-export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessResponse, __MetadataBearer {}
+export interface CreateSnapshotCopyConfigurationCommandOutput
+  extends CreateSnapshotCopyConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates an Amazon Redshift Serverless managed VPC endpoint.</p>
+ * <p>Creates a snapshot copy configuration that lets you copy snapshots to another Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, CreateEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, CreateEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, CreateSnapshotCopyConfigurationCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, CreateSnapshotCopyConfigurationCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = { // CreateEndpointAccessRequest
- *   endpointName: "STRING_VALUE", // required
- *   subnetIds: [ // SubnetIdList // required
- *     "STRING_VALUE",
- *   ],
- *   workgroupName: "STRING_VALUE", // required
- *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
- *   ],
- *   ownerAccount: "STRING_VALUE",
+ * const input = { // CreateSnapshotCopyConfigurationRequest
+ *   namespaceName: "STRING_VALUE", // required
+ *   destinationRegion: "STRING_VALUE", // required
+ *   snapshotRetentionPeriod: Number("int"),
+ *   destinationKmsKeyId: "STRING_VALUE",
  * };
- * const command = new CreateEndpointAccessCommand(input);
+ * const command = new CreateSnapshotCopyConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // CreateEndpointAccessResponse
- * //   endpoint: { // EndpointAccess
- * //     endpointName: "STRING_VALUE",
- * //     endpointStatus: "STRING_VALUE",
- * //     workgroupName: "STRING_VALUE",
- * //     endpointCreateTime: new Date("TIMESTAMP"),
- * //     port: Number("int"),
- * //     address: "STRING_VALUE",
- * //     subnetIds: [ // SubnetIdList
- * //       "STRING_VALUE",
- * //     ],
- * //     vpcSecurityGroups: [ // VpcSecurityGroupMembershipList
- * //       { // VpcSecurityGroupMembership
- * //         vpcSecurityGroupId: "STRING_VALUE",
- * //         status: "STRING_VALUE",
- * //       },
- * //     ],
- * //     vpcEndpoint: { // VpcEndpoint
- * //       vpcEndpointId: "STRING_VALUE",
- * //       vpcId: "STRING_VALUE",
- * //       networkInterfaces: [ // NetworkInterfaceList
- * //         { // NetworkInterface
- * //           networkInterfaceId: "STRING_VALUE",
- * //           subnetId: "STRING_VALUE",
- * //           privateIpAddress: "STRING_VALUE",
- * //           availabilityZone: "STRING_VALUE",
- * //         },
- * //       ],
- * //     },
- * //     endpointArn: "STRING_VALUE",
+ * // { // CreateSnapshotCopyConfigurationResponse
+ * //   snapshotCopyConfiguration: { // SnapshotCopyConfiguration
+ * //     snapshotCopyConfigurationId: "STRING_VALUE",
+ * //     snapshotCopyConfigurationArn: "STRING_VALUE",
+ * //     namespaceName: "STRING_VALUE",
+ * //     destinationRegion: "STRING_VALUE",
+ * //     snapshotRetentionPeriod: Number("int"),
+ * //     destinationKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param CreateEndpointAccessCommandInput - {@link CreateEndpointAccessCommandInput}
- * @returns {@link CreateEndpointAccessCommandOutput}
- * @see {@link CreateEndpointAccessCommandInput} for command's `input` shape.
- * @see {@link CreateEndpointAccessCommandOutput} for command's `response` shape.
+ * @param CreateSnapshotCopyConfigurationCommandInput - {@link CreateSnapshotCopyConfigurationCommandInput}
+ * @returns {@link CreateSnapshotCopyConfigurationCommandOutput}
+ * @see {@link CreateSnapshotCopyConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateSnapshotCopyConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -124,9 +102,9 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class CreateEndpointAccessCommand extends $Command<
-  CreateEndpointAccessCommandInput,
-  CreateEndpointAccessCommandOutput,
+export class CreateSnapshotCopyConfigurationCommand extends $Command<
+  CreateSnapshotCopyConfigurationCommandInput,
+  CreateSnapshotCopyConfigurationCommandOutput,
   RedshiftServerlessClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -141,7 +119,7 @@ export class CreateEndpointAccessCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateEndpointAccessCommandInput) {
+  constructor(readonly input: CreateSnapshotCopyConfigurationCommandInput) {
     super();
   }
 
@@ -152,17 +130,17 @@ export class CreateEndpointAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateEndpointAccessCommandInput, CreateEndpointAccessCommandOutput> {
+  ): Handler<CreateSnapshotCopyConfigurationCommandInput, CreateSnapshotCopyConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateEndpointAccessCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateSnapshotCopyConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftServerlessClient";
-    const commandName = "CreateEndpointAccessCommand";
+    const commandName = "CreateSnapshotCopyConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -171,7 +149,7 @@ export class CreateEndpointAccessCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServerless",
-        operation: "CreateEndpointAccess",
+        operation: "CreateSnapshotCopyConfiguration",
       },
     };
     const { requestHandler } = configuration;
@@ -185,14 +163,20 @@ export class CreateEndpointAccessCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateEndpointAccessCommand(input, context);
+  private serialize(
+    input: CreateSnapshotCopyConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_CreateSnapshotCopyConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointAccessCommandOutput> {
-    return de_CreateEndpointAccessCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreateSnapshotCopyConfigurationCommandOutput> {
+    return de_CreateSnapshotCopyConfigurationCommand(output, context);
   }
 }

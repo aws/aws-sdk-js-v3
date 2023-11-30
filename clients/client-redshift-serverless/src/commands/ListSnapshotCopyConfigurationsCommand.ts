@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListEndpointAccessRequest, ListEndpointAccessResponse } from "../models/models_0";
-import { de_ListEndpointAccessCommand, se_ListEndpointAccessCommand } from "../protocols/Aws_json1_1";
+import { ListSnapshotCopyConfigurationsRequest, ListSnapshotCopyConfigurationsResponse } from "../models/models_0";
+import {
+  de_ListSnapshotCopyConfigurationsCommand,
+  se_ListSnapshotCopyConfigurationsCommand,
+} from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -29,76 +32,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListEndpointAccessCommand}.
+ * The input for {@link ListSnapshotCopyConfigurationsCommand}.
  */
-export interface ListEndpointAccessCommandInput extends ListEndpointAccessRequest {}
+export interface ListSnapshotCopyConfigurationsCommandInput extends ListSnapshotCopyConfigurationsRequest {}
 /**
  * @public
  *
- * The output of {@link ListEndpointAccessCommand}.
+ * The output of {@link ListSnapshotCopyConfigurationsCommand}.
  */
-export interface ListEndpointAccessCommandOutput extends ListEndpointAccessResponse, __MetadataBearer {}
+export interface ListSnapshotCopyConfigurationsCommandOutput
+  extends ListSnapshotCopyConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns an array of <code>EndpointAccess</code> objects and relevant information.</p>
+ * <p>Returns a list of snapshot copy configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, ListEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, ListEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListSnapshotCopyConfigurationsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, ListSnapshotCopyConfigurationsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = { // ListEndpointAccessRequest
+ * const input = { // ListSnapshotCopyConfigurationsRequest
+ *   namespaceName: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   workgroupName: "STRING_VALUE",
- *   vpcId: "STRING_VALUE",
- *   ownerAccount: "STRING_VALUE",
  * };
- * const command = new ListEndpointAccessCommand(input);
+ * const command = new ListSnapshotCopyConfigurationsCommand(input);
  * const response = await client.send(command);
- * // { // ListEndpointAccessResponse
+ * // { // ListSnapshotCopyConfigurationsResponse
  * //   nextToken: "STRING_VALUE",
- * //   endpoints: [ // EndpointAccessList // required
- * //     { // EndpointAccess
- * //       endpointName: "STRING_VALUE",
- * //       endpointStatus: "STRING_VALUE",
- * //       workgroupName: "STRING_VALUE",
- * //       endpointCreateTime: new Date("TIMESTAMP"),
- * //       port: Number("int"),
- * //       address: "STRING_VALUE",
- * //       subnetIds: [ // SubnetIdList
- * //         "STRING_VALUE",
- * //       ],
- * //       vpcSecurityGroups: [ // VpcSecurityGroupMembershipList
- * //         { // VpcSecurityGroupMembership
- * //           vpcSecurityGroupId: "STRING_VALUE",
- * //           status: "STRING_VALUE",
- * //         },
- * //       ],
- * //       vpcEndpoint: { // VpcEndpoint
- * //         vpcEndpointId: "STRING_VALUE",
- * //         vpcId: "STRING_VALUE",
- * //         networkInterfaces: [ // NetworkInterfaceList
- * //           { // NetworkInterface
- * //             networkInterfaceId: "STRING_VALUE",
- * //             subnetId: "STRING_VALUE",
- * //             privateIpAddress: "STRING_VALUE",
- * //             availabilityZone: "STRING_VALUE",
- * //           },
- * //         ],
- * //       },
- * //       endpointArn: "STRING_VALUE",
+ * //   snapshotCopyConfigurations: [ // SnapshotCopyConfigurations // required
+ * //     { // SnapshotCopyConfiguration
+ * //       snapshotCopyConfigurationId: "STRING_VALUE",
+ * //       snapshotCopyConfigurationArn: "STRING_VALUE",
+ * //       namespaceName: "STRING_VALUE",
+ * //       destinationRegion: "STRING_VALUE",
+ * //       snapshotRetentionPeriod: Number("int"),
+ * //       destinationKmsKeyId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListEndpointAccessCommandInput - {@link ListEndpointAccessCommandInput}
- * @returns {@link ListEndpointAccessCommandOutput}
- * @see {@link ListEndpointAccessCommandInput} for command's `input` shape.
- * @see {@link ListEndpointAccessCommandOutput} for command's `response` shape.
+ * @param ListSnapshotCopyConfigurationsCommandInput - {@link ListSnapshotCopyConfigurationsCommandInput}
+ * @returns {@link ListSnapshotCopyConfigurationsCommandOutput}
+ * @see {@link ListSnapshotCopyConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListSnapshotCopyConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -106,6 +87,9 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link InvalidPaginationException} (client fault)
+ *  <p>The provided pagination token is invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
@@ -117,9 +101,9 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class ListEndpointAccessCommand extends $Command<
-  ListEndpointAccessCommandInput,
-  ListEndpointAccessCommandOutput,
+export class ListSnapshotCopyConfigurationsCommand extends $Command<
+  ListSnapshotCopyConfigurationsCommandInput,
+  ListSnapshotCopyConfigurationsCommandOutput,
   RedshiftServerlessClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -134,7 +118,7 @@ export class ListEndpointAccessCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListEndpointAccessCommandInput) {
+  constructor(readonly input: ListSnapshotCopyConfigurationsCommandInput) {
     super();
   }
 
@@ -145,17 +129,17 @@ export class ListEndpointAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput> {
+  ): Handler<ListSnapshotCopyConfigurationsCommandInput, ListSnapshotCopyConfigurationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEndpointAccessCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListSnapshotCopyConfigurationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftServerlessClient";
-    const commandName = "ListEndpointAccessCommand";
+    const commandName = "ListSnapshotCopyConfigurationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -164,7 +148,7 @@ export class ListEndpointAccessCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServerless",
-        operation: "ListEndpointAccess",
+        operation: "ListSnapshotCopyConfigurations",
       },
     };
     const { requestHandler } = configuration;
@@ -178,14 +162,20 @@ export class ListEndpointAccessCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEndpointAccessCommand(input, context);
+  private serialize(
+    input: ListSnapshotCopyConfigurationsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_ListSnapshotCopyConfigurationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointAccessCommandOutput> {
-    return de_ListEndpointAccessCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListSnapshotCopyConfigurationsCommandOutput> {
+    return de_ListSnapshotCopyConfigurationsCommand(output, context);
   }
 }

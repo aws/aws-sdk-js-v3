@@ -63,7 +63,7 @@ export interface ConfigParameter {
   /**
    * @public
    * <p>The key of the parameter. The
-   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
    *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let
    *          you define performance boundaries. For more information about query monitoring rules and available metrics, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
@@ -534,6 +534,12 @@ export interface CreateEndpointAccessRequest {
    *          protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
    */
   vpcSecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
+   */
+  ownerAccount?: string;
 }
 
 /**
@@ -902,6 +908,309 @@ export interface CreateNamespaceResponse {
 
 /**
  * @public
+ * <p>The schedule of when Amazon Redshift Serverless should run the scheduled action.</p>
+ */
+export type Schedule = Schedule.AtMember | Schedule.CronMember | Schedule.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Schedule {
+  /**
+   * @public
+   * <p>The timestamp of when Amazon Redshift Serverless should run the scheduled action. Format of at expressions is "<code>at(yyyy-mm-ddThh:mm:ss)</code>". For example, "<code>at(2016-03-04T17:27:00)</code>".</p>
+   */
+  export interface AtMember {
+    at: Date;
+    cron?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The cron expression to use to schedule a recurring scheduled action. Schedule invocations must be separated by at least one hour.</p>
+   *          <p>Format of cron expressions is "<code>cron(Minutes Hours Day-of-month Month Day-of-week Year)</code>". For example, "<code>cron(0 10 ? * MON *)</code>". For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
+   */
+  export interface CronMember {
+    at?: never;
+    cron: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    at?: never;
+    cron?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    at: (value: Date) => T;
+    cron: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Schedule, visitor: Visitor<T>): T => {
+    if (value.at !== undefined) return visitor.at(value.at);
+    if (value.cron !== undefined) return visitor.cron(value.cron);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>The parameters that you can use to configure a <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">scheduled action</a> to create a snapshot. For more information about creating a scheduled action, see
+ *          <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">CreateScheduledAction</a>.</p>
+ */
+export interface CreateSnapshotScheduleActionParameters {
+  /**
+   * @public
+   * <p>The name of the namespace for which you want to configure a scheduled action to create a snapshot.</p>
+   */
+  namespaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>A string prefix that is attached to the name of the snapshot created by the scheduled action. The final
+   *       name of the snapshot is the string prefix appended by the date and time of when the snapshot was created.</p>
+   */
+  snapshotNamePrefix: string | undefined;
+
+  /**
+   * @public
+   * <p>The retention period of the snapshot created by the scheduled action.</p>
+   */
+  retentionPeriod?: number;
+
+  /**
+   * @public
+   * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a> to associate with the snapshot.</p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
+ *          <p>
+ *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
+ *          </p>
+ */
+export type TargetAction = TargetAction.CreateSnapshotMember | TargetAction.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TargetAction {
+  /**
+   * @public
+   * <p>The parameters that you can use to configure a <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">scheduled action</a> to create a snapshot. For more information about creating a scheduled action, see
+   *          <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">CreateScheduledAction</a>.</p>
+   */
+  export interface CreateSnapshotMember {
+    createSnapshot: CreateSnapshotScheduleActionParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    createSnapshot?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    createSnapshot: (value: CreateSnapshotScheduleActionParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TargetAction, visitor: Visitor<T>): T => {
+    if (value.createSnapshot !== undefined) return visitor.createSnapshot(value.createSnapshot);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateScheduledActionRequest {
+  /**
+   * @public
+   * <p>The name of the scheduled action.</p>
+   */
+  scheduledActionName: string | undefined;
+
+  /**
+   * @public
+   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
+   *          <p>
+   *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
+   *          </p>
+   */
+  targetAction: TargetAction | undefined;
+
+  /**
+   * @public
+   * <p>The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.</p>
+   *          <p>Format of at expressions is "<code>at(yyyy-mm-ddThh:mm:ss)</code>". For example, "<code>at(2016-03-04T17:27:00)</code>".</p>
+   *          <p>Format of cron expressions is "<code>cron(Minutes Hours Day-of-month Month Day-of-week Year)</code>". For example, "<code>cron(0 10 ? * MON *)</code>". For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
+   */
+  schedule: Schedule | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
+   *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
+   *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
+   *             Amazon Redshift</a> in the Amazon Redshift Cluster Management Guide</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the namespace for which to create a scheduled action.</p>
+   */
+  namespaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether the schedule is enabled. If false, the scheduled action does not trigger. For more information about <code>state</code>
+   *          of the scheduled action, see <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html">ScheduledAction</a>.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * @public
+   * <p>The description of the scheduled action.</p>
+   */
+  scheduledActionDescription?: string;
+
+  /**
+   * @public
+   * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * @public
+   * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
+   */
+  endTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * <p>The returned scheduled action object.</p>
+ */
+export interface ScheduledActionResponse {
+  /**
+   * @public
+   * <p>The name of the scheduled action.</p>
+   */
+  scheduledActionName?: string;
+
+  /**
+   * @public
+   * <p>The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.</p>
+   *          <p>Format of at expressions is "<code>at(yyyy-mm-ddThh:mm:ss)</code>". For example, "<code>at(2016-03-04T17:27:00)</code>".</p>
+   *          <p>Format of cron expressions is "<code>cron(Minutes Hours Day-of-month Month Day-of-week Year)</code>". For example, "<code>cron(0 10 ? * MON *)</code>". For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
+   */
+  schedule?: Schedule;
+
+  /**
+   * @public
+   * <p>The description of the scheduled action.</p>
+   */
+  scheduledActionDescription?: string;
+
+  /**
+   * @public
+   * <p>An array of timestamps of when the next scheduled actions will trigger.</p>
+   */
+  nextInvocations?: Date[];
+
+  /**
+   * @public
+   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
+   *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
+   *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
+   *             Amazon Redshift</a> in the Amazon Redshift Cluster Management Guide</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the scheduled action.</p>
+   */
+  state?: State;
+
+  /**
+   * @public
+   * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * @public
+   * <p>The end time of </p>
+   */
+  endTime?: Date;
+
+  /**
+   * @public
+   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
+   *          <p>
+   *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
+   *          </p>
+   */
+  targetAction?: TargetAction;
+
+  /**
+   * @public
+   * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
+   */
+  namespaceName?: string;
+
+  /**
+   * @public
+   * <p>The uuid of the scheduled action.</p>
+   */
+  scheduledActionUuid?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateScheduledActionResponse {
+  /**
+   * @public
+   * <p>The returned <code>ScheduledAction</code> object that describes the properties of a scheduled action.</p>
+   */
+  scheduledAction?: ScheduledActionResponse;
+}
+
+/**
+ * @public
  */
 export interface CreateSnapshotRequest {
   /**
@@ -938,6 +1247,88 @@ export interface CreateSnapshotResponse {
    * <p>The created snapshot object.</p>
    */
   snapshot?: Snapshot;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapshotCopyConfigurationRequest {
+  /**
+   * @public
+   * <p>The name of the namespace to copy snapshots from.</p>
+   */
+  namespaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The destination Amazon Web Services Region that you want to copy snapshots to.</p>
+   */
+  destinationRegion: string | undefined;
+
+  /**
+   * @public
+   * <p>The retention period of the snapshots that you copy to the destination Amazon Web Services Region.</p>
+   */
+  snapshotRetentionPeriod?: number;
+
+  /**
+   * @public
+   * <p>The KMS key to use to encrypt your snapshots in the destination Amazon Web Services Region.</p>
+   */
+  destinationKmsKeyId?: string;
+}
+
+/**
+ * @public
+ * <p>The object that you configure to copy snapshots from one namespace to a namespace in another Amazon Web Services Region.</p>
+ */
+export interface SnapshotCopyConfiguration {
+  /**
+   * @public
+   * <p>The ID of the snapshot copy configuration object.</p>
+   */
+  snapshotCopyConfigurationId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the snapshot copy configuration object.</p>
+   */
+  snapshotCopyConfigurationArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the namespace to copy snapshots from in the source Amazon Web Services Region.</p>
+   */
+  namespaceName?: string;
+
+  /**
+   * @public
+   * <p>The destination Amazon Web Services Region to copy snapshots to.</p>
+   */
+  destinationRegion?: string;
+
+  /**
+   * @public
+   * <p>The retention period of snapshots that are copied to the destination Amazon Web Services Region.</p>
+   */
+  snapshotRetentionPeriod?: number;
+
+  /**
+   * @public
+   * <p>The ID of the KMS key to use to encrypt your snapshots in the destination Amazon Web Services Region.</p>
+   */
+  destinationKmsKeyId?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapshotCopyConfigurationResponse {
+  /**
+   * @public
+   * <p>The snapshot copy configuration object that is returned.</p>
+   */
+  snapshotCopyConfiguration: SnapshotCopyConfiguration | undefined;
 }
 
 /**
@@ -1111,7 +1502,7 @@ export interface CreateWorkgroupRequest {
   /**
    * @public
    * <p>An array of parameters to set for advanced control over a database. The
-   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
    *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
    *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
@@ -1240,8 +1631,8 @@ export interface Workgroup {
   /**
    * @public
    * <p>An array of parameters to set for advanced control over a database. The
-   *         options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
-   *         <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries.
+   *         options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
+   *         <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let you define performance boundaries.
    *         For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   configParameters?: ConfigParameter[];
@@ -1325,6 +1716,12 @@ export interface Workgroup {
    * <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
    */
   maxCapacity?: number;
+
+  /**
+   * @public
+   * <p>A list of VPCs. Each entry is the unique identifier of a virtual private cloud with access to Amazon Redshift Serverless. If all of the VPCs for the grantee are allowed, it shows an asterisk.</p>
+   */
+  crossAccountVpcs?: string[];
 }
 
 /**
@@ -1433,6 +1830,12 @@ export interface ListEndpointAccessRequest {
    * <p>The unique identifier of the virtual private cloud with access to Amazon Redshift Serverless.</p>
    */
   vpcId?: string;
+
+  /**
+   * @public
+   * <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
+   */
+  ownerAccount?: string;
 }
 
 /**
@@ -1557,6 +1960,28 @@ export interface DeleteResourcePolicyResponse {}
 /**
  * @public
  */
+export interface DeleteScheduledActionRequest {
+  /**
+   * @public
+   * <p>The name of the scheduled action to delete.</p>
+   */
+  scheduledActionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteScheduledActionResponse {
+  /**
+   * @public
+   * <p>The deleted scheduled action object.</p>
+   */
+  scheduledAction?: ScheduledActionResponse;
+}
+
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * @public
@@ -1574,6 +1999,28 @@ export interface DeleteSnapshotResponse {
    * <p>The deleted snapshot object.</p>
    */
   snapshot?: Snapshot;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapshotCopyConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the snapshot copy configuration to delete.</p>
+   */
+  snapshotCopyConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapshotCopyConfigurationResponse {
+  /**
+   * @public
+   * <p>The deleted snapshot copy configuration object.</p>
+   */
+  snapshotCopyConfiguration: SnapshotCopyConfiguration | undefined;
 }
 
 /**
@@ -1880,6 +2327,28 @@ export interface GetResourcePolicyResponse {
 /**
  * @public
  */
+export interface GetScheduledActionRequest {
+  /**
+   * @public
+   * <p>The name of the scheduled action.</p>
+   */
+  scheduledActionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetScheduledActionResponse {
+  /**
+   * @public
+   * <p>The returned scheduled action object.</p>
+   */
+  scheduledAction?: ScheduledActionResponse;
+}
+
+/**
+ * @public
+ */
 export interface GetSnapshotRequest {
   /**
    * @public
@@ -1936,14 +2405,13 @@ export interface TableRestoreStatus {
   /**
    * @public
    * <p>A value that describes the current state of the table restore request.
-   *          Possible values include <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   *          Possible values are <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>
    */
   status?: string;
 
   /**
    * @public
-   * <p>A description of the status of the table restore request.
-   *          Status values include <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   * <p>A message that explains the returned status. For example, if the status of the operation is <code>FAILED</code>, the message explains why the operation failed.</p>
    */
   message?: string;
 
@@ -2019,6 +2487,12 @@ export interface TableRestoreStatus {
    * <p>The name of the table to create from the restore operation.</p>
    */
   newTableName?: string;
+
+  /**
+   * @public
+   * <p>The ID of the recovery point being restored from.</p>
+   */
+  recoveryPointId?: string;
 }
 
 /**
@@ -2253,6 +2727,89 @@ export interface ListRecoveryPointsResponse {
 /**
  * @public
  */
+export interface ListScheduledActionsRequest {
+  /**
+   * @public
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *          Make the call again using the returned token to retrieve the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the maximum number of results to return. Use <code>nextToken</code> to display the next page of results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The name of namespace associated with the scheduled action to retrieve.</p>
+   */
+  namespaceName?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledActionsResponse {
+  /**
+   * @public
+   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>All of the returned scheduled action objects.</p>
+   */
+  scheduledActions?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotCopyConfigurationsRequest {
+  /**
+   * @public
+   * <p>The namespace from which to list all snapshot copy configurations.</p>
+   */
+  namespaceName?: string;
+
+  /**
+   * @public
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using
+   *          the returned token to retrieve the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotCopyConfigurationsResponse {
+  /**
+   * @public
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using
+   *          the returned token to retrieve the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>All of the returned snapshot copy configurations.</p>
+   */
+  snapshotCopyConfigurations: SnapshotCopyConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListSnapshotsRequest {
   /**
    * @public
@@ -2462,6 +3019,12 @@ export interface ListWorkgroupsRequest {
    *          You can use <code>nextToken</code> to display the next page of results.</p>
    */
   maxResults?: number;
+
+  /**
+   * @public
+   * <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
+   */
+  ownerAccount?: string;
 }
 
 /**
@@ -2635,6 +3198,155 @@ export interface RestoreFromRecoveryPointResponse {
    * <p>The namespace that data was restored into.</p>
    */
   namespace?: Namespace;
+}
+
+/**
+ * @public
+ */
+export interface RestoreTableFromRecoveryPointRequest {
+  /**
+   * @public
+   * <p>Namespace of the recovery point to restore from.</p>
+   */
+  namespaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The workgroup to restore the table to.</p>
+   */
+  workgroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the recovery point to restore the table from.</p>
+   */
+  recoveryPointId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the source database that contains the table being restored.</p>
+   */
+  sourceDatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the source schema that contains the table being restored.</p>
+   */
+  sourceSchemaName?: string;
+
+  /**
+   * @public
+   * <p>The name of the source table being restored.</p>
+   */
+  sourceTableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database to restore the table to.</p>
+   */
+  targetDatabaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the schema to restore the table to.</p>
+   */
+  targetSchemaName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table to create from the restore operation.</p>
+   */
+  newTableName: string | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether name identifiers for database, schema, and table are case sensitive. If true, the names are case sensitive. If false, the names are not case sensitive. The default is false.</p>
+   */
+  activateCaseSensitiveIdentifier?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RestoreTableFromRecoveryPointResponse {
+  /**
+   * @public
+   * <p>Contains information about a table restore request.</p>
+   */
+  tableRestoreStatus?: TableRestoreStatus;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledActionRequest {
+  /**
+   * @public
+   * <p>The name of the scheduled action to update to.</p>
+   */
+  scheduledActionName: string | undefined;
+
+  /**
+   * @public
+   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
+   *          <p>
+   *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
+   *          </p>
+   */
+  targetAction?: TargetAction;
+
+  /**
+   * @public
+   * <p>The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.</p>
+   *          <p>Format of at expressions is "<code>at(yyyy-mm-ddThh:mm:ss)</code>". For example, "<code>at(2016-03-04T17:27:00)</code>".</p>
+   *          <p>Format of cron expressions is "<code>cron(Minutes Hours Day-of-month Month Day-of-week Year)</code>". For example, "<code>cron(0 10 ? * MON *)</code>". For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
+   */
+  schedule?: Schedule;
+
+  /**
+   * @public
+   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
+   *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
+   *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
+   *             Amazon Redshift</a> in the Amazon Redshift Cluster Management Guide</p>
+   */
+  roleArn?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to enable the scheduled action.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * @public
+   * <p>The descripion of the scheduled action to update to.</p>
+   */
+  scheduledActionDescription?: string;
+
+  /**
+   * @public
+   * <p>The start time in UTC of the scheduled action to update to.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * @public
+   * <p>The end time in UTC of the scheduled action to update.</p>
+   */
+  endTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledActionResponse {
+  /**
+   * @public
+   * <p>The ScheduledAction object that was updated.</p>
+   */
+  scheduledAction?: ScheduledActionResponse;
 }
 
 /**
@@ -2821,6 +3533,34 @@ export interface UpdateSnapshotResponse {
 /**
  * @public
  */
+export interface UpdateSnapshotCopyConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the snapshot copy configuration to update.</p>
+   */
+  snapshotCopyConfigurationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The new retention period of how long to keep a snapshot in the destination Amazon Web Services Region.</p>
+   */
+  snapshotRetentionPeriod?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSnapshotCopyConfigurationResponse {
+  /**
+   * @public
+   * <p>The updated snapshot copy configuration object.</p>
+   */
+  snapshotCopyConfiguration: SnapshotCopyConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * @public
@@ -2976,7 +3716,7 @@ export interface UpdateWorkgroupRequest {
   /**
    * @public
    * <p>An array of parameters to set for advanced control over a database. The
-   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
    *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let you
    *          define performance boundaries. For more information about query monitoring rules and available metrics, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">

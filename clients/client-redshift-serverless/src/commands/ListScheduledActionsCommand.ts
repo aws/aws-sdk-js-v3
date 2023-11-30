@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTableRestoreStatusRequest, ListTableRestoreStatusResponse } from "../models/models_0";
-import { de_ListTableRestoreStatusCommand, se_ListTableRestoreStatusCommand } from "../protocols/Aws_json1_1";
+import { ListScheduledActionsRequest, ListScheduledActionsResponse } from "../models/models_0";
+import { de_ListScheduledActionsCommand, se_ListScheduledActionsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -29,64 +29,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTableRestoreStatusCommand}.
+ * The input for {@link ListScheduledActionsCommand}.
  */
-export interface ListTableRestoreStatusCommandInput extends ListTableRestoreStatusRequest {}
+export interface ListScheduledActionsCommandInput extends ListScheduledActionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListTableRestoreStatusCommand}.
+ * The output of {@link ListScheduledActionsCommand}.
  */
-export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreStatusResponse, __MetadataBearer {}
+export interface ListScheduledActionsCommandOutput extends ListScheduledActionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>
+ * <p>Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, ListTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, ListTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListScheduledActionsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, ListScheduledActionsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = { // ListTableRestoreStatusRequest
+ * const input = { // ListScheduledActionsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   namespaceName: "STRING_VALUE",
- *   workgroupName: "STRING_VALUE",
  * };
- * const command = new ListTableRestoreStatusCommand(input);
+ * const command = new ListScheduledActionsCommand(input);
  * const response = await client.send(command);
- * // { // ListTableRestoreStatusResponse
+ * // { // ListScheduledActionsResponse
  * //   nextToken: "STRING_VALUE",
- * //   tableRestoreStatuses: [ // TableRestoreStatusList
- * //     { // TableRestoreStatus
- * //       tableRestoreRequestId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
- * //       message: "STRING_VALUE",
- * //       requestTime: new Date("TIMESTAMP"),
- * //       namespaceName: "STRING_VALUE",
- * //       workgroupName: "STRING_VALUE",
- * //       snapshotName: "STRING_VALUE",
- * //       progressInMegaBytes: Number("long"),
- * //       totalDataInMegaBytes: Number("long"),
- * //       sourceDatabaseName: "STRING_VALUE",
- * //       sourceSchemaName: "STRING_VALUE",
- * //       sourceTableName: "STRING_VALUE",
- * //       targetDatabaseName: "STRING_VALUE",
- * //       targetSchemaName: "STRING_VALUE",
- * //       newTableName: "STRING_VALUE",
- * //       recoveryPointId: "STRING_VALUE",
- * //     },
+ * //   scheduledActions: [ // ScheduledActionsList
+ * //     "STRING_VALUE",
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListTableRestoreStatusCommandInput - {@link ListTableRestoreStatusCommandInput}
- * @returns {@link ListTableRestoreStatusCommandOutput}
- * @see {@link ListTableRestoreStatusCommandInput} for command's `input` shape.
- * @see {@link ListTableRestoreStatusCommandOutput} for command's `response` shape.
+ * @param ListScheduledActionsCommandInput - {@link ListScheduledActionsCommandInput}
+ * @returns {@link ListScheduledActionsCommandOutput}
+ * @see {@link ListScheduledActionsCommandInput} for command's `input` shape.
+ * @see {@link ListScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link InvalidPaginationException} (client fault)
  *  <p>The provided pagination token is invalid.</p>
@@ -101,9 +86,9 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class ListTableRestoreStatusCommand extends $Command<
-  ListTableRestoreStatusCommandInput,
-  ListTableRestoreStatusCommandOutput,
+export class ListScheduledActionsCommand extends $Command<
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
   RedshiftServerlessClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -118,7 +103,7 @@ export class ListTableRestoreStatusCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListTableRestoreStatusCommandInput) {
+  constructor(readonly input: ListScheduledActionsCommandInput) {
     super();
   }
 
@@ -129,17 +114,17 @@ export class ListTableRestoreStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTableRestoreStatusCommandInput, ListTableRestoreStatusCommandOutput> {
+  ): Handler<ListScheduledActionsCommandInput, ListScheduledActionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListTableRestoreStatusCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListScheduledActionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftServerlessClient";
-    const commandName = "ListTableRestoreStatusCommand";
+    const commandName = "ListScheduledActionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -148,7 +133,7 @@ export class ListTableRestoreStatusCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServerless",
-        operation: "ListTableRestoreStatus",
+        operation: "ListScheduledActions",
       },
     };
     const { requestHandler } = configuration;
@@ -162,14 +147,14 @@ export class ListTableRestoreStatusCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTableRestoreStatusCommand(input, context);
+  private serialize(input: ListScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListScheduledActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRestoreStatusCommandOutput> {
-    return de_ListTableRestoreStatusCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledActionsCommandOutput> {
+    return de_ListScheduledActionsCommand(output, context);
   }
 }

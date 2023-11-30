@@ -4,6 +4,8 @@ export * from "./ListCustomDomainAssociationsPaginator";
 export * from "./ListEndpointAccessPaginator";
 export * from "./ListNamespacesPaginator";
 export * from "./ListRecoveryPointsPaginator";
+export * from "./ListScheduledActionsPaginator";
+export * from "./ListSnapshotCopyConfigurationsPaginator";
 export * from "./ListSnapshotsPaginator";
 export * from "./ListTableRestoreStatusPaginator";
 export * from "./ListUsageLimitsPaginator";

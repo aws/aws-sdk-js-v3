@@ -248,10 +248,26 @@ CreateNamespace
 </details>
 <details>
 <summary>
+CreateScheduledAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/CreateScheduledActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/CreateScheduledActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/CreateScheduledActionCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/CreateSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/CreateSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/CreateSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateSnapshotCopyConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/CreateSnapshotCopyConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/CreateSnapshotCopyConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/CreateSnapshotCopyConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -304,10 +320,26 @@ DeleteResourcePolicy
 </details>
 <details>
 <summary>
+DeleteScheduledAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/DeleteScheduledActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/DeleteScheduledActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/DeleteScheduledActionCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/DeleteSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/DeleteSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/DeleteSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteSnapshotCopyConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/DeleteSnapshotCopyConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/DeleteSnapshotCopyConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/DeleteSnapshotCopyConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -376,6 +408,14 @@ GetResourcePolicy
 </details>
 <details>
 <summary>
+GetScheduledAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/GetScheduledActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/GetScheduledActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/GetScheduledActionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetSnapshot
 </summary>
 
@@ -436,6 +476,22 @@ ListRecoveryPoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/ListRecoveryPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListRecoveryPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListRecoveryPointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListScheduledActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/ListScheduledActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListScheduledActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListScheduledActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSnapshotCopyConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/ListSnapshotCopyConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListSnapshotCopyConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListSnapshotCopyConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -504,6 +560,14 @@ RestoreFromSnapshot
 </details>
 <details>
 <summary>
+RestoreTableFromRecoveryPoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/RestoreTableFromRecoveryPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/RestoreTableFromRecoveryPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/RestoreTableFromRecoveryPointCommandOutput/)
+
+</details>
+<details>
+<summary>
 RestoreTableFromSnapshot
 </summary>
 
@@ -552,10 +616,26 @@ UpdateNamespace
 </details>
 <details>
 <summary>
+UpdateScheduledAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/UpdateScheduledActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/UpdateScheduledActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/UpdateScheduledActionCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/UpdateSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/UpdateSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/UpdateSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSnapshotCopyConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/UpdateSnapshotCopyConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/UpdateSnapshotCopyConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/UpdateSnapshotCopyConfigurationCommandOutput/)
 
 </details>
 <details>

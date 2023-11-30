@@ -119,6 +119,9 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * //     workgroupVersion: "STRING_VALUE",
  * //     patchVersion: "STRING_VALUE",
  * //     maxCapacity: Number("int"),
+ * //     crossAccountVpcs: [ // VpcIds
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

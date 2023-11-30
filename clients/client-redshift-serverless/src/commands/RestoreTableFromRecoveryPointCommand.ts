@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { GetTableRestoreStatusRequest, GetTableRestoreStatusResponse } from "../models/models_0";
-import { de_GetTableRestoreStatusCommand, se_GetTableRestoreStatusCommand } from "../protocols/Aws_json1_1";
+import { RestoreTableFromRecoveryPointRequest, RestoreTableFromRecoveryPointResponse } from "../models/models_0";
+import {
+  de_RestoreTableFromRecoveryPointCommand,
+  se_RestoreTableFromRecoveryPointCommand,
+} from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -29,31 +32,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetTableRestoreStatusCommand}.
+ * The input for {@link RestoreTableFromRecoveryPointCommand}.
  */
-export interface GetTableRestoreStatusCommandInput extends GetTableRestoreStatusRequest {}
+export interface RestoreTableFromRecoveryPointCommandInput extends RestoreTableFromRecoveryPointRequest {}
 /**
  * @public
  *
- * The output of {@link GetTableRestoreStatusCommand}.
+ * The output of {@link RestoreTableFromRecoveryPointCommand}.
  */
-export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatusResponse, __MetadataBearer {}
+export interface RestoreTableFromRecoveryPointCommandOutput
+  extends RestoreTableFromRecoveryPointResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a <code>TableRestoreStatus</code> object.</p>
+ * <p>Restores a table from a recovery point to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with interleaved sort keys.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, GetTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, GetTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, RestoreTableFromRecoveryPointCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, RestoreTableFromRecoveryPointCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = { // GetTableRestoreStatusRequest
- *   tableRestoreRequestId: "STRING_VALUE", // required
+ * const input = { // RestoreTableFromRecoveryPointRequest
+ *   namespaceName: "STRING_VALUE", // required
+ *   workgroupName: "STRING_VALUE", // required
+ *   recoveryPointId: "STRING_VALUE", // required
+ *   sourceDatabaseName: "STRING_VALUE", // required
+ *   sourceSchemaName: "STRING_VALUE",
+ *   sourceTableName: "STRING_VALUE", // required
+ *   targetDatabaseName: "STRING_VALUE",
+ *   targetSchemaName: "STRING_VALUE",
+ *   newTableName: "STRING_VALUE", // required
+ *   activateCaseSensitiveIdentifier: true || false,
  * };
- * const command = new GetTableRestoreStatusCommand(input);
+ * const command = new RestoreTableFromRecoveryPointCommand(input);
  * const response = await client.send(command);
- * // { // GetTableRestoreStatusResponse
+ * // { // RestoreTableFromRecoveryPointResponse
  * //   tableRestoreStatus: { // TableRestoreStatus
  * //     tableRestoreRequestId: "STRING_VALUE",
  * //     status: "STRING_VALUE",
@@ -76,11 +90,17 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  *
  * ```
  *
- * @param GetTableRestoreStatusCommandInput - {@link GetTableRestoreStatusCommandInput}
- * @returns {@link GetTableRestoreStatusCommandOutput}
- * @see {@link GetTableRestoreStatusCommandInput} for command's `input` shape.
- * @see {@link GetTableRestoreStatusCommandOutput} for command's `response` shape.
+ * @param RestoreTableFromRecoveryPointCommandInput - {@link RestoreTableFromRecoveryPointCommandInput}
+ * @returns {@link RestoreTableFromRecoveryPointCommandOutput}
+ * @see {@link RestoreTableFromRecoveryPointCommandInput} for command's `input` shape.
+ * @see {@link RestoreTableFromRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
@@ -92,9 +112,9 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class GetTableRestoreStatusCommand extends $Command<
-  GetTableRestoreStatusCommandInput,
-  GetTableRestoreStatusCommandOutput,
+export class RestoreTableFromRecoveryPointCommand extends $Command<
+  RestoreTableFromRecoveryPointCommandInput,
+  RestoreTableFromRecoveryPointCommandOutput,
   RedshiftServerlessClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -109,7 +129,7 @@ export class GetTableRestoreStatusCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetTableRestoreStatusCommandInput) {
+  constructor(readonly input: RestoreTableFromRecoveryPointCommandInput) {
     super();
   }
 
@@ -120,17 +140,17 @@ export class GetTableRestoreStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetTableRestoreStatusCommandInput, GetTableRestoreStatusCommandOutput> {
+  ): Handler<RestoreTableFromRecoveryPointCommandInput, RestoreTableFromRecoveryPointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetTableRestoreStatusCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, RestoreTableFromRecoveryPointCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftServerlessClient";
-    const commandName = "GetTableRestoreStatusCommand";
+    const commandName = "RestoreTableFromRecoveryPointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,7 +159,7 @@ export class GetTableRestoreStatusCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServerless",
-        operation: "GetTableRestoreStatus",
+        operation: "RestoreTableFromRecoveryPoint",
       },
     };
     const { requestHandler } = configuration;
@@ -153,14 +173,17 @@ export class GetTableRestoreStatusCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetTableRestoreStatusCommand(input, context);
+  private serialize(input: RestoreTableFromRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_RestoreTableFromRecoveryPointCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableRestoreStatusCommandOutput> {
-    return de_GetTableRestoreStatusCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<RestoreTableFromRecoveryPointCommandOutput> {
+    return de_RestoreTableFromRecoveryPointCommand(output, context);
   }
 }

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -36,7 +37,15 @@ import {
   CreateEndpointAccessCommandOutput,
 } from "../commands/CreateEndpointAccessCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "../commands/CreateNamespaceCommand";
+import {
+  CreateScheduledActionCommandInput,
+  CreateScheduledActionCommandOutput,
+} from "../commands/CreateScheduledActionCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "../commands/CreateSnapshotCommand";
+import {
+  CreateSnapshotCopyConfigurationCommandInput,
+  CreateSnapshotCopyConfigurationCommandOutput,
+} from "../commands/CreateSnapshotCopyConfigurationCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "../commands/CreateUsageLimitCommand";
 import { CreateWorkgroupCommandInput, CreateWorkgroupCommandOutput } from "../commands/CreateWorkgroupCommand";
 import {
@@ -52,7 +61,15 @@ import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
+import {
+  DeleteScheduledActionCommandInput,
+  DeleteScheduledActionCommandOutput,
+} from "../commands/DeleteScheduledActionCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "../commands/DeleteSnapshotCommand";
+import {
+  DeleteSnapshotCopyConfigurationCommandInput,
+  DeleteSnapshotCopyConfigurationCommandOutput,
+} from "../commands/DeleteSnapshotCopyConfigurationCommand";
 import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "../commands/DeleteUsageLimitCommand";
 import { DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput } from "../commands/DeleteWorkgroupCommand";
 import { GetCredentialsCommandInput, GetCredentialsCommandOutput } from "../commands/GetCredentialsCommand";
@@ -64,6 +81,7 @@ import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from ".
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "../commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "../commands/GetRecoveryPointCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
+import { GetScheduledActionCommandInput, GetScheduledActionCommandOutput } from "../commands/GetScheduledActionCommand";
 import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "../commands/GetSnapshotCommand";
 import {
   GetTableRestoreStatusCommandInput,
@@ -78,6 +96,14 @@ import {
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "../commands/ListEndpointAccessCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "../commands/ListRecoveryPointsCommand";
+import {
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "../commands/ListScheduledActionsCommand";
+import {
+  ListSnapshotCopyConfigurationsCommandInput,
+  ListSnapshotCopyConfigurationsCommandOutput,
+} from "../commands/ListSnapshotCopyConfigurationsCommand";
 import { ListSnapshotsCommandInput, ListSnapshotsCommandOutput } from "../commands/ListSnapshotsCommand";
 import {
   ListTableRestoreStatusCommandInput,
@@ -99,6 +125,10 @@ import {
   RestoreFromSnapshotCommandOutput,
 } from "../commands/RestoreFromSnapshotCommand";
 import {
+  RestoreTableFromRecoveryPointCommandInput,
+  RestoreTableFromRecoveryPointCommandOutput,
+} from "../commands/RestoreTableFromRecoveryPointCommand";
+import {
   RestoreTableFromSnapshotCommandInput,
   RestoreTableFromSnapshotCommandOutput,
 } from "../commands/RestoreTableFromSnapshotCommand";
@@ -113,7 +143,15 @@ import {
   UpdateEndpointAccessCommandOutput,
 } from "../commands/UpdateEndpointAccessCommand";
 import { UpdateNamespaceCommandInput, UpdateNamespaceCommandOutput } from "../commands/UpdateNamespaceCommand";
+import {
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "../commands/UpdateScheduledActionCommand";
 import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "../commands/UpdateSnapshotCommand";
+import {
+  UpdateSnapshotCopyConfigurationCommandInput,
+  UpdateSnapshotCopyConfigurationCommandOutput,
+} from "../commands/UpdateSnapshotCopyConfigurationCommand";
 import { UpdateUsageLimitCommandInput, UpdateUsageLimitCommandOutput } from "../commands/UpdateUsageLimitCommand";
 import { UpdateWorkgroupCommandInput, UpdateWorkgroupCommandOutput } from "../commands/UpdateWorkgroupCommand";
 import {
@@ -129,8 +167,12 @@ import {
   CreateEndpointAccessResponse,
   CreateNamespaceRequest,
   CreateNamespaceResponse,
+  CreateScheduledActionRequest,
+  CreateScheduledActionResponse,
+  CreateSnapshotCopyConfigurationRequest,
   CreateSnapshotRequest,
   CreateSnapshotResponse,
+  CreateSnapshotScheduleActionParameters,
   CreateUsageLimitRequest,
   CreateWorkgroupRequest,
   CreateWorkgroupResponse,
@@ -140,6 +182,9 @@ import {
   DeleteNamespaceRequest,
   DeleteNamespaceResponse,
   DeleteResourcePolicyRequest,
+  DeleteScheduledActionRequest,
+  DeleteScheduledActionResponse,
+  DeleteSnapshotCopyConfigurationRequest,
   DeleteSnapshotRequest,
   DeleteSnapshotResponse,
   DeleteUsageLimitRequest,
@@ -157,6 +202,8 @@ import {
   GetRecoveryPointRequest,
   GetRecoveryPointResponse,
   GetResourcePolicyRequest,
+  GetScheduledActionRequest,
+  GetScheduledActionResponse,
   GetSnapshotRequest,
   GetSnapshotResponse,
   GetTableRestoreStatusRequest,
@@ -175,6 +222,8 @@ import {
   ListNamespacesResponse,
   ListRecoveryPointsRequest,
   ListRecoveryPointsResponse,
+  ListScheduledActionsRequest,
+  ListSnapshotCopyConfigurationsRequest,
   ListSnapshotsRequest,
   ListSnapshotsResponse,
   ListTableRestoreStatusRequest,
@@ -192,13 +241,18 @@ import {
   RestoreFromRecoveryPointResponse,
   RestoreFromSnapshotRequest,
   RestoreFromSnapshotResponse,
+  RestoreTableFromRecoveryPointRequest,
+  RestoreTableFromRecoveryPointResponse,
   RestoreTableFromSnapshotRequest,
   RestoreTableFromSnapshotResponse,
+  Schedule,
+  ScheduledActionResponse,
   ServiceQuotaExceededException,
   Snapshot,
   TableRestoreStatus,
   Tag,
   TagResourceRequest,
+  TargetAction,
   ThrottlingException,
   TooManyTagsException,
   UntagResourceRequest,
@@ -208,6 +262,9 @@ import {
   UpdateEndpointAccessResponse,
   UpdateNamespaceRequest,
   UpdateNamespaceResponse,
+  UpdateScheduledActionRequest,
+  UpdateScheduledActionResponse,
+  UpdateSnapshotCopyConfigurationRequest,
   UpdateSnapshotRequest,
   UpdateSnapshotResponse,
   UpdateUsageLimitRequest,
@@ -271,6 +328,19 @@ export const se_CreateNamespaceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateScheduledActionCommand
+ */
+export const se_CreateScheduledActionCommand = async (
+  input: CreateScheduledActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateScheduledAction");
+  let body: any;
+  body = JSON.stringify(se_CreateScheduledActionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateSnapshotCommand
  */
 export const se_CreateSnapshotCommand = async (
@@ -278,6 +348,19 @@ export const se_CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateSnapshot");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateSnapshotCopyConfigurationCommand
+ */
+export const se_CreateSnapshotCopyConfigurationCommand = async (
+  input: CreateSnapshotCopyConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateSnapshotCopyConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -362,6 +445,19 @@ export const se_DeleteResourcePolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteScheduledActionCommand
+ */
+export const se_DeleteScheduledActionCommand = async (
+  input: DeleteScheduledActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteScheduledAction");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteSnapshotCommand
  */
 export const se_DeleteSnapshotCommand = async (
@@ -369,6 +465,19 @@ export const se_DeleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSnapshot");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteSnapshotCopyConfigurationCommand
+ */
+export const se_DeleteSnapshotCopyConfigurationCommand = async (
+  input: DeleteSnapshotCopyConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteSnapshotCopyConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -479,6 +588,19 @@ export const se_GetResourcePolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetScheduledActionCommand
+ */
+export const se_GetScheduledActionCommand = async (
+  input: GetScheduledActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetScheduledAction");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetSnapshotCommand
  */
 export const se_GetSnapshotCommand = async (
@@ -579,6 +701,32 @@ export const se_ListRecoveryPointsCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListRecoveryPoints");
   let body: any;
   body = JSON.stringify(se_ListRecoveryPointsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListScheduledActionsCommand
+ */
+export const se_ListScheduledActionsCommand = async (
+  input: ListScheduledActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListScheduledActions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListSnapshotCopyConfigurationsCommand
+ */
+export const se_ListSnapshotCopyConfigurationsCommand = async (
+  input: ListSnapshotCopyConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListSnapshotCopyConfigurations");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -687,6 +835,19 @@ export const se_RestoreFromSnapshotCommand = async (
 };
 
 /**
+ * serializeAws_json1_1RestoreTableFromRecoveryPointCommand
+ */
+export const se_RestoreTableFromRecoveryPointCommand = async (
+  input: RestoreTableFromRecoveryPointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RestoreTableFromRecoveryPoint");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1RestoreTableFromSnapshotCommand
  */
 export const se_RestoreTableFromSnapshotCommand = async (
@@ -765,6 +926,19 @@ export const se_UpdateNamespaceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateScheduledActionCommand
+ */
+export const se_UpdateScheduledActionCommand = async (
+  input: UpdateScheduledActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateScheduledAction");
+  let body: any;
+  body = JSON.stringify(se_UpdateScheduledActionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateSnapshotCommand
  */
 export const se_UpdateSnapshotCommand = async (
@@ -772,6 +946,19 @@ export const se_UpdateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateSnapshot");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateSnapshotCopyConfigurationCommand
+ */
+export const se_UpdateSnapshotCopyConfigurationCommand = async (
+  input: UpdateSnapshotCopyConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateSnapshotCopyConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1042,6 +1229,61 @@ const de_CreateNamespaceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateScheduledActionCommand
+ */
+export const de_CreateScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateScheduledActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateScheduledActionResponse(data, context);
+  const response: CreateScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateScheduledActionCommandError
+ */
+const de_CreateScheduledActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateScheduledActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1CreateSnapshotCommand
  */
 export const de_CreateSnapshotCommand = async (
@@ -1089,6 +1331,67 @@ const de_CreateSnapshotCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateSnapshotCopyConfigurationCommand
+ */
+export const de_CreateSnapshotCopyConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCopyConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateSnapshotCopyConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateSnapshotCopyConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateSnapshotCopyConfigurationCommandError
+ */
+const de_CreateSnapshotCopyConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCopyConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1445,6 +1748,58 @@ const de_DeleteResourcePolicyCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteScheduledActionCommand
+ */
+export const de_DeleteScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteScheduledActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteScheduledActionResponse(data, context);
+  const response: DeleteScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteScheduledActionCommandError
+ */
+const de_DeleteScheduledActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteScheduledActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DeleteSnapshotCommand
  */
 export const de_DeleteSnapshotCommand = async (
@@ -1477,6 +1832,64 @@ const de_DeleteSnapshotCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteSnapshotCopyConfigurationCommand
+ */
+export const de_DeleteSnapshotCopyConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotCopyConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteSnapshotCopyConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteSnapshotCopyConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteSnapshotCopyConfigurationCommandError
+ */
+const de_DeleteSnapshotCopyConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotCopyConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -1937,6 +2350,58 @@ const de_GetResourcePolicyCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetScheduledActionCommand
+ */
+export const de_GetScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetScheduledActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetScheduledActionResponse(data, context);
+  const response: GetScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetScheduledActionCommandError
+ */
+const de_GetScheduledActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetScheduledActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetSnapshotCommand
  */
 export const de_GetSnapshotCommand = async (
@@ -2342,6 +2807,119 @@ const de_ListRecoveryPointsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListScheduledActionsCommand
+ */
+export const de_ListScheduledActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScheduledActionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListScheduledActionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListScheduledActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListScheduledActionsCommandError
+ */
+const de_ListScheduledActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScheduledActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidPaginationException":
+    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
+      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListSnapshotCopyConfigurationsCommand
+ */
+export const de_ListSnapshotCopyConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSnapshotCopyConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListSnapshotCopyConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListSnapshotCopyConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListSnapshotCopyConfigurationsCommandError
+ */
+const de_ListSnapshotCopyConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSnapshotCopyConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidPaginationException":
+    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
+      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2793,6 +3371,61 @@ const de_RestoreFromSnapshotCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1RestoreTableFromRecoveryPointCommand
+ */
+export const de_RestoreTableFromRecoveryPointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreTableFromRecoveryPointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RestoreTableFromRecoveryPointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreTableFromRecoveryPointResponse(data, context);
+  const response: RestoreTableFromRecoveryPointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RestoreTableFromRecoveryPointCommandError
+ */
+const de_RestoreTableFromRecoveryPointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreTableFromRecoveryPointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1RestoreTableFromSnapshotCommand
  */
 export const de_RestoreTableFromSnapshotCommand = async (
@@ -3135,6 +3768,61 @@ const de_UpdateNamespaceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateScheduledActionCommand
+ */
+export const de_UpdateScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateScheduledActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateScheduledActionResponse(data, context);
+  const response: UpdateScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateScheduledActionCommandError
+ */
+const de_UpdateScheduledActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScheduledActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateSnapshotCommand
  */
 export const de_UpdateSnapshotCommand = async (
@@ -3167,6 +3855,64 @@ const de_UpdateSnapshotCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateSnapshotCopyConfigurationCommand
+ */
+export const de_UpdateSnapshotCopyConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotCopyConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateSnapshotCopyConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSnapshotCopyConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSnapshotCopyConfigurationCommandError
+ */
+const de_UpdateSnapshotCopyConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotCopyConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -3465,7 +4211,28 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateNamespaceRequest omitted.
 
+/**
+ * serializeAws_json1_1CreateScheduledActionRequest
+ */
+const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    enabled: [],
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    namespaceName: [],
+    roleArn: [],
+    schedule: (_) => se_Schedule(_, context),
+    scheduledActionDescription: [],
+    scheduledActionName: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+    targetAction: _json,
+  });
+};
+
+// se_CreateSnapshotCopyConfigurationRequest omitted.
+
 // se_CreateSnapshotRequest omitted.
+
+// se_CreateSnapshotScheduleActionParameters omitted.
 
 // se_CreateUsageLimitRequest omitted.
 
@@ -3478,6 +4245,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeleteNamespaceRequest omitted.
 
 // se_DeleteResourcePolicyRequest omitted.
+
+// se_DeleteScheduledActionRequest omitted.
+
+// se_DeleteSnapshotCopyConfigurationRequest omitted.
 
 // se_DeleteSnapshotRequest omitted.
 
@@ -3496,6 +4267,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_GetRecoveryPointRequest omitted.
 
 // se_GetResourcePolicyRequest omitted.
+
+// se_GetScheduledActionRequest omitted.
 
 // se_GetSnapshotRequest omitted.
 
@@ -3526,6 +4299,10 @@ const se_ListRecoveryPointsRequest = (input: ListRecoveryPointsRequest, context:
     startTime: (_) => Math.round(_.getTime() / 1000),
   });
 };
+
+// se_ListScheduledActionsRequest omitted.
+
+// se_ListSnapshotCopyConfigurationsRequest omitted.
 
 /**
  * serializeAws_json1_1ListSnapshotsRequest
@@ -3558,7 +4335,20 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 
 // se_RestoreFromSnapshotRequest omitted.
 
+// se_RestoreTableFromRecoveryPointRequest omitted.
+
 // se_RestoreTableFromSnapshotRequest omitted.
+
+/**
+ * serializeAws_json1_1Schedule
+ */
+const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
+  return Schedule.visit(input, {
+    at: (value) => ({ at: Math.round(value.getTime() / 1000) }),
+    cron: (value) => ({ cron: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 // se_SecurityGroupIdList omitted.
 
@@ -3572,6 +4362,8 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 
 // se_TagResourceRequest omitted.
 
+// se_TargetAction omitted.
+
 // se_UntagResourceRequest omitted.
 
 // se_UpdateCustomDomainAssociationRequest omitted.
@@ -3579,6 +4371,24 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 // se_UpdateEndpointAccessRequest omitted.
 
 // se_UpdateNamespaceRequest omitted.
+
+/**
+ * serializeAws_json1_1UpdateScheduledActionRequest
+ */
+const se_UpdateScheduledActionRequest = (input: UpdateScheduledActionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    enabled: [],
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    roleArn: [],
+    schedule: (_) => se_Schedule(_, context),
+    scheduledActionDescription: [],
+    scheduledActionName: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+    targetAction: _json,
+  });
+};
+
+// se_UpdateSnapshotCopyConfigurationRequest omitted.
 
 // se_UpdateSnapshotRequest omitted.
 
@@ -3668,6 +4478,17 @@ const de_CreateNamespaceResponse = (output: any, context: __SerdeContext): Creat
 };
 
 /**
+ * deserializeAws_json1_1CreateScheduledActionResponse
+ */
+const de_CreateScheduledActionResponse = (output: any, context: __SerdeContext): CreateScheduledActionResponse => {
+  return take(output, {
+    scheduledAction: (_: any) => de_ScheduledActionResponse(_, context),
+  }) as any;
+};
+
+// de_CreateSnapshotCopyConfigurationResponse omitted.
+
+/**
  * deserializeAws_json1_1CreateSnapshotResponse
  */
 const de_CreateSnapshotResponse = (output: any, context: __SerdeContext): CreateSnapshotResponse => {
@@ -3675,6 +4496,8 @@ const de_CreateSnapshotResponse = (output: any, context: __SerdeContext): Create
     snapshot: (_: any) => de_Snapshot(_, context),
   }) as any;
 };
+
+// de_CreateSnapshotScheduleActionParameters omitted.
 
 // de_CreateUsageLimitResponse omitted.
 
@@ -3708,6 +4531,17 @@ const de_DeleteNamespaceResponse = (output: any, context: __SerdeContext): Delet
 };
 
 // de_DeleteResourcePolicyResponse omitted.
+
+/**
+ * deserializeAws_json1_1DeleteScheduledActionResponse
+ */
+const de_DeleteScheduledActionResponse = (output: any, context: __SerdeContext): DeleteScheduledActionResponse => {
+  return take(output, {
+    scheduledAction: (_: any) => de_ScheduledActionResponse(_, context),
+  }) as any;
+};
+
+// de_DeleteSnapshotCopyConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1DeleteSnapshotResponse
@@ -3818,6 +4652,15 @@ const de_GetRecoveryPointResponse = (output: any, context: __SerdeContext): GetR
 // de_GetResourcePolicyResponse omitted.
 
 /**
+ * deserializeAws_json1_1GetScheduledActionResponse
+ */
+const de_GetScheduledActionResponse = (output: any, context: __SerdeContext): GetScheduledActionResponse => {
+  return take(output, {
+    scheduledAction: (_: any) => de_ScheduledActionResponse(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetSnapshotResponse
  */
 const de_GetSnapshotResponse = (output: any, context: __SerdeContext): GetSnapshotResponse => {
@@ -3897,6 +4740,10 @@ const de_ListRecoveryPointsResponse = (output: any, context: __SerdeContext): Li
   }) as any;
 };
 
+// de_ListScheduledActionsResponse omitted.
+
+// de_ListSnapshotCopyConfigurationsResponse omitted.
+
 /**
  * deserializeAws_json1_1ListSnapshotsResponse
  */
@@ -3970,6 +4817,18 @@ const de_NamespaceList = (output: any, context: __SerdeContext): Namespace[] => 
 
 // de_NetworkInterfaceList omitted.
 
+/**
+ * deserializeAws_json1_1NextInvocationsList
+ */
+const de_NextInvocationsList = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
+
 // de_PutResourcePolicyResponse omitted.
 
 /**
@@ -4027,6 +4886,18 @@ const de_RestoreFromSnapshotResponse = (output: any, context: __SerdeContext): R
 };
 
 /**
+ * deserializeAws_json1_1RestoreTableFromRecoveryPointResponse
+ */
+const de_RestoreTableFromRecoveryPointResponse = (
+  output: any,
+  context: __SerdeContext
+): RestoreTableFromRecoveryPointResponse => {
+  return take(output, {
+    tableRestoreStatus: (_: any) => de_TableRestoreStatus(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1RestoreTableFromSnapshotResponse
  */
 const de_RestoreTableFromSnapshotResponse = (
@@ -4037,6 +4908,42 @@ const de_RestoreTableFromSnapshotResponse = (
     tableRestoreStatus: (_: any) => de_TableRestoreStatus(_, context),
   }) as any;
 };
+
+/**
+ * deserializeAws_json1_1Schedule
+ */
+const de_Schedule = (output: any, context: __SerdeContext): Schedule => {
+  if (output.at != null) {
+    return {
+      at: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.at))),
+    };
+  }
+  if (__expectString(output.cron) !== undefined) {
+    return { cron: __expectString(output.cron) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_1ScheduledActionResponse
+ */
+const de_ScheduledActionResponse = (output: any, context: __SerdeContext): ScheduledActionResponse => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    namespaceName: __expectString,
+    nextInvocations: (_: any) => de_NextInvocationsList(_, context),
+    roleArn: __expectString,
+    schedule: (_: any) => de_Schedule(__expectUnion(_), context),
+    scheduledActionDescription: __expectString,
+    scheduledActionName: __expectString,
+    scheduledActionUuid: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    state: __expectString,
+    targetAction: (_: any) => _json(__expectUnion(_)),
+  }) as any;
+};
+
+// de_ScheduledActionsList omitted.
 
 // de_SecurityGroupIdList omitted.
 
@@ -4072,6 +4979,10 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   }) as any;
 };
 
+// de_SnapshotCopyConfiguration omitted.
+
+// de_SnapshotCopyConfigurations omitted.
+
 /**
  * deserializeAws_json1_1SnapshotList
  */
@@ -4095,6 +5006,7 @@ const de_TableRestoreStatus = (output: any, context: __SerdeContext): TableResto
     namespaceName: __expectString,
     newTableName: __expectString,
     progressInMegaBytes: __expectLong,
+    recoveryPointId: __expectString,
     requestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     snapshotName: __expectString,
     sourceDatabaseName: __expectString,
@@ -4126,6 +5038,8 @@ const de_TableRestoreStatusList = (output: any, context: __SerdeContext): TableR
 // de_TagList omitted.
 
 // de_TagResourceResponse omitted.
+
+// de_TargetAction omitted.
 
 // de_ThrottlingException omitted.
 
@@ -4167,6 +5081,17 @@ const de_UpdateNamespaceResponse = (output: any, context: __SerdeContext): Updat
 };
 
 /**
+ * deserializeAws_json1_1UpdateScheduledActionResponse
+ */
+const de_UpdateScheduledActionResponse = (output: any, context: __SerdeContext): UpdateScheduledActionResponse => {
+  return take(output, {
+    scheduledAction: (_: any) => de_ScheduledActionResponse(_, context),
+  }) as any;
+};
+
+// de_UpdateSnapshotCopyConfigurationResponse omitted.
+
+/**
  * deserializeAws_json1_1UpdateSnapshotResponse
  */
 const de_UpdateSnapshotResponse = (output: any, context: __SerdeContext): UpdateSnapshotResponse => {
@@ -4196,6 +5121,8 @@ const de_UpdateWorkgroupResponse = (output: any, context: __SerdeContext): Updat
 
 // de_VpcEndpointList omitted.
 
+// de_VpcIds omitted.
+
 // de_VpcSecurityGroupMembership omitted.
 
 // de_VpcSecurityGroupMembershipList omitted.
@@ -4208,6 +5135,7 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     baseCapacity: __expectInt32,
     configParameters: _json,
     creationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    crossAccountVpcs: _json,
     customDomainCertificateArn: __expectString,
     customDomainCertificateExpiryTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     customDomainName: __expectString,

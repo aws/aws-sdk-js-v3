@@ -101,6 +101,9 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //     workgroupVersion: "STRING_VALUE",
  * //     patchVersion: "STRING_VALUE",
  * //     maxCapacity: Number("int"),
+ * //     crossAccountVpcs: [ // VpcIds
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

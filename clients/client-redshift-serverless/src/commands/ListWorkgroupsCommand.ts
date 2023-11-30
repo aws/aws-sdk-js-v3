@@ -51,6 +51,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * const input = { // ListWorkgroupsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   ownerAccount: "STRING_VALUE",
  * };
  * const command = new ListWorkgroupsCommand(input);
  * const response = await client.send(command);
@@ -104,6 +105,9 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * //       workgroupVersion: "STRING_VALUE",
  * //       patchVersion: "STRING_VALUE",
  * //       maxCapacity: Number("int"),
+ * //       crossAccountVpcs: [ // VpcIds
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

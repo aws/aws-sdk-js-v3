@@ -101,6 +101,9 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  * //     workgroupVersion: "STRING_VALUE",
  * //     patchVersion: "STRING_VALUE",
  * //     maxCapacity: Number("int"),
+ * //     crossAccountVpcs: [ // VpcIds
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
