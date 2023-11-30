@@ -30,11 +30,6 @@
     "downlevel-dts": "0.10.1",
     "typescript": "~4.9.5"
   },
-  "overrides": {
-    "typedoc": {
-      "typescript": "~4.9.5"
-    }
-  },
   "engines": {
     "node": ">=14.0.0"
   },
