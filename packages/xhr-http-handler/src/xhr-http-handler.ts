@@ -73,6 +73,19 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
   private config?: XhrHttpHandlerOptions;
   private configProvider: Promise<XhrHttpHandlerOptions>;
 
+  /**
+   * @returns the input if it is an HttpHandler of any class,
+   * or instantiates a new instance of this handler.
+   */
+  public static create(instanceOrOptions?: HttpHandler<any> | XhrHttpHandlerOptions) {
+    if (typeof (instanceOrOptions as any)?.handle === "function") {
+      // is already an instance of HttpHandler.
+      return instanceOrOptions as HttpHandler<any>;
+    }
+    // input is ctor options or undefined.
+    return new XhrHttpHandler(instanceOrOptions as XhrHttpHandlerOptions);
+  }
+
   public constructor(options?: XhrHttpHandlerOptions | Provider<XhrHttpHandlerOptions>) {
     super();
     if (typeof options === "function") {
