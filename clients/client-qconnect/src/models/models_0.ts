@@ -636,7 +636,7 @@ export type AssistantCapabilityType = (typeof AssistantCapabilityType)[keyof typ
 
 /**
  * @public
- * <p>The capability configuration for a Amazon Q assistant. </p>
+ * <p>The capability configuration for an Amazon Q assistant. </p>
  */
 export interface AssistantCapabilityConfiguration {
   /**
@@ -1419,6 +1419,151 @@ export interface NotifyRecommendationsReceivedResponse {
    * <p>The identifiers of recommendations that are causing errors.</p>
    */
   errors?: NotifyRecommendationsReceivedError[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Relevance = {
+  HELPFUL: "HELPFUL",
+  NOT_HELPFUL: "NOT_HELPFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type Relevance = (typeof Relevance)[keyof typeof Relevance];
+
+/**
+ * @public
+ * <p>The feedback information for a generative target type.</p>
+ */
+export interface GenerativeContentFeedbackData {
+  /**
+   * @public
+   * <p>The relevance of the feedback.</p>
+   */
+  relevance: Relevance | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about the feedback.</p>
+ */
+export type ContentFeedbackData =
+  | ContentFeedbackData.GenerativeContentFeedbackDataMember
+  | ContentFeedbackData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContentFeedbackData {
+  /**
+   * @public
+   * <p>Information about the feedback for a generative target type.</p>
+   */
+  export interface GenerativeContentFeedbackDataMember {
+    generativeContentFeedbackData: GenerativeContentFeedbackData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    generativeContentFeedbackData?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    generativeContentFeedbackData: (value: GenerativeContentFeedbackData) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ContentFeedbackData, visitor: Visitor<T>): T => {
+    if (value.generativeContentFeedbackData !== undefined)
+      return visitor.generativeContentFeedbackData(value.generativeContentFeedbackData);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  RECOMMENDATION: "RECOMMENDATION",
+  RESULT: "RESULT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
+ */
+export interface PutFeedbackRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Q assistant.</p>
+   */
+  assistantId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the feedback target.</p>
+   */
+  targetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of the feedback target.</p>
+   */
+  targetType: TargetType | undefined;
+
+  /**
+   * @public
+   * <p>Information about the feedback provided.</p>
+   */
+  contentFeedback: ContentFeedbackData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFeedbackResponse {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Q assistant.</p>
+   */
+  assistantId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   */
+  assistantArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the feedback target.</p>
+   */
+  targetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of the feedback target.</p>
+   */
+  targetType: TargetType | undefined;
+
+  /**
+   * @public
+   * <p>Information about the feedback provided.</p>
+   */
+  contentFeedback: ContentFeedbackData | undefined;
 }
 
 /**

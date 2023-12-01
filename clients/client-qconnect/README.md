@@ -6,6 +6,13 @@
 
 AWS SDK for JavaScript QConnect Client for Node.js, Browser and React Native.
 
+<note>
+<p>
+<b>Powered by Amazon Bedrock</b>: Amazon Web Services implements <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html">automated abuse
+detection</a>. Because Amazon Q in Connect is built on Amazon Bedrock, users can take full
+advantage of the controls implemented in Amazon Bedrock to enforce safety, security, and the
+responsible use of artificial intelligence (AI).</p>
+</note>
 <p>Amazon Q in Connect is a generative AI customer service assistant. It is an LLM-enhanced evolution
 of Amazon Connect Wisdom that delivers real-time recommendations to help contact center
 agents resolve customer issues quickly and accurately.</p>
@@ -445,6 +452,14 @@ NotifyRecommendationsReceived
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/NotifyRecommendationsReceivedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/NotifyRecommendationsReceivedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/NotifyRecommendationsReceivedCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/PutFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/PutFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/PutFeedbackCommandOutput/)
 
 </details>
 <details>

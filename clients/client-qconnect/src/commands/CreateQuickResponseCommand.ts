@@ -42,7 +42,7 @@ export interface CreateQuickResponseCommandOutput extends CreateQuickResponseRes
 
 /**
  * @public
- * <p>Creates a Amazon Q quick response.</p>
+ * <p>Creates an Amazon Q quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

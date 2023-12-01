@@ -28,6 +28,7 @@ export * from "./ListKnowledgeBasesCommand";
 export * from "./ListQuickResponsesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./NotifyRecommendationsReceivedCommand";
+export * from "./PutFeedbackCommand";
 export * from "./QueryAssistantCommand";
 export * from "./RemoveKnowledgeBaseTemplateUriCommand";
 export * from "./SearchContentCommand";

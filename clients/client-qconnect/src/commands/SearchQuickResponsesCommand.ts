@@ -42,7 +42,7 @@ export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesR
 
 /**
  * @public
- * <p>Searches existing Amazon Q quick responses in a Amazon Q knowledge base.</p>
+ * <p>Searches existing Amazon Q quick responses in an Amazon Q knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

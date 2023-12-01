@@ -84,6 +84,7 @@ import {
   NotifyRecommendationsReceivedCommandInput,
   NotifyRecommendationsReceivedCommandOutput,
 } from "../commands/NotifyRecommendationsReceivedCommand";
+import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "../commands/PutFeedbackCommand";
 import { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "../commands/QueryAssistantCommand";
 import {
   RemoveKnowledgeBaseTemplateUriCommandInput,
@@ -117,10 +118,12 @@ import {
   ConnectConfiguration,
   ContentData,
   ContentDataDetails,
+  ContentFeedbackData,
   DataDetails,
   DataSummary,
   ExternalSourceConfiguration,
   Filter,
+  GenerativeContentFeedbackData,
   GenerativeDataDetails,
   GroupingConfiguration,
   ImportJobData,
@@ -1107,6 +1110,39 @@ export const se_NotifyRecommendationsReceivedCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutFeedbackCommand
+ */
+export const se_PutFeedbackCommand = async (
+  input: PutFeedbackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/feedback";
+  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contentFeedback: (_) => _json(_),
+      targetId: [],
+      targetType: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -3125,6 +3161,63 @@ const de_NotifyRecommendationsReceivedCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1PutFeedbackCommand
+ */
+export const de_PutFeedbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFeedbackCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutFeedbackCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assistantArn: __expectString,
+    assistantId: __expectString,
+    contentFeedback: (_) => _json(__expectUnion(_)),
+    targetId: __expectString,
+    targetType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutFeedbackCommandError
+ */
+const de_PutFeedbackCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFeedbackCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.qconnect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.qconnect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.qconnect#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1QueryAssistantCommand
  */
 export const de_QueryAssistantCommand = async (
@@ -3936,6 +4029,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ContactAttributes omitted.
 
+// se_ContentFeedbackData omitted.
+
 // se_ContentMetadata omitted.
 
 // se_ExternalSourceConfiguration omitted.
@@ -3943,6 +4038,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_Filter omitted.
 
 // se_FilterList omitted.
+
+// se_GenerativeContentFeedbackData omitted.
 
 // se_GroupingConfiguration omitted.
 
@@ -4046,6 +4143,8 @@ const de_ContentDataDetails = (output: any, context: __SerdeContext): ContentDat
   }) as any;
 };
 
+// de_ContentFeedbackData omitted.
+
 // de_ContentMetadata omitted.
 
 // de_ContentReference omitted.
@@ -4105,6 +4204,8 @@ const de_DataSummaryList = (output: any, context: __SerdeContext): DataSummary[]
 // de_DocumentText omitted.
 
 // de_ExternalSourceConfiguration omitted.
+
+// de_GenerativeContentFeedbackData omitted.
 
 /**
  * deserializeAws_restJson1GenerativeDataDetails
