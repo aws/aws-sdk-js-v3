@@ -1,18 +1,20 @@
 import { S3ExpressIdentityProviderImpl } from "./S3ExpressIdentityProviderImpl";
 
 describe(S3ExpressIdentityProviderImpl.name, () => {
+  const timestamp = Date.now() + 90_000;
+
   const Credentials = {
     AccessKeyId: "MOCK_S3_EXPRESS_ACCESS_KEY_ID",
     SecretAccessKey: "MOCK_S3_EXPRESS_SECRET_ACCESS_KEY",
     SessionToken: "MOCK_S3_EXPRESS_SESSION_TOKEN",
-    Expiration: new Date(Date.now() + 90_000),
+    Expiration: new Date(timestamp),
   };
 
   const s3ExpressCredentials = {
     accessKeyId: "MOCK_S3_EXPRESS_ACCESS_KEY_ID",
     secretAccessKey: "MOCK_S3_EXPRESS_SECRET_ACCESS_KEY",
     sessionToken: "MOCK_S3_EXPRESS_SESSION_TOKEN",
-    expiration: new Date(Date.now() + 90_000),
+    expiration: new Date(timestamp),
   };
 
   describe(S3ExpressIdentityProviderImpl.prototype.getS3ExpressIdentity.name, () => {
