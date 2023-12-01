@@ -11,7 +11,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "private": true,
@@ -52,8 +51,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/shared-ini-file-loader"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

@@ -32,7 +32,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "types": "./dist-types/index.d.ts",
@@ -70,8 +69,5 @@
     "./dist-cjs/HostResolver": "./dist-cjs/HostResolver.browser",
     "./dist-cjs/NodeDnsLookupHostResolver": false,
     "./dist-cjs/NodeDnsResolveHostResolver": false
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }
