@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+
+### Features
+
+* **client-rbin:** Added resource identifier in the output and updated error handling. ([b960b65](https://github.com/aws/aws-sdk-js-v3/commit/b960b656611e0c60a593984aa175345772896c59))
+
+
+
+
+
 # [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
 
 **Note:** Version bump only for package @aws-sdk/client-rbin

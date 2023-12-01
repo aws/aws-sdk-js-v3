@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+
+### Features
+
+* **xhr-http-handler:** add static factory method for XHR handler ([#5534](https://github.com/aws/aws-sdk-js-v3/issues/5534)) ([484d1ec](https://github.com/aws/aws-sdk-js-v3/commit/484d1ecd8a7d794fd57692612506c14a186e462a))
+
+
+
+
+
 # [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
 
 **Note:** Version bump only for package @aws-sdk/xhr-http-handler

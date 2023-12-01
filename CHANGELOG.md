@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+
+### Features
+
+* **client-qconnect:** This release adds the PutFeedback API and allows providing feedback against the specified assistant for the specified target. ([93a1fe5](https://github.com/aws/aws-sdk-js-v3/commit/93a1fe5f9d8fbf7cd0629abc97b48e0f51dae8eb))
+* **client-rbin:** Added resource identifier in the output and updated error handling. ([b960b65](https://github.com/aws/aws-sdk-js-v3/commit/b960b656611e0c60a593984aa175345772896c59))
+* **client-verifiedpermissions:** Adds description field to PolicyStore API's and namespaces field to GetSchema. ([87207b4](https://github.com/aws/aws-sdk-js-v3/commit/87207b4fe6b92c2667f2e4aac19158b1f4d49b00))
+* **xhr-http-handler:** add static factory method for XHR handler ([#5534](https://github.com/aws/aws-sdk-js-v3/issues/5534)) ([484d1ec](https://github.com/aws/aws-sdk-js-v3/commit/484d1ecd8a7d794fd57692612506c14a186e462a))
+
+
+
+
+
 # [3.464.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.463.0...v3.464.0) (2023-11-30)
 
 
