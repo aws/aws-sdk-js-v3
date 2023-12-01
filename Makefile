@@ -12,14 +12,13 @@ login:
 sync:
 	make -f Makefile.private.mk sync
 
-s3x:
-	cp ./workspace/s3/s3-express.json ./codegen/sdk-codegen/aws-models/s3.json
-	node ./scripts/cli-dispatcher/ s3 - gen
-	node ./scripts/cli-dispatcher/ s3 - build
+link-smithy:
+	rm -rf ./node_modules/\@smithy
+	ln -s ../../smithy-typescript/packages/ ./node_modules/\@smithy
 
-s3:
-	git checkout origin/main ./codegen/sdk-codegen/aws-models/s3.json
-	git checkout origin/main ./clients/client-s3
+unlink-smithy:
+	rm -rf ./node_modules/\@smithy
+	yarn
 
 # Runs build for all packages using Turborepo
 turbo-build:
