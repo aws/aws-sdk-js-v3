@@ -73,6 +73,7 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * //   },
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   LockEndTime: new Date("TIMESTAMP"),
+ * //   RuleArn: "STRING_VALUE",
  * // };
  *
  * ```

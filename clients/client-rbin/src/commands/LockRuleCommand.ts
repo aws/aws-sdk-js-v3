@@ -77,6 +77,7 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * //     },
  * //   },
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
+ * //   RuleArn: "STRING_VALUE",
  * // };
  *
  * ```

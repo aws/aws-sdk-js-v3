@@ -353,6 +353,7 @@ export const de_CreateRuleCommand = async (
     ResourceTags: _json,
     ResourceType: __expectString,
     RetentionPeriod: _json,
+    RuleArn: __expectString,
     Status: __expectString,
     Tags: _json,
   });
@@ -467,6 +468,7 @@ export const de_GetRuleCommand = async (
     ResourceTags: _json,
     ResourceType: __expectString,
     RetentionPeriod: _json,
+    RuleArn: __expectString,
     Status: __expectString,
   });
   Object.assign(contents, doc);
@@ -631,6 +633,7 @@ export const de_LockRuleCommand = async (
     ResourceTags: _json,
     ResourceType: __expectString,
     RetentionPeriod: _json,
+    RuleArn: __expectString,
     Status: __expectString,
   });
   Object.assign(contents, doc);
@@ -747,6 +750,7 @@ export const de_UnlockRuleCommand = async (
     ResourceTags: _json,
     ResourceType: __expectString,
     RetentionPeriod: _json,
+    RuleArn: __expectString,
     Status: __expectString,
   });
   Object.assign(contents, doc);
@@ -859,6 +863,7 @@ export const de_UpdateRuleCommand = async (
     ResourceTags: _json,
     ResourceType: __expectString,
     RetentionPeriod: _json,
+    RuleArn: __expectString,
     Status: __expectString,
   });
   Object.assign(contents, doc);
@@ -887,6 +892,9 @@ const de_UpdateRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.rbin#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rbin#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rbin#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);

@@ -295,6 +295,12 @@ export interface CreateRuleResponse {
    *          </ul>
    */
   LockState?: LockState;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   */
+  RuleArn?: string;
 }
 
 /**
@@ -597,6 +603,12 @@ export interface GetRuleResponse {
    *       delay period.</p>
    */
   LockEndTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   */
+  RuleArn?: string;
 }
 
 /**
@@ -692,6 +704,12 @@ export interface RuleSummary {
    *          </ul>
    */
   LockState?: LockState;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   */
+  RuleArn?: string;
 }
 
 /**
@@ -826,6 +844,12 @@ export interface LockRuleResponse {
    *          </ul>
    */
   LockState?: LockState;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   */
+  RuleArn?: string;
 }
 
 /**
@@ -945,6 +969,12 @@ export interface UnlockRuleResponse {
    *       delay period.</p>
    */
   LockEndTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   */
+  RuleArn?: string;
 }
 
 /**
@@ -1092,4 +1122,10 @@ export interface UpdateRuleResponse {
    *       delay period.</p>
    */
   LockEndTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   */
+  RuleArn?: string;
 }

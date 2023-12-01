@@ -68,6 +68,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * //         RetentionPeriodUnit: "DAYS", // required
  * //       },
  * //       LockState: "locked" || "pending_unlock" || "unlocked",
+ * //       RuleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

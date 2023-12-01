@@ -101,6 +101,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * //     },
  * //   },
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
+ * //   RuleArn: "STRING_VALUE",
  * // };
  *
  * ```

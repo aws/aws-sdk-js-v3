@@ -72,6 +72,7 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * //   },
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   LockEndTime: new Date("TIMESTAMP"),
+ * //   RuleArn: "STRING_VALUE",
  * // };
  *
  * ```
