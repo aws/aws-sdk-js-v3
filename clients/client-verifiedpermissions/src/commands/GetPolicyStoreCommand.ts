@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { GetPolicyStoreInput, GetPolicyStoreOutput } from "../models/models_0";
+import { GetPolicyStoreInput, GetPolicyStoreOutput, GetPolicyStoreOutputFilterSensitiveLog } from "../models/models_0";
 import { de_GetPolicyStoreCommand, se_GetPolicyStoreCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -61,6 +61,7 @@ export interface GetPolicyStoreCommandOutput extends GetPolicyStoreOutput, __Met
  * //   },
  * //   createdDate: new Date("TIMESTAMP"), // required
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //   description: "STRING_VALUE",
  * // };
  *
  * ```
@@ -215,7 +216,7 @@ export class GetPolicyStoreCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetPolicyStoreOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "VerifiedPermissions",
         operation: "GetPolicyStore",

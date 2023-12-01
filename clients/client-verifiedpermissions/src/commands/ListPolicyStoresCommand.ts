@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListPolicyStoresInput, ListPolicyStoresOutput } from "../models/models_0";
+import {
+  ListPolicyStoresInput,
+  ListPolicyStoresOutput,
+  ListPolicyStoresOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListPolicyStoresCommand, se_ListPolicyStoresCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -61,6 +65,8 @@ export interface ListPolicyStoresCommandOutput extends ListPolicyStoresOutput, _
  * //       policyStoreId: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
  * //       createdDate: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -214,7 +220,7 @@ export class ListPolicyStoresCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListPolicyStoresOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "VerifiedPermissions",
         operation: "ListPolicyStores",

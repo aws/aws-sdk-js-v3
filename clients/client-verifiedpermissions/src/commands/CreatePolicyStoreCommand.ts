@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { CreatePolicyStoreInput, CreatePolicyStoreOutput } from "../models/models_0";
+import {
+  CreatePolicyStoreInput,
+  CreatePolicyStoreInputFilterSensitiveLog,
+  CreatePolicyStoreOutput,
+} from "../models/models_0";
 import { de_CreatePolicyStoreCommand, se_CreatePolicyStoreCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -63,6 +67,7 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  *   validationSettings: { // ValidationSettings
  *     mode: "OFF" || "STRICT", // required
  *   },
+ *   description: "STRING_VALUE",
  * };
  * const command = new CreatePolicyStoreCommand(input);
  * const response = await client.send(command);
@@ -228,7 +233,7 @@ export class CreatePolicyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreatePolicyStoreInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "VerifiedPermissions",

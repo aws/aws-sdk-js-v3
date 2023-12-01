@@ -905,6 +905,13 @@ export interface CreatePolicyStoreInput {
    *          </important>
    */
   validationSettings: ValidationSettings | undefined;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -1487,6 +1494,13 @@ export interface GetPolicyStoreOutput {
    * <p>The date and time that the policy store was last updated.</p>
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -1586,6 +1600,12 @@ export interface GetSchemaOutput {
    * <p>The date and time that the schema was most recently updated.</p>
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>The namespaces of the entities referenced by this schema.</p>
+   */
+  namespaces?: string[];
 }
 
 /**
@@ -2269,6 +2289,19 @@ export interface PolicyStoreItem {
    * <p>The date and time the policy was created.</p>
    */
   createdDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the policy store was most recently updated.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -2760,6 +2793,13 @@ export interface UpdatePolicyStoreInput {
    *             policy store.</p>
    */
   validationSettings: ValidationSettings | undefined;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -3411,6 +3451,14 @@ export const CreatePolicyOutputFilterSensitiveLog = (obj: CreatePolicyOutput): a
 /**
  * @internal
  */
+export const CreatePolicyStoreInputFilterSensitiveLog = (obj: CreatePolicyStoreInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreatePolicyTemplateInputFilterSensitiveLog = (obj: CreatePolicyTemplateInput): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -3486,6 +3534,14 @@ export const GetPolicyOutputFilterSensitiveLog = (obj: GetPolicyOutput): any => 
 /**
  * @internal
  */
+export const GetPolicyStoreOutputFilterSensitiveLog = (obj: GetPolicyStoreOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetPolicyTemplateOutputFilterSensitiveLog = (obj: GetPolicyTemplateOutput): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -3498,6 +3554,7 @@ export const GetPolicyTemplateOutputFilterSensitiveLog = (obj: GetPolicyTemplate
 export const GetSchemaOutputFilterSensitiveLog = (obj: GetSchemaOutput): any => ({
   ...obj,
   ...(obj.schema && { schema: SENSITIVE_STRING }),
+  ...(obj.namespaces && { namespaces: SENSITIVE_STRING }),
 });
 
 /**
@@ -3656,6 +3713,22 @@ export const ListPoliciesOutputFilterSensitiveLog = (obj: ListPoliciesOutput): a
 /**
  * @internal
  */
+export const PolicyStoreItemFilterSensitiveLog = (obj: PolicyStoreItem): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPolicyStoresOutputFilterSensitiveLog = (obj: ListPolicyStoresOutput): any => ({
+  ...obj,
+  ...(obj.policyStores && { policyStores: obj.policyStores.map((item) => PolicyStoreItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const PolicyTemplateItemFilterSensitiveLog = (obj: PolicyTemplateItem): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -3736,6 +3809,14 @@ export const PutSchemaInputFilterSensitiveLog = (obj: PutSchemaInput): any => ({
 export const PutSchemaOutputFilterSensitiveLog = (obj: PutSchemaOutput): any => ({
   ...obj,
   ...(obj.namespaces && { namespaces: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyStoreInputFilterSensitiveLog = (obj: UpdatePolicyStoreInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
 });
 
 /**

@@ -58,6 +58,9 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * //   schema: "STRING_VALUE", // required
  * //   createdDate: new Date("TIMESTAMP"), // required
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //   namespaces: [ // NamespaceList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

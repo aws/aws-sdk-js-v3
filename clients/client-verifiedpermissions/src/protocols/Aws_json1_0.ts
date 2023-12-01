@@ -2186,6 +2186,7 @@ const se_CreatePolicyInput = (input: CreatePolicyInput, context: __SerdeContext)
 const se_CreatePolicyStoreInput = (input: CreatePolicyStoreInput, context: __SerdeContext): any => {
   return take(input, {
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    description: [],
     validationSettings: _json,
   });
 };
@@ -2581,6 +2582,7 @@ const de_GetPolicyStoreOutput = (output: any, context: __SerdeContext): GetPolic
   return take(output, {
     arn: __expectString,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyStoreId: __expectString,
     validationSettings: _json,
@@ -2608,6 +2610,7 @@ const de_GetSchemaOutput = (output: any, context: __SerdeContext): GetSchemaOutp
   return take(output, {
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    namespaces: _json,
     policyStoreId: __expectString,
     schema: __expectString,
   }) as any;
@@ -2730,6 +2733,8 @@ const de_PolicyStoreItem = (output: any, context: __SerdeContext): PolicyStoreIt
   return take(output, {
     arn: __expectString,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyStoreId: __expectString,
   }) as any;
 };
