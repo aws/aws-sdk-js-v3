@@ -148,7 +148,8 @@ export interface CreateEnvironmentEC2Request {
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Linux (default): <code>amazonlinux-1-x86_64</code>
+   *                <p>Amazon Linux:
+   *             <code>amazonlinux-1-x86_64</code>
    *                </p>
    *             </li>
    *             <li>
@@ -169,8 +170,8 @@ export interface CreateEnvironmentEC2Request {
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Linux (default):
-   *             <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code>
+   *                <p>Amazon Linux:
+   *               <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code>
    *                </p>
    *             </li>
    *             <li>
@@ -190,7 +191,7 @@ export interface CreateEnvironmentEC2Request {
    *             </li>
    *          </ul>
    */
-  imageId?: string;
+  imageId: string | undefined;
 
   /**
    * @public

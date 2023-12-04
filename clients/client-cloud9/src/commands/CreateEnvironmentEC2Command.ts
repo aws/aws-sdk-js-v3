@@ -55,7 +55,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *   clientRequestToken: "STRING_VALUE",
  *   instanceType: "STRING_VALUE", // required
  *   subnetId: "STRING_VALUE",
- *   imageId: "STRING_VALUE",
+ *   imageId: "STRING_VALUE", // required
  *   automaticStopTimeMinutes: Number("int"),
  *   ownerArn: "STRING_VALUE",
  *   tags: [ // TagList
@@ -112,6 +112,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *   "name": "my-demo-environment",
  *   "automaticStopTimeMinutes": 60,
  *   "description": "This is my demonstration environment.",
+ *   "imageId": "amazonlinux-2-x86_64",
  *   "instanceType": "t2.micro",
  *   "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
  *   "subnetId": "subnet-6300cd1b"
