@@ -83,6 +83,7 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  *       },
  *     ],
  *   },
+ *   AccountId: "STRING_VALUE",
  * };
  * const command = new CreateCustomLineItemCommand(input);
  * const response = await client.send(command);

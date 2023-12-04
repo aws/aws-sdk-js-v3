@@ -354,6 +354,7 @@ export const ValidationExceptionReason = {
   DUPLICATE_PRICINGRULE_ARNS: "DUPLICATE_PRICINGRULE_ARNS",
   FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
   ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
+  ILLEGAL_ACCOUNT_ID: "ILLEGAL_ACCOUNT_ID",
   ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
   ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
   ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
@@ -1326,6 +1327,12 @@ export interface CreateCustomLineItemInput {
    *     </p>
    */
   ChargeDetails: CustomLineItemChargeDetails | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1393,6 +1400,12 @@ export interface ListCustomLineItemsFilter {
    * <p>A list of custom line item ARNs to retrieve information.</p>
    */
   Arns?: string[];
+
+  /**
+   * @public
+   * <p>The Amazon Web Services accounts in which this custom line item will be applied to.</p>
+   */
+  AccountIds?: string[];
 }
 
 /**
@@ -1579,6 +1592,12 @@ export interface CustomLineItemListElement {
    * <p>The number of resources that are associated to the custom line item.</p>
    */
   AssociationSize?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1749,6 +1768,12 @@ export interface CustomLineItemVersionListElement {
    *     </p>
    */
   StartTime?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
+   */
+  AccountId?: string;
 }
 
 /**

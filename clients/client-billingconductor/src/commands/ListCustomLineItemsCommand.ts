@@ -65,6 +65,9 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  *     Arns: [ // CustomLineItemArns
  *       "STRING_VALUE",
  *     ],
+ *     AccountIds: [ // AccountIdList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
  * const command = new ListCustomLineItemsCommand(input);
@@ -99,6 +102,7 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * //       CreationTime: Number("long"),
  * //       LastModifiedTime: Number("long"),
  * //       AssociationSize: Number("long"),
+ * //       AccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

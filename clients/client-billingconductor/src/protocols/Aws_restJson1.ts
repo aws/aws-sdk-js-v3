@@ -325,6 +325,7 @@ export const se_CreateCustomLineItemCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AccountId: [],
       BillingGroupArn: [],
       BillingPeriodRange: (_) => _json(_),
       ChargeDetails: (_) => se_CustomLineItemChargeDetails(_, context),
@@ -3382,6 +3383,7 @@ const de_CustomLineItemList = (output: any, context: __SerdeContext): CustomLine
  */
 const de_CustomLineItemListElement = (output: any, context: __SerdeContext): CustomLineItemListElement => {
   return take(output, {
+    AccountId: __expectString,
     Arn: __expectString,
     AssociationSize: __expectLong,
     BillingGroupArn: __expectString,
@@ -3415,6 +3417,7 @@ const de_CustomLineItemVersionListElement = (
   context: __SerdeContext
 ): CustomLineItemVersionListElement => {
   return take(output, {
+    AccountId: __expectString,
     Arn: __expectString,
     AssociationSize: __expectLong,
     BillingGroupArn: __expectString,

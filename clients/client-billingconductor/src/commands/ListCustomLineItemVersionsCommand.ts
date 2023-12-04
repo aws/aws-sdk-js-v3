@@ -94,6 +94,7 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * //       EndBillingPeriod: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       StartTime: Number("long"),
+ * //       AccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
