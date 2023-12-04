@@ -71,7 +71,7 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>resource-groups:DisassociateResource</code>
+ *                   <code>resource-groups:AssociateResource</code>
  *                </p>
  *             </li>
  *             <li>
