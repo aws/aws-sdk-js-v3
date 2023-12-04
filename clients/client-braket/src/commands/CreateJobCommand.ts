@@ -94,6 +94,12 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   associations: [ // Associations
+ *     { // Association
+ *       arn: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);

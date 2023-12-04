@@ -73,6 +73,12 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * //     queuePriority: "STRING_VALUE",
  * //     message: "STRING_VALUE",
  * //   },
+ * //   associations: [ // Associations
+ * //     { // Association
+ * //       arn: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

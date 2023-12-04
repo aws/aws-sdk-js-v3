@@ -34,6 +34,45 @@
         "smithy.api#documentation": "<p>Defines the Amazon Braket job to be created. Specifies the container image the job uses\n         and the paths to the Python scripts used for entry and training.</p>"
       }
     },
+    "com.amazonaws.braket#Association": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.braket#BraketResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Braket resource arn.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.braket#AssociationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The association type for the specified Amazon Braket resource arn.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon Braket resource and the association type.</p>"
+      }
+    },
+    "com.amazonaws.braket#AssociationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "RESERVATION_TIME_WINDOW_ARN",
+            "name": "RESERVATION_TIME_WINDOW_ARN"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.braket#Associations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.braket#Association"
+      }
+    },
     "com.amazonaws.braket#Braket": {
       "type": "service",
       "version": "2019-09-01",
@@ -758,6 +797,12 @@
         }
       }
     },
+    "com.amazonaws.braket#BraketResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:braket:[a-z0-9\\-]*:[0-9]{12}:.*$"
+      }
+    },
     "com.amazonaws.braket#CancelJob": {
       "type": "operation",
       "input": {
@@ -1093,6 +1138,16 @@
           "traits": {
             "smithy.api#documentation": "<p>A tag object that consists of a key and an optional value, used to manage metadata for\n         Amazon Braket resources.</p>"
           }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the hybrid job.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 1
+            }
+          }
         }
       }
     },
@@ -1225,6 +1280,16 @@
           "target": "com.amazonaws.braket#JobToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for an Amazon Braket job that associates it with the quantum task.</p>"
+          }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the quantum task.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 1
+            }
           }
         }
       }
@@ -1739,6 +1804,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Queue information for the requested job. Only returned if \n         <code>QueueInfo</code> is specified in the <code>additionalAttributeNames\"</code>\n         field in the <code>GetJob</code> API request.</p>"
           }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the hybrid job.</p>"
+          }
         }
       }
     },
@@ -1782,7 +1853,7 @@
         "quantumTaskArn": {
           "target": "com.amazonaws.braket#QuantumTaskArn",
           "traits": {
-            "smithy.api#documentation": "<p>the ARN of the task to retrieve.</p>",
+            "smithy.api#documentation": "<p>The ARN of the task to retrieve.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1886,6 +1957,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Queue information for the requested quantum task. Only returned if \n         <code>QueueInfo</code> is specified in the <code>additionalAttributeNames\"</code>\n         field in the <code>GetQuantumTask</code> API request.</p>"
           }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the quantum task.</p>"
+          }
         }
       }
     },
@@ -1945,7 +2022,8 @@
           "smithy.api#length": {
             "min": 1,
             "max": 2500
-          }
+          },
+          "smithy.api#pattern": "^.*$"
         }
       },
       "traits": {
@@ -2243,7 +2321,7 @@
         "timeOfEvent": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>TThe type of event that occurred related to the Amazon Braket job.</p>",
+            "smithy.api#documentation": "<p>The type of event that occurred related to the Amazon Braket job.</p>",
             "smithy.api#timestampFormat": "date-time"
           }
         },

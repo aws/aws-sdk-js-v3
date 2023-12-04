@@ -100,6 +100,37 @@ export interface AlgorithmSpecification {
 
 /**
  * @public
+ * @enum
+ */
+export const AssociationType = {
+  RESERVATION_TIME_WINDOW_ARN: "RESERVATION_TIME_WINDOW_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationType = (typeof AssociationType)[keyof typeof AssociationType];
+
+/**
+ * @public
+ * <p>The Amazon Braket resource and the association type.</p>
+ */
+export interface Association {
+  /**
+   * @public
+   * <p>The Amazon Braket resource arn.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The association type for the specified Amazon Braket resource arn.</p>
+   */
+  type: AssociationType | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetDeviceRequest {
   /**
@@ -759,6 +790,12 @@ export interface CreateJobRequest {
    *          Amazon Braket resources.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+   */
+  associations?: Association[];
 }
 
 /**
@@ -879,7 +916,7 @@ export interface JobEventDetails {
 
   /**
    * @public
-   * <p>TThe type of event that occurred related to the Amazon Braket job.</p>
+   * <p>The type of event that occurred related to the Amazon Braket job.</p>
    */
   timeOfEvent?: Date;
 
@@ -1068,6 +1105,12 @@ export interface GetJobResponse {
    *          field in the <code>GetJob</code> API request.</p>
    */
   queueInfo?: HybridJobQueueInfo;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+   */
+  associations?: Association[];
 }
 
 /**
@@ -1326,6 +1369,12 @@ export interface CreateQuantumTaskRequest {
    * <p>The token for an Amazon Braket job that associates it with the quantum task.</p>
    */
   jobToken?: string;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the quantum task.</p>
+   */
+  associations?: Association[];
 }
 
 /**
@@ -1379,7 +1428,7 @@ export type QuantumTaskAdditionalAttributeName =
 export interface GetQuantumTaskRequest {
   /**
    * @public
-   * <p>the ARN of the task to retrieve.</p>
+   * <p>The ARN of the task to retrieve.</p>
    */
   quantumTaskArn: string | undefined;
 
@@ -1525,6 +1574,12 @@ export interface GetQuantumTaskResponse {
    *          field in the <code>GetQuantumTask</code> API request.</p>
    */
   queueInfo?: QuantumTaskQueueInfo;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the quantum task.</p>
+   */
+  associations?: Association[];
 }
 
 /**

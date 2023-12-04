@@ -120,6 +120,12 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //     position: "STRING_VALUE", // required
  * //     message: "STRING_VALUE",
  * //   },
+ * //   associations: [ // Associations
+ * //     { // Association
+ * //       arn: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

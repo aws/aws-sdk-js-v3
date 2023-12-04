@@ -44,6 +44,7 @@ import { BraketServiceException as __BaseException } from "../models/BraketServi
 import {
   AccessDeniedException,
   AlgorithmSpecification,
+  Association,
   ConflictException,
   ContainerImage,
   DataSource,
@@ -147,6 +148,7 @@ export const se_CreateJobCommand = async (
   body = JSON.stringify(
     take(input, {
       algorithmSpecification: (_) => _json(_),
+      associations: (_) => _json(_),
       checkpointConfig: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deviceConfig: (_) => _json(_),
@@ -187,6 +189,7 @@ export const se_CreateQuantumTaskCommand = async (
   body = JSON.stringify(
     take(input, {
       action: (_) => __LazyJsonString.fromObject(_),
+      associations: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deviceArn: [],
       deviceParameters: (_) => __LazyJsonString.fromObject(_),
@@ -809,6 +812,7 @@ export const de_GetJobCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     algorithmSpecification: _json,
+    associations: _json,
     billableDuration: __expectInt32,
     checkpointConfig: _json,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -883,6 +887,7 @@ export const de_GetQuantumTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    associations: _json,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     deviceArn: __expectString,
     deviceParameters: (_) => new __LazyJsonString(_),
@@ -1435,6 +1440,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AlgorithmSpecification omitted.
 
+// se_Association omitted.
+
+// se_Associations omitted.
+
 // se_ContainerImage omitted.
 
 // se_DataSource omitted.
@@ -1476,6 +1485,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagsMap omitted.
 
 // de_AlgorithmSpecification omitted.
+
+// de_Association omitted.
+
+// de_Associations omitted.
 
 // de_ContainerImage omitted.
 

@@ -56,6 +56,12 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  *     "<keys>": "STRING_VALUE",
  *   },
  *   jobToken: "STRING_VALUE",
+ *   associations: [ // Associations
+ *     { // Association
+ *       arn: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);
