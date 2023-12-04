@@ -48,7 +48,7 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  *   clientToken: "STRING_VALUE",
  *   environmentId: "STRING_VALUE", // required
  *   clusterName: "STRING_VALUE", // required
- *   clusterType: "HDB" || "RDB" || "GATEWAY", // required
+ *   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP", // required
  *   databases: [ // KxDatabaseConfigurations
  *     { // KxDatabaseConfiguration
  *       databaseName: "STRING_VALUE", // required
@@ -123,7 +123,7 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * //   status: "PENDING" || "CREATING" || "CREATE_FAILED" || "RUNNING" || "UPDATING" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //   statusReason: "STRING_VALUE",
  * //   clusterName: "STRING_VALUE",
- * //   clusterType: "HDB" || "RDB" || "GATEWAY",
+ * //   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP",
  * //   databases: [ // KxDatabaseConfigurations
  * //     { // KxDatabaseConfiguration
  * //       databaseName: "STRING_VALUE", // required

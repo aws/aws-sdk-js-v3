@@ -54,7 +54,7 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * //   status: "PENDING" || "CREATING" || "CREATE_FAILED" || "RUNNING" || "UPDATING" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //   statusReason: "STRING_VALUE",
  * //   clusterName: "STRING_VALUE",
- * //   clusterType: "HDB" || "RDB" || "GATEWAY",
+ * //   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP",
  * //   databases: [ // KxDatabaseConfigurations
  * //     { // KxDatabaseConfiguration
  * //       databaseName: "STRING_VALUE", // required

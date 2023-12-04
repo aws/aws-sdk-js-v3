@@ -451,7 +451,7 @@ export interface CreateKxChangesetRequest {
 
   /**
    * @public
-   * <p>A list of change request objects that are run in order. A change request object consists of  changeType , s3Path, and  a dbPath.
+   * <p>A list of change request objects that are run in order. A change request object consists of <code>changeType</code> , <code>s3Path</code>, and <code>dbPath</code>.
    *       A changeType can has the following values: </p>
    *          <ul>
    *             <li>
@@ -461,24 +461,53 @@ export interface CreateKxChangesetRequest {
    *                <p>DELETE – Deletes files in a database.</p>
    *             </li>
    *          </ul>
-   *          <p>All the change requests require a mandatory <i>dbPath</i> attribute that
-   *          defines the path within the database directory. The <i>s3Path</i> attribute
-   *          defines the s3 source file path and is required for a PUT change type.</p>
-   *          <p>Here is an example
-   *       of how you can use the change request object:</p>
-   *          <p>
-   *             <code>[
-   *          \{ "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"\},
-   *          \{ "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"\},
-   *          \{ "changeType": "DELETE", "dbPath": "/2020.01.01/"\}
-   *          ]</code>
-   *          </p>
-   *          <p>In this example, the first request with <i>PUT</i> change type allows you to
-   *          add files in the given s3Path under the <i>2020.01.02</i> partition of the
-   *          database. The second request with <i>PUT</i> change type allows you to add a
-   *          single sym file at database root location. The last request with
-   *             <i>DELETE</i> change type allows you to delete the files under the
-   *             <i>2020.01.01</i> partition of the database. </p>
+   *          <p>All the change requests require a mandatory <code>dbPath</code> attribute that defines the
+   *          path within the database directory. All database paths must start with a leading / and end
+   *          with a trailing /. The <code>s3Path</code> attribute defines the s3 source file path and is
+   *          required for a PUT change type. The <code>s3path</code> must end with a trailing / if it is
+   *          a directory and must end without a trailing / if it is a file. </p>
+   *          <p>Here are few examples of how you can use the change request object:</p>
+   *          <ol>
+   *             <li>
+   *                <p>This request adds a single sym file at database root location.   </p>
+   *                <p>
+   *                   <code>\{ "changeType": "PUT", "s3Path":"s3://bucket/db/sym",
+   *                "dbPath":"/"\}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>This request adds files in the given <code>s3Path</code> under the 2020.01.02
+   *                partition of the database.</p>
+   *                <p>
+   *                   <code>\{ "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/",
+   *                "dbPath":"/2020.01.02/"\}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>This request adds files in the given <code>s3Path</code> under the
+   *                   <i>taq</i> table partition of the database.</p>
+   *                <p>
+   *                   <code>[ \{ "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/taq/",
+   *                   "dbPath":"/2020.01.02/taq/"\}]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>This request deletes the 2020.01.02 partition of the database.</p>
+   *                <p>
+   *                   <code>[\{ "changeType": "DELETE", "dbPath": "/2020.01.02/"\} ]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>The <i>DELETE</i> request allows you to delete the existing files under the
+   *                2020.01.02 partition of the database, and the <i>PUT</i> request adds a
+   *                new taq table under it.</p>
+   *                <p>
+   *                   <code>[ \{"changeType": "DELETE", "dbPath":"/2020.01.02/"\}, \{"changeType": "PUT",
+   *                   "s3Path":"s3://bucket/db/2020.01.02/taq/",
+   *                "dbPath":"/2020.01.02/taq/"\}]</code>
+   *                </p>
+   *             </li>
+   *          </ol>
    */
   changeRequests: ChangeRequest[] | undefined;
 
@@ -729,6 +758,7 @@ export interface CapacityConfiguration {
  */
 export const KxClusterType = {
   GATEWAY: "GATEWAY",
+  GP: "GP",
   HDB: "HDB",
   RDB: "RDB",
 } as const;
@@ -946,6 +976,9 @@ export interface CreateKxClusterRequest {
    *             <li>
    *                <p>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.</p>
    *             </li>
+   *             <li>
+   *                <p>GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only <code>SINGLE</code> AZ mode.</p>
+   *             </li>
    *          </ul>
    */
   clusterType: KxClusterType | undefined;
@@ -1140,6 +1173,9 @@ export interface CreateKxClusterResponse {
    *             </li>
    *             <li>
    *                <p>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.</p>
+   *             </li>
+   *             <li>
+   *                <p>GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only <code>SINGLE</code> AZ mode.</p>
    *             </li>
    *          </ul>
    */
@@ -1914,6 +1950,9 @@ export interface GetKxClusterResponse {
    *             </li>
    *             <li>
    *                <p>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.</p>
+   *             </li>
+   *             <li>
+   *                <p>GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only <code>SINGLE</code> AZ mode.</p>
    *             </li>
    *          </ul>
    */
@@ -2744,6 +2783,9 @@ export interface ListKxClustersRequest {
    *             <li>
    *                <p>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.</p>
    *             </li>
+   *             <li>
+   *                <p>GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only <code>SINGLE</code> AZ mode.</p>
+   *             </li>
    *          </ul>
    */
   clusterType?: KxClusterType;
@@ -2822,6 +2864,9 @@ export interface KxCluster {
    *             </li>
    *             <li>
    *                <p>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.</p>
+   *             </li>
+   *             <li>
+   *                <p>GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only <code>SINGLE</code> AZ mode.</p>
    *             </li>
    *          </ul>
    */
@@ -3372,6 +3417,7 @@ export interface UpdateEnvironmentResponse {
  */
 export const KxClusterCodeDeploymentStrategy = {
   FORCE: "FORCE",
+  NO_RESTART: "NO_RESTART",
   ROLLING: "ROLLING",
 } as const;
 
@@ -3397,6 +3443,10 @@ export interface KxClusterCodeDeploymentConfiguration {
    *          <ul>
    *             <li>
    *                <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>NO_RESTART – This option updates the cluster without stopping the running q process. It is only available for <code>GP</code> type cluster. This option is quicker as it reduces the turn around time to update configuration on a cluster. </p>
+   *                <p>With this deployment mode, you cannot update the <code>initializationScript</code> and <code>commandLineArguments</code> parameters.</p>
    *             </li>
    *             <li>
    *                <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p>
@@ -3442,12 +3492,14 @@ export interface UpdateKxClusterCodeConfigurationRequest {
    *          <i>.zip</i> file that contains the custom code, which will be loaded on
    *          the cluster. It must include the file name itself. For example,
    *          <code>somedir/init.q</code>.</p>
+   *          <p>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</p>
    */
   initializationScript?: string;
 
   /**
    * @public
    * <p>Specifies the key-value pairs to make them available inside the cluster.</p>
+   *          <p>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</p>
    */
   commandLineArguments?: KxCommandLineArgument[];
 

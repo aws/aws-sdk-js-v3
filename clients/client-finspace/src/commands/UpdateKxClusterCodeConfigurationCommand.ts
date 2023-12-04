@@ -69,7 +69,7 @@ export interface UpdateKxClusterCodeConfigurationCommandOutput
  *     },
  *   ],
  *   deploymentConfiguration: { // KxClusterCodeDeploymentConfiguration
- *     deploymentStrategy: "ROLLING" || "FORCE", // required
+ *     deploymentStrategy: "NO_RESTART" || "ROLLING" || "FORCE", // required
  *   },
  * };
  * const command = new UpdateKxClusterCodeConfigurationCommand(input);

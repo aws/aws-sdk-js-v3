@@ -46,7 +46,7 @@ export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __M
  * const client = new FinspaceClient(config);
  * const input = { // ListKxClustersRequest
  *   environmentId: "STRING_VALUE", // required
- *   clusterType: "HDB" || "RDB" || "GATEWAY",
+ *   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -58,7 +58,7 @@ export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __M
  * //       status: "PENDING" || "CREATING" || "CREATE_FAILED" || "RUNNING" || "UPDATING" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //       statusReason: "STRING_VALUE",
  * //       clusterName: "STRING_VALUE",
- * //       clusterType: "HDB" || "RDB" || "GATEWAY",
+ * //       clusterType: "HDB" || "RDB" || "GATEWAY" || "GP",
  * //       clusterDescription: "STRING_VALUE",
  * //       releaseLabel: "STRING_VALUE",
  * //       initializationScript: "STRING_VALUE",
