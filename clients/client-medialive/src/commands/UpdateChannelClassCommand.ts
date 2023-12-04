@@ -340,6 +340,15 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //           Name: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       ColorCorrectionSettings: { // ColorCorrectionSettings
+ * //         GlobalColorCorrections: [ // __listOfColorCorrection // required
+ * //           { // ColorCorrection
+ * //             InputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ * //             OutputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ * //             Uri: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //       FeatureActivations: { // FeatureActivations
  * //         InputPrepareScheduleActions: "DISABLED" || "ENABLED",
  * //         OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",

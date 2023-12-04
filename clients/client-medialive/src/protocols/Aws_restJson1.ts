@@ -201,6 +201,7 @@ import {
   CdiInputSpecification,
   ChannelEgressEndpoint,
   ChannelSummary,
+  ColorCorrection,
   DvbNitSettings,
   DvbSdtSettings,
   DvbSubDestinationSettings,
@@ -321,6 +322,7 @@ import {
   BatchScheduleActionDeleteResult,
   BlackoutSlate,
   Channel,
+  ColorCorrectionSettings,
   ColorSpacePassthroughSettings,
   ConflictException,
   DolbyVision81Settings,
@@ -7005,6 +7007,17 @@ const se___listOfCaptionSelector = (input: CaptionSelector[], context: __SerdeCo
 };
 
 /**
+ * serializeAws_restJson1__listOfColorCorrection
+ */
+const se___listOfColorCorrection = (input: ColorCorrection[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ColorCorrection(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfFailoverCondition
  */
 const se___listOfFailoverCondition = (input: FailoverCondition[], context: __SerdeContext): any => {
@@ -7670,6 +7683,26 @@ const se_CdiInputSpecification = (input: CdiInputSpecification, context: __Serde
   });
 };
 
+/**
+ * serializeAws_restJson1ColorCorrection
+ */
+const se_ColorCorrection = (input: ColorCorrection, context: __SerdeContext): any => {
+  return take(input, {
+    inputColorSpace: [, , `InputColorSpace`],
+    outputColorSpace: [, , `OutputColorSpace`],
+    uri: [, , `Uri`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ColorCorrectionSettings
+ */
+const se_ColorCorrectionSettings = (input: ColorCorrectionSettings, context: __SerdeContext): any => {
+  return take(input, {
+    globalColorCorrections: [, (_) => se___listOfColorCorrection(_, context), `GlobalColorCorrections`],
+  });
+};
+
 // se_ColorSpacePassthroughSettings omitted.
 
 // se_DolbyVision81Settings omitted.
@@ -7822,6 +7855,7 @@ const se_EncoderSettings = (input: EncoderSettings, context: __SerdeContext): an
     availConfiguration: [, (_) => se_AvailConfiguration(_, context), `AvailConfiguration`],
     blackoutSlate: [, (_) => se_BlackoutSlate(_, context), `BlackoutSlate`],
     captionDescriptions: [, (_) => se___listOfCaptionDescription(_, context), `CaptionDescriptions`],
+    colorCorrectionSettings: [, (_) => se_ColorCorrectionSettings(_, context), `ColorCorrectionSettings`],
     featureActivations: [, (_) => se_FeatureActivations(_, context), `FeatureActivations`],
     globalConfiguration: [, (_) => se_GlobalConfiguration(_, context), `GlobalConfiguration`],
     motionGraphicsConfiguration: [, (_) => se_MotionGraphicsConfiguration(_, context), `MotionGraphicsConfiguration`],
@@ -9826,6 +9860,18 @@ const de___listOfChannelSummary = (output: any, context: __SerdeContext): Channe
 };
 
 /**
+ * deserializeAws_restJson1__listOfColorCorrection
+ */
+const de___listOfColorCorrection = (output: any, context: __SerdeContext): ColorCorrection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ColorCorrection(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfFailoverCondition
  */
 const de___listOfFailoverCondition = (output: any, context: __SerdeContext): FailoverCondition[] => {
@@ -10753,6 +10799,26 @@ const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1ColorCorrection
+ */
+const de_ColorCorrection = (output: any, context: __SerdeContext): ColorCorrection => {
+  return take(output, {
+    InputColorSpace: [, __expectString, `inputColorSpace`],
+    OutputColorSpace: [, __expectString, `outputColorSpace`],
+    Uri: [, __expectString, `uri`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ColorCorrectionSettings
+ */
+const de_ColorCorrectionSettings = (output: any, context: __SerdeContext): ColorCorrectionSettings => {
+  return take(output, {
+    GlobalColorCorrections: [, (_: any) => de___listOfColorCorrection(_, context), `globalColorCorrections`],
+  }) as any;
+};
+
 // de_ColorSpacePassthroughSettings omitted.
 
 // de_DolbyVision81Settings omitted.
@@ -10905,6 +10971,7 @@ const de_EncoderSettings = (output: any, context: __SerdeContext): EncoderSettin
     AvailConfiguration: [, (_: any) => de_AvailConfiguration(_, context), `availConfiguration`],
     BlackoutSlate: [, (_: any) => de_BlackoutSlate(_, context), `blackoutSlate`],
     CaptionDescriptions: [, (_: any) => de___listOfCaptionDescription(_, context), `captionDescriptions`],
+    ColorCorrectionSettings: [, (_: any) => de_ColorCorrectionSettings(_, context), `colorCorrectionSettings`],
     FeatureActivations: [, (_: any) => de_FeatureActivations(_, context), `featureActivations`],
     GlobalConfiguration: [, (_: any) => de_GlobalConfiguration(_, context), `globalConfiguration`],
     MotionGraphicsConfiguration: [

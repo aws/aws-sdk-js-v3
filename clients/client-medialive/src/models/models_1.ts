@@ -15,6 +15,7 @@ import {
   ChannelEgressEndpoint,
   ChannelState,
   ChannelSummary,
+  ColorCorrection,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
   FrameCaptureGroupSettings,
@@ -29,7 +30,6 @@ import {
   HlsEncryptionType,
   HlsId3SegmentTaggingState,
   HlsIncompleteSegmentBehavior,
-  HlsIvInManifest,
   IFrameOnlyPlaylistType,
   Input,
   InputAttachment,
@@ -47,7 +47,6 @@ import {
   InputDeviceType,
   InputDeviceUhdSettings,
   InputLocation,
-  InputLossActionForHlsOut,
   InputSecurityGroup,
   InputSecurityGroupState,
   InputSource,
@@ -74,6 +73,34 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossActionForHlsOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossActionForHlsOut = (typeof InputLossActionForHlsOut)[keyof typeof InputLossActionForHlsOut];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsIvInManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsIvInManifest = (typeof HlsIvInManifest)[keyof typeof HlsIvInManifest];
 
 /**
  * @public
@@ -4831,6 +4858,18 @@ export interface CancelInputDeviceTransferResponse {}
 
 /**
  * @public
+ * Property of encoderSettings. Controls color conversion when you are using 3D LUT files to perform color conversion on video.
+ */
+export interface ColorCorrectionSettings {
+  /**
+   * @public
+   * An array of colorCorrections that applies when you are using 3D LUT files to perform color conversion on video. Each colorCorrection contains one 3D LUT file (that defines the color mapping for converting an input color space to an output color space), and the input/output combination that this 3D LUT file applies to. MediaLive reads the color space in the input metadata, determines the color space that you have specified for the output, and finds and uses the LUT file that applies to this combination.
+   */
+  GlobalColorCorrections: ColorCorrection[] | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const FeatureActivationsInputPrepareScheduleActions = {
@@ -5261,6 +5300,12 @@ export interface EncoderSettings {
    * Settings for caption decriptions
    */
   CaptionDescriptions?: CaptionDescription[];
+
+  /**
+   * @public
+   * Color correction settings
+   */
+  ColorCorrectionSettings?: ColorCorrectionSettings;
 
   /**
    * @public
@@ -7758,60 +7803,6 @@ export interface ListInputDeviceTransfersRequest {
    * Placeholder documentation for __string
    */
   TransferType: string | undefined;
-}
-
-/**
- * @public
- * Placeholder documentation for ListInputDeviceTransfersResponse
- */
-export interface ListInputDeviceTransfersResponse {
-  /**
-   * @public
-   * The list of devices that you are transferring or are being transferred to you.
-   */
-  InputDeviceTransfers?: TransferringInputDeviceSummary[];
-
-  /**
-   * @public
-   * A token to get additional list results.
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListInputsRequest
- */
-export interface ListInputsRequest {
-  /**
-   * @public
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListInputsResponse
- */
-export interface ListInputsResponse {
-  /**
-   * @public
-   * Placeholder documentation for __listOfInput
-   */
-  Inputs?: Input[];
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
 }
 
 /**

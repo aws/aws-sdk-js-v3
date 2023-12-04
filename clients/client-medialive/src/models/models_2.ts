@@ -44,7 +44,62 @@ import {
   PipelineDetail,
   RenewalSettings,
   Reservation,
+  TransferringInputDeviceSummary,
 } from "./models_1";
+
+/**
+ * @public
+ * Placeholder documentation for ListInputDeviceTransfersResponse
+ */
+export interface ListInputDeviceTransfersResponse {
+  /**
+   * @public
+   * The list of devices that you are transferring or are being transferred to you.
+   */
+  InputDeviceTransfers?: TransferringInputDeviceSummary[];
+
+  /**
+   * @public
+   * A token to get additional list results.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListInputsRequest
+ */
+export interface ListInputsRequest {
+  /**
+   * @public
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListInputsResponse
+ */
+export interface ListInputsResponse {
+  /**
+   * @public
+   * Placeholder documentation for __listOfInput
+   */
+  Inputs?: Input[];
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
 
 /**
  * @public

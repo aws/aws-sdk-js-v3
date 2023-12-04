@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListInputDeviceTransfersRequest, ListInputDeviceTransfersResponse } from "../models/models_1";
+import { ListInputDeviceTransfersRequest } from "../models/models_1";
+import { ListInputDeviceTransfersResponse } from "../models/models_2";
 import { de_ListInputDeviceTransfersCommand, se_ListInputDeviceTransfersCommand } from "../protocols/Aws_restJson1";
 
 /**

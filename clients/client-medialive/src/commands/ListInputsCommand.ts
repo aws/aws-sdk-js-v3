@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListInputsRequest, ListInputsResponse } from "../models/models_1";
+import { ListInputsRequest, ListInputsResponse } from "../models/models_2";
 import { de_ListInputsCommand, se_ListInputsCommand } from "../protocols/Aws_restJson1";
 
 /**

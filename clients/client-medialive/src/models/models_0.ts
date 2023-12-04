@@ -3539,6 +3539,46 @@ export interface ChannelSummary {
  * @public
  * @enum
  */
+export const ColorSpace = {
+  HDR10: "HDR10",
+  HLG_2020: "HLG_2020",
+  REC_601: "REC_601",
+  REC_709: "REC_709",
+} as const;
+
+/**
+ * @public
+ */
+export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
+
+/**
+ * @public
+ * Property of ColorCorrectionSettings. Used for custom color space conversion. The object identifies one 3D LUT file and specifies the input/output color space combination that the file will be used for.
+ */
+export interface ColorCorrection {
+  /**
+   * @public
+   * The color space of the input.
+   */
+  InputColorSpace: ColorSpace | undefined;
+
+  /**
+   * @public
+   * The color space of the output.
+   */
+  OutputColorSpace: ColorSpace | undefined;
+
+  /**
+   * @public
+   * The URI of the 3D LUT file. The protocol must be 's3:' or 's3ssl:':.
+   */
+  Uri: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const HlsAdMarkers = {
   ADOBE: "ADOBE",
   ELEMENTAL: "ELEMENTAL",
@@ -6711,31 +6751,3 @@ export const HlsIncompleteSegmentBehavior = {
  */
 export type HlsIncompleteSegmentBehavior =
   (typeof HlsIncompleteSegmentBehavior)[keyof typeof HlsIncompleteSegmentBehavior];
-
-/**
- * @public
- * @enum
- */
-export const InputLossActionForHlsOut = {
-  EMIT_OUTPUT: "EMIT_OUTPUT",
-  PAUSE_OUTPUT: "PAUSE_OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type InputLossActionForHlsOut = (typeof InputLossActionForHlsOut)[keyof typeof InputLossActionForHlsOut];
-
-/**
- * @public
- * @enum
- */
-export const HlsIvInManifest = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type HlsIvInManifest = (typeof HlsIvInManifest)[keyof typeof HlsIvInManifest];
