@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.466.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.465.0...v3.466.0) (2023-12-04)
+
+
+### Features
+
+* **client-braket:** This release enhances service support to create quantum tasks and hybrid jobs associated with Braket Direct Reservations. ([e401cc0](https://github.com/aws/aws-sdk-js-v3/commit/e401cc02d346b0bd4a31e05feaa7b10927a7dec1))
+
+
+
+
+
 # [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
 
 **Note:** Version bump only for package @aws-sdk/client-braket

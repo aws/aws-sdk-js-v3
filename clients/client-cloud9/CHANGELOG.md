@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.466.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.465.0...v3.466.0) (2023-12-04)
+
+
+### Features
+
+* **client-cloud9:** This release adds the requirement to include the imageId parameter in the CreateEnvironmentEC2 API call. ([4a60b39](https://github.com/aws/aws-sdk-js-v3/commit/4a60b39b3c6debff105375015a5732e037dd049b))
+
+
+
+
+
 # [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
 
 **Note:** Version bump only for package @aws-sdk/client-cloud9

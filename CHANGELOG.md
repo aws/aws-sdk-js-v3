@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.466.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.465.0...v3.466.0) (2023-12-04)
+
+
+### Features
+
+* **client-billingconductor:** This release adds the ability to specify a linked account of the billing group for the custom line item resource. ([3efd53d](https://github.com/aws/aws-sdk-js-v3/commit/3efd53d52e0806235e1a7ca496e27a94de4e9a6a))
+* **client-braket:** This release enhances service support to create quantum tasks and hybrid jobs associated with Braket Direct Reservations. ([e401cc0](https://github.com/aws/aws-sdk-js-v3/commit/e401cc02d346b0bd4a31e05feaa7b10927a7dec1))
+* **client-cloud9:** This release adds the requirement to include the imageId parameter in the CreateEnvironmentEC2 API call. ([4a60b39](https://github.com/aws/aws-sdk-js-v3/commit/4a60b39b3c6debff105375015a5732e037dd049b))
+* **client-cloudformation:** Including UPDATE_* states as a success status for CreateStack waiter. ([e8ef172](https://github.com/aws/aws-sdk-js-v3/commit/e8ef17243946e9bad46a45b48a6917da92c35d9b))
+* **client-finspace:** Release General Purpose type clusters ([3096731](https://github.com/aws/aws-sdk-js-v3/commit/309673120f0954231edc8579d38f176d8622965a))
+* **client-medialive:** Adds support for custom color correction on channels using 3D LUT files. ([6fc2986](https://github.com/aws/aws-sdk-js-v3/commit/6fc298635f6156678b35ecd7022249648314fa28))
+* **clients:** update client endpoints as of 2023-12-04 ([5884bf3](https://github.com/aws/aws-sdk-js-v3/commit/5884bf3779d31eee1275333267eca045f7bc40dd))
+
+
+
+
+
 # [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.466.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.465.0...v3.466.0) (2023-12-04)
+
+
+### Features
+
+* **client-billingconductor:** This release adds the ability to specify a linked account of the billing group for the custom line item resource. ([3efd53d](https://github.com/aws/aws-sdk-js-v3/commit/3efd53d52e0806235e1a7ca496e27a94de4e9a6a))
+
+
+
+
+
 # [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
 
 **Note:** Version bump only for package @aws-sdk/client-billingconductor
