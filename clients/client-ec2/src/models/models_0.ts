@@ -52,6 +52,7 @@ export interface AcceleratorCountRequest {
 export const AcceleratorManufacturer = {
   AMAZON_WEB_SERVICES: "amazon-web-services",
   AMD: "amd",
+  HABANA: "habana",
   NVIDIA: "nvidia",
   XILINX: "xilinx",
 } as const;
@@ -67,12 +68,15 @@ export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typ
  */
 export const AcceleratorName = {
   A100: "a100",
+  A10G: "a10g",
+  H100: "h100",
   INFERENTIA: "inferentia",
   K520: "k520",
   K80: "k80",
   M60: "m60",
   RADEON_PRO_V520: "radeon-pro-v520",
   T4: "t4",
+  T4G: "t4g",
   V100: "v100",
   VU9P: "vu9p",
 } as const;
