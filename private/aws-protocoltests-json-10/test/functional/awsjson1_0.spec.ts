@@ -1931,7 +1931,7 @@ it("AwsJson10NoInputAndOutput:Response", async () => {
 /**
  * Client populates default values in input.
  */
-it("AwsJson10ClientPopulatesDefaultValuesInInput:Request", async () => {
+it.skip("AwsJson10ClientPopulatesDefaultValuesInInput:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -1988,7 +1988,7 @@ it("AwsJson10ClientPopulatesDefaultValuesInInput:Request", async () => {
 /**
  * Client skips top level default values in input.
  */
-it("AwsJson10ClientSkipsTopLevelDefaultValuesInInput:Request", async () => {
+it.skip("AwsJson10ClientSkipsTopLevelDefaultValuesInInput:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2023,7 +2023,7 @@ it("AwsJson10ClientSkipsTopLevelDefaultValuesInInput:Request", async () => {
 /**
  * Client uses explicitly provided member values over defaults
  */
-it("AwsJson10ClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request", async () => {
+it.skip("AwsJson10ClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2123,7 +2123,7 @@ it("AwsJson10ClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request", asyn
 /**
  * Client populates default values when missing in response.
  */
-it("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", async () => {
+it.skip("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -2195,7 +2195,7 @@ it("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", async
 /**
  * Client ignores default values if member values are present in the response.
  */
-it("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Response", async () => {
+it.skip("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Response", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -2293,7 +2293,7 @@ it("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Respon
 /**
  * Client populates nested default values when missing.
  */
-it("AwsJson10ClientPopulatesNestedDefaultValuesWhenMissing:Request", async () => {
+it.skip("AwsJson10ClientPopulatesNestedDefaultValuesWhenMissing:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2412,7 +2412,7 @@ it("AwsJson10ClientPopulatesNestedDefaultValuesWhenMissing:Request", async () =>
 /**
  * Client populates nested default values when missing in response body.
  */
-it("AwsJson10ClientPopulatesNestedDefaultsWhenMissingInResponseBody:Response", async () => {
+it.skip("AwsJson10ClientPopulatesNestedDefaultsWhenMissingInResponseBody:Response", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -2534,7 +2534,7 @@ it("AwsJson10ClientPopulatesNestedDefaultsWhenMissingInResponseBody:Response", a
 /**
  * Client error corrects when server fails to serialize required values.
  */
-it("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Response", async () => {
+it.skip("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Response", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(

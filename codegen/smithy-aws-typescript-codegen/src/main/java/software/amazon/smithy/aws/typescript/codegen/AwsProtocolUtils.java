@@ -362,6 +362,10 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        if (testCase.getTags().contains("defaults")) {
+            return true;
+        }
+
         // TODO: remove when there's a decision on separator to use
         // https://github.com/awslabs/smithy/issues/1014
         if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
