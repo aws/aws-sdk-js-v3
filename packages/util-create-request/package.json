@@ -23,7 +23,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@smithy/middleware-stack": "^2.0.9",
-    "@smithy/smithy-client": "^2.1.17",
+    "@smithy/smithy-client": "^2.1.18",
     "@smithy/types": "^2.7.0",
     "tslib": "^2.5.0"
   },

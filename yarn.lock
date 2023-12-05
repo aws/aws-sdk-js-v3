@@ -2803,13 +2803,13 @@
     "@smithy/util-middleware" "^2.0.8"
     tslib "^2.5.0"
 
-"@smithy/core@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@smithy/core/-/core-1.0.3.tgz#aa2cff2e9a580ceba336ba81319c316ec9269b42"
-  integrity sha512-pWGw4GEF5KMmgIvCfwvndxfGkowmr2tiVL+hiSIzW+noNxRcIw68q61msR7icqdUGa9FcfxnDv0ddxo962M8Wg==
+"@smithy/core@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@smithy/core/-/core-1.0.4.tgz#9392360c19f4b2b8bd2f4285ecd4963cfc4a8011"
+  integrity sha512-H5SG3va6U+4O+V4+X40kgbBOVXVfJje1HtzVTBkXxkAHXptIdha65CUOQxQt4ajBsf4hcmLqbFIPYOdbyUofHA==
   dependencies:
     "@smithy/middleware-endpoint" "^2.2.2"
-    "@smithy/middleware-retry" "^2.0.22"
+    "@smithy/middleware-retry" "^2.0.23"
     "@smithy/middleware-serde" "^2.0.15"
     "@smithy/protocol-http" "^3.0.11"
     "@smithy/types" "^2.7.0"
@@ -2892,23 +2892,23 @@
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
-"@smithy/experimental-identity-and-auth@^0.0.26":
-  version "0.0.26"
-  resolved "https://registry.yarnpkg.com/@smithy/experimental-identity-and-auth/-/experimental-identity-and-auth-0.0.26.tgz#bbd858a27a4581153da4aeed5ec23c1e77a5bbc6"
-  integrity sha512-GwyY0dIBhGGv/XFEy3WBHjKn9aG3RnKN/2FbZ1OlmkOLebWgtMs3NWPXTI0dN9PcAsqN9sCoPOJPe2JVqoIRHQ==
+"@smithy/experimental-identity-and-auth@^0.0.27":
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/@smithy/experimental-identity-and-auth/-/experimental-identity-and-auth-0.0.27.tgz#332abba1c40dfe28ec77fdfc882087f2f9aff9fb"
+  integrity sha512-NcrXF8uqNeO87e2zSkCBMaEw7j6FQpSWn8wLjxSJMrj742DtsX/lmZ7E56l14/OY+jF2bRPZXcekhhMsp3xpyg==
   dependencies:
     "@smithy/middleware-endpoint" "^2.2.2"
-    "@smithy/middleware-retry" "^2.0.22"
+    "@smithy/middleware-retry" "^2.0.23"
     "@smithy/middleware-serde" "^2.0.15"
     "@smithy/protocol-http" "^3.0.11"
     "@smithy/signature-v4" "^2.0.17"
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
-"@smithy/fetch-http-handler@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@smithy/fetch-http-handler/-/fetch-http-handler-2.3.0.tgz#b5253b61cd4406166b7cdede458da28e73f1eb27"
-  integrity sha512-sw3X6PZf60pnS2RaFBSCskpq3PDcq2rRvoLZGqyMOXjPu/VY34VzhXSEkliflb7bw33IYRasICrrPVniafwJzA==
+"@smithy/fetch-http-handler@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@smithy/fetch-http-handler/-/fetch-http-handler-2.3.1.tgz#aa055db5bf4d78acec97abe6ef24283fa2c18430"
+  integrity sha512-6MNk16fqb8EwcYY8O8WxB3ArFkLZ2XppsSNo1h7SQcFdDDwIumiJeO6wRzm7iB68xvsOQzsdQKbdtTieS3hfSQ==
   dependencies:
     "@smithy/protocol-http" "^3.0.11"
     "@smithy/querystring-builder" "^2.0.15"
@@ -3001,15 +3001,15 @@
     "@smithy/util-middleware" "^2.0.8"
     tslib "^2.5.0"
 
-"@smithy/middleware-retry@^2.0.22":
-  version "2.0.22"
-  resolved "https://registry.yarnpkg.com/@smithy/middleware-retry/-/middleware-retry-2.0.22.tgz#ae76579098a57ac270e30516c0af3288cdfd0b2d"
-  integrity sha512-+yHkvW23hl4nfRvFJlQWqoyMshzrz7k5QcugOFjMgLjHqSPV2zH7zqIiQEFNrZ4bk/5DVac2S2j5mjNlY48d6A==
+"@smithy/middleware-retry@^2.0.23":
+  version "2.0.23"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-retry/-/middleware-retry-2.0.23.tgz#3fa8365a98fa39290a8a7ebc716a091509a7a8f2"
+  integrity sha512-8rug8AVLa9usaNcCI9voQ0UpKgzYBVVjUrIQMnYgpOPq1t8Tbm8Fa2Qe9J3K+GlB6EHpn82yWBIXfyJ+nQ0YHw==
   dependencies:
     "@smithy/node-config-provider" "^2.1.7"
     "@smithy/protocol-http" "^3.0.11"
     "@smithy/service-error-classification" "^2.0.8"
-    "@smithy/smithy-client" "^2.1.17"
+    "@smithy/smithy-client" "^2.1.18"
     "@smithy/types" "^2.7.0"
     "@smithy/util-middleware" "^2.0.8"
     "@smithy/util-retry" "^2.0.8"
@@ -3052,10 +3052,10 @@
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
-"@smithy/node-http-handler@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@smithy/node-http-handler/-/node-http-handler-2.2.0.tgz#469871b8c6bd3fd3f3938193439518de1591f258"
-  integrity sha512-eu2OAll1IYKMR0Nvub+nF8rxpd46ds2OVoLSQmS/T5WakTT2v95cYIFRf8gTsIlNH4DqXA70VVIN8jwt+HzxYA==
+"@smithy/node-http-handler@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@smithy/node-http-handler/-/node-http-handler-2.2.1.tgz#23f6540e565edcae8c558a854fffde3d003451c0"
+  integrity sha512-8iAKQrC8+VFHPAT8pg4/j6hlsTQh+NKOWlctJBrYtQa4ExcxX7aSg3vdQ2XLoYwJotFUurg/NLqFCmZaPRrogw==
   dependencies:
     "@smithy/abort-controller" "^2.0.15"
     "@smithy/protocol-http" "^3.0.11"
@@ -3186,14 +3186,14 @@
     "@smithy/util-utf8" "^2.0.2"
     tslib "^2.5.0"
 
-"@smithy/smithy-client@^2.1.17":
-  version "2.1.17"
-  resolved "https://registry.yarnpkg.com/@smithy/smithy-client/-/smithy-client-2.1.17.tgz#8dd12bb2fd30aa64a9a2889a00ee1197e05e3fd7"
-  integrity sha512-ru5CBV9hTcNOdTeoS+W6M4LOuMzVbeBaokYPbGtWI5GMsmcYzC7tW59D0tgkcDcWV/hxYOFMr1jt71x9AhxcEw==
+"@smithy/smithy-client@^2.1.18":
+  version "2.1.18"
+  resolved "https://registry.yarnpkg.com/@smithy/smithy-client/-/smithy-client-2.1.18.tgz#f8ce2c0e9614f207256ddcd992403aff40750546"
+  integrity sha512-7FqdbaJiVaHJDD9IfDhmzhSDbpjyx+ZsfdYuOpDJF09rl8qlIAIlZNoSaflKrQ3cEXZN2YxGPaNWGhbYimyIRQ==
   dependencies:
     "@smithy/middleware-stack" "^2.0.9"
     "@smithy/types" "^2.7.0"
-    "@smithy/util-stream" "^2.0.22"
+    "@smithy/util-stream" "^2.0.23"
     tslib "^2.5.0"
 
 "@smithy/types@^1.2.0":
@@ -3279,27 +3279,27 @@
   dependencies:
     tslib "^2.5.0"
 
-"@smithy/util-defaults-mode-browser@^2.0.21":
-  version "2.0.21"
-  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.21.tgz#fa524e43196b2ca415039c2dc44b2f37067ba235"
-  integrity sha512-1/oLYsP0yE/eNXhIQ7K9RidhfsCQzvp0P5gIOquu1dX7sH/a0TcCXGR6UkxAufKeJlkEIZhhIVcKAh0PO+tX5A==
+"@smithy/util-defaults-mode-browser@^2.0.22":
+  version "2.0.22"
+  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.22.tgz#8ef8c36b8c3c2f98f7a62278c3c684d659134269"
+  integrity sha512-qcF20IHHH96FlktvBRICDXDhLPtpVmtksHmqNGtotb9B0DYWXsC6jWXrkhrrwF7tH26nj+npVTqh9isiFV1gdA==
   dependencies:
     "@smithy/property-provider" "^2.0.16"
-    "@smithy/smithy-client" "^2.1.17"
+    "@smithy/smithy-client" "^2.1.18"
     "@smithy/types" "^2.7.0"
     bowser "^2.11.0"
     tslib "^2.5.0"
 
-"@smithy/util-defaults-mode-node@^2.0.27":
-  version "2.0.27"
-  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-node/-/util-defaults-mode-node-2.0.27.tgz#c6d52c38b7f1ea2be98dc3d36aee0e6ca9feb811"
-  integrity sha512-U6YzO0OVzBFhsXU9T2XDXwIiuqnpcqvZOWJF35krFc3cK34S8s2JS0NDXoZw2aJdjKIhVnxtT8V08DQlPUZxFw==
+"@smithy/util-defaults-mode-node@^2.0.28":
+  version "2.0.28"
+  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-node/-/util-defaults-mode-node-2.0.28.tgz#592a370e2d1472a1fbe81e5444deb1a50b512a0b"
+  integrity sha512-viVrlLz66fRvjzXpTFxv3bXlLUVsNcxRE5yHKAk3fVc56DuuWlUsgsRs87ENl8tjuZP04fuKs8GGvkRk/1fCbQ==
   dependencies:
     "@smithy/config-resolver" "^2.0.20"
     "@smithy/credential-provider-imds" "^2.1.3"
     "@smithy/node-config-provider" "^2.1.7"
     "@smithy/property-provider" "^2.0.16"
-    "@smithy/smithy-client" "^2.1.17"
+    "@smithy/smithy-client" "^2.1.18"
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
@@ -3343,13 +3343,13 @@
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
-"@smithy/util-stream@^2.0.22":
-  version "2.0.22"
-  resolved "https://registry.yarnpkg.com/@smithy/util-stream/-/util-stream-2.0.22.tgz#cf71228fc7084a7e8eb21b1ab4b58ee236e2d175"
-  integrity sha512-2rrhDohIKF//DvwVE+fjqip+cgHNb0Hpe8wdaz/1VUrynHbK5mzcZS1bFfHA02EIbw9nDOYEdx8QrQfkwHgSwQ==
+"@smithy/util-stream@^2.0.23":
+  version "2.0.23"
+  resolved "https://registry.yarnpkg.com/@smithy/util-stream/-/util-stream-2.0.23.tgz#468ad29913d091092317cfea2d8ac5b866326a07"
+  integrity sha512-OJMWq99LAZJUzUwTk+00plyxX3ESktBaGPhqNIEVab+53gLULiWN9B/8bRABLg0K6R6Xg4t80uRdhk3B/LZqMQ==
   dependencies:
-    "@smithy/fetch-http-handler" "^2.3.0"
-    "@smithy/node-http-handler" "^2.2.0"
+    "@smithy/fetch-http-handler" "^2.3.1"
+    "@smithy/node-http-handler" "^2.2.1"
     "@smithy/types" "^2.7.0"
     "@smithy/util-base64" "^2.0.1"
     "@smithy/util-buffer-from" "^2.0.0"

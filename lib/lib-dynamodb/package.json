@@ -27,7 +27,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/util-dynamodb": "*",
-    "@smithy/smithy-client": "^2.1.17",
+    "@smithy/smithy-client": "^2.1.18",
     "@smithy/types": "^2.7.0",
     "tslib": "^2.5.0"
   },
