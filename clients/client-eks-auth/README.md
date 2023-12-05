@@ -209,6 +209,6 @@ see LICENSE for more information.
 AssumeRoleForPodIdentity
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks-auth/classes/assumeroleforpodidentitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks-auth/interfaces/assumeroleforpodidentitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eks-auth/interfaces/assumeroleforpodidentitycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks-auth/command/AssumeRoleForPodIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks-auth/Interface/AssumeRoleForPodIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks-auth/Interface/AssumeRoleForPodIdentityCommandOutput/)
 
 </details>

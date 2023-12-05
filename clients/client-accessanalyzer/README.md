@@ -231,7 +231,7 @@ see LICENSE for more information.
 ApplyArchiveRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/applyarchiverulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/applyarchiverulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/applyarchiverulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ApplyArchiveRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ApplyArchiveRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ApplyArchiveRuleCommandOutput/)
 
 </details>
 <details>
@@ -239,7 +239,7 @@ ApplyArchiveRule
 CancelPolicyGeneration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/cancelpolicygenerationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/cancelpolicygenerationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/cancelpolicygenerationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CancelPolicyGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CancelPolicyGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CancelPolicyGenerationCommandOutput/)
 
 </details>
 <details>
@@ -247,7 +247,7 @@ CancelPolicyGeneration
 CheckAccessNotGranted
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/checkaccessnotgrantedcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/checkaccessnotgrantedcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/checkaccessnotgrantedcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CheckAccessNotGrantedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CheckAccessNotGrantedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CheckAccessNotGrantedCommandOutput/)
 
 </details>
 <details>
@@ -255,7 +255,7 @@ CheckAccessNotGranted
 CheckNoNewAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/checknonewaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/checknonewaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/checknonewaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CheckNoNewAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CheckNoNewAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CheckNoNewAccessCommandOutput/)
 
 </details>
 <details>
@@ -263,7 +263,7 @@ CheckNoNewAccess
 CreateAccessPreview
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/createaccesspreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/createaccesspreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/createaccesspreviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CreateAccessPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateAccessPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateAccessPreviewCommandOutput/)
 
 </details>
 <details>
@@ -271,7 +271,7 @@ CreateAccessPreview
 CreateAnalyzer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/createanalyzercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/createanalyzercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/createanalyzercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CreateAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateAnalyzerCommandOutput/)
 
 </details>
 <details>
@@ -279,7 +279,7 @@ CreateAnalyzer
 CreateArchiveRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/createarchiverulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/createarchiverulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/createarchiverulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CreateArchiveRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateArchiveRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateArchiveRuleCommandOutput/)
 
 </details>
 <details>
@@ -287,7 +287,7 @@ CreateArchiveRule
 DeleteAnalyzer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/deleteanalyzercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/deleteanalyzercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/deleteanalyzercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/DeleteAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteAnalyzerCommandOutput/)
 
 </details>
 <details>
@@ -295,7 +295,7 @@ DeleteAnalyzer
 DeleteArchiveRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/deletearchiverulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/deletearchiverulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/deletearchiverulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/DeleteArchiveRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteArchiveRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteArchiveRuleCommandOutput/)
 
 </details>
 <details>
@@ -303,7 +303,7 @@ DeleteArchiveRule
 GetAccessPreview
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/getaccesspreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getaccesspreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getaccesspreviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetAccessPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetAccessPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetAccessPreviewCommandOutput/)
 
 </details>
 <details>
@@ -311,7 +311,7 @@ GetAccessPreview
 GetAnalyzedResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/getanalyzedresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getanalyzedresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getanalyzedresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetAnalyzedResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetAnalyzedResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetAnalyzedResourceCommandOutput/)
 
 </details>
 <details>
@@ -319,7 +319,7 @@ GetAnalyzedResource
 GetAnalyzer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/getanalyzercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getanalyzercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getanalyzercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetAnalyzerCommandOutput/)
 
 </details>
 <details>
@@ -327,7 +327,7 @@ GetAnalyzer
 GetArchiveRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/getarchiverulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getarchiverulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getarchiverulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetArchiveRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetArchiveRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetArchiveRuleCommandOutput/)
 
 </details>
 <details>
@@ -335,7 +335,7 @@ GetArchiveRule
 GetFinding
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/getfindingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getfindingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getfindingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetFindingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingCommandOutput/)
 
 </details>
 <details>
@@ -343,7 +343,7 @@ GetFinding
 GetFindingV2
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/getfindingv2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getfindingv2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getfindingv2commandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetFindingV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingV2CommandOutput/)
 
 </details>
 <details>
@@ -351,7 +351,7 @@ GetFindingV2
 GetGeneratedPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/getgeneratedpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getgeneratedpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/getgeneratedpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetGeneratedPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetGeneratedPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetGeneratedPolicyCommandOutput/)
 
 </details>
 <details>
@@ -359,7 +359,7 @@ GetGeneratedPolicy
 ListAccessPreviewFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listaccesspreviewfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listaccesspreviewfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listaccesspreviewfindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListAccessPreviewFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAccessPreviewFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAccessPreviewFindingsCommandOutput/)
 
 </details>
 <details>
@@ -367,7 +367,7 @@ ListAccessPreviewFindings
 ListAccessPreviews
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listaccesspreviewscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listaccesspreviewscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listaccesspreviewscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListAccessPreviewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAccessPreviewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAccessPreviewsCommandOutput/)
 
 </details>
 <details>
@@ -375,7 +375,7 @@ ListAccessPreviews
 ListAnalyzedResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listanalyzedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listanalyzedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listanalyzedresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListAnalyzedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAnalyzedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAnalyzedResourcesCommandOutput/)
 
 </details>
 <details>
@@ -383,7 +383,7 @@ ListAnalyzedResources
 ListAnalyzers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listanalyzerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listanalyzerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listanalyzerscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListAnalyzersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAnalyzersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListAnalyzersCommandOutput/)
 
 </details>
 <details>
@@ -391,7 +391,7 @@ ListAnalyzers
 ListArchiveRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listarchiverulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listarchiverulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listarchiverulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListArchiveRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListArchiveRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListArchiveRulesCommandOutput/)
 
 </details>
 <details>
@@ -399,7 +399,7 @@ ListArchiveRules
 ListFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listfindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListFindingsCommandOutput/)
 
 </details>
 <details>
@@ -407,7 +407,7 @@ ListFindings
 ListFindingsV2
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listfindingsv2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listfindingsv2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listfindingsv2commandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListFindingsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListFindingsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListFindingsV2CommandOutput/)
 
 </details>
 <details>
@@ -415,7 +415,7 @@ ListFindingsV2
 ListPolicyGenerations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listpolicygenerationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listpolicygenerationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listpolicygenerationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListPolicyGenerationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListPolicyGenerationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListPolicyGenerationsCommandOutput/)
 
 </details>
 <details>
@@ -423,7 +423,7 @@ ListPolicyGenerations
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -431,7 +431,7 @@ ListTagsForResource
 StartPolicyGeneration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/startpolicygenerationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/startpolicygenerationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/startpolicygenerationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/StartPolicyGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartPolicyGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartPolicyGenerationCommandOutput/)
 
 </details>
 <details>
@@ -439,7 +439,7 @@ StartPolicyGeneration
 StartResourceScan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/startresourcescancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/startresourcescancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/startresourcescancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/StartResourceScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartResourceScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartResourceScanCommandOutput/)
 
 </details>
 <details>
@@ -447,7 +447,7 @@ StartResourceScan
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -455,7 +455,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -463,7 +463,7 @@ UntagResource
 UpdateArchiveRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/updatearchiverulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/updatearchiverulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/updatearchiverulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/UpdateArchiveRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateArchiveRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateArchiveRuleCommandOutput/)
 
 </details>
 <details>
@@ -471,7 +471,7 @@ UpdateArchiveRule
 UpdateFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/updatefindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/updatefindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/updatefindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/UpdateFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateFindingsCommandOutput/)
 
 </details>
 <details>
@@ -479,6 +479,6 @@ UpdateFindings
 ValidatePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/classes/validatepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/validatepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-accessanalyzer/interfaces/validatepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ValidatePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ValidatePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ValidatePolicyCommandOutput/)
 
 </details>

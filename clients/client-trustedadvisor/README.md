@@ -208,7 +208,7 @@ see LICENSE for more information.
 GetOrganizationRecommendation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/getorganizationrecommendationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/getorganizationrecommendationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/getorganizationrecommendationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/GetOrganizationRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/GetOrganizationRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/GetOrganizationRecommendationCommandOutput/)
 
 </details>
 <details>
@@ -216,7 +216,7 @@ GetOrganizationRecommendation
 GetRecommendation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/getrecommendationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/getrecommendationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/getrecommendationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/GetRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/GetRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/GetRecommendationCommandOutput/)
 
 </details>
 <details>
@@ -224,7 +224,7 @@ GetRecommendation
 ListChecks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/listcheckscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listcheckscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listcheckscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/ListChecksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListChecksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListChecksCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +232,7 @@ ListChecks
 ListOrganizationRecommendationAccounts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/listorganizationrecommendationaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listorganizationrecommendationaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listorganizationrecommendationaccountscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/ListOrganizationRecommendationAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListOrganizationRecommendationAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListOrganizationRecommendationAccountsCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +240,7 @@ ListOrganizationRecommendationAccounts
 ListOrganizationRecommendationResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/listorganizationrecommendationresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listorganizationrecommendationresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listorganizationrecommendationresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/ListOrganizationRecommendationResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListOrganizationRecommendationResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListOrganizationRecommendationResourcesCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +248,7 @@ ListOrganizationRecommendationResources
 ListOrganizationRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/listorganizationrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listorganizationrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listorganizationrecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/ListOrganizationRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListOrganizationRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListOrganizationRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -256,7 +256,7 @@ ListOrganizationRecommendations
 ListRecommendationResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/listrecommendationresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listrecommendationresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listrecommendationresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/ListRecommendationResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListRecommendationResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListRecommendationResourcesCommandOutput/)
 
 </details>
 <details>
@@ -264,7 +264,7 @@ ListRecommendationResources
 ListRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/listrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/listrecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/ListRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -272,7 +272,7 @@ ListRecommendations
 UpdateOrganizationRecommendationLifecycle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/updateorganizationrecommendationlifecyclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/updateorganizationrecommendationlifecyclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/updateorganizationrecommendationlifecyclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/UpdateOrganizationRecommendationLifecycleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/UpdateOrganizationRecommendationLifecycleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/UpdateOrganizationRecommendationLifecycleCommandOutput/)
 
 </details>
 <details>
@@ -280,6 +280,6 @@ UpdateOrganizationRecommendationLifecycle
 UpdateRecommendationLifecycle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/classes/updaterecommendationlifecyclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/updaterecommendationlifecyclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-trustedadvisor/interfaces/updaterecommendationlifecyclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/UpdateRecommendationLifecycleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/UpdateRecommendationLifecycleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/UpdateRecommendationLifecycleCommandOutput/)
 
 </details>
