@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.467.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.466.0...v3.467.0) (2023-12-05)
+
+
+### Features
+
+* **client-athena:** Adding IdentityCenter enabled request for interactive query ([ce16ad8](https://github.com/aws/aws-sdk-js-v3/commit/ce16ad8c5ecaaffb5e5bd8ec25963eb51b6ab805))
+* **client-cleanroomsml:** Updated service title from cleanroomsml to CleanRoomsML. ([eb6cb70](https://github.com/aws/aws-sdk-js-v3/commit/eb6cb70214882ed686f80cfa7e97f1facca5467d))
+* **client-ec2:** Adds A10G, T4G, and H100 as accelerator name options and Habana as an accelerator manufacturer option for attribute based selection ([9e3bce6](https://github.com/aws/aws-sdk-js-v3/commit/9e3bce603ad5e74fe11d657183655ec656036b2d))
+
+
+
+
+
 # [3.466.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.465.0...v3.466.0) (2023-12-04)
 
 

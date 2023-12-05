@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.467.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.466.0...v3.467.0) (2023-12-05)
+
+
+### Features
+
+* **client-athena:** Adding IdentityCenter enabled request for interactive query ([ce16ad8](https://github.com/aws/aws-sdk-js-v3/commit/ce16ad8c5ecaaffb5e5bd8ec25963eb51b6ab805))
+
+
+
+
+
 # [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
 
 **Note:** Version bump only for package @aws-sdk/client-athena
