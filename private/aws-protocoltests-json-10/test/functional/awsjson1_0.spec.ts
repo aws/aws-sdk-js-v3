@@ -1433,7 +1433,7 @@ it("AwsJson10DeserializeTimestampUnionValue:Response", async () => {
   const paramsToValidate: any = [
     {
       contents: {
-        timestampValue: new Date(1398796238000),
+        timestampValue: new Date(1398796238 * 1000),
       },
     },
   ][0];
@@ -2259,7 +2259,7 @@ it("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Respon
 
       defaultNullDocument: "notNull",
 
-      defaultTimestamp: new Date(2000),
+      defaultTimestamp: new Date(2 * 1000),
 
       defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
 
