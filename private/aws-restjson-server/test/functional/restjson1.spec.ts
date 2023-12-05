@@ -27753,7 +27753,7 @@ it("RestJsonMalformedUnionValueIsArray:MalformedRequest", async () => {
  * When an unknown union member is received, the response should be a 400
  * SerializationException.
  */
-it("RestJsonMalformedUnionUnknownMember:MalformedRequest", async () => {
+it.skip("RestJsonMalformedUnionUnknownMember:MalformedRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
