@@ -1414,7 +1414,7 @@ export interface ChangeSetSummary {
 
   /**
    * @public
-   * <p>Indicates if the stack set imports resources that already exist.</p>
+   * <p>Indicates if the change set imports resources that already exist.</p>
    */
   ImportExistingResources?: boolean;
 }
@@ -1956,7 +1956,7 @@ export interface CreateChangeSetInput {
 
   /**
    * @public
-   * <p>Indicates if the stack set imports resources that already exist.</p>
+   * <p>Indicates if the change set imports resources that already exist.</p>
    *          <note>
    *             <p>This parameter can only import resources that have custom names in templates. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">name type</a> in the
    *     <i>CloudFormation User Guide</i>. To import resources that do not accept custom names, such as EC2 instances,
@@ -3625,7 +3625,7 @@ export interface DescribeChangeSetOutput {
 
   /**
    * @public
-   * <p>Indicates if the stack set imports resources that already exist.</p>
+   * <p>Indicates if the change set imports resources that already exist.</p>
    *          <note>
    *             <p>This parameter can only import resources that have <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">custom names</a> in templates. To import
    *     resources that do not accept custom names, such as EC2 instances, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">resource import</a> feature instead.</p>
