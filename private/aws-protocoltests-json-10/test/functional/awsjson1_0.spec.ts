@@ -2163,7 +2163,7 @@ it("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", async
 
       defaultDocumentList: [],
 
-      defaultTimestamp: new Date(0000),
+      defaultTimestamp: new Date(0 * 1000),
 
       defaultBlob: Uint8Array.from("abc", (c) => c.charCodeAt(0)),
 
@@ -2566,7 +2566,7 @@ it("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Respons
 
       requiredList: [],
 
-      requiredTimestamp: new Date(0000),
+      requiredTimestamp: new Date(0 * 1000),
 
       requiredBlob: Uint8Array.from("", (c) => c.charCodeAt(0)),
 
