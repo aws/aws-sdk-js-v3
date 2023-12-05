@@ -116,7 +116,7 @@ export class UntagResourceCommand extends $Command<
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
+      getEndpointDiscoveryPlugin(configuration, { clientStack, isDiscoveredEndpointRequired: true, options })
     );
 
     const stack = clientStack.concat(this.middlewareStack);

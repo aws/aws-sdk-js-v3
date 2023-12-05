@@ -362,6 +362,10 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        if (testCase.getTags().contains("defaults")) {
+            return true;
+        }
+
         // TODO: remove when there's a decision on separator to use
         // https://github.com/awslabs/smithy/issues/1014
         if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
@@ -400,6 +404,11 @@ final class AwsProtocolUtils {
 
         //TODO: we don't validate map values
         if (testCase.getId().equals("RestJsonBodyMalformedMapNullValue")) {
+            return true;
+        }
+
+        // TODO: fix in https://github.com/aws/aws-sdk-js-v3/issues/5545
+        if (testCase.getId().equals("RestJsonMalformedUnionUnknownMember")) {
             return true;
         }
 

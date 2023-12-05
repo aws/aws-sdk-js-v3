@@ -133,7 +133,7 @@ export class ListBatchLoadTasksCommand extends $Command<
       getEndpointPlugin(configuration, ListBatchLoadTasksCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
+      getEndpointDiscoveryPlugin(configuration, { clientStack, isDiscoveredEndpointRequired: true, options })
     );
 
     const stack = clientStack.concat(this.middlewareStack);

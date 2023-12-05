@@ -40,6 +40,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.auth.http.integration.AddHttpAuthSchemePlugin;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -51,6 +52,13 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
+
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddAwsAuthPlugin.class.getCanonicalName(),
+            AddHttpAuthSchemePlugin.class.getCanonicalName());
+    }
 
     @Override
     public void addConfigInterfaceFields(

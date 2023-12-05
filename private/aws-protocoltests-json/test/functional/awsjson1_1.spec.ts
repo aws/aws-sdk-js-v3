@@ -196,7 +196,7 @@ it("AwsJson11DateTimeWithNegativeOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -237,7 +237,7 @@ it("AwsJson11DateTimeWithPositiveOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -557,7 +557,7 @@ it("AwsJson11DateTimeWithFractionalSeconds:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(9.46845296123e8000),
+      datetime: new Date(9.46845296123e8 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1797,7 +1797,7 @@ it("AwsJson11DeserializeTimestampUnionValue:Response", async () => {
   const paramsToValidate: any = [
     {
       contents: {
-        timestampValue: new Date(1398796238000),
+        timestampValue: new Date(1398796238 * 1000),
       },
     },
   ][0];
@@ -3590,7 +3590,7 @@ it("parses_timestamp_shapes:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Timestamp: new Date(946845296000),
+      Timestamp: new Date(946845296 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3628,7 +3628,7 @@ it("parses_iso8601_timestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Iso8601Timestamp: new Date(946845296000),
+      Iso8601Timestamp: new Date(946845296 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3666,7 +3666,7 @@ it("parses_httpdate_timestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      HttpdateTimestamp: new Date(946845296000),
+      HttpdateTimestamp: new Date(946845296 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

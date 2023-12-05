@@ -33,11 +33,9 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -67,6 +65,18 @@ import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/Json
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
+  OperationWithDefaultsCommandInput,
+  OperationWithDefaultsCommandOutput,
+} from "./commands/OperationWithDefaultsCommand";
+import {
+  OperationWithNestedStructureCommandInput,
+  OperationWithNestedStructureCommandOutput,
+} from "./commands/OperationWithNestedStructureCommand";
+import {
+  OperationWithRequiredMembersCommandInput,
+  OperationWithRequiredMembersCommandOutput,
+} from "./commands/OperationWithRequiredMembersCommand";
+import {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
@@ -91,6 +101,9 @@ export type ServiceInputTypes =
   | JsonUnionsCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
+  | OperationWithDefaultsCommandInput
+  | OperationWithNestedStructureCommandInput
+  | OperationWithRequiredMembersCommandInput
   | PutWithContentEncodingCommandInput
   | SimpleScalarPropertiesCommandInput;
 
@@ -106,6 +119,9 @@ export type ServiceOutputTypes =
   | JsonUnionsCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput
+  | OperationWithDefaultsCommandOutput
+  | OperationWithNestedStructureCommandOutput
+  | OperationWithRequiredMembersCommandOutput
   | PutWithContentEncodingCommandOutput
   | SimpleScalarPropertiesCommandOutput;
 

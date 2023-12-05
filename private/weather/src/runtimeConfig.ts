@@ -3,10 +3,8 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
-import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
-import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/config-resolver";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
@@ -27,7 +25,6 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
-  awsCheckVersion(process.version);
   return {
     ...clientSharedValues,
     ...config,
@@ -39,7 +36,6 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ?? defaultUserAgent({ clientVersion: packageInfo.version }),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
-    region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
     retryMode:
       config?.retryMode ??

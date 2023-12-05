@@ -44,6 +44,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    signingName: config?.signingName ?? "weather",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

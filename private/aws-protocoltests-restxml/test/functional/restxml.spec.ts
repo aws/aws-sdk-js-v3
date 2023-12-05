@@ -729,7 +729,7 @@ it("RestXmlDateTimeWithNegativeOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -770,7 +770,7 @@ it("RestXmlDateTimeWithPositiveOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1216,7 +1216,7 @@ it("RestXmlDateTimeWithFractionalSeconds:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(9.46845296123e8000),
+      datetime: new Date(9.46845296123e8 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3268,7 +3268,7 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      headerTimestampList: [new Date(1576540098000), new Date(1576540098000)],
+      headerTimestampList: [new Date(1576540098 * 1000), new Date(1576540098 * 1000)],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5027,19 +5027,19 @@ it("TimestampFormatHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      memberEpochSeconds: new Date(1576540098000),
+      memberEpochSeconds: new Date(1576540098 * 1000),
 
-      memberHttpDate: new Date(1576540098000),
+      memberHttpDate: new Date(1576540098 * 1000),
 
-      memberDateTime: new Date(1576540098000),
+      memberDateTime: new Date(1576540098 * 1000),
 
-      defaultFormat: new Date(1576540098000),
+      defaultFormat: new Date(1576540098 * 1000),
 
-      targetEpochSeconds: new Date(1576540098000),
+      targetEpochSeconds: new Date(1576540098 * 1000),
 
-      targetHttpDate: new Date(1576540098000),
+      targetHttpDate: new Date(1576540098 * 1000),
 
-      targetDateTime: new Date(1576540098000),
+      targetDateTime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6336,7 +6336,7 @@ it("XmlLists:Response", async () => {
 
       booleanList: [true, false],
 
-      timestampList: [new Date(1398796238000), new Date(1398796238000)],
+      timestampList: [new Date(1398796238 * 1000), new Date(1398796238 * 1000)],
 
       enumList: ["Foo", "0"],
 
@@ -7150,7 +7150,7 @@ it("XmlTimestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000),
+      normal: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7191,7 +7191,7 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000),
+      dateTime: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7232,7 +7232,7 @@ it("XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTimeOnTarget: new Date(1398796238000),
+      dateTimeOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7273,7 +7273,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000),
+      epochSeconds: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7314,7 +7314,7 @@ it("XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSecondsOnTarget: new Date(1398796238000),
+      epochSecondsOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7355,7 +7355,7 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000),
+      httpDate: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7396,7 +7396,7 @@ it("XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDateOnTarget: new Date(1398796238000),
+      httpDateOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

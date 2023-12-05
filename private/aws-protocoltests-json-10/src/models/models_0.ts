@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { DocumentType as __DocumentType } from "@smithy/types";
 
 import { JSONRPC10ServiceException as __BaseException } from "./JSONRPC10ServiceException";
 
@@ -61,6 +62,66 @@ export class ComplexError extends __BaseException {
     this.TopLevel = opts.TopLevel;
     this.Nested = opts.Nested;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestEnum = {
+  BAR: "BAR",
+  BAZ: "BAZ",
+  FOO: "FOO",
+} as const;
+/**
+ * @public
+ */
+export type TestEnum = (typeof TestEnum)[keyof typeof TestEnum];
+
+export enum TestIntEnum {
+  ONE = 1,
+  TWO = 2,
+}
+
+/**
+ * @public
+ */
+export interface Defaults {
+  defaultString?: string;
+  defaultBoolean?: boolean;
+  defaultList?: string[];
+  defaultDocumentMap?: __DocumentType;
+  defaultDocumentString?: __DocumentType;
+  defaultDocumentBoolean?: __DocumentType;
+  defaultDocumentList?: __DocumentType;
+  defaultNullDocument?: __DocumentType;
+  defaultTimestamp?: Date;
+  defaultBlob?: Uint8Array;
+  defaultByte?: number;
+  defaultShort?: number;
+  defaultInteger?: number;
+  defaultLong?: number;
+  defaultFloat?: number;
+  defaultDouble?: number;
+  defaultMap?: Record<string, string>;
+  defaultEnum?: TestEnum;
+  defaultIntEnum?: TestIntEnum;
+}
+
+/**
+ * @public
+ */
+export interface Farewell {
+  phrase?: string;
+}
+
+/**
+ * @public
+ */
+export interface Dialog {
+  language?: string;
+  greeting?: string;
+  farewell?: Farewell;
 }
 
 /**
@@ -370,6 +431,82 @@ export interface JsonUnionsOutput {
  * @public
  */
 export interface NoInputAndOutputOutput {}
+
+/**
+ * @public
+ */
+export interface OperationWithDefaultsInput {
+  defaults?: Defaults;
+  topLevelDefault?: string;
+}
+
+/**
+ * @public
+ */
+export interface OperationWithDefaultsOutput {
+  defaultString?: string;
+  defaultBoolean?: boolean;
+  defaultList?: string[];
+  defaultDocumentMap?: __DocumentType;
+  defaultDocumentString?: __DocumentType;
+  defaultDocumentBoolean?: __DocumentType;
+  defaultDocumentList?: __DocumentType;
+  defaultNullDocument?: __DocumentType;
+  defaultTimestamp?: Date;
+  defaultBlob?: Uint8Array;
+  defaultByte?: number;
+  defaultShort?: number;
+  defaultInteger?: number;
+  defaultLong?: number;
+  defaultFloat?: number;
+  defaultDouble?: number;
+  defaultMap?: Record<string, string>;
+  defaultEnum?: TestEnum;
+  defaultIntEnum?: TestIntEnum;
+}
+
+/**
+ * @public
+ */
+export interface TopLevel {
+  dialog: Dialog | undefined;
+  dialogList?: Dialog[];
+  dialogMap?: Record<string, Dialog>;
+}
+
+/**
+ * @public
+ */
+export interface OperationWithNestedStructureInput {
+  topLevel: TopLevel | undefined;
+}
+
+/**
+ * @public
+ */
+export interface OperationWithNestedStructureOutput {
+  dialog: Dialog | undefined;
+  dialogList?: Dialog[];
+  dialogMap?: Record<string, Dialog>;
+}
+
+/**
+ * @public
+ */
+export interface OperationWithRequiredMembersOutput {
+  requiredString: string | undefined;
+  requiredBoolean: boolean | undefined;
+  requiredList: string[] | undefined;
+  requiredTimestamp: Date | undefined;
+  requiredBlob: Uint8Array | undefined;
+  requiredByte: number | undefined;
+  requiredShort: number | undefined;
+  requiredInteger: number | undefined;
+  requiredLong: number | undefined;
+  requiredFloat: number | undefined;
+  requiredDouble: number | undefined;
+  requiredMap: Record<string, string> | undefined;
+}
 
 /**
  * @public

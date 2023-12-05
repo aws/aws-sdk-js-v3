@@ -118,7 +118,7 @@ export class DeleteScheduledQueryCommand extends $Command<
       getEndpointPlugin(configuration, DeleteScheduledQueryCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
+      getEndpointDiscoveryPlugin(configuration, { clientStack, isDiscoveredEndpointRequired: true, options })
     );
 
     const stack = clientStack.concat(this.middlewareStack);

@@ -454,9 +454,9 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
 
       queryBooleanList: [true, false, true],
 
-      queryTimestamp: new Date(1000),
+      queryTimestamp: new Date(1 * 1000),
 
-      queryTimestampList: [new Date(1000), new Date(2000), new Date(3000)],
+      queryTimestampList: [new Date(1 * 1000), new Date(2 * 1000), new Date(3 * 1000)],
 
       queryEnum: "Foo",
 
@@ -3375,7 +3375,7 @@ it("RestJsonInputWithHeadersAndAllParams:ServerRequest", async () => {
 
       boolean: true,
 
-      timestamp: new Date(1576540098000),
+      timestamp: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3431,7 +3431,7 @@ it("RestJsonHttpRequestLabelEscaping:ServerRequest", async () => {
 
       boolean: true,
 
-      timestamp: new Date(1576540098000),
+      timestamp: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3473,19 +3473,19 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:ServerRequest", async () => 
 
   const paramsToValidate: any = [
     {
-      memberEpochSeconds: new Date(1576540098000),
+      memberEpochSeconds: new Date(1576540098 * 1000),
 
-      memberHttpDate: new Date(1576540098000),
+      memberHttpDate: new Date(1576540098 * 1000),
 
-      memberDateTime: new Date(1576540098000),
+      memberDateTime: new Date(1576540098 * 1000),
 
-      defaultFormat: new Date(1576540098000),
+      defaultFormat: new Date(1576540098 * 1000),
 
-      targetEpochSeconds: new Date(1576540098000),
+      targetEpochSeconds: new Date(1576540098 * 1000),
 
-      targetHttpDate: new Date(1576540098000),
+      targetHttpDate: new Date(1576540098 * 1000),
 
-      targetDateTime: new Date(1576540098000),
+      targetDateTime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -4046,7 +4046,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:ServerRequest", async () => {
 
   const paramsToValidate: any = [
     {
-      headerTimestampList: [new Date(1576540098000), new Date(1576540098000)],
+      headerTimestampList: [new Date(1576540098 * 1000), new Date(1576540098 * 1000)],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5332,7 +5332,7 @@ it("RestJsonLists:ServerRequest", async () => {
 
       booleanList: [true, false],
 
-      timestampList: [new Date(1398796238000), new Date(1398796238000)],
+      timestampList: [new Date(1398796238 * 1000), new Date(1398796238 * 1000)],
 
       enumList: ["Foo", "0"],
 
@@ -6543,7 +6543,7 @@ it("RestJsonJsonTimestamps:ServerRequest", async () => {
 
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000),
+      normal: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6587,7 +6587,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerRequest", async () => {
 
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000),
+      dateTime: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6631,7 +6631,7 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerRequest", async () =>
 
   const paramsToValidate: any = [
     {
-      dateTimeOnTarget: new Date(1398796238000),
+      dateTimeOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6675,7 +6675,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerRequest", async () => {
 
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000),
+      epochSeconds: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6719,7 +6719,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerRequest", async (
 
   const paramsToValidate: any = [
     {
-      epochSecondsOnTarget: new Date(1398796238000),
+      epochSecondsOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6763,7 +6763,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerRequest", async () => {
 
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000),
+      httpDate: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6807,7 +6807,7 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerRequest", async () =>
 
   const paramsToValidate: any = [
     {
-      httpDateOnTarget: new Date(1398796238000),
+      httpDateOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7442,7 +7442,7 @@ it("RestJsonSerializeTimestampUnionValue:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       contents: {
-        timestampValue: new Date(1398796238000),
+        timestampValue: new Date(1398796238 * 1000),
       },
     },
   ][0];
@@ -27750,6 +27750,45 @@ it("RestJsonMalformedUnionValueIsArray:MalformedRequest", async () => {
 });
 
 /**
+ * When an unknown union member is received, the response should be a 400
+ * SerializationException.
+ */
+it.skip("RestJsonMalformedUnionUnknownMember:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    MalformedUnion: testFunction as MalformedUnion<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUnion",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{\n    "union": {\n        "unknown": "hello"\n    }\n}']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
+});
+
+/**
  * Headers that target strings with a mediaType are base64 encoded
  */
 it("MediaTypeHeaderInputBase64:ServerRequest", async () => {
@@ -30385,19 +30424,19 @@ it("RestJsonTimestampFormatHeaders:ServerRequest", async () => {
 
   const paramsToValidate: any = [
     {
-      memberEpochSeconds: new Date(1576540098000),
+      memberEpochSeconds: new Date(1576540098 * 1000),
 
-      memberHttpDate: new Date(1576540098000),
+      memberHttpDate: new Date(1576540098 * 1000),
 
-      memberDateTime: new Date(1576540098000),
+      memberDateTime: new Date(1576540098 * 1000),
 
-      defaultFormat: new Date(1576540098000),
+      defaultFormat: new Date(1576540098 * 1000),
 
-      targetEpochSeconds: new Date(1576540098000),
+      targetEpochSeconds: new Date(1576540098 * 1000),
 
-      targetHttpDate: new Date(1576540098000),
+      targetHttpDate: new Date(1576540098 * 1000),
 
-      targetDateTime: new Date(1576540098000),
+      targetDateTime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

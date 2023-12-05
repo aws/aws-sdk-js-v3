@@ -236,6 +236,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *     },
  *     "AutoRollback": true,
  *     "InstanceWarmup": 200,
+ *     "MaxHealthyPercentage": 120,
  *     "MinHealthyPercentage": 90
  *   }
  * };

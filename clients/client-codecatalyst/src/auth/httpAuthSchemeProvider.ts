@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { FromSsoInit } from "@aws-sdk/token-providers";
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {
   HandlerExecutionContext,
@@ -48,12 +49,18 @@ function createSmithyApiHttpBearerAuthHttpAuthOption(
 ): HttpAuthOption {
   return {
     schemeId: "smithy.api#httpBearerAuth",
-    propertiesExtractor: (__config, context) => ({
+    propertiesExtractor: <T>(
+      { profile, filepath, configFilepath, ignoreCache }: T & FromSsoInit,
+      context: HandlerExecutionContext
+    ) => ({
       /**
        * @internal
        */
       identityProperties: {
-        __config,
+        profile,
+        filepath,
+        configFilepath,
+        ignoreCache,
       },
     }),
   };
@@ -125,10 +132,12 @@ export interface HttpAuthSchemeResolvedConfig {
 /**
  * @internal
  */
-export const resolveHttpAuthSchemeConfig = (config: HttpAuthSchemeInputConfig): HttpAuthSchemeResolvedConfig => {
+export const resolveHttpAuthSchemeConfig = <T>(
+  config: T & HttpAuthSchemeInputConfig
+): T & HttpAuthSchemeResolvedConfig => {
   const token = memoizeIdentityProvider(config.token, isIdentityExpired, doesIdentityRequireRefresh);
   return {
     ...config,
     token,
-  } as HttpAuthSchemeResolvedConfig;
+  } as T & HttpAuthSchemeResolvedConfig;
 };

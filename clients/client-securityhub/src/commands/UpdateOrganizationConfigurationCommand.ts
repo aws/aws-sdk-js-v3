@@ -99,9 +99,13 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *
  * @example To update organization configuration
  * ```javascript
- * // The following example updates the configuration for an organization so that Security Hub is automatically activated for new member accounts. Only the Security Hub administrator account can call this operation.
+ * // This operation updates the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.
  * const input = {
- *   "AutoEnable": true
+ *   "AutoEnable": false,
+ *   "AutoEnableStandards": "NONE",
+ *   "OrganizationConfiguration": {
+ *     "ConfigurationType": "CENTRAL"
+ *   }
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * await client.send(command);

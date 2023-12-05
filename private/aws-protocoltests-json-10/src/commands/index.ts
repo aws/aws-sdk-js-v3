@@ -7,5 +7,8 @@ export * from "./HostWithPathOperationCommand";
 export * from "./JsonUnionsCommand";
 export * from "./NoInputAndNoOutputCommand";
 export * from "./NoInputAndOutputCommand";
+export * from "./OperationWithDefaultsCommand";
+export * from "./OperationWithNestedStructureCommand";
+export * from "./OperationWithRequiredMembersCommand";
 export * from "./PutWithContentEncodingCommand";
 export * from "./SimpleScalarPropertiesCommand";

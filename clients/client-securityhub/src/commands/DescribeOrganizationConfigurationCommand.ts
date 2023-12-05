@@ -92,22 +92,6 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @example To get information about Organizations configuration
- * ```javascript
- * // The following example returns details about the way in which AWS Organizations is configured for a Security Hub account that belongs to an organization. Only a Security Hub administrator account can call this operation.
- * const input = {};
- * const command = new DescribeOrganizationConfigurationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AutoEnable": true,
- *   "AutoEnableStandards": "DEFAULT",
- *   "MemberAccountLimitReached": true
- * }
- * *\/
- * // example id: to-get-information-about-organizations-configuration-1676059786304
- * ```
- *
  * @example To get information about organization configuration
  * ```javascript
  * // This operation provides information about the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.

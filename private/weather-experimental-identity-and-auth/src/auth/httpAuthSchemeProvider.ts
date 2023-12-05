@@ -62,14 +62,16 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WeatherHttpAuthSchemeP
       name: "weather",
       region: authParameters.region,
     },
-    propertiesExtractor: (__config, context) => ({
-      /**
-       * @internal
-       */
-      identityProperties: {
-        __config,
-      },
-    }),
+    propertiesExtractor: (config, context) => {
+      return {
+        /**
+         * @internal
+         */
+        signingProperties: {
+          context,
+        },
+      };
+    },
   };
 }
 
@@ -93,14 +95,6 @@ function createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters: WeatherHttp
 function createSmithyApiHttpBearerAuthHttpAuthOption(authParameters: WeatherHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "smithy.api#httpBearerAuth",
-    propertiesExtractor: (__config, context) => ({
-      /**
-       * @internal
-       */
-      identityProperties: {
-        __config,
-      },
-    }),
   };
 }
 
@@ -241,7 +235,9 @@ export interface HttpAuthSchemeResolvedConfig {
 /**
  * @internal
  */
-export const resolveHttpAuthSchemeConfig = (config: HttpAuthSchemeInputConfig): HttpAuthSchemeResolvedConfig => {
+export const resolveHttpAuthSchemeConfig = <T>(
+  config: T & HttpAuthSchemeInputConfig
+): T & HttpAuthSchemeResolvedConfig => {
   const apiKey = memoizeIdentityProvider(config.apiKey, isIdentityExpired, doesIdentityRequireRefresh);
   const credentials = memoizeIdentityProvider(config.credentials, isIdentityExpired, doesIdentityRequireRefresh);
   const region = config.region ? normalizeProvider(config.region) : undefined;
@@ -252,5 +248,5 @@ export const resolveHttpAuthSchemeConfig = (config: HttpAuthSchemeInputConfig): 
     credentials,
     region,
     token,
-  } as HttpAuthSchemeResolvedConfig;
+  } as T & HttpAuthSchemeResolvedConfig;
 };

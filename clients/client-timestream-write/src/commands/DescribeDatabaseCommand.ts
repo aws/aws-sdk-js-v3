@@ -132,7 +132,7 @@ export class DescribeDatabaseCommand extends $Command<
       getEndpointPlugin(configuration, DescribeDatabaseCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
+      getEndpointDiscoveryPlugin(configuration, { clientStack, isDiscoveredEndpointRequired: true, options })
     );
 
     const stack = clientStack.concat(this.middlewareStack);

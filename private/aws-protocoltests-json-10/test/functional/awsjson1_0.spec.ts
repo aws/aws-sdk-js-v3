@@ -12,6 +12,9 @@ import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOpe
 import { JsonUnionsCommand } from "../../src/commands/JsonUnionsCommand";
 import { NoInputAndNoOutputCommand } from "../../src/commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputCommand";
+import { OperationWithDefaultsCommand } from "../../src/commands/OperationWithDefaultsCommand";
+import { OperationWithNestedStructureCommand } from "../../src/commands/OperationWithNestedStructureCommand";
+import { OperationWithRequiredMembersCommand } from "../../src/commands/OperationWithRequiredMembersCommand";
 import { PutWithContentEncodingCommand } from "../../src/commands/PutWithContentEncodingCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { JSONRPC10Client } from "../../src/JSONRPC10Client";
@@ -1430,7 +1433,7 @@ it("AwsJson10DeserializeTimestampUnionValue:Response", async () => {
   const paramsToValidate: any = [
     {
       contents: {
-        timestampValue: new Date(1398796238000),
+        timestampValue: new Date(1398796238 * 1000),
       },
     },
   ][0];
@@ -1923,6 +1926,669 @@ it("AwsJson10NoInputAndOutput:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Client populates default values in input.
+ */
+it.skip("AwsJson10ClientPopulatesDefaultValuesInInput:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    defaults: {} as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"defaults\": {
+            \"defaultString\": \"hi\",
+            \"defaultBoolean\": true,
+            \"defaultList\": [],
+            \"defaultDocumentMap\": {},
+            \"defaultDocumentString\": \"hi\",
+            \"defaultDocumentBoolean\": true,
+            \"defaultDocumentList\": [],
+            \"defaultTimestamp\": 0,
+            \"defaultBlob\": \"YWJj\",
+            \"defaultByte\": 1,
+            \"defaultShort\": 1,
+            \"defaultInteger\": 10,
+            \"defaultLong\": 100,
+            \"defaultFloat\": 1.0,
+            \"defaultDouble\": 1.0,
+            \"defaultMap\": {},
+            \"defaultEnum\": \"FOO\",
+            \"defaultIntEnum\": 1
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client skips top level default values in input.
+ */
+it.skip("AwsJson10ClientSkipsTopLevelDefaultValuesInInput:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client uses explicitly provided member values over defaults
+ */
+it.skip("AwsJson10ClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    defaults: {
+      defaultString: "bye",
+
+      defaultBoolean: true,
+
+      defaultList: ["a"],
+
+      defaultDocumentMap: {
+        name: "Jack",
+      },
+
+      defaultDocumentString: "bye",
+
+      defaultDocumentBoolean: true,
+
+      defaultDocumentList: ["b"],
+
+      defaultNullDocument: "notNull",
+
+      defaultTimestamp: new Date(1000),
+
+      defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      defaultByte: 2,
+
+      defaultShort: 2,
+
+      defaultInteger: 20,
+
+      defaultLong: 200,
+
+      defaultFloat: 2.0,
+
+      defaultDouble: 2.0,
+
+      defaultMap: {
+        name: "Jack",
+      } as any,
+
+      defaultEnum: "BAR",
+
+      defaultIntEnum: 2,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"defaults\": {
+            \"defaultString\": \"bye\",
+            \"defaultBoolean\": true,
+            \"defaultList\": [\"a\"],
+            \"defaultDocumentMap\": {\"name\": \"Jack\"},
+            \"defaultDocumentString\": \"bye\",
+            \"defaultDocumentBoolean\": true,
+            \"defaultDocumentList\": [\"b\"],
+            \"defaultNullDocument\": \"notNull\",
+            \"defaultTimestamp\": 1,
+            \"defaultBlob\": \"aGk=\",
+            \"defaultByte\": 2,
+            \"defaultShort\": 2,
+            \"defaultInteger\": 20,
+            \"defaultLong\": 200,
+            \"defaultFloat\": 2.0,
+            \"defaultDouble\": 2.0,
+            \"defaultMap\": {\"name\": \"Jack\"},
+            \"defaultEnum\": \"BAR\",
+            \"defaultIntEnum\": 2
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client populates default values when missing in response.
+ */
+it.skip("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{}`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithDefaultsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      defaultString: "hi",
+
+      defaultBoolean: true,
+
+      defaultList: [],
+
+      defaultDocumentMap: {},
+
+      defaultDocumentString: "hi",
+
+      defaultDocumentBoolean: true,
+
+      defaultDocumentList: [],
+
+      defaultTimestamp: new Date(0 * 1000),
+
+      defaultBlob: Uint8Array.from("abc", (c) => c.charCodeAt(0)),
+
+      defaultByte: 1,
+
+      defaultShort: 1,
+
+      defaultInteger: 10,
+
+      defaultLong: 100,
+
+      defaultFloat: 1.0,
+
+      defaultDouble: 1.0,
+
+      defaultMap: {},
+
+      defaultEnum: "FOO",
+
+      defaultIntEnum: 1,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Client ignores default values if member values are present in the response.
+ */
+it.skip("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Response", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{
+          "defaultString": "bye",
+          "defaultBoolean": false,
+          "defaultList": ["a"],
+          "defaultDocumentMap": {"name": "Jack"},
+          "defaultDocumentString": "bye",
+          "defaultDocumentBoolean": false,
+          "defaultDocumentList": ["b"],
+          "defaultNullDocument": "notNull",
+          "defaultTimestamp": 2,
+          "defaultBlob": "aGk=",
+          "defaultByte": 2,
+          "defaultShort": 2,
+          "defaultInteger": 20,
+          "defaultLong": 200,
+          "defaultFloat": 2.0,
+          "defaultDouble": 2.0,
+          "defaultMap": {"name": "Jack"},
+          "defaultEnum": "BAR",
+          "defaultIntEnum": 2
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithDefaultsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      defaultString: "bye",
+
+      defaultBoolean: false,
+
+      defaultList: ["a"],
+
+      defaultDocumentMap: {
+        name: "Jack",
+      },
+
+      defaultDocumentString: "bye",
+
+      defaultDocumentBoolean: false,
+
+      defaultDocumentList: ["b"],
+
+      defaultNullDocument: "notNull",
+
+      defaultTimestamp: new Date(2 * 1000),
+
+      defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      defaultByte: 2,
+
+      defaultShort: 2,
+
+      defaultInteger: 20,
+
+      defaultLong: 200,
+
+      defaultFloat: 2.0,
+
+      defaultDouble: 2.0,
+
+      defaultMap: {
+        name: "Jack",
+      },
+
+      defaultEnum: "BAR",
+
+      defaultIntEnum: 2,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Client populates nested default values when missing.
+ */
+it.skip("AwsJson10ClientPopulatesNestedDefaultValuesWhenMissing:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithNestedStructureCommand({
+    topLevel: {
+      dialog: {
+        language: "en",
+      } as any,
+
+      dialogList: [
+        {} as any,
+
+        {
+          farewell: {} as any,
+        } as any,
+
+        {
+          language: "it",
+
+          greeting: "ciao",
+
+          farewell: {
+            phrase: "arrivederci",
+          } as any,
+        } as any,
+      ],
+
+      dialogMap: {
+        emptyDialog: {} as any,
+
+        partialEmptyDialog: {
+          language: "en",
+
+          farewell: {} as any,
+        } as any,
+
+        nonEmptyDialog: {
+          greeting: "konnichiwa",
+
+          farewell: {
+            phrase: "sayonara",
+          } as any,
+        } as any,
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"topLevel\": {
+            \"dialog\": {
+                \"language\": \"en\",
+                \"greeting\": \"hi\"
+            },
+            \"dialogList\": [
+                {
+                    \"greeting\": \"hi\"
+                },
+                {
+                    \"greeting\": \"hi\",
+                    \"farewell\": {
+                        \"phrase\": \"bye\"
+                    }
+                },
+                {
+                    \"language\": \"it\",
+                    \"greeting\": \"ciao\",
+                    \"farewell\": {
+                        \"phrase\": \"arrivederci\"
+                    }
+                }
+            ],
+            \"dialogMap\": {
+                \"emptyDialog\": {
+                    \"greeting\": \"hi\"
+                },
+                \"partialEmptyDialog\": {
+                    \"language\": \"en\",
+                    \"greeting\": \"hi\",
+                    \"farewell\": {
+                        \"phrase\": \"bye\"
+                    }
+                },
+                \"nonEmptyDialog\": {
+                    \"greeting\": \"konnichiwa\",
+                    \"farewell\": {
+                        \"phrase\": \"sayonara\"
+                    }
+                }
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client populates nested default values when missing in response body.
+ */
+it.skip("AwsJson10ClientPopulatesNestedDefaultsWhenMissingInResponseBody:Response", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{
+          "dialog": {
+              "language": "en"
+          },
+          "dialogList": [
+              {
+              },
+              {
+                  "farewell": {}
+              },
+              {
+                  "language": "it",
+                  "greeting": "ciao",
+                  "farewell": {
+                      "phrase": "arrivederci"
+                  }
+              }
+          ],
+          "dialogMap": {
+              "emptyDialog": {
+              },
+              "partialEmptyDialog": {
+                  "language": "en",
+                  "farewell": {}
+              },
+              "nonEmptyDialog": {
+                  "greeting": "konnichiwa",
+                  "farewell": {
+                      "phrase": "sayonara"
+                  }
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithNestedStructureCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      dialog: {
+        language: "en",
+
+        greeting: "hi",
+      },
+
+      dialogList: [
+        {
+          greeting: "hi",
+        },
+
+        {
+          greeting: "hi",
+
+          farewell: {
+            phrase: "bye",
+          },
+        },
+
+        {
+          language: "it",
+
+          greeting: "ciao",
+
+          farewell: {
+            phrase: "arrivederci",
+          },
+        },
+      ],
+
+      dialogMap: {
+        emptyDialog: {
+          greeting: "hi",
+        },
+
+        partialEmptyDialog: {
+          language: "en",
+
+          greeting: "hi",
+
+          farewell: {
+            phrase: "bye",
+          },
+        },
+
+        nonEmptyDialog: {
+          greeting: "konnichiwa",
+
+          farewell: {
+            phrase: "sayonara",
+          },
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Client error corrects when server fails to serialize required values.
+ */
+it.skip("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Response", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{}`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithRequiredMembersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      requiredString: "",
+
+      requiredBoolean: false,
+
+      requiredList: [],
+
+      requiredTimestamp: new Date(0 * 1000),
+
+      requiredBlob: Uint8Array.from("", (c) => c.charCodeAt(0)),
+
+      requiredByte: 0,
+
+      requiredShort: 0,
+
+      requiredInteger: 0,
+
+      requiredLong: 0,
+
+      requiredFloat: 0.0,
+
+      requiredDouble: 0.0,
+
+      requiredMap: {},
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
