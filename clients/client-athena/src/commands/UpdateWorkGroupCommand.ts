@@ -80,6 +80,11 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  *       KmsKey: "STRING_VALUE", // required
  *     },
  *     EnableMinimumEncryptionConfiguration: true || false,
+ *     QueryResultsS3AccessGrantsConfiguration: { // QueryResultsS3AccessGrantsConfiguration
+ *       EnableS3AccessGrants: true || false, // required
+ *       CreateUserLevelPrefix: true || false,
+ *       AuthenticationType: "DIRECTORY_IDENTITY", // required
+ *     },
  *   },
  *   State: "ENABLED" || "DISABLED",
  * };

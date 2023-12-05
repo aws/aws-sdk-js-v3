@@ -47,6 +47,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * const input = { // GetDatabaseInput
  *   CatalogName: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
+ *   WorkGroup: "STRING_VALUE",
  * };
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);

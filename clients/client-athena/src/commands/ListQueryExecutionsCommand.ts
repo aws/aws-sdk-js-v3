@@ -38,9 +38,9 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
 /**
  * @public
  * <p>Provides a list of available query execution IDs for the queries in the specified
- *             workgroup. Athena keeps a query history for 45 days. If a workgroup is not specified, returns a list of query execution IDs for
- *             the primary workgroup. Requires you to have access to the workgroup in which the queries
- *             ran.</p>
+ *             workgroup. Athena keeps a query history for 45 days. If a workgroup is not
+ *             specified, returns a list of query execution IDs for the primary workgroup. Requires you
+ *             to have access to the workgroup in which the queries ran.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

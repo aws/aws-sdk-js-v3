@@ -48,6 +48,7 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  *   CatalogName: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
+ *   WorkGroup: "STRING_VALUE",
  * };
  * const command = new GetTableMetadataCommand(input);
  * const response = await client.send(command);

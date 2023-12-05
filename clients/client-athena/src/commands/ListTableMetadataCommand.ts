@@ -50,6 +50,7 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  *   Expression: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   WorkGroup: "STRING_VALUE",
  * };
  * const command = new ListTableMetadataCommand(input);
  * const response = await client.send(command);

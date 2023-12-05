@@ -61,6 +61,7 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  * //         SelectedEngineVersion: "STRING_VALUE",
  * //         EffectiveEngineVersion: "STRING_VALUE",
  * //       },
+ * //       IdentityCenterApplicationArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

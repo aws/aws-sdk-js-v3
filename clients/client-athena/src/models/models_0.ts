@@ -362,6 +362,47 @@ export interface QueryExecutionContext {
  * @public
  * @enum
  */
+export const AuthenticationType = {
+  DIRECTORY_IDENTITY: "DIRECTORY_IDENTITY",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * @public
+ * <p>Specifies whether Amazon S3 access grants are enabled for query
+ *             results.</p>
+ */
+export interface QueryResultsS3AccessGrantsConfiguration {
+  /**
+   * @public
+   * <p>Specifies whether Amazon S3 access grants are enabled for query
+   *             results.</p>
+   */
+  EnableS3AccessGrants: boolean | undefined;
+
+  /**
+   * @public
+   * <p>When enabled, appends the user ID as an Amazon S3 path prefix to the query
+   *             result output location.</p>
+   */
+  CreateUserLevelPrefix?: boolean;
+
+  /**
+   * @public
+   * <p>The authentication type used for Amazon S3 access grants. Currently, only
+   *                 <code>DIRECTORY_IDENTITY</code> is supported.</p>
+   */
+  AuthenticationType: AuthenticationType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptionOption = {
   CSE_KMS: "CSE_KMS",
   SSE_KMS: "SSE_KMS",
@@ -792,6 +833,13 @@ export interface QueryExecution {
    * <p>The kind of query statement that was run.</p>
    */
   SubstatementType?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether Amazon S3 access grants are enabled for query
+   *             results.</p>
+   */
+  QueryResultsS3AccessGrantsConfiguration?: QueryResultsS3AccessGrantsConfiguration;
 }
 
 /**
@@ -1288,6 +1336,24 @@ export interface CustomerContentEncryptionConfiguration {
 
 /**
  * @public
+ * <p>Specifies whether the workgroup is IAM Identity Center supported.</p>
+ */
+export interface IdentityCenterConfiguration {
+  /**
+   * @public
+   * <p>Specifies whether the workgroup is IAM Identity Center supported.</p>
+   */
+  EnableIdentityCenter?: boolean;
+
+  /**
+   * @public
+   * <p>The IAM Identity Center instance ARN that the workgroup associates to.</p>
+   */
+  IdentityCenterInstanceArn?: string;
+}
+
+/**
+ * @public
  * <p>The configuration of the workgroup, which includes the location in Amazon S3
  *             where query and calculation results are stored, the encryption option, if any, used for
  *             query and calculation results, whether the Amazon CloudWatch Metrics are enabled for
@@ -1356,8 +1422,9 @@ export interface WorkGroupConfiguration {
 
   /**
    * @public
-   * <p>Role used in a Spark session for accessing the user's resources. This property applies
-   *             only to Spark-enabled workgroups.</p>
+   * <p>The ARN of the execution role used to access user resources for Spark sessions and Identity Center
+   *             enabled workgroups. This property applies only to Spark enabled workgroups and Identity
+   *             Center enabled workgroups.</p>
    */
   ExecutionRole?: string;
 
@@ -1380,6 +1447,19 @@ export interface WorkGroupConfiguration {
    *             configuration for encryption is used.</p>
    */
   EnableMinimumEncryptionConfiguration?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether the workgroup is IAM Identity Center supported.</p>
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration;
+
+  /**
+   * @public
+   * <p>Specifies whether Amazon S3 access grants are enabled for query
+   *             results.</p>
+   */
+  QueryResultsS3AccessGrantsConfiguration?: QueryResultsS3AccessGrantsConfiguration;
 }
 
 /**
@@ -2055,6 +2135,13 @@ export interface GetDatabaseInput {
    * <p>The name of the database to return.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workgroup for which the metadata is being fetched. Required if
+   *             requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+   */
+  WorkGroup?: string;
 }
 
 /**
@@ -2128,6 +2215,12 @@ export interface GetDataCatalogInput {
    * <p>The name of the data catalog to return.</p>
    */
   Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workgroup. Required if making an IAM Identity Center request.</p>
+   */
+  WorkGroup?: string;
 }
 
 /**
@@ -2428,7 +2521,7 @@ export interface ColumnInfo {
 
   /**
    * @public
-   * <p>Indicates the column's nullable status.</p>
+   * <p>Unsupported constraint. This value always shows as <code>UNKNOWN</code>.</p>
    */
   Nullable?: ColumnNullable;
 
@@ -2679,8 +2772,9 @@ export interface EngineConfiguration {
 export interface SessionConfiguration {
   /**
    * @public
-   * <p>The ARN of the execution role used in a Spark session to access user resources. This
-   *             property applies only to Spark-enabled workgroups.</p>
+   * <p>The ARN of the execution role used to access user resources for Spark sessions and Identity Center
+   *             enabled workgroups. This property applies only to Spark enabled workgroups and Identity
+   *             Center enabled workgroups.</p>
    */
   ExecutionRole?: string;
 
@@ -2910,6 +3004,13 @@ export interface GetTableMetadataInput {
    * <p>The name of the table for which metadata is returned.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workgroup for which the metadata is being fetched. Required if
+   *             requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+   */
+  WorkGroup?: string;
 }
 
 /**
@@ -3068,6 +3169,13 @@ export interface WorkGroup {
    * <p>The date and time the workgroup was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center enabled application associated with the
+   *             workgroup.</p>
+   */
+  IdentityCenterApplicationArn?: string;
 }
 
 /**
@@ -3344,6 +3452,13 @@ export interface ListDatabasesInput {
    * <p>Specifies the maximum number of results to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The name of the workgroup for which the metadata is being fetched. Required if
+   *             requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+   */
+  WorkGroup?: string;
 }
 
 /**
@@ -3382,6 +3497,13 @@ export interface ListDataCatalogsInput {
    * <p>Specifies the maximum number of data catalogs to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The name of the workgroup. Required if
+   *             making an IAM Identity Center request.</p>
+   */
+  WorkGroup?: string;
 }
 
 /**
@@ -4038,6 +4160,13 @@ export interface ListTableMetadataInput {
    * <p>Specifies the maximum number of results to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The name of the workgroup for which the metadata is being fetched. Required if
+   *             requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+   */
+  WorkGroup?: string;
 }
 
 /**
@@ -4158,6 +4287,13 @@ export interface WorkGroupSummary {
    *             regardless of this setting.</p>
    */
   EngineVersion?: EngineVersion;
+
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center enabled application associated with the
+   *             workgroup.</p>
+   */
+  IdentityCenterApplicationArn?: string;
 }
 
 /**
@@ -4241,7 +4377,8 @@ export interface StartCalculationExecutionRequest {
 
   /**
    * @public
-   * <p>A string that contains the code of the calculation. Use this parameter instead of <a>CalculationConfiguration$CodeBlock</a>, which is deprecated.</p>
+   * <p>A string that contains the code of the calculation. Use this parameter instead of
+   *                 <a>CalculationConfiguration$CodeBlock</a>, which is deprecated.</p>
    */
   CodeBlock?: string;
 
@@ -4310,8 +4447,11 @@ export interface StartQueryExecutionInput {
    * @public
    * <p>A unique case-sensitive string used to ensure the request to create the query is
    *             idempotent (executes only once). If another <code>StartQueryExecution</code> request is
-   *             received, the same response is returned and another query is not created. If a parameter
-   *             has changed, for example, the <code>QueryString</code>, an error is returned.</p>
+   *             received, the same response is returned and another query is not created. An error is
+   *             returned if a parameter, such as <code>QueryString</code>, has changed. A call to
+   *                 <code>StartQueryExecution</code> that uses a previous client request token returns
+   *             the same <code>QueryExecutionId</code> even if the requester doesn't have permission on
+   *             the tables specified in <code>QueryString</code>.</p>
    *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
@@ -5045,8 +5185,9 @@ export interface WorkGroupConfigurationUpdates {
 
   /**
    * @public
-   * <p>The ARN of the execution role used to access user resources. This property applies
-   *             only to Spark-enabled workgroups.</p>
+   * <p>The ARN of the execution role used to access user resources for Spark sessions and Identity Center
+   *             enabled workgroups. This property applies only to Spark enabled workgroups and Identity
+   *             Center enabled workgroups.</p>
    */
   ExecutionRole?: string;
 
@@ -5071,6 +5212,13 @@ export interface WorkGroupConfigurationUpdates {
    *             configuration for encryption is used.</p>
    */
   EnableMinimumEncryptionConfiguration?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether Amazon S3 access grants are enabled for query
+   *             results.</p>
+   */
+  QueryResultsS3AccessGrantsConfiguration?: QueryResultsS3AccessGrantsConfiguration;
 }
 
 /**

@@ -51,6 +51,7 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * const input = { // ListDataCatalogsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   WorkGroup: "STRING_VALUE",
  * };
  * const command = new ListDataCatalogsCommand(input);
  * const response = await client.send(command);

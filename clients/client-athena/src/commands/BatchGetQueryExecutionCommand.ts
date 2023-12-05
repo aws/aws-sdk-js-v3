@@ -117,6 +117,11 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * //         "STRING_VALUE",
  * //       ],
  * //       SubstatementType: "STRING_VALUE",
+ * //       QueryResultsS3AccessGrantsConfiguration: { // QueryResultsS3AccessGrantsConfiguration
+ * //         EnableS3AccessGrants: true || false, // required
+ * //         CreateUserLevelPrefix: true || false,
+ * //         AuthenticationType: "DIRECTORY_IDENTITY", // required
+ * //       },
  * //     },
  * //   ],
  * //   UnprocessedQueryExecutionIds: [ // UnprocessedQueryExecutionIdList

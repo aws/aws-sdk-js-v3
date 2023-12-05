@@ -73,6 +73,15 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *       KmsKey: "STRING_VALUE", // required
  *     },
  *     EnableMinimumEncryptionConfiguration: true || false,
+ *     IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ *       EnableIdentityCenter: true || false,
+ *       IdentityCenterInstanceArn: "STRING_VALUE",
+ *     },
+ *     QueryResultsS3AccessGrantsConfiguration: { // QueryResultsS3AccessGrantsConfiguration
+ *       EnableS3AccessGrants: true || false, // required
+ *       CreateUserLevelPrefix: true || false,
+ *       AuthenticationType: "DIRECTORY_IDENTITY", // required
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: [ // TagList

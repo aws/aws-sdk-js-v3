@@ -46,6 +46,7 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
  * const client = new AthenaClient(config);
  * const input = { // GetDataCatalogInput
  *   Name: "STRING_VALUE", // required
+ *   WorkGroup: "STRING_VALUE",
  * };
  * const command = new GetDataCatalogCommand(input);
  * const response = await client.send(command);
