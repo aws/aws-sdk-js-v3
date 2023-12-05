@@ -38,6 +38,14 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
 
     private static final Logger LOGGER = Logger.getLogger(AwsServiceIdIntegration.class.getName());
 
+    /**
+     * Decorating the symbol provider should be run before any other integration.
+     */
+    @Override
+    public byte priority() {
+        return Byte.MAX_VALUE;
+    }
+
     @Override
     public SymbolProvider decorateSymbolProvider(
             Model model, TypeScriptSettings settings, SymbolProvider symbolProvider) {
